@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.sofire.g.t;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class THService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

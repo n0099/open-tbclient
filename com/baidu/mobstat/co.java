@@ -6,13 +6,13 @@ import java.nio.ByteBuffer;
 public class co extends cr implements cn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ByteBuffer f9176a = ByteBuffer.allocate(0);
+    public static final ByteBuffer f9177a = ByteBuffer.allocate(0);
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9177f;
+    public int f9178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9178g;
+    public String f9179g;
 
     public co() {
         super(cq.a.CLOSING);
@@ -49,7 +49,7 @@ public class co extends cr implements cn {
     }
 
     private void g() throws ci {
-        this.f9177f = 1005;
+        this.f9178f = 1005;
         ByteBuffer c2 = super.c();
         c2.mark();
         if (c2.remaining() >= 2) {
@@ -58,17 +58,17 @@ public class co extends cr implements cn {
             allocate.putShort(c2.getShort());
             allocate.position(0);
             int i = allocate.getInt();
-            this.f9177f = i;
+            this.f9178f = i;
             if (i == 1006 || i == 1015 || i == 1005 || i > 4999 || i < 1000 || i == 1004) {
-                throw new ci("closecode must not be sent over the wire: " + this.f9177f);
+                throw new ci("closecode must not be sent over the wire: " + this.f9178f);
             }
         }
         c2.reset();
     }
 
     private void h() throws ch {
-        if (this.f9177f == 1005) {
-            this.f9178g = dc.a(super.c());
+        if (this.f9178f == 1005) {
+            this.f9179g = dc.a(super.c());
             return;
         }
         ByteBuffer c2 = super.c();
@@ -76,7 +76,7 @@ public class co extends cr implements cn {
         try {
             try {
                 c2.position(c2.position() + 2);
-                this.f9178g = dc.a(c2);
+                this.f9179g = dc.a(c2);
             } catch (IllegalArgumentException e2) {
                 throw new ci(e2);
             }
@@ -87,20 +87,20 @@ public class co extends cr implements cn {
 
     @Override // com.baidu.mobstat.cn
     public String b() {
-        return this.f9178g;
+        return this.f9179g;
     }
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cq
     public ByteBuffer c() {
-        if (this.f9177f == 1005) {
-            return f9176a;
+        if (this.f9178f == 1005) {
+            return f9177a;
         }
         return super.c();
     }
 
     @Override // com.baidu.mobstat.cr
     public String toString() {
-        return super.toString() + "code: " + this.f9177f;
+        return super.toString() + "code: " + this.f9178f;
     }
 
     public co(int i, String str) throws ch {
@@ -111,7 +111,7 @@ public class co extends cr implements cn {
 
     @Override // com.baidu.mobstat.cn
     public int a() {
-        return this.f9177f;
+        return this.f9178f;
     }
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cp

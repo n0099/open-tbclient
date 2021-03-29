@@ -30,22 +30,22 @@ public class a extends m<b, GodReplyMoreViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public GodReplyMoreViewHolder R(ViewGroup viewGroup) {
-        return new GodReplyMoreViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
+        return new GodReplyMoreViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     public View l0(int i, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
         TextView textView;
         super.X(i, view, viewGroup, bVar, godReplyMoreViewHolder);
-        if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.f19955a) != null) {
+        if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.f19956a) != null) {
             View.OnClickListener onClickListener = this.s;
             if (onClickListener != null) {
                 textView.setOnClickListener(onClickListener);
             }
-            if (godReplyMoreViewHolder.f19957c != TbadkCoreApplication.getInst().getSkinType()) {
-                godReplyMoreViewHolder.f19957c = TbadkCoreApplication.getInst().getSkinType();
-                SkinManager.setViewTextColor(godReplyMoreViewHolder.f19955a, R.color.CAM_X0106);
-                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19955a, R.drawable.more_all);
-                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19956b, R.color.CAM_X0204);
+            if (godReplyMoreViewHolder.f19958c != TbadkCoreApplication.getInst().getSkinType()) {
+                godReplyMoreViewHolder.f19958c = TbadkCoreApplication.getInst().getSkinType();
+                SkinManager.setViewTextColor(godReplyMoreViewHolder.f19956a, R.color.CAM_X0106);
+                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19956a, R.drawable.more_all);
+                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19957b, R.color.CAM_X0204);
             }
         }
         return view;

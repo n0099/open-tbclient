@@ -12,29 +12,29 @@ import java.util.Map;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f49053d = f.f48888a;
+    public static final boolean f49054d = f.f48889a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, a> f49054e = new HashMap();
+    public static Map<String, a> f49055e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, Map<String, a>> f49055f = new HashMap();
+    public static Map<String, Map<String, a>> f49056f = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f49056a;
+    public final String f49057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f49057b;
+    public final String f49058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbiType f49058c;
+    public final AbiType f49059c;
 
     public a(@NonNull String str, @NonNull AbiType abiType) {
-        this.f49056a = TextUtils.isEmpty(str) ? "" : str;
-        this.f49058c = abiType;
-        this.f49057b = a(str, abiType);
-        if (f49053d) {
-            Log.i("SoBundleId", "SoBundleId: " + this.f49057b + " libName=" + str + " abi=" + abiType);
+        this.f49057a = TextUtils.isEmpty(str) ? "" : str;
+        this.f49059c = abiType;
+        this.f49058b = a(str, abiType);
+        if (f49054d) {
+            Log.i("SoBundleId", "SoBundleId: " + this.f49058b + " libName=" + str + " abi=" + abiType);
         }
     }
 
@@ -53,16 +53,16 @@ public class a {
     public static synchronized Map<String, a> c(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = f49055f.get(str);
+            map = f49056f.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.f49057b, aVar);
+                        map.put(aVar.f49058b, aVar);
                     }
-                    f49054e.putAll(map);
-                    f49055f.put(str, map);
+                    f49055e.putAll(map);
+                    f49056f.put(str, map);
                 }
             }
         }
@@ -81,18 +81,18 @@ public class a {
     @Nullable
     public static synchronized a e(String str, String str2) {
         synchronized (a.class) {
-            if (f49053d) {
+            if (f49054d) {
                 Log.i("SoBundleId", "of: start libName=" + str + " bundleId=" + str2);
             }
             a aVar = null;
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 c(str);
-                a aVar2 = f49054e.get(str2);
-                if (f49053d) {
+                a aVar2 = f49055e.get(str2);
+                if (f49054d) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar2);
                 }
                 if (aVar2 != null) {
-                    if (TextUtils.equals(str, aVar2.f49056a)) {
+                    if (TextUtils.equals(str, aVar2.f49057a)) {
                         aVar = aVar2;
                     }
                 }
@@ -104,6 +104,6 @@ public class a {
 
     @NonNull
     public String toString() {
-        return this.f49057b;
+        return this.f49058b;
     }
 }

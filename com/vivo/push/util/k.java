@@ -10,28 +10,28 @@ import java.util.regex.Pattern;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39547a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+    public static final boolean f39548a = z.b("ro.vivo.product.overseas", "no").equals("yes");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39548b;
+    public static final String f39549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f39549c;
+    public static final boolean f39550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f39550d;
+    public static final boolean f39551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f39551e;
+    public static final boolean f39552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f39552f;
+    public static final boolean f39553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f39553g;
+    public static final boolean f39554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f39554h;
+    public static final boolean f39555h;
     public static Method i;
     public static String j;
     public static String k;
@@ -45,13 +45,13 @@ public final class k {
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f39548b = b2;
-        f39549c = "RU".equals(b2);
-        f39550d = "IN".equals(f39548b);
-        f39551e = b("rom_1.0");
-        f39552f = b("rom_2.0");
-        f39553g = b("rom_2.5");
-        f39554h = b("rom_3.0");
+        f39549b = b2;
+        f39550c = "RU".equals(b2);
+        f39551d = "IN".equals(f39549b);
+        f39552e = b("rom_1.0");
+        f39553f = b("rom_2.0");
+        f39554g = b("rom_2.5");
+        f39555h = b("rom_3.0");
         j = null;
         k = null;
         l = "";

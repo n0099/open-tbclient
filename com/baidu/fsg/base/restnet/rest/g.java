@@ -9,46 +9,46 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import javax.net.ssl.SSLException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5243a = "g";
+    public static final String f5244a = "g";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<Class<?>> f5244b = new HashSet<>();
+    public static final HashSet<Class<?>> f5245b = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashSet<Class<?>> f5245c = new HashSet<>();
+    public static final HashSet<Class<?>> f5246c = new HashSet<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f5246d;
+    public final int f5247d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f5247e;
+    public final int f5248e;
 
     static {
-        f5244b.add(UnknownHostException.class);
-        f5244b.add(SocketException.class);
-        f5244b.add(ProtocolException.class);
-        f5245c.add(SSLException.class);
-        f5245c.add(SocketTimeoutException.class);
+        f5245b.add(UnknownHostException.class);
+        f5245b.add(SocketException.class);
+        f5245b.add(ProtocolException.class);
+        f5246c.add(SSLException.class);
+        f5246c.add(SocketTimeoutException.class);
     }
 
     public g(int i, int i2) {
-        this.f5246d = i;
-        this.f5247e = i2;
+        this.f5247d = i;
+        this.f5248e = i2;
     }
 
     public boolean a(Exception exc, int i) {
         boolean z = false;
-        if (i <= this.f5246d && (a(f5244b, exc) || !a(f5245c, exc))) {
+        if (i <= this.f5247d && (a(f5245b, exc) || !a(f5246c, exc))) {
             z = true;
         }
-        String str = f5243a;
-        LogUtil.d(str, f5243a + " retryRequest is called ,retry flag is " + z);
+        String str = f5244a;
+        LogUtil.d(str, f5244a + " retryRequest is called ,retry flag is " + z);
         if (z) {
-            SystemClock.sleep(this.f5247e);
+            SystemClock.sleep(this.f5248e);
         } else {
             exc.printStackTrace();
         }

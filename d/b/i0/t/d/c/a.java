@@ -11,59 +11,59 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60305a;
+    public TbPageContext f60306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60306b;
+    public Context f60307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f60307c;
+    public BdTypeRecyclerView f60308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f60308d;
+    public List<d.b.b.j.e.a> f60309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f60309e;
+    public e f60310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.t.d.c.d.c f60310f;
+    public d.b.i0.t.d.c.d.c f60311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.t.d.c.d.b f60311g;
+    public d.b.i0.t.d.c.d.b f60312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.t.d.c.d.a f60312h;
+    public d.b.i0.t.d.c.d.a f60313h;
     public int i;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
-        this.f60305a = tbPageContext;
-        this.f60306b = tbPageContext.getPageActivity();
-        this.f60307c = bdTypeRecyclerView;
+        this.f60306a = tbPageContext;
+        this.f60307b = tbPageContext.getPageActivity();
+        this.f60308c = bdTypeRecyclerView;
         this.i = i;
         a();
     }
 
     public final void a() {
-        this.f60308d = new ArrayList();
-        this.f60309e = new e(this.f60305a, this.i);
-        this.f60310f = new d.b.i0.t.d.c.d.c(this.f60305a);
-        this.f60311g = new d.b.i0.t.d.c.d.b(this.f60305a);
-        this.f60312h = new d.b.i0.t.d.c.d.a(this.f60305a);
-        this.f60308d.add(this.f60309e);
-        this.f60308d.add(this.f60310f);
-        this.f60308d.add(this.f60311g);
-        this.f60308d.add(this.f60312h);
-        this.f60307c.a(this.f60308d);
+        this.f60309d = new ArrayList();
+        this.f60310e = new e(this.f60306a, this.i);
+        this.f60311f = new d.b.i0.t.d.c.d.c(this.f60306a);
+        this.f60312g = new d.b.i0.t.d.c.d.b(this.f60306a);
+        this.f60313h = new d.b.i0.t.d.c.d.a(this.f60306a);
+        this.f60309d.add(this.f60310e);
+        this.f60309d.add(this.f60311f);
+        this.f60309d.add(this.f60312g);
+        this.f60309d.add(this.f60313h);
+        this.f60308c.a(this.f60309d);
     }
 
     public void b() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f60307c;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f60308c;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void c(List<n> list) {
-        this.f60307c.setData(list);
+        this.f60308c.setData(list);
     }
 }

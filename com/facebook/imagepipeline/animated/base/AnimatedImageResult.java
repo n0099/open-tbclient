@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageResult {
     @Nullable
     public List<CloseableReference<Bitmap>> mDecodedFrames;

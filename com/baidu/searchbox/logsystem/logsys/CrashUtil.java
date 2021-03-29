@@ -3,12 +3,12 @@ package com.baidu.searchbox.logsystem.logsys;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CrashUtil {
     public static String CRASH_TAG = AperfRuntime.Runtime.getProcessUUID().replaceAll("#", "") + "#" + System.currentTimeMillis();
     public static final String SEPERATOR = "#";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CrashpadConstant {
         public static final String FULL_BDMP_PERFIX = "fullbdmp-";
         public static final String JSON_EXTRA = "json-extra_info";
@@ -23,7 +23,7 @@ public class CrashUtil {
     public static void init() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CrashTAG {
         public String mCrashProcessUUID;
         public long mTimeStamp;

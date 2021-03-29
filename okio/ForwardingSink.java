@@ -2,7 +2,7 @@ package okio;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public abstract class ForwardingSink implements Sink {
     public final Sink delegate;
 

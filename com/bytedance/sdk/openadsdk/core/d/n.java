@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28200a;
+    public String f28201a;
 
     public String a() {
-        return this.f28200a;
+        return this.f28201a;
     }
 
     public JSONObject b() {
@@ -29,7 +29,7 @@ public class n {
     }
 
     public void a(String str) {
-        this.f28200a = str;
+        this.f28201a = str;
     }
 
     public static n a(JSONObject jSONObject) {

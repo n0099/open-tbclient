@@ -7,43 +7,43 @@ import java.util.List;
 public class i extends a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f62213h = BdUniqueId.gen();
+    public static final BdUniqueId f62214h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.i0.a1.b.c> f62214e = new ArrayList();
+    public List<d.b.i0.a1.b.c> f62215e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62215f;
+    public String f62216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62216g;
+    public String f62217g;
 
     public void g(d.b.i0.a1.b.c cVar) {
-        this.f62214e.add(cVar);
+        this.f62215e.add(cVar);
     }
 
     public List<d.b.i0.a1.b.c> getDataList() {
-        return this.f62214e;
+        return this.f62215e;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f62213h;
+        return f62214h;
     }
 
     public String j() {
-        return this.f62215f;
+        return this.f62216f;
     }
 
     public String n() {
-        return this.f62216g;
+        return this.f62217g;
     }
 
     public void o(String str) {
-        this.f62215f = str;
+        this.f62216f = str;
     }
 
     public void s(String str) {
-        this.f62216g = str;
+        this.f62217g = str;
     }
 }

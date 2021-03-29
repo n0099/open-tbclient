@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.spswitch.R;
 import com.baidu.spswitch.utils.UIUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PopupEmotionView extends FrameLayout {
     public static final int HEIGHT_DP = 85;
     public static final int WIDTH_DP = 75;

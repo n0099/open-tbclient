@@ -12,7 +12,7 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.e.e, GameLiveDoubleViewHolder> {
     public String p;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.e.f60327g);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.e.f60328g);
         this.m = tbPageContext;
     }
 
@@ -33,7 +33,7 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.e.e, GameLiveDoubleViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.e.e eVar, GameLiveDoubleViewHolder gameLiveDoubleViewHolder) {
-        gameLiveDoubleViewHolder.f14925a.v(eVar, this.p);
+        gameLiveDoubleViewHolder.f14926a.v(eVar, this.p);
         return gameLiveDoubleViewHolder.a();
     }
 

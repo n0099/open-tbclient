@@ -1,10 +1,10 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum a {
         MODEL_O(1),
         MODEL_C(2),
@@ -16,15 +16,15 @@ public class l {
         
 
         /* renamed from: h  reason: collision with root package name */
-        public int f2978h;
+        public int f2979h;
 
         a(int i2) {
-            this.f2978h = i2;
+            this.f2979h = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2978h;
+            return this.f2979h;
         }
     }
 

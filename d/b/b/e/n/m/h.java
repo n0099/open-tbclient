@@ -10,25 +10,25 @@ public class h {
     public static class a extends d.b.b.e.a.f.d {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.n.h.a f41984c;
+        public final /* synthetic */ d.b.b.e.n.h.a f41985c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f41985d;
+        public final /* synthetic */ boolean f41986d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, String str2, DiskFileOperate.Action action, d.b.b.e.n.h.a aVar, boolean z) {
             super(str, str2, action);
-            this.f41984c = aVar;
-            this.f41985d = z;
+            this.f41985c = aVar;
+            this.f41986d = z;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f41984c.F(getFileInfo().length());
-                if (this.f41985d || this.f41984c.l() > 20480) {
-                    h.b(this.f41984c);
+                this.f41985c.F(getFileInfo().length());
+                if (this.f41986d || this.f41985c.l() > 20480) {
+                    h.b(this.f41985c);
                 }
             }
         }
@@ -38,20 +38,20 @@ public class h {
     public static class b extends DiskFileOperate {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.n.h.a f41986a;
+        public final /* synthetic */ d.b.b.e.n.h.a f41987a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, d.b.b.e.n.h.a aVar) {
             super(str, str2, str3, str4, action);
-            this.f41986a = aVar;
+            this.f41987a = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f41986a.F(0L);
-                d.b.b.e.n.l.b.m().s(this.f41986a);
+                this.f41987a.F(0L);
+                d.b.b.e.n.l.b.m().s(this.f41987a);
                 return;
             }
             BdLog.e("Track Log rename fail!");
@@ -62,19 +62,19 @@ public class h {
     public static class c extends d.b.b.e.a.f.d {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.b.e.n.h.a f41987c;
+        public final /* synthetic */ d.b.b.e.n.h.a f41988c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, d.b.b.e.n.h.a aVar) {
             super(str, str2, action);
-            this.f41987c = aVar;
+            this.f41988c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f41987c.F(getFileInfo().length());
+                this.f41988c.F(getFileInfo().length());
             }
         }
     }

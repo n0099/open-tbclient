@@ -25,9 +25,9 @@ public class c extends d.b.g0.a.a0.b.a<TextureMapView, d.b.g0.a.a1.c.c> {
         super(context, cVar);
         this.n = new ArrayList();
         this.o = new ArrayList();
-        this.i = cVar.f43113g;
-        this.j = cVar.f43112f;
-        String str = cVar.f43114h;
+        this.i = cVar.f43114g;
+        this.j = cVar.f43113f;
+        String str = cVar.f43115h;
         this.m = context;
         this.l = new TextureMapView(context);
         this.k = cVar.v;
@@ -42,11 +42,11 @@ public class c extends d.b.g0.a.a0.b.a<TextureMapView, d.b.g0.a.a1.c.c> {
 
     public void H() {
         for (b bVar : this.n) {
-            this.l.removeView(bVar.f48761e);
+            this.l.removeView(bVar.f48762e);
         }
         this.n.clear();
         for (a aVar : this.o) {
-            this.l.removeView(aVar.f48755b);
+            this.l.removeView(aVar.f48756b);
         }
         this.o.clear();
         this.l.getMap().clear();
@@ -54,7 +54,7 @@ public class c extends d.b.g0.a.a0.b.a<TextureMapView, d.b.g0.a.a1.c.c> {
 
     public a I(View view) {
         for (a aVar : this.o) {
-            if (aVar.f48755b == view) {
+            if (aVar.f48756b == view) {
                 return aVar;
             }
         }
@@ -64,7 +64,7 @@ public class c extends d.b.g0.a.a0.b.a<TextureMapView, d.b.g0.a.a1.c.c> {
     @Nullable
     public b J(Marker marker) {
         for (b bVar : this.n) {
-            if (marker == bVar.f48758b) {
+            if (marker == bVar.f48759b) {
                 return bVar;
             }
         }
@@ -74,8 +74,8 @@ public class c extends d.b.g0.a.a0.b.a<TextureMapView, d.b.g0.a.a1.c.c> {
     public List<b> K(String str) {
         ArrayList arrayList = new ArrayList(1);
         for (b bVar : this.n) {
-            d dVar = bVar.f48757a;
-            if (dVar != null && TextUtils.equals(str, dVar.f43192e)) {
+            d dVar = bVar.f48758a;
+            if (dVar != null && TextUtils.equals(str, dVar.f43193e)) {
                 arrayList.add(bVar);
             }
         }

@@ -14,10 +14,10 @@ import d.b.i0.p0.j0;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaPersonCenterFragment f60815a = new AlaPersonCenterFragment();
+    public AlaPersonCenterFragment f60816a = new AlaPersonCenterFragment();
 
     public a() {
-        getFragmentTabStructure().f50154a = this.f60815a;
+        getFragmentTabStructure().f50155a = this.f60816a;
     }
 
     public void a(j0 j0Var) {
@@ -27,14 +27,14 @@ public class a extends b {
     }
 
     public void b(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60815a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.E0(str);
         }
     }
 
     public void c(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60815a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.F0(str);
         }
@@ -43,21 +43,21 @@ public class a extends b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50158e = 5;
-        cVar.f50155b = R.string.ala_live;
-        cVar.f50161h = c.j;
+        cVar.f50159e = 5;
+        cVar.f50156b = R.string.ala_live;
+        cVar.f50162h = c.j;
         return cVar;
     }
 
     public void d(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60815a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.G0(str);
         }
     }
 
     public void e(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f60815a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f60816a;
         if (alaPersonCenterFragment != null) {
             alaPersonCenterFragment.H0(str);
         }

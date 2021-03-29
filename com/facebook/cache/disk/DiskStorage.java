@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public interface DiskStorage {
 
     /* loaded from: classes6.dex */

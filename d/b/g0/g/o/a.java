@@ -8,24 +8,24 @@ import d.b.g0.g.c0.d;
 public class a implements DebugConsole {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48517b = k.f45050a;
+    public static final boolean f48518b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f48518a;
+    public long f48519a;
 
     @Override // com.baidu.searchbox.v8engine.console.DebugConsole
     public void onReceiveInfo(int i, String str) {
-        if (!f48517b || d.d()) {
+        if (!f48518b || d.d()) {
             return;
         }
         if (i == 0) {
             Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
         } else if (i == 1) {
-            this.f48518a = System.currentTimeMillis();
+            this.f48519a = System.currentTimeMillis();
             Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
         } else if (i != 2) {
         } else {
-            Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.f48518a), str));
+            Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.f48519a), str));
         }
     }
 }

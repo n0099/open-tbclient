@@ -21,23 +21,23 @@ import java.util.regex.Pattern;
 public class w {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile w f30448c;
+    public static volatile w f30449c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f30449a;
+    public Map<String, String> f30450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30450b = false;
+    public volatile boolean f30451b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f30451d;
+    public Context f30452d;
 
     public w(Context context) {
-        if (context != null && this.f30451d == null) {
-            this.f30451d = context.getApplicationContext();
+        if (context != null && this.f30452d == null) {
+            this.f30452d = context.getApplicationContext();
             a();
         }
-        this.f30451d = context;
+        this.f30452d = context;
     }
 
     public static String b(String str) {
@@ -88,12 +88,12 @@ public class w {
             return null;
         }
         a();
-        Map<String, String> map = this.f30449a;
+        Map<String, String> map = this.f30450a;
         if (map == null || map.isEmpty()) {
             return null;
         }
         do {
-            str2 = this.f30449a.get(e2);
+            str2 = this.f30450a.get(e2);
             if (str2 == null) {
                 e2 = e(e2);
             }
@@ -162,14 +162,14 @@ public class w {
     }
 
     public static w a(Context context) {
-        if (f30448c == null) {
+        if (f30449c == null) {
             synchronized (w.class) {
-                if (f30448c == null) {
-                    f30448c = new w(context);
+                if (f30449c == null) {
+                    f30449c = new w(context);
                 }
             }
         }
-        return f30448c;
+        return f30449c;
     }
 
     public final String a(String str) {
@@ -188,11 +188,11 @@ public class w {
     }
 
     private void a() {
-        if (this.f30451d == null || this.f30450b) {
+        if (this.f30452d == null || this.f30451b) {
             return;
         }
         synchronized (this) {
-            if (!this.f30450b) {
+            if (!this.f30451b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>() { // from class: com.bytedance.sdk.openadsdk.utils.w.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.security.PrivilegedAction
@@ -202,7 +202,7 @@ public class w {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = w.this.f30451d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = w.this.f30452d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -217,56 +217,49 @@ public class w {
                                         inputStream = open;
                                         try {
                                             List<String> emptyList = Collections.emptyList();
-                                            if (inputStream != null) {
+                                            if (bufferedReader != null) {
                                                 try {
-                                                    inputStream.close();
+                                                    bufferedReader.close();
                                                 } catch (Throwable unused2) {
                                                 }
                                             }
-                                            if (bufferedReader != null) {
-                                                try {
-                                                    bufferedReader.close();
-                                                } catch (Throwable unused3) {
-                                                }
-                                            }
                                             return emptyList;
-                                        } catch (Throwable th) {
+                                        } finally {
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
-                                                } catch (Throwable unused4) {
+                                                } catch (Throwable unused3) {
                                                 }
                                             }
                                             if (bufferedReader != null) {
                                                 try {
                                                     bufferedReader.close();
-                                                } catch (Throwable unused5) {
+                                                } catch (Throwable unused4) {
                                                 }
                                             }
-                                            throw th;
                                         }
                                     }
                                 }
                                 if (open != null) {
                                     try {
                                         open.close();
-                                    } catch (Throwable unused6) {
+                                    } catch (Throwable unused5) {
                                     }
                                 }
                                 try {
                                     bufferedReader.close();
-                                } catch (Throwable unused7) {
+                                } catch (Throwable unused6) {
                                 }
                                 return arrayList;
-                            } catch (Throwable unused8) {
+                            } catch (Throwable unused7) {
                                 bufferedReader = null;
                             }
-                        } catch (Throwable unused9) {
+                        } catch (Throwable unused8) {
                             bufferedReader = null;
                         }
                     }
                 });
-                this.f30449a = new HashMap(list.size());
+                this.f30450a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -281,15 +274,15 @@ public class w {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f30450b = true;
+                this.f30451b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
-        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30449a.containsKey(str)) {
+        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30450a.containsKey(str)) {
             return;
         }
-        this.f30449a.put(str, str2);
+        this.f30450a.put(str, str2);
     }
 }

@@ -30,14 +30,14 @@ public class d extends d.b.i0.x.b<d.b.i0.h2.e.e> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e == i) {
+        if (this.f62180e == i) {
             return;
         }
-        this.f62179e = i;
+        this.f62180e = i;
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
-        if (this.q.f55279e == null) {
+        if (this.q.f55280e == null) {
             SkinManager.setImageResource(this.n, R.drawable.icon_shen_mine);
         }
     }
@@ -54,11 +54,11 @@ public class d extends d.b.i0.x.b<d.b.i0.h2.e.e> {
             return;
         }
         this.q = eVar;
-        String str = eVar.f55279e;
+        String str = eVar.f55280e;
         if (str != null) {
             this.n.W(str, 10, false);
         }
-        this.o.setText(eVar.f55280f);
-        this.p.setText(eVar.f55281g);
+        this.o.setText(eVar.f55281f);
+        this.p.setText(eVar.f55282g);
     }
 }

@@ -24,7 +24,7 @@ import com.baidu.tieba.view.FollowUserButton;
 import d.b.h0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b0 {
     public w A;
     public t B;
@@ -52,28 +52,28 @@ public class b0 {
     public CustomMessageListener X = new e(2921394);
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f63107a = new ArrayList();
+    public List<d.b.b.j.e.a> f63108a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.j.e.s f63108b;
+    public d.b.b.j.e.s f63109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.b.b.j.e.n> f63109c;
+    public List<d.b.b.j.e.n> f63110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbPageContext<?> f63110d;
+    public TbPageContext<?> f63111d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.z0.g.h.a f63111e;
+    public d.b.i0.z0.g.h.a f63112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public z f63112f;
+    public z f63113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.z0.g.h.b f63113g;
+    public d.b.i0.z0.g.h.b f63114g;
 
     /* renamed from: h  reason: collision with root package name */
-    public n f63114h;
+    public n f63115h;
     public x i;
     public h j;
     public i k;
@@ -93,7 +93,7 @@ public class b0 {
     public v y;
     public u z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -106,14 +106,14 @@ public class b0 {
                 return;
             }
             b0.this.f();
-            if (b0.this.f63109c != null) {
+            if (b0.this.f63110c != null) {
                 b0 b0Var = b0.this;
-                b0Var.z(b0Var.f63109c);
+                b0Var.z(b0Var.f63110c);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -123,14 +123,14 @@ public class b0 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13692a) {
+            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13693a) {
                 return;
             }
             b0.this.g(updateAttentionMessage.getData());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -143,13 +143,13 @@ public class b0 {
                 return;
             }
             d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
-            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
-            bVar.f56013b = true;
+            bVar.f56013a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56014b = true;
             b0.this.g(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -162,13 +162,13 @@ public class b0 {
                 return;
             }
             d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
-            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
-            bVar.f56013b = false;
+            bVar.f56013a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56014b = false;
             b0.this.g(bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -189,22 +189,22 @@ public class b0 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void a();
     }
 
     public b0(Context context, d.b.b.j.e.s sVar) {
-        this.f63108b = sVar;
-        this.f63110d = (TbPageContext) d.b.b.a.j.a(context);
+        this.f63109b = sVar;
+        this.f63111d = (TbPageContext) d.b.b.a.j.a(context);
         j(context);
         y(sVar);
-        sVar.a(this.f63107a);
+        sVar.a(this.f63108a);
     }
 
     public void A(List<d.b.b.j.e.n> list, int i) {
         d.b.i0.c3.v.f(list, 2);
-        ViewGroup listView = this.f63108b.getListView();
+        ViewGroup listView = this.f63109b.getListView();
         if (i > 0 && (listView instanceof BdRecyclerView)) {
             BdRecyclerView bdRecyclerView = (BdRecyclerView) listView;
             int firstVisiblePosition = bdRecyclerView.getFirstVisiblePosition();
@@ -218,8 +218,8 @@ public class b0 {
                 bdRecyclerView.A();
             }
         }
-        this.f63108b.setData(list);
-        this.f63109c = list;
+        this.f63109b.setData(list);
+        this.f63110c = list;
         f fVar = this.S;
         if (fVar != null) {
             fVar.a();
@@ -241,24 +241,24 @@ public class b0 {
             }
             int size = g2.size();
             for (int i = 0; i < size; i++) {
-                d.b.i0.i1.o.g.a c2 = d.b.i0.i1.r.b.d().c(this.f63110d, g2.get(i), 2);
+                d.b.i0.i1.o.g.a c2 = d.b.i0.i1.r.b.d().c(this.f63111d, g2.get(i), 2);
                 if (this.Q) {
                     c2.h0(3);
                 }
-                n nVar = this.f63114h;
+                n nVar = this.f63115h;
                 if (nVar != null && (bdUniqueId = nVar.n) != null) {
                     c2.setUniqueId(bdUniqueId);
                 }
                 this.P.add(c2);
             }
-            this.f63108b.a(this.P);
+            this.f63109b.a(this.P);
             return true;
         }
         return true;
     }
 
     public final void g(Object obj) {
-        List<d.b.b.j.e.n> list = this.f63109c;
+        List<d.b.b.j.e.n> list = this.f63110c;
         if (list != null) {
             boolean z = false;
             for (d.b.b.j.e.n nVar : list) {
@@ -273,14 +273,14 @@ public class b0 {
     }
 
     public List<d.b.b.j.e.n> h() {
-        return this.f63109c;
+        return this.f63110c;
     }
 
     public final d.b.c.m.e.b i(String str) {
         int i;
         d.b.i0.x.e0.l lVar;
         a2 a2Var;
-        List<d.b.b.j.e.n> list = this.f63109c;
+        List<d.b.b.j.e.n> list = this.f63110c;
         if (list == null || list.isEmpty() || str == null) {
             return null;
         }
@@ -292,26 +292,26 @@ public class b0 {
         int i5 = -1;
         int i6 = -1;
         while (true) {
-            if (i2 >= this.f63109c.size()) {
+            if (i2 >= this.f63110c.size()) {
                 i = -1;
                 break;
             }
-            if (this.f63109c.get(i2) instanceof d.b.i0.z0.g.j.h) {
+            if (this.f63110c.get(i2) instanceof d.b.i0.z0.g.j.h) {
                 i3++;
             }
-            if (this.f63109c.get(i2) instanceof d.b.i0.z0.g.j.a) {
-                if (l(this.f63109c.get(i2))) {
+            if (this.f63110c.get(i2) instanceof d.b.i0.z0.g.j.a) {
+                if (l(this.f63110c.get(i2))) {
                     if (z) {
-                        i = ((d.b.i0.z0.g.j.a) this.f63109c.get(i2)).position;
+                        i = ((d.b.i0.z0.g.j.a) this.f63110c.get(i2)).position;
                         break;
                     }
-                    i5 = ((d.b.i0.z0.g.j.a) this.f63109c.get(i2)).position;
+                    i5 = ((d.b.i0.z0.g.j.a) this.f63110c.get(i2)).position;
                 } else if (z) {
                     i4++;
                 }
             }
-            if ((this.f63109c.get(i2) instanceof d.b.i0.x.e0.l) && (lVar = (d.b.i0.x.e0.l) this.f63109c.get(i2)) != null && (a2Var = lVar.f62196e) != null && str.equals(a2Var.o0())) {
-                i6 = ((d.b.i0.x.e0.l) this.f63109c.get(i2)).position;
+            if ((this.f63110c.get(i2) instanceof d.b.i0.x.e0.l) && (lVar = (d.b.i0.x.e0.l) this.f63110c.get(i2)) != null && (a2Var = lVar.f62197e) != null && str.equals(a2Var.o0())) {
+                i6 = ((d.b.i0.x.e0.l) this.f63110c.get(i2)).position;
                 z = true;
             }
             i2++;
@@ -328,68 +328,68 @@ public class b0 {
     }
 
     public final void j(Context context) {
-        this.f63111e = new d.b.i0.z0.g.h.a(this.f63110d);
-        this.f63112f = new z(this.f63110d);
-        this.f63113g = new d.b.i0.z0.g.h.b(this.f63110d, d.b.i0.z0.g.j.f.f63188f);
-        this.f63114h = new n(this.f63110d, d.b.i0.x.e0.k.l0);
-        this.i = new x(this.f63110d, d.b.i0.x.e0.k.v0);
-        this.j = new h(this.f63110d, d.b.i0.x.e0.k.C0);
-        this.k = new i(this.f63110d, d.b.i0.x.e0.k.w0);
-        this.l = new j(this.f63110d, d.b.i0.x.e0.k.D0);
-        this.m = new r(this.f63110d, d.b.i0.x.e0.k.B0);
-        this.n = new k(this.f63110d, d.b.i0.x.e0.k.E0);
-        this.o = new o(this.f63110d, d.b.i0.x.e0.k.K0);
-        this.p = new m(this.f63110d, d.b.i0.x.e0.k.L0);
-        this.q = new g(this.f63110d, d.b.i0.x.e0.k.x0);
-        this.r = new d.b.i0.z0.g.h.f(this.f63110d, d.b.i0.x.e0.k.y0);
-        this.s = new d.b.i0.z0.g.h.e(this.f63110d, d.b.i0.x.e0.k.z0);
-        this.t = new y(this.f63110d, d.b.i0.x.e0.l.V);
-        this.v = new l(this.f63110d, d.b.i0.x.e0.k.n0);
-        this.w = new HomePageAlaLiveThreadAdapter(this.f63110d, d.b.i0.x.e0.j.M0);
-        this.x = new HomePageAlaFriendRoomAdapter(this.f63110d, d.b.i0.x.e0.j.N0);
-        this.y = new v(this.f63110d, d.b.i0.x.e0.k.o0);
-        this.z = new u(this.f63110d, d.b.i0.x.e0.k.p0);
-        this.A = new w(this.f63110d, d.b.i0.x.e0.k.r0);
-        this.B = new t(this.f63110d, d.b.i0.x.e0.k.q0);
-        this.C = new n(this.f63110d, d.b.i0.x.e0.k.m0);
-        this.D = new p(this.f63110d, d.b.i0.x.e0.k.s0);
-        this.E = new q(this.f63110d, d.b.i0.x.e0.k.t0);
-        this.F = new s(this.f63110d, d.b.i0.z0.j.b.c.a.d0);
-        this.G = new d.b.i0.z0.g.h.c(this.f63110d, d.b.i0.x.e0.e.M0);
-        this.u = new d.b.i0.z0.g.h.d(this.f63110d, d.b.i0.x.e0.k.A0);
-        this.H = new d.b.i0.z0.b.e.z(this.f63110d, d.b.i0.x.e0.k.u0, (byte) 3);
-        this.f63107a.add(this.f63111e);
-        this.f63107a.add(this.f63112f);
-        this.f63107a.add(this.f63113g);
-        this.f63107a.add(this.f63114h);
-        this.f63107a.add(this.i);
-        this.f63107a.add(this.j);
-        this.f63107a.add(this.k);
-        this.f63107a.add(this.l);
-        this.f63107a.add(this.m);
-        this.f63107a.add(this.n);
-        this.f63107a.add(this.o);
-        this.f63107a.add(this.p);
-        this.f63107a.add(this.q);
-        this.f63107a.add(this.r);
-        this.f63107a.add(this.s);
-        this.f63107a.add(this.t);
-        this.f63107a.add(this.v);
-        this.f63107a.add(this.C);
-        this.f63107a.add(new ReadProgessDelegetAdapter(this.f63110d, d.b.i0.z0.g.l.b.f63218g));
-        this.f63107a.add(this.w);
-        this.f63107a.add(this.x);
-        this.f63107a.add(this.y);
-        this.f63107a.add(this.z);
-        this.f63107a.add(this.B);
-        this.f63107a.add(this.A);
-        this.f63107a.add(new a0(this.f63110d, d.b.i0.z0.g.j.h.i));
-        this.f63107a.add(this.D);
-        this.f63107a.add(this.E);
-        this.f63107a.add(this.F);
-        this.f63107a.add(this.G);
-        this.f63107a.add(this.u);
-        this.f63107a.add(this.H);
+        this.f63112e = new d.b.i0.z0.g.h.a(this.f63111d);
+        this.f63113f = new z(this.f63111d);
+        this.f63114g = new d.b.i0.z0.g.h.b(this.f63111d, d.b.i0.z0.g.j.f.f63189f);
+        this.f63115h = new n(this.f63111d, d.b.i0.x.e0.k.l0);
+        this.i = new x(this.f63111d, d.b.i0.x.e0.k.v0);
+        this.j = new h(this.f63111d, d.b.i0.x.e0.k.C0);
+        this.k = new i(this.f63111d, d.b.i0.x.e0.k.w0);
+        this.l = new j(this.f63111d, d.b.i0.x.e0.k.D0);
+        this.m = new r(this.f63111d, d.b.i0.x.e0.k.B0);
+        this.n = new k(this.f63111d, d.b.i0.x.e0.k.E0);
+        this.o = new o(this.f63111d, d.b.i0.x.e0.k.K0);
+        this.p = new m(this.f63111d, d.b.i0.x.e0.k.L0);
+        this.q = new g(this.f63111d, d.b.i0.x.e0.k.x0);
+        this.r = new d.b.i0.z0.g.h.f(this.f63111d, d.b.i0.x.e0.k.y0);
+        this.s = new d.b.i0.z0.g.h.e(this.f63111d, d.b.i0.x.e0.k.z0);
+        this.t = new y(this.f63111d, d.b.i0.x.e0.l.V);
+        this.v = new l(this.f63111d, d.b.i0.x.e0.k.n0);
+        this.w = new HomePageAlaLiveThreadAdapter(this.f63111d, d.b.i0.x.e0.j.M0);
+        this.x = new HomePageAlaFriendRoomAdapter(this.f63111d, d.b.i0.x.e0.j.N0);
+        this.y = new v(this.f63111d, d.b.i0.x.e0.k.o0);
+        this.z = new u(this.f63111d, d.b.i0.x.e0.k.p0);
+        this.A = new w(this.f63111d, d.b.i0.x.e0.k.r0);
+        this.B = new t(this.f63111d, d.b.i0.x.e0.k.q0);
+        this.C = new n(this.f63111d, d.b.i0.x.e0.k.m0);
+        this.D = new p(this.f63111d, d.b.i0.x.e0.k.s0);
+        this.E = new q(this.f63111d, d.b.i0.x.e0.k.t0);
+        this.F = new s(this.f63111d, d.b.i0.z0.j.b.c.a.d0);
+        this.G = new d.b.i0.z0.g.h.c(this.f63111d, d.b.i0.x.e0.e.M0);
+        this.u = new d.b.i0.z0.g.h.d(this.f63111d, d.b.i0.x.e0.k.A0);
+        this.H = new d.b.i0.z0.b.e.z(this.f63111d, d.b.i0.x.e0.k.u0, (byte) 3);
+        this.f63108a.add(this.f63112e);
+        this.f63108a.add(this.f63113f);
+        this.f63108a.add(this.f63114g);
+        this.f63108a.add(this.f63115h);
+        this.f63108a.add(this.i);
+        this.f63108a.add(this.j);
+        this.f63108a.add(this.k);
+        this.f63108a.add(this.l);
+        this.f63108a.add(this.m);
+        this.f63108a.add(this.n);
+        this.f63108a.add(this.o);
+        this.f63108a.add(this.p);
+        this.f63108a.add(this.q);
+        this.f63108a.add(this.r);
+        this.f63108a.add(this.s);
+        this.f63108a.add(this.t);
+        this.f63108a.add(this.v);
+        this.f63108a.add(this.C);
+        this.f63108a.add(new ReadProgessDelegetAdapter(this.f63111d, d.b.i0.z0.g.l.b.f63219g));
+        this.f63108a.add(this.w);
+        this.f63108a.add(this.x);
+        this.f63108a.add(this.y);
+        this.f63108a.add(this.z);
+        this.f63108a.add(this.B);
+        this.f63108a.add(this.A);
+        this.f63108a.add(new a0(this.f63111d, d.b.i0.z0.g.j.h.i));
+        this.f63108a.add(this.D);
+        this.f63108a.add(this.E);
+        this.f63108a.add(this.F);
+        this.f63108a.add(this.G);
+        this.f63108a.add(this.u);
+        this.f63108a.add(this.H);
         e();
         k();
         r("page_recommend");
@@ -400,30 +400,30 @@ public class b0 {
             AdvertAppInfo.t4.set(false);
             return;
         }
-        this.I = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.j4, "INDEX");
-        this.J = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.k4, "INDEX");
-        this.K = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.o4, "INDEX");
-        this.L = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.p4, "INDEX");
-        this.M = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.q4, "INDEX");
-        this.N = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.s4, "INDEX");
-        this.O = d.b.i0.r2.s.o().f(this.f63110d, AdvertAppInfo.r4, "INDEX");
-        this.f63107a.add(this.I);
-        this.f63107a.add(this.J);
-        this.f63107a.add(this.K);
-        this.f63107a.add(this.L);
-        this.f63107a.add(this.M);
-        this.f63107a.add(this.N);
-        this.f63107a.add(this.O);
+        this.I = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.j4, "INDEX");
+        this.J = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.k4, "INDEX");
+        this.K = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.o4, "INDEX");
+        this.L = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.p4, "INDEX");
+        this.M = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.q4, "INDEX");
+        this.N = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.s4, "INDEX");
+        this.O = d.b.i0.r2.s.o().f(this.f63111d, AdvertAppInfo.r4, "INDEX");
+        this.f63108a.add(this.I);
+        this.f63108a.add(this.J);
+        this.f63108a.add(this.K);
+        this.f63108a.add(this.L);
+        this.f63108a.add(this.M);
+        this.f63108a.add(this.N);
+        this.f63108a.add(this.O);
         AdvertAppInfo.t4.set(true);
     }
 
     public final boolean l(d.b.b.j.e.n nVar) {
         AdvertAppInfo advertAppInfo;
-        return nVar != null && (nVar instanceof d.b.i0.z0.g.j.a) && (advertAppInfo = ((d.b.i0.z0.g.j.a) nVar).f62200e) != null && advertAppInfo.D4() == 0;
+        return nVar != null && (nVar instanceof d.b.i0.z0.g.j.a) && (advertAppInfo = ((d.b.i0.z0.g.j.a) nVar).f62201e) != null && advertAppInfo.D4() == 0;
     }
 
     public void m() {
-        d.b.b.j.e.s sVar = this.f63108b;
+        d.b.b.j.e.s sVar = this.f63109b;
         if (sVar != null) {
             sVar.getListAdapter().notifyDataSetChanged();
         }
@@ -431,7 +431,7 @@ public class b0 {
 
     public void n(int i) {
         m();
-        this.f63111e.h0(i);
+        this.f63112e.h0(i);
     }
 
     public void o() {
@@ -453,7 +453,7 @@ public class b0 {
     }
 
     public final void r(String str) {
-        List<d.b.b.j.e.a> list = this.f63107a;
+        List<d.b.b.j.e.a> list = this.f63108a;
         if (list == null) {
             return;
         }
@@ -465,7 +465,7 @@ public class b0 {
     }
 
     public void s(FollowUserButton.a aVar) {
-        for (d.b.b.j.e.a aVar2 : this.f63107a) {
+        for (d.b.b.j.e.a aVar2 : this.f63108a) {
             if (aVar2 instanceof d.b.i0.z0.a) {
                 ((d.b.i0.z0.a) aVar2).h0(aVar);
             }
@@ -473,7 +473,7 @@ public class b0 {
     }
 
     public void t(boolean z) {
-        n nVar = this.f63114h;
+        n nVar = this.f63115h;
         if (nVar != null) {
             nVar.setFromCDN(z);
             this.C.setFromCDN(z);
@@ -496,7 +496,7 @@ public class b0 {
     }
 
     public void u(NEGFeedBackView.b bVar) {
-        n nVar = this.f63114h;
+        n nVar = this.f63115h;
         if (nVar != null) {
             nVar.r0(bVar);
         }
@@ -563,11 +563,11 @@ public class b0 {
     }
 
     public void w(BdUniqueId bdUniqueId) {
-        d.b.i0.z0.g.h.b bVar = this.f63113g;
+        d.b.i0.z0.g.h.b bVar = this.f63114g;
         if (bVar != null) {
             bVar.j0(bdUniqueId);
         }
-        n nVar = this.f63114h;
+        n nVar = this.f63115h;
         if (nVar != null) {
             nVar.n = bdUniqueId;
         }
@@ -623,7 +623,7 @@ public class b0 {
         if (yVar != null) {
             yVar.m = bdUniqueId;
         }
-        d.b.i0.z0.g.h.a aVar = this.f63111e;
+        d.b.i0.z0.g.h.a aVar = this.f63112e;
         if (aVar != null) {
             aVar.l0(bdUniqueId);
         }
@@ -702,7 +702,7 @@ public class b0 {
     }
 
     public void x(d.b.i0.z0.g.k.e eVar) {
-        this.f63114h.s0(eVar);
+        this.f63115h.s0(eVar);
         this.i.q0(eVar);
         this.j.p0(eVar);
         this.l.p0(eVar);
@@ -737,8 +737,8 @@ public class b0 {
 
     public void z(List<d.b.b.j.e.n> list) {
         d.b.i0.c3.v.f(list, 2);
-        this.f63108b.setData(list);
-        this.f63109c = list;
+        this.f63109b.setData(list);
+        this.f63110c = list;
         f fVar = this.S;
         if (fVar != null) {
             fVar.a();

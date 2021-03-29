@@ -16,25 +16,25 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44690a = d.b.g0.a.k.f45050a;
+    public static final boolean f44691a = d.b.g0.a.k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f44691b = new ArrayList();
+    public static List<String> f44692b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<String> f44692c = new ArrayList();
+    public static List<String> f44693c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f44693d = new Object();
+    public static final Object f44694d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f44694e = 0;
+    public static int f44695e = 0;
 
     public static boolean a() {
-        if (f44694e != 2) {
+        if (f44695e != 2) {
             return d.b.g0.a.w0.a.N().h() && !d.b.g0.a.a2.g.h.a().getBoolean("swan_app_js_native_ab_update_key", false);
         }
-        if (f44690a) {
+        if (f44691a) {
             Log.d("SwanAppCompat", "has used ab description");
         }
         return true;
@@ -70,32 +70,32 @@ public class i {
     public static String d(int i, boolean z) {
         List<String> list;
         String str = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-        if (f44694e == 1) {
-            if (f44690a) {
+        if (f44695e == 1) {
+            if (f44691a) {
                 Log.d("SwanAppCompat", "type support default");
             }
             return SchemeCollecter.getSchemesDes(str, i);
         }
         if (a()) {
-            synchronized (f44693d) {
+            synchronized (f44694d) {
                 if (z) {
-                    list = f44691b;
+                    list = f44692b;
                 } else {
-                    list = f44692c;
+                    list = f44693c;
                 }
                 if (list != null && list.size() > 0) {
-                    if (f44690a) {
+                    if (f44691a) {
                         Log.d("SwanAppCompat", "support ab js native descriptions");
                     }
-                    f44694e = 2;
+                    f44695e = 2;
                     return list.get(i);
                 }
             }
         }
-        if (f44690a) {
+        if (f44691a) {
             Log.d("SwanAppCompat", "use default descriptions");
         }
-        f44694e = 1;
+        f44695e = 1;
         return SchemeCollecter.getSchemesDes(str, i);
     }
 
@@ -121,7 +121,7 @@ public class i {
                     }
                 }
             } catch (JSONException e2) {
-                if (f44690a) {
+                if (f44691a) {
                     e2.printStackTrace();
                     return;
                 }
@@ -174,7 +174,7 @@ public class i {
             }
             return true;
         } catch (JSONException e2) {
-            if (f44690a) {
+            if (f44691a) {
                 e2.printStackTrace();
             }
             return false;
@@ -184,13 +184,13 @@ public class i {
     public static boolean h() {
         SwanCoreVersion T = d.b.g0.a.e0.w.d.L().T();
         if (T == null) {
-            if (f44690a) {
+            if (f44691a) {
                 Log.d("Api-Base", "isSupportBindApi: false => null cur ver");
             }
             return false;
         }
         boolean z = T.swanCoreVersion >= 12892110851L;
-        if (f44690a) {
+        if (f44691a) {
             String q = d.b.g0.a.b2.b.q(T.swanCoreVersion);
             String q2 = d.b.g0.a.b2.b.q(12892110851L);
             Log.d("Api-Base", "isSupportBindApi: " + z + " => cur【" + q + "】support 【" + q2 + "】");
@@ -203,36 +203,36 @@ public class i {
     }
 
     public static void j() {
-        if (f44690a) {
+        if (f44691a) {
             Log.d("SwanAppCompat", "on App upgrade");
         }
         d.b.g0.a.a2.g.h.a().putBoolean("swan_app_js_native_ab_update_key", true);
     }
 
     public static void k() {
-        if (f44690a) {
+        if (f44691a) {
             Log.d("SwanAppCompat", "start release descriptions");
         }
-        synchronized (f44693d) {
-            f44694e = 0;
-            f44691b = new ArrayList();
-            f44692c = new ArrayList();
+        synchronized (f44694d) {
+            f44695e = 0;
+            f44692b = new ArrayList();
+            f44693c = new ArrayList();
         }
     }
 
     public static void l() {
-        if (f44690a) {
+        if (f44691a) {
             Log.d("SwanAppCompat", "start prepare ab description");
         }
         m(true);
         m(false);
-        if (f44690a) {
+        if (f44691a) {
             Log.d("SwanAppCompat", "end prepare ab description");
         }
     }
 
     public static void m(boolean z) {
-        if (f44690a) {
+        if (f44691a) {
             StringBuilder sb = new StringBuilder();
             sb.append("start prepare ab description :");
             sb.append(z ? V8Engine.TYPE_V8 : "webview");
@@ -241,7 +241,7 @@ public class i {
         String str = d.b.g0.a.u0.d.d().getPath() + File.separator + "js_native" + File.separator + (z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt");
         if (d.b.g0.p.d.n(str)) {
             if (d.b.g0.a.a2.g.h.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
-                if (f44690a) {
+                if (f44691a) {
                     Log.d("SwanAppCompat", "need delete file case update");
                 }
                 if (!b()) {
@@ -249,7 +249,7 @@ public class i {
                 }
                 d.b.g0.a.a2.g.h.a().putBoolean("swan_app_js_native_ab_update_key", false);
             } else {
-                if (f44690a) {
+                if (f44691a) {
                     Log.d("SwanAppCompat", "start create cache");
                 }
                 n(d.b.g0.p.d.s(new File(str)), z);
@@ -263,16 +263,16 @@ public class i {
         if (list == null) {
             return;
         }
-        synchronized (f44693d) {
-            if (f44694e != 0) {
+        synchronized (f44694d) {
+            if (f44695e != 0) {
                 return;
             }
             if (z) {
-                f44691b = list;
+                f44692b = list;
             } else {
-                f44692c = list;
+                f44693c = list;
             }
-            if (f44690a) {
+            if (f44691a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("has update descriptions, list :");
                 sb.append(list.toString());

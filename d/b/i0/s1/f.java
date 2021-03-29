@@ -6,24 +6,24 @@ import java.io.File;
 public interface f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60150a = File.separator;
+    public static final String f60151a = File.separator;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60151b = Environment.getExternalStorageDirectory() + f60150a + "tieba";
+    public static final String f60152b = Environment.getExternalStorageDirectory() + f60151a + "tieba";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f60152c = f60151b + f60150a + ".tieba_post_monitor";
+    public static final String f60153c = f60152b + f60151a + ".tieba_post_monitor";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f60153d = f60152c + f60150a + "v1";
+    public static final String f60154d = f60153c + f60151a + "v1";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f60154e;
+    public static final String f60155e;
 
     static {
         StringBuilder sb = new StringBuilder();
-        sb.append(f60153d);
-        sb.append(f60150a);
-        f60154e = sb.toString();
+        sb.append(f60154d);
+        sb.append(f60151a);
+        f60155e = sb.toString();
     }
 }

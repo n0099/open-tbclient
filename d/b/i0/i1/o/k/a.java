@@ -3,7 +3,7 @@ package d.b.i0.i1.o.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static <T> void a(List<T> list, T t) {
         if (g(list)) {

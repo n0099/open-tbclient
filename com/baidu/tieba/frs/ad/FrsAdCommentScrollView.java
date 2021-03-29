@@ -19,16 +19,16 @@ import java.util.List;
 public class FrsAdCommentScrollView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16138e;
+    public TextView f16139e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16139f;
+    public TextView f16140f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f16140g;
+    public FrameLayout f16141g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f16141h;
+    public FrameLayout f16142h;
     public Handler i;
     public ValueAnimator j;
     public List<j> k;
@@ -51,17 +51,17 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public class b implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f16143e;
+        public final /* synthetic */ float f16144e;
 
         public b(float f2) {
-            this.f16143e = f2;
+            this.f16144e = f2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            FrsAdCommentScrollView.this.f16140g.setY(-floatValue);
-            FrsAdCommentScrollView.this.f16141h.setY(this.f16143e - floatValue);
+            FrsAdCommentScrollView.this.f16141g.setY(-floatValue);
+            FrsAdCommentScrollView.this.f16142h.setY(this.f16144e - floatValue);
         }
     }
 
@@ -80,11 +80,11 @@ public class FrsAdCommentScrollView extends LinearLayout {
             if (FrsAdCommentScrollView.this.l == FrsAdCommentScrollView.this.k.size()) {
                 FrsAdCommentScrollView.this.l = 0;
             }
-            FrameLayout frameLayout = FrsAdCommentScrollView.this.f16140g;
+            FrameLayout frameLayout = FrsAdCommentScrollView.this.f16141g;
             FrsAdCommentScrollView frsAdCommentScrollView = FrsAdCommentScrollView.this;
-            frsAdCommentScrollView.f16140g = frsAdCommentScrollView.f16141h;
-            FrsAdCommentScrollView.this.f16141h = frameLayout;
-            FrsAdCommentScrollView.this.f16141h.setY(FrsAdCommentScrollView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
+            frsAdCommentScrollView.f16141g = frsAdCommentScrollView.f16142h;
+            FrsAdCommentScrollView.this.f16142h = frameLayout;
+            FrsAdCommentScrollView.this.f16142h.setY(FrsAdCommentScrollView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
             FrsAdCommentScrollView.this.r();
         }
 
@@ -112,8 +112,8 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void l() {
-        float y = this.f16141h.getY();
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, this.f16140g.getMeasuredHeight());
+        float y = this.f16142h.getY();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, this.f16141g.getMeasuredHeight());
         this.j = ofFloat;
         ofFloat.addUpdateListener(new b(y));
         this.j.addListener(new c());
@@ -138,14 +138,14 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.k = new LinkedList();
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.frs_ad_comment_scroll_view, this);
-        this.f16138e = (TextView) findViewById(R.id.cur_display_view);
-        this.f16139f = (TextView) findViewById(R.id.next_display_view);
+        this.f16139e = (TextView) findViewById(R.id.cur_display_view);
+        this.f16140f = (TextView) findViewById(R.id.next_display_view);
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.cur_display_layout);
-        this.f16140g = frameLayout;
-        frameLayout.setTag(this.f16138e);
+        this.f16141g = frameLayout;
+        frameLayout.setTag(this.f16139e);
         FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.next_display_layout);
-        this.f16141h = frameLayout2;
-        frameLayout2.setTag(this.f16139f);
+        this.f16142h = frameLayout2;
+        frameLayout2.setTag(this.f16140f);
     }
 
     public void o() {
@@ -177,21 +177,21 @@ public class FrsAdCommentScrollView extends LinearLayout {
         } else {
             jVar = (j) ListUtils.getItem(this.k, this.l + 1);
         }
-        if ((this.f16140g.getTag() instanceof TextView) && jVar2 != null) {
+        if ((this.f16141g.getTag() instanceof TextView) && jVar2 != null) {
             String a2 = jVar2.a();
             if (jVar2.b()) {
                 a2 = getContext().getString(R.string.frs_top_ad_lz_reply, a2);
             }
-            ((TextView) this.f16140g.getTag()).setText(a2);
+            ((TextView) this.f16141g.getTag()).setText(a2);
         }
-        if (!(this.f16141h.getTag() instanceof TextView) || jVar == null) {
+        if (!(this.f16142h.getTag() instanceof TextView) || jVar == null) {
             return;
         }
         String a3 = jVar.a();
         if (jVar.b()) {
             a3 = getContext().getString(R.string.frs_top_ad_lz_reply, a3);
         }
-        ((TextView) this.f16141h.getTag()).setText(a3);
+        ((TextView) this.f16142h.getTag()).setText(a3);
     }
 
     public FrsAdCommentScrollView(Context context, @Nullable AttributeSet attributeSet) {

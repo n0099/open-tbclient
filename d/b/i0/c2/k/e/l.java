@@ -12,13 +12,13 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 public class l {
 
     /* renamed from: c  reason: collision with root package name */
-    public static l f52727c;
+    public static l f52728c;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f52728a = 0;
+    public long f52729a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52729b = false;
+    public boolean f52730b = false;
 
     /* loaded from: classes4.dex */
     public class a extends d.b.h0.k0.b {
@@ -37,14 +37,14 @@ public class l {
     }
 
     public static l a() {
-        if (f52727c == null) {
+        if (f52728c == null) {
             synchronized (l.class) {
-                if (f52727c == null) {
-                    f52727c = new l();
+                if (f52728c == null) {
+                    f52728c = new l();
                 }
             }
         }
-        return f52727c;
+        return f52728c;
     }
 
     public final boolean b(View view, View view2) {
@@ -63,9 +63,9 @@ public class l {
     }
 
     public void c() {
-        f52727c = null;
-        this.f52728a = 0L;
-        this.f52729b = false;
+        f52728c = null;
+        this.f52729a = 0L;
+        this.f52730b = false;
     }
 
     public final void d(Context context, d.b.h0.k0.d dVar) {
@@ -118,10 +118,10 @@ public class l {
     }
 
     public void f(boolean z, View view, View view2, d.b.h0.k0.d dVar, boolean z2) {
-        if (this.f52729b) {
+        if (this.f52730b) {
             z = false;
         } else {
-            this.f52729b = z;
+            this.f52730b = z;
         }
         if (b(view, view2) || (z && !z2)) {
             g();
@@ -131,8 +131,8 @@ public class l {
     }
 
     public final void g() {
-        if (this.f52728a == 0) {
-            this.f52728a = System.currentTimeMillis();
+        if (this.f52729a == 0) {
+            this.f52729a = System.currentTimeMillis();
         }
     }
 
@@ -143,9 +143,9 @@ public class l {
     }
 
     public final void i(d.b.h0.k0.d dVar) {
-        if (this.f52728a > 0) {
-            this.f52728a = 0L;
-            dVar.v(System.currentTimeMillis() - this.f52728a);
+        if (this.f52729a > 0) {
+            this.f52729a = 0L;
+            dVar.v(System.currentTimeMillis() - this.f52729a);
             d(TbadkCoreApplication.getInst(), dVar);
         }
     }

@@ -19,28 +19,28 @@ public class c extends FingerprintManager.AuthenticationCallback {
     public static final int n = 5;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11232a;
+    public int f11233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public char f11233b = 5;
+    public char f11234b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f11234c;
+    public Context f11235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FingerprintManager f11235d;
+    public FingerprintManager f11236d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FingerprintManager.CryptoObject f11236e;
+    public FingerprintManager.CryptoObject f11237e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CancellationSignal f11237f;
+    public CancellationSignal f11238f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.sapi2.g.a f11238g;
+    public com.baidu.sapi2.g.a f11239g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.sapi2.g.b f11239h;
+    public com.baidu.sapi2.g.b f11240h;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -50,7 +50,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.a();
-            c.this.f11238g.onCall(-2);
+            c.this.f11239g.onCall(-2);
         }
     }
 
@@ -62,20 +62,20 @@ public class c extends FingerprintManager.AuthenticationCallback {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.a();
-            c.this.f11238g.onCall(-2);
+            c.this.f11239g.onCall(-2);
         }
     }
 
     /* renamed from: com.baidu.sapi2.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class View$OnClickListenerC0141c implements View.OnClickListener {
-        public View$OnClickListenerC0141c() {
+    public class View$OnClickListenerC0142c implements View.OnClickListener {
+        public View$OnClickListenerC0142c() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.a();
-            c.this.f11238g.onCall(-3);
+            c.this.f11239g.onCall(-3);
         }
     }
 
@@ -87,36 +87,36 @@ public class c extends FingerprintManager.AuthenticationCallback {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.a();
-            c.this.f11238g.onCall(-2);
+            c.this.f11239g.onCall(-2);
         }
     }
 
     public c(Context context, com.baidu.sapi2.g.b bVar) {
-        this.f11236e = null;
-        this.f11237f = null;
-        this.f11234c = context;
-        this.f11239h = bVar;
-        this.f11235d = (FingerprintManager) context.getSystemService(FingerprintManager.class);
-        this.f11236e = null;
+        this.f11237e = null;
+        this.f11238f = null;
+        this.f11235c = context;
+        this.f11240h = bVar;
+        this.f11236d = (FingerprintManager) context.getSystemService(FingerprintManager.class);
+        this.f11237e = null;
         if (Build.VERSION.SDK_INT >= 16) {
-            this.f11237f = new CancellationSignal();
+            this.f11238f = new CancellationSignal();
         }
     }
 
     private void b() {
-        a((Activity) this.f11234c, (Dialog) this.f11239h);
-        this.f11239h.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new a()).showDialog();
+        a((Activity) this.f11235c, (Dialog) this.f11240h);
+        this.f11240h.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new a()).showDialog();
     }
 
     private void c() {
-        a((Activity) this.f11234c, (Dialog) this.f11239h);
+        a((Activity) this.f11235c, (Dialog) this.f11240h);
         StatService.onEvent("fingerprint_try_again_dialog_show", null);
-        this.f11239h.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn("取消", new d()).setPositiveBtn("换个登录方式", new View$OnClickListenerC0141c()).showDialog();
+        this.f11240h.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn("取消", new d()).setPositiveBtn("换个登录方式", new View$OnClickListenerC0142c()).showDialog();
     }
 
     private void d() {
-        a((Activity) this.f11234c, (Dialog) this.f11239h);
-        this.f11239h.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new b()).showDialog();
+        a((Activity) this.f11235c, (Dialog) this.f11240h);
+        this.f11240h.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new b()).showDialog();
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -125,16 +125,16 @@ public class c extends FingerprintManager.AuthenticationCallback {
         String str = m;
         Log.i(str, "Authentication error:" + i2 + ((Object) charSequence));
         a();
-        this.f11233b = (char) 5;
+        this.f11234b = (char) 5;
         if (i2 == 7) {
-            com.baidu.sapi2.g.a aVar = this.f11238g;
+            com.baidu.sapi2.g.a aVar = this.f11239g;
             if (aVar != null) {
                 aVar.onCall(-8);
                 return;
             }
             return;
         }
-        com.baidu.sapi2.g.a aVar2 = this.f11238g;
+        com.baidu.sapi2.g.a aVar2 = this.f11239g;
         if (aVar2 != null) {
             aVar2.onCall(i2);
         }
@@ -144,10 +144,10 @@ public class c extends FingerprintManager.AuthenticationCallback {
     public void onAuthenticationFailed() {
         super.onAuthenticationFailed();
         Log.i(m, "Authentication failed ");
-        char c2 = (char) (this.f11233b - 1);
-        this.f11233b = c2;
+        char c2 = (char) (this.f11234b - 1);
+        this.f11234b = c2;
         if (c2 > 0) {
-            if (this.f11232a == 3) {
+            if (this.f11233a == 3) {
                 c();
                 return;
             } else {
@@ -156,7 +156,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
             }
         }
         a();
-        this.f11233b = (char) 5;
+        this.f11234b = (char) 5;
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -170,8 +170,8 @@ public class c extends FingerprintManager.AuthenticationCallback {
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult authenticationResult) {
         super.onAuthenticationSucceeded(authenticationResult);
         Log.i(m, "Authentication Succeeded ");
-        a((Activity) this.f11234c, (Dialog) this.f11239h);
-        com.baidu.sapi2.g.a aVar = this.f11238g;
+        a((Activity) this.f11235c, (Dialog) this.f11240h);
+        com.baidu.sapi2.g.a aVar = this.f11239g;
         if (aVar != null) {
             aVar.onCall(0);
         }
@@ -179,21 +179,21 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     public void a(int i2, com.baidu.sapi2.g.a aVar) {
         Log.i(m, "startAuthenticate");
-        this.f11232a = i2;
-        this.f11238g = aVar;
-        if (Build.VERSION.SDK_INT >= 16 && this.f11237f.isCanceled()) {
-            this.f11237f = new CancellationSignal();
+        this.f11233a = i2;
+        this.f11239g = aVar;
+        if (Build.VERSION.SDK_INT >= 16 && this.f11238f.isCanceled()) {
+            this.f11238f = new CancellationSignal();
         }
-        this.f11235d.authenticate(this.f11236e, this.f11237f, 0, this, null);
+        this.f11236d.authenticate(this.f11237e, this.f11238f, 0, this, null);
         b();
     }
 
     public void a() {
         Log.i(m, "stopAuthenticate");
-        a((Activity) this.f11234c, (Dialog) this.f11239h);
+        a((Activity) this.f11235c, (Dialog) this.f11240h);
         if (Build.VERSION.SDK_INT >= 16) {
-            this.f11237f.cancel();
-            this.f11235d.authenticate(this.f11236e, this.f11237f, 0, this, null);
+            this.f11238f.cancel();
+            this.f11236d.authenticate(this.f11237e, this.f11238f, 0, this, null);
         }
     }
 

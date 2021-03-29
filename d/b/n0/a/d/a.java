@@ -5,21 +5,21 @@ import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public EncryptAlgorithm f64154a;
+    public EncryptAlgorithm f64155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64155b;
+    public String f64156b;
 
     public a(EncryptAlgorithm encryptAlgorithm, String str) {
-        this.f64154a = encryptAlgorithm;
-        this.f64155b = str;
+        this.f64155a = encryptAlgorithm;
+        this.f64156b = str;
     }
 
     public EncryptAlgorithm a() {
-        return this.f64154a;
+        return this.f64155a;
     }
 
     public String b() {
-        return this.f64155b;
+        return this.f64156b;
     }
 }

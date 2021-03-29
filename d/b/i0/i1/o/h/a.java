@@ -7,26 +7,26 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55919a;
+    public String f55920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f55920b;
+    public Rect f55921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55921c;
+    public String f55922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f55922d;
+    public Rect f55923d;
 
     public a() {
-        this.f55919a = "";
-        this.f55920b = new Rect(0, 0, 0, 0);
-        this.f55921c = "";
-        this.f55922d = new Rect(0, 0, 0, 0);
+        this.f55920a = "";
+        this.f55921b = new Rect(0, 0, 0, 0);
+        this.f55922c = "";
+        this.f55923d = new Rect(0, 0, 0, 0);
     }
 
     public static a a(String str) {
@@ -42,11 +42,11 @@ public class a {
     }
 
     public boolean b() {
-        return (TextUtils.isEmpty(this.f55921c) || this.f55922d.isEmpty()) ? false : true;
+        return (TextUtils.isEmpty(this.f55922c) || this.f55923d.isEmpty()) ? false : true;
     }
 
     public boolean c() {
-        return (TextUtils.isEmpty(this.f55919a) || this.f55920b.isEmpty()) ? false : true;
+        return (TextUtils.isEmpty(this.f55920a) || this.f55921b.isEmpty()) ? false : true;
     }
 
     public void d(String str) {
@@ -63,8 +63,8 @@ public class a {
                 if (jSONObject == null) {
                     return;
                 }
-                this.f55921c = jSONObject.optString("pic_url");
-                this.f55922d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                this.f55922c = jSONObject.optString("pic_url");
+                this.f55923d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -77,11 +77,11 @@ public class a {
         if (c()) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("pic_url", this.f55919a);
-                jSONObject.put("rect_left", this.f55920b.left);
-                jSONObject.put("rect_top", this.f55920b.top);
-                jSONObject.put("rect_right", this.f55920b.right);
-                jSONObject.put("rect_bottom", this.f55920b.bottom);
+                jSONObject.put("pic_url", this.f55920a);
+                jSONObject.put("rect_left", this.f55921b.left);
+                jSONObject.put("rect_top", this.f55921b.top);
+                jSONObject.put("rect_right", this.f55921b.right);
+                jSONObject.put("rect_bottom", this.f55921b.bottom);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -91,7 +91,7 @@ public class a {
     }
 
     public a(JSONObject jSONObject) {
-        this.f55919a = jSONObject.optString("pic_url");
-        this.f55920b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+        this.f55920a = jSONObject.optString("pic_url");
+        this.f55921b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 }

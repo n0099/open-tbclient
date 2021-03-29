@@ -7,19 +7,19 @@ import java.util.List;
 public class b extends g {
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f54203d;
+    public Object f54204d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f54204e;
+    public List<n> f54205e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f54205f;
+    public List<n> f54206f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f54206g;
+    public List<Object> f54207g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54207h;
+    public boolean f54208h;
     public boolean i;
     public int j;
     public int k;
@@ -32,7 +32,7 @@ public class b extends g {
 
     public b(d.b.i0.e.e.b bVar, int i) {
         super(bVar, i);
-        this.f54207h = false;
+        this.f54208h = false;
         this.i = false;
         this.j = 0;
         this.l = false;
@@ -43,7 +43,7 @@ public class b extends g {
     }
 
     public void B(List<n> list) {
-        this.f54205f = list;
+        this.f54206f = list;
     }
 
     public void C(String str) {
@@ -55,11 +55,11 @@ public class b extends g {
     }
 
     public void E(List<n> list) {
-        this.f54204e = list;
+        this.f54205e = list;
     }
 
     public List<Object> d() {
-        return this.f54206g;
+        return this.f54207g;
     }
 
     public int e() {
@@ -67,7 +67,7 @@ public class b extends g {
     }
 
     public Object f() {
-        return this.f54203d;
+        return this.f54204d;
     }
 
     public String g() {
@@ -87,7 +87,7 @@ public class b extends g {
     }
 
     public List<n> k() {
-        return this.f54205f;
+        return this.f54206f;
     }
 
     public String l() {
@@ -99,7 +99,7 @@ public class b extends g {
     }
 
     public List<n> n() {
-        return this.f54204e;
+        return this.f54205e;
     }
 
     public boolean o() {
@@ -107,7 +107,7 @@ public class b extends g {
     }
 
     public boolean p() {
-        return this.f54207h;
+        return this.f54208h;
     }
 
     public boolean q() {
@@ -115,7 +115,7 @@ public class b extends g {
     }
 
     public void r(List<Object> list) {
-        this.f54206g = list;
+        this.f54207g = list;
     }
 
     public void s(int i) {
@@ -123,7 +123,7 @@ public class b extends g {
     }
 
     public void t(Object obj) {
-        this.f54203d = obj;
+        this.f54204d = obj;
     }
 
     public void u(String str) {
@@ -139,7 +139,7 @@ public class b extends g {
     }
 
     public void x(boolean z) {
-        this.f54207h = z;
+        this.f54208h = z;
     }
 
     public void y(boolean z) {

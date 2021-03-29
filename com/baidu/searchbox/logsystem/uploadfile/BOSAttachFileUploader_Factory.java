@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.uploadfile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BOSAttachFileUploader_Factory {
     public static volatile BOSAttachFileUploader instance;
 

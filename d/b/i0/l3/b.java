@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f56783a = new b();
+    public static b f56784a = new b();
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -28,7 +28,7 @@ public class b {
             int size = h2.size();
             for (int i = 0; i < size; i++) {
                 d.b.i0.l3.a aVar = (d.b.i0.l3.a) h2.get(i);
-                b.this.j(aVar.f56781a, aVar.f56782b);
+                b.this.j(aVar.f56782a, aVar.f56783b);
             }
             return null;
         }
@@ -36,8 +36,8 @@ public class b {
 
     /* renamed from: d.b.i0.l3.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1337b extends BdAsyncTask<d.b.i0.l3.a, Void, Void> {
-        public C1337b() {
+    public class C1338b extends BdAsyncTask<d.b.i0.l3.a, Void, Void> {
+        public C1338b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public class b {
     }
 
     public static b d() {
-        return f56783a;
+        return f56784a;
     }
 
     public static JSONObject e(String str) {
@@ -85,7 +85,7 @@ public class b {
     }
 
     public static File[] g() {
-        File file = new File(f.f60154e);
+        File file = new File(f.f60155e);
         if (file.exists()) {
             return file.listFiles();
         }
@@ -100,11 +100,11 @@ public class b {
         }
         for (File file : g2) {
             String name = file.getName();
-            JSONObject f2 = f(file.getAbsolutePath() + f.f60150a + "kpi");
+            JSONObject f2 = f(file.getAbsolutePath() + f.f60151a + "kpi");
             if (f2 == null) {
                 d.b.i0.s1.d.b(name);
             } else {
-                JSONObject e2 = e(file.getAbsolutePath() + f.f60150a + "debug");
+                JSONObject e2 = e(file.getAbsolutePath() + f.f60151a + "debug");
                 if (e2 == null) {
                     d.b.i0.s1.d.b(name);
                 } else {
@@ -157,16 +157,16 @@ public class b {
 
     public final void c(d.b.i0.l3.a aVar) {
         try {
-            byte[] b2 = c.b(aVar.f56782b);
+            byte[] b2 = c.b(aVar.f56783b);
             c.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            d.b.i0.s1.d.b(aVar.f56781a);
+            d.b.i0.s1.d.b(aVar.f56782a);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     public void j(String str, JSONObject jSONObject) {
-        new C1337b().execute(new d.b.i0.l3.a(str, jSONObject));
+        new C1338b().execute(new d.b.i0.l3.a(str, jSONObject));
     }
 
     public void k() {

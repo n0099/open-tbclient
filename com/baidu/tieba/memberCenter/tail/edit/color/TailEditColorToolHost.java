@@ -15,16 +15,16 @@ import d.b.i0.q1.h.b.c.e;
 public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19006e;
+    public int f19007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.q1.h.b.c.a f19007f;
+    public d.b.i0.q1.h.b.c.a f19008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f19008g;
+    public c f19009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f19009h;
+    public e f19010h;
     public EditorTools i;
     public View.OnClickListener j;
 
@@ -39,15 +39,15 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
             if (bVar == null) {
                 return;
             }
-            TailEditColorToolHost.this.f19008g.c(bVar.b());
-            TailEditColorToolHost.this.f19007f.notifyDataSetChanged();
+            TailEditColorToolHost.this.f19009g.c(bVar.b());
+            TailEditColorToolHost.this.f19008f.notifyDataSetChanged();
             TailEditColorToolHost.this.i.A(new d.b.h0.w.a(26, -1, bVar.b()));
         }
     }
 
     public TailEditColorToolHost(TbPageContext<?> tbPageContext, String str) {
         super(tbPageContext.getPageActivity());
-        this.f19006e = 0;
+        this.f19007e = 0;
         this.j = new a();
         i(tbPageContext, str);
     }
@@ -67,7 +67,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
 
     @Override // d.b.h0.w.n
     public int getToolId() {
-        return this.f19006e;
+        return this.f19007e;
     }
 
     @Override // d.b.h0.w.n
@@ -77,13 +77,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
 
     public final void i(TbPageContext<?> tbPageContext, String str) {
         LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.tail_edit_color, (ViewGroup) this, true);
-        this.f19009h = new e(this);
+        this.f19010h = new e(this);
         c cVar = new c(tbPageContext);
-        this.f19008g = cVar;
+        this.f19009g = cVar;
         cVar.c(str);
-        d.b.i0.q1.h.b.c.a aVar = new d.b.i0.q1.h.b.c.a(tbPageContext, this.f19008g, this.j);
-        this.f19007f = aVar;
-        this.f19009h.a(aVar);
+        d.b.i0.q1.h.b.c.a aVar = new d.b.i0.q1.h.b.c.a(tbPageContext, this.f19009g, this.j);
+        this.f19008f = aVar;
+        this.f19010h.a(aVar);
     }
 
     @Override // d.b.h0.w.n
@@ -105,6 +105,6 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
 
     @Override // d.b.h0.w.n
     public void setToolId(int i) {
-        this.f19006e = i;
+        this.f19007e = i;
     }
 }

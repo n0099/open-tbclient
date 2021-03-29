@@ -8,44 +8,44 @@ import d.b.g0.a.j1.i;
 import d.b.g0.a.k;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f46208b = k.f45050a;
+    public static final boolean f46209b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, d.b.g0.a.j1.l.a> f46209a = new ConcurrentHashMap();
+    public Map<String, d.b.g0.a.j1.l.a> f46210a = new ConcurrentHashMap();
 
     @Override // d.b.g0.a.t.d.a
     public void a(String str) {
-        if (this.f46209a.containsKey(str)) {
+        if (this.f46210a.containsKey(str)) {
             return;
         }
-        if (f46208b) {
+        if (f46209b) {
             Log.d("Api-FirstRecorder", "markStart: " + str);
         }
         d.b.g0.a.j1.l.a aVar = new d.b.g0.a.j1.l.a();
-        this.f46209a.put(str, aVar);
+        this.f46210a.put(str, aVar);
         aVar.g(System.currentTimeMillis());
         aVar.e(str);
     }
 
     @Override // d.b.g0.a.t.d.a
     public void b(String str) {
-        d.b.g0.a.j1.l.a aVar = this.f46209a.get(str);
+        d.b.g0.a.j1.l.a aVar = this.f46210a.get(str);
         if (aVar == null) {
-            if (f46208b) {
+            if (f46209b) {
                 throw new RuntimeException(str + " markEnd before markStart");
             }
         } else if (aVar.c() > 0) {
         } else {
             aVar.f(System.currentTimeMillis());
-            if (f46208b) {
+            if (f46209b) {
                 Log.d("Api-FirstRecorder", str + " first called cost " + aVar.b());
             }
             if (TextUtils.equals(str, "request")) {
-                if (f46208b) {
+                if (f46209b) {
                     Log.d("Api-FirstRecorder", "record first request api called " + aVar.toString());
                 }
                 HybridUbcFlow o = i.o("startup");

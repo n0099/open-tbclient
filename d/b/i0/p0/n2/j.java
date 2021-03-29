@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class j extends d.b.i0.p0.e2.j {
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.p0.h2.a f58193h;
+    public d.b.i0.p0.h2.a f58194h;
     public boolean i;
     public HashMap<Integer, a0> j;
     public boolean k;
@@ -46,7 +46,7 @@ public class j extends d.b.i0.p0.e2.j {
                 return;
             }
             j.this.k = true;
-            j.this.f57477b.z2().J();
+            j.this.f57478b.z2().J();
         }
     }
 
@@ -59,10 +59,10 @@ public class j extends d.b.i0.p0.e2.j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || j.this.f57476a == null) {
+            if (customResponsedMessage == null || j.this.f57477a == null) {
                 return;
             }
-            j.this.f57476a.K1();
+            j.this.f57477a.K1();
         }
     }
 
@@ -78,13 +78,13 @@ public class j extends d.b.i0.p0.e2.j {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof a0)) {
                 return;
             }
-            j.this.f57476a.M1();
+            j.this.f57477a.M1();
             a0 a0Var = (a0) customResponsedMessage.getData();
-            s0 s0Var = a0Var.f57321b;
+            s0 s0Var = a0Var.f57322b;
             if (s0Var != null) {
-                j.this.e0(a0Var.f57320a, s0Var);
+                j.this.e0(a0Var.f57321a, s0Var);
             } else {
-                int i = a0Var.f57320a;
+                int i = a0Var.f57321a;
                 if (i != 1) {
                     j.this.e0(i, null);
                 } else {
@@ -92,7 +92,7 @@ public class j extends d.b.i0.p0.e2.j {
                     jVar.e0(i, jVar.q);
                 }
             }
-            j.this.h0(a0Var.f57320a);
+            j.this.h0(a0Var.f57321a);
         }
     }
 
@@ -109,7 +109,7 @@ public class j extends d.b.i0.p0.e2.j {
                 return;
             }
             a0 a0Var = (a0) customResponsedMessage.getData();
-            j.this.f0(a0Var.f57320a, a0Var.f57322c);
+            j.this.f0(a0Var.f57321a, a0Var.f57323c);
         }
     }
 
@@ -126,7 +126,7 @@ public class j extends d.b.i0.p0.e2.j {
                 return;
             }
             u uVar = (u) customResponsedMessage.getData();
-            j.this.g0(uVar.f58581a, uVar.f58582b);
+            j.this.g0(uVar.f58582a, uVar.f58583b);
         }
     }
 
@@ -140,10 +140,10 @@ public class j extends d.b.i0.p0.e2.j {
 
             @Override // java.lang.Runnable
             public void run() {
-                if (j.this.f57476a.e0() == null || j.this.f57481f == null || j.this.f57476a.e0().getVisibility() == 0) {
+                if (j.this.f57477a.e0() == null || j.this.f57482f == null || j.this.f57477a.e0().getVisibility() == 0) {
                     return;
                 }
-                j.this.f57481f.o();
+                j.this.f57482f.o();
             }
         }
 
@@ -153,50 +153,50 @@ public class j extends d.b.i0.p0.e2.j {
         @Override // d.b.i0.p0.s0
         public void m() {
             j.this.i = true;
-            if (j.this.f57476a == null || j.this.f57481f == null || j.this.f57479d == null || j.this.f57477b == null || !j.this.f57477b.isAdded()) {
+            if (j.this.f57477a == null || j.this.f57482f == null || j.this.f57480d == null || j.this.f57478b == null || !j.this.f57478b.isAdded()) {
                 return;
             }
-            if (j.this.f57476a != null && j.this.f57476a.g0() != null) {
-                j.this.f57476a.g0().w();
+            if (j.this.f57477a != null && j.this.f57477a.g0() != null) {
+                j.this.f57477a.g0().w();
             }
-            j.this.f57477b.n3(false);
+            j.this.f57478b.n3(false);
             d.b.b.e.m.e.a().postDelayed(new a(), 110L);
-            j.this.f57476a.k1(1, true);
+            j.this.f57477a.k1(1, true);
             if (d.b.b.e.p.j.z()) {
-                j.this.f57477b.refresh();
-                j.this.f57477b.n3(true);
+                j.this.f57478b.refresh();
+                j.this.f57478b.n3(true);
             } else {
-                j.this.f57477b.D3();
+                j.this.f57478b.D3();
             }
-            TiebaStatic.log(new StatisticItem("c11749").param("fid", j.this.f57477b.V()).param("obj_locate", "1"));
+            TiebaStatic.log(new StatisticItem("c11749").param("fid", j.this.f57478b.V()).param("obj_locate", "1"));
         }
 
         @Override // d.b.i0.p0.s0
         public void o() {
-            if (j.this.f57477b == null || !j.this.f57477b.isAdded()) {
+            if (j.this.f57478b == null || !j.this.f57478b.isAdded()) {
                 return;
             }
-            if (j.this.i && j.this.f57477b.z2() != null) {
+            if (j.this.i && j.this.f57478b.z2() != null) {
                 if (!j.this.k && !j.this.c0()) {
-                    j.this.f57477b.z2().c0();
+                    j.this.f57478b.z2().c0();
                 }
                 j.this.i = false;
             }
-            if (j.this.f58193h != null && j.this.f57477b.x0() != null && j.this.f57477b.x0().W() != null && !j.this.f57477b.x0().W().o() && j.this.f57477b.z2() != null && !j.this.f57477b.z2().T()) {
-                j.this.f58193h.b();
+            if (j.this.f58194h != null && j.this.f57478b.x0() != null && j.this.f57478b.x0().W() != null && !j.this.f57478b.x0().W().o() && j.this.f57478b.z2() != null && !j.this.f57478b.z2().T()) {
+                j.this.f58194h.b();
             }
-            if (j.this.f57476a == null || j.this.f57481f == null || j.this.f57479d == null || j.this.f58193h == null) {
+            if (j.this.f57477a == null || j.this.f57482f == null || j.this.f57480d == null || j.this.f58194h == null) {
                 return;
             }
-            j.this.f57476a.g0().n(0, 0, true, true);
-            j.this.f57477b.b3();
-            j.this.f57477b.n3(true);
+            j.this.f57477a.g0().n(0, 0, true, true);
+            j.this.f57478b.b3();
+            j.this.f57478b.n3(true);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
-            if (j.this.f57477b.x0() != null) {
-                j.this.f57477b.x0().k1(1, false);
+            if (j.this.f57478b.x0() != null) {
+                j.this.f57478b.x0().k1(1, false);
             }
-            j.this.f57479d.v0();
-            if (!TbadkCoreApplication.isLogin() || j.this.f57477b.v2().getVisibility() != 0 || ListUtils.isEmpty(j.this.f57477b.S().getThreadList())) {
+            j.this.f57480d.v0();
+            if (!TbadkCoreApplication.isLogin() || j.this.f57478b.v2().getVisibility() != 0 || ListUtils.isEmpty(j.this.f57478b.S().getThreadList())) {
             }
         }
     }
@@ -211,9 +211,9 @@ public class j extends d.b.i0.p0.e2.j {
         this.o = new d(9205410);
         this.p = new e(2921449);
         this.q = new f();
-        this.f58193h = frsFragment.t2();
+        this.f58194h = frsFragment.t2();
         this.j = new HashMap<>();
-        this.f57476a.Z0(1);
+        this.f57477a.Z0(1);
         frsFragment.registerListener(this.m);
         frsFragment.registerListener(this.n);
         frsFragment.registerListener(this.o);
@@ -226,37 +226,37 @@ public class j extends d.b.i0.p0.e2.j {
     }
 
     public final boolean c0() {
-        if (this.f57477b.S() == null || this.f57477b.S().getUserData() == null || this.f57477b.S().forumRule == null || this.f57477b.S().getForum() == null || !this.f57477b.S().getForum().getIsShowRule()) {
+        if (this.f57478b.S() == null || this.f57478b.S().getUserData() == null || this.f57478b.S().forumRule == null || this.f57478b.S().getForum() == null || !this.f57478b.S().getForum().getIsShowRule()) {
             return false;
         }
-        return this.f57477b.S().getUserData().getIs_manager() == 1 ? this.f57477b.S().forumRule.has_forum_rule.intValue() != 1 && this.f57477b.S().forumRule.audit_status.intValue() == 0 && d.b.h0.r.d0.b.i().j("key_forum_rule_first_show_frs_manager", 0) <= 0 : this.f57477b.S().forumRule.has_forum_rule.intValue() == 1 && d.b.h0.r.d0.b.i().j("key_forum_rule_first_show_frs", 0) <= 0;
+        return this.f57478b.S().getUserData().getIs_manager() == 1 ? this.f57478b.S().forumRule.has_forum_rule.intValue() != 1 && this.f57478b.S().forumRule.audit_status.intValue() == 0 && d.b.h0.r.d0.b.i().j("key_forum_rule_first_show_frs_manager", 0) <= 0 : this.f57478b.S().forumRule.has_forum_rule.intValue() == 1 && d.b.h0.r.d0.b.i().j("key_forum_rule_first_show_frs", 0) <= 0;
     }
 
     public void d0() {
-        if (this.f57476a == null) {
+        if (this.f57477a == null) {
             return;
         }
-        n nVar = this.f57478c;
-        if ((nVar instanceof FrsTabViewController) && ((FrsTabViewController) nVar).y() != null && (((FrsTabViewController) this.f57478c).y().f16653b instanceof s0)) {
-            FrsTabViewController.o y = ((FrsTabViewController) this.f57478c).y();
-            e0(y.f16652a, (s0) y.f16653b);
-            h0(y.f16652a);
+        n nVar = this.f57479c;
+        if ((nVar instanceof FrsTabViewController) && ((FrsTabViewController) nVar).y() != null && (((FrsTabViewController) this.f57479c).y().f16654b instanceof s0)) {
+            FrsTabViewController.o y = ((FrsTabViewController) this.f57479c).y();
+            e0(y.f16653a, (s0) y.f16654b);
+            h0(y.f16653a);
             return;
         }
-        this.f57476a.g1(this.q);
+        this.f57477a.g1(this.q);
     }
 
     public final void e0(int i, s0 s0Var) {
         a0 a0Var = this.j.get(Integer.valueOf(i));
         if (a0Var == null) {
             a0 a0Var2 = new a0();
-            a0Var2.f57320a = i;
-            a0Var2.f57321b = s0Var;
+            a0Var2.f57321a = i;
+            a0Var2.f57322b = s0Var;
             this.j.put(Integer.valueOf(i), a0Var2);
         } else {
-            a0Var.f57321b = s0Var;
+            a0Var.f57322b = s0Var;
         }
-        r rVar = this.f57476a;
+        r rVar = this.f57477a;
         if (rVar != null) {
             rVar.g1(s0Var);
         }
@@ -266,20 +266,20 @@ public class j extends d.b.i0.p0.e2.j {
         a0 a0Var = this.j.get(Integer.valueOf(i));
         if (a0Var == null) {
             a0 a0Var2 = new a0();
-            a0Var2.f57320a = i;
-            a0Var2.f57322c = z;
+            a0Var2.f57321a = i;
+            a0Var2.f57323c = z;
             this.j.put(Integer.valueOf(i), a0Var2);
         } else {
-            a0Var.f57322c = z;
+            a0Var.f57323c = z;
         }
-        r rVar = this.f57476a;
+        r rVar = this.f57477a;
         if (rVar != null) {
             rVar.u1(z);
         }
     }
 
     public final void g0(int i, boolean z) {
-        r rVar = this.f57476a;
+        r rVar = this.f57477a;
         if (rVar != null) {
             rVar.k1(i, z);
         }
@@ -287,14 +287,14 @@ public class j extends d.b.i0.p0.e2.j {
 
     public final void h0(int i) {
         a0 a0Var;
-        if (this.f57476a == null || (a0Var = this.j.get(Integer.valueOf(i))) == null) {
+        if (this.f57477a == null || (a0Var = this.j.get(Integer.valueOf(i))) == null) {
             return;
         }
-        this.f57476a.Z0(i);
-        this.f57476a.g1(a0Var.f57321b);
-        this.f57476a.u1(a0Var.f57322c);
-        if (a0Var.f57321b == null) {
-            this.f57476a.u1(false);
+        this.f57477a.Z0(i);
+        this.f57477a.g1(a0Var.f57322b);
+        this.f57477a.u1(a0Var.f57323c);
+        if (a0Var.f57322b == null) {
+            this.f57477a.u1(false);
         }
     }
 }

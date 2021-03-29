@@ -14,7 +14,7 @@ import d.b.b.j.e.e;
 import d.b.i0.i1.o.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends e {
     public TbPageContext m;
     public List<ICardInfo> n;
@@ -121,7 +121,7 @@ public class a extends e {
     public int getItemViewType(int i) {
         ICardInfo x = x(i);
         if (x != null) {
-            return d.b.i0.i1.o.e.f55917a.get(x.getAdapterType());
+            return d.b.i0.i1.o.e.f55918a.get(x.getAdapterType());
         }
         return 0;
     }
@@ -136,7 +136,7 @@ public class a extends e {
         ICardInfo x = x(i);
         BaseLegoCardView y = y(view, x);
         if (y != null) {
-            y.f18636e = this.w;
+            y.f18637e = this.w;
             y.c(x);
         }
         return y;
@@ -144,7 +144,7 @@ public class a extends e {
 
     @Override // d.b.b.j.e.e, android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return d.b.i0.i1.o.e.f55917a.size() + 1;
+        return d.b.i0.i1.o.e.f55918a.size() + 1;
     }
 
     @Override // d.b.b.j.e.e, android.widget.BaseAdapter, android.widget.Adapter

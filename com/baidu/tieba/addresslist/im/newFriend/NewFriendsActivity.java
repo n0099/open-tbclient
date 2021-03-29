@@ -40,17 +40,17 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.d1.g.a f14605a;
+        public final /* synthetic */ d.b.i0.d1.g.a f14606a;
 
         public a(d.b.i0.d1.g.a aVar) {
-            this.f14605a = aVar;
+            this.f14606a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.b.i0.q.e.a.b.f().b(this.f14605a.b()));
+            return Boolean.valueOf(d.b.i0.q.e.a.b.f().b(this.f14606a.b()));
         }
     }
 
@@ -58,10 +58,10 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class b implements d.b.h0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.d1.g.a f14607a;
+        public final /* synthetic */ d.b.i0.d1.g.a f14608a;
 
         public b(d.b.i0.d1.g.a aVar) {
-            this.f14607a = aVar;
+            this.f14608a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool.booleanValue()) {
-                NewFriendsActivity.this.mView.g(this.f14607a);
+                NewFriendsActivity.this.mView.g(this.f14608a);
             }
         }
     }
@@ -248,16 +248,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class n implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.d1.g.a f14620a;
+        public d.b.i0.d1.g.a f14621a;
 
         public n(d.b.i0.d1.g.a aVar) {
-            this.f14620a = aVar;
+            this.f14621a = aVar;
         }
 
         @Override // d.b.h0.r.s.b.c
         public void a(d.b.h0.r.s.b bVar, int i, View view) {
             bVar.e();
-            d.b.i0.d1.g.a aVar = this.f14620a;
+            d.b.i0.d1.g.a aVar = this.f14621a;
             if (aVar != null) {
                 NewFriendsActivity.this.deleteNewFriend(aVar);
             }

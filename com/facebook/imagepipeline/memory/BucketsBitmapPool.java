@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     public BucketsBitmapPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
         super(memoryTrimmableRegistry, poolParams, poolStatsTracker);
@@ -29,9 +29,7 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
     public Bitmap alloc(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return Bitmap.createBitmap(1, (int) Math.ceil(d2 / 2.0d), Bitmap.Config.RGB_565);
+        return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

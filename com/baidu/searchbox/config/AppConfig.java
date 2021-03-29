@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AppConfig {
     public static final String CONFIG_FILE = "searchbox_config.ini";
     public static final String DAILY_CONFIG_FILE = "daily_searchbox_config.ini";
@@ -190,8 +190,8 @@ public class AppConfig {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x0047, code lost:
         if (r2 != null) goto L15;
      */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0072 A[Catch: Exception -> 0x0075, TRY_LEAVE, TryCatch #6 {Exception -> 0x0075, blocks: (B:34:0x006d, B:36:0x0072), top: B:47:0x006d }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x006d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0072 A[Catch: Exception -> 0x0075, TRY_LEAVE, TryCatch #6 {Exception -> 0x0075, blocks: (B:34:0x006d, B:36:0x0072), top: B:45:0x006d }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x006d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

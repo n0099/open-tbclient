@@ -4,7 +4,7 @@ import com.baidu.apollon.restnet.RestNameValuePair;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AuthorizeData implements Serializable {
     public static String DELIVERY_AUTHORIZE_DATA = "delivery_authorize_data";
     public Map<String, String> mData;

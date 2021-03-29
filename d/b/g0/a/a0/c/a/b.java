@@ -3,7 +3,7 @@ package d.b.g0.a.a0.c.a;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b extends d.b.g0.a.a0.a.d.b {
     public String A;
     public String x;
@@ -31,7 +31,7 @@ public final class b extends d.b.g0.a.a0.a.d.b {
 
     @Override // d.b.g0.a.a0.b.b, d.b.g0.a.e1.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f43113g) || TextUtils.isEmpty(this.f43112f)) ? false : true;
+        return (TextUtils.isEmpty(this.f43114g) || TextUtils.isEmpty(this.f43113f)) ? false : true;
     }
 
     public boolean j() {

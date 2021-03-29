@@ -5,12 +5,12 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class v extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36164h;
+    public int f36165h;
     public int[] i;
 
     public v(com.kwad.sdk.pngencrypt.k kVar) {
         super("PLTE", kVar);
-        this.f36164h = 0;
+        this.f36165h = 0;
     }
 
     public void a(int i, int i2, int i3, int i4) {
@@ -19,11 +19,11 @@ public class v extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        b(dVar.f36139a / 3);
+        b(dVar.f36140a / 3);
         int i = 0;
         int i2 = 0;
-        while (i < this.f36164h) {
-            byte[] bArr = dVar.f36142d;
+        while (i < this.f36165h) {
+            byte[] bArr = dVar.f36143d;
             int i3 = i2 + 1;
             int i4 = i3 + 1;
             a(i, bArr[i2] & 255, bArr[i3] & 255, bArr[i4] & 255);
@@ -33,13 +33,13 @@ public class v extends aa {
     }
 
     public void b(int i) {
-        this.f36164h = i;
+        this.f36165h = i;
         if (i < 1 || i > 256) {
-            throw new PngjException("invalid pallette - nentries=" + this.f36164h);
+            throw new PngjException("invalid pallette - nentries=" + this.f36165h);
         }
         int[] iArr = this.i;
         if (iArr == null || iArr.length != i) {
-            this.i = new int[this.f36164h];
+            this.i = new int[this.f36165h];
         }
     }
 }

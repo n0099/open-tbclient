@@ -2,7 +2,7 @@ package d.b.i0.z0.g.n;
 
 import android.content.Context;
 import d.b.i.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends g {
     public c D;
 
@@ -12,7 +12,7 @@ public class b extends g {
 
     @Override // d.b.i.g, d.b.i.s0
     public d.b.i0.i2.q.a q() {
-        c cVar = new c(this.f51762f, this.m);
+        c cVar = new c(this.f51763f, this.m);
         this.D = cVar;
         cVar.setStageType("2001");
         return this.D;

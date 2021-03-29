@@ -2,26 +2,26 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2671a = -1;
+    public static int f2672a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2672b = -1;
+    public static int f2673b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2673c = -1;
+    public static int f2674c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2674d = -1;
+    public static int f2675d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f2675e = -1;
+    public static int f2676e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f2676f = -1;
+    public static int f2677f = -1;
 
     public static String a(Context context) {
         String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id");
@@ -72,11 +72,11 @@ public class PushSettings {
     }
 
     public static boolean e(Context context) {
-        return context != null && f2671a == 1;
+        return context != null && f2672a == 1;
     }
 
     public static void enableDebugMode(boolean z) {
-        f2671a = z ? 1 : 0;
+        f2672a = z ? 1 : 0;
     }
 
     public static boolean f(Context context) {
@@ -91,50 +91,50 @@ public class PushSettings {
         if (context == null) {
             return false;
         }
-        if (f2672b == -1) {
-            f2672b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+        if (f2673b == -1) {
+            f2673b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
         }
-        return f2672b == 1;
+        return f2673b == 1;
     }
 
     public static boolean h(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2674d == -1) {
-            f2674d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
+        if (f2675d == -1) {
+            f2675d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
         }
-        return f2674d == 1;
+        return f2675d == 1;
     }
 
     public static boolean i(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2675e == -1) {
-            f2675e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
+        if (f2676e == -1) {
+            f2676e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
         }
-        return f2675e == 1;
+        return f2676e == 1;
     }
 
     public static boolean j(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2676f == -1) {
-            f2676f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
+        if (f2677f == -1) {
+            f2677f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
         }
-        return f2676f == 1;
+        return f2677f == 1;
     }
 
     public static boolean k(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2673c == -1) {
-            f2673c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+        if (f2674c == -1) {
+            f2674c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
         }
-        return f2673c == 1;
+        return f2674c == 1;
     }
 
     public static void l(Context context) {

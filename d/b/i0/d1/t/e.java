@@ -10,37 +10,37 @@ import d.b.b.e.d.l;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.i0.d1.t.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f54050b = new e();
+    public static e f54051b = new e();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalSettingItemData f54051a;
+        public final /* synthetic */ PersonalSettingItemData f54052a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54052b;
+        public final /* synthetic */ String f54053b;
 
         public a(PersonalSettingItemData personalSettingItemData, String str) {
-            this.f54051a = personalSettingItemData;
-            this.f54052b = str;
+            this.f54052a = personalSettingItemData;
+            this.f54053b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            e.this.b().g(this.f54052b, OrmObject.jsonStrWithObject(this.f54051a));
+            e.this.b().g(this.f54053b, OrmObject.jsonStrWithObject(this.f54052a));
             return null;
         }
     }
 
     public static e j() {
-        return f54050b;
+        return f54051b;
     }
 
     @Override // d.b.i0.d1.t.a
@@ -60,8 +60,8 @@ public class e extends d.b.i0.d1.t.a {
             l<String> b2 = b();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.f54030a) {
-                this.f54030a.put(str, personalSettingItemData);
+            synchronized (this.f54031a) {
+                this.f54031a.put(str, personalSettingItemData);
             }
             b2.g(str, jsonStrWithObject);
         } else if (TbConfig.getDebugSwitch()) {
@@ -79,8 +79,8 @@ public class e extends d.b.i0.d1.t.a {
         String toUid = personalSettingItemData.getToUid();
         if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
             String str = myUid + "@" + toUid;
-            synchronized (this.f54030a) {
-                this.f54030a.put(str, personalSettingItemData);
+            synchronized (this.f54031a) {
+                this.f54031a.put(str, personalSettingItemData);
             }
             h0.c(new a(personalSettingItemData, str), nVar);
         } else if (TbConfig.getDebugSwitch()) {
@@ -97,8 +97,8 @@ public class e extends d.b.i0.d1.t.a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f54030a) {
-            ChatSetting chatSetting = this.f54030a.get(str3);
+        synchronized (this.f54031a) {
+            ChatSetting chatSetting = this.f54031a.get(str3);
             if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
                 personalSettingItemData = (PersonalSettingItemData) chatSetting;
             }

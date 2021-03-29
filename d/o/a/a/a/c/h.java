@@ -2,62 +2,62 @@ package d.o.a.a.a.c;
 
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66330a;
+    public String f66331a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f66331b;
+    public boolean f66332b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66332c;
+    public String f66333c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66333d;
+    public String f66334d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66334e;
+    public String f66335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66335f;
+    public String f66336f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66336g;
+    public String f66337g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66337h;
+    public String f66338h;
     public Object i;
     public boolean j;
     public String k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f66338a;
+        public String f66339a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f66339b;
+        public boolean f66340b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66340c;
+        public String f66341c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66341d;
+        public String f66342d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66342e;
+        public String f66343e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f66343f;
+        public String f66344f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f66344g;
+        public String f66345g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f66345h;
+        public String f66346h;
         public String i;
         public String j;
         public String k;
@@ -88,7 +88,7 @@ public class h implements c {
 
     @Override // d.o.a.a.a.c.c
     public String b() {
-        return this.f66330a;
+        return this.f66331a;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -98,32 +98,32 @@ public class h implements c {
 
     @Override // d.o.a.a.a.c.c
     public String d() {
-        return this.f66332c;
+        return this.f66333c;
     }
 
     @Override // d.o.a.a.a.c.c
     public String e() {
-        return this.f66333d;
+        return this.f66334d;
     }
 
     @Override // d.o.a.a.a.c.c
     public String f() {
-        return this.f66334e;
+        return this.f66335e;
     }
 
     @Override // d.o.a.a.a.c.c
     public String g() {
-        return this.f66335f;
+        return this.f66336f;
     }
 
     @Override // d.o.a.a.a.c.c
     public String h() {
-        return this.f66336g;
+        return this.f66337g;
     }
 
     @Override // d.o.a.a.a.c.c
     public String i() {
-        return this.f66337h;
+        return this.f66338h;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -138,7 +138,7 @@ public class h implements c {
 
     @Override // d.o.a.a.a.c.c
     public boolean l() {
-        return this.f66331b;
+        return this.f66332b;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -160,16 +160,16 @@ public class h implements c {
     }
 
     public h(b bVar) {
-        this.f66330a = bVar.f66338a;
-        this.f66331b = bVar.f66339b;
-        this.f66332c = bVar.f66340c;
-        this.f66333d = bVar.f66341d;
-        this.f66334e = bVar.f66342e;
-        this.f66335f = bVar.f66343f;
-        this.f66336g = bVar.f66344g;
-        String unused = bVar.f66345h;
+        this.f66331a = bVar.f66339a;
+        this.f66332b = bVar.f66340b;
+        this.f66333c = bVar.f66341c;
+        this.f66334d = bVar.f66342d;
+        this.f66335e = bVar.f66343e;
+        this.f66336f = bVar.f66344f;
+        this.f66337g = bVar.f66345g;
+        String unused = bVar.f66346h;
         String unused2 = bVar.i;
-        this.f66337h = bVar.j;
+        this.f66338h = bVar.j;
         String unused3 = bVar.k;
         this.i = bVar.l;
         this.j = bVar.m;

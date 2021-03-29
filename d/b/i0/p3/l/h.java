@@ -34,25 +34,25 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f59109a;
+    public static volatile h f59110a;
 
     /* loaded from: classes5.dex */
     public class a implements MultiAudioMixer.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public FileOutputStream f59110a;
+        public FileOutputStream f59111a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f59111b;
+        public final /* synthetic */ String f59112b;
 
         public a(h hVar, String str) throws FileNotFoundException {
-            this.f59111b = str;
-            this.f59110a = new FileOutputStream(this.f59111b);
+            this.f59112b = str;
+            this.f59111a = new FileOutputStream(this.f59112b);
         }
 
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
         public void a(byte[] bArr) throws IOException {
-            FileOutputStream fileOutputStream = this.f59110a;
+            FileOutputStream fileOutputStream = this.f59111a;
             if (fileOutputStream != null) {
                 fileOutputStream.write(bArr);
             }
@@ -61,8 +61,8 @@ public class h {
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
         public void b(int i) {
             try {
-                if (this.f59110a != null) {
-                    this.f59110a.close();
+                if (this.f59111a != null) {
+                    this.f59111a.close();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -72,8 +72,8 @@ public class h {
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
         public void c() {
             try {
-                if (this.f59110a != null) {
-                    this.f59110a.close();
+                if (this.f59111a != null) {
+                    this.f59111a.close();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -86,14 +86,14 @@ public class h {
     }
 
     public static h e() {
-        if (f59109a == null) {
+        if (f59110a == null) {
             synchronized (h.class) {
-                if (f59109a == null) {
-                    f59109a = new h();
+                if (f59110a == null) {
+                    f59110a = new h();
                 }
             }
         }
-        return f59109a;
+        return f59110a;
     }
 
     public final void a(long j, long j2, List<Track> list, List<Track> list2) throws Exception {
@@ -129,22 +129,18 @@ public class h {
                     while (i < track2.getSampleDurations().length) {
                         long j8 = j3;
                         long j9 = track2.getSampleDurations()[i];
-                        if (d5 > d4 && d5 <= d3) {
+                        int i2 = (d5 > d4 ? 1 : (d5 == d4 ? 0 : -1));
+                        if (i2 > 0 && d5 <= d3) {
                             j5 = j7;
                         }
-                        if (d5 > d4 && d5 <= d2) {
+                        if (i2 > 0 && d5 <= d2) {
                             j6 = j7;
                         }
-                        double d6 = j9;
-                        double d7 = d3;
-                        double timescale = track2.getTrackMetaData().getTimescale();
-                        Double.isNaN(d6);
-                        Double.isNaN(timescale);
                         j7++;
                         i++;
                         d4 = d5;
-                        d3 = d7;
-                        d5 = (d6 / timescale) + d5;
+                        d3 = d3;
+                        d5 = (j9 / track2.getTrackMetaData().getTimescale()) + d5;
                         j3 = j8;
                     }
                     movie.addTrack(new CroppedTrack(track2, j5, j6));
@@ -214,19 +210,15 @@ public class h {
             if (Arrays.binarySearch(track.getSyncSamples(), j) >= 0) {
                 dArr[Arrays.binarySearch(track.getSyncSamples(), j)] = d4;
             }
-            double d5 = j2;
-            double timescale = track.getTrackMetaData().getTimescale();
-            Double.isNaN(d5);
-            Double.isNaN(timescale);
-            d4 += d5 / timescale;
+            d4 += j2 / track.getTrackMetaData().getTimescale();
         }
         while (i < length) {
-            double d6 = dArr[i];
-            if (d6 > d2) {
-                return z ? d6 : d3;
+            double d5 = dArr[i];
+            if (d5 > d2) {
+                return z ? d5 : d3;
             }
             i++;
-            d3 = d6;
+            d3 = d5;
         }
         return dArr[length - 1];
     }
@@ -266,7 +258,7 @@ public class h {
                             if (!z && i2 != 0 && aVar.c()) {
                                 String str5 = str2 + "resample_" + System.currentTimeMillis();
                                 long currentTimeMillis = System.currentTimeMillis();
-                                boolean i3 = g.i(str4, str5, aVar.f59105a, d2.f59105a);
+                                boolean i3 = g.i(str4, str5, aVar.f59106a, d2.f59106a);
                                 BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                                 if (i3) {
                                     str4 = str5;
@@ -284,8 +276,8 @@ public class h {
                         a2.d(new a(this, str3));
                         a2.b(fileArr);
                         d a3 = d.a(str3);
-                        a3.d(d2.f59105a);
-                        a3.c(d2.f59106b);
+                        a3.d(d2.f59106a);
+                        a3.c(d2.f59107b);
                         a3.b(str);
                         return true;
                     } catch (Exception e2) {
@@ -313,13 +305,13 @@ public class h {
             LinkedList linkedList = new LinkedList();
             try {
                 e c2 = c(str, linkedList, null);
-                if (c2.f59098a == -1) {
-                    if (c2.f59099b == 1) {
+                if (c2.f59099a == -1) {
+                    if (c2.f59100b == 1) {
                         i = 218;
                     } else {
-                        i = c2.f59099b == 2 ? 219 : FragmentManagerImpl.ANIM_DUR;
+                        i = c2.f59100b == 2 ? 219 : FragmentManagerImpl.ANIM_DUR;
                     }
-                    return new i(i, c2.f59100c);
+                    return new i(i, c2.f59101c);
                 }
                 BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
                 j(str2, linkedList, null);
@@ -343,7 +335,7 @@ public class h {
         int i2;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             long currentTimeMillis = System.currentTimeMillis();
-            String str5 = d.b.i0.p3.c.f58889c + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
+            String str5 = d.b.i0.p3.c.f58890c + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
             new File(str5).mkdirs();
             File file = new File(str3);
             file.mkdirs();
@@ -356,25 +348,25 @@ public class h {
             LinkedList linkedList5 = new LinkedList();
             try {
                 e c2 = c(str, linkedList2, linkedList3);
-                long j = c2.f59098a;
+                long j = c2.f59099a;
                 if (j == -1) {
-                    if (c2.f59099b == 1) {
+                    if (c2.f59100b == 1) {
                         i2 = Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST;
                     } else {
-                        i2 = c2.f59099b == 2 ? 211 : 212;
+                        i2 = c2.f59100b == 2 ? 211 : 212;
                     }
-                    iVar = new i(i2, c2.f59100c);
+                    iVar = new i(i2, c2.f59101c);
                     FileHelper.deleteFileOrDir(new File(str5));
                     sb = new StringBuilder();
                 } else {
                     long b2 = b(str2, linkedList4);
                     if (b2 == -1) {
-                        if (c2.f59099b == 1) {
+                        if (c2.f59100b == 1) {
                             i = 213;
                         } else {
-                            i = c2.f59099b == 2 ? 214 : JfifUtil.MARKER_RST7;
+                            i = c2.f59100b == 2 ? 214 : JfifUtil.MARKER_RST7;
                         }
-                        iVar = new i(i, c2.f59100c);
+                        iVar = new i(i, c2.f59101c);
                         FileHelper.deleteFileOrDir(new File(str5));
                         sb = new StringBuilder();
                     } else {
@@ -455,8 +447,8 @@ public class h {
             for (int i = 0; i < list.size(); i++) {
                 try {
                     e c2 = c(list.get(i), linkedList, z ? linkedList2 : null);
-                    if (c2.f59098a != -1) {
-                        long j = c2.f59098a;
+                    if (c2.f59099a != -1) {
+                        long j = c2.f59099a;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

@@ -4,21 +4,21 @@ import android.content.Context;
 import com.baidu.apollon.beans.IBeanFactory;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class LbsPayBeanFactory implements IBeanFactory {
     public static final int BEAN_ID_AUTHORIZE_SIGN = 3;
     public static final int BEAN_ID_GET_PAY = 2;
     public static final int BEAN_ID_NEW_CASHIER = 1;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LbsPayBeanFactory f2597a = new LbsPayBeanFactory();
+        public static LbsPayBeanFactory f2598a = new LbsPayBeanFactory();
     }
 
     public static LbsPayBeanFactory getInstance() {
-        return a.f2597a;
+        return a.f2598a;
     }
 
     public LbsPayBeanFactory() {

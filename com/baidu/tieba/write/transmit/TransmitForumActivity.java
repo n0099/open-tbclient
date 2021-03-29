@@ -236,7 +236,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         }
         this.mDataList.add(new d.b.i0.u3.r.c());
         this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.b.i0.u3.r.c.f61688e, getUniqueId(), arrayList);
+        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.b.i0.u3.r.c.f61689e, getUniqueId(), arrayList);
         this.mForumAdapter.l0(this.mTransmitForumCallback);
         this.mAdapters.add(this.mForumAdapter);
         this.mAdapters.add(this.mSelectAdapter);

@@ -5,10 +5,10 @@ import java.io.IOException;
 public class i implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Integer f41645a;
+    public Integer f41646a;
 
     public i(int i) {
-        this.f41645a = Integer.valueOf(i);
+        this.f41646a = Integer.valueOf(i);
     }
 
     @Override // d.b.b.e.b.b.a.d.h
@@ -22,16 +22,16 @@ public class i implements h {
                             if (a2 != Double.class && a2 != Double.TYPE) {
                                 if (a2 != Character.class && a2 != Character.TYPE) {
                                     if (a2 == Boolean.class || a2 == Boolean.TYPE) {
-                                        return Boolean.valueOf(this.f41645a.byteValue() == 0);
+                                        return Boolean.valueOf(this.f41646a.byteValue() == 0);
                                     } else if (a2 == String.class) {
-                                        return String.valueOf(this.f41645a);
+                                        return String.valueOf(this.f41646a);
                                     } else {
                                         if (a2 == char[].class) {
-                                            return String.valueOf(this.f41645a).toCharArray();
+                                            return String.valueOf(this.f41646a).toCharArray();
                                         }
                                         if (a2 == byte[].class) {
                                             try {
-                                                return d.b.b.e.p.c.e(String.valueOf(this.f41645a), 0);
+                                                return d.b.b.e.p.c.e(String.valueOf(this.f41646a), 0);
                                             } catch (IOException e2) {
                                                 e2.printStackTrace();
                                                 return null;
@@ -40,18 +40,18 @@ public class i implements h {
                                         return null;
                                     }
                                 }
-                                return Character.valueOf((char) this.f41645a.intValue());
+                                return Character.valueOf((char) this.f41646a.intValue());
                             }
-                            return Double.valueOf(this.f41645a.doubleValue());
+                            return Double.valueOf(this.f41646a.doubleValue());
                         }
-                        return Float.valueOf(this.f41645a.floatValue());
+                        return Float.valueOf(this.f41646a.floatValue());
                     }
-                    return Long.valueOf(this.f41645a.longValue());
+                    return Long.valueOf(this.f41646a.longValue());
                 }
-                return Integer.valueOf(this.f41645a.intValue());
+                return Integer.valueOf(this.f41646a.intValue());
             }
-            return Short.valueOf(this.f41645a.shortValue());
+            return Short.valueOf(this.f41646a.shortValue());
         }
-        return Byte.valueOf(this.f41645a.byteValue());
+        return Byte.valueOf(this.f41646a.byteValue());
     }
 }

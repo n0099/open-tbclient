@@ -31,35 +31,35 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class p {
 
     /* renamed from: b  reason: collision with root package name */
-    public static SSLSocketFactory f11786b;
+    public static SSLSocketFactory f11787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f11787c = new byte[1024];
+    public static final byte[] f11788c = new byte[1024];
 
     /* renamed from: d  reason: collision with root package name */
-    public static OkHttpClient f11788d;
+    public static OkHttpClient f11789d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11789a;
+    public Context f11790a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements X509TrustManager {
 
         /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f11792b;
+        public X509TrustManager f11793b;
 
         public a(X509TrustManager x509TrustManager) {
-            this.f11792b = null;
-            this.f11792b = x509TrustManager;
+            this.f11793b = null;
+            this.f11793b = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f11792b.checkClientTrusted(x509CertificateArr, str);
+            this.f11793b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -67,7 +67,7 @@ public class p {
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.f11792b.checkServerTrusted(x509CertificateArr, str);
+                this.f11793b.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (Throwable th) {
                 d.a();
@@ -75,7 +75,7 @@ public class p {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        d.a(p.this.f11789a.getApplicationContext(), "1003121", (Map<String, Object>) hashMap, true);
+                        d.a(p.this.f11790a.getApplicationContext(), "1003121", (Map<String, Object>) hashMap, true);
                         return;
                     }
                 }
@@ -88,24 +88,24 @@ public class p {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.f11792b.getAcceptedIssuers();
+            return this.f11793b.getAcceptedIssuers();
         }
     }
 
     public p(Context context) {
-        this.f11789a = context;
+        this.f11790a = context;
     }
 
     private Request b(String str, byte[] bArr) {
         try {
             MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-            String str2 = d.h(this.f11789a)[0];
+            String str2 = d.h(this.f11790a)[0];
             Request.Builder url = new Request.Builder().url(str);
             if (bArr != null) {
                 url.post(RequestBody.create(parse, bArr));
             }
-            Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + v.a(this.f11789a) + "/3.5.7.3").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-            return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", n.a(f.b(this.f11789a))).build();
+            Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + v.a(this.f11790a) + "/3.5.7.3").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+            return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", n.a(f.b(this.f11790a))).build();
         } catch (Throwable unused) {
             d.a();
             return null;
@@ -113,13 +113,13 @@ public class p {
     }
 
     private OkHttpClient a() {
-        if (f11788d == null) {
+        if (f11789d == null) {
             synchronized (p.class) {
-                if (f11788d == null) {
+                if (f11789d == null) {
                     OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                    if (f11786b != null) {
+                    if (f11787b != null) {
                         builder.hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                        builder.sslSocketFactory(f11786b);
+                        builder.sslSocketFactory(f11787b);
                     } else {
                         SSLContext sSLContext = SSLContext.getInstance("TLS");
                         TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -127,9 +127,9 @@ public class p {
                         TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
                         if (trustManagers.length > 0 && (trustManagers[0] instanceof X509TrustManager)) {
                             sSLContext.init(null, new TrustManager[]{new a((X509TrustManager) trustManagers[0])}, new SecureRandom());
-                            f11786b = sSLContext.getSocketFactory();
+                            f11787b = sSLContext.getSocketFactory();
                             builder.hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                            builder.sslSocketFactory(f11786b);
+                            builder.sslSocketFactory(f11787b);
                         } else {
                             throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
                         }
@@ -150,11 +150,11 @@ public class p {
                             return proceed;
                         }
                     });
-                    f11788d = builder.build();
+                    f11789d = builder.build();
                 }
             }
         }
-        return f11788d;
+        return f11789d;
     }
 
     public static boolean b() {
@@ -170,7 +170,7 @@ public class p {
 
     public final String a(String str, byte[] bArr) {
         try {
-            if (r.m(this.f11789a)) {
+            if (r.m(this.f11790a)) {
                 Response execute = a().newCall(b(str, bArr)).execute();
                 int code = execute.code();
                 if (code == 200) {
@@ -187,7 +187,7 @@ public class p {
 
     public final boolean a(String str, File file) {
         try {
-            if (r.m(this.f11789a)) {
+            if (r.m(this.f11790a)) {
                 Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
                 int code = execute.code();
                 if (code == 200) {
@@ -212,9 +212,9 @@ public class p {
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f11787c);
+                int read = inputStream.read(f11788c);
                 if (read != -1) {
-                    bufferedOutputStream.write(f11787c, 0, read);
+                    bufferedOutputStream.write(f11788c, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();

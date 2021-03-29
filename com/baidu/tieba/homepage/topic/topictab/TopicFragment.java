@@ -22,17 +22,17 @@ import d.b.i0.z0.j.b.a;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopicFragment extends BaseFragment implements o0, f.g, a {
 
     /* renamed from: e  reason: collision with root package name */
-    public TopicModel f17421e;
+    public TopicModel f17422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TopicListView f17422f;
+    public TopicListView f17423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17423g = false;
+    public boolean f17424g = false;
 
     @Override // d.b.i0.p0.o0
     public void A() {
@@ -77,84 +77,84 @@ public class TopicFragment extends BaseFragment implements o0, f.g, a {
     @Override // d.b.i0.z0.j.b.a
     public void loadData() {
         if (j.z()) {
-            this.f17422f.e();
-            this.f17422f.l(false);
-            this.f17421e.s();
+            this.f17423f.e();
+            this.f17423f.l(false);
+            this.f17422e.s();
         }
     }
 
     @Override // d.b.i0.z0.j.b.a
     public void netCallback(int i, List<n> list) {
-        this.f17422f.d();
-        this.f17422f.p();
+        this.f17423f.d();
+        this.f17423f.p();
         if (i == 0 && !ListUtils.isEmpty(list)) {
-            this.f17422f.e();
-            this.f17422f.k();
-            this.f17422f.setData(list);
-            this.f17422f.n();
+            this.f17423f.e();
+            this.f17423f.k();
+            this.f17423f.setData(list);
+            this.f17423f.n();
             return;
         }
-        this.f17422f.m(false);
+        this.f17423f.m(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.f17422f.i();
+        this.f17423f.i();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f17421e.t(this);
-        this.f17421e.setUniqueId(getUniqueId());
-        this.f17422f.setPresenter(this);
-        this.f17422f.setListPullRefreshListener(this);
-        this.f17422f.setPageUniqueId(getUniqueId());
+        this.f17422e.t(this);
+        this.f17422e.setUniqueId(getUniqueId());
+        this.f17423f.setPresenter(this);
+        this.f17423f.setListPullRefreshListener(this);
+        this.f17423f.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f17422f.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f17422f.getParent()).removeView(this.f17422f);
+        if (this.f17423f.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f17423f.getParent()).removeView(this.f17423f);
         }
-        if (this.f17423g) {
-            this.f17422f.f();
-            this.f17423g = false;
+        if (this.f17424g) {
+            this.f17423f.f();
+            this.f17424g = false;
         }
-        return this.f17422f;
+        return this.f17423f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f17422f.c();
-        this.f17421e.onDestroy();
-        this.f17423g = true;
+        this.f17423f.c();
+        this.f17422e.onDestroy();
+        this.f17424g = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.f17422f.l(false);
-        this.f17421e.s();
+        this.f17423f.l(false);
+        this.f17422e.s();
     }
 
     @Override // d.b.h0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
-        this.f17421e.s();
+        this.f17422e.s();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.f17422f.setViewForeground();
+            this.f17423f.setViewForeground();
             TiebaStatic.log(new StatisticItem("c13349"));
         }
     }
 
     @Override // d.b.i0.p0.o0
     public void w() {
-        this.f17422f.j();
+        this.f17423f.j();
     }
 }

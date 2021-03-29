@@ -33,16 +33,16 @@ public class FrsRequestData extends OrmObject implements g, d {
     public String F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21315e;
+    public int f21316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21316f;
+    public boolean f21317f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21317g;
+    public String f21318g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21318h;
+    public int f21319h;
     public int k;
     public int l;
     public int m;
@@ -105,7 +105,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void I(String str) {
-        this.f21317g = str;
+        this.f21318g = str;
     }
 
     public void J(long j) {
@@ -171,8 +171,8 @@ public class FrsRequestData extends OrmObject implements g, d {
     @Override // d.b.h0.g0.b.i
     public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.kw = this.f21317g;
-        builder.pn = Integer.valueOf(this.f21318h);
+        builder.kw = this.f21318g;
+        builder.pn = Integer.valueOf(this.f21319h);
         builder.rn = Integer.valueOf(this.i);
         builder.rn_need = Integer.valueOf(this.j);
         builder.with_group = Integer.valueOf(this.k);
@@ -227,15 +227,15 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public int getPn() {
-        return this.f21318h;
+        return this.f21319h;
     }
 
     public int getUpdateType() {
-        return this.f21315e;
+        return this.f21316e;
     }
 
     public boolean isNeedCache() {
-        return this.f21316f;
+        return this.f21317f;
     }
 
     @Override // d.b.h0.g0.b.d
@@ -278,11 +278,11 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setNeedCache(boolean z) {
-        this.f21316f = z;
+        this.f21317f = z;
     }
 
     public void setPn(int i) {
-        this.f21318h = i;
+        this.f21319h = i;
     }
 
     public void setSortType(int i) {
@@ -294,7 +294,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setUpdateType(int i) {
-        this.f21315e = i;
+        this.f21316e = i;
     }
 
     public int t() {
@@ -306,7 +306,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public String v() {
-        return this.f21317g;
+        return this.f21318g;
     }
 
     public int w() {

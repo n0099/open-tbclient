@@ -20,7 +20,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
     public static final String KEY_BITRATE_MODE = "bitrate-mode";

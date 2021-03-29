@@ -17,28 +17,28 @@ import java.util.Map;
 public class NativeCPUManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8373a = "NativeCPUManager";
+    public static final String f8374a = "NativeCPUManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public CPUAdListener f8374b;
+    public CPUAdListener f8375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8375c;
+    public Context f8376c;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f8377e;
+    public a f8378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.mobads.nativecpu.a.a f8378f;
+    public com.baidu.mobads.nativecpu.a.a f8379f;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8376d = 10;
+    public int f8377d = 10;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, Object> f8379g = new HashMap();
+    public Map<String, Object> f8380g = new HashMap();
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Object> f8380h = new HashMap();
+    public Map<String, Object> f8381h = new HashMap();
 
     /* loaded from: classes2.dex */
     public interface CPUAdListener {
@@ -78,63 +78,63 @@ public class NativeCPUManager {
         @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
         public void run(IOAdEvent iOAdEvent) {
             if (IXAdEvent.AD_LOADED.equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f8374b != null) {
+                if (NativeCPUManager.this.f8375b != null) {
                     ArrayList arrayList = new ArrayList();
-                    for (Object obj : NativeCPUManager.this.f8378f.b()) {
-                        arrayList.add(new com.baidu.mobads.nativecpu.a.b(NativeCPUManager.this.f8375c, obj, NativeCPUManager.this));
+                    for (Object obj : NativeCPUManager.this.f8379f.b()) {
+                        arrayList.add(new com.baidu.mobads.nativecpu.a.b(NativeCPUManager.this.f8376c, obj, NativeCPUManager.this));
                     }
                     XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new b(this, arrayList));
                 }
             } else if (IXAdEvent.AD_ERROR.equals(iOAdEvent.getType())) {
-                NativeCPUManager.this.f8378f.a();
+                NativeCPUManager.this.f8379f.a();
                 String a2 = a(iOAdEvent);
                 int code = iOAdEvent.getCode();
-                if (NativeCPUManager.this.f8374b != null) {
+                if (NativeCPUManager.this.f8375b != null) {
                     XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new c(this, a2, code));
                 }
             } else if ("AdEmptyList".equals(iOAdEvent.getType())) {
                 String str = (String) iOAdEvent.getData().get("message");
                 int code2 = iOAdEvent.getCode();
-                if (NativeCPUManager.this.f8374b != null) {
-                    NativeCPUManager.this.f8374b.onNoAd(str, code2);
+                if (NativeCPUManager.this.f8375b != null) {
+                    NativeCPUManager.this.f8375b.onNoAd(str, code2);
                 }
             } else if ("AdUserClick".equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f8374b != null) {
-                    NativeCPUManager.this.f8374b.onAdClick();
+                if (NativeCPUManager.this.f8375b != null) {
+                    NativeCPUManager.this.f8375b.onAdClick();
                 }
             } else if ("AdStatusChange".equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f8374b != null) {
-                    NativeCPUManager.this.f8374b.onAdStatusChanged(iOAdEvent.getMessage());
+                if (NativeCPUManager.this.f8375b != null) {
+                    NativeCPUManager.this.f8375b.onAdStatusChanged(iOAdEvent.getMessage());
                 }
             } else if ("vdieoCacheSucc".equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f8374b != null) {
-                    NativeCPUManager.this.f8374b.onVideoDownloadSuccess();
+                if (NativeCPUManager.this.f8375b != null) {
+                    NativeCPUManager.this.f8375b.onVideoDownloadSuccess();
                 }
-            } else if ("vdieoCacheFailed".equals(iOAdEvent.getType()) && NativeCPUManager.this.f8374b != null) {
-                NativeCPUManager.this.f8374b.onVideoDownloadFailed();
+            } else if ("vdieoCacheFailed".equals(iOAdEvent.getType()) && NativeCPUManager.this.f8375b != null) {
+                NativeCPUManager.this.f8375b.onVideoDownloadFailed();
             }
         }
     }
 
     public NativeCPUManager(Context context, String str, CPUAdListener cPUAdListener) {
-        this.f8378f = null;
+        this.f8379f = null;
         if (context != null && !TextUtils.isEmpty(str)) {
-            this.f8374b = cPUAdListener;
-            this.f8375c = context;
-            this.f8377e = new a();
+            this.f8375b = cPUAdListener;
+            this.f8376c = context;
+            this.f8378e = new a();
             com.baidu.mobads.nativecpu.a.a aVar = new com.baidu.mobads.nativecpu.a.a(context, str);
-            this.f8378f = aVar;
-            aVar.a(this.f8377e);
+            this.f8379f = aVar;
+            aVar.a(this.f8378e);
             return;
         }
-        q.a().e(f8373a, "Init params error!");
+        q.a().e(f8374a, "Init params error!");
         if (cPUAdListener != null) {
             cPUAdListener.onAdError("Input params error.", XAdErrorCode.INTERFACE_USE_PROBLEM.getCode());
         }
     }
 
     public Map<String, Object> getLpStyleParams() {
-        return this.f8380h;
+        return this.f8381h;
     }
 
     public void loadAd(int i, int i2, boolean z) {
@@ -143,28 +143,28 @@ public class NativeCPUManager {
 
     public void setLpDarkMode(boolean z) {
         if (z) {
-            this.f8380h.put("preferscolortheme", "dark");
+            this.f8381h.put("preferscolortheme", "dark");
         } else {
-            this.f8380h.put("preferscolortheme", CPUWebAdRequestParam.LIGHT_MODE);
+            this.f8381h.put("preferscolortheme", CPUWebAdRequestParam.LIGHT_MODE);
         }
     }
 
     public void setLpFontSize(CpuLpFontSize cpuLpFontSize) {
-        this.f8380h.put("prefersfontsize", cpuLpFontSize.getValue());
+        this.f8381h.put("prefersfontsize", cpuLpFontSize.getValue());
     }
 
     public void setLpStyleParam(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f8380h.put(str, str2);
+        this.f8381h.put(str, str2);
     }
 
     public void setPageSize(int i) {
         if (i > 0 && i <= 20) {
-            this.f8376d = i;
+            this.f8377d = i;
         } else {
-            q.a().e(f8373a, "Input page size is wrong which should be in (0,20]!");
+            q.a().e(f8374a, "Input page size is wrong which should be in (0,20]!");
         }
     }
 
@@ -172,12 +172,12 @@ public class NativeCPUManager {
         if (cPUAdRequest == null || cPUAdRequest.getExtras() == null) {
             return;
         }
-        this.f8379g.clear();
-        this.f8379g.putAll(cPUAdRequest.getExtras());
+        this.f8380g.clear();
+        this.f8380g.putAll(cPUAdRequest.getExtras());
     }
 
     public void setRequestTimeoutMillis(int i) {
-        com.baidu.mobads.nativecpu.a.a aVar = this.f8378f;
+        com.baidu.mobads.nativecpu.a.a aVar = this.f8379f;
         if (aVar != null) {
             aVar.a(i);
         }
@@ -185,13 +185,13 @@ public class NativeCPUManager {
 
     private void a(int i, int[] iArr, boolean z) {
         if (i > 0 && iArr != null) {
-            com.baidu.mobads.nativecpu.a.a aVar = this.f8378f;
+            com.baidu.mobads.nativecpu.a.a aVar = this.f8379f;
             if (aVar != null) {
-                aVar.a(i, this.f8376d, iArr, z, this.f8379g);
+                aVar.a(i, this.f8377d, iArr, z, this.f8380g);
                 return;
             }
             return;
         }
-        q.a().e(f8373a, "LoadAd with terrible params!");
+        q.a().e(f8374a, "LoadAd with terrible params!");
     }
 }

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CloudControlManager {
     public static final String KEY_SP_CLOUDCONTROL = "cloudControlCCS117";
     public static final String TAG = "CloudControlManager";

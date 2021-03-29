@@ -58,19 +58,19 @@ import org.json.JSONObject;
 public class EnterForumDelegateStatic extends d.b.h0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.b.b.e.g.c f15390a;
+    public static d.b.b.e.g.c f15391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static EnterForumModel f15391b;
+    public static EnterForumModel f15392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static EnterForumAdModel f15392c;
+    public static EnterForumAdModel f15393c;
 
     /* loaded from: classes4.dex */
     public static class a implements EnterForumModel.f {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
         public void a(EnterForumModel.e eVar) {
-            d.b.i0.i0.d.g e2 = eVar.f15483d.e();
+            d.b.i0.i0.d.g e2 = eVar.f15484d.e();
             ArrayList arrayList = new ArrayList();
             Iterator<d.b.i0.i0.d.f> it = e2.b().iterator();
             while (it.hasNext()) {
@@ -97,12 +97,12 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = responsedMessage instanceof forumRecommendSocketResponseMessage;
-            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumDelegateStatic.f15391b.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumDelegateStatic.f15392b.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (z) {
-                    EnterForumDelegateStatic.f15391b.J((forumRecommendSocketResponseMessage) responsedMessage);
+                    EnterForumDelegateStatic.f15392b.J((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    EnterForumDelegateStatic.f15391b.I((forumRecommendHttpResponseMessage) responsedMessage);
+                    EnterForumDelegateStatic.f15392b.I((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -119,9 +119,9 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                 if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                    EnterForumDelegateStatic.f15391b.C(true);
+                    EnterForumDelegateStatic.f15392b.C(true);
                 } else {
-                    EnterForumDelegateStatic.f15391b.D(true);
+                    EnterForumDelegateStatic.f15392b.D(true);
                 }
             }
         }
@@ -180,13 +180,13 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
             }
             EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                EnterForumDelegateStatic.f15392c.y();
+                EnterForumDelegateStatic.f15393c.y();
             }
             ((d.b.h0.e0.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((d.b.h0.e0.d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f50154a.isAdded()) {
+            if (((d.b.h0.e0.d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) == null || fragmentTabStructure.f50155a.isAdded()) {
                 return;
             }
-            fragmentTabStructure.f50154a.setArguments(new Bundle());
+            fragmentTabStructure.f50155a.setArguments(new Bundle());
         }
     }
 
@@ -197,15 +197,15 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f15393e;
+            public final /* synthetic */ CustomResponsedMessage f15394e;
 
             public a(i iVar, CustomResponsedMessage customResponsedMessage) {
-                this.f15393e = customResponsedMessage;
+                this.f15394e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                EnterForumDelegateStatic.f((Activity) this.f15393e.getData());
+                EnterForumDelegateStatic.f((Activity) this.f15394e.getData());
             }
         }
 
@@ -271,10 +271,10 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
     public static class m implements d.b.h0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f15394a;
+        public final /* synthetic */ Activity f15395a;
 
         public m(Activity activity) {
-            this.f15394a = activity;
+            this.f15395a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,7 +282,7 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool.booleanValue()) {
-                EnterForumDelegateStatic.s(this.f15394a);
+                EnterForumDelegateStatic.s(this.f15395a);
             }
         }
     }
@@ -291,8 +291,8 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
     public static class n implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            if (EnterForumDelegateStatic.f15390a != null) {
-                EnterForumDelegateStatic.f15390a.d();
+            if (EnterForumDelegateStatic.f15391a != null) {
+                EnterForumDelegateStatic.f15391a.d();
             }
         }
     }
@@ -301,22 +301,22 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
     public static class o implements d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f15395a;
+        public final /* synthetic */ Handler f15396a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Runnable f15396b;
+        public final /* synthetic */ Runnable f15397b;
 
         public o(Handler handler, Runnable runnable) {
-            this.f15395a = handler;
-            this.f15396b = runnable;
+            this.f15396a = handler;
+            this.f15397b = runnable;
         }
 
         @Override // d.b.b.e.g.d.a
         public void onDismiss() {
             d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
             i.s("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), true);
-            d.b.b.e.g.c unused = EnterForumDelegateStatic.f15390a = null;
-            this.f15395a.removeCallbacks(this.f15396b);
+            d.b.b.e.g.c unused = EnterForumDelegateStatic.f15391a = null;
+            this.f15396a.removeCallbacks(this.f15397b);
         }
 
         @Override // d.b.b.e.g.d.a
@@ -328,7 +328,7 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
     public static class p implements d.b.b.e.g.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f15397a;
+        public final /* synthetic */ Activity f15398a;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -337,12 +337,12 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EnterForumDelegateStatic.f15390a.d();
+                EnterForumDelegateStatic.f15391a.d();
             }
         }
 
         public p(Activity activity) {
-            this.f15397a = activity;
+            this.f15398a = activity;
         }
 
         @Override // d.b.b.e.g.b
@@ -352,7 +352,7 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
 
         @Override // d.b.b.e.g.b
         public View b(LayoutInflater layoutInflater) {
-            BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.f15397a, R.layout.enter_forum_ufan_tip, null);
+            BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.f15398a, R.layout.enter_forum_ufan_tip, null);
             TextView textView = (TextView) bubbleLayout.findViewById(R.id.enter_forum_ufan_guide_tv);
             textView.setOnClickListener(new a(this));
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
@@ -367,19 +367,19 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
 
         @Override // d.b.b.e.g.b
         public int getXOffset() {
-            if (d.b.b.e.p.l.h(this.f15397a) > 0.0f) {
-                return (int) ((this.f15397a.getResources().getDimensionPixelSize(R.dimen.ds52) * 2) / d.b.b.e.p.l.h(this.f15397a));
+            if (d.b.b.e.p.l.h(this.f15398a) > 0.0f) {
+                return (int) ((this.f15398a.getResources().getDimensionPixelSize(R.dimen.ds52) * 2) / d.b.b.e.p.l.h(this.f15398a));
             }
-            return this.f15397a.getResources().getDimensionPixelSize(R.dimen.ds52);
+            return this.f15398a.getResources().getDimensionPixelSize(R.dimen.ds52);
         }
 
         @Override // d.b.b.e.g.b
         public int getYOffset() {
-            int dimensionPixelSize = this.f15397a.getResources().getDimensionPixelSize(R.dimen.ds46) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            if (UtilHelper.getVirtualBarHeight(this.f15397a) > 0 || MenuKeyUtils.hasSmartBar()) {
-                dimensionPixelSize -= d.b.b.e.p.l.g(this.f15397a, R.dimen.ds20);
+            int dimensionPixelSize = this.f15398a.getResources().getDimensionPixelSize(R.dimen.ds46) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            if (UtilHelper.getVirtualBarHeight(this.f15398a) > 0 || MenuKeyUtils.hasSmartBar()) {
+                dimensionPixelSize -= d.b.b.e.p.l.g(this.f15398a, R.dimen.ds20);
             }
-            return d.b.b.e.p.l.h(this.f15397a) > 0.0f ? (int) ((dimensionPixelSize * 3) / d.b.b.e.p.l.h(this.f15397a)) : dimensionPixelSize;
+            return d.b.b.e.p.l.h(this.f15398a) > 0.0f ? (int) ((dimensionPixelSize * 3) / d.b.b.e.p.l.h(this.f15398a)) : dimensionPixelSize;
         }
     }
 
@@ -437,14 +437,14 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
 
     public static void k() {
         d.b.i0.c3.j0.c.d();
-        if (f15391b == null) {
+        if (f15392b == null) {
             EnterForumModel enterForumModel = new EnterForumModel(null);
-            f15391b = enterForumModel;
+            f15392b = enterForumModel;
             enterForumModel.P(new a());
         }
-        if (f15392c == null) {
+        if (f15393c == null) {
             EnterForumAdModel enterForumAdModel = new EnterForumAdModel();
-            f15392c = enterForumAdModel;
+            f15393c = enterForumAdModel;
             enterForumAdModel.setLoadDataCallBack(new b());
         }
         MessageManager.getInstance().registerListener(new c(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011));
@@ -491,7 +491,7 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
     }
 
     public static void s(Activity activity) {
-        d.b.b.e.g.c cVar = f15390a;
+        d.b.b.e.g.c cVar = f15391a;
         if (cVar != null) {
             cVar.d();
         }
@@ -505,7 +505,7 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
         dVar.i(false);
         dVar.a(new p(activity));
         d.b.b.e.g.c b2 = dVar.b();
-        f15390a = b2;
+        f15391a = b2;
         b2.n(activity);
         handler.postDelayed(nVar, 5000L);
     }
@@ -513,11 +513,11 @@ public class EnterForumDelegateStatic extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public d.b.h0.e0.c createFragmentTabStructure() {
         d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-        cVar.f50154a = new EnterForumTabFragment();
-        cVar.f50158e = 1;
-        cVar.f50155b = R.string.enter_forum;
-        cVar.f50161h = d.b.h0.e0.c.k;
-        cVar.f50159f = R.raw.lottie_tab_forum;
+        cVar.f50155a = new EnterForumTabFragment();
+        cVar.f50159e = 1;
+        cVar.f50156b = R.string.enter_forum;
+        cVar.f50162h = d.b.h0.e0.c.k;
+        cVar.f50160f = R.raw.lottie_tab_forum;
         return cVar;
     }
 

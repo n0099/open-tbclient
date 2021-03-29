@@ -5,7 +5,7 @@ import com.baidu.wallet.api.Constants;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CashierData implements Serializable {
     public static final String CUSTOMER_ID = "customerId";
     public static final String DEFAULT_RES_PAGE = "defaultResPage";

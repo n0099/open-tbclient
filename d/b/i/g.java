@@ -1,7 +1,7 @@
 package d.b.i;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g extends s0 {
     public boolean C;
 
@@ -12,7 +12,7 @@ public class g extends s0 {
 
     @Override // d.b.i.s0
     public d.b.i0.i2.q.a q() {
-        return new d.b.i0.i2.q.b(this.f51762f, this.m, this.C);
+        return new d.b.i0.i2.q.b(this.f51763f, this.m, this.C);
     }
 
     public g(Context context, boolean z) {

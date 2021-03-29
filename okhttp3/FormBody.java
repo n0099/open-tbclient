@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class FormBody extends RequestBody {
     public static final MediaType CONTENT_TYPE = MediaType.get("application/x-www-form-urlencoded");
     public final List<String> encodedNames;

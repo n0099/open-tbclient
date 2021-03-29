@@ -8,7 +8,7 @@ import com.xiaomi.push.service.XMPushService;
 public final class v extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f41065a;
+    public final /* synthetic */ ib f41066a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f975a;
@@ -20,7 +20,7 @@ public final class v extends XMPushService.i {
     public v(int i, XMPushService xMPushService, ib ibVar, String str) {
         super(i);
         this.f975a = xMPushService;
-        this.f41065a = ibVar;
+        this.f41066a = ibVar;
         this.f976a = str;
     }
 
@@ -32,7 +32,7 @@ public final class v extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ib a2 = q.a((Context) this.f975a, this.f41065a);
+            ib a2 = q.a((Context) this.f975a, this.f41066a);
             a2.m431a().a("absent_target_package", this.f976a);
             y.a(this.f975a, a2);
         } catch (fw e2) {

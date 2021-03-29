@@ -27,10 +27,7 @@ public final class Constants {
         double sqrt2 = Math.sqrt(sqrt);
         taylor_n_bound = sqrt2;
         double d2 = 1;
-        double d3 = taylor_2_bound;
-        Double.isNaN(d2);
-        upper_taylor_2_bound = d2 / d3;
-        Double.isNaN(d2);
+        upper_taylor_2_bound = d2 / taylor_2_bound;
         upper_taylor_n_bound = d2 / sqrt2;
     }
 }

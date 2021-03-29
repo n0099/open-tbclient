@@ -50,23 +50,23 @@ public class FlutterEnterForumDelegateStatic extends b {
     public c createFragmentTabStructure() {
         c cVar = new c();
         HashMap hashMap = new HashMap();
-        hashMap.put("tabIndex", Integer.valueOf(d.b.h0.r.a0.b.f50415c));
+        hashMap.put("tabIndex", Integer.valueOf(d.b.h0.r.a0.b.f50416c));
         FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
         newEngineFragmentBuilder.params(hashMap);
         newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_ENTER_FORUM);
-        newEngineFragmentBuilder.isTabHost(d.b.h0.r.a0.b.f50414b != 1);
+        newEngineFragmentBuilder.isTabHost(d.b.h0.r.a0.b.f50415b != 1);
         TbFlutterFragment tbFlutterFragment = (TbFlutterFragment) newEngineFragmentBuilder.build();
-        cVar.f50154a = tbFlutterFragment;
-        if (d.b.h0.r.a0.b.f50415c == d.b.h0.r.a0.b.f50417e) {
-            d.b.h0.r.a0.b.f50415c = d.b.h0.r.a0.b.f50416d;
+        cVar.f50155a = tbFlutterFragment;
+        if (d.b.h0.r.a0.b.f50416c == d.b.h0.r.a0.b.f50418e) {
+            d.b.h0.r.a0.b.f50416c = d.b.h0.r.a0.b.f50417d;
             tbFlutterFragment.removeSplashDelay(1000L);
             tbFlutterFragment.setAutoPlayWhenInit(true);
         }
-        cVar.f50158e = 1;
+        cVar.f50159e = 1;
         Resources b2 = h.a().b();
-        cVar.f50155b = b2.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
-        cVar.f50159f = b2.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.f50161h = c.l;
+        cVar.f50156b = b2.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
+        cVar.f50160f = b2.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
+        cVar.f50162h = c.l;
         return cVar;
     }
 
@@ -75,9 +75,9 @@ public class FlutterEnterForumDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13960f = this.mIndicator;
-        aVar.f13957c = l.e(context, 10.0f);
-        aVar.f13955a = this.tipView;
+        aVar.f13961f = this.mIndicator;
+        aVar.f13958c = l.e(context, 10.0f);
+        aVar.f13956a = this.tipView;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
         boolean g2 = d.b.h0.r.d0.b.i().g("key_feedback_tip_tab_show", false);
         if (!this.isNew.booleanValue() && !g2) {

@@ -6,7 +6,7 @@ public class t extends d.b.g0.p.i {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final t f49323a = new t();
+        public static final t f49324a = new t();
     }
 
     public t() {
@@ -14,6 +14,6 @@ public class t extends d.b.g0.p.i {
     }
 
     public static t f() {
-        return a.f49323a;
+        return a.f49324a;
     }
 }

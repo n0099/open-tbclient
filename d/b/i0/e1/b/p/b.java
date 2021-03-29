@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.b.j.e.w;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<a, CardViewHolder<c>> {
     public TbPageContext<?> m;
     public b0 n;

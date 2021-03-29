@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LokiTrackUISaver {
     public static final char SEPERATOR_ENTER = '\n';
     public static final String TAG = "LokiTrackUISaver";

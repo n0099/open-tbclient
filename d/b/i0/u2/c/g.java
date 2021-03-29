@@ -38,28 +38,28 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     public MsgSettingItemView K;
 
     /* renamed from: a  reason: collision with root package name */
-    public MsgSettingItemView f61370a;
+    public MsgSettingItemView f61371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f61371b;
+    public LinearLayout f61372b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MsgSettingItemView f61372c;
+    public MsgSettingItemView f61373c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MsgSettingItemView f61373d;
+    public MsgSettingItemView f61374d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MsgSettingItemView f61374e;
+    public MsgSettingItemView f61375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MsgSettingItemView f61375f;
+    public MsgSettingItemView f61376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MsgSettingItemView f61376g;
+    public MsgSettingItemView f61377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MsgSettingItemView f61377h;
+    public MsgSettingItemView f61378h;
     public MsgSettingItemView i;
     public MsgSettingItemView j;
     public MsgSettingItemView k;
@@ -140,7 +140,7 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public BdSwitchView J() {
-        return this.f61372c.getSwitchView();
+        return this.f61373c.getSwitchView();
     }
 
     public View K() {
@@ -156,7 +156,7 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public BdSwitchView O() {
-        return this.f61373d.getSwitchView();
+        return this.f61374d.getSwitchView();
     }
 
     public void P(MsgRemindActivity msgRemindActivity) {
@@ -198,12 +198,12 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
 
     public final void S(MsgRemindActivity msgRemindActivity) {
         this.u.setOnClickListener(msgRemindActivity);
-        this.f61372c.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.f61374e.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.f61373d.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.f61375f.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.f61376g.setOnSwitchStateChangeListener(msgRemindActivity);
-        this.f61377h.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.f61373c.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.f61375e.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.f61374d.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.f61376f.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.f61377g.setOnSwitchStateChangeListener(msgRemindActivity);
+        this.f61378h.setOnSwitchStateChangeListener(msgRemindActivity);
         this.i.setOnSwitchStateChangeListener(msgRemindActivity);
         this.j.setOnSwitchStateChangeListener(msgRemindActivity);
         this.k.setOnSwitchStateChangeListener(msgRemindActivity);
@@ -219,12 +219,12 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public final void T() {
-        this.f61372c.setSwitchStateNoCallback(d.b.h0.s.d.d.d().t());
-        this.f61373d.setSwitchStateNoCallback(d.b.h0.s.d.d.d().w());
-        this.f61374e.setSwitchStateNoCallback(d.b.h0.s.d.d.d().o());
-        this.f61375f.setSwitchStateNoCallback(d.b.h0.s.d.d.d().r());
-        this.f61376g.setSwitchStateNoCallback(d.b.h0.s.d.d.d().p());
-        this.f61377h.setSwitchStateNoCallback(d.b.h0.s.d.d.d().n());
+        this.f61373c.setSwitchStateNoCallback(d.b.h0.s.d.d.d().t());
+        this.f61374d.setSwitchStateNoCallback(d.b.h0.s.d.d.d().w());
+        this.f61375e.setSwitchStateNoCallback(d.b.h0.s.d.d.d().o());
+        this.f61376f.setSwitchStateNoCallback(d.b.h0.s.d.d.d().r());
+        this.f61377g.setSwitchStateNoCallback(d.b.h0.s.d.d.d().p());
+        this.f61378h.setSwitchStateNoCallback(d.b.h0.s.d.d.d().n());
     }
 
     public final void U() {
@@ -282,30 +282,30 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
         this.v = (LinearLayout) msgRemindActivity.findViewById(R.id.front_container);
         this.w = (LinearLayout) msgRemindActivity.findViewById(R.id.back_container);
         MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.receive_message_swtich);
-        this.f61370a = msgSettingItemView;
+        this.f61371a = msgSettingItemView;
         msgSettingItemView.setText(R.string.receive_msg_text);
-        this.f61370a.setLineVisibility(false);
-        this.f61371b = (LinearLayout) msgRemindActivity.findViewById(R.id.receive_message_container);
+        this.f61371a.setLineVisibility(false);
+        this.f61372b = (LinearLayout) msgRemindActivity.findViewById(R.id.receive_message_container);
         MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.reply_check_box);
-        this.f61372c = msgSettingItemView2;
+        this.f61373c = msgSettingItemView2;
         msgSettingItemView2.setText(R.string.reply);
         MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.zan_check_box);
-        this.f61373d = msgSettingItemView3;
+        this.f61374d = msgSettingItemView3;
         msgSettingItemView3.setVisibility(0);
-        this.f61373d.setText(R.string.action_praise_default);
+        this.f61374d.setText(R.string.action_praise_default);
         MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.at_me_check_box);
-        this.f61374e = msgSettingItemView4;
+        this.f61375e = msgSettingItemView4;
         msgSettingItemView4.setText(R.string.mention_atme);
         MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.new_fans_swtich);
-        this.f61375f = msgSettingItemView5;
+        this.f61376f = msgSettingItemView5;
         msgSettingItemView5.setText(R.string.new_fans);
         MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.chat_msg_swtich);
-        this.f61376g = msgSettingItemView6;
+        this.f61377g = msgSettingItemView6;
         msgSettingItemView6.setText(R.string.chat_msg_text);
         MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.group_chat_swtich);
-        this.f61377h = msgSettingItemView7;
+        this.f61378h = msgSettingItemView7;
         msgSettingItemView7.setLineVisibility(false);
-        this.f61377h.setText(R.string.group_chat_text);
+        this.f61378h.setText(R.string.group_chat_text);
         MsgSettingItemView msgSettingItemView8 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.screen_lock_swtich);
         this.i = msgSettingItemView8;
         msgSettingItemView8.setText(R.string.remind_screen_lock);
@@ -400,8 +400,8 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
         if (currentAccount == null || currentAccount.length() <= 0) {
             this.p.setVisibility(8);
             this.q.setVisibility(8);
-            this.f61370a.setVisibility(8);
-            this.f61371b.setVisibility(8);
+            this.f61371a.setVisibility(8);
+            this.f61372b.setVisibility(8);
             this.m.setVisibility(8);
             this.n.setVisibility(8);
             this.j.setVisibility(8);
@@ -412,25 +412,25 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public final void f() {
-        this.f61376g.setLineVisibility(TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class));
+        this.f61377g.setLineVisibility(TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class));
     }
 
     public final void f0(boolean z) {
         if (z) {
-            this.f61372c.getSwitchView().setEnabled(true);
-            this.f61373d.getSwitchView().setEnabled(true);
-            this.f61375f.getSwitchView().setEnabled(true);
-            this.f61374e.getSwitchView().setEnabled(true);
+            this.f61373c.getSwitchView().setEnabled(true);
+            this.f61374d.getSwitchView().setEnabled(true);
+            this.f61376f.getSwitchView().setEnabled(true);
+            this.f61375e.getSwitchView().setEnabled(true);
             this.H.getSwitchView().setEnabled(true);
             this.I.getSwitchView().setEnabled(true);
             this.J.getSwitchView().setEnabled(true);
             this.K.getSwitchView().setEnabled(true);
             this.m.getSwitchView().setEnabled(true);
             this.p.getSwitchView().setEnabled(true);
-            this.f61372c.getSwitchView().setAlpha(1.0f);
-            this.f61373d.getSwitchView().setAlpha(1.0f);
-            this.f61375f.getSwitchView().setAlpha(1.0f);
-            this.f61374e.getSwitchView().setAlpha(1.0f);
+            this.f61373c.getSwitchView().setAlpha(1.0f);
+            this.f61374d.getSwitchView().setAlpha(1.0f);
+            this.f61376f.getSwitchView().setAlpha(1.0f);
+            this.f61375e.getSwitchView().setAlpha(1.0f);
             this.H.getSwitchView().setAlpha(1.0f);
             this.I.getSwitchView().setAlpha(1.0f);
             this.J.getSwitchView().setAlpha(1.0f);
@@ -439,20 +439,20 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
             this.p.getSwitchView().setAlpha(1.0f);
             return;
         }
-        this.f61372c.getSwitchView().setEnabled(false);
-        this.f61373d.getSwitchView().setEnabled(false);
-        this.f61375f.getSwitchView().setEnabled(false);
-        this.f61374e.getSwitchView().setEnabled(false);
+        this.f61373c.getSwitchView().setEnabled(false);
+        this.f61374d.getSwitchView().setEnabled(false);
+        this.f61376f.getSwitchView().setEnabled(false);
+        this.f61375e.getSwitchView().setEnabled(false);
         this.H.getSwitchView().setEnabled(false);
         this.I.getSwitchView().setEnabled(false);
         this.J.getSwitchView().setEnabled(false);
         this.K.getSwitchView().setEnabled(false);
         this.m.getSwitchView().setEnabled(false);
         this.p.getSwitchView().setEnabled(false);
-        this.f61372c.getSwitchView().setAlpha(0.3f);
-        this.f61373d.getSwitchView().setAlpha(0.3f);
-        this.f61375f.getSwitchView().setAlpha(0.3f);
-        this.f61374e.getSwitchView().setAlpha(0.3f);
+        this.f61373c.getSwitchView().setAlpha(0.3f);
+        this.f61374d.getSwitchView().setAlpha(0.3f);
+        this.f61376f.getSwitchView().setAlpha(0.3f);
+        this.f61375e.getSwitchView().setAlpha(0.3f);
         this.H.getSwitchView().setAlpha(0.3f);
         this.I.getSwitchView().setAlpha(0.3f);
         this.J.getSwitchView().setAlpha(0.3f);
@@ -515,7 +515,7 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public BdSwitchView l() {
-        return this.f61374e.getSwitchView();
+        return this.f61375e.getSwitchView();
     }
 
     public View m() {
@@ -534,7 +534,7 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public BdSwitchView n() {
-        return this.f61376g.getSwitchView();
+        return this.f61377g.getSwitchView();
     }
 
     public void n0(boolean z) {
@@ -557,13 +557,13 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
         this.C.getLayoutMode().k(i == 1);
         this.C.getLayoutMode().j(this.s);
         this.t.onChangeSkinType(this.C.getPageContext(), i);
-        this.f61370a.c(this.C.getPageContext(), i);
-        this.f61372c.c(this.C.getPageContext(), i);
-        this.f61373d.c(this.C.getPageContext(), i);
-        this.f61374e.c(this.C.getPageContext(), i);
-        this.f61375f.c(this.C.getPageContext(), i);
-        this.f61376g.c(this.C.getPageContext(), i);
-        this.f61377h.c(this.C.getPageContext(), i);
+        this.f61371a.c(this.C.getPageContext(), i);
+        this.f61373c.c(this.C.getPageContext(), i);
+        this.f61374d.c(this.C.getPageContext(), i);
+        this.f61375e.c(this.C.getPageContext(), i);
+        this.f61376f.c(this.C.getPageContext(), i);
+        this.f61377g.c(this.C.getPageContext(), i);
+        this.f61378h.c(this.C.getPageContext(), i);
         this.i.c(this.C.getPageContext(), i);
         this.j.c(this.C.getPageContext(), i);
         this.k.c(this.C.getPageContext(), i);
@@ -598,7 +598,7 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public BdSwitchView r() {
-        return this.f61377h.getSwitchView();
+        return this.f61378h.getSwitchView();
     }
 
     public void r0() {
@@ -633,19 +633,19 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public BdSwitchView s() {
-        return this.f61370a.getSwitchView();
+        return this.f61371a.getSwitchView();
     }
 
     public void s0() {
-        this.f61374e.setOnSwitchStateChangeListener(null);
-        this.f61374e.setSwitchStateNoCallback(d.b.h0.s.d.d.d().o());
-        this.f61374e.setOnSwitchStateChangeListener(this.C);
+        this.f61375e.setOnSwitchStateChangeListener(null);
+        this.f61375e.setSwitchStateNoCallback(d.b.h0.s.d.d.d().o());
+        this.f61375e.setOnSwitchStateChangeListener(this.C);
     }
 
     public void t0() {
-        this.f61376g.setOnSwitchStateChangeListener(null);
-        this.f61376g.setSwitchStateNoCallback(d.b.h0.s.d.d.d().p());
-        this.f61376g.setOnSwitchStateChangeListener(this.C);
+        this.f61377g.setOnSwitchStateChangeListener(null);
+        this.f61377g.setSwitchStateNoCallback(d.b.h0.s.d.d.d().p());
+        this.f61377g.setOnSwitchStateChangeListener(this.C);
     }
 
     public TbSettingTextTipView u() {
@@ -653,9 +653,9 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public void u0() {
-        this.f61377h.setOnSwitchStateChangeListener(null);
-        this.f61377h.setSwitchStateNoCallback(d.b.h0.s.d.d.d().n());
-        this.f61377h.setOnSwitchStateChangeListener(this.C);
+        this.f61378h.setOnSwitchStateChangeListener(null);
+        this.f61378h.setSwitchStateNoCallback(d.b.h0.s.d.d.d().n());
+        this.f61378h.setOnSwitchStateChangeListener(this.C);
     }
 
     public TextView v() {
@@ -663,19 +663,19 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public void v0() {
-        this.f61375f.setOnSwitchStateChangeListener(null);
-        this.f61375f.setSwitchStateNoCallback(d.b.h0.s.d.d.d().r());
-        this.f61375f.setOnSwitchStateChangeListener(this.C);
+        this.f61376f.setOnSwitchStateChangeListener(null);
+        this.f61376f.setSwitchStateNoCallback(d.b.h0.s.d.d.d().r());
+        this.f61376f.setOnSwitchStateChangeListener(this.C);
     }
 
     public BdSwitchView w() {
-        return this.f61375f.getSwitchView();
+        return this.f61376f.getSwitchView();
     }
 
     public void w0() {
-        this.f61372c.setOnSwitchStateChangeListener(null);
-        this.f61372c.setSwitchStateNoCallback(d.b.h0.s.d.d.d().t());
-        this.f61372c.setOnSwitchStateChangeListener(this.C);
+        this.f61373c.setOnSwitchStateChangeListener(null);
+        this.f61373c.setSwitchStateNoCallback(d.b.h0.s.d.d.d().t());
+        this.f61373c.setOnSwitchStateChangeListener(this.C);
     }
 
     public LinearLayout x() {
@@ -683,9 +683,9 @@ public class g extends d.b.b.a.d<MsgRemindActivity> {
     }
 
     public void x0() {
-        this.f61373d.setOnSwitchStateChangeListener(null);
-        this.f61373d.setSwitchStateNoCallback(d.b.h0.s.d.d.d().w());
-        this.f61373d.setOnSwitchStateChangeListener(this.C);
+        this.f61374d.setOnSwitchStateChangeListener(null);
+        this.f61374d.setSwitchStateNoCallback(d.b.h0.s.d.d.d().w());
+        this.f61374d.setOnSwitchStateChangeListener(this.C);
     }
 
     public View y() {

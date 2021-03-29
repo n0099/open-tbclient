@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f3841a;
+    public ConcurrentHashMap<String, Long> f3842a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ETag {
         in,
         out,
@@ -18,15 +18,15 @@ public class StatService {
         back
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f3842a = new StatService();
+        public static StatService f3843a = new StatService();
     }
 
     public static StatService a() {
-        return a.f3842a;
+        return a.f3843a;
     }
 
     public static void b(String str, String str2, Collection<String> collection, String str3) {
@@ -41,7 +41,7 @@ public class StatService {
     }
 
     public StatService() {
-        this.f3841a = new ConcurrentHashMap<>();
+        this.f3842a = new ConcurrentHashMap<>();
     }
 
     public static synchronized void a(String str, ETag eTag, Collection<String> collection) {
@@ -67,7 +67,7 @@ public class StatService {
     }
 
     public static void a(String str) {
-        a().f3841a.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().f3842a.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static void a(String str, String str2, String str3, String str4) {
@@ -84,12 +84,12 @@ public class StatService {
     public static ArrayList<String> a(String str, String str2) {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(0, "");
-        Long l = a().f3841a.get(str);
+        Long l = a().f3842a.get(str);
         if (l == null) {
             return null;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().f3841a.remove(str);
+        a().f3842a.remove(str);
         arrayList.add(Long.toString(valueOf.longValue()));
         arrayList.add(str2);
         return arrayList;

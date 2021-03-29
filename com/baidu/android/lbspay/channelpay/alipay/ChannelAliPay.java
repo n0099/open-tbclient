@@ -15,7 +15,7 @@ import com.baidu.android.lbspay.statistics.LbsStatistics;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelAliPay extends AbstractChannelPay {
     public static final int MSG_AILI_PAY = 100;
     @SuppressLint({"HandlerLeak"})

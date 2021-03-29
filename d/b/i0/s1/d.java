@@ -23,7 +23,7 @@ public class d {
         if (StringUtils.isNull(str)) {
             return;
         }
-        FileHelper.deleteFileOrDir(new File(f.f60154e + f.f60150a + str));
+        FileHelper.deleteFileOrDir(new File(f.f60155e + f.f60151a + str));
     }
 
     public static void c(String str, JSONArray jSONArray) {

@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -32,10 +32,10 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
                         if (msgInfo != null) {
                             Date date = new Date();
                             date.setTime(msgInfo.sendTime.longValue() * 1000);
-                            aVar.f17881a = d.b.b.e.p.k.getDateStringMouth(date);
-                            aVar.f17882b = msgInfo.type.intValue();
-                            aVar.f17883c = msgInfo.content;
-                            aVar.f17884d = msgInfo.id.intValue();
+                            aVar.f17882a = d.b.b.e.p.k.getDateStringMouth(date);
+                            aVar.f17883b = msgInfo.type.intValue();
+                            aVar.f17884c = msgInfo.content;
+                            aVar.f17885d = msgInfo.id.intValue();
                             linkedList.add(aVar);
                         }
                     }

@@ -16,47 +16,47 @@ import com.heytap.mcssdk.mode.Message;
 import java.io.File;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f4591a;
+    public static a f4592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f4592b;
+    public Context f4593b;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f4595e;
+    public BroadcastReceiver f4596e;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.clientupdate.c.a f4598h;
+    public com.baidu.clientupdate.c.a f4599h;
     public com.baidu.clientupdate.a.d i;
 
     /* renamed from: c  reason: collision with root package name */
-    public ClientUpdateInfo f4593c = null;
+    public ClientUpdateInfo f4594c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public RuleInfo f4594d = null;
+    public RuleInfo f4595d = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4596f = false;
+    public boolean f4597f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f4597g = null;
+    public String f4598g = null;
 
     public a(Context context) {
-        this.f4592b = context;
+        this.f4593b = context;
         this.i = com.baidu.clientupdate.a.d.a(context);
-        this.f4598h = com.baidu.clientupdate.c.a.a(context);
+        this.f4599h = com.baidu.clientupdate.c.a.a(context);
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f4591a == null) {
-                f4591a = new a(context);
+            if (f4592a == null) {
+                f4592a = new a(context);
             }
-            aVar = f4591a;
+            aVar = f4592a;
         }
         return aVar;
     }
@@ -83,7 +83,7 @@ public final class a {
         download.mUrl = appInfo.mDownurl;
         download.mMimeType = "application/vnd.android.package-archive";
         download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-        DownloadManager.getInstance(this.f4592b).start(download);
+        DownloadManager.getInstance(this.f4593b).start(download);
     }
 
     private void a(AppInfo appInfo, String str, boolean z) {
@@ -107,7 +107,7 @@ public final class a {
         download.mUrl = appInfo.mDownurl;
         download.mMimeType = "application/vnd.android.package-archive";
         download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-        DownloadManager.getInstance(this.f4592b).start(download, z);
+        DownloadManager.getInstance(this.f4593b).start(download, z);
     }
 
     private void b(AppInfo appInfo, String str) {
@@ -131,20 +131,20 @@ public final class a {
         download.mUrl = appInfo.mPatchDownUrl;
         download.mMimeType = "patch";
         download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-        DownloadManager.getInstance(this.f4592b).start(download);
+        DownloadManager.getInstance(this.f4593b).start(download);
     }
 
     public static void e() {
         synchronized (a.class) {
-            if (f4591a != null && f4591a.f4595e != null) {
-                f4591a.f4592b.unregisterReceiver(f4591a.f4595e);
+            if (f4592a != null && f4592a.f4596e != null) {
+                f4592a.f4593b.unregisterReceiver(f4592a.f4596e);
             }
         }
     }
 
     private void f() {
         try {
-            File file = new File(com.baidu.util.a.a(this.f4592b).a("lcsdk_xml", "path", ""));
+            File file = new File(com.baidu.util.a.a(this.f4593b).a("lcsdk_xml", "path", ""));
             if (file.exists() && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     file2.delete();
@@ -156,7 +156,7 @@ public final class a {
     }
 
     public ClientUpdateInfo a() {
-        return this.f4593c;
+        return this.f4594c;
     }
 
     public synchronized ClientUpdateInfo a(JSONObject jSONObject) {
@@ -171,31 +171,31 @@ public final class a {
             if (Integer.valueOf(optString).intValue() == 0) {
                 f();
                 ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-                this.f4593c = clientUpdateInfo;
+                this.f4594c = clientUpdateInfo;
                 clientUpdateInfo.mStatus = optString;
                 return clientUpdateInfo;
             }
             return null;
         }
         ClientUpdateInfo clientUpdateInfo2 = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
-        this.f4593c = clientUpdateInfo2;
+        this.f4594c = clientUpdateInfo2;
         if (clientUpdateInfo2 != null) {
             clientUpdateInfo2.mStatus = jSONObject.optString("status");
-            this.f4593c.mReverson = jSONObject.optString("re_version");
+            this.f4594c.mReverson = jSONObject.optString("re_version");
         }
-        return this.f4593c;
+        return this.f4594c;
     }
 
     public synchronized void a(ClientUpdateInfo clientUpdateInfo, String str) {
         if (clientUpdateInfo == null) {
             return;
         }
-        this.f4597g = str;
+        this.f4598g = str;
         if (!TextUtils.isEmpty(clientUpdateInfo.mStatus) && Integer.valueOf(clientUpdateInfo.mStatus).intValue() == 1) {
             if (!TextUtils.isEmpty(clientUpdateInfo.mPatchDownUrl) && !TextUtils.isEmpty(clientUpdateInfo.mPatchSize) && Integer.valueOf(clientUpdateInfo.mPatchSize).intValue() > 0) {
                 b((AppInfo) clientUpdateInfo, str);
             }
-            this.f4596f = true;
+            this.f4597f = true;
         }
     }
 
@@ -203,31 +203,31 @@ public final class a {
         if (clientUpdateInfo == null) {
             return;
         }
-        if (this.f4593c == null) {
-            this.f4593c = clientUpdateInfo;
+        if (this.f4594c == null) {
+            this.f4594c = clientUpdateInfo;
         }
-        this.f4597g = str;
+        this.f4598g = str;
         if (!TextUtils.isEmpty(clientUpdateInfo.mStatus) && Integer.valueOf(clientUpdateInfo.mStatus).intValue() == 1 && !TextUtils.isEmpty(clientUpdateInfo.mDownurl) && !TextUtils.isEmpty(clientUpdateInfo.mSize) && Integer.valueOf(clientUpdateInfo.mSize).intValue() > 0) {
             a((AppInfo) clientUpdateInfo, str, z);
-            this.f4596f = false;
+            this.f4597f = false;
         }
     }
 
     public synchronized void a(JSONObject jSONObject, IClientUpdaterCallback iClientUpdaterCallback) {
         try {
-            this.f4596f = false;
+            this.f4597f = false;
         } catch (Exception e2) {
             e2.printStackTrace();
             com.baidu.clientupdate.a.d dVar = this.i;
-            String c2 = this.f4598h.c();
-            String b2 = this.f4598h.b();
+            String c2 = this.f4599h.c();
+            String b2 = this.f4599h.b();
             dVar.a(c2, "0", b2, "a5", "1", (System.currentTimeMillis() / 1000) + "", "", "parseResult", e2.toString());
         }
         if (jSONObject == null) {
             iClientUpdaterCallback.onCompleted(null, null);
             com.baidu.clientupdate.a.d dVar2 = this.i;
-            String c3 = this.f4598h.c();
-            String b3 = this.f4598h.b();
+            String c3 = this.f4599h.c();
+            String b3 = this.f4599h.b();
             dVar2.a(c3, "0", b3, "a5", "0", (System.currentTimeMillis() / 1000) + "", "", "parseResult", "");
             return;
         }
@@ -235,8 +235,8 @@ public final class a {
         if (TextUtils.isEmpty(optString)) {
             iClientUpdaterCallback.onCompleted(null, null);
         } else if (Integer.valueOf(optString).intValue() == 1) {
-            this.f4593c = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
-            if (!new URI(this.f4593c.mDownurl).getHost().endsWith("baidu.com")) {
+            this.f4594c = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
+            if (!new URI(this.f4594c.mDownurl).getHost().endsWith("baidu.com")) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("msgId", "3");
                 jSONObject2.put("messageDetail", "下载地址有问题");
@@ -244,31 +244,31 @@ public final class a {
                     iClientUpdaterCallback.onError(jSONObject2);
                 }
             }
-            this.f4594d = (RuleInfo) h.a(jSONObject.optJSONObject(Message.RULE), 3);
-            if (this.f4593c != null) {
-                this.f4593c.mStatus = jSONObject.optString("status");
-                this.f4593c.mReverson = jSONObject.optString("re_version");
+            this.f4595d = (RuleInfo) h.a(jSONObject.optJSONObject(Message.RULE), 3);
+            if (this.f4594c != null) {
+                this.f4594c.mStatus = jSONObject.optString("status");
+                this.f4594c.mReverson = jSONObject.optString("re_version");
             }
-            if (this.f4593c != null) {
-                LogUtil.logD("ClientUpdateUtility", "mClientUpdateInfo: " + this.f4593c.toString());
+            if (this.f4594c != null) {
+                LogUtil.logD("ClientUpdateUtility", "mClientUpdateInfo: " + this.f4594c.toString());
             }
-            iClientUpdaterCallback.onCompleted(this.f4593c, this.f4594d);
+            iClientUpdaterCallback.onCompleted(this.f4594c, this.f4595d);
         } else if (Integer.valueOf(optString).intValue() == 0) {
             f();
             ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-            this.f4593c = clientUpdateInfo;
+            this.f4594c = clientUpdateInfo;
             clientUpdateInfo.mStatus = optString;
             iClientUpdaterCallback.onCompleted(clientUpdateInfo, null);
         }
         com.baidu.clientupdate.a.d dVar3 = this.i;
-        String c4 = this.f4598h.c();
-        String b4 = this.f4598h.b();
+        String c4 = this.f4599h.c();
+        String b4 = this.f4599h.b();
         dVar3.a(c4, "0", b4, "a5", "0", (System.currentTimeMillis() / 1000) + "", "", "parseResult", "");
         LogUtil.logE("ClientUpdateUtility", "加入统计耗时：" + (System.currentTimeMillis() - ClientUpdater.stime));
     }
 
     public RuleInfo b() {
-        return this.f4594d;
+        return this.f4595d;
     }
 
     public synchronized RuleInfo b(JSONObject jSONObject) {
@@ -281,7 +281,7 @@ public final class a {
         }
         if (Integer.valueOf(optString).intValue() == 1) {
             RuleInfo ruleInfo = (RuleInfo) h.a(jSONObject.optJSONObject(Message.RULE), 3);
-            this.f4594d = ruleInfo;
+            this.f4595d = ruleInfo;
             return ruleInfo;
         }
         return null;
@@ -291,27 +291,27 @@ public final class a {
         if (clientUpdateInfo == null) {
             return;
         }
-        if (this.f4593c == null) {
-            this.f4593c = clientUpdateInfo;
+        if (this.f4594c == null) {
+            this.f4594c = clientUpdateInfo;
         }
-        this.f4597g = str;
+        this.f4598g = str;
         if (!TextUtils.isEmpty(clientUpdateInfo.mStatus) && Integer.valueOf(clientUpdateInfo.mStatus).intValue() == 1 && !TextUtils.isEmpty(clientUpdateInfo.mDownurl) && !TextUtils.isEmpty(clientUpdateInfo.mSize) && Integer.valueOf(clientUpdateInfo.mSize).intValue() > 0) {
             a((AppInfo) clientUpdateInfo, str);
-            this.f4596f = false;
+            this.f4597f = false;
         }
     }
 
     public synchronized void c() {
-        if (this.f4593c != null) {
-            this.f4593c = null;
+        if (this.f4594c != null) {
+            this.f4594c = null;
         }
-        if (this.f4597g != null) {
-            this.f4597g = null;
+        if (this.f4598g != null) {
+            this.f4598g = null;
         }
-        this.f4596f = false;
+        this.f4597f = false;
     }
 
     public boolean d() {
-        return this.f4596f;
+        return this.f4597f;
     }
 }

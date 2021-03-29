@@ -14,7 +14,7 @@ import d.b.h0.r.q.a2;
 import d.b.i0.i2.q.d;
 import java.util.HashMap;
 import tbclient.VideoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.i0.i2.q.b {
     public d.b.c.m.d N0;
     public a2 O0;
@@ -23,31 +23,31 @@ public class c extends d.b.i0.i2.q.b {
     public CustomMessageListener R0;
     public Runnable S0;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.InterfaceC0556d {
+    /* loaded from: classes3.dex */
+    public class a implements d.InterfaceC0557d {
         public a() {
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public void a() {
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public void b() {
             c.this.startPlay();
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public boolean c() {
             return false;
         }
 
-        @Override // d.b.c.m.d.InterfaceC0556d
+        @Override // d.b.c.m.d.InterfaceC0557d
         public void d() {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.k {
         public b() {
         }
@@ -68,9 +68,9 @@ public class c extends d.b.i0.i2.q.b {
     }
 
     /* renamed from: d.b.i0.z0.g.n.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1704c extends CustomMessageListener {
-        public C1704c(int i) {
+    /* loaded from: classes3.dex */
+    public class C1705c extends CustomMessageListener {
+        public C1705c(int i) {
             super(i);
         }
 
@@ -91,7 +91,7 @@ public class c extends d.b.i0.i2.q.b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -110,7 +110,7 @@ public class c extends d.b.i0.i2.q.b {
     public c(Context context, View view) {
         super(context, view);
         this.P0 = false;
-        this.R0 = new C1704c(2921395);
+        this.R0 = new C1705c(2921395);
         this.S0 = new d();
         p0(true);
         L0();

@@ -10,11 +10,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.tieba.R;
 import com.google.gson.Gson;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends d.b.i0.a2.b.a {
     public ShareStorage.StorageModel i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebAuthListener {
         public a() {
         }
@@ -22,7 +22,7 @@ public class f extends d.b.i0.a2.b.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            BaseActivity baseActivity = f.this.f51901b;
+            BaseActivity baseActivity = f.this.f51902b;
             baseActivity.showToast(String.format(baseActivity.getString(R.string.share_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
         }
 
@@ -43,8 +43,8 @@ public class f extends d.b.i0.a2.b.a {
         if (cVar == null) {
             return;
         }
-        this.f51904e = cVar;
-        this.i = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f51924d, (Class<Object>) ShareStorage.StorageModel.class);
+        this.f51905e = cVar;
+        this.i = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f51925d, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
     @Override // d.b.i0.a2.b.a
@@ -57,7 +57,7 @@ public class f extends d.b.i0.a2.b.a {
 
     public void q() {
         if (this.i != null) {
-            PassportSDK.getInstance().invokeV2ShareLogin(this.f51901b, new a(), this.i);
+            PassportSDK.getInstance().invokeV2ShareLogin(this.f51902b, new a(), this.i);
         }
     }
 }

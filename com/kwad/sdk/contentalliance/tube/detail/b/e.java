@@ -13,16 +13,16 @@ import com.kwad.sdk.utils.ao;
 public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f33201b;
+    public ViewGroup f33202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f33202c;
+    public View f33203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f33203d;
+    public TextView f33204d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a f33204e = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.e.1
+    public b.a f33205e = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.e.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
         }
@@ -33,8 +33,8 @@ public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements V
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
-            if (((com.kwad.sdk.contentalliance.tube.detail.a.a) e.this).f33157a.f33159b.mTubeInfo != null) {
-                e.this.f33203d.setText(((com.kwad.sdk.contentalliance.tube.detail.a.a) e.this).f33157a.f33159b.mTubeInfo.name);
+            if (((com.kwad.sdk.contentalliance.tube.detail.a.a) e.this).f33158a.f33160b.mTubeInfo != null) {
+                e.this.f33204d.setText(((com.kwad.sdk.contentalliance.tube.detail.a.a) e.this).f33158a.f33160b.mTubeInfo.name);
             }
         }
 
@@ -47,43 +47,43 @@ public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements V
         Activity m = m();
         if (m != null && com.kwad.sdk.utils.d.a(m)) {
             int a2 = ao.a(o());
-            ViewGroup.LayoutParams layoutParams = this.f33201b.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f33202b.getLayoutParams();
             com.kwad.sdk.core.d.a.a("TubeTitleBarPresenter", "initImmersiveTitleBar() height=" + layoutParams.height);
             layoutParams.height = layoutParams.height + a2;
-            this.f33201b.setLayoutParams(layoutParams);
-            ViewGroup viewGroup = this.f33201b;
-            viewGroup.setPadding(viewGroup.getPaddingLeft(), a2, this.f33201b.getPaddingRight(), this.f33201b.getPaddingBottom());
+            this.f33202b.setLayoutParams(layoutParams);
+            ViewGroup viewGroup = this.f33202b;
+            viewGroup.setPadding(viewGroup.getPaddingLeft(), a2, this.f33202b.getPaddingRight(), this.f33202b.getPaddingBottom());
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f33202c.setOnClickListener(this);
+        this.f33203c.setOnClickListener(this);
         com.kwad.sdk.core.d.a.a("TubeTitleBarPresenter", "onBind()");
         e();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33157a.f33161d.add(this.f33204e);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33162d.add(this.f33205e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33157a.f33161d.remove(this.f33204e);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33162d.remove(this.f33205e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33201b = (ViewGroup) b(R.id.ksad_tube_title_bar);
-        this.f33202c = b(R.id.ksad_tube_left_back);
-        this.f33203d = (TextView) b(R.id.ksad_tube_title);
+        this.f33202b = (ViewGroup) b(R.id.ksad_tube_title_bar);
+        this.f33203c = b(R.id.ksad_tube_left_back);
+        this.f33204d = (TextView) b(R.id.ksad_tube_title);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f33202c) {
+        if (view == this.f33203c) {
             Activity m = m();
-            com.kwad.sdk.core.report.e.d(((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33157a.f33163f);
+            com.kwad.sdk.core.report.e.d(((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33164f);
             if (m != null) {
                 m.finish();
             }

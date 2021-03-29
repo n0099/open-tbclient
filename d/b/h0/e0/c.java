@@ -9,26 +9,26 @@ public class c {
     public static int l = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public Fragment f50154a;
+    public Fragment f50155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50155b;
+    public int f50156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50156c;
+    public String f50157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50157d;
+    public int f50158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50158e;
+    public int f50159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50159f;
+    public int f50160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50160g;
+    public String f50161g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50161h = i;
+    public int f50162h = i;
 }

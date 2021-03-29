@@ -3,7 +3,7 @@ package d.b.i0.d1.f.j;
 import android.content.Context;
 import com.baidu.tieba.im.chat.officialBar.MenuKeyboardView;
 import d.b.h0.w.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends m {
     public a(Context context) {
         super(context, (String) null, 21);

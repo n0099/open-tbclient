@@ -6,7 +6,7 @@ import android.util.Base64;
 import com.baidu.sofire.e;
 import com.baidu.sofire.g.d;
 import com.baidu.sofire.g.r;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static String a(Context context) {
         e eVar;
@@ -14,9 +14,9 @@ public final class a {
         String str = "";
         try {
             eVar = new e(context);
-            if (!TextUtils.isEmpty(eVar.f11729b.getString("rpiiem", ""))) {
-                eVar.f11731d.putString("rpiiem", "");
-                eVar.f11731d.commit();
+            if (!TextUtils.isEmpty(eVar.f11730b.getString("rpiiem", ""))) {
+                eVar.f11732d.putString("rpiiem", "");
+                eVar.f11732d.commit();
             }
             o = eVar.o();
         } catch (Throwable unused) {
@@ -26,11 +26,11 @@ public final class a {
                 o = r.h(context);
                 if (!TextUtils.isEmpty(o)) {
                     if (TextUtils.isEmpty(o)) {
-                        eVar.f11731d.putString("rpiiemn", "");
-                        eVar.f11731d.commit();
+                        eVar.f11732d.putString("rpiiemn", "");
+                        eVar.f11732d.commit();
                     } else {
-                        eVar.f11731d.putString("rpiiemn", new String(Base64.encode(com.baidu.sofire.g.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), o.getBytes("UTF-8")), 10), "UTF-8"));
-                        eVar.f11731d.commit();
+                        eVar.f11732d.putString("rpiiemn", new String(Base64.encode(com.baidu.sofire.g.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), o.getBytes("UTF-8")), 10), "UTF-8"));
+                        eVar.f11732d.commit();
                     }
                 }
             }
@@ -46,12 +46,12 @@ public final class a {
         String str = "";
         try {
             e eVar = new e(context);
-            str = eVar.f11729b.getString("rpandid", "");
+            str = eVar.f11730b.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
                 str = r.i(context);
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.f11731d.putString("rpandid", str);
-                    eVar.f11731d.commit();
+                    eVar.f11732d.putString("rpandid", str);
+                    eVar.f11732d.commit();
                 }
             }
         } catch (Throwable unused) {

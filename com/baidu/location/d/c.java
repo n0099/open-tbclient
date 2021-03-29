@@ -7,28 +7,28 @@ import java.io.RandomAccessFile;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f6684c;
+    public static c f6685c;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6685a = "firll.dat";
+    public String f6686a = "firll.dat";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6686b = 3164;
+    public int f6687b = 3164;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6687d = 0;
+    public int f6688d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6688e = 20;
+    public int f6689e = 20;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6689f = 40;
+    public int f6690f = 40;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6690g = 60;
+    public int f6691g = 60;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6691h = 80;
+    public int f6692h = 80;
     public int i = 100;
 
     private long a(int i) {
@@ -42,7 +42,7 @@ public class c {
         RandomAccessFile randomAccessFile2 = null;
         try {
             try {
-                randomAccessFile = new RandomAccessFile(h2 + File.separator + this.f6685a, "rw");
+                randomAccessFile = new RandomAccessFile(h2 + File.separator + this.f6686a, "rw");
             } catch (IOException unused) {
             }
             try {
@@ -82,10 +82,10 @@ public class c {
     }
 
     public static c a() {
-        if (f6684c == null) {
-            f6684c = new c();
+        if (f6685c == null) {
+            f6685c = new c();
         }
-        return f6684c;
+        return f6685c;
     }
 
     private void a(int i, long j) {
@@ -94,21 +94,21 @@ public class c {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(h2 + File.separator + this.f6685a, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(h2 + File.separator + this.f6686a, "rw");
             randomAccessFile.seek(i);
-            randomAccessFile.writeInt(this.f6686b);
+            randomAccessFile.writeInt(this.f6687b);
             randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.f6686b);
+            randomAccessFile.writeInt(this.f6687b);
             randomAccessFile.close();
         } catch (Exception unused) {
         }
     }
 
     public void a(long j) {
-        a(this.f6687d, j);
+        a(this.f6688d, j);
     }
 
     public long b() {
-        return a(this.f6687d);
+        return a(this.f6688d);
     }
 }

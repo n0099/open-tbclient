@@ -5,14 +5,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread[] f23583a = null;
+    public Thread[] f23584a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f23584b;
+    public LinkedBlockingQueue<Runnable> f23585b;
 
     public c() {
-        this.f23584b = null;
-        this.f23584b = new LinkedBlockingQueue<>();
+        this.f23585b = null;
+        this.f23585b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i) {
@@ -28,12 +28,12 @@ public final class c {
         }
         int a2 = a(i);
         c cVar = new c();
-        cVar.f23583a = new Thread[a2];
+        cVar.f23584a = new Thread[a2];
         for (int i2 = a2 - 1; i2 >= 0; i2 += -1) {
-            cVar.f23583a[i2] = new Thread(new d(cVar.f23584b));
-            cVar.f23583a[i2].setPriority(5);
-            cVar.f23583a[i2].setName(str + " " + a2 + "." + (i2 + 1));
-            cVar.f23583a[i2].start();
+            cVar.f23584a[i2] = new Thread(new d(cVar.f23585b));
+            cVar.f23584a[i2].setPriority(5);
+            cVar.f23584a[i2].setName(str + " " + a2 + "." + (i2 + 1));
+            cVar.f23584a[i2].start();
         }
         return cVar;
     }
@@ -43,7 +43,7 @@ public final class c {
             return;
         }
         try {
-            this.f23584b.put(runnable);
+            this.f23585b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
@@ -51,17 +51,17 @@ public final class c {
 
     public void a() {
         Thread[] threadArr;
-        this.f23584b.clear();
-        for (Thread thread : this.f23583a) {
+        this.f23585b.clear();
+        for (Thread thread : this.f23584a) {
             if (thread.isAlive()) {
-                this.f23584b.offer(new b());
+                this.f23585b.offer(new b());
             }
         }
-        for (Thread thread2 : this.f23583a) {
+        for (Thread thread2 : this.f23584a) {
             if (thread2.isAlive()) {
                 try {
                     synchronized (this) {
-                        wait(2000 / this.f23583a.length);
+                        wait(2000 / this.f23584a.length);
                     }
                 } catch (InterruptedException unused) {
                 }

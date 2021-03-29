@@ -7,10 +7,10 @@ import com.baidu.platform.comapi.walknavi.g.b.c;
 public class c implements c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f10122a;
+    public final /* synthetic */ a f10123a;
 
     public c(a aVar) {
-        this.f10122a = aVar;
+        this.f10123a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.a
@@ -25,22 +25,22 @@ public class c implements c.a {
         if (bVar == bVar2) {
             com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(bVar2);
             com.baidu.platform.comapi.walknavi.b.a().D().j();
-            cVar = this.f10122a.k;
+            cVar = this.f10123a.k;
             if (cVar != null) {
-                cVar2 = this.f10122a.k;
+                cVar2 = this.f10123a.k;
                 cVar2.a(true);
             }
         } else if (bVar == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE) {
             com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE);
             com.baidu.platform.comapi.walknavi.b.a().D().k();
-            frameLayout = this.f10122a.r;
+            frameLayout = this.f10123a.r;
             frameLayout.removeAllViews();
             com.baidu.platform.comapi.walknavi.b.a().D().a(true);
-            a aVar = this.f10122a;
-            activity = this.f10122a.i;
-            aVar.s = new com.baidu.platform.comapi.walknavi.segmentbrowse.widget.g(activity, this.f10122a);
-            frameLayout2 = this.f10122a.r;
-            gVar = this.f10122a.s;
+            a aVar = this.f10123a;
+            activity = this.f10123a.i;
+            aVar.s = new com.baidu.platform.comapi.walknavi.segmentbrowse.widget.g(activity, this.f10123a);
+            frameLayout2 = this.f10123a.r;
+            gVar = this.f10123a.s;
             frameLayout2.addView(gVar);
         }
     }

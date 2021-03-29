@@ -19,7 +19,7 @@ import com.baidu.swan.menu.PopupWindow;
 import d.b.g0.a.f;
 import d.b.g0.a.g;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends PopupWindow implements View.OnClickListener {
     public Context U;
     public View V;
@@ -29,7 +29,7 @@ public class c extends PopupWindow implements View.OnClickListener {
     public FontSizeSettingMenuView Z;
     public d a0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements SliderBar.c {
         public a() {
         }
@@ -42,28 +42,28 @@ public class c extends PopupWindow implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f43750e;
+        public final /* synthetic */ View f43751e;
 
         public b(View view) {
-            this.f43750e = view;
+            this.f43751e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            c.this.Z.a(this.f43750e.getHeight());
+            c.this.Z.a(this.f43751e.getHeight());
             c.this.c0();
-            this.f43750e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            this.f43751e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
         }
     }
 
     /* renamed from: d.b.g0.a.c1.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0631c extends AnimatorListenerAdapter {
-        public C0631c() {
+    /* loaded from: classes2.dex */
+    public class C0632c extends AnimatorListenerAdapter {
+        public C0632c() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -76,7 +76,7 @@ public class c extends PopupWindow implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void a(int i);
     }
@@ -109,7 +109,7 @@ public class c extends PopupWindow implements View.OnClickListener {
             ObjectAnimator c2 = d.b.g0.i.c.c(this.Y);
             ObjectAnimator e2 = d.b.g0.i.c.e(this.Z);
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.addListener(new C0631c());
+            animatorSet.addListener(new C0632c());
             animatorSet.playTogether(c2, e2);
             animatorSet.start();
         }

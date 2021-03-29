@@ -11,22 +11,22 @@ import d.b.g0.a.n1.c.c;
 import d.b.g0.a.r1.d;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements a.c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45379b = k.f45050a;
+    public static final boolean f45380b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Deque<Message> f45380a = new ArrayDeque();
+    public final Deque<Message> f45381a = new ArrayDeque();
 
     @Override // d.b.g0.a.n1.c.a.c
     public void a() {
         a C = a.C();
-        while (C.A() && !this.f45380a.isEmpty()) {
-            Message peek = this.f45380a.peek();
+        while (C.A() && !this.f45381a.isEmpty()) {
+            Message peek = this.f45381a.peek();
             if (peek == null || e(peek)) {
-                this.f45380a.poll();
+                this.f45381a.poll();
             }
         }
     }
@@ -47,7 +47,7 @@ public class b implements a.c {
         if (e(h2) || !cVar.n()) {
             return;
         }
-        this.f45380a.offer(h2);
+        this.f45381a.offer(h2);
         a.C().O();
     }
 
@@ -69,7 +69,7 @@ public class b implements a.c {
             return true;
         } catch (RemoteException e2) {
             C.G();
-            if (f45379b) {
+            if (f45380b) {
                 e2.printStackTrace();
                 return false;
             }

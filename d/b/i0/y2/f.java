@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62622a;
+    public String f62623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62623b;
+    public String f62624b;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -19,8 +19,8 @@ public class f {
             return;
         }
         try {
-            this.f62622a = jSONObject.optString("banner_pic");
-            this.f62623b = jSONObject.optString("banner_url");
+            this.f62623a = jSONObject.optString("banner_pic");
+            this.f62624b = jSONObject.optString("banner_url");
         } catch (Exception e2) {
             BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e2.toString());
             BdLog.e(e2.getMessage());

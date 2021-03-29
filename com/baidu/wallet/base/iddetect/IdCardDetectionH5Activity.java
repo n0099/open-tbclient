@@ -31,16 +31,16 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
     public Bitmap v;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f23624e = IdCardDetectionH5Activity.class.getSimpleName();
+    public final String f23625e = IdCardDetectionH5Activity.class.getSimpleName();
 
     /* renamed from: f  reason: collision with root package name */
-    public View f23625f = null;
+    public View f23626f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f23626g = null;
+    public View f23627g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f23627h = null;
+    public LinearLayout f23628h = null;
     public LinearLayout i = null;
     public TextView j = null;
     public TextView l = null;
@@ -146,16 +146,16 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
         } else if (ResUtils.id(getActivity(), "idcards_title_back") == id) {
             IdCardDetectionController.getInstance().IdCardDeteFailed(-2, "canceled by user");
             finishWithoutAnim();
-        } else if (view == this.f23625f) {
+        } else if (view == this.f23626f) {
             stopCamera();
             switchCamera();
             if (!CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-                this.f23626g.setVisibility(4);
+                this.f23627g.setVisibility(4);
             } else if (this.cameraId == 1) {
-                this.f23626g.setVisibility(4);
-                this.f23626g.setBackgroundResource(ResUtils.drawable(getActivity(), "wallet_base_camera_flashlight_off_btn"));
+                this.f23627g.setVisibility(4);
+                this.f23627g.setBackgroundResource(ResUtils.drawable(getActivity(), "wallet_base_camera_flashlight_off_btn"));
             } else {
-                this.f23626g.setVisibility(0);
+                this.f23627g.setVisibility(0);
             }
         }
     }
@@ -167,25 +167,25 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
         if (extras != null) {
             s = extras.getInt("step");
         }
-        this.f23626g = findViewById(ResUtils.id(getActivity(), "idcards_flash_light_switch"));
-        this.f23625f = findViewById(ResUtils.id(getActivity(), "idcards_camera_switch"));
+        this.f23627g = findViewById(ResUtils.id(getActivity(), "idcards_flash_light_switch"));
+        this.f23626f = findViewById(ResUtils.id(getActivity(), "idcards_camera_switch"));
         this.j = (TextView) findViewById(ResUtils.id(getActivity(), "bd_wallet_promo"));
         this.k = findViewById(ResUtils.id(getActivity(), "wallet_camera_control_area"));
         this.n = (TextView) findViewById(ResUtils.id(getActivity(), "TextView1"));
-        this.f23627h = (LinearLayout) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_bottom_layout"));
+        this.f23628h = (LinearLayout) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_bottom_layout"));
         this.i = (LinearLayout) findViewById(ResUtils.id(getActivity(), "idcard_pic_preview_bottom_layout"));
         this.o = (TextView) findViewById(ResUtils.id(getActivity(), "idcard_restart_take_pic"));
         this.l = (TextView) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_finish"));
         this.m = (ImageView) findViewById(ResUtils.id(getActivity(), "img_snapshot"));
         if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-            this.f23626g.setOnClickListener(this);
-            this.f23626g.setVisibility(0);
-            AccessibilityUtils.setContentDescription(this.f23626g, "打开闪光灯");
+            this.f23627g.setOnClickListener(this);
+            this.f23627g.setVisibility(0);
+            AccessibilityUtils.setContentDescription(this.f23627g, "打开闪光灯");
         } else {
-            this.f23626g.setVisibility(4);
+            this.f23627g.setVisibility(4);
         }
-        this.f23625f.setVisibility(CameraCtrl.getInstance().isSupportMultiCamera() ? 0 : 8);
-        this.f23625f.setOnClickListener(this);
+        this.f23626f.setVisibility(CameraCtrl.getInstance().isSupportMultiCamera() ? 0 : 8);
+        this.f23626f.setOnClickListener(this);
         this.o.setOnClickListener(this);
         this.l.setOnClickListener(this);
         findViewById(ResUtils.id(getActivity(), "idcards_title_back")).setOnClickListener(this);
@@ -230,7 +230,7 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
                 TextView textView = IdCardDetectionH5Activity.this.n;
                 IdCardDetectionH5Activity idCardDetectionH5Activity = IdCardDetectionH5Activity.this;
                 textView.setText(idCardDetectionH5Activity.getString(ResUtils.string(idCardDetectionH5Activity.getActivity(), "wallet_base_h5_idcard_title2")));
-                IdCardDetectionH5Activity.this.f23627h.setVisibility(8);
+                IdCardDetectionH5Activity.this.f23628h.setVisibility(8);
                 IdCardDetectionH5Activity.this.i.setVisibility(0);
                 IdCardDetectionH5Activity.this.m.setVisibility(0);
                 IdCardDetectionH5Activity.this.v = (Bitmap) objArr[0];
@@ -266,7 +266,7 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
     @Override // com.baidu.wallet.base.camera.IImageProcess
     public Object[] processImage(byte[] bArr, int i, int i2, Rect rect, byte[] bArr2) {
         if (this.mInCaptureTimeOut.compareAndSet(true, false)) {
-            LogUtil.d(this.f23624e, "preview process");
+            LogUtil.d(this.f23625e, "preview process");
             PayStatisticsUtil.onEvent(StatServiceEvent.SDK_SELF_DEFINE_TAKE_PICTURE_FAILED);
             if (this.q.get()) {
                 rect.set(0, 0, i, i2);
@@ -283,7 +283,7 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
     @Override // com.baidu.wallet.base.camera.IImageProcess
     public Object[] processImageJpegData(byte[] bArr, int i, int i2) {
         if (this.q.get()) {
-            LogUtil.d(this.f23624e, "takepic process");
+            LogUtil.d(this.f23625e, "takepic process");
             Bitmap a2 = com.baidu.wallet.base.iddetect.utils.a.a(bArr, i, i2);
             this.u = a2;
             if (a2 != null) {
@@ -308,11 +308,11 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
-        if (this.f23626g == null) {
+        if (this.f23627g == null) {
             return;
         }
-        this.f23626g.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f23626g, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f23627g.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f23627g, z ? "关闭闪光灯" : "打开闪光灯");
     }
 
     private void a(Boolean bool) {
@@ -324,7 +324,7 @@ public class IdCardDetectionH5Activity extends CameraBaseActivity implements Vie
         this.j.setVisibility(0);
         this.k.setVisibility(0);
         this.n.setText(getString(ResUtils.string(getActivity(), "wallet_base_h5_idcard_title_take_pic")));
-        this.f23627h.setVisibility(0);
+        this.f23628h.setVisibility(0);
         this.i.setVisibility(8);
         this.m.setVisibility(8);
         onResume();

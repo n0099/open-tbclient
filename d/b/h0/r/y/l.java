@@ -6,14 +6,14 @@ import android.webkit.WebView;
 public abstract class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WebView f51097a;
+    public final WebView f51098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f51098b;
+    public final b f51099b;
 
     public l(WebView webView, b bVar) {
-        this.f51097a = webView;
-        this.f51098b = bVar;
+        this.f51098a = webView;
+        this.f51099b = bVar;
     }
 
     public abstract void c(m mVar);
@@ -25,6 +25,6 @@ public abstract class l {
     public abstract void e(String str, d dVar);
 
     public final Context f() {
-        return this.f51097a.getContext();
+        return this.f51098a.getContext();
     }
 }

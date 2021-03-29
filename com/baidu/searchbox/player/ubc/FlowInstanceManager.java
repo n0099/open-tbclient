@@ -8,7 +8,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlowInstanceManager {
     public static final ConcurrentHashMap<String, Flow> FLOW_FETCHERS = new ConcurrentHashMap<>();
     public static UBCManager sUBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);

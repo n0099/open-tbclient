@@ -12,16 +12,16 @@ public final class f<T> implements Queue<T> {
     public static final Object n = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f67953e;
+    public final AtomicLong f67958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67954f;
+    public int f67959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f67955g;
+    public long f67960g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67956h;
+    public int f67961h;
     public AtomicReferenceArray<Object> i;
     public int j;
     public AtomicReferenceArray<Object> k;
@@ -30,15 +30,15 @@ public final class f<T> implements Queue<T> {
     public f(int i) {
         int b2 = i.b(Math.max(8, i));
         int i2 = b2 - 1;
-        this.f67953e = new AtomicLong();
+        this.f67958e = new AtomicLong();
         this.l = new AtomicLong();
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b2 + 1);
         this.i = atomicReferenceArray;
-        this.f67956h = i2;
+        this.f67961h = i2;
         a(b2);
         this.k = atomicReferenceArray;
         this.j = i2;
-        this.f67955g = i2 - 1;
+        this.f67960g = i2 - 1;
         p(0L);
     }
 
@@ -61,7 +61,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final void a(int i) {
-        this.f67954f = Math.min(i / 4, m);
+        this.f67959f = Math.min(i / 4, m);
     }
 
     @Override // java.util.Queue, java.util.Collection
@@ -98,7 +98,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final long e() {
-        return this.f67953e.get();
+        return this.f67958e.get();
     }
 
     @Override // java.util.Queue
@@ -117,7 +117,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final long i() {
-        return this.f67953e.get();
+        return this.f67958e.get();
     }
 
     @Override // java.util.Collection
@@ -150,7 +150,7 @@ public final class f<T> implements Queue<T> {
     public final void l(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
         this.i = atomicReferenceArray2;
-        this.f67955g = (j2 + j) - 1;
+        this.f67960g = (j2 + j) - 1;
         p(j + 1);
         n(atomicReferenceArray2, i, t);
         o(atomicReferenceArray, atomicReferenceArray2);
@@ -172,14 +172,14 @@ public final class f<T> implements Queue<T> {
         if (t != null) {
             AtomicReferenceArray<Object> atomicReferenceArray = this.i;
             long e2 = e();
-            int i = this.f67956h;
+            int i = this.f67961h;
             int c2 = c(e2, i);
-            if (e2 < this.f67955g) {
+            if (e2 < this.f67960g) {
                 return q(atomicReferenceArray, t, e2, c2);
             }
-            long j = this.f67954f + e2;
+            long j = this.f67959f + e2;
             if (g(atomicReferenceArray, c(j, i)) == null) {
-                this.f67955g = j - 1;
+                this.f67960g = j - 1;
                 return q(atomicReferenceArray, t, e2, c2);
             } else if (g(atomicReferenceArray, c(1 + e2, i)) != null) {
                 return q(atomicReferenceArray, t, e2, c2);
@@ -192,7 +192,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final void p(long j) {
-        this.f67953e.lazySet(j);
+        this.f67958e.lazySet(j);
     }
 
     @Override // java.util.Queue

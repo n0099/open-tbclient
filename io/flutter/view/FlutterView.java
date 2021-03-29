@@ -252,9 +252,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     @RequiresApi(20)
     @TargetApi(20)
     public int calculateBottomKeyboardInset(WindowInsets windowInsets) {
-        double height = getRootView().getHeight();
-        Double.isNaN(height);
-        if (windowInsets.getSystemWindowInsetBottom() < height * 0.18d) {
+        if (windowInsets.getSystemWindowInsetBottom() < getRootView().getHeight() * 0.18d) {
             return 0;
         }
         return windowInsets.getSystemWindowInsetBottom();

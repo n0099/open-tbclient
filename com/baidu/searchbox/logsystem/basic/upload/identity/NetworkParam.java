@@ -12,7 +12,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetworkParam {
     public static final String LAST_NETWORK_TYPE = "last network type";
     public static final String NET_TYPE_ID_DISCONNECT = "5_0";

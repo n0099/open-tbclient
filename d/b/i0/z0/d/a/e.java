@@ -20,7 +20,7 @@ import d.b.i.m0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public TbPageContext m;
     public BdUniqueId n;
@@ -29,7 +29,7 @@ public class e extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public int q;
     public b0<k> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<k> {
         public a() {
         }
@@ -45,7 +45,7 @@ public class e extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -60,33 +60,33 @@ public class e extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
                     e.this.r.a(threadCardViewHolder.a(), kVar);
                 }
                 d.b.i0.z0.d.e.a.b(kVar, view.getContext(), 18, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f62849a;
+        public final /* synthetic */ ViewGroup f62850a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f62850b;
+        public final /* synthetic */ View f62851b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f62851c;
+        public final /* synthetic */ int f62852c;
 
         public c(e eVar, ViewGroup viewGroup, View view, int i) {
-            this.f62849a = viewGroup;
-            this.f62850b = view;
-            this.f62851c = i;
+            this.f62850a = viewGroup;
+            this.f62851b = view;
+            this.f62852c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f62849a, this.f62850b, this.f62851c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((s) this.f62850a, this.f62851b, this.f62852c));
             }
         }
     }
@@ -104,8 +104,8 @@ public class e extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         k0.b bVar = new k0.b(this.m.getPageActivity(), false);
         m0 m0Var = new m0(this.m.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 15;
-        eVar.f50768h = 11;
+        eVar.f50763b = 15;
+        eVar.f50769h = 11;
         m0Var.v(eVar);
         m0Var.w(12);
         m0Var.A(9);
@@ -125,7 +125,7 @@ public class e extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     @Override // d.b.b.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

@@ -24,7 +24,7 @@ public class f extends d.b.b.j.e.c {
     public LinearLayout l;
     public ImageView m;
     public g n;
-    public InterfaceC1074f o;
+    public InterfaceC1075f o;
     public h p;
     public e q;
     public AnimationDrawable r;
@@ -112,7 +112,7 @@ public class f extends d.b.b.j.e.c {
 
     /* renamed from: d.b.h0.r.f0.f$f  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1074f {
+    public interface InterfaceC1075f {
         void a(View view, boolean z);
     }
 
@@ -130,22 +130,22 @@ public class f extends d.b.b.j.e.c {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50508a;
+        public String f50509a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f50509b;
+        public int f50510b;
 
         public i(String str, int i) {
-            this.f50508a = str;
-            this.f50509b = i;
+            this.f50509a = str;
+            this.f50510b = i;
         }
 
         public int a() {
-            return this.f50509b;
+            return this.f50510b;
         }
 
         public String b() {
-            return this.f50508a;
+            return this.f50509a;
         }
     }
 
@@ -280,8 +280,8 @@ public class f extends d.b.b.j.e.c {
                 this.v = smartBubbleAnimatedView;
                 smartBubbleAnimatedView.setExtrusionRemind(true);
             }
-            this.v.f16109e = this.x.b();
-            this.v.f16110f = this.x.a();
+            this.v.f16110e = this.x.b();
+            this.v.f16111f = this.x.a();
             if (this.v.getParent() != null) {
                 this.l.removeView(this.v);
             }
@@ -342,8 +342,8 @@ public class f extends d.b.b.j.e.c {
         }
     }
 
-    public void g(InterfaceC1074f interfaceC1074f) {
-        this.o = interfaceC1074f;
+    public void g(InterfaceC1075f interfaceC1075f) {
+        this.o = interfaceC1075f;
     }
 
     @Override // d.b.b.j.e.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -388,9 +388,9 @@ public class f extends d.b.b.j.e.c {
             }
         }
         N();
-        InterfaceC1074f interfaceC1074f = this.o;
-        if (interfaceC1074f != null) {
-            interfaceC1074f.a(this.k, z);
+        InterfaceC1075f interfaceC1075f = this.o;
+        if (interfaceC1075f != null) {
+            interfaceC1075f.a(this.k, z);
         }
     }
 

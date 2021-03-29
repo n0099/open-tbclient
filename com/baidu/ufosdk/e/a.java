@@ -238,8 +238,8 @@ public final class a {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:135:0x0324 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:140:0x033c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:150:0x0363 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:167:0x00a2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:174:0x00ec */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:166:0x00a2 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:173:0x00ec */
     /* JADX WARN: Can't wrap try/catch for region: R(11:85|86|(2:88|(5:93|94|95|(2:97|98)|(1:103)(1:102))(1:92))|107|(1:90)|93|94|95|(0)|(1:100)|103) */
     /* JADX WARN: Code restructure failed: missing block: B:63:0x01b4, code lost:
         r0 = move-exception;
@@ -248,7 +248,7 @@ public final class a {
         r0.printStackTrace();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01ad A[Catch: Exception -> 0x01b4, all -> 0x02b7, TRY_LEAVE, TryCatch #7 {Exception -> 0x01b4, blocks: (B:59:0x01a7, B:61:0x01ad), top: B:165:0x01a7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x01ad A[Catch: Exception -> 0x01b4, all -> 0x02b7, TRY_LEAVE, TryCatch #7 {Exception -> 0x01b4, blocks: (B:59:0x01a7, B:61:0x01ad), top: B:164:0x01a7 }] */
     /* JADX WARN: Type inference failed for: r1v0 */
     /* JADX WARN: Type inference failed for: r1v18 */
     /* JADX WARN: Type inference failed for: r1v19 */
@@ -595,9 +595,9 @@ public final class a {
         hashMap.put("clientid", UfoSDK.clientid);
         hashMap.put("appid", UfoSDK.appid);
         hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22904d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22904d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22902b);
+        hashMap.put("uid", com.baidu.ufosdk.b.f22905d);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22905d);
+        hashMap.put("username", com.baidu.ufosdk.b.f22903b);
         hashMap.put(IXAdRequestInfo.OS, "android");
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
@@ -680,7 +680,7 @@ public final class a {
     /* JADX WARN: Code restructure failed: missing block: B:57:0x01a7, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x019f A[Catch: Exception -> 0x01a6, all -> 0x0271, TRY_LEAVE, TryCatch #1 {all -> 0x0271, blocks: (B:19:0x00e4, B:20:0x00f8, B:22:0x00fe, B:24:0x0117, B:26:0x0122, B:28:0x012c, B:33:0x0148, B:35:0x014e, B:37:0x0164, B:38:0x016c, B:64:0x01ee, B:40:0x0171, B:42:0x0177, B:48:0x0186, B:50:0x018c, B:51:0x0191, B:52:0x0199, B:54:0x019f, B:59:0x01ac, B:61:0x01b2, B:62:0x01c4, B:57:0x01a7, B:45:0x017f, B:63:0x01d5, B:65:0x021f, B:72:0x0246, B:76:0x0259), top: B:111:0x00e4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x019f A[Catch: Exception -> 0x01a6, all -> 0x0271, TRY_LEAVE, TryCatch #1 {all -> 0x0271, blocks: (B:19:0x00e4, B:20:0x00f8, B:22:0x00fe, B:24:0x0117, B:26:0x0122, B:28:0x012c, B:33:0x0148, B:35:0x014e, B:37:0x0164, B:38:0x016c, B:64:0x01ee, B:40:0x0171, B:42:0x0177, B:48:0x0186, B:50:0x018c, B:51:0x0191, B:52:0x0199, B:54:0x019f, B:59:0x01ac, B:61:0x01b2, B:62:0x01c4, B:57:0x01a7, B:45:0x017f, B:63:0x01d5, B:65:0x021f, B:72:0x0246, B:76:0x0259), top: B:110:0x00e4 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -937,9 +937,9 @@ public final class a {
         hashMap.put("clientid", UfoSDK.clientid);
         hashMap.put("appid", UfoSDK.appid);
         hashMap.put("devid", UfoSDK.devid);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22904d);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22904d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22902b);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22905d);
+        hashMap.put("uid", com.baidu.ufosdk.b.f22905d);
+        hashMap.put("username", com.baidu.ufosdk.b.f22903b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
@@ -970,7 +970,7 @@ public final class a {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:119:0x02f3 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:139:0x010c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:138:0x010c */
     /* JADX WARN: Can't wrap try/catch for region: R(18:42|43|(2:45|46)(1:77)|47|48|(5:50|(7:59|60|61|(2:63|(1:68)(1:67))|69|(1:65)|68)(2:54|(1:58))|30|(1:41)(4:32|(1:34)|35|(2:37|38)(1:40))|39)|73|(1:52)|59|60|61|(0)|69|(0)|68|30|(0)(0)|39) */
     /* JADX WARN: Code restructure failed: missing block: B:59:0x01e8, code lost:
         r0 = move-exception;
@@ -979,11 +979,11 @@ public final class a {
         r0.printStackTrace();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x025e A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01b9 A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:125:0x0126 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01e3 A[Catch: Exception -> 0x01e8, all -> 0x028e, TRY_LEAVE, TryCatch #5 {all -> 0x028e, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:31:0x0195, B:33:0x019b, B:36:0x01a4, B:38:0x01aa, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:55:0x01dd, B:57:0x01e3, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:125:0x0126 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01ef A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:125:0x0126 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x024a A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:125:0x0126 }] */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x025e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01b9 A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01e3 A[Catch: Exception -> 0x01e8, all -> 0x028e, TRY_LEAVE, TryCatch #5 {all -> 0x028e, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:31:0x0195, B:33:0x019b, B:36:0x01a4, B:38:0x01aa, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:55:0x01dd, B:57:0x01e3, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01ef A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x024a A[Catch: all -> 0x028e, Exception -> 0x0292, TryCatch #4 {Exception -> 0x0292, blocks: (B:14:0x0126, B:16:0x013b, B:17:0x014c, B:19:0x0156, B:24:0x016c, B:26:0x0172, B:28:0x0188, B:29:0x0190, B:68:0x0235, B:70:0x024a, B:72:0x0254, B:75:0x025b, B:76:0x025e, B:47:0x01b9, B:49:0x01bf, B:51:0x01cb, B:53:0x01d1, B:54:0x01d5, B:63:0x01ef, B:65:0x01f5, B:66:0x0205, B:60:0x01e9, B:44:0x01b3, B:67:0x021c, B:77:0x0272), top: B:124:0x0126 }] */
     /* JADX WARN: Type inference failed for: r1v0 */
     /* JADX WARN: Type inference failed for: r1v12 */
     /* JADX WARN: Type inference failed for: r1v13 */
@@ -1011,20 +1011,20 @@ public final class a {
         HashMap hashMap = new HashMap();
         hashMap.put("appid", str2);
         hashMap.put("appvn", e.b());
-        hashMap.put("baiducuid", com.baidu.ufosdk.b.f22903c);
+        hashMap.put("baiducuid", com.baidu.ufosdk.b.f22904c);
         hashMap.put("clientid", UfoSDK.clientid);
         hashMap.put("devid", UfoSDK.devid);
         String str9 = "extra";
-        hashMap.put("extra", com.baidu.ufosdk.b.f22906f);
+        hashMap.put("extra", com.baidu.ufosdk.b.f22907f);
         String str10 = "id";
         hashMap.put("id", context2);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
         hashMap.put("model", Build.MODEL);
         hashMap.put(IXAdRequestInfo.OS, "android");
         hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("uid", com.baidu.ufosdk.b.f22904d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22904d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22902b);
+        hashMap.put("uid", com.baidu.ufosdk.b.f22905d);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22905d);
+        hashMap.put("username", com.baidu.ufosdk.b.f22903b);
         hashMap.put("output_style", 1);
         String a3 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
         try {
@@ -1351,9 +1351,9 @@ public final class a {
         }
         hashMap.put("appid", str2);
         hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22904d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22904d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22902b);
+        hashMap.put("uid", com.baidu.ufosdk.b.f22905d);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22905d);
+        hashMap.put("username", com.baidu.ufosdk.b.f22903b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("id", str);
         String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));

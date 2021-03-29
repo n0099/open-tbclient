@@ -1,7 +1,7 @@
 package d.b.g0.a;
 
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class j {
     public static final int AbsSpinner_entriesArray = 0;
     public static final int ActionBarLayout_android_layout_gravity = 0;

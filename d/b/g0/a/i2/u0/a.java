@@ -7,22 +7,22 @@ public final class a {
 
     /* renamed from: d.b.g0.a.i2.u0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0702a implements Runnable {
+    public static class RunnableC0703a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f44788e;
+        public final /* synthetic */ b f44789e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f44789f;
+        public final /* synthetic */ Object f44790f;
 
-        public RunnableC0702a(b bVar, Object obj) {
-            this.f44788e = bVar;
-            this.f44789f = obj;
+        public RunnableC0703a(b bVar, Object obj) {
+            this.f44789e = bVar;
+            this.f44790f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44788e.onCallback(this.f44789f);
+            this.f44789e.onCallback(this.f44790f);
         }
     }
 
@@ -56,7 +56,7 @@ public final class a {
         if (handler == null) {
             bVar.onCallback(t);
         } else {
-            handler.post(new RunnableC0702a(bVar, t));
+            handler.post(new RunnableC0703a(bVar, t));
         }
     }
 }

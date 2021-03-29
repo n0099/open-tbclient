@@ -3,11 +3,11 @@ package d.b.g0.j.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f48875a;
+    public byte[] f48876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f48876b;
+    public long f48877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f48877c;
+    public long f48878c;
 }

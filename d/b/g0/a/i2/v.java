@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public final class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44790a = d.b.g0.a.k.f45050a;
+    public static final boolean f44791a = d.b.g0.a.k.f45051a;
 
     public static float a(JSONObject jSONObject, String str, float f2) {
         return jSONObject == null ? f2 : (float) jSONObject.optDouble(str, f2);
@@ -23,7 +23,7 @@ public final class v {
         try {
             return new JSONObject(str);
         } catch (JSONException e2) {
-            if (f44790a) {
+            if (f44791a) {
                 Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e2);
             }
             return new JSONObject();
@@ -37,7 +37,7 @@ public final class v {
         try {
             return new JSONArray(str);
         } catch (JSONException e2) {
-            if (f44790a) {
+            if (f44791a) {
                 Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e2);
             }
             return new JSONArray();

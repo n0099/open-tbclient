@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class q implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<?> f41625a;
+    public SparseArray<?> f41626a;
 
     public q(SparseArray<?> sparseArray) {
-        this.f41625a = sparseArray;
+        this.f41626a = sparseArray;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -34,12 +34,12 @@ public class q implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41625a;
+        return this.f41626a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41625a;
+        return this.f41626a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -55,10 +55,10 @@ public class q implements h {
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
         Type[] b2 = cVar.b();
         JSONObject jSONObject = new JSONObject();
-        int size = this.f41625a.size();
+        int size = this.f41626a.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.f41625a.keyAt(i);
-            Object obj = this.f41625a.get(keyAt);
+            int keyAt = this.f41626a.keyAt(i);
+            Object obj = this.f41626a.get(keyAt);
             if (obj != null) {
                 if (b2 != null && b2.length >= 1) {
                     Object f2 = d.b.b.e.b.b.a.e.f.a(obj).f(new d.b.b.e.b.b.a.e.c(b2[0]));

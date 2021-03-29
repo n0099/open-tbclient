@@ -15,20 +15,20 @@ import okhttp3.OkHttpClient;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static OkHttpClient f56182a = null;
+    public static OkHttpClient f56183a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TurbonetContext f56183b = null;
+    public static TurbonetContext f56184b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f56184c = 0;
+    public static long f56185c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f56185d = false;
+    public static boolean f56186d = false;
 
     public static OkHttpClient a() {
-        f56183b = g();
-        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(f56183b);
+        f56184b = g();
+        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(f56184b);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
         return builder.build();
@@ -65,10 +65,10 @@ public class c {
     }
 
     public static OkHttpClient c() {
-        if (f56182a == null) {
-            f56182a = a();
+        if (f56183a == null) {
+            f56183a = a();
         }
-        return f56182a;
+        return f56183a;
     }
 
     public static TurbonetConfig d() {
@@ -116,18 +116,18 @@ public class c {
     }
 
     public static long e() {
-        TurbonetContext turbonetContext = f56183b;
-        if (turbonetContext != null && f56184c == 0) {
-            f56184c = turbonetContext.c();
+        TurbonetContext turbonetContext = f56184b;
+        if (turbonetContext != null && f56185c == 0) {
+            f56185c = turbonetContext.c();
         }
-        return f56184c;
+        return f56185c;
     }
 
     public static void f() {
-        if (f56185d) {
+        if (f56186d) {
             return;
         }
-        f56185d = true;
+        f56186d = true;
         try {
             c();
         } catch (Throwable th) {
@@ -137,7 +137,7 @@ public class c {
 
     public static TurbonetContext g() {
         TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-        f56183b = turbonetContext;
+        f56184b = turbonetContext;
         return turbonetContext;
     }
 }

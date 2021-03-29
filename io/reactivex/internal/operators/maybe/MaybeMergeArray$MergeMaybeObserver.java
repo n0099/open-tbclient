@@ -84,6 +84,41 @@ public final class MaybeMergeArray$MergeMaybeObserver<T> extends BasicIntQueueSu
         dVar.clear();
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004e, code lost:
+        if (r7 != 0) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0058, code lost:
+        if (r10.error.get() == null) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x005a, code lost:
+        r1.clear();
+        r0.onError(r10.error.terminate());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0066, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x006d, code lost:
+        if (r1.peek() != io.reactivex.internal.util.NotificationLite.COMPLETE) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x006f, code lost:
+        r1.drop();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0079, code lost:
+        if (r1.consumerIndex() != r10.sourceCount) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x007b, code lost:
+        r0.onComplete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x007e, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x007f, code lost:
+        r10.consumed = r2;
+        r4 = addAndGet(-r4);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drainNormal() {
         c<? super T> cVar = this.actual;
         d<Object> dVar = this.queue;
@@ -91,8 +126,11 @@ public final class MaybeMergeArray$MergeMaybeObserver<T> extends BasicIntQueueSu
         int i = 1;
         do {
             long j2 = this.requested.get();
-            while (j != j2) {
-                if (this.cancelled) {
+            while (true) {
+                int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                if (i2 == 0) {
+                    break;
+                } else if (this.cancelled) {
                     dVar.clear();
                     return;
                 } else if (this.error.get() != null) {
@@ -112,22 +150,6 @@ public final class MaybeMergeArray$MergeMaybeObserver<T> extends BasicIntQueueSu
                     }
                 }
             }
-            if (j == j2) {
-                if (this.error.get() != null) {
-                    dVar.clear();
-                    cVar.onError(this.error.terminate());
-                    return;
-                }
-                while (dVar.peek() == NotificationLite.COMPLETE) {
-                    dVar.drop();
-                }
-                if (dVar.consumerIndex() == this.sourceCount) {
-                    cVar.onComplete();
-                    return;
-                }
-            }
-            this.consumed = j;
-            i = addAndGet(-i);
         } while (i != 0);
     }
 

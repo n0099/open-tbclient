@@ -7,34 +7,34 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63763a;
+    public String f63764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63764b;
+    public String f63765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63765c = 2;
+    public int f63766c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f63766d = 0;
+    public int f63767d = 0;
 
     public static j a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         j jVar = new j();
-        jVar.f63763a = str;
+        jVar.f63764a = str;
         int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-        jVar.f63766d = length;
+        jVar.f63767d = length;
         if (length < 14) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            jVar.f63764b = str2;
+            jVar.f63765b = str2;
         }
         return jVar;
     }
@@ -71,14 +71,14 @@ public class j {
             int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
             if (!TextUtils.isEmpty(string)) {
                 j jVar = new j();
-                jVar.f63763a = string;
-                jVar.f63765c = i;
-                jVar.f63766d = length;
+                jVar.f63764a = string;
+                jVar.f63766c = i;
+                jVar.f63767d = length;
                 if (length < 14) {
                     if (!TextUtils.isEmpty(str3)) {
                         str2 = str3;
                     }
-                    jVar.f63764b = str2;
+                    jVar.f63765b = str2;
                 }
                 jVar.k();
                 return jVar;
@@ -120,11 +120,11 @@ public class j {
     }
 
     public boolean b() {
-        return d(this.f63764b);
+        return d(this.f63765b);
     }
 
     public boolean f() {
-        return c(this.f63766d);
+        return c(this.f63767d);
     }
 
     public String h() {
@@ -140,13 +140,13 @@ public class j {
         } else {
             str = "0";
         }
-        this.f63764b = str;
+        this.f63765b = str;
         return true;
     }
 
     public final String l() {
         try {
-            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f63763a).put(i("aW1laQ=="), this.f63764b).put(i("dmVy"), this.f63765c).toString();
+            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f63764a).put(i("aW1laQ=="), this.f63765b).put(i("dmVy"), this.f63766c).toString();
         } catch (JSONException e2) {
             d.b.j.i.c.c(e2);
             return null;

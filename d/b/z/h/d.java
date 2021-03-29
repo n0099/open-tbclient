@@ -3,7 +3,7 @@ package d.b.z.h;
 import android.content.pm.PackageInfo;
 import com.baidu.nps.utils.ContextHolder;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static PackageInfo a(String str, int i) {
         if (new File(str).exists()) {

@@ -1,6 +1,6 @@
 package com.baidu.android.common.others;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IStringUtil {
     public static final String CURRENT_PATH = ".";
     public static final char EXTENSION_SEPARATOR = '.';

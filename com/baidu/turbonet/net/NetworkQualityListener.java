@@ -5,10 +5,10 @@ import java.util.concurrent.Executor;
 public abstract class NetworkQualityListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f22785a;
+    public final Executor f22786a;
 
     public Executor a() {
-        return this.f22785a;
+        return this.f22786a;
     }
 
     public abstract void b(int i);

@@ -38,23 +38,23 @@ import tbclient.DiscoverHotForum;
 import tbclient.ThreadInfo;
 import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public DataRes.Builder f62697c;
+    public DataRes.Builder f62698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DataRes.Builder f62698d;
+    public DataRes.Builder f62699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DataRes.Builder f62699e;
+    public DataRes.Builder f62700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62700f;
+    public String f62701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f62701g;
+    public boolean f62702g;
     public final BdTypeRecyclerView k;
     public final d.b.i0.z0.b.a l;
     public d.b.i0.f0.a m;
@@ -65,13 +65,13 @@ public class d {
     public BigdaySwipeRefreshLayout s;
 
     /* renamed from: a  reason: collision with root package name */
-    public n f62695a = null;
+    public n f62696a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<d.b.b.j.e.n> f62696b = new LinkedList<>();
+    public final LinkedList<d.b.b.j.e.n> f62697b = new LinkedList<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62702h = false;
+    public boolean f62703h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean n = false;
@@ -84,22 +84,22 @@ public class d {
     public View.OnTouchListener z = new i();
     public CustomMessageListener A = new b(2016488);
     public CustomMessageListener B = new c(2016553);
-    public CustomMessageListener C = new C1681d(2921425);
+    public CustomMessageListener C = new C1682d(2921425);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends f0<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataRes.Builder f62703a;
+        public final /* synthetic */ DataRes.Builder f62704a;
 
         public a(DataRes.Builder builder) {
-            this.f62703a = builder;
+            this.f62704a = builder;
         }
 
         @Override // d.b.h0.z0.f0
         public Object doInBackground() {
             DataRes build;
-            DataRes.Builder builder = new DataRes.Builder(this.f62703a.build(true));
+            DataRes.Builder builder = new DataRes.Builder(this.f62704a.build(true));
             d.b.b.e.d.l<byte[]> e2 = d.b.h0.r.r.a.f().e("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
             try {
                 build = builder.build(true);
@@ -108,7 +108,7 @@ public class d {
             }
             if (build != null && !ListUtils.isEmpty(build.thread_info)) {
                 e2.g("0", build.toByteArray());
-                d.V(d.this.f62700f);
+                d.V(d.this.f62701f);
                 d.W(System.currentTimeMillis());
                 return null;
             }
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -129,7 +129,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -143,9 +143,9 @@ public class d {
     }
 
     /* renamed from: d.b.i0.z0.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1681d extends CustomMessageListener {
-        public C1681d(int i) {
+    /* loaded from: classes3.dex */
+    public class C1682d extends CustomMessageListener {
+        public C1682d(int i) {
             super(i);
         }
 
@@ -156,7 +156,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -171,27 +171,27 @@ public class d {
                 if (data.k != null) {
                     return;
                 }
-                if (!data.f13692a) {
-                    BdToast.h(TbadkCoreApplication.getInst().getContext(), updateAttentionMessage.getData().f13693b, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
-                } else if (data.f13695d) {
+                if (!data.f13693a) {
+                    BdToast.h(TbadkCoreApplication.getInst().getContext(), updateAttentionMessage.getData().f13694b, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
+                } else if (data.f13696d) {
                 } else {
-                    Iterator it = d.this.f62696b.iterator();
+                    Iterator it = d.this.f62697b.iterator();
                     while (it.hasNext()) {
                         Object next = it.next();
-                        if ((next instanceof d.b.i0.x.e0.b) && ThreadCardUtils.isTargetUser(((d.b.i0.x.e0.b) next).n(), data.f13694c)) {
+                        if ((next instanceof d.b.i0.x.e0.b) && ThreadCardUtils.isTargetUser(((d.b.i0.x.e0.b) next).n(), data.f13695c)) {
                             it.remove();
                         }
                     }
-                    d.b.i0.r2.a.c(d.this.f62696b);
+                    d.b.i0.r2.a.c(d.this.f62697b);
                     d.this.u.clear();
-                    if (d.this.f62696b.size() < 9) {
+                    if (d.this.f62697b.size() < 9) {
                         d.this.G();
                     } else {
                         d dVar = d.this;
-                        dVar.Y(dVar.f62696b);
+                        dVar.Y(dVar.f62697b);
                         d.this.l.d();
-                        if (d.this.f62695a != null) {
-                            d.this.f62695a.c(false, false);
+                        if (d.this.f62696a != null) {
+                            d.this.f62696a.c(false, false);
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921517, Boolean.valueOf(d.this.n)));
@@ -200,7 +200,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public f(int i) {
             super(i);
@@ -209,33 +209,32 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long) || d.this.f62697c == null || d.this.f62697c.hot_recomforum == null || ListUtils.isEmpty(d.this.f62697c.hot_recomforum.tab_list)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long) || d.this.f62698c == null || d.this.f62698c.hot_recomforum == null || ListUtils.isEmpty(d.this.f62698c.hot_recomforum.tab_list)) {
                 return;
             }
             long longValue = ((Long) customResponsedMessage.getData()).longValue();
-            DiscoverHotForum.Builder builder = new DiscoverHotForum.Builder(d.this.f62697c.hot_recomforum);
+            DiscoverHotForum.Builder builder = new DiscoverHotForum.Builder(d.this.f62698c.hot_recomforum);
             if (d.b.i0.z0.b.c.c(builder, longValue, customResponsedMessage.getCmd() == 2001335)) {
-                d.this.f62697c.hot_recomforum = builder.build(true);
-                d.this.Q(new DataRes.Builder(d.this.f62697c.build(true)));
+                d.this.f62698c.hot_recomforum = builder.build(true);
+                d.this.Q(new DataRes.Builder(d.this.f62698c.build(true)));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g extends RecyclerView.OnScrollListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f62710a = 0;
+        public int f62711a = 0;
 
         public g() {
         }
 
         public void a(int i, int i2) {
             if (d.this.o != null && !d.this.n) {
-                d.this.o.a(this.f62710a, i);
-                throw null;
+                d.this.o.a(this.f62711a, i);
             }
-            this.f62710a = i;
+            this.f62711a = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921517, Boolean.valueOf(d.this.n)));
         }
 
@@ -243,8 +242,8 @@ public class d {
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             if (d.this.o != null && !d.this.n) {
                 d.this.o.b(recyclerView, i);
-                throw null;
-            } else if (i == 0) {
+            }
+            if (i == 0) {
                 t.b().c();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921517, Boolean.valueOf(d.this.n)));
             }
@@ -265,7 +264,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h extends CustomMessageListener {
         public h(int i) {
             super(i);
@@ -274,27 +273,27 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || d.this.f62697c == null || d.b.i0.i1.o.k.a.e(d.this.f62696b)) {
+            if (customResponsedMessage == null || d.this.f62698c == null || d.b.i0.i1.o.k.a.e(d.this.f62697b)) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            d.b.i0.r2.a.d(str, d.this.f62696b);
-            d.b.i0.r2.a.d(str, d.this.f62697c.app_list);
+            d.b.i0.r2.a.d(str, d.this.f62697b);
+            d.b.i0.r2.a.d(str, d.this.f62698c.app_list);
             d.b.i0.r2.a.d(str, d.this.u);
-            d.b.i0.r2.a.s(d.this.f62696b);
+            d.b.i0.r2.a.s(d.this.f62697b);
             if (d.this.l != null) {
-                d.this.l.j(new ArrayList(d.this.f62696b));
+                d.this.l.j(new ArrayList(d.this.f62697b));
             }
             d dVar = d.this;
-            dVar.t(dVar.f62696b);
+            dVar.t(dVar.f62697b);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921517, Boolean.valueOf(d.this.n)));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements View.OnTouchListener {
         public i() {
         }
@@ -312,7 +311,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j extends f0<DataRes> {
         public j(d dVar) {
         }
@@ -326,7 +325,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k implements d.b.h0.z0.n<DataRes> {
         public k() {
         }
@@ -339,7 +338,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l extends f0<DataRes> {
         public l(d dVar) {
         }
@@ -361,7 +360,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m implements d.b.h0.z0.n<DataRes> {
         public m() {
         }
@@ -374,7 +373,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface n {
         void a(d.b.h0.z0.c cVar);
 
@@ -435,23 +434,23 @@ public class d {
     }
 
     public boolean A() {
-        return this.f62701g;
+        return this.f62702g;
     }
 
     public void B(a2 a2Var) {
         a2Var.y3(true);
         d.b.h0.b.f.a.e(a2Var);
         List<d.b.b.j.e.n> e2 = this.q.e(a2Var, -1, null);
-        DataRes.Builder builder = this.f62697c;
-        if ((builder == null || ListUtils.getCount(builder.thread_info) <= 0) && ListUtils.getCount(this.f62696b) <= 1) {
-            this.f62696b.clear();
+        DataRes.Builder builder = this.f62698c;
+        if ((builder == null || ListUtils.getCount(builder.thread_info) <= 0) && ListUtils.getCount(this.f62697b) <= 1) {
+            this.f62697b.clear();
         }
-        this.f62696b.addAll(0, e2);
-        this.l.j(this.f62696b);
+        this.f62697b.addAll(0, e2);
+        this.l.j(this.f62697b);
     }
 
     public final boolean D() {
-        return this.f62702h;
+        return this.f62703h;
     }
 
     public boolean E() {
@@ -471,33 +470,33 @@ public class d {
 
     public final void G() {
         d.b.h0.z0.c s = s(true);
-        n nVar = this.f62695a;
+        n nVar = this.f62696a;
         if (nVar != null) {
             nVar.a(s);
         }
     }
 
     public void H() {
-        if (D() || !this.f62701g) {
+        if (D() || !this.f62702g) {
             return;
         }
         d.b.h0.z0.c s = s(false);
-        if (this.f62695a != null) {
+        if (this.f62696a != null) {
             X(true);
-            this.f62695a.d(this.f62700f, s);
+            this.f62696a.d(this.f62701f, s);
         }
     }
 
     public final List<d.b.b.j.e.n> I(boolean z, DataRes.Builder builder, boolean z2) {
-        if (this.f62697c == null) {
-            this.f62697c = new DataRes.Builder();
+        if (this.f62698c == null) {
+            this.f62698c = new DataRes.Builder();
         }
         if (builder == null) {
             builder = new DataRes.Builder();
         }
-        d.b.i0.z0.g.k.c b2 = this.q.b(z, this.f62697c, builder, !z2 ? 1 : 0);
+        d.b.i0.z0.g.k.c b2 = this.q.b(z, this.f62698c, builder, !z2 ? 1 : 0);
         if (b2 != null) {
-            return b2.f63210a;
+            return b2.f63211a;
         }
         return null;
     }
@@ -512,7 +511,7 @@ public class d {
         T(true);
         if (dataRes != null) {
             if (P(false, true, dataRes)) {
-                n nVar = this.f62695a;
+                n nVar = this.f62696a;
                 if (nVar != null) {
                     nVar.c(false, true);
                     return;
@@ -533,14 +532,14 @@ public class d {
         n nVar;
         X(false);
         if (i2 == 0 && dataRes != null && P(true, z, dataRes)) {
-            n nVar2 = this.f62695a;
+            n nVar2 = this.f62696a;
             if (nVar2 != null) {
                 nVar2.c(z, false);
             }
             if (z) {
                 e0();
             }
-        } else if (i2 == 0 && ListUtils.getCount(this.f62696b) == 0 && (nVar = this.f62695a) != null) {
+        } else if (i2 == 0 && ListUtils.getCount(this.f62697b) == 0 && (nVar = this.f62696a) != null) {
             nVar.b();
             BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = this.s;
             if (bigdaySwipeRefreshLayout != null) {
@@ -548,13 +547,13 @@ public class d {
                 return;
             }
             return;
-        } else if (this.f62696b.size() > 0) {
-            n nVar3 = this.f62695a;
+        } else if (this.f62697b.size() > 0) {
+            n nVar3 = this.f62696a;
             if (nVar3 != null) {
                 nVar3.onError(1, str);
             }
         } else {
-            n nVar4 = this.f62695a;
+            n nVar4 = this.f62696a;
             if (nVar4 != null) {
                 nVar4.onError(2, str);
             }
@@ -583,11 +582,11 @@ public class d {
         }
         int i3 = z2 ? 1 : this.t + 1;
         this.t = i3;
-        int j2 = i3 == 1 ? 0 : d.b.i0.i1.o.k.a.j(this.f62696b);
-        this.f62700f = dataRes.page_tag;
-        this.f62699e = new DataRes.Builder(dataRes);
+        int j2 = i3 == 1 ? 0 : d.b.i0.i1.o.k.a.j(this.f62697b);
+        this.f62701f = dataRes.page_tag;
+        this.f62700e = new DataRes.Builder(dataRes);
         if (J()) {
-            U(this.f62700f);
+            U(this.f62701f);
         }
         LinkedList linkedList = new LinkedList();
         DataRes.Builder builder = new DataRes.Builder(dataRes);
@@ -604,13 +603,13 @@ public class d {
                 if (3 == i4) {
                     d.b.i0.z0.b.f.b bVar = new d.b.i0.z0.b.f.b();
                     bVar.i = d.b.i0.z0.b.f.b.j;
-                    bVar.f62789e = 3;
+                    bVar.f62790e = 3;
                     I.add(bVar);
                     this.j = true;
                 } else if (2 == i4) {
                     d.b.i0.z0.b.f.b bVar2 = new d.b.i0.z0.b.f.b();
                     bVar2.i = d.b.i0.z0.b.f.b.j;
-                    bVar2.f62789e = 2;
+                    bVar2.f62790e = 2;
                     I.add(bVar2);
                     this.j = true;
                 }
@@ -619,43 +618,43 @@ public class d {
         }
         if (!d.b.b.e.p.k.isEmpty(builder.user_tips) && 2 == this.r) {
             d.b.i0.z0.b.f.b bVar3 = new d.b.i0.z0.b.f.b();
-            bVar3.f62789e = builder.user_tips_type.intValue();
-            bVar3.f62790f = builder.user_tips;
+            bVar3.f62790e = builder.user_tips_type.intValue();
+            bVar3.f62791f = builder.user_tips;
             if (builder.user_tips_type.intValue() == 4) {
-                bVar3.f62791g = true;
+                bVar3.f62792g = true;
             } else {
-                bVar3.f62792h = true;
+                bVar3.f62793h = true;
             }
-            if (J() && ((i2 = bVar3.f62789e) == 2 || i2 == 3)) {
+            if (J() && ((i2 = bVar3.f62790e) == 2 || i2 == 3)) {
                 if (linkedList.size() > 0) {
-                    bVar3.f62789e = 0;
+                    bVar3.f62790e = 0;
                     z3 = false;
                     if (z3) {
                         linkedList.add(bVar3);
                     }
                 } else {
-                    bVar3.f62790f = TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title);
+                    bVar3.f62791f = TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title);
                 }
             }
             z3 = true;
             if (z3) {
             }
         }
-        this.f62701g = builder.has_more.intValue() == 1;
+        this.f62702g = builder.has_more.intValue() == 1;
         if (ListUtils.isEmpty(linkedList)) {
-            if (!this.f62696b.isEmpty()) {
-                Iterator<d.b.b.j.e.n> it = this.f62696b.iterator();
+            if (!this.f62697b.isEmpty()) {
+                Iterator<d.b.b.j.e.n> it = this.f62697b.iterator();
                 while (it.hasNext()) {
                     it.next();
                 }
-                this.l.j(this.f62696b);
+                this.l.j(this.f62697b);
             }
             return false;
         }
-        this.f62696b.clear();
-        this.f62696b.addAll(linkedList);
+        this.f62697b.clear();
+        this.f62697b.addAll(linkedList);
         if (z2) {
-            DataRes.Builder builder2 = this.f62697c;
+            DataRes.Builder builder2 = this.f62698c;
             builder2.page_tag = dataRes.page_tag;
             builder2.has_more = dataRes.has_more;
             builder2.user_list = dataRes.user_list;
@@ -663,7 +662,7 @@ public class d {
             builder2.user_tips = dataRes.user_tips;
             builder2.last_tips = dataRes.last_tips;
         }
-        DataRes.Builder builder3 = this.f62697c;
+        DataRes.Builder builder3 = this.f62698c;
         builder3.banner_user_story = dataRes.banner_user_story;
         builder3.banner_follow_live = dataRes.banner_follow_live;
         builder3.hot_recomforum = dataRes.hot_recomforum;
@@ -671,11 +670,11 @@ public class d {
         builder3.top_user_info = dataRes.top_user_info;
         int i5 = this.r;
         if (i5 == 2 || i5 == 3) {
-            DataRes.Builder builder4 = this.f62697c;
+            DataRes.Builder builder4 = this.f62698c;
             builder4.user_tips_type = dataRes.user_tips_type;
             builder4.user_tips = dataRes.user_tips;
         }
-        this.l.j(this.f62696b);
+        this.l.j(this.f62697b);
         return true;
     }
 
@@ -690,11 +689,11 @@ public class d {
     }
 
     public void S() {
-        this.f62697c = new DataRes.Builder(this.f62698d.build(true));
+        this.f62698c = new DataRes.Builder(this.f62699d.build(true));
     }
 
     public final void X(boolean z) {
-        this.f62702h = z;
+        this.f62703h = z;
     }
 
     public final void Y(List<d.b.b.j.e.n> list) {
@@ -702,15 +701,14 @@ public class d {
     }
 
     public void Z(n nVar) {
-        this.f62695a = nVar;
+        this.f62696a = nVar;
     }
 
     public void a0(b0 b0Var) {
-        if (b0Var == null) {
-            return;
+        if (b0Var != null) {
+            this.o = b0Var.a();
+            this.p = b0Var.b();
         }
-        b0Var.a();
-        throw null;
     }
 
     public void b0(boolean z) {
@@ -743,7 +741,7 @@ public class d {
     }
 
     public final void e0() {
-        DataRes.Builder builder = this.f62699e;
+        DataRes.Builder builder = this.f62700e;
         if (builder == null) {
             return;
         }
@@ -763,13 +761,13 @@ public class d {
     }
 
     public void r() {
-        this.f62698d = new DataRes.Builder(this.f62697c.build(true));
+        this.f62699d = new DataRes.Builder(this.f62698c.build(true));
     }
 
     public final d.b.h0.z0.c s(boolean z) {
-        String e2 = d.b.i0.r2.a.e(this.f62696b, z);
+        String e2 = d.b.i0.r2.a.e(this.f62697b, z);
         d.b.h0.z0.c cVar = new d.b.h0.z0.c();
-        cVar.f51657b = e2;
+        cVar.f51658b = e2;
         return cVar;
     }
 
@@ -778,27 +776,27 @@ public class d {
     }
 
     public final void u() {
-        DataRes.Builder builder = this.f62697c;
-        if (builder == null || ListUtils.getCount(builder.thread_info) == 0 || ListUtils.getCount(this.f62696b) == 0) {
+        DataRes.Builder builder = this.f62698c;
+        if (builder == null || ListUtils.getCount(builder.thread_info) == 0 || ListUtils.getCount(this.f62697b) == 0) {
             return;
         }
         int i2 = 0;
         while (true) {
-            if (i2 >= this.f62696b.size()) {
+            if (i2 >= this.f62697b.size()) {
                 break;
-            } else if (this.f62696b.get(i2) instanceof d.b.i0.z0.b.f.a) {
-                this.f62696b.remove(i2);
+            } else if (this.f62697b.get(i2) instanceof d.b.i0.z0.b.f.a) {
+                this.f62697b.remove(i2);
                 d.b.i0.z0.b.a aVar = this.l;
                 if (aVar != null) {
-                    aVar.j(this.f62696b);
+                    aVar.j(this.f62697b);
                 }
             } else {
                 i2++;
             }
         }
-        for (int i3 = 0; i3 < this.f62697c.thread_info.size(); i3++) {
-            if (d.b.i0.z0.b.f.a.C(this.f62697c.thread_info.get(i3))) {
-                this.f62697c.thread_info.remove(i3);
+        for (int i3 = 0; i3 < this.f62698c.thread_info.size(); i3++) {
+            if (d.b.i0.z0.b.f.a.C(this.f62698c.thread_info.get(i3))) {
+                this.f62698c.thread_info.remove(i3);
                 e0();
                 return;
             }
@@ -809,14 +807,14 @@ public class d {
         DataRes.Builder builder;
         ThreadInfo threadInfo;
         Long l2;
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (builder = this.f62697c) == null || ListUtils.getCount(builder.thread_info) == 0 || ListUtils.getCount(this.f62696b) == 0) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (builder = this.f62698c) == null || ListUtils.getCount(builder.thread_info) == 0 || ListUtils.getCount(this.f62697b) == 0) {
             return;
         }
         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
         if (StringUtils.isNull(optString)) {
             return;
         }
-        Iterator<d.b.b.j.e.n> it = this.f62696b.iterator();
+        Iterator<d.b.b.j.e.n> it = this.f62697b.iterator();
         boolean z = false;
         while (true) {
             if (!it.hasNext()) {
@@ -832,17 +830,17 @@ public class d {
                     } else if (z) {
                         d.b.i0.z0.b.a aVar = this.l;
                         if (aVar != null) {
-                            aVar.j(this.f62696b);
+                            aVar.j(this.f62697b);
                         }
                     }
                 }
             }
         }
         long f2 = d.b.b.e.m.b.f(optString, 0L);
-        for (int i2 = 0; i2 < this.f62697c.thread_info.size(); i2++) {
-            ConcernData concernData = this.f62697c.thread_info.get(i2);
+        for (int i2 = 0; i2 < this.f62698c.thread_info.size(); i2++) {
+            ConcernData concernData = this.f62698c.thread_info.get(i2);
             if (concernData != null && (threadInfo = concernData.thread_list) != null && (l2 = threadInfo.tid) != null && l2.longValue() == f2) {
-                this.f62697c.thread_info.remove(i2);
+                this.f62698c.thread_info.remove(i2);
                 e0();
                 return;
             }
@@ -851,13 +849,13 @@ public class d {
 
     public final void z(List<d.b.b.j.e.n> list, DataRes.Builder builder, int i2) {
         List<m0> f0 = f0(d.b.i0.r2.a.g(builder.app_list, "CONCERN"));
-        if (this.f62697c == null) {
-            this.f62697c = new DataRes.Builder();
+        if (this.f62698c == null) {
+            this.f62698c = new DataRes.Builder();
         }
-        if (d.b.i0.i1.o.k.a.e(this.f62697c.app_list)) {
-            this.f62697c.app_list = new ArrayList();
+        if (d.b.i0.i1.o.k.a.e(this.f62698c.app_list)) {
+            this.f62698c.app_list = new ArrayList();
         }
-        this.f62697c.app_list.addAll(builder.app_list);
+        this.f62698c.app_list.addAll(builder.app_list);
         if (this.t == 1 || i2 == 0) {
             this.u.clear();
         }

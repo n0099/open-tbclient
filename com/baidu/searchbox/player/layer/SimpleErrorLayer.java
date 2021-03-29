@@ -14,7 +14,7 @@ import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.videoplayer.framework.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SimpleErrorLayer extends ComponentLayer<FrameLayout> {
     public KernelErrorComponent mKernelErrorComponent;
     public NetErrorComponent mNetErrorComponent;

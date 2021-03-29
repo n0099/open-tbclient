@@ -13,16 +13,16 @@ import d.b.i0.p3.m.i;
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21874e;
+    public ImageView f21875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f21875f;
+    public ImageView f21876f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21876g;
+    public ImageView f21877g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21877h;
+    public ImageView f21878h;
     public LinearLayout i;
     public LinearLayout j;
     public LinearLayout k;
@@ -49,9 +49,9 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     @Override // d.b.i0.p3.m.i.b
     public void a(int i) {
         if (i == 1) {
-            this.f21874e.setImageResource(R.drawable.icon_video_music);
+            this.f21875e.setImageResource(R.drawable.icon_video_music);
         } else {
-            this.f21874e.setImageResource(R.drawable.icon_video_music_disable);
+            this.f21875e.setImageResource(R.drawable.icon_video_music_disable);
         }
     }
 
@@ -61,14 +61,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         this.j = (LinearLayout) findViewById(R.id.layout_sticker);
         this.k = (LinearLayout) findViewById(R.id.layout_beauty);
         this.l = (LinearLayout) findViewById(R.id.layout_filter);
-        this.f21874e = (ImageView) findViewById(R.id.img_music);
-        this.f21875f = (ImageView) findViewById(R.id.img_sticker);
-        this.f21876g = (ImageView) findViewById(R.id.img_beauty);
-        this.f21877h = (ImageView) findViewById(R.id.img_filter);
-        this.f21874e.setOnClickListener(this);
-        this.f21875f.setOnClickListener(this);
-        this.f21876g.setOnClickListener(this);
-        this.f21877h.setOnClickListener(this);
+        this.f21875e = (ImageView) findViewById(R.id.img_music);
+        this.f21876f = (ImageView) findViewById(R.id.img_sticker);
+        this.f21877g = (ImageView) findViewById(R.id.img_beauty);
+        this.f21878h = (ImageView) findViewById(R.id.img_filter);
+        this.f21875e.setOnClickListener(this);
+        this.f21876f.setOnClickListener(this);
+        this.f21877g.setOnClickListener(this);
+        this.f21878h.setOnClickListener(this);
     }
 
     public void c() {
@@ -104,14 +104,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     public void setViewChoosed(int i, boolean z) {
         if (i == 0) {
-            this.f21874e.setSelected(z);
+            this.f21875e.setSelected(z);
         } else if (i == 1) {
-            this.f21875f.setSelected(z);
+            this.f21876f.setSelected(z);
         } else if (i == 2) {
-            this.f21876g.setSelected(z);
+            this.f21877g.setSelected(z);
         } else if (i != 3) {
         } else {
-            this.f21877h.setSelected(z);
+            this.f21878h.setSelected(z);
         }
     }
 

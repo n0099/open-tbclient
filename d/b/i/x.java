@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class x extends a<d.b.h0.r.q.a> {
     public MutiImgSingleHorizontalLayout j;
     public int k;

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.c0.k.f.a f42588a;
+    public d.b.c0.k.f.a f42589a;
 
     public a(Context context) {
         File b2 = b(context, "bitmap");
@@ -22,17 +22,17 @@ public class a {
             b2.mkdirs();
         }
         try {
-            this.f42588a = d.b.c0.k.f.a.q(b2, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+            this.f42589a = d.b.c0.k.f.a.q(b2, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
         } catch (IOException e2) {
             e2.printStackTrace();
         }
     }
 
     public Bitmap a(String str, int i, int i2) {
-        if (this.f42588a == null) {
+        if (this.f42589a == null) {
             return null;
         }
-        a.e D = this.f42588a.D(d.b.c0.k.g.b.b(str));
+        a.e D = this.f42589a.D(d.b.c0.k.g.b.b(str));
         if (D != null) {
             FileInputStream fileInputStream = (FileInputStream) D.c(0);
             if (i > 0 && i2 > 0) {
@@ -54,11 +54,11 @@ public class a {
     }
 
     public void c(String str) {
-        if (this.f42588a == null) {
+        if (this.f42589a == null) {
             return;
         }
         try {
-            a.c B = this.f42588a.B(d.b.c0.k.g.b.b(str));
+            a.c B = this.f42589a.B(d.b.c0.k.g.b.b(str));
             if (B == null) {
                 return;
             }
@@ -67,7 +67,7 @@ public class a {
             } else {
                 B.c();
             }
-            this.f42588a.flush();
+            this.f42589a.flush();
         } catch (IOException e2) {
             e2.printStackTrace();
         }

@@ -57,8 +57,8 @@ public class t extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 } else if (view.getId() == R.id.img_disagree) {
                     d.b.i0.p0.j2.a.b(a2Var, 13, t.this.i, t.this.A, t.this.i0());
                 } else if (view instanceof TbImageView) {
-                    if (t.this.B.f62183a instanceof Boolean) {
-                        if (((Boolean) t.this.B.f62183a).booleanValue()) {
+                    if (t.this.B.f62184a instanceof Boolean) {
+                        if (((Boolean) t.this.B.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, t.this.i, t.this.A, t.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, t.this.i, t.this.A, t.this.i0());
@@ -146,7 +146,7 @@ public class t extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     t.this.B.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), t.this.z, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -179,8 +179,8 @@ public class t extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(this.z);

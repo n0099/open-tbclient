@@ -29,25 +29,25 @@ import org.apache.http.client.utils.URLEncodedUtils;
 public class PersonHeaderBackgroundController {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f20416a;
+    public TbPageContext f20417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbImageView f20417b;
+    public TbImageView f20418b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f20418c;
+    public View f20419c;
 
     /* renamed from: d  reason: collision with root package name */
-    public UserData f20419d;
+    public UserData f20420d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20420e;
+    public boolean f20421e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20421f;
+    public int f20422f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f20422g = new b();
+    public View.OnClickListener f20423g = new b();
 
     /* loaded from: classes5.dex */
     public class a extends c<d.b.b.j.d.a> {
@@ -69,7 +69,7 @@ public class PersonHeaderBackgroundController {
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             super.onLoaded((a) aVar, str, i);
             if (aVar != null) {
-                aVar.h(PersonHeaderBackgroundController.this.f20417b);
+                aVar.h(PersonHeaderBackgroundController.this.f20418b);
             }
         }
     }
@@ -82,11 +82,11 @@ public class PersonHeaderBackgroundController {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i;
-            if (PersonHeaderBackgroundController.this.f20420e) {
-                if (PersonHeaderBackgroundController.this.f20419d == null || !PersonHeaderBackgroundController.this.f20419d.isBaijiahaoUser()) {
+            if (PersonHeaderBackgroundController.this.f20421e) {
+                if (PersonHeaderBackgroundController.this.f20420d == null || !PersonHeaderBackgroundController.this.f20420d.isBaijiahaoUser()) {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                    String userId = PersonHeaderBackgroundController.this.f20419d.getUserId();
-                    String bg_pic = PersonHeaderBackgroundController.this.f20419d.getBg_pic();
+                    String userId = PersonHeaderBackgroundController.this.f20420d.getUserId();
+                    String bg_pic = PersonHeaderBackgroundController.this.f20420d.getBg_pic();
                     try {
                         i = d.b.b.e.m.b.d((String) PersonHeaderBackgroundController.this.f(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException unused) {
@@ -98,34 +98,34 @@ public class PersonHeaderBackgroundController {
                         if (currentAccountInfo != null && !StringUtils.isNull(bg_pic) && !StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) && bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(PersonHeaderBackgroundController.this.f20417b.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(PersonHeaderBackgroundController.this.f20418b.getContext(), i, i2)));
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(PersonHeaderBackgroundController.this.f20417b.getContext())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(PersonHeaderBackgroundController.this.f20418b.getContext())));
                 }
             }
         }
     }
 
     public PersonHeaderBackgroundController(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
-        this.f20416a = tbPageContext;
-        this.f20417b = tbImageView;
-        this.f20420e = z;
+        this.f20417a = tbPageContext;
+        this.f20418b = tbImageView;
+        this.f20421e = z;
         tbImageView.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.f20418c = view;
-        view.setOnClickListener(this.f20422g);
+        this.f20419c = view;
+        view.setOnClickListener(this.f20423g);
     }
 
     public void e(UserData userData) {
         if (userData == null) {
             return;
         }
-        this.f20419d = userData;
+        this.f20420d = userData;
         String bg_pic = userData.getBg_pic();
         if (k.isEmpty(bg_pic)) {
             return;
         }
-        d.h().k(bg_pic, 10, new a(), 0, 0, this.f20416a.getUniqueId(), new Object[0]);
+        d.h().k(bg_pic, 10, new a(), 0, 0, this.f20417a.getUniqueId(), new Object[0]);
     }
 
     public final Map<String, String> f(final String str) throws URISyntaxException {
@@ -139,7 +139,7 @@ public class PersonHeaderBackgroundController {
     }
 
     public int g() {
-        ViewGroup.LayoutParams layoutParams = this.f20417b.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f20418b.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }
@@ -147,32 +147,28 @@ public class PersonHeaderBackgroundController {
     }
 
     public void h(double d2) {
-        double d3 = this.f20421f;
-        double d4 = PullRefreshFrameLayout.D;
-        Double.isNaN(d4);
-        Double.isNaN(d3);
-        int i = (int) (d3 + (d4 * d2));
-        ViewGroup.LayoutParams layoutParams = this.f20417b.getLayoutParams();
+        int i = (int) (this.f20422f + (PullRefreshFrameLayout.D * d2));
+        ViewGroup.LayoutParams layoutParams = this.f20418b.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.f20417b.setLayoutParams(layoutParams);
+            this.f20418b.setLayoutParams(layoutParams);
         }
     }
 
     public void i(int i) {
-        this.f20421f = i;
-        ViewGroup.LayoutParams layoutParams = this.f20417b.getLayoutParams();
+        this.f20422f = i;
+        ViewGroup.LayoutParams layoutParams = this.f20418b.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.f20421f;
-            this.f20417b.setLayoutParams(layoutParams);
+            layoutParams.height = this.f20422f;
+            this.f20418b.setLayoutParams(layoutParams);
         }
     }
 
     public void j(int i) {
-        ViewGroup.LayoutParams layoutParams = this.f20417b.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f20418b.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.f20417b.setLayoutParams(layoutParams);
+            this.f20418b.setLayoutParams(layoutParams);
         }
     }
 }

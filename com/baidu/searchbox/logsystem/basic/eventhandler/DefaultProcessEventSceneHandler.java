@@ -8,7 +8,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventScene
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DefaultProcessEventSceneHandler extends ProcessEventSceneHandler {
     public static void init() {
     }

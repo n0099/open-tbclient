@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class u extends a0 {
     public u(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/postMessage");

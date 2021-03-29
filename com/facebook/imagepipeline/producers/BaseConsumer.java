@@ -4,7 +4,7 @@ import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseConsumer<T> implements Consumer<T> {
     public boolean mIsFinished = false;
 
@@ -29,7 +29,7 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
     }
 
     public static int turnOffStatusFlag(int i, int i2) {
-        return i & (i2 ^ (-1));
+        return i & (~i2);
     }
 
     public static int turnOnStatusFlag(int i, int i2) {

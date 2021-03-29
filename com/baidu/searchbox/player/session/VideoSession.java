@@ -12,7 +12,7 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.layer.ILayer;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class VideoSession implements IPoolItem {
     public ControlEventTrigger mControlEventTrigger;
     public IMessenger mCourier;

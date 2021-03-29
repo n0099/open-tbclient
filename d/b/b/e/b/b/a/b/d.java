@@ -3,15 +3,15 @@ package d.b.b.e.b.b.a.b;
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte f41613a;
+    public byte f41614a;
 
     public d(byte b2) {
-        this.f41613a = b2;
+        this.f41614a = b2;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object a(d.b.b.e.b.b.a.e.c cVar) {
-        return Byte.valueOf(this.f41613a);
+        return Byte.valueOf(this.f41614a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -21,21 +21,21 @@ public class d implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return Byte.valueOf(this.f41613a);
+        return Byte.valueOf(this.f41614a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return Byte.valueOf(this.f41613a);
+        return Byte.valueOf(this.f41614a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object e(d.b.b.e.b.b.a.e.c cVar) {
-        return Byte.valueOf(this.f41613a);
+        return Byte.valueOf(this.f41614a);
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f41613a);
+        return Integer.valueOf(this.f41614a);
     }
 }

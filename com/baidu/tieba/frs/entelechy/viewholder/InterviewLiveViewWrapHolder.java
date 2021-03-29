@@ -8,11 +8,11 @@ import d.b.i0.i2.e;
 public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsCardVideoViewHolder f16254e;
+    public FrsCardVideoViewHolder f16255e;
 
     @Override // d.b.i0.i2.e
     public boolean D() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return false;
         }
@@ -21,7 +21,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return 0;
         }
@@ -30,13 +30,13 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // d.b.i0.i2.e
     public String getPlayUrl() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         return frsCardVideoViewHolder == null ? "" : frsCardVideoViewHolder.getPlayUrl();
     }
 
     @Override // d.b.i0.i2.e
     public View getVideoContainer() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // d.b.i0.i2.e
     public boolean isPlayStarted() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return false;
         }
@@ -54,7 +54,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // d.b.i0.i2.e
     public boolean isPlaying() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return false;
         }
@@ -63,7 +63,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // d.b.i0.i2.e
     public void startPlay() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return;
         }
@@ -72,7 +72,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
 
     @Override // d.b.i0.i2.e
     public void stopPlay() {
-        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16255e;
         if (frsCardVideoViewHolder == null) {
             return;
         }

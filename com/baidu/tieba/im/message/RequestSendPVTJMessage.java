@@ -6,7 +6,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 import protobuf.LogStat.DataReq;
 import protobuf.LogStat.LogStatReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestSendPVTJMessage extends TbSocketMessage {
     public static final String TYPE_KD_MREAD = "kd_mread";
     public static final String TYPE_V_MPUSH = "v_mpush";

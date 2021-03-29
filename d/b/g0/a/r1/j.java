@@ -19,15 +19,15 @@ import d.b.g0.a.r1.i;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class j extends d {
-    public static final boolean s = d.b.g0.a.k.f45050a;
+    public static final boolean s = d.b.g0.a.k.f45051a;
     public e o;
     public SwanAppActivity q;
     public final d.b.g0.a.n1.c.e.a p = new d.b.g0.a.n1.c.e.a(this);
     public boolean r = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a(j jVar) {
         }
@@ -153,7 +153,7 @@ public final class j extends d {
         return s().h();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0137 A[Catch: all -> 0x0169, TryCatch #0 {, blocks: (B:4:0x0007, B:8:0x000f, B:10:0x0013, B:11:0x0029, B:13:0x0042, B:14:0x005d, B:16:0x0063, B:19:0x006b, B:21:0x0078, B:23:0x0082, B:25:0x0088, B:27:0x008e, B:28:0x0091, B:32:0x00a4, B:34:0x00aa, B:35:0x00ae, B:37:0x00c0, B:40:0x00c8, B:41:0x00ce, B:43:0x00e2, B:46:0x00f8, B:47:0x0108, B:49:0x010c, B:54:0x0118, B:56:0x012b, B:61:0x0137, B:63:0x0148, B:66:0x0151, B:68:0x015b, B:69:0x0162), top: B:75:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0138 A[Catch: all -> 0x016a, TryCatch #0 {, blocks: (B:4:0x0007, B:8:0x000f, B:10:0x0013, B:11:0x002a, B:13:0x0043, B:14:0x005e, B:16:0x0064, B:19:0x006c, B:21:0x0079, B:23:0x0083, B:25:0x0089, B:27:0x008f, B:28:0x0092, B:32:0x00a5, B:34:0x00ab, B:35:0x00af, B:37:0x00c1, B:40:0x00c9, B:41:0x00cf, B:43:0x00e3, B:46:0x00f9, B:47:0x0109, B:49:0x010d, B:54:0x0119, B:56:0x012c, B:61:0x0138, B:63:0x0149, B:66:0x0152, B:68:0x015c, B:69:0x0163), top: B:75:0x0007 }] */
     @Override // d.b.g0.a.r1.h
     /*
         Code decompiled incorrectly, please refer to instructions dump.

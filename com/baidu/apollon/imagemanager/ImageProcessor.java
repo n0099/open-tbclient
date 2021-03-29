@@ -6,17 +6,17 @@ import android.graphics.BitmapFactory;
 import com.baidu.apollon.utils.DisplayUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImageProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3684a = -1;
+    public static final int f3685a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3685b;
+    public final int f3686b;
 
     public ImageProcessor(Context context) {
-        this.f3685b = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
+        this.f3686b = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
     }
 
     public static int a(BitmapFactory.Options options, int i, int i2) {
@@ -32,29 +32,15 @@ public class ImageProcessor {
     }
 
     public static int b(BitmapFactory.Options options, int i, int i2) {
-        int ceil;
         int min;
         double d2 = options.outWidth;
         double d3 = options.outHeight;
-        if (i2 == -1) {
-            ceil = 1;
-        } else {
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            double d4 = i2;
-            Double.isNaN(d4);
-            ceil = (int) Math.ceil(Math.sqrt((d2 * d3) / d4));
-        }
+        int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
         if (i == -1) {
             min = 128;
         } else {
-            double d5 = i;
-            Double.isNaN(d2);
-            Double.isNaN(d5);
-            double floor = Math.floor(d2 / d5);
-            Double.isNaN(d3);
-            Double.isNaN(d5);
-            min = (int) Math.min(floor, Math.floor(d3 / d5));
+            double d4 = i;
+            min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
         }
         if (min < ceil) {
             return ceil;
@@ -72,7 +58,7 @@ public class ImageProcessor {
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeFile(file.getPath(), options);
                 if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                    options.inSampleSize = a(options, -1, this.f3685b);
+                    options.inSampleSize = a(options, -1, this.f3686b);
                     options.inJustDecodeBounds = false;
                     options.inDensity = i;
                     options.inDither = false;

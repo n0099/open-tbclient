@@ -11,7 +11,7 @@ import d.b.h0.c.f;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.h0.c.a {
     @Override // d.b.h0.c.a, d.b.h0.c.d
     public f b(Object obj, HashMap<String, String> hashMap, String str) {
@@ -34,9 +34,9 @@ public class a extends d.b.h0.c.a {
                 currentAccount = "";
             }
             intent.setData(Uri.parse(currentAccount));
-            fVar.f50059a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
+            fVar.f50060a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
             aVar.m(true);
-            aVar.l(fVar.f50059a);
+            aVar.l(fVar.f50060a);
         }
         return fVar;
     }

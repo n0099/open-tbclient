@@ -10,42 +10,42 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b extends PathClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ClassLoader f64856a;
+    public final ClassLoader f64857a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f64857b;
+    public Method f64858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f64858c;
+    public Method f64859c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f64859d;
+    public Method f64860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f64860e;
+    public Method f64861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f64861f;
+    public Set<String> f64862f;
 
     public b(ClassLoader classLoader, ClassLoader classLoader2) {
         super("", "", classLoader);
-        this.f64861f = new HashSet();
-        this.f64856a = classLoader2;
+        this.f64862f = new HashSet();
+        this.f64857a = classLoader2;
         b(classLoader2);
         c(classLoader2);
-        this.f64861f.add("android.widget.ViewStub");
-        this.f64861f.add("android.widget.View");
-        this.f64861f.add("android.webkit.ViewStub");
-        this.f64861f.add("android.webkit.View");
-        this.f64861f.add("android.app.ViewStub");
-        this.f64861f.add("android.app.View");
-        this.f64861f.add("com.google.android.gms.net.PlayServicesCronetProvider");
-        this.f64861f.add("com.google.android.gms.net.GmsCoreCronetProvider");
-        this.f64861f.add("org.chromium.net.impl.JavaCronetProvider");
+        this.f64862f.add("android.widget.ViewStub");
+        this.f64862f.add("android.widget.View");
+        this.f64862f.add("android.webkit.ViewStub");
+        this.f64862f.add("android.webkit.View");
+        this.f64862f.add("android.app.ViewStub");
+        this.f64862f.add("android.app.View");
+        this.f64862f.add("com.google.android.gms.net.PlayServicesCronetProvider");
+        this.f64862f.add("com.google.android.gms.net.GmsCoreCronetProvider");
+        this.f64862f.add("org.chromium.net.impl.JavaCronetProvider");
     }
 
     public final void a(String str, ClassLoader classLoader) {
@@ -64,16 +64,16 @@ public class b extends PathClassLoader {
     public final void c(ClassLoader classLoader) {
         Class<?> cls = classLoader.getClass();
         Method b2 = g.b(cls, "findResource", String.class);
-        this.f64857b = b2;
+        this.f64858b = b2;
         b2.setAccessible(true);
         Method b3 = g.b(cls, "findResources", String.class);
-        this.f64858c = b3;
+        this.f64859c = b3;
         b3.setAccessible(true);
         Method b4 = g.b(cls, "findLibrary", String.class);
-        this.f64859d = b4;
+        this.f64860d = b4;
         b4.setAccessible(true);
         Method b5 = g.b(cls, "getPackage", String.class);
-        this.f64860e = b5;
+        this.f64861e = b5;
         b5.setAccessible(true);
     }
 
@@ -85,7 +85,7 @@ public class b extends PathClassLoader {
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
     public String findLibrary(String str) {
         try {
-            return (String) this.f64859d.invoke(this.f64856a, str);
+            return (String) this.f64860d.invoke(this.f64857a, str);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
             return super.findLibrary(str);
@@ -101,7 +101,7 @@ public class b extends PathClassLoader {
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
     public URL findResource(String str) {
         try {
-            return (URL) this.f64857b.invoke(this.f64856a, str);
+            return (URL) this.f64858b.invoke(this.f64857a, str);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
             return super.findResource(str);
@@ -117,7 +117,7 @@ public class b extends PathClassLoader {
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
     public Enumeration<URL> findResources(String str) {
         try {
-            return (Enumeration) this.f64858c.invoke(this.f64856a, str);
+            return (Enumeration) this.f64859c.invoke(this.f64857a, str);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
             return super.findResources(str);
@@ -135,7 +135,7 @@ public class b extends PathClassLoader {
         Package r0 = null;
         if (str != null && !str.isEmpty()) {
             try {
-                r0 = (Package) this.f64860e.invoke(this.f64856a, str);
+                r0 = (Package) this.f64861e.invoke(this.f64857a, str);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (IllegalArgumentException e3) {
@@ -157,14 +157,14 @@ public class b extends PathClassLoader {
     public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
         Class<?> loadComponentClass;
         try {
-            return this.f64856a.loadClass(str);
+            return this.f64857a.loadClass(str);
         } catch (ClassNotFoundException unused) {
-            return (this.f64861f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
+            return (this.f64862f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
         }
     }
 
     @Override // dalvik.system.BaseDexClassLoader
     public String toString() {
-        return b.class.getName() + "[mBase=" + this.f64856a.toString() + "]";
+        return b.class.getName() + "[mBase=" + this.f64857a.toString() + "]";
     }
 }

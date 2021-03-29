@@ -1,5 +1,5 @@
 package d.b.i0.l1;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static final int ALT = 2131296256;
     public static final int Backward = 2131296260;
@@ -313,7 +313,7 @@ public final class d {
     public static final int commit_good_layout = 2131298104;
 
     /* renamed from: common  reason: collision with root package name */
-    public static final int f56717common = 2131298114;
+    public static final int f56718common = 2131298114;
     public static final int common_loading_view = 2131298118;
     public static final int common_progress = 2131298119;
     public static final int common_tab_content = 2131298120;

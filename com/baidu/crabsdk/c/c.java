@@ -12,20 +12,20 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4708a;
+    public static SimpleDateFormat f4709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4709b;
+    public static PackageManager f4710b;
 
     public static String a(Date date) {
-        if (f4708a == null) {
-            f4708a = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4709a == null) {
+            f4709a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return f4708a.format(date);
+        return f4709a.format(date);
     }
 
     public static JSONObject b(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -194,10 +194,10 @@ public final class c {
     }
 
     public static boolean i(Context context, String str) {
-        if (f4709b == null) {
-            f4709b = context.getPackageManager();
+        if (f4710b == null) {
+            f4710b = context.getPackageManager();
         }
-        return f4709b.checkPermission(str, context.getPackageName()) == 0;
+        return f4710b.checkPermission(str, context.getPackageName()) == 0;
     }
 
     public static byte[] j(String str) {

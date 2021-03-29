@@ -28,15 +28,15 @@ public class SwanAppInitHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12738e;
+        public final /* synthetic */ boolean f12739e;
 
         public a(boolean z) {
-            this.f12738e = z;
+            this.f12739e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f12738e) {
+            if (this.f12739e) {
                 c.i(new h(0), new i(null), new d.b.g0.g.n.b.a(null));
             }
         }
@@ -106,7 +106,7 @@ public class SwanAppInitHelper {
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
             asyncUpdateSwanAppCore();
-            if (k.f45050a) {
+            if (k.f45051a) {
                 d.b.g0.a.h2.a.b(0, 1);
             }
         }

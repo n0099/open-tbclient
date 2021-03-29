@@ -5,15 +5,15 @@ import d.b.h0.r.q.x1;
 public class g implements d.b.h0.r.w.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public x1 f63601a;
+    public x1 f63602a;
 
     public g(x1 x1Var) {
-        this.f63601a = x1Var;
+        this.f63602a = x1Var;
     }
 
     @Override // d.b.h0.r.w.b.a
     public String a() {
-        x1 x1Var = this.f63601a;
+        x1 x1Var = this.f63602a;
         if (x1Var == null) {
             return null;
         }
@@ -22,7 +22,7 @@ public class g implements d.b.h0.r.w.b.a {
 
     @Override // d.b.h0.r.w.b.a
     public String b() {
-        x1 x1Var = this.f63601a;
+        x1 x1Var = this.f63602a;
         if (x1Var == null) {
             return null;
         }
@@ -30,7 +30,7 @@ public class g implements d.b.h0.r.w.b.a {
     }
 
     public String c() {
-        x1 x1Var = this.f63601a;
+        x1 x1Var = this.f63602a;
         if (x1Var == null) {
             return null;
         }

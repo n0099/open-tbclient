@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ZipUtils {
     public static final boolean DEBUG = false;
     public static final String TAG = "ZipUtils";

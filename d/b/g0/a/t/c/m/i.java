@@ -8,28 +8,28 @@ import androidx.annotation.NonNull;
 import d.b.g0.a.v1.c.i.b;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i extends d.b.g0.a.t.b.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public int f46181d;
+    public int f46182d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46182e;
+        public final /* synthetic */ String f46183e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46183f;
+        public final /* synthetic */ String f46184f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46184g;
+        public final /* synthetic */ String f46185g;
 
         public a(String str, String str2, String str3) {
-            this.f46182e = str;
-            this.f46183f = str2;
-            this.f46184g = str3;
+            this.f46183e = str;
+            this.f46184f = str2;
+            this.f46185g = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,11 +38,11 @@ public class i extends d.b.g0.a.t.b.d {
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
                 int b2 = hVar.b();
-                i.this.c(this.f46182e, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
+                i.this.c(this.f46183e, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
                 return;
             }
-            i.this.s(this.f46183f, this.f46184g);
-            i.this.c(this.f46182e, new d.b.g0.a.t.e.b(0));
+            i.this.s(this.f46184f, this.f46185g);
+            i.this.c(this.f46183e, new d.b.g0.a.t.e.b(0));
         }
     }
 
@@ -52,8 +52,8 @@ public class i extends d.b.g0.a.t.b.d {
 
     public final void q() {
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47251b = "sms_panel";
-        fVar.f47253d = String.valueOf(this.f46181d);
+        fVar.f47252b = "sms_panel";
+        fVar.f47254d = String.valueOf(this.f46182d);
         fVar.a("appid", d.b.g0.a.r1.d.e().getAppId());
         d.b.g0.a.z1.h.u("1639", fVar);
     }
@@ -63,14 +63,14 @@ public class i extends d.b.g0.a.t.b.d {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        this.f46181d = jSONArray.length();
-        for (int i = 0; i < this.f46181d; i++) {
+        this.f46182d = jSONArray.length();
+        for (int i = 0; i < this.f46182d; i++) {
             String optString = jSONArray.optString(i);
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
             sb.append(optString);
-            if (i != this.f46181d - 1) {
+            if (i != this.f46182d - 1) {
                 sb.append(";");
             }
         }

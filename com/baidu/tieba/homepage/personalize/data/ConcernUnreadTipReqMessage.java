@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.h0.z0.w;
 import tbclient.UnreadTip.DataReq;
 import tbclient.UnreadTip.UnreadTipReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConcernUnreadTipReqMessage extends NetMessage {
     public ConcernUnreadTipReqMessage() {
         super(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);

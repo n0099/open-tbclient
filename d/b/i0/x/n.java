@@ -80,16 +80,16 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             if (n.this.i() != null) {
                 n.this.i().a(view, n.this.w);
             }
-            if (n.this.w == null || n.this.w.f62196e == null) {
+            if (n.this.w == null || n.this.w.f62197e == null) {
                 return;
             }
-            m.a(n.this.w.f62196e.o0());
+            m.a(n.this.w.f62197e.o0());
             if (n.this.I()) {
                 return;
             }
             m.l(n.this.y, n.this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.z, n.this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.p.getGodReplyContent(), n.this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.z, n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.p.getGodReplyContent(), n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -103,20 +103,20 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             if (n.this.i() != null) {
                 n.this.i().a(view, n.this.w);
             }
-            if (n.this.w == null || n.this.w.f62196e == null) {
+            if (n.this.w == null || n.this.w.f62197e == null) {
                 return;
             }
             n nVar = n.this;
-            if (view == nVar.u.f13534e) {
+            if (view == nVar.u.f13535e) {
                 return;
             }
-            m.a(nVar.w.f62196e.o0());
+            m.a(nVar.w.f62197e.o0());
             if (n.this.I()) {
                 return;
             }
             m.l(n.this.y, n.this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.z, n.this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(n.this.p.getGodReplyContent(), n.this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.z, n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(n.this.p.getGodReplyContent(), n.this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -124,14 +124,14 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
     public class c implements d.b.h0.b1.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f62269a;
+        public final /* synthetic */ LinkedList f62270a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a2 f62270b;
+        public final /* synthetic */ a2 f62271b;
 
         public c(LinkedList linkedList, a2 a2Var) {
-            this.f62269a = linkedList;
-            this.f62270b = a2Var;
+            this.f62270a = linkedList;
+            this.f62271b = a2Var;
         }
 
         @Override // d.b.h0.b1.j.d
@@ -147,7 +147,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             if (z) {
                 n.this.J();
             } else {
-                n.this.W(view, this.f62269a, i, this.f62270b);
+                n.this.W(view, this.f62270a, i, this.f62271b);
             }
         }
     }
@@ -258,7 +258,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
         this.q = (ThreadUserInfoLayout) m.findViewById(R.id.card_home_page_normal_thread_user_info_layout);
         this.s = new NEGFeedBackView(this.x);
         this.E = (RelativeLayout) m.findViewById(R.id.card_home_page_normal_thread_root);
-        this.s.g(this.E, d.b.b.e.p.l.g(this.f62181g, R.dimen.tbds120), 0);
+        this.s.g(this.E, d.b.b.e.p.l.g(this.f62182g, R.dimen.tbds120), 0);
         if (this.o.getLayoutParams() instanceof LinearLayout.LayoutParams) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams.rightMargin = 0;
@@ -279,7 +279,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
         threadGodReplyLayout.setOnClickListener(this.I);
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.card_home_page_source_read_share_layout);
         this.u = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13535f.setOnClickListener(this.I);
+        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this.I);
         this.u.setFrom(1);
         this.u.setShareReportFrom(3);
         this.u.setForumAfterClickListener(new b());
@@ -301,19 +301,19 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
 
     public final void K(boolean z) {
         d.b.i0.x.e0.k kVar = this.w;
-        if (kVar == null || kVar.f62196e == null) {
+        if (kVar == null || kVar.f62197e == null) {
             return;
         }
         if (!I()) {
-            m.a(this.w.f62196e.o0());
+            m.a(this.w.f62197e.o0());
             m.l(this.y, this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(this.z, this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(this.p.getGodReplyContent(), this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.z, this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.p.getGodReplyContent(), this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
-        PbActivityConfig addLocateParam = new PbActivityConfig(this.x.getPageActivity()).createFromThreadCfg(this.w.f62196e, null, m.g(), 18003, true, false, false).addLocateParam(this.w.j());
-        addLocateParam.setForumId(String.valueOf(this.w.f62196e.c0()));
+        PbActivityConfig addLocateParam = new PbActivityConfig(this.x.getPageActivity()).createFromThreadCfg(this.w.f62197e, null, m.g(), 18003, true, false, false).addLocateParam(this.w.j());
+        addLocateParam.setForumId(String.valueOf(this.w.f62197e.c0()));
         addLocateParam.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
-        addLocateParam.setForumName(this.w.f62196e.i0());
+        addLocateParam.setForumName(this.w.f62197e.i0());
         addLocateParam.setStartFrom(this.l);
         if (z) {
             addLocateParam.setJumpGodReply(true);
@@ -343,8 +343,8 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
                     v0Var.j(this.w.feedBackReasonMap);
                     this.s.setData(v0Var);
                     this.s.setFirstRowSingleColumn(true);
-                    if (kVar.f62196e.T() != null && !StringUtils.isNull(kVar.f62196e.T().getUserId())) {
-                        if (kVar.f62196e.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    if (kVar.f62197e.T() != null && !StringUtils.isNull(kVar.f62197e.T().getUserId())) {
+                        if (kVar.f62197e.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                             this.s.setVisibility(8);
                         } else {
                             NEGFeedBackView nEGFeedBackView = this.s;
@@ -357,13 +357,13 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
                     this.s.setVisibility(8);
                 }
             }
-            this.q.j(kVar.f62196e);
+            this.q.j(kVar.f62197e);
             this.p.setFromCDN(this.C);
-            this.p.setData(kVar.f62196e.z1());
-            if (!I() && m.k(this.w.f62196e.o0())) {
+            this.p.setData(kVar.f62197e.z1());
+            if (!I() && m.k(this.w.f62197e.o0())) {
                 m.l(this.y, this.w.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                m.l(this.z, this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                m.l(this.p.getGodReplyContent(), this.w.f62196e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                m.l(this.z, this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                m.l(this.p.getGodReplyContent(), this.w.f62197e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             this.q.setUserAfterClickListener(this.K);
             a2 n = kVar.n();
@@ -383,7 +383,7 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
             }
             ThreadCardUtils.setTitle(this.y, n);
             ThreadCardUtils.setAbstract(this.z, this.y, n, L);
-            ArrayList<VoiceData$VoiceModel> H1 = kVar.f62196e.H1();
+            ArrayList<VoiceData$VoiceModel> H1 = kVar.f62197e.H1();
             if (ListUtils.isEmpty(H1)) {
                 this.n.setVisibility(8);
                 z = false;
@@ -507,18 +507,18 @@ public class n extends d.b.i0.x.b<d.b.i0.x.e0.k> implements d.b.i0.m.e {
 
     public void V(int i) {
         d.b.i0.x.e0.k kVar = this.w;
-        if (kVar == null || kVar.f62196e == null) {
+        if (kVar == null || kVar.f62197e == null) {
             return;
         }
         this.H = m.g();
         if (i == 1) {
             this.o.setVisibility(8);
             this.u.setStType(this.H);
-            this.u.g(this.w.f62196e);
+            this.u.g(this.w.f62197e);
             this.q.l(false);
             return;
         }
-        this.o.setData(this.w.f62196e);
+        this.o.setData(this.w.f62197e);
         this.o.setStType(this.H);
         this.u.setVisibility(8);
         this.q.l(true);

@@ -15,16 +15,16 @@ public interface v extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.v$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0496a implements v {
+        public static class C0497a implements v {
 
             /* renamed from: a  reason: collision with root package name */
-            public static v f38834a;
+            public static v f38835a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38835b;
+            public IBinder f38836b;
 
-            public C0496a(IBinder iBinder) {
-                this.f38835b = iBinder;
+            public C0497a(IBinder iBinder) {
+                this.f38836b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.v
@@ -34,7 +34,7 @@ public interface v extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                     obtain.writeStrongBinder(uVar != null ? uVar.asBinder() : null);
-                    if (!this.f38835b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38836b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(uVar);
                     }
                     obtain2.readException();
@@ -47,7 +47,7 @@ public interface v extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38835b;
+                return this.f38836b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface v extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof v)) {
                 return (v) queryLocalInterface;
             }
-            return new C0496a(iBinder);
+            return new C0497a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -88,7 +88,7 @@ public interface v extends IInterface {
         }
 
         public static v a() {
-            return C0496a.f38834a;
+            return C0497a.f38835a;
         }
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class r extends a0 {
     public r(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/openStatisticFlowJar");
@@ -71,7 +71,7 @@ public class r extends a0 {
         if (jSONArray == null) {
             return;
         }
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("SwanAppAction", "SearchFlowEvent from FE, data: " + jSONArray);
         }
         try {
@@ -81,13 +81,13 @@ public class r extends a0 {
                 String optString2 = optJSONObject.optString("errorType");
                 String optString3 = optJSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
                 SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
-                searchFlowEvent.f12651b = Long.valueOf(optString3).longValue();
-                searchFlowEvent.f12652c = optString2;
-                searchFlowEvent.f12654e = SearchFlowEvent.EventType.END;
+                searchFlowEvent.f12652b = Long.valueOf(optString3).longValue();
+                searchFlowEvent.f12653c = optString2;
+                searchFlowEvent.f12655e = SearchFlowEvent.EventType.END;
                 d.b.g0.a.z1.l.b.a(searchFlowEvent);
             }
         } catch (NumberFormatException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
         }

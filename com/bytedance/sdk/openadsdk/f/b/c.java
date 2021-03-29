@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class c extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29390a;
+    public WeakReference<x> f29391a;
 
     public c(x xVar) {
-        this.f29390a = new WeakReference<>(xVar);
+        this.f29391a = new WeakReference<>(xVar);
     }
 
     public static void a(q qVar, final x xVar) {
@@ -35,7 +35,7 @@ public class c extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             Log.d("DoNewClickEventMethod", sb.toString());
         }
-        x xVar = this.f29390a.get();
+        x xVar = this.f29391a.get();
         if (xVar == null) {
             Log.e("DoNewClickEventMethod", "invoke error");
             c();

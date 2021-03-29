@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UnLoginCastService {
     public static final int BACKPLAY = 1;
     public static final int NOWPLAY = 0;
@@ -45,7 +45,7 @@ public class UnLoginCastService {
     public int mTryTimes = 0;
     public boolean mPause = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Uptask extends UpMessageManager.Task {
         public Uptask(String str, String str2) {
             super(str, str2);

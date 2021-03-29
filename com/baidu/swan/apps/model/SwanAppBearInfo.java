@@ -7,7 +7,7 @@ import com.baidu.swan.apps.process.SwanAppIPCData;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     public static final String BEAR_DESC = "sign";
     public static final String BEAR_ID = "office_id";
@@ -22,10 +22,10 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public String bearLogo;
     public String bearName;
     public String bearVipType;
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<SwanAppBearInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

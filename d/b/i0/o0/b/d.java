@@ -15,16 +15,16 @@ import d.b.b.e.p.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f57233a;
+    public TbPageContext f57234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f57234b;
+    public final BdUniqueId f57235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f57235c;
+    public b f57236c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.c.g.a f57236d;
+    public d.b.b.c.g.a f57237d;
 
     /* loaded from: classes4.dex */
     public class a extends d.b.b.c.g.a {
@@ -34,9 +34,9 @@ public class d {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.f57234b) {
-                if (d.this.f57235c != null) {
-                    d.this.f57235c.a(false, null);
+            if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.f57235b) {
+                if (d.this.f57236c != null) {
+                    d.this.f57236c.a(false, null);
                     return;
                 }
                 return;
@@ -45,8 +45,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.f57235c != null) {
-                d.this.f57235c.a(searchData != null, searchData);
+            if (d.this.f57236c != null) {
+                d.this.f57236c.a(searchData != null, searchData);
             }
         }
     }
@@ -58,15 +58,15 @@ public class d {
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         a aVar = new a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.f57236d = aVar;
-        this.f57233a = tbPageContext;
-        this.f57234b = bdUniqueId;
+        this.f57237d = aVar;
+        this.f57234a = tbPageContext;
+        this.f57235b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f57236d);
+        MessageManager.getInstance().registerListener(this.f57237d);
     }
 
     public void c() {
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f57234b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f57235b);
     }
 
     public void d(String str) {
@@ -74,18 +74,18 @@ public class d {
             return;
         }
         if (!l.C()) {
-            this.f57233a.showToast(R.string.neterror);
+            this.f57234a.showToast(R.string.neterror);
             return;
         }
         c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f57234b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f57235b);
         SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.f57234b);
+        searchPostForumRequestMessage.setTag(this.f57235b);
         searchPostForumRequestMessage.set_word(str);
         MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 
     public void e(b bVar) {
-        this.f57235c = bVar;
+        this.f57236c = bVar;
     }
 }

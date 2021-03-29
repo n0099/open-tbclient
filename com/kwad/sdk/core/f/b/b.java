@@ -11,10 +11,10 @@ public interface b extends IInterface {
     public static final class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f33623a;
+        public IBinder f33624a;
 
         public a(IBinder iBinder) {
-            this.f33623a = iBinder;
+            this.f33624a = iBinder;
         }
 
         public String a() {
@@ -23,7 +23,7 @@ public interface b extends IInterface {
             try {
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f33623a.transact(1, obtain, obtain2, 0);
+                    this.f33624a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } catch (Exception e2) {
@@ -40,7 +40,7 @@ public interface b extends IInterface {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f33623a;
+            return this.f33624a;
         }
 
         public boolean b() {
@@ -50,7 +50,7 @@ public interface b extends IInterface {
             try {
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f33623a.transact(1, obtain, obtain2, 0);
+                    this.f33624a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() == 0) {
                         z = true;

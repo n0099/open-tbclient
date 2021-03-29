@@ -10,22 +10,22 @@ import java.util.Observer;
 public class c implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f8175a;
+    public final /* synthetic */ String f8176a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ImageView f8176b;
+    public final /* synthetic */ ImageView f8177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f8177c;
+    public final /* synthetic */ a f8178c;
 
     public c(a aVar, String str, ImageView imageView) {
-        this.f8177c = aVar;
-        this.f8175a = str;
-        this.f8176b = imageView;
+        this.f8178c = aVar;
+        this.f8176a = str;
+        this.f8177b = imageView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x000a, code lost:
-        r3 = r2.f8177c.a(com.baidu.mobads.c.a.b(r2.f8175a), r2.f8176b, false);
+        r3 = r2.f8178c.a(com.baidu.mobads.c.a.b(r2.f8176a), r2.f8177b, false);
      */
     @Override // java.util.Observer
     /*
@@ -37,8 +37,8 @@ public class c implements Observer {
         if (((IOAdDownloader) observable).getState() != IOAdDownloader.DownloadStatus.COMPLETED || a2 == null) {
             return;
         }
-        handler = a.f8169b;
+        handler = a.f8170b;
         handler.post(new d(this, a2));
-        this.f8177c.a(this.f8175a, a2);
+        this.f8178c.a(this.f8176a, a2);
     }
 }

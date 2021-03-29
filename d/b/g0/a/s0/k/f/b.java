@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import d.b.g0.a.s0.k.f.c.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d.b.g0.a.s0.k.f.c.a f45899a;
+    public static final d.b.g0.a.s0.k.f.c.a f45900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d.b.g0.a.s0.k.f.c.a f45900b;
+    public static volatile d.b.g0.a.s0.k.f.c.a f45901b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
@@ -25,8 +25,8 @@ public class b {
 
     static {
         d.b.g0.a.s0.k.f.c.b bVar = new d.b.g0.a.s0.k.f.c.b();
-        f45899a = bVar;
-        f45900b = bVar;
+        f45900a = bVar;
+        f45901b = bVar;
     }
 
     public static void a() {
@@ -35,7 +35,7 @@ public class b {
 
     @NonNull
     public static d.b.g0.a.s0.k.f.c.a b() {
-        return f45900b;
+        return f45901b;
     }
 
     public static void c() {
@@ -47,10 +47,10 @@ public class b {
     }
 
     public static void e() {
-        f(f45899a);
+        f(f45900a);
     }
 
     public static void f(@NonNull d.b.g0.a.s0.k.f.c.a aVar) {
-        f45900b = aVar;
+        f45901b = aVar;
     }
 }

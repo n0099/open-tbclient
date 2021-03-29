@@ -23,29 +23,29 @@ import java.util.Map;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f54252d;
+    public static c f54253d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Wire f54253a = new Wire(new Class[0]);
+    public Wire f54254a = new Wire(new Class[0]);
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, d.b.i0.e0.i.a> f54254b = null;
+    public Map<String, d.b.i0.e0.i.a> f54255b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f54255c = new a();
+    public Runnable f54256c = new a();
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
 
         /* renamed from: d.b.i0.e0.i.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1226a extends f0<Void> {
+        public class C1227a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Map f54257a;
+            public final /* synthetic */ Map f54258a;
 
-            public C1226a(Map map) {
-                this.f54257a = map;
+            public C1227a(Map map) {
+                this.f54258a = map;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class c {
             public Void doInBackground() {
                 WriteHistroyDataReqIdl.Builder builder = new WriteHistroyDataReqIdl.Builder();
                 builder.connect_point_list = new ArrayList();
-                for (Map.Entry entry : this.f54257a.entrySet()) {
+                for (Map.Entry entry : this.f54258a.entrySet()) {
                     ConnectPointData c2 = d.b.i0.e0.i.a.c((d.b.i0.e0.i.a) entry.getValue());
                     if (c2 != null) {
                         builder.connect_point_list.add(c2);
@@ -62,7 +62,7 @@ public class c {
                 }
                 c.this.g(builder.build(true).toByteArray());
                 synchronized (c.class) {
-                    c.this.f54254b = null;
+                    c.this.f54255b = null;
                 }
                 return null;
             }
@@ -75,12 +75,12 @@ public class c {
         public void run() {
             Map map;
             synchronized (c.class) {
-                map = c.this.f54254b;
+                map = c.this.f54255b;
             }
             if (map == null) {
                 return;
             }
-            h0.b(new C1226a(map), null);
+            h0.b(new C1227a(map), null);
         }
     }
 
@@ -96,7 +96,7 @@ public class c {
             byte[] f2 = c.this.f();
             if (f2 != null) {
                 try {
-                    return (WriteHistroyDataReqIdl) c.this.f54253a.parseFrom(f2, WriteHistroyDataReqIdl.class);
+                    return (WriteHistroyDataReqIdl) c.this.f54254a.parseFrom(f2, WriteHistroyDataReqIdl.class);
                 } catch (IOException e2) {
                     e2.printStackTrace();
                     return null;
@@ -108,20 +108,20 @@ public class c {
 
     /* renamed from: d.b.i0.e0.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1227c implements n<WriteHistroyDataReqIdl> {
+    public class C1228c implements n<WriteHistroyDataReqIdl> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f54260a;
+        public final /* synthetic */ n f54261a;
 
-        public C1227c(c cVar, n nVar) {
-            this.f54260a = nVar;
+        public C1228c(c cVar, n nVar) {
+            this.f54261a = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
-            n nVar = this.f54260a;
+            n nVar = this.f54261a;
             if (nVar != null) {
                 nVar.onReturnDataInUI(writeHistroyDataReqIdl);
             }
@@ -129,14 +129,14 @@ public class c {
     }
 
     public static final c h() {
-        if (f54252d == null) {
+        if (f54253d == null) {
             synchronized (c.class) {
-                if (f54252d == null) {
-                    f54252d = new c();
+                if (f54253d == null) {
+                    f54253d = new c();
                 }
             }
         }
-        return f54252d;
+        return f54253d;
     }
 
     public final byte[] f() {
@@ -230,18 +230,18 @@ public class c {
     }
 
     public void i(n<WriteHistroyDataReqIdl> nVar) {
-        h0.b(new b(), new C1227c(this, nVar));
+        h0.b(new b(), new C1228c(this, nVar));
     }
 
     public void j(Map<String, d.b.i0.e0.i.a> map) {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.f54254b = map;
+                this.f54255b = map;
             }
             if (e.a().hasMessages(0, this)) {
                 return;
             }
-            Message obtain = Message.obtain(e.a(), this.f54255c);
+            Message obtain = Message.obtain(e.a(), this.f54256c);
             obtain.what = 0;
             obtain.obj = this;
             e.a().sendMessageDelayed(obtain, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
@@ -250,6 +250,6 @@ public class c {
 
     public void k() {
         e.a().removeMessages(0, this);
-        e.a().post(this.f54255c);
+        e.a().post(this.f54256c);
     }
 }

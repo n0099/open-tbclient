@@ -11,7 +11,7 @@ import d.b.i0.p0.j0;
 /* loaded from: classes4.dex */
 public class e extends d.b.h0.e0.b {
     public e(FrsFragment frsFragment) {
-        getFragmentTabStructure().f50154a = frsFragment;
+        getFragmentTabStructure().f50155a = frsFragment;
     }
 
     public void a(j0 j0Var) {
@@ -23,9 +23,9 @@ public class e extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public d.b.h0.e0.c createFragmentTabStructure() {
         d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-        cVar.f50158e = 1;
-        cVar.f50155b = R.string.chosen_pb_title;
-        cVar.f50161h = d.b.h0.e0.c.j;
+        cVar.f50159e = 1;
+        cVar.f50156b = R.string.chosen_pb_title;
+        cVar.f50162h = d.b.h0.e0.c.j;
         return cVar;
     }
 

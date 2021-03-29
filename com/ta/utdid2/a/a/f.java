@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f38981a = Pattern.compile("([\t\r\n])+");
+    public static final Pattern f38982a = Pattern.compile("([\t\r\n])+");
 
     public static int hashCode(String str) {
         if (str.length() > 0) {

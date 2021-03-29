@@ -5,20 +5,20 @@ import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements ZeusPluginFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45853a;
+    public String f45854a;
 
     public b(@NonNull String str) {
-        this.f45853a = str;
+        this.f45854a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        c cVar = new c(invoker, this.f45853a);
-        if (k.f45050a) {
+        c cVar = new c(invoker, this.f45854a);
+        if (k.f45051a) {
             Log.i(" [[InlineTextAreaFactory]] ", "Factory 「Hash:" + hashCode() + "」 is creating inline textArea「Hash:" + cVar.hashCode() + "」");
         }
         return new a(cVar);

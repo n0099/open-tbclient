@@ -19,10 +19,10 @@ import java.util.List;
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f39232a = {"key"};
+    public static final String[] f39233a = {"key"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f39233b;
+    public static f f39234b;
 
     public f(Context context) {
         super(context, "sdk_report.db", (SQLiteDatabase.CursorFactory) null, 2);
@@ -31,10 +31,10 @@ public class f extends SQLiteOpenHelper {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f39233b == null) {
-                f39233b = new f(com.tencent.open.utils.e.a());
+            if (f39234b == null) {
+                f39234b = new f(com.tencent.open.utils.e.a());
             }
-            fVar = f39233b;
+            fVar = f39234b;
         }
         return fVar;
     }
@@ -92,8 +92,8 @@ public class f extends SQLiteOpenHelper {
     /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
         return r0;
      */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0075 A[Catch: all -> 0x007f, Exception -> 0x0082, TRY_ENTER, TryCatch #13 {Exception -> 0x0082, all -> 0x007f, blocks: (B:14:0x0030, B:16:0x0036, B:17:0x0039, B:20:0x0053, B:21:0x0056, B:37:0x0075, B:38:0x0078, B:28:0x0062, B:29:0x0065, B:30:0x0068, B:33:0x006c, B:34:0x006f), top: B:96:0x0030 }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0087 A[Catch: all -> 0x00af, TRY_ENTER, TryCatch #7 {, blocks: (B:3:0x0001, B:7:0x0012, B:46:0x0087, B:48:0x008c, B:61:0x00a6, B:63:0x00ab, B:64:0x00ae, B:55:0x009c), top: B:86:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0075 A[Catch: all -> 0x007f, Exception -> 0x0082, TRY_ENTER, TryCatch #13 {Exception -> 0x0082, all -> 0x007f, blocks: (B:14:0x0030, B:16:0x0036, B:17:0x0039, B:20:0x0053, B:21:0x0056, B:37:0x0075, B:38:0x0078, B:28:0x0062, B:29:0x0065, B:30:0x0068, B:33:0x006c, B:34:0x006f), top: B:94:0x0030 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0087 A[Catch: all -> 0x00af, TRY_ENTER, TryCatch #7 {, blocks: (B:3:0x0001, B:7:0x0012, B:46:0x0087, B:48:0x008c, B:61:0x00a6, B:63:0x00ab, B:64:0x00ae, B:55:0x009c), top: B:84:0x0001 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

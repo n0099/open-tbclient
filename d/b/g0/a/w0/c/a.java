@@ -3,7 +3,7 @@ package d.b.g0.a.w0.c;
 import android.content.Context;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import d.b.g0.a.p.c.r;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a implements r {
     @Override // d.b.g0.a.p.c.r
     public String D() {

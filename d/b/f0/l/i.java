@@ -1,7 +1,7 @@
 package d.b.f0.l;
 
 import androidx.exifinterface.media.ExifInterface;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static byte[] a(byte[] bArr) {
         byte[] bArr2 = new byte[256];

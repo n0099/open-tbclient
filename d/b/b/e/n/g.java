@@ -17,32 +17,32 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f41909a;
+    public c f41910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41910b;
+    public String f41911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41911c;
+    public String f41912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41912d;
+    public String f41913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41913e;
+    public String f41914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41914f;
+    public String f41915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41915g;
+    public String f41916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41916h;
+    public String f41917h;
     public Map<String, String> i;
 
     public static String d() {
-        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? com.baidu.apollon.statistics.g.f3873b : (j.v() || j.z()) ? "4G" : "NONE";
+        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? com.baidu.apollon.statistics.g.f3874b : (j.v() || j.z()) ? "4G" : "NONE";
     }
 
     public void a(String str) {
@@ -76,13 +76,13 @@ public class g {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            if (this.f41909a != null) {
-                jSONObject2.put("app_version", this.f41909a.f41887c);
+            if (this.f41910a != null) {
+                jSONObject2.put("app_version", this.f41910a.f41888c);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                jSONObject2.put("cuid", this.f41909a.f41891g);
-                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.f41909a.f41892h);
-                jSONObject2.put("from", this.f41909a.f41888d);
-                jSONObject2.put("uid", this.f41909a.l);
+                jSONObject2.put("cuid", this.f41910a.f41892g);
+                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.f41910a.f41893h);
+                jSONObject2.put("from", this.f41910a.f41889d);
+                jSONObject2.put("uid", this.f41910a.l);
             }
             jSONObject2.put("client_ip", f.b());
             jSONObject2.put("network", d());
@@ -94,17 +94,17 @@ public class g {
             jSONObject2.put("mission_id", f.c());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.f41910b != null) {
-                jSONObject3.put("module", this.f41910b);
+            if (this.f41911b != null) {
+                jSONObject3.put("module", this.f41911b);
             }
-            if (this.f41911c != null) {
-                jSONObject3.put("action", this.f41911c);
+            if (this.f41912c != null) {
+                jSONObject3.put("action", this.f41912c);
             }
-            if (this.f41912d != null) {
-                jSONObject3.put("error_code", this.f41912d);
+            if (this.f41913d != null) {
+                jSONObject3.put("error_code", this.f41913d);
             }
-            if (this.f41913e != null) {
-                jSONObject3.put("error_message", this.f41913e);
+            if (this.f41914e != null) {
+                jSONObject3.put("error_message", this.f41914e);
             }
             if (this.i != null) {
                 StringBuilder sb = new StringBuilder();
@@ -119,14 +119,14 @@ public class g {
                 }
                 jSONObject3.put("ext1", sb);
             }
-            if (this.f41914f != null) {
-                jSONObject3.put("id", this.f41914f);
+            if (this.f41915f != null) {
+                jSONObject3.put("id", this.f41915f);
             }
-            if (this.f41915g != null) {
-                jSONObject3.put("title", this.f41915g);
+            if (this.f41916g != null) {
+                jSONObject3.put("title", this.f41916g);
             }
-            if (this.f41916h != null) {
-                jSONObject3.put("abstract", this.f41916h);
+            if (this.f41917h != null) {
+                jSONObject3.put("abstract", this.f41917h);
             }
             jSONObject.put("debug_info", jSONObject3);
             jSONObject.put("kpi", new JSONObject());
@@ -137,22 +137,22 @@ public class g {
     }
 
     public void e(String str) {
-        this.f41911c = str;
+        this.f41912c = str;
     }
 
     public void f(c cVar) {
-        this.f41909a = cVar;
+        this.f41910a = cVar;
     }
 
     public void g(String str) {
-        this.f41912d = str;
+        this.f41913d = str;
     }
 
     public void h(String str) {
-        this.f41913e = str;
+        this.f41914e = str;
     }
 
     public void i(String str) {
-        this.f41910b = str;
+        this.f41911b = str;
     }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import d.b.g0.a.t.c.a.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface c {
     @NonNull
     d.b.g0.a.v1.c.i.a a(Activity activity, boolean z, String str, String str2);

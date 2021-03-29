@@ -8,25 +8,25 @@ import java.util.List;
 public class i implements b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f48960f = d.b.g0.l.f.f48888a;
+    public static final boolean f48961f = d.b.g0.l.f.f48889a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.l.h.d f48962b;
+    public d.b.g0.l.h.d f48963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.b.g0.l.k.e> f48963c = new ArrayList();
+    public List<d.b.g0.l.k.e> f48964c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<d.b.g0.l.k.e> f48964d = new ArrayList();
+    public List<d.b.g0.l.k.e> f48965d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.g0.l.k.e> f48965e = new ArrayList();
+    public List<d.b.g0.l.k.e> f48966e = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.g0.l.l.h.b> f48961a = new ArrayList();
+    public List<d.b.g0.l.l.h.b> f48962a = new ArrayList();
 
     public i(d.b.g0.l.h.d dVar) {
-        this.f48962b = dVar;
+        this.f48963b = dVar;
         d.b().e(this);
     }
 
@@ -39,7 +39,7 @@ public class i implements b {
         if (fVar.j()) {
             return;
         }
-        Iterator<d.b.g0.l.l.h.b> it = this.f48961a.iterator();
+        Iterator<d.b.g0.l.l.h.b> it = this.f48962a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -47,17 +47,17 @@ public class i implements b {
             d.b.g0.l.l.h.b next = it.next();
             if (next.b(fVar)) {
                 int h2 = fVar.h();
-                this.f48961a.remove(next);
+                this.f48962a.remove(next);
                 if (h2 == 2) {
-                    this.f48965e.add(next.a().f48953e.f48952b);
+                    this.f48966e.add(next.a().f48954e.f48953b);
                 } else if (h2 == 3) {
-                    this.f48964d.add(next.a().f48953e.f48952b);
+                    this.f48965d.add(next.a().f48954e.f48953b);
                 } else if (h2 != 10) {
-                    if (d.b.g0.l.f.f48888a) {
+                    if (d.b.g0.l.f.f48889a) {
                         Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + h2);
                     }
                 } else {
-                    this.f48963c.add(next.a().f48953e.f48952b);
+                    this.f48964c.add(next.a().f48954e.f48953b);
                 }
             }
         }
@@ -66,13 +66,13 @@ public class i implements b {
 
     public void c(d.b.g0.l.l.h.b bVar) {
         if (bVar != null) {
-            this.f48961a.add(bVar);
+            this.f48962a.add(bVar);
         }
     }
 
     public final boolean d() {
-        if (this.f48961a.isEmpty()) {
-            this.f48962b.h();
+        if (this.f48962a.isEmpty()) {
+            this.f48963b.h();
             d.b().g(this);
             return true;
         }
@@ -83,11 +83,11 @@ public class i implements b {
         if (d()) {
             return;
         }
-        if (f48960f) {
-            Log.i("PMSTaskGroup", d.b.g0.l.f.b().A() + " startDownload: total=" + this.f48961a.size());
+        if (f48961f) {
+            Log.i("PMSTaskGroup", d.b.g0.l.f.b().A() + " startDownload: total=" + this.f48962a.size());
         }
-        for (d.b.g0.l.l.h.b bVar : this.f48961a) {
-            if (f48960f) {
+        for (d.b.g0.l.l.h.b bVar : this.f48962a) {
+            if (f48961f) {
                 Log.i("PMSTaskGroup", d.b.g0.l.f.b().A() + " startDownload: for handler=" + bVar);
             }
             bVar.c(false);

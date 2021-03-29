@@ -13,34 +13,34 @@ import javax.net.ssl.SSLSocket;
 public class c extends e {
 
     /* renamed from: c  reason: collision with root package name */
-    public final Method f65405c;
+    public final Method f65406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Method f65406d;
+    public final Method f65407d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Method f65407e;
+    public final Method f65408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Class<?> f65408f;
+    public final Class<?> f65409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Class<?> f65409g;
+    public final Class<?> f65410g;
 
     /* loaded from: classes5.dex */
     public static class a implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<String> f65410e;
+        public final List<String> f65411e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f65411f;
+        public boolean f65412f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f65412g;
+        public String f65413g;
 
         public a(List<String> list) {
-            this.f65410e = list;
+            this.f65411e = list;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -48,32 +48,32 @@ public class c extends e {
             String name = method.getName();
             Class<?> returnType = method.getReturnType();
             if (objArr == null) {
-                objArr = d.c.c.a.b.a.e.f65218b;
+                objArr = d.c.c.a.b.a.e.f65219b;
             }
             if (name.equals("supports") && Boolean.TYPE == returnType) {
                 return Boolean.TRUE;
             }
             if (name.equals("unsupported") && Void.TYPE == returnType) {
-                this.f65411f = true;
+                this.f65412f = true;
                 return null;
             } else if (name.equals(WebSocketRequest.PARAM_KEY_PROTOCOLS) && objArr.length == 0) {
-                return this.f65410e;
+                return this.f65411e;
             } else {
                 if ((name.equals("selectProtocol") || name.equals(InvoiceBuildActivity.EXTRA_PARAMS_TYPE)) && String.class == returnType && objArr.length == 1 && (objArr[0] instanceof List)) {
                     List list = (List) objArr[0];
                     int size = list.size();
                     for (int i = 0; i < size; i++) {
-                        if (this.f65410e.contains(list.get(i))) {
+                        if (this.f65411e.contains(list.get(i))) {
                             String str = (String) list.get(i);
-                            this.f65412g = str;
+                            this.f65413g = str;
                             return str;
                         }
                     }
-                    String str2 = this.f65410e.get(0);
-                    this.f65412g = str2;
+                    String str2 = this.f65411e.get(0);
+                    this.f65413g = str2;
                     return str2;
                 } else if ((name.equals("protocolSelected") || name.equals("selected")) && objArr.length == 1) {
-                    this.f65412g = (String) objArr[0];
+                    this.f65413g = (String) objArr[0];
                     return null;
                 } else {
                     return method.invoke(this, objArr);
@@ -83,11 +83,11 @@ public class c extends e {
     }
 
     public c(Method method, Method method2, Method method3, Class<?> cls, Class<?> cls2) {
-        this.f65405c = method;
-        this.f65406d = method2;
-        this.f65407e = method3;
-        this.f65408f = cls;
-        this.f65409g = cls2;
+        this.f65406c = method;
+        this.f65407d = method2;
+        this.f65408e = method3;
+        this.f65409f = cls;
+        this.f65410g = cls2;
     }
 
     public static e a() {
@@ -104,14 +104,14 @@ public class c extends e {
     @Override // d.c.c.a.b.a.i.e
     public String d(SSLSocket sSLSocket) {
         try {
-            a aVar = (a) Proxy.getInvocationHandler(this.f65406d.invoke(null, sSLSocket));
-            if (!aVar.f65411f && aVar.f65412g == null) {
+            a aVar = (a) Proxy.getInvocationHandler(this.f65407d.invoke(null, sSLSocket));
+            if (!aVar.f65412f && aVar.f65413g == null) {
                 e.j().f(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", null);
                 return null;
-            } else if (aVar.f65411f) {
+            } else if (aVar.f65412f) {
                 return null;
             } else {
-                return aVar.f65412g;
+                return aVar.f65413g;
             }
         } catch (IllegalAccessException | InvocationTargetException e2) {
             throw d.c.c.a.b.a.e.g("unable to get selected protocol", e2);
@@ -121,7 +121,7 @@ public class c extends e {
     @Override // d.c.c.a.b.a.i.e
     public void i(SSLSocket sSLSocket, String str, List<w> list) {
         try {
-            this.f65405c.invoke(null, sSLSocket, Proxy.newProxyInstance(e.class.getClassLoader(), new Class[]{this.f65408f, this.f65409g}, new a(e.e(list))));
+            this.f65406c.invoke(null, sSLSocket, Proxy.newProxyInstance(e.class.getClassLoader(), new Class[]{this.f65409f, this.f65410g}, new a(e.e(list))));
         } catch (IllegalAccessException | InvocationTargetException e2) {
             throw d.c.c.a.b.a.e.g("unable to set alpn", e2);
         }
@@ -130,7 +130,7 @@ public class c extends e {
     @Override // d.c.c.a.b.a.i.e
     public void l(SSLSocket sSLSocket) {
         try {
-            this.f65407e.invoke(null, sSLSocket);
+            this.f65408e.invoke(null, sSLSocket);
         } catch (IllegalAccessException | InvocationTargetException e2) {
             throw d.c.c.a.b.a.e.g("unable to remove alpn", e2);
         }

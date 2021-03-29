@@ -48,7 +48,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 ForumMemberActivity.this.mView.f(ForumMemberActivity.this.mListViewData);
             } else if (!ListUtils.isEmpty(ForumMemberActivity.this.mListViewData) || c1Var == null) {
             } else {
-                ForumMemberActivity.this.mView.l(c1Var.f57363f);
+                ForumMemberActivity.this.mView.l(c1Var.f57364f);
             }
         }
     }
@@ -84,8 +84,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
         z0 z0Var = new z0();
         this.mPageInfo = z0Var;
-        z0Var.f58779b = this.mForumId;
-        z0Var.f58778a = this.mForumName;
+        z0Var.f58780b = this.mForumId;
+        z0Var.f58779a = this.mForumName;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

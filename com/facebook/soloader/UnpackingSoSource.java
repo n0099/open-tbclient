@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class UnpackingSoSource extends DirectorySoSource {
     public static final String DEPS_FILE_NAME = "dso_deps";
     public static final String LOCK_FILE_NAME = "dso_lock";
@@ -110,7 +110,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         public abstract InputDso next() throws IOException;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Unpacker implements Closeable {
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
@@ -204,8 +204,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a7 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a4 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00a5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -340,8 +340,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0044 A[Catch: all -> 0x0037, TryCatch #6 {all -> 0x0037, blocks: (B:4:0x0032, B:13:0x0044, B:14:0x004b, B:15:0x0055, B:17:0x005b, B:42:0x00a3, B:9:0x003b, B:20:0x0063, B:22:0x0068, B:24:0x0078, B:27:0x0089, B:31:0x0090), top: B:55:0x0032 }] */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x005b A[Catch: all -> 0x0037, TRY_LEAVE, TryCatch #6 {all -> 0x0037, blocks: (B:4:0x0032, B:13:0x0044, B:14:0x004b, B:15:0x0055, B:17:0x005b, B:42:0x00a3, B:9:0x003b, B:20:0x0063, B:22:0x0068, B:24:0x0078, B:27:0x0089, B:31:0x0090), top: B:55:0x0032 }] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0043 A[Catch: all -> 0x0036, TryCatch #6 {all -> 0x0036, blocks: (B:4:0x0031, B:13:0x0043, B:14:0x004a, B:15:0x0054, B:17:0x005a, B:42:0x00a2, B:9:0x003a, B:20:0x0062, B:22:0x0067, B:24:0x0077, B:27:0x0088, B:31:0x008f), top: B:53:0x0031 }] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x005a A[Catch: all -> 0x0036, TRY_LEAVE, TryCatch #6 {all -> 0x0036, blocks: (B:4:0x0031, B:13:0x0043, B:14:0x004a, B:15:0x0054, B:17:0x005a, B:42:0x00a2, B:9:0x003a, B:20:0x0062, B:22:0x0067, B:24:0x0077, B:27:0x0088, B:31:0x008f), top: B:53:0x0031 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

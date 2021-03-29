@@ -35,8 +35,8 @@ public class b extends ActivityDelegation {
 
     /* renamed from: d.b.i0.s.b.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class DialogInterface$OnCancelListenerC1530b implements DialogInterface.OnCancelListener {
-        public DialogInterface$OnCancelListenerC1530b() {
+    public class DialogInterface$OnCancelListenerC1531b implements DialogInterface.OnCancelListener {
+        public DialogInterface$OnCancelListenerC1531b() {
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -107,7 +107,7 @@ public class b extends ActivityDelegation {
             }
             TiebaStatic.log(new StatisticItem("c13530").param("obj_id", aVar.f0).param("obj_type", aVar.g0).param("obj_source", aVar.h0));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, aVar, false);
-            shareDialogConfig.onCancelListener = new DialogInterface$OnCancelListenerC1530b();
+            shareDialogConfig.onCancelListener = new DialogInterface$OnCancelListenerC1531b();
             shareDialogConfig.onDismissListener = new c(this);
             JSONArray m = aVar.m();
             if (m != null && !TextUtils.isEmpty(aVar.k()) && !TextUtils.isEmpty(aVar.j())) {

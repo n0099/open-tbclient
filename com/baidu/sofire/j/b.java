@@ -7,30 +7,30 @@ import android.content.pm.Signature;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f11819b;
+    public Context f11820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.sofire.h.c f11820c;
+    public com.baidu.sofire.h.c f11821c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f11818a = null;
+    public a f11819a = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11822e = null;
+    public String f11823e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11823f = null;
+    public String f11824f = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f11821d = new d(this);
+    public ServiceConnection f11822d = new d(this);
 
     public b(Context context, com.baidu.sofire.h.c cVar) {
-        this.f11819b = context;
-        this.f11820c = cVar;
+        this.f11820b = context;
+        this.f11821c = cVar;
     }
 
     public final String a(String str) {
@@ -38,12 +38,12 @@ public final class b {
         Signature[] signatureArr;
         String str3 = null;
         try {
-            if (TextUtils.isEmpty(this.f11822e)) {
-                this.f11822e = this.f11819b.getPackageName();
+            if (TextUtils.isEmpty(this.f11823e)) {
+                this.f11823e = this.f11820b.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f11823f)) {
+            if (TextUtils.isEmpty(this.f11824f)) {
                 try {
-                    signatureArr = this.f11819b.getPackageManager().getPackageInfo(this.f11822e, 64).signatures;
+                    signatureArr = this.f11820b.getPackageManager().getPackageInfo(this.f11823e, 64).signatures;
                 } catch (PackageManager.NameNotFoundException unused) {
                     signatureArr = null;
                 }
@@ -59,9 +59,9 @@ public final class b {
                         e2.printStackTrace();
                     }
                 }
-                this.f11823f = str3;
+                this.f11824f = str3;
             }
-            str2 = this.f11818a.a(this.f11822e, this.f11823f, str);
+            str2 = this.f11819a.a(this.f11823e, this.f11824f, str);
         } catch (Throwable th) {
             th.printStackTrace();
             str2 = str3;

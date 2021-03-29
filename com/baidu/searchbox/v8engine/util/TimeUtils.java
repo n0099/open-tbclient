@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TimeUtils {
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
     public static final long NANOS_PER_MS = 1000000;
@@ -58,22 +58,23 @@ public class TimeUtils {
         }
         char[] cArr = sFormatStr;
         int i7 = 0;
-        if (j2 == 0) {
-            int i8 = i - 1;
-            while (i7 < i8) {
+        int i8 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i8 == 0) {
+            int i9 = i - 1;
+            while (i7 < i9) {
                 cArr[i7] = ' ';
                 i7++;
             }
             cArr[i7] = '0';
             return i7 + 1;
         }
-        if (j2 > 0) {
+        if (i8 > 0) {
             c2 = '+';
         } else {
             c2 = '-';
             j2 = -j2;
         }
-        int i9 = (int) (j2 % 1000);
+        int i10 = (int) (j2 % 1000);
         int floor = (int) Math.floor(j2 / 1000);
         if (floor >= 86400) {
             i2 = floor / 86400;
@@ -88,9 +89,9 @@ public class TimeUtils {
             i3 = 0;
         }
         if (floor >= 60) {
-            int i10 = floor / 60;
-            i4 = floor - (i10 * 60);
-            i5 = i10;
+            int i11 = floor / 60;
+            i4 = floor - (i11 * 60);
+            i5 = i11;
         } else {
             i4 = floor;
             i5 = 0;
@@ -101,7 +102,7 @@ public class TimeUtils {
             int accumField3 = accumField2 + accumField(i5, 1, accumField2 > 0, 2);
             int accumField4 = accumField3 + accumField(i4, 1, accumField3 > 0, 2);
             i6 = 0;
-            for (int accumField5 = accumField4 + accumField(i9, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i; accumField5++) {
+            for (int accumField5 = accumField4 + accumField(i10, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i; accumField5++) {
                 cArr[i6] = ' ';
                 i6++;
             }
@@ -109,13 +110,13 @@ public class TimeUtils {
             i6 = 0;
         }
         cArr[i6] = c2;
-        int i11 = i6 + 1;
+        int i12 = i6 + 1;
         boolean z = i != 0;
-        int printFieldLocked = printFieldLocked(cArr, i2, 'd', i11, false, 0);
-        int printFieldLocked2 = printFieldLocked(cArr, i3, 'h', printFieldLocked, printFieldLocked != i11, z ? 2 : 0);
-        int printFieldLocked3 = printFieldLocked(cArr, i5, 'm', printFieldLocked2, printFieldLocked2 != i11, z ? 2 : 0);
-        int printFieldLocked4 = printFieldLocked(cArr, i4, 's', printFieldLocked3, printFieldLocked3 != i11, z ? 2 : 0);
-        int printFieldLocked5 = printFieldLocked(cArr, i9, 'm', printFieldLocked4, true, (!z || printFieldLocked4 == i11) ? 0 : 3);
+        int printFieldLocked = printFieldLocked(cArr, i2, 'd', i12, false, 0);
+        int printFieldLocked2 = printFieldLocked(cArr, i3, 'h', printFieldLocked, printFieldLocked != i12, z ? 2 : 0);
+        int printFieldLocked3 = printFieldLocked(cArr, i5, 'm', printFieldLocked2, printFieldLocked2 != i12, z ? 2 : 0);
+        int printFieldLocked4 = printFieldLocked(cArr, i4, 's', printFieldLocked3, printFieldLocked3 != i12, z ? 2 : 0);
+        int printFieldLocked5 = printFieldLocked(cArr, i10, 'm', printFieldLocked4, true, (!z || printFieldLocked4 == i12) ? 0 : 3);
         cArr[printFieldLocked5] = 's';
         return printFieldLocked5 + 1;
     }
@@ -126,9 +127,10 @@ public class TimeUtils {
 
     public static String formatUptime(long j) {
         long uptimeMillis = j - SystemClock.uptimeMillis();
-        if (uptimeMillis > 0) {
+        int i = (uptimeMillis > 0L ? 1 : (uptimeMillis == 0L ? 0 : -1));
+        if (i > 0) {
             return j + " (in " + uptimeMillis + " ms)";
-        } else if (uptimeMillis < 0) {
+        } else if (i < 0) {
             return j + " (" + (-uptimeMillis) + " ms ago)";
         } else {
             return j + " (now)";

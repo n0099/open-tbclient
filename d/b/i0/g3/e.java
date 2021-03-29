@@ -19,16 +19,16 @@ import java.util.ArrayList;
 public class e extends Dialog implements d.b.i0.g3.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55017e;
+    public Context f55018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55018f;
+    public TextView f55019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55019g;
+    public TextView f55020g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f55020h;
+    public View f55021h;
     public LinearLayout i;
     public View.OnClickListener j;
     public LinearLayout k;
@@ -36,7 +36,7 @@ public class e extends Dialog implements d.b.i0.g3.a {
 
     public e(Context context, int i) {
         super(context, i);
-        this.f55017e = context;
+        this.f55018e = context;
         f();
     }
 
@@ -60,19 +60,19 @@ public class e extends Dialog implements d.b.i0.g3.a {
 
     @Override // d.b.i0.g3.a
     public void c(InterestFrsData.Tag tag) {
-        this.f55018f.setText(tag.getBname());
-        this.f55019g.setText(tag.getBdesc());
+        this.f55019f.setText(tag.getBname());
+        this.f55020g.setText(tag.getBdesc());
         ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
         int i = 0;
         while (i < card_list.size()) {
             View a2 = new a(card_list.get(i), this.j).a();
             this.i.addView(a2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
-            int dimensionPixelSize = this.f55017e.getResources().getDimensionPixelSize(R.dimen.ds40);
-            layoutParams.setMargins(0, i == 0 ? this.f55017e.getResources().getDimensionPixelSize(R.dimen.ds52) : dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = this.f55018e.getResources().getDimensionPixelSize(R.dimen.ds40);
+            layoutParams.setMargins(0, i == 0 ? this.f55018e.getResources().getDimensionPixelSize(R.dimen.ds52) : dimensionPixelSize, 0, dimensionPixelSize);
             a2.setLayoutParams(layoutParams);
             if (i != card_list.size() - 1) {
-                this.i.addView(LayoutInflater.from(this.f55017e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
+                this.i.addView(LayoutInflater.from(this.f55018e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
             }
             i++;
         }
@@ -91,16 +91,16 @@ public class e extends Dialog implements d.b.i0.g3.a {
     }
 
     public final void f() {
-        View inflate = View.inflate(this.f55017e, R.layout.new_user_box, null);
+        View inflate = View.inflate(this.f55018e, R.layout.new_user_box, null);
         this.l = inflate;
         setContentView(inflate);
         setCanceledOnTouchOutside(true);
         this.k = (LinearLayout) this.l.findViewById(R.id.box_close_layout);
-        this.f55018f = (TextView) this.l.findViewById(R.id.prompt_title);
-        this.f55019g = (TextView) this.l.findViewById(R.id.prompt_sub_title);
-        this.f55020h = this.l.findViewById(R.id.view_layout);
+        this.f55019f = (TextView) this.l.findViewById(R.id.prompt_title);
+        this.f55020g = (TextView) this.l.findViewById(R.id.prompt_sub_title);
+        this.f55021h = this.l.findViewById(R.id.view_layout);
         this.i = (LinearLayout) this.l.findViewById(R.id.layout_content);
-        this.f55020h.setBackgroundDrawable(this.f55017e.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
+        this.f55021h.setBackgroundDrawable(this.f55018e.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
     }
 
     @Override // d.b.i0.g3.a
@@ -110,7 +110,7 @@ public class e extends Dialog implements d.b.i0.g3.a {
 
     @Override // android.app.Dialog, d.b.i0.g3.a
     public void hide() {
-        Context context = this.f55017e;
+        Context context = this.f55018e;
         if (context instanceof Activity) {
             g.a(this, (Activity) context);
         } else {
@@ -120,7 +120,7 @@ public class e extends Dialog implements d.b.i0.g3.a {
 
     @Override // android.app.Dialog, d.b.i0.g3.a
     public void show() {
-        Context context = this.f55017e;
+        Context context = this.f55018e;
         if (!(context instanceof Activity) || g.e((Activity) context)) {
             super.show();
         }
@@ -130,64 +130,64 @@ public class e extends Dialog implements d.b.i0.g3.a {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f55021a;
+        public View f55022a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f55022b;
+        public TextView f55023b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f55023c;
+        public TextView f55024c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ImageView f55024d;
+        public ImageView f55025d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f55025e;
+        public LinearLayout f55026e;
 
         public a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
-            View inflate = LayoutInflater.from(e.this.f55017e).inflate(R.layout.new_user_text_item, (ViewGroup) null);
-            this.f55021a = inflate;
+            View inflate = LayoutInflater.from(e.this.f55018e).inflate(R.layout.new_user_text_item, (ViewGroup) null);
+            this.f55022a = inflate;
             inflate.setTag(Integer.valueOf(card.getFid()));
             b(card, onClickListener);
         }
 
         public View a() {
-            return this.f55021a;
+            return this.f55022a;
         }
 
         public final void b(InterestFrsData.Card card, View.OnClickListener onClickListener) {
             Drawable drawable;
             c();
-            this.f55025e.setOnClickListener(onClickListener);
-            this.f55025e.setTag(card);
-            this.f55022b.setText(card.getFname());
+            this.f55026e.setOnClickListener(onClickListener);
+            this.f55026e.setTag(card);
+            this.f55023b.setText(card.getFname());
             if (card.getOrder() == 1) {
-                drawable = e.this.f55017e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
+                drawable = e.this.f55018e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
             } else {
-                drawable = card.getOrder() == 2 ? e.this.f55017e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_decline) : null;
+                drawable = card.getOrder() == 2 ? e.this.f55018e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_decline) : null;
             }
-            this.f55022b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
-            this.f55023c.setText(card.getCdesc());
+            this.f55023b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
+            this.f55024c.setText(card.getCdesc());
             d(card.getIs_like() != 0);
         }
 
         public void c() {
-            this.f55022b = (TextView) this.f55021a.findViewById(R.id.tv_fname);
-            this.f55023c = (TextView) this.f55021a.findViewById(R.id.tv_cdesc);
-            this.f55024d = (ImageView) this.f55021a.findViewById(R.id.iv_like);
-            this.f55025e = (LinearLayout) this.f55021a.findViewById(R.id.ll_like);
+            this.f55023b = (TextView) this.f55022a.findViewById(R.id.tv_fname);
+            this.f55024c = (TextView) this.f55022a.findViewById(R.id.tv_cdesc);
+            this.f55025d = (ImageView) this.f55022a.findViewById(R.id.iv_like);
+            this.f55026e = (LinearLayout) this.f55022a.findViewById(R.id.ll_like);
         }
 
         public void d(boolean z) {
             if (!z) {
-                this.f55024d.setBackgroundDrawable(e.this.f55017e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
+                this.f55025d.setBackgroundDrawable(e.this.f55018e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
             } else {
-                this.f55024d.setBackgroundDrawable(e.this.f55017e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+                this.f55025d.setBackgroundDrawable(e.this.f55018e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
             }
         }
 
         public a(View view) {
-            this.f55021a = view;
+            this.f55022a = view;
             c();
         }
     }

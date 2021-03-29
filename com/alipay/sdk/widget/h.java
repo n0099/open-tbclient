@@ -69,14 +69,14 @@ public class h extends g {
                 this.f2029c.removeJavascriptInterface("accessibility");
                 this.f2029c.removeJavascriptInterface("accessibilityTraversal");
             } catch (Throwable unused) {
+                Method method = this.f2029c.getClass().getMethod("removeJavascriptInterface", new Class[0]);
+                if (method != null) {
+                    method.invoke(this.f2029c, "searchBoxJavaBridge_");
+                    method.invoke(this.f2029c, "accessibility");
+                    method.invoke(this.f2029c, "accessibilityTraversal");
+                }
             }
         } catch (Throwable unused2) {
-            Method method = this.f2029c.getClass().getMethod("removeJavascriptInterface", new Class[0]);
-            if (method != null) {
-                method.invoke(this.f2029c, "searchBoxJavaBridge_");
-                method.invoke(this.f2029c, "accessibility");
-                method.invoke(this.f2029c, "accessibilityTraversal");
-            }
         }
     }
 

@@ -10,43 +10,43 @@ import com.baidu.wallet.router.RouterCallback;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43471c = k.f45050a;
+    public static final boolean f43472c = k.f45051a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f43472d;
+    public static String f43473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f43473e;
+    public static String f43474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f43474f;
+    public static String f43475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f43475g;
+    public static String f43476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f43476h;
+    public static String f43477h;
     public static String i;
     public static String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public CallbackHandler f43477a;
+    public CallbackHandler f43478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UnitedSchemeEntity f43478b;
+    public UnitedSchemeEntity f43479b;
 
     public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.f43477a = callbackHandler;
-        this.f43478b = unitedSchemeEntity;
-        f43472d = str;
-        f43473e = str2;
-        f43474f = str3;
-        f43475g = str4;
-        f43476h = str5;
+        this.f43478a = callbackHandler;
+        this.f43479b = unitedSchemeEntity;
+        f43473d = str;
+        f43474e = str2;
+        f43475f = str3;
+        f43476g = str4;
+        f43477h = str5;
         i = str6;
         j = str7;
     }
@@ -82,8 +82,8 @@ public class b {
             return;
         }
         JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.f43477a, this.f43478b, wrapCallbackParams.toString(), str);
-        if (f43471c) {
+        UnitedSchemeUtility.safeCallback(this.f43478a, this.f43479b, wrapCallbackParams.toString(), str);
+        if (f43472c) {
             Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
         }
     }
@@ -99,6 +99,6 @@ public class b {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        c(f43476h, jSONObject);
+        c(f43477h, jSONObject);
     }
 }

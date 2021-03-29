@@ -1,7 +1,7 @@
 package d.b.g0.a.b1.g;
 
 import d.b.g0.a.w0.c.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b {
     void a(j jVar);
 

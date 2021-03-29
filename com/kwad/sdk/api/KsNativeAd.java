@@ -32,7 +32,7 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface InteractionType {
         public static final int DOWNLOAD = 1;
         public static final int H5 = 2;
@@ -42,7 +42,7 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface MaterialType {
         public static final int GROUP_IMG = 3;
         public static final int SINGLE_IMG = 2;

@@ -11,10 +11,10 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEn
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1577b f60979a;
+    public InterfaceC1578b f60980a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f60980b = new a(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+    public HttpMessageListener f60981b = new a(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -28,12 +28,12 @@ public class b {
             if (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage) {
                 AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
                 if (alaEnterEffectEditHttpResMessage.getError() != 0) {
-                    if (b.this.f60979a != null) {
-                        b.this.f60979a.a(alaEnterEffectEditHttpResMessage.getErrorString());
+                    if (b.this.f60980a != null) {
+                        b.this.f60980a.a(alaEnterEffectEditHttpResMessage.getErrorString());
                     }
-                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || b.this.f60979a == null) {
+                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || b.this.f60980a == null) {
                 } else {
-                    b.this.f60979a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
+                    b.this.f60980a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
                 }
             }
         }
@@ -41,17 +41,17 @@ public class b {
 
     /* renamed from: d.b.i0.t.j.g.d.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1577b {
+    public interface InterfaceC1578b {
         void a(String str);
 
         void b(boolean z);
     }
 
-    public b(InterfaceC1577b interfaceC1577b) {
-        this.f60979a = interfaceC1577b;
+    public b(InterfaceC1578b interfaceC1578b) {
+        this.f60980a = interfaceC1578b;
         d.b.i0.c3.d0.a.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
-        this.f60980b.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f60980b);
+        this.f60981b.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f60981b);
     }
 
     public void b(String str, boolean z) {
@@ -59,6 +59,6 @@ public class b {
     }
 
     public void c() {
-        MessageManager.getInstance().unRegisterListener(this.f60980b);
+        MessageManager.getInstance().unRegisterListener(this.f60981b);
     }
 }

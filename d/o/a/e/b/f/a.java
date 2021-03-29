@@ -6,14 +6,14 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f66955a = "a";
+    public static final String f66960a = "a";
 
     @Override // d.o.a.e.b.f.b
     public void b(DownloadInfo downloadInfo) {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onSuccessed -- " + downloadInfo.q0() + " " + downloadInfo.S1());
     }
 
@@ -22,7 +22,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null || downloadInfo.Q0() == 0) {
             return;
         }
-        d.o.a.e.b.c.a.g(f66955a, String.format("onProgress %s %.2f%%", downloadInfo.q0(), Float.valueOf((((float) downloadInfo.E()) / ((float) downloadInfo.Q0())) * 100.0f)));
+        d.o.a.e.b.c.a.g(f66960a, String.format("onProgress %s %.2f%%", downloadInfo.q0(), Float.valueOf((((float) downloadInfo.E()) / ((float) downloadInfo.Q0())) * 100.0f)));
     }
 
     @Override // d.o.a.e.b.f.b
@@ -30,7 +30,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onPause -- " + downloadInfo.q0());
     }
 
@@ -39,7 +39,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         Object[] objArr = new Object[2];
         objArr[0] = downloadInfo.q0();
         objArr[1] = baseException != null ? baseException.getErrorMessage() : "unkown";
@@ -51,7 +51,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onStart -- " + downloadInfo.q0());
     }
 
@@ -60,7 +60,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         Object[] objArr = new Object[2];
         objArr[0] = downloadInfo.q0();
         objArr[1] = baseException != null ? baseException.getErrorMessage() : "unkown";
@@ -72,7 +72,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onFirstStart -- " + downloadInfo.q0());
     }
 
@@ -81,7 +81,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         Object[] objArr = new Object[2];
         objArr[0] = downloadInfo.q0();
         objArr[1] = baseException != null ? baseException.getErrorMessage() : "unkown";
@@ -93,7 +93,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onFirstSuccess -- " + downloadInfo.q0());
     }
 
@@ -102,7 +102,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onCanceled -- " + downloadInfo.q0());
     }
 
@@ -111,7 +111,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onPrepare -- " + downloadInfo.q0());
     }
 
@@ -119,7 +119,7 @@ public abstract class a implements b {
         if (!d.o.a.e.b.c.a.e() || downloadInfo == null) {
             return;
         }
-        String str = f66955a;
+        String str = f66960a;
         d.o.a.e.b.c.a.g(str, " onIntercept -- " + downloadInfo.q0());
     }
 }

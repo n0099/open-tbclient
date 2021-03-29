@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static final String TAG = "UbcPerfFrameRegister";
     public static final int UI_TRACE_MAX_SIZE = 20;

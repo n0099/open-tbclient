@@ -14,52 +14,52 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.image.ImageViewerActivity;
 import d.b.b.e.p.l;
 import d.b.i0.q0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements ImagePagerAdapter.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f54630b;
+    public boolean f54631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f54631c;
+    public TbPageContext f54632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageViewerActivity f54632d;
+    public ImageViewerActivity f54633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f54633e;
+    public RelativeLayout f54634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f54634f;
+    public ViewGroup f54635f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54629a = 0;
+    public int f54630a = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54635g = false;
+    public boolean f54636g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54636h = false;
+    public boolean f54637h = false;
     public boolean i = false;
     public final a.f j = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f54637a;
+        public final /* synthetic */ int f54638a;
 
         public a(int i) {
-            this.f54637a = i;
+            this.f54638a = i;
         }
 
         @Override // d.b.i0.q0.a.d
         public void a(String str, int i) {
             c.this.i = false;
-            c.this.f54636h = true;
+            c.this.f54637h = true;
             if (d.b.i0.q0.a.h().k(str)) {
                 c.this.t(1);
-                c.this.v(this.f54637a);
+                c.this.v(this.f54638a);
                 c.this.j(0);
                 return;
             }
@@ -75,7 +75,7 @@ public class c implements ImagePagerAdapter.a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends a.f {
         public b() {
         }
@@ -87,8 +87,8 @@ public class c implements ImagePagerAdapter.a {
 
         @Override // d.b.i0.q0.a.e
         public void onAdClose(String str) {
-            if (c.this.f54632d != null) {
-                c.this.f54632d.finish();
+            if (c.this.f54633d != null) {
+                c.this.f54633d.finish();
             }
         }
 
@@ -100,33 +100,33 @@ public class c implements ImagePagerAdapter.a {
 
         @Override // d.b.i0.q0.a.e
         public void onAdShow(String str) {
-            c.this.f54635g = true;
+            c.this.f54636g = true;
         }
     }
 
     public c(@NonNull ImageViewerActivity imageViewerActivity, boolean z) {
-        this.f54632d = imageViewerActivity;
-        this.f54631c = imageViewerActivity.getPageContext();
-        this.f54630b = z;
-        this.f54633e = new RelativeLayout(this.f54632d);
+        this.f54633d = imageViewerActivity;
+        this.f54632c = imageViewerActivity.getPageContext();
+        this.f54631b = z;
+        this.f54634e = new RelativeLayout(this.f54633d);
         ViewGroup g2 = d.b.i0.q0.a.h().g(imageViewerActivity, "6051001774-1519133515");
-        this.f54634f = g2;
+        this.f54635f = g2;
         if (g2 != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(this.f54632d), -2);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(this.f54633d), -2);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            this.f54633e.addView(this.f54634f, layoutParams);
+            this.f54634e.addView(this.f54635f, layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View a(ViewGroup viewGroup, int i) {
-        if (this.f54631c != null && this.f54634f != null && this.f54630b && l(i) && n()) {
-            if (this.f54633e.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f54633e.getParent()).removeView(this.f54633e);
+        if (this.f54632c != null && this.f54635f != null && this.f54631b && l(i) && n()) {
+            if (this.f54634e.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f54634e.getParent()).removeView(this.f54634e);
             }
-            viewGroup.addView(this.f54633e);
-            return this.f54633e;
+            viewGroup.addView(this.f54634e);
+            return this.f54634e;
         }
         return null;
     }
@@ -144,20 +144,20 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public final boolean l(int i) {
-        int i2 = this.f54629a;
+        int i2 = this.f54630a;
         return i2 != 0 && i == i2;
     }
 
     public boolean m() {
-        return this.f54630b && this.f54634f != null && this.f54636h;
+        return this.f54631b && this.f54635f != null && this.f54637h;
     }
 
     public boolean n() {
-        return this.f54636h;
+        return this.f54637h;
     }
 
     public boolean o() {
-        return this.f54635g;
+        return this.f54636g;
     }
 
     public boolean p(int i, int i2, int i3) {
@@ -172,15 +172,15 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public void s(int i, int i2, int i3) {
-        if (!this.f54630b || this.f54634f == null || this.i || this.f54636h || !p(i, i2, i3)) {
+        if (!this.f54631b || this.f54635f == null || this.i || this.f54637h || !p(i, i2, i3)) {
             return;
         }
         this.i = true;
-        d.b.i0.q0.a.h().l(this.f54632d, "6051001774-1519133515", new a(i3), d.b.i0.q0.a.a("pic", d.b.h0.b.d.B() ? "1" : "0"));
+        d.b.i0.q0.a.h().l(this.f54633d, "6051001774-1519133515", new a(i3), d.b.i0.q0.a.a("pic", d.b.h0.b.d.B() ? "1" : "0"));
     }
 
     public void t(int i) {
-        ImageViewerActivity imageViewerActivity = this.f54632d;
+        ImageViewerActivity imageViewerActivity = this.f54633d;
         if (imageViewerActivity != null) {
             imageViewerActivity.setAddSize(i);
         }
@@ -190,16 +190,16 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public boolean v(int i) {
-        if (this.f54631c == null || this.f54634f == null || !this.f54630b || this.f54635g || !l(i) || !n()) {
+        if (this.f54632c == null || this.f54635f == null || !this.f54631b || this.f54636g || !l(i) || !n()) {
             return false;
         }
-        d.b.i0.q0.a.h().n(this.f54631c.getPageActivity(), "6051001774-1519133515", this.f54634f, this.j, d.b.i0.q0.a.a("pic", d.b.h0.b.d.B() ? "1" : "0"));
-        SkinManager.setBackgroundColor(this.f54634f, R.color.CAM_X0101, 0);
+        d.b.i0.q0.a.h().n(this.f54632c.getPageActivity(), "6051001774-1519133515", this.f54635f, this.j, d.b.i0.q0.a.a("pic", d.b.h0.b.d.B() ? "1" : "0"));
+        SkinManager.setBackgroundColor(this.f54635f, R.color.CAM_X0101, 0);
         k(0);
         return true;
     }
 
     public void w(int i, int i2) {
-        this.f54629a = i;
+        this.f54630a = i;
     }
 }

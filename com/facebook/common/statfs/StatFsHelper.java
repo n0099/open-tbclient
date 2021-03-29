@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class StatFsHelper {
     public static final long DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES = 419430400;
     public static final int DEFAULT_DISK_YELLOW_LEVEL_IN_MB = 400;

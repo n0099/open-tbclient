@@ -10,7 +10,7 @@ import com.baidu.searchbox.logsystem.util.Utility;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SOEventSceneSceneHandler extends DeviceEventSceneHandler {
     public static final String SO_CRASH = "UnsatisfiedLinkError";
     public static final String SO_FILE_INFO = "sofileinfo";

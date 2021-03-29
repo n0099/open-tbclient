@@ -21,21 +21,21 @@ public class a extends a0 {
 
     /* renamed from: d.b.g0.a.c2.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0640a implements a.b {
+    public class C0641a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43804a;
+        public final /* synthetic */ UnitedSchemeEntity f43805a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43805b;
+        public final /* synthetic */ CallbackHandler f43806b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ k f43806c;
+        public final /* synthetic */ k f43807c;
 
-        public C0640a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar) {
-            this.f43804a = unitedSchemeEntity;
-            this.f43805b = callbackHandler;
-            this.f43806c = kVar;
+        public C0641a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar) {
+            this.f43805a = unitedSchemeEntity;
+            this.f43806b = callbackHandler;
+            this.f43807c = kVar;
         }
 
         @Override // d.b.g0.a.c2.g.a.b
@@ -43,7 +43,7 @@ public class a extends a0 {
             if (fArr == null || fArr.length != 3) {
                 return;
             }
-            a.this.k(this.f43804a, this.f43805b, this.f43806c, fArr);
+            a.this.k(this.f43805a, this.f43806b, this.f43807c, fArr);
         }
     }
 
@@ -83,7 +83,7 @@ public class a extends a0 {
             }
             c.g("StartDeviceMotionAction", "startSensor===");
             k kVar = new k("deviceMotionChange", optParamsAsJo, optString);
-            if (!d.b.g0.a.c2.g.a.h().l(i, new C0640a(unitedSchemeEntity, callbackHandler, kVar))) {
+            if (!d.b.g0.a.c2.g.a.h().l(i, new C0641a(unitedSchemeEntity, callbackHandler, kVar))) {
                 c.b("StartDeviceMotionAction", "start system sensor fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
                 return false;
@@ -97,16 +97,14 @@ public class a extends a0 {
     public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar, float[] fArr) {
         JSONObject jSONObject = new JSONObject();
         double[] dArr = new double[3];
-        double d2 = fArr[0];
-        Double.isNaN(d2);
-        double d3 = d2 - 1.5707963267948966d;
-        if (d3 < 0.0d) {
-            d3 += 6.283185307179586d;
+        double d2 = fArr[0] - 1.5707963267948966d;
+        if (d2 < 0.0d) {
+            d2 += 6.283185307179586d;
         }
-        dArr[0] = Math.toDegrees(d3);
+        dArr[0] = Math.toDegrees(d2);
         dArr[1] = Math.toDegrees(-fArr[2]);
         dArr[2] = Math.toDegrees(-fArr[1]);
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
         }
         try {

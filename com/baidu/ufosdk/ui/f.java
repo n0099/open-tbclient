@@ -7,29 +7,29 @@ import java.util.ArrayList;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout.LayoutParams f23256a;
+    public LinearLayout.LayoutParams f23257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f23257b;
+    public LinearLayout f23258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f23258c;
+    public LinearLayout f23259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList f23259d = new ArrayList();
+    public ArrayList f23260d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList f23260e = new ArrayList();
+    public ArrayList f23261e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f23261f;
+    public Context f23262f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ey f23262g;
+    public ey f23263g;
 
     public f(ArrayList arrayList, Context context, ey eyVar) {
-        this.f23261f = context;
-        this.f23262g = eyVar;
+        this.f23262f = context;
+        this.f23263g = eyVar;
         a(arrayList);
     }
 
@@ -37,46 +37,46 @@ public final class f {
         int i = 0;
         while (i < arrayList.size()) {
             int i2 = i + 1;
-            (i2 % 2 == 1 ? this.f23259d : this.f23260e).add(arrayList.get(i));
+            (i2 % 2 == 1 ? this.f23260d : this.f23261e).add(arrayList.get(i));
             i = i2;
         }
     }
 
     public final LinearLayout a() {
-        LinearLayout linearLayout = new LinearLayout(this.f23261f);
-        this.f23257b = linearLayout;
+        LinearLayout linearLayout = new LinearLayout(this.f23262f);
+        this.f23258b = linearLayout;
         linearLayout.setOrientation(1);
-        this.f23257b.setBackgroundColor(-1);
+        this.f23258b.setBackgroundColor(-1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        this.f23256a = layoutParams;
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23261f, 15.0f), com.baidu.ufosdk.f.i.a(this.f23261f, 2.0f), com.baidu.ufosdk.f.i.a(this.f23261f, 15.0f), com.baidu.ufosdk.f.i.a(this.f23261f, 14.0f));
-        for (int i = 0; i < this.f23259d.size(); i++) {
-            e eVar = new e(this.f23261f);
+        this.f23257a = layoutParams;
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23262f, 15.0f), com.baidu.ufosdk.f.i.a(this.f23262f, 2.0f), com.baidu.ufosdk.f.i.a(this.f23262f, 15.0f), com.baidu.ufosdk.f.i.a(this.f23262f, 14.0f));
+        for (int i = 0; i < this.f23260d.size(); i++) {
+            e eVar = new e(this.f23262f);
             eVar.a();
-            eVar.a((String) this.f23259d.get(i));
+            eVar.a((String) this.f23260d.get(i));
             eVar.a(com.baidu.ufosdk.b.U);
-            this.f23257b.addView(eVar, this.f23256a);
+            this.f23258b.addView(eVar, this.f23257a);
             eVar.setOnClickListener(new g(this, eVar));
         }
-        return this.f23257b;
+        return this.f23258b;
     }
 
     public final LinearLayout b() {
-        LinearLayout linearLayout = new LinearLayout(this.f23261f);
-        this.f23258c = linearLayout;
+        LinearLayout linearLayout = new LinearLayout(this.f23262f);
+        this.f23259c = linearLayout;
         linearLayout.setOrientation(1);
-        this.f23258c.setBackgroundColor(-1);
+        this.f23259c.setBackgroundColor(-1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        this.f23256a = layoutParams;
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23261f, 5.0f), com.baidu.ufosdk.f.i.a(this.f23261f, 2.0f), com.baidu.ufosdk.f.i.a(this.f23261f, 15.0f), com.baidu.ufosdk.f.i.a(this.f23261f, 14.0f));
-        for (int i = 0; i < this.f23260e.size(); i++) {
-            e eVar = new e(this.f23261f);
+        this.f23257a = layoutParams;
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23262f, 5.0f), com.baidu.ufosdk.f.i.a(this.f23262f, 2.0f), com.baidu.ufosdk.f.i.a(this.f23262f, 15.0f), com.baidu.ufosdk.f.i.a(this.f23262f, 14.0f));
+        for (int i = 0; i < this.f23261e.size(); i++) {
+            e eVar = new e(this.f23262f);
             eVar.a();
-            eVar.a((String) this.f23260e.get(i));
+            eVar.a((String) this.f23261e.get(i));
             eVar.a(com.baidu.ufosdk.b.U);
-            this.f23258c.addView(eVar, this.f23256a);
+            this.f23259c.addView(eVar, this.f23257a);
             eVar.setOnClickListener(new h(this, eVar));
         }
-        return this.f23258c;
+        return this.f23259c;
     }
 }

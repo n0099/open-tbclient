@@ -16,40 +16,40 @@ import org.json.JSONObject;
 public class c extends a0 {
 
     /* loaded from: classes3.dex */
-    public class a implements b.InterfaceC0911b {
+    public class a implements b.InterfaceC0912b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f47420a;
+        public final /* synthetic */ Context f47421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f47421b;
+        public final /* synthetic */ JSONObject f47422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47422c;
+        public final /* synthetic */ CallbackHandler f47423c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f47423d;
+        public final /* synthetic */ String f47424d;
 
         public a(c cVar, Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-            this.f47420a = context;
-            this.f47421b = jSONObject;
-            this.f47422c = callbackHandler;
-            this.f47423d = str;
+            this.f47421a = context;
+            this.f47422b = jSONObject;
+            this.f47423c = callbackHandler;
+            this.f47424d = str;
         }
 
-        @Override // d.b.g0.b.m.f.b.InterfaceC0911b
+        @Override // d.b.g0.b.m.f.b.InterfaceC0912b
         public void onResult(boolean z) {
             if (z) {
-                b.d(this.f47420a);
+                b.d(this.f47421a);
             }
             try {
-                this.f47421b.put("canceled", z);
+                this.f47422b.put("canceled", z);
             } catch (JSONException e2) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     e2.printStackTrace();
                 }
             }
-            this.f47422c.handleSchemeDispatchCallback(this.f47423d, UnitedSchemeUtility.wrapCallbackParams(this.f47421b, 0).toString());
+            this.f47423c.handleSchemeDispatchCallback(this.f47424d, UnitedSchemeUtility.wrapCallbackParams(this.f47422b, 0).toString());
         }
     }
 
@@ -88,7 +88,7 @@ public class c extends a0 {
             try {
                 jSONObject.put("authorized", b2);
             } catch (JSONException e2) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     e2.printStackTrace();
                 }
             }
@@ -103,7 +103,7 @@ public class c extends a0 {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
                 return true;
             } catch (JSONException e3) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     e3.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -112,7 +112,7 @@ public class c extends a0 {
         }
     }
 
-    public final b.InterfaceC0911b k(Context context, JSONObject jSONObject, String str, CallbackHandler callbackHandler) {
+    public final b.InterfaceC0912b k(Context context, JSONObject jSONObject, String str, CallbackHandler callbackHandler) {
         return new a(this, context, jSONObject, callbackHandler, str);
     }
 }

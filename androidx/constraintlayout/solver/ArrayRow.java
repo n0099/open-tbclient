@@ -293,13 +293,15 @@ public class ArrayRow implements LinearSystem.Row {
         return (this.variable != null ? 4 : 0) + 4 + 4 + this.variables.sizeInBytes();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00c0  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00d0  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00be  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00ce  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String toReadableString() {
         boolean z;
+        float variableValue;
+        int i;
         String str = (this.variable == null ? "0" : "" + this.variable) + " = ";
         if (this.constantValue != 0.0f) {
             str = str + this.constantValue;
@@ -307,32 +309,29 @@ public class ArrayRow implements LinearSystem.Row {
         } else {
             z = false;
         }
-        int i = this.variables.currentSize;
-        for (int i2 = 0; i2 < i; i2++) {
-            SolverVariable variable = this.variables.getVariable(i2);
-            if (variable != null) {
-                float variableValue = this.variables.getVariableValue(i2);
-                if (variableValue != 0.0f) {
-                    String solverVariable = variable.toString();
-                    if (!z) {
-                        if (variableValue < 0.0f) {
-                            str = str + "- ";
-                            variableValue *= -1.0f;
-                        }
-                        str = variableValue == 1.0f ? str + solverVariable : str + variableValue + " " + solverVariable;
-                        z = true;
-                    } else if (variableValue > 0.0f) {
-                        str = str + " + ";
-                        if (variableValue == 1.0f) {
-                        }
-                        z = true;
-                    } else {
-                        str = str + " - ";
+        int i2 = this.variables.currentSize;
+        for (int i3 = 0; i3 < i2; i3++) {
+            SolverVariable variable = this.variables.getVariable(i3);
+            if (variable != null && (this.variables.getVariableValue(i3)) != 0.0f) {
+                String solverVariable = variable.toString();
+                if (!z) {
+                    if (variableValue < 0.0f) {
+                        str = str + "- ";
                         variableValue *= -1.0f;
-                        if (variableValue == 1.0f) {
-                        }
-                        z = true;
                     }
+                    str = variableValue == 1.0f ? str + solverVariable : str + variableValue + " " + solverVariable;
+                    z = true;
+                } else if (i > 0) {
+                    str = str + " + ";
+                    if (variableValue == 1.0f) {
+                    }
+                    z = true;
+                } else {
+                    str = str + " - ";
+                    variableValue *= -1.0f;
+                    if (variableValue == 1.0f) {
+                    }
+                    z = true;
                 }
             }
         }

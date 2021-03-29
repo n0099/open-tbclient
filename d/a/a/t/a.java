@@ -17,14 +17,14 @@ import java.io.InputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41419a;
+    public final Context f41420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41420b;
+    public final String f41421b;
 
     public a(Context context, String str) {
-        this.f41419a = context.getApplicationContext();
-        this.f41420b = str;
+        this.f41420a = context.getApplicationContext();
+        this.f41421b = str;
     }
 
     public static String b(String str, FileExtension fileExtension, boolean z) {
@@ -40,7 +40,7 @@ public class a {
     public Pair<FileExtension, InputStream> a() {
         FileExtension fileExtension;
         try {
-            File c2 = c(this.f41420b);
+            File c2 = c(this.f41421b);
             if (c2 == null) {
                 return null;
             }
@@ -50,7 +50,7 @@ public class a {
             } else {
                 fileExtension = FileExtension.Json;
             }
-            c.b("Cache hit for " + this.f41420b + " at " + c2.getAbsolutePath());
+            c.b("Cache hit for " + this.f41421b + " at " + c2.getAbsolutePath());
             return new Pair<>(fileExtension, fileInputStream);
         } catch (FileNotFoundException unused) {
             return null;
@@ -59,11 +59,11 @@ public class a {
 
     @Nullable
     public final File c(String str) throws FileNotFoundException {
-        File file = new File(this.f41419a.getCacheDir(), b(str, FileExtension.Json, false));
+        File file = new File(this.f41420a.getCacheDir(), b(str, FileExtension.Json, false));
         if (file.exists()) {
             return file;
         }
-        File file2 = new File(this.f41419a.getCacheDir(), b(str, FileExtension.Zip, false));
+        File file2 = new File(this.f41420a.getCacheDir(), b(str, FileExtension.Zip, false));
         if (file2.exists()) {
             return file2;
         }
@@ -71,7 +71,7 @@ public class a {
     }
 
     public void d(FileExtension fileExtension) {
-        File file = new File(this.f41419a.getCacheDir(), b(this.f41420b, fileExtension, true));
+        File file = new File(this.f41420a.getCacheDir(), b(this.f41421b, fileExtension, true));
         File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
         boolean renameTo = file.renameTo(file2);
         c.b("Copying temp file to real file (" + file2 + SmallTailInfo.EMOTION_SUFFIX);
@@ -82,7 +82,7 @@ public class a {
     }
 
     public File e(InputStream inputStream, FileExtension fileExtension) throws IOException {
-        File file = new File(this.f41419a.getCacheDir(), b(this.f41420b, fileExtension, true));
+        File file = new File(this.f41420a.getCacheDir(), b(this.f41421b, fileExtension, true));
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             byte[] bArr = new byte[1024];

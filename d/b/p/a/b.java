@@ -3,7 +3,7 @@ package d.b.p.a;
 import android.content.Context;
 import android.media.AudioManager;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {

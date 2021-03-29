@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivity> {
     public static final String ASSIST_URL = "assist_url";
     public static final String CHAT_MODE = "chat_mode";
@@ -68,13 +68,13 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public HashMap<String, Boolean> pvHash = null;
     public int mChatMode = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0193a implements Animation.AnimationListener {
-            public animation.Animation$AnimationListenerC0193a() {
+        /* loaded from: classes3.dex */
+        public class animation.Animation$AnimationListenerC0194a implements Animation.AnimationListener {
+            public animation.Animation$AnimationListenerC0194a() {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -145,14 +145,14 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 }
                 AbsMsgImageActivity.this.mAnim.setDuration(300L);
                 AbsMsgImageActivity.this.mAnim.setFillAfter(true);
-                AbsMsgImageActivity.this.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC0193a());
+                AbsMsgImageActivity.this.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC0194a());
                 AbsMsgImageActivity.this.mAnimFinished = false;
                 AbsMsgImageActivity.this.mTitle.startAnimation(AbsMsgImageActivity.this.mAnim);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public b() {
         }
@@ -180,7 +180,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements BaseViewPager.a {
         public c() {
         }
@@ -190,7 +190,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements b.c {
         public d() {
         }
@@ -226,25 +226,25 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f17734e;
+        public final /* synthetic */ b.c f17735e;
 
         public e(b.c cVar) {
-            this.f17734e = cVar;
+            this.f17735e = cVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17734e);
+            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17735e);
             AbsMsgImageActivity.this.showListMenu();
             return false;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements d.b.i0.d1.s.c {
         public f() {
         }
@@ -300,20 +300,20 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17737a;
+        public String f17738a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f17738b;
+        public byte[] f17739b;
 
         public g(String str, byte[] bArr) {
-            this.f17737a = null;
-            this.f17738b = null;
-            this.f17737a = str;
-            this.f17738b = bArr;
+            this.f17738a = null;
+            this.f17739b = null;
+            this.f17738a = str;
+            this.f17739b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -331,7 +331,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17737a, this.f17738b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17738a, this.f17739b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return AbsMsgImageActivity.this.getPageContext().getString(R.string.save_fail);

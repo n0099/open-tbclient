@@ -647,7 +647,7 @@ public class bj {
     public static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f9010a);
+            a2 = au.a().a(str, au.a.f9011a);
         }
         return a2 == null ? "" : a2;
     }
@@ -949,7 +949,7 @@ public class bj {
     }
 
     public static String a(String str) {
-        String a2 = au.a().a(str, au.a.f9011b);
+        String a2 = au.a().a(str, au.a.f9012b);
         return a2 == null ? "" : a2;
     }
 
@@ -1014,11 +1014,7 @@ public class bj {
             ListAdapter adapter = gridView.getAdapter();
             int numColumns = gridView.getNumColumns();
             if (adapter != null && numColumns != 0) {
-                double count = adapter.getCount();
-                double d2 = numColumns;
-                Double.isNaN(count);
-                Double.isNaN(d2);
-                i = (int) Math.ceil(count / d2);
+                i = (int) Math.ceil(adapter.getCount() / numColumns);
             }
         }
         int i2 = height2 * i;

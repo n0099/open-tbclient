@@ -30,16 +30,16 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
     public Runnable K;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseAdapter f21351e;
+    public BaseAdapter f21352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21352f;
+    public View f21353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21353g;
+    public int f21354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.c3.k0.a f21354h;
+    public d.b.i0.c3.k0.a f21355h;
     public int i;
     public int j;
     public int k;
@@ -184,13 +184,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
         View childAt;
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            if (i != this.f21353g && (childAt = getChildAt(i)) != this.B) {
+            if (i != this.f21354g && (childAt = getChildAt(i)) != this.B) {
                 childAt.getHitRect(this.q);
                 if (this.q.contains((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2)) {
-                    int i2 = this.f21353g;
+                    int i2 = this.f21354g;
                     A(i2, i);
                     z(i2, i);
-                    this.f21353g = i;
+                    this.f21354g = i;
                     return;
                 }
             }
@@ -223,7 +223,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
         if (this.o.computeScrollOffset()) {
             scrollTo(this.o.getCurrX(), 0);
             postInvalidateDelayed(16L);
-            if ((this.u || this.v) && (aVar = this.f21354h) != null) {
+            if ((this.u || this.v) && (aVar = this.f21355h) != null) {
                 aVar.i();
                 return;
             }
@@ -252,7 +252,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
     }
 
     public BaseAdapter getAdapter() {
-        return this.f21351e;
+        return this.f21352e;
     }
 
     public int getMaxItemNum() {
@@ -405,9 +405,9 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
                 getChildAt(i).clearAnimation();
             }
         }
-        this.f21354h.h(view, null);
-        this.f21352f = view;
-        this.f21353g = indexOfChild(view);
+        this.f21355h.h(view, null);
+        this.f21353f = view;
+        this.f21354g = indexOfChild(view);
         return true;
     }
 
@@ -419,7 +419,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
         int mode2 = View.MeasureSpec.getMode(i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        BaseAdapter baseAdapter = this.f21351e;
+        BaseAdapter baseAdapter = this.f21352e;
         int count = baseAdapter == null ? 0 : baseAdapter.getCount();
         this.i = count;
         int min = Math.min(this.z, count);
@@ -550,8 +550,8 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
     }
 
     public final void r(Context context) {
-        this.f21352f = null;
-        this.f21353g = -1;
+        this.f21353f = null;
+        this.f21354g = -1;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
         this.n = viewConfiguration.getScaledTouchSlop();
         this.s = viewConfiguration.getScaledMinimumFlingVelocity();
@@ -567,7 +567,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
     }
 
     public void setAdapter(BaseAdapter baseAdapter, boolean z) {
-        this.f21351e = baseAdapter;
+        this.f21352e = baseAdapter;
         this.o.forceFinished(true);
         this.p.forceFinished(true);
         if (!this.A && z) {
@@ -586,7 +586,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
 
     @Override // d.b.i0.c3.k0.c
     public void setDragController(d.b.i0.c3.k0.a aVar) {
-        this.f21354h = aVar;
+        this.f21355h = aVar;
     }
 
     public void setMaxItemNum(int i) {
@@ -620,7 +620,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
 
     public final int[] u(int i, int i2, int i3, int i4) {
         int[] iArr = new int[2];
-        if (this.f21351e == null) {
+        if (this.f21352e == null) {
             iArr[0] = getPaddingLeft() + getPaddingRight();
             iArr[1] = getPaddingTop() + getPaddingBottom();
             return iArr;
@@ -646,7 +646,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
 
     public final View v(int i) {
         View remove = this.E.size() > 0 ? this.E.remove(0) : null;
-        View view = this.f21351e.getView(i, remove, this);
+        View view = this.f21352e.getView(i, remove, this);
         if (view != remove) {
             this.E.add(remove);
         }
@@ -675,12 +675,12 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.b.i0.c3.k0.
         removeCallbacks(this.K);
         this.o.forceFinished(true);
         this.p.forceFinished(true);
-        View view = this.f21352f;
+        View view = this.f21353f;
         if (view != null) {
             view.setVisibility(0);
-            this.f21352f = null;
+            this.f21353f = null;
         }
-        this.f21353g = -1;
+        this.f21354g = -1;
         this.u = false;
         this.v = false;
         int childCount = getChildCount();

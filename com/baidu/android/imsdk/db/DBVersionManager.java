@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBVersionManager {
     public static final String TAG = "com.baidu.android.imsdk.db.DBVersionManager";
     public static DBVersionManager mInstance;
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class DefaultHandler implements VersionHandler {
         public DefaultHandler() {
         }
@@ -36,7 +36,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version21And22Handler implements VersionHandler {
         public Version21And22Handler() {
         }
@@ -64,7 +64,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version22And223Handler implements VersionHandler {
         public Version22And223Handler() {
         }
@@ -84,7 +84,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version22And23Handler implements VersionHandler {
         public Version22And23Handler() {
         }
@@ -104,7 +104,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version23And24Handler implements VersionHandler {
         public Version23And24Handler() {
         }
@@ -118,7 +118,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version24And25Handler implements VersionHandler {
         public Version24And25Handler() {
         }
@@ -138,7 +138,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version25And26Handler implements VersionHandler {
         public Version25And26Handler() {
         }
@@ -153,7 +153,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version26And27Handler implements VersionHandler {
         public Version26And27Handler() {
         }
@@ -180,7 +180,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version28And29Handler implements VersionHandler {
         public Version28And29Handler() {
         }
@@ -202,7 +202,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version29And30Handler implements VersionHandler {
         public Version29And30Handler() {
         }
@@ -226,7 +226,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version30And31Handler implements VersionHandler {
         public Version30And31Handler() {
         }
@@ -247,7 +247,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version31And32Handler implements VersionHandler {
         public Version31And32Handler() {
         }
@@ -269,7 +269,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version32And33Handler implements VersionHandler {
         public Version32And33Handler() {
         }
@@ -289,7 +289,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version33And34Handler implements VersionHandler {
         public Version33And34Handler() {
         }
@@ -311,7 +311,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version34And35Handler implements VersionHandler {
         public Version34And35Handler() {
         }
@@ -333,7 +333,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version35And36Handler implements VersionHandler {
         public Version35And36Handler() {
         }
@@ -354,7 +354,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version36And37Handler implements VersionHandler {
         public Version36And37Handler() {
         }
@@ -375,7 +375,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version37And38Handler implements VersionHandler {
         public Version37And38Handler() {
         }
@@ -396,7 +396,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version38And39Handler implements VersionHandler {
         public Version38And39Handler() {
         }
@@ -418,7 +418,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version39And40Handler implements VersionHandler {
         public Version39And40Handler() {
         }
@@ -439,7 +439,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version40And41Handler implements VersionHandler {
         public Version40And41Handler() {
         }
@@ -460,7 +460,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version41And42Handler implements VersionHandler {
         public Version41And42Handler() {
         }
@@ -470,19 +470,19 @@ public class DBVersionManager {
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-        /* JADX WARN: Code restructure failed: missing block: B:10:0x00a8, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:10:0x00a7, code lost:
             r2.endTransaction();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x00ab, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x00aa, code lost:
             com.baidu.android.imsdk.pubaccount.PaManager.delPaLocalInfosByPaType(r1.this$0.mContext, 19);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x00b6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x00b5, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:3:0x0083, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:3:0x0082, code lost:
             if (r2 != null) goto L7;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:9:0x00a6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:9:0x00a5, code lost:
             if (r2 == null) goto L4;
          */
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -525,7 +525,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version42And43Handler implements VersionHandler {
         public Version42And43Handler() {
         }
@@ -545,7 +545,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version43And44Handler implements VersionHandler {
         public Version43And44Handler() {
         }
@@ -566,7 +566,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version44And45Handler implements VersionHandler {
         public Version44And45Handler() {
         }
@@ -586,7 +586,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version45And46Handler implements VersionHandler {
         public Version45And46Handler() {
         }
@@ -623,7 +623,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version46And47Handler implements VersionHandler {
         public Version46And47Handler() {
         }
@@ -644,7 +644,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Version48And49Handler implements VersionHandler {
         public Version48And49Handler() {
         }
@@ -664,7 +664,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface VersionHandler {
         void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
@@ -730,10 +730,10 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x00be, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x00bd, code lost:
         if (r6 == null) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c0, code lost:
         return r0;
      */
     /*

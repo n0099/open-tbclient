@@ -20,40 +20,40 @@ import java.util.LinkedList;
 public abstract class c<M extends Message<?>, T extends MessageTask, R extends f<?, ?>, N extends ResponsedMessage<?>> implements d.b.b.c.b<M, T> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static d.b.b.c.g.b<Message<?>> f41551h;
+    public static d.b.b.c.g.b<Message<?>> f41552h;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageManager f41552a;
+    public MessageManager f41553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<T> f41553b = new SparseArray<>();
+    public final SparseArray<T> f41554b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<N> f41554c = new SparseArray<>();
+    public final SparseArray<N> f41555c = new SparseArray<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<LinkedList<MessageListener<N>>> f41555d = new SparseArray<>();
+    public final SparseArray<LinkedList<MessageListener<N>>> f41556d = new SparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.c.j.d f41556e = null;
+    public d.b.b.c.j.d f41557e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41557f = false;
+    public boolean f41558f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseIntArray f41558g = new SparseIntArray();
+    public final SparseIntArray f41559g = new SparseIntArray();
 
     public c(MessageManager messageManager) {
-        this.f41552a = null;
-        this.f41552a = messageManager;
+        this.f41553a = null;
+        this.f41553a = messageManager;
     }
 
     public static void p(d.b.b.c.g.b<Message<?>> bVar) {
-        f41551h = bVar;
+        f41552h = bVar;
     }
 
     public void a() {
-        this.f41557f = true;
+        this.f41558f = true;
     }
 
     public final void b(int i) {
@@ -73,12 +73,12 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         }
         if (t != null) {
             M l = l(m, t);
-            if (this.f41556e != null) {
+            if (this.f41557e != null) {
                 if (t.getTimeOut() == null) {
-                    t.setTimeOut(this.f41556e.b());
+                    t.setTimeOut(this.f41557e.b());
                 }
                 if (t.getRetry() == 0) {
-                    t.setRetry(this.f41556e.a());
+                    t.setRetry(this.f41557e.a());
                 }
             }
             if (l != null) {
@@ -88,7 +88,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             BdLog.d("message is trapped:" + cmd);
             return false;
         }
-        d.b.b.c.g.b<Message<?>> bVar = f41551h;
+        d.b.b.c.g.b<Message<?>> bVar = f41552h;
         if (bVar != null) {
             bVar.a(m);
         }
@@ -105,19 +105,19 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         int cmd = n.getCmd();
         Message<?> orginalMessage = n.getOrginalMessage();
         BdUniqueId tag = orginalMessage != null ? orginalMessage.getTag() : null;
-        if (this.f41554c.indexOfKey(cmd) >= 0) {
-            this.f41554c.put(cmd, n);
+        if (this.f41555c.indexOfKey(cmd) >= 0) {
+            this.f41555c.put(cmd, n);
         }
-        LinkedList<MessageListener<N>> linkedList = this.f41555d.get(cmd);
+        LinkedList<MessageListener<N>> linkedList = this.f41556d.get(cmd);
         if (linkedList == null) {
             return;
         }
-        this.f41557f = false;
+        this.f41558f = false;
         k(cmd);
         try {
             try {
                 Iterator<MessageListener<N>> it = linkedList.iterator();
-                while (it.hasNext() && !this.f41557f) {
+                while (it.hasNext() && !this.f41558f) {
                     MessageListener<N> next = it.next();
                     if (next != null && (!next.isSelfListener() || next.getTag() == tag)) {
                         try {
@@ -136,25 +136,25 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public synchronized T g(int i) {
-        return this.f41553b.get(i);
+        return this.f41554b.get(i);
     }
 
     public synchronized ArrayList<T> i() {
         ArrayList<T> arrayList;
         arrayList = new ArrayList<>();
-        int size = this.f41553b.size();
+        int size = this.f41554b.size();
         for (int i = 0; i < size; i++) {
-            arrayList.add(this.f41553b.valueAt(i));
+            arrayList.add(this.f41554b.valueAt(i));
         }
         return arrayList;
     }
 
     public final synchronized boolean j(int i) {
-        return this.f41558g.get(i, 0) != 0;
+        return this.f41559g.get(i, 0) != 0;
     }
 
     public final synchronized void k(int i) {
-        this.f41558g.put(i, this.f41558g.get(i, 0) + 1);
+        this.f41559g.put(i, this.f41559g.get(i, 0) + 1);
     }
 
     public abstract M l(M m, T t);
@@ -172,21 +172,21 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         }
         FrameHelper.g(i);
         b(i);
-        LinkedList<MessageListener<N>> linkedList = this.f41555d.get(i);
+        LinkedList<MessageListener<N>> linkedList = this.f41556d.get(i);
         if (linkedList == null) {
             linkedList = new LinkedList<>();
-            this.f41555d.put(i, linkedList);
+            this.f41556d.put(i, linkedList);
         }
         FrameHelper.f(linkedList, messageListener);
-        N n = this.f41554c.get(i);
+        N n = this.f41555c.get(i);
         if (n != null) {
             messageListener.onMessage(n);
         }
     }
 
     public void n(int i) {
-        if (this.f41554c.indexOfKey(i) < 0) {
-            this.f41554c.put(i, null);
+        if (this.f41555c.indexOfKey(i) < 0) {
+            this.f41555c.put(i, null);
         }
     }
 
@@ -196,15 +196,15 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         }
         int cmd = t.getCmd();
         FrameHelper.g(cmd);
-        this.f41553b.put(cmd, t);
+        this.f41554b.put(cmd, t);
     }
 
     public final synchronized void q(int i) {
-        int i2 = this.f41558g.get(i, 0);
+        int i2 = this.f41559g.get(i, 0);
         if (i2 <= 1) {
-            this.f41558g.delete(i);
+            this.f41559g.delete(i);
         } else {
-            this.f41558g.put(i, i2 - 1);
+            this.f41559g.put(i, i2 - 1);
         }
     }
 
@@ -213,10 +213,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         if (bdUniqueId == null) {
             return;
         }
-        int size = this.f41555d.size();
+        int size = this.f41556d.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.f41555d.keyAt(i);
-            Iterator<MessageListener<N>> it = this.f41555d.valueAt(i).iterator();
+            int keyAt = this.f41556d.keyAt(i);
+            Iterator<MessageListener<N>> it = this.f41556d.valueAt(i).iterator();
             while (it.hasNext()) {
                 MessageListener<N> next = it.next();
                 if (next != null && next.getTag() == bdUniqueId) {
@@ -234,10 +234,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         }
         int cmd = messageListener.getCmd();
         if (cmd == 0) {
-            int size = this.f41555d.size();
+            int size = this.f41556d.size();
             for (int i = 0; i < size; i++) {
-                LinkedList<MessageListener<N>> valueAt = this.f41555d.valueAt(i);
-                int keyAt = this.f41555d.keyAt(i);
+                LinkedList<MessageListener<N>> valueAt = this.f41556d.valueAt(i);
+                int keyAt = this.f41556d.keyAt(i);
                 if (valueAt.contains(messageListener)) {
                     b(keyAt);
                     valueAt.remove(messageListener);
@@ -246,17 +246,17 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             return;
         }
         b(cmd);
-        LinkedList<MessageListener<N>> linkedList = this.f41555d.get(cmd);
+        LinkedList<MessageListener<N>> linkedList = this.f41556d.get(cmd);
         if (linkedList != null) {
             linkedList.remove(messageListener);
         }
     }
 
     public void t(int i) {
-        this.f41554c.remove(i);
+        this.f41555c.remove(i);
     }
 
     public synchronized void u(int i) {
-        this.f41553b.remove(i);
+        this.f41554b.remove(i);
     }
 }

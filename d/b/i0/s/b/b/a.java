@@ -37,24 +37,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f60018d = "a";
+    public static final String f60019d = "a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f60019e = k.f45050a;
+    public static final boolean f60020e = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.s.b.b.b f60020a;
+    public d.b.i0.s.b.b.b f60021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d.b.g0.a.m.c> f60021b;
+    public List<d.b.g0.a.m.c> f60022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f60022c;
+    public final CustomMessageListener f60023c;
 
     /* renamed from: d.b.i0.s.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1518a extends CustomMessageListener {
-        public C1518a(int i) {
+    public class C1519a extends CustomMessageListener {
+        public C1519a(int i) {
             super(i);
         }
 
@@ -101,7 +101,7 @@ public class a {
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetUserInfoResult getUserInfoResult) {
             if (getUserInfoResult != null) {
-                a.this.f60020a.f60043f = getUserInfoResult.portraitHttps;
+                a.this.f60021a.f60044f = getUserInfoResult.portraitHttps;
             }
             a.this.v(true);
         }
@@ -111,12 +111,12 @@ public class a {
     public class c extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.m.a f60025a;
+        public final /* synthetic */ d.b.g0.a.m.a f60026a;
 
         /* renamed from: d.b.i0.s.b.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1519a extends GetUserInfoCallback {
-            public C1519a() {
+        public class C1520a extends GetUserInfoCallback {
+            public C1520a() {
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -130,29 +130,29 @@ public class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.LoginStatusAware
             public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-                c.this.f60025a.onResult(-1);
+                c.this.f60026a.onResult(-1);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(GetUserInfoResult getUserInfoResult) {
-                c.this.f60025a.onResult(-1);
+                c.this.f60026a.onResult(-1);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                a.this.f60020a.f60039b = SapiAccountManager.getInstance().getSession().bduss;
-                a.this.f60020a.f60045h = SapiAccountManager.getInstance().getSession().getPtoken();
-                a.this.f60020a.f60038a = getUserInfoResult.displayname;
-                a.this.f60020a.f60044g = getUserInfoResult.uid;
-                a.this.f60020a.f60043f = getUserInfoResult.portraitHttps;
-                d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", a.this.f60020a.f60038a);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_uid", a.this.f60020a.f60044g);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", a.this.f60020a.f60043f);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", a.this.f60020a.f60039b);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", a.this.f60020a.f60045h);
-                c.this.f60025a.onResult(0);
+                a.this.f60021a.f60040b = SapiAccountManager.getInstance().getSession().bduss;
+                a.this.f60021a.f60046h = SapiAccountManager.getInstance().getSession().getPtoken();
+                a.this.f60021a.f60039a = getUserInfoResult.displayname;
+                a.this.f60021a.f60045g = getUserInfoResult.uid;
+                a.this.f60021a.f60044f = getUserInfoResult.portraitHttps;
+                d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", a.this.f60021a.f60039a);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_uid", a.this.f60021a.f60045g);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", a.this.f60021a.f60044f);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", a.this.f60021a.f60040b);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", a.this.f60021a.f60046h);
+                c.this.f60026a.onResult(0);
                 a.this.v(true);
             }
         }
@@ -160,7 +160,7 @@ public class a {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(int i, d.b.g0.a.m.a aVar) {
             super(i);
-            this.f60025a = aVar;
+            this.f60026a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -168,9 +168,9 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof Integer) {
                 if (((Integer) customResponsedMessage.getData()).intValue() == 0) {
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new C1519a(), SapiAccountManager.getInstance().getSession().bduss);
+                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new C1520a(), SapiAccountManager.getInstance().getSession().bduss);
                 }
-                this.f60025a.onResult(((Integer) customResponsedMessage.getData()).intValue());
+                this.f60026a.onResult(((Integer) customResponsedMessage.getData()).intValue());
             }
         }
     }
@@ -179,10 +179,10 @@ public class a {
     public class d extends GetUserInfoCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.m.a f60028e;
+        public final /* synthetic */ d.b.g0.a.m.a f60029e;
 
         public d(d.b.g0.a.m.a aVar) {
-            this.f60028e = aVar;
+            this.f60029e = aVar;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -196,30 +196,30 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.LoginStatusAware
         public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-            this.f60028e.onResult(-1);
+            this.f60029e.onResult(-1);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(GetUserInfoResult getUserInfoResult) {
-            this.f60028e.onResult(-1);
+            this.f60029e.onResult(-1);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetUserInfoResult getUserInfoResult) {
-            a.this.f60020a.f60039b = SapiAccountManager.getInstance().getSession().bduss;
-            a.this.f60020a.f60045h = SapiAccountManager.getInstance().getSession().getPtoken();
-            a.this.f60020a.f60038a = getUserInfoResult.displayname;
-            a.this.f60020a.f60044g = getUserInfoResult.uid;
-            a.this.f60020a.f60043f = getUserInfoResult.portraitHttps;
-            d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", a.this.f60020a.f60038a);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_uid", a.this.f60020a.f60044g);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", a.this.f60020a.f60043f);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", a.this.f60020a.f60039b);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", a.this.f60020a.f60045h);
+            a.this.f60021a.f60040b = SapiAccountManager.getInstance().getSession().bduss;
+            a.this.f60021a.f60046h = SapiAccountManager.getInstance().getSession().getPtoken();
+            a.this.f60021a.f60039a = getUserInfoResult.displayname;
+            a.this.f60021a.f60045g = getUserInfoResult.uid;
+            a.this.f60021a.f60044f = getUserInfoResult.portraitHttps;
+            d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", a.this.f60021a.f60039a);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_uid", a.this.f60021a.f60045g);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", a.this.f60021a.f60044f);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", a.this.f60021a.f60040b);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", a.this.f60021a.f60046h);
             a.this.m();
-            this.f60028e.onResult(0);
+            this.f60029e.onResult(0);
             a.this.v(true);
         }
     }
@@ -250,16 +250,16 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetUserInfoResult getUserInfoResult) {
-            a.this.f60020a.f60039b = SapiAccountManager.getInstance().getSession().bduss;
-            a.this.f60020a.f60045h = SapiAccountManager.getInstance().getSession().getPtoken();
-            a.this.f60020a.f60038a = getUserInfoResult.displayname;
-            a.this.f60020a.f60044g = getUserInfoResult.uid;
-            a.this.f60020a.f60043f = getUserInfoResult.portraitHttps;
-            d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", a.this.f60020a.f60038a);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_uid", a.this.f60020a.f60044g);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", a.this.f60020a.f60043f);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", a.this.f60020a.f60039b);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", a.this.f60020a.f60045h);
+            a.this.f60021a.f60040b = SapiAccountManager.getInstance().getSession().bduss;
+            a.this.f60021a.f60046h = SapiAccountManager.getInstance().getSession().getPtoken();
+            a.this.f60021a.f60039a = getUserInfoResult.displayname;
+            a.this.f60021a.f60045g = getUserInfoResult.uid;
+            a.this.f60021a.f60044f = getUserInfoResult.portraitHttps;
+            d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", a.this.f60021a.f60039a);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_uid", a.this.f60021a.f60045g);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", a.this.f60021a.f60044f);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", a.this.f60021a.f60040b);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", a.this.f60021a.f60046h);
         }
     }
 
@@ -267,29 +267,29 @@ public class a {
     public class f extends AddressManageCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f60031e;
+        public final /* synthetic */ String f60032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.d f60032f;
+        public final /* synthetic */ a.d f60033f;
 
         public f(a aVar, String str, a.d dVar) {
-            this.f60031e = str;
-            this.f60032f = dVar;
+            this.f60032e = str;
+            this.f60033f = dVar;
         }
 
         @Override // com.baidu.sapi2.ecommerce.callback.AddressManageCallback
         public void onFinish(AddressManageResult addressManageResult) {
-            if ("0".equals(this.f60031e) || this.f60032f == null) {
-                if (a.f60019e) {
-                    Log.d(a.f60018d, String.format("管理收货地址流程结束（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
+            if ("0".equals(this.f60032e) || this.f60033f == null) {
+                if (a.f60020e) {
+                    Log.d(a.f60019d, String.format("管理收货地址流程结束（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
                 }
             } else if (addressManageResult.getResultCode() != 0) {
-                if (a.f60019e) {
-                    Log.d(a.f60018d, String.format("选择收货地址错误（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
+                if (a.f60020e) {
+                    Log.d(a.f60019d, String.format("选择收货地址错误（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
                 }
-                this.f60032f.b();
+                this.f60033f.b();
             } else {
-                this.f60032f.a(addressManageResult.map.get("addrId"));
+                this.f60033f.a(addressManageResult.map.get("addrId"));
             }
         }
     }
@@ -298,29 +298,29 @@ public class a {
     public class g extends InvoiceBuildCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f60033e;
+        public final /* synthetic */ String f60034e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.d f60034f;
+        public final /* synthetic */ a.d f60035f;
 
         public g(a aVar, String str, a.d dVar) {
-            this.f60033e = str;
-            this.f60034f = dVar;
+            this.f60034e = str;
+            this.f60035f = dVar;
         }
 
         @Override // com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback
         public void onFinish(InvoiceBuildResult invoiceBuildResult) {
-            if ("0".equals(this.f60033e) || this.f60034f == null) {
-                if (a.f60019e) {
-                    Log.d(a.f60018d, String.format("发票管理流程结束（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
+            if ("0".equals(this.f60034e) || this.f60035f == null) {
+                if (a.f60020e) {
+                    Log.d(a.f60019d, String.format("发票管理流程结束（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
                 }
             } else if (invoiceBuildResult.getResultCode() != 0) {
-                if (a.f60019e) {
-                    Log.d(a.f60018d, String.format("获取发票错误（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
+                if (a.f60020e) {
+                    Log.d(a.f60019d, String.format("获取发票错误（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
                 }
-                this.f60034f.b();
+                this.f60035f.b();
             } else {
-                this.f60034f.a(invoiceBuildResult.map.get(InvoiceBuildResult.KEY_INVOICE_ID), this.f60033e);
+                this.f60035f.a(invoiceBuildResult.map.get(InvoiceBuildResult.KEY_INVOICE_ID), this.f60034e);
             }
         }
     }
@@ -329,10 +329,10 @@ public class a {
     public class h extends GetOpenBdussCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f60035e;
+        public final /* synthetic */ b.c f60036e;
 
         public h(b.c cVar) {
-            this.f60035e = cVar;
+            this.f60036e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -345,28 +345,28 @@ public class a {
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: d */
         public void onSuccess(OpenBdussResult openBdussResult) {
-            a.this.f60020a.f60040c = openBdussResult.openBduss;
-            a.this.f60020a.f60041d = openBdussResult.unionid;
-            a.this.f60020a.f60042e = openBdussResult.tplStokenMap;
-            d.b.g0.a.a2.g.h.a().putString("bd_box_open_bduss", a.this.f60020a.f60040c);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_union_id", a.this.f60020a.f60041d);
-            d.b.g0.a.a2.g.h.a().putString("bd_box_stoken", i0.q(a.this.f60020a.f60042e));
+            a.this.f60021a.f60041c = openBdussResult.openBduss;
+            a.this.f60021a.f60042d = openBdussResult.unionid;
+            a.this.f60021a.f60043e = openBdussResult.tplStokenMap;
+            d.b.g0.a.a2.g.h.a().putString("bd_box_open_bduss", a.this.f60021a.f60041c);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_union_id", a.this.f60021a.f60042d);
+            d.b.g0.a.a2.g.h.a().putString("bd_box_stoken", i0.q(a.this.f60021a.f60043e));
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, a.this.f60020a.f60040c);
-                jSONObject.put("unionid", a.this.f60020a.f60041d);
+                jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, a.this.f60021a.f60041c);
+                jSONObject.put("unionid", a.this.f60021a.f60042d);
                 JSONObject jSONObject2 = new JSONObject();
-                for (String str : a.this.f60020a.f60042e.keySet()) {
-                    jSONObject2.put(str, a.this.f60020a.f60042e.get(str));
+                for (String str : a.this.f60021a.f60043e.keySet()) {
+                    jSONObject2.put(str, a.this.f60021a.f60043e.get(str));
                 }
                 jSONObject.put("stokenmap", jSONObject2);
-                jSONObject.put("uid", a.this.f60020a.f60044g);
-                jSONObject.put("bduss", a.this.f60020a.f60039b);
-                jSONObject.put("displayname", a.this.f60020a.f60038a);
+                jSONObject.put("uid", a.this.f60021a.f60045g);
+                jSONObject.put("bduss", a.this.f60021a.f60040b);
+                jSONObject.put("displayname", a.this.f60021a.f60039a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f60035e.a(jSONObject.toString());
+            this.f60036e.a(jSONObject.toString());
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -382,19 +382,19 @@ public class a {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f60037a = new a(null);
+        public static final a f60038a = new a(null);
     }
 
-    public /* synthetic */ a(C1518a c1518a) {
+    public /* synthetic */ a(C1519a c1519a) {
         this();
     }
 
     public static a l() {
-        return i.f60037a;
+        return i.f60038a;
     }
 
     public void f(d.b.g0.a.m.c cVar) {
-        this.f60021b.add(cVar);
+        this.f60022b.add(cVar);
     }
 
     public void g(Context context, String str, a.d dVar) {
@@ -411,53 +411,53 @@ public class a {
     }
 
     public String i() {
-        d.b.i0.s.b.b.b bVar = this.f60020a;
+        d.b.i0.s.b.b.b bVar = this.f60021a;
         if (bVar == null) {
-            if (f60019e) {
+            if (f60020e) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(bVar.f60043f)) {
+        if (TextUtils.isEmpty(bVar.f60044f)) {
             o();
         }
-        return this.f60020a.f60043f;
+        return this.f60021a.f60044f;
     }
 
     public String j() {
-        d.b.i0.s.b.b.b bVar = this.f60020a;
+        d.b.i0.s.b.b.b bVar = this.f60021a;
         if (bVar == null) {
-            if (f60019e) {
+            if (f60020e) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(bVar.f60039b)) {
+        if (TextUtils.isEmpty(bVar.f60040b)) {
             o();
         }
-        return this.f60020a.f60039b;
+        return this.f60021a.f60040b;
     }
 
     public String k() {
-        d.b.i0.s.b.b.b bVar = this.f60020a;
+        d.b.i0.s.b.b.b bVar = this.f60021a;
         if (bVar == null) {
-            if (f60019e) {
+            if (f60020e) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(bVar.f60038a)) {
+        if (TextUtils.isEmpty(bVar.f60039a)) {
             o();
         }
-        return this.f60020a.f60038a;
+        return this.f60021a.f60039a;
     }
 
     public final void m() {
     }
 
     public void n(String str, ArrayList<String> arrayList, b.c cVar) {
-        if (this.f60020a == null) {
-            if (f60019e) {
+        if (this.f60021a == null) {
+            if (f60020e) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return;
@@ -484,17 +484,17 @@ public class a {
     }
 
     public String p() {
-        d.b.i0.s.b.b.b bVar = this.f60020a;
+        d.b.i0.s.b.b.b bVar = this.f60021a;
         if (bVar == null) {
-            if (f60019e) {
+            if (f60020e) {
                 throw new NullPointerException("AccountInfo is null");
             }
             return "";
         }
-        if (TextUtils.isEmpty(bVar.f60044g)) {
+        if (TextUtils.isEmpty(bVar.f60045g)) {
             o();
         }
-        return this.f60020a.f60044g;
+        return this.f60021a.f60045g;
     }
 
     public void q(Context context) {
@@ -503,23 +503,23 @@ public class a {
     }
 
     public final void r(Context context) {
-        if (this.f60020a == null) {
+        if (this.f60021a == null) {
             d.b.i0.s.b.b.b bVar = new d.b.i0.s.b.b.b();
-            this.f60020a = bVar;
-            bVar.f60043f = d.b.g0.a.a2.g.h.a().getString("bd_box_avatar_url", "");
-            this.f60020a.f60039b = d.b.g0.a.a2.g.h.a().getString("bd_box_bduss", "");
-            this.f60020a.f60045h = d.b.g0.a.a2.g.h.a().getString("bd_box_ptoken", "");
-            this.f60020a.f60044g = d.b.g0.a.a2.g.h.a().getString("bd_box_uid", "");
-            this.f60020a.f60040c = d.b.g0.a.a2.g.h.a().getString("bd_box_open_bduss", "");
-            this.f60020a.f60041d = d.b.g0.a.a2.g.h.a().getString("bd_box_union_id", "");
-            this.f60020a.f60042e = i0.r(d.b.g0.a.a2.g.h.a().getString("bd_box_stoken", ""));
-            this.f60020a.f60038a = d.b.g0.a.a2.g.h.a().getString("bd_box_display_name", "");
+            this.f60021a = bVar;
+            bVar.f60044f = d.b.g0.a.a2.g.h.a().getString("bd_box_avatar_url", "");
+            this.f60021a.f60040b = d.b.g0.a.a2.g.h.a().getString("bd_box_bduss", "");
+            this.f60021a.f60046h = d.b.g0.a.a2.g.h.a().getString("bd_box_ptoken", "");
+            this.f60021a.f60045g = d.b.g0.a.a2.g.h.a().getString("bd_box_uid", "");
+            this.f60021a.f60041c = d.b.g0.a.a2.g.h.a().getString("bd_box_open_bduss", "");
+            this.f60021a.f60042d = d.b.g0.a.a2.g.h.a().getString("bd_box_union_id", "");
+            this.f60021a.f60043e = i0.r(d.b.g0.a.a2.g.h.a().getString("bd_box_stoken", ""));
+            this.f60021a.f60039a = d.b.g0.a.a2.g.h.a().getString("bd_box_display_name", "");
         }
     }
 
     public boolean s() {
-        d.b.i0.s.b.b.b bVar = this.f60020a;
-        if (bVar != null && TextUtils.isEmpty(bVar.f60039b)) {
+        d.b.i0.s.b.b.b bVar = this.f60021a;
+        if (bVar != null && TextUtils.isEmpty(bVar.f60040b)) {
             o();
         }
         return SapiAccountManager.getInstance().isLogin();
@@ -527,8 +527,8 @@ public class a {
 
     public void t(Context context, Bundle bundle, d.b.g0.a.m.a aVar) {
         int i2;
-        if (this.f60020a == null) {
-            this.f60020a = new d.b.i0.s.b.b.b();
+        if (this.f60021a == null) {
+            this.f60021a = new d.b.i0.s.b.b.b();
         }
         LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true, -1);
         loginActivityConfig.getIntent().putExtra(IntentConfig.CLOSE, true);
@@ -546,7 +546,7 @@ public class a {
     public void u(d.b.g0.a.m.a aVar) {
         SapiAccountManager.getInstance().logout();
         v(false);
-        this.f60020a = new d.b.i0.s.b.b.b();
+        this.f60021a = new d.b.i0.s.b.b.b();
         d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", "");
         d.b.g0.a.a2.g.h.a().putString("bd_box_uid", "");
         d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", "");
@@ -558,13 +558,13 @@ public class a {
     }
 
     public final void v(boolean z) {
-        for (d.b.g0.a.m.c cVar : this.f60021b) {
+        for (d.b.g0.a.m.c cVar : this.f60022b) {
             cVar.a(z);
         }
     }
 
     public final void w() {
-        MessageManager.getInstance().registerListener(this.f60022c);
+        MessageManager.getInstance().registerListener(this.f60023c);
     }
 
     public void x(d.b.g0.a.m.a aVar) {
@@ -575,23 +575,23 @@ public class a {
         if (getUserInfoResult != null) {
             try {
                 d.b.g0.a.a2.g.h.a().putString("host_account_info_string", getUserInfoResult.toString());
-                if (this.f60020a == null) {
-                    this.f60020a = new d.b.i0.s.b.b.b();
+                if (this.f60021a == null) {
+                    this.f60021a = new d.b.i0.s.b.b.b();
                 }
-                this.f60020a.f60039b = SapiAccountManager.getInstance().getSession().bduss;
-                this.f60020a.f60045h = SapiAccountManager.getInstance().getSession().getPtoken();
-                this.f60020a.f60038a = getUserInfoResult.displayname;
-                this.f60020a.f60044g = getUserInfoResult.uid;
-                this.f60020a.f60043f = getUserInfoResult.portraitHttps;
-                d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", this.f60020a.f60038a);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_uid", this.f60020a.f60044g);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", this.f60020a.f60043f);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", this.f60020a.f60039b);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", this.f60020a.f60045h);
-                SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(), this.f60020a.f60039b);
+                this.f60021a.f60040b = SapiAccountManager.getInstance().getSession().bduss;
+                this.f60021a.f60046h = SapiAccountManager.getInstance().getSession().getPtoken();
+                this.f60021a.f60039a = getUserInfoResult.displayname;
+                this.f60021a.f60045g = getUserInfoResult.uid;
+                this.f60021a.f60044f = getUserInfoResult.portraitHttps;
+                d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", this.f60021a.f60039a);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_uid", this.f60021a.f60045g);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", this.f60021a.f60044f);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", this.f60021a.f60040b);
+                d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", this.f60021a.f60046h);
+                SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(), this.f60021a.f60040b);
                 return;
             } catch (Exception e2) {
-                if (f60019e) {
+                if (f60020e) {
                     e2.printStackTrace();
                     return;
                 }
@@ -602,7 +602,7 @@ public class a {
     }
 
     public a() {
-        this.f60022c = new C1518a(2921537);
-        this.f60021b = new ArrayList();
+        this.f60023c = new C1519a(2921537);
+        this.f60022b = new ArrayList();
     }
 }

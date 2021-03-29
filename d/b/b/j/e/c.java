@@ -9,17 +9,17 @@ import java.security.InvalidParameterException;
 public abstract class c implements BdSwipeRefreshLayout.i {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42362e;
+    public Context f42363e;
     public a i;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f42363f = null;
+    public View f42364f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42364g = true;
+    public boolean f42365g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42365h = 0;
+    public int f42366h = 0;
     public boolean j = false;
 
     /* loaded from: classes.dex */
@@ -28,9 +28,9 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     }
 
     public c(Context context) {
-        this.f42362e = null;
+        this.f42363e = null;
         if (context != null) {
-            this.f42362e = context;
+            this.f42363e = context;
             return;
         }
         throw new InvalidParameterException("BdIListPullView context is null");
@@ -41,7 +41,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     }
 
     public void B(boolean z) {
-        this.f42364g = z;
+        this.f42365g = z;
     }
 
     public void C(a aVar) {
@@ -49,7 +49,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     }
 
     public void D(int i, int i2, int i3, int i4) {
-        View view = this.f42363f;
+        View view = this.f42364f;
         if (view == null || this.j) {
             return;
         }
@@ -87,18 +87,18 @@ public abstract class c implements BdSwipeRefreshLayout.i {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public final View getView() {
-        if (this.f42363f == null) {
+        if (this.f42364f == null) {
             View n = n();
-            this.f42363f = n;
+            this.f42364f = n;
             if (n != null) {
                 t(n);
-                this.f42365h = this.f42363f.getMeasuredHeight();
-                this.f42363f.getMeasuredWidth();
+                this.f42366h = this.f42364f.getMeasuredHeight();
+                this.f42364f.getMeasuredWidth();
             } else {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
         }
-        return this.f42363f;
+        return this.f42364f;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -131,15 +131,15 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     }
 
     public Context p() {
-        return this.f42362e;
+        return this.f42363e;
     }
 
     public int q() {
-        return this.f42365h;
+        return this.f42366h;
     }
 
     public boolean r() {
-        return this.f42364g;
+        return this.f42365g;
     }
 
     public boolean s() {

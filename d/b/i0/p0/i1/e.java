@@ -47,14 +47,14 @@ public class e extends d.b.b.j.e.a<g, CardViewHolder<d.b.i0.p0.i1.b>> {
             }
             if (view.getId() == R.id.title) {
                 StatisticItem statisticItem = new StatisticItem("c12411");
-                statisticItem.param("fid", gVar.f57618e);
+                statisticItem.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem);
             } else if (view.getId() == R.id.agree_view_container) {
                 StatisticItem statisticItem2 = new StatisticItem("c12414");
-                statisticItem2.param("fid", gVar.f57618e);
+                statisticItem2.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -63,7 +63,7 @@ public class e extends d.b.b.j.e.a<g, CardViewHolder<d.b.i0.p0.i1.b>> {
                 if (view.getId() != R.id.user_icon && view.getId() != R.id.user_name) {
                     if (view.getId() == R.id.attention) {
                         StatisticItem statisticItem3 = new StatisticItem("c12413");
-                        statisticItem3.param("fid", gVar.f57618e);
+                        statisticItem3.param("fid", gVar.f57619e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -71,7 +71,7 @@ public class e extends d.b.b.j.e.a<g, CardViewHolder<d.b.i0.p0.i1.b>> {
                         return;
                     } else if (view.getId() == R.id.mobile_network_play) {
                         StatisticItem statisticItem4 = new StatisticItem("c12416");
-                        statisticItem4.param("fid", gVar.f57618e);
+                        statisticItem4.param("fid", gVar.f57619e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -82,14 +82,14 @@ public class e extends d.b.b.j.e.a<g, CardViewHolder<d.b.i0.p0.i1.b>> {
                     }
                 }
                 StatisticItem statisticItem5 = new StatisticItem("c12412");
-                statisticItem5.param("fid", gVar.f57618e);
+                statisticItem5.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem5);
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c12415");
-                statisticItem6.param("fid", gVar.f57618e);
+                statisticItem6.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }

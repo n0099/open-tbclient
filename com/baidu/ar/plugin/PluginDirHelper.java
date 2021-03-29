@@ -5,7 +5,7 @@ import android.os.Environment;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PluginDirHelper {
     public static File sBaseDir;
 

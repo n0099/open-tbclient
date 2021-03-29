@@ -9,19 +9,19 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f53533a;
+    public ArrayList<Integer> f53534a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53534b;
+    public String f53535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53535c;
+    public String f53536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53536d;
+    public String f53537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53537e;
+    public int f53538e;
 
     public void a(String str) {
         if (StringUtils.isNull(str)) {
@@ -33,13 +33,13 @@ public class a {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    this.f53533a = new ArrayList<>();
+                    this.f53534a = new ArrayList<>();
                     for (int i = 0; i < length; i++) {
-                        this.f53533a.add(Integer.valueOf(optJSONArray.getInt(i)));
+                        this.f53534a.add(Integer.valueOf(optJSONArray.getInt(i)));
                     }
                 }
-                this.f53534b = optJSONObject.optString("upload_id");
-                this.f53535c = optJSONObject.optString("video_url");
+                this.f53535b = optJSONObject.optString("upload_id");
+                this.f53536c = optJSONObject.optString("video_url");
             }
         } catch (JSONException unused) {
         }

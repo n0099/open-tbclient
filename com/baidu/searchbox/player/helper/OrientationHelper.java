@@ -4,7 +4,7 @@ import android.content.Context;
 import android.provider.Settings;
 import android.view.OrientationEventListener;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OrientationHelper extends OrientationEventListener {
     public static final int ORIENTATION_CIRCLE_ANGLE = 360;
     public static final int ORIENTATION_DIVIDE_ANGLE = 23;
@@ -15,7 +15,7 @@ public class OrientationHelper extends OrientationEventListener {
     public int mLastOrientation;
     public IOrientationChange mListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface IOrientationChange {
         void onOrientationChanged(int i);
     }

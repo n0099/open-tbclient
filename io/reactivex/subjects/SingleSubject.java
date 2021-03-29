@@ -12,16 +12,16 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
     public static final SingleDisposable[] j = new SingleDisposable[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public T f68112g;
+    public T f68117g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Throwable f68113h;
+    public Throwable f68118h;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f68111f = new AtomicBoolean();
+    public final AtomicBoolean f68116f = new AtomicBoolean();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<SingleDisposable<T>[]> f68110e = new AtomicReference<>(i);
+    public final AtomicReference<SingleDisposable<T>[]> f68115e = new AtomicReference<>(i);
 
     /* loaded from: classes7.dex */
     public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements b {
@@ -59,11 +59,11 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
             }
             return;
         }
-        Throwable th = this.f68113h;
+        Throwable th = this.f68118h;
         if (th != null) {
             rVar.onError(th);
         } else {
-            rVar.onSuccess((T) this.f68112g);
+            rVar.onSuccess((T) this.f68117g);
         }
     }
 
@@ -71,7 +71,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
         SingleDisposable<T>[] singleDisposableArr;
         SingleDisposable<T>[] singleDisposableArr2;
         do {
-            singleDisposableArr = this.f68110e.get();
+            singleDisposableArr = this.f68115e.get();
             if (singleDisposableArr == j) {
                 return false;
             }
@@ -79,7 +79,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
             singleDisposableArr2 = new SingleDisposable[length + 1];
             System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, length);
             singleDisposableArr2[length] = singleDisposable;
-        } while (!this.f68110e.compareAndSet(singleDisposableArr, singleDisposableArr2));
+        } while (!this.f68115e.compareAndSet(singleDisposableArr, singleDisposableArr2));
         return true;
     }
 
@@ -89,7 +89,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
         SingleDisposable<T>[] singleDisposableArr;
         SingleDisposable[] singleDisposableArr2;
         do {
-            singleDisposableArr = this.f68110e.get();
+            singleDisposableArr = this.f68115e.get();
             int length = singleDisposableArr.length;
             if (length == 0) {
                 return;
@@ -117,15 +117,15 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
                 System.arraycopy(singleDisposableArr, i2 + 1, singleDisposableArr3, i2, (length - i2) - 1);
                 singleDisposableArr2 = singleDisposableArr3;
             }
-        } while (!this.f68110e.compareAndSet(singleDisposableArr, singleDisposableArr2));
+        } while (!this.f68115e.compareAndSet(singleDisposableArr, singleDisposableArr2));
     }
 
     @Override // f.a.r
     public void onError(Throwable th) {
         a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f68111f.compareAndSet(false, true)) {
-            this.f68113h = th;
-            for (SingleDisposable<T> singleDisposable : this.f68110e.getAndSet(j)) {
+        if (this.f68116f.compareAndSet(false, true)) {
+            this.f68118h = th;
+            for (SingleDisposable<T> singleDisposable : this.f68115e.getAndSet(j)) {
                 singleDisposable.actual.onError(th);
             }
             return;
@@ -135,7 +135,7 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
 
     @Override // f.a.r
     public void onSubscribe(b bVar) {
-        if (this.f68110e.get() == j) {
+        if (this.f68115e.get() == j) {
             bVar.dispose();
         }
     }
@@ -143,9 +143,9 @@ public final class SingleSubject<T> extends q<T> implements r<T> {
     @Override // f.a.r
     public void onSuccess(T t) {
         a.b(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f68111f.compareAndSet(false, true)) {
-            this.f68112g = t;
-            for (SingleDisposable<T> singleDisposable : this.f68110e.getAndSet(j)) {
+        if (this.f68116f.compareAndSet(false, true)) {
+            this.f68117g = t;
+            for (SingleDisposable<T> singleDisposable : this.f68115e.getAndSet(j)) {
                 singleDisposable.actual.onSuccess(t);
             }
         }

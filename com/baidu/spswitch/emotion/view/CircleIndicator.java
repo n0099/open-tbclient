@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.spswitch.utils.UIUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CircleIndicator extends View {
     public static final int CIRCLE_INTER_WIDTH = 10;
     public static final int COLOR_EMOTION_CIRCLE_INDICATOR = -2565928;

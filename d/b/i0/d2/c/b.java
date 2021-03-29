@@ -13,35 +13,35 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f54125a;
+    public View f54126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f54126b;
+    public HeadImageView f54127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f54127c;
+    public TextView f54128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f54128d;
+    public TextView f54129d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f54129e;
+    public ImageView f54130e;
 
     public b(Context context) {
-        this.f54125a = null;
-        this.f54126b = null;
-        this.f54127c = null;
-        this.f54128d = null;
-        this.f54129e = null;
+        this.f54126a = null;
+        this.f54127b = null;
+        this.f54128c = null;
+        this.f54129d = null;
+        this.f54130e = null;
         View inflate = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.f54125a = inflate;
-        this.f54126b = (HeadImageView) inflate.findViewById(R.id.zan_list_item_head);
-        this.f54127c = (TextView) this.f54125a.findViewById(R.id.zan_list_item_name);
-        this.f54128d = (TextView) this.f54125a.findViewById(R.id.zan_list_item_time);
-        ImageView imageView = (ImageView) this.f54125a.findViewById(R.id.zan_list_item_line_bottom);
-        this.f54129e = imageView;
+        this.f54126a = inflate;
+        this.f54127b = (HeadImageView) inflate.findViewById(R.id.zan_list_item_head);
+        this.f54128c = (TextView) this.f54126a.findViewById(R.id.zan_list_item_name);
+        this.f54129d = (TextView) this.f54126a.findViewById(R.id.zan_list_item_time);
+        ImageView imageView = (ImageView) this.f54126a.findViewById(R.id.zan_list_item_line_bottom);
+        this.f54130e = imageView;
         imageView.setVisibility(0);
-        this.f54125a.setTag(this);
+        this.f54126a.setTag(this);
     }
 
     public static b b(Context context, View view) {
@@ -52,13 +52,13 @@ public class b {
     }
 
     public View a() {
-        return this.f54125a;
+        return this.f54126a;
     }
 
     public void c(String str, String str2, long j, boolean z) {
-        this.f54127c.setText(str);
-        this.f54126b.setImageDrawable(null);
-        this.f54128d.setText(StringHelper.getFormatTime(j));
-        this.f54126b.W(str2, 28, false);
+        this.f54128c.setText(str);
+        this.f54127b.setImageDrawable(null);
+        this.f54129d.setText(StringHelper.getFormatTime(j));
+        this.f54127b.W(str2, 28, false);
     }
 }

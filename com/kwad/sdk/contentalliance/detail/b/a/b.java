@@ -10,74 +10,74 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public KsContentPage.SubShowItem f32139b;
+    public KsContentPage.SubShowItem f32140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f32140c;
+    public AdTemplate f32141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.b.b f32141d;
+    public com.kwad.sdk.contentalliance.detail.b.b f32142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32142e;
+    public int f32143e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32143f;
+    public com.kwad.sdk.core.i.a f32144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32144g;
+    public int f32145g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f32145h = new c() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.1
+    public c f32146h = new c() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.1
         @Override // com.kwad.sdk.core.i.c
         public void b() {
-            if (b.this.f32144g == -1) {
+            if (b.this.f32145g == -1) {
                 return;
             }
-            b.this.f32144g = -1;
-            if (b.this.f32139b != null) {
-                b.this.f32139b.onPageVisibleChange(false);
+            b.this.f32145g = -1;
+            if (b.this.f32140b != null) {
+                b.this.f32140b.onPageVisibleChange(false);
             }
         }
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (b.this.f32144g == 1) {
+            if (b.this.f32145g == 1) {
                 return;
             }
-            b.this.f32144g = 1;
-            if (b.this.f32139b != null) {
-                b.this.f32139b.onPageVisibleChange(true);
+            b.this.f32145g = 1;
+            if (b.this.f32140b != null) {
+                b.this.f32140b.onPageVisibleChange(true);
             }
         }
     };
     public com.kwad.sdk.contentalliance.a.c i = new d() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.2
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void c() {
-            if (b.this.f32139b != null) {
-                b.this.f32139b.onPageResume();
+            if (b.this.f32140b != null) {
+                b.this.f32140b.onPageResume();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void d() {
-            if (b.this.f32139b != null) {
-                b.this.f32139b.onPagePause();
+            if (b.this.f32140b != null) {
+                b.this.f32140b.onPagePause();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void e() {
-            if (b.this.f32139b != null) {
-                b.this.f32139b.onPageCreate();
+            if (b.this.f32140b != null) {
+                b.this.f32140b.onPageCreate();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void f() {
-            if (b.this.f32139b != null) {
-                b.this.f32139b.onPageDestroy();
+            if (b.this.f32140b != null) {
+                b.this.f32140b.onPageDestroy();
             }
         }
 
@@ -89,55 +89,55 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (b.this.f32143f == null) {
+            if (b.this.f32144f == null) {
                 return;
             }
-            b.this.f32143f.a(b.this.f32145h);
+            b.this.f32144f.a(b.this.f32146h);
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
-            if (b.this.f32143f == null) {
+            if (b.this.f32144f == null) {
                 return;
             }
-            b.this.f32145h.b();
-            b.this.f32143f.b(b.this.f32145h);
+            b.this.f32146h.b();
+            b.this.f32144f.b(b.this.f32146h);
         }
     };
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32151a;
+        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32152a;
         if (hVar != null) {
-            this.f32143f = hVar.f32788a;
+            this.f32144f = hVar.f32789a;
         }
-        this.f32144g = 0;
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        this.f32145g = 0;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a;
         AdTemplate adTemplate = cVar.j;
-        this.f32140c = adTemplate;
+        this.f32141c = adTemplate;
         com.kwad.sdk.contentalliance.detail.b.b bVar = cVar.q;
-        this.f32141d = bVar;
-        this.f32142e = cVar.i;
+        this.f32142d = bVar;
+        this.f32143e = cVar.i;
         if (bVar == null || adTemplate == null) {
             return;
         }
         KsContentPage.SubShowItem a2 = bVar.a(adTemplate);
-        this.f32139b = a2;
+        this.f32140b = a2;
         if (a2 == null) {
             return;
         }
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32153c.add(this.i);
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(this.j);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32154c.add(this.i);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32133a.f32153b.add(this.j);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32133a;
         if (cVar != null) {
-            cVar.f32152b.remove(this.j);
+            cVar.f32153b.remove(this.j);
         }
     }
 }

@@ -21,12 +21,12 @@ import java.util.HashMap;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
     public static HashMap<String, String> language;
     public int dataCountry;
     public int dataLanguage;

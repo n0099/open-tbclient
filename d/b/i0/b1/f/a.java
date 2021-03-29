@@ -17,7 +17,7 @@ import com.baidu.tieba.hottopic.view.RelateForumHorizonalListView;
 import d.b.i0.b1.c.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.i0.x.c<n> {
     public RelateForumHorizonalListView x;
     public List<d.b.b.j.e.n> y;
@@ -46,7 +46,7 @@ public class a extends d.b.i0.x.c<n> {
             return;
         }
         this.y.clear();
-        List<d.b.b.j.e.n> list = nVar.f52138e;
+        List<d.b.b.j.e.n> list = nVar.f52139e;
         if (list != null) {
             this.y.addAll(list);
         }
@@ -114,10 +114,10 @@ public class a extends d.b.i0.x.c<n> {
                 boolean z = relateForumItemData.isLiked;
                 if (j >= 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                     d.b.h0.b1.g.a aVar = new d.b.h0.b1.g.a();
-                    aVar.f49879b = str2;
-                    aVar.f49881d = j;
-                    aVar.f49880c = str;
-                    aVar.f49882e = z;
+                    aVar.f49880b = str2;
+                    aVar.f49882d = j;
+                    aVar.f49881c = str;
+                    aVar.f49883e = z;
                     arrayList.add(aVar);
                 }
             }

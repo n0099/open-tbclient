@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 public class GoOnAnimView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21562e;
+    public ImageView f21563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f21563f;
+    public ImageView f21564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21564g;
+    public ImageView f21565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21565h;
+    public int f21566h;
     public Handler i;
 
     /* loaded from: classes5.dex */
@@ -33,24 +33,24 @@ public class GoOnAnimView extends LinearLayout {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            GoOnAnimView.this.f21565h %= 4;
-            int i = GoOnAnimView.this.f21565h;
+            GoOnAnimView.this.f21566h %= 4;
+            int i = GoOnAnimView.this.f21566h;
             if (i == 0) {
-                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_3);
-                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_2);
-                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_1);
+                GoOnAnimView.this.f21563e.setImageResource(R.drawable.pic_startpage1_next_3);
+                GoOnAnimView.this.f21564f.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21565g.setImageResource(R.drawable.pic_startpage1_next_1);
             } else if (i == 1) {
-                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_2);
-                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_1);
-                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_3);
+                GoOnAnimView.this.f21563e.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21564f.setImageResource(R.drawable.pic_startpage1_next_1);
+                GoOnAnimView.this.f21565g.setImageResource(R.drawable.pic_startpage1_next_3);
             } else if (i == 2) {
-                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_1);
-                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_3);
-                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21563e.setImageResource(R.drawable.pic_startpage1_next_1);
+                GoOnAnimView.this.f21564f.setImageResource(R.drawable.pic_startpage1_next_3);
+                GoOnAnimView.this.f21565g.setImageResource(R.drawable.pic_startpage1_next_2);
             } else if (i == 3) {
-                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_2);
-                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_2);
-                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21563e.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21564f.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21565g.setImageResource(R.drawable.pic_startpage1_next_2);
             }
             GoOnAnimView.c(GoOnAnimView.this);
             GoOnAnimView.this.i.removeMessages(0);
@@ -65,33 +65,33 @@ public class GoOnAnimView extends LinearLayout {
     }
 
     public static /* synthetic */ int c(GoOnAnimView goOnAnimView) {
-        int i = goOnAnimView.f21565h;
-        goOnAnimView.f21565h = i + 1;
+        int i = goOnAnimView.f21566h;
+        goOnAnimView.f21566h = i + 1;
         return i;
     }
 
     public final void h(Context context) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.go_on_anim, (ViewGroup) null, false);
-        this.f21562e = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
-        this.f21563f = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
-        this.f21564g = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
-        this.f21562e.setImageResource(R.drawable.pic_startpage1_next_3);
-        this.f21563f.setImageResource(R.drawable.pic_startpage1_next_2);
-        this.f21564g.setImageResource(R.drawable.pic_startpage1_next_1);
+        this.f21563e = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
+        this.f21564f = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
+        this.f21565g = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
+        this.f21563e.setImageResource(R.drawable.pic_startpage1_next_3);
+        this.f21564f.setImageResource(R.drawable.pic_startpage1_next_2);
+        this.f21565g.setImageResource(R.drawable.pic_startpage1_next_1);
         addView(linearLayout);
     }
 
     public void i() {
         this.i.removeMessages(0);
-        ImageView imageView = this.f21562e;
+        ImageView imageView = this.f21563e;
         if (imageView != null) {
             imageView.setImageDrawable(null);
         }
-        ImageView imageView2 = this.f21563f;
+        ImageView imageView2 = this.f21564f;
         if (imageView2 != null) {
             imageView2.setImageDrawable(null);
         }
-        ImageView imageView3 = this.f21564g;
+        ImageView imageView3 = this.f21565g;
         if (imageView3 != null) {
             imageView3.setImageDrawable(null);
         }

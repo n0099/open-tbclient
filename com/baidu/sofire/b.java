@@ -4,17 +4,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11629a = -1;
+    public static int f11630a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f11630b = new ThreadLocal<>();
+    public static ThreadLocal<StringBuilder> f11631b = new ThreadLocal<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f11631c;
+    public static int f11632c;
 
     public static String a(Throwable th) {
         for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {

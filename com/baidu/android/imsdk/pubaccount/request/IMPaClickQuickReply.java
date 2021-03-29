@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMPaClickQuickReply extends PaBaseHttpRequest {
     public String mButtonId;
     public String mKey;

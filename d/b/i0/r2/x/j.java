@@ -40,7 +40,7 @@ public class j implements d.b.h0.v.c {
         if (TextUtils.isEmpty(path)) {
             path = d.b.i0.r2.b.h(downloadData.getId());
         }
-        d.b.i0.o.c.g.a.f57194a.get().a().onSuccess(downloadData.getId(), path);
+        d.b.i0.o.c.g.a.f57195a.get().a().onSuccess(downloadData.getId(), path);
         if (downloadData.isNeedInvokeApk()) {
             d.b.i0.o.c.d.c().n(downloadData.getId(), path);
         }

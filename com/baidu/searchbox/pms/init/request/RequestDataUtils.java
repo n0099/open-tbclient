@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RequestDataUtils {
     public static JSONObject addFilter(JSONObject jSONObject) {
         if (jSONObject == null) {

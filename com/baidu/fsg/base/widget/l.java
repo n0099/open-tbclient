@@ -5,10 +5,10 @@ import android.view.View;
 public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f5519a;
+    public final /* synthetic */ SafeKeyBoardUtil f5520a;
 
     public l(SafeKeyBoardUtil safeKeyBoardUtil) {
-        this.f5519a = safeKeyBoardUtil;
+        this.f5520a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
@@ -24,25 +24,25 @@ public class l implements Runnable {
         SafeScrollView safeScrollView2;
         int i5;
         int[] iArr = new int[2];
-        view = this.f5519a.f5496f;
+        view = this.f5520a.f5497f;
         view.getLocationOnScreen(iArr);
-        SafeKeyBoardUtil safeKeyBoardUtil = this.f5519a;
+        SafeKeyBoardUtil safeKeyBoardUtil = this.f5520a;
         int i6 = iArr[1];
-        view2 = safeKeyBoardUtil.f5496f;
+        view2 = safeKeyBoardUtil.f5497f;
         int height = i6 + view2.getHeight();
-        i = this.f5519a.f5497g;
-        i2 = this.f5519a.j;
+        i = this.f5520a.f5498g;
+        i2 = this.f5520a.j;
         int i7 = height - (i - i2);
-        safeKeyBoardEditText = this.f5519a.f5493c;
+        safeKeyBoardEditText = this.f5520a.f5494c;
         safeKeyBoardUtil.i = i7 + safeKeyBoardEditText.getGap();
-        i3 = this.f5519a.i;
+        i3 = this.f5520a.i;
         if (i3 > 0) {
-            safeScrollView2 = this.f5519a.f5495e;
-            i5 = this.f5519a.i;
+            safeScrollView2 = this.f5520a.f5496e;
+            i5 = this.f5520a.i;
             safeScrollView2.smoothScrollBy(0, i5);
         }
-        safeScrollView = this.f5519a.f5495e;
-        i4 = this.f5519a.j;
+        safeScrollView = this.f5520a.f5496e;
+        i4 = this.f5520a.j;
         safeScrollView.notifyShowKeyBoard(i4);
     }
 }

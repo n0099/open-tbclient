@@ -13,31 +13,31 @@ import d.b.h0.r.s.j;
 import d.b.h0.r.s.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public j f54405a;
+    public j f54406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f54406b;
+    public l f54407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<h> f54407c;
+    public List<h> f54408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f54408d;
+    public h f54409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.e1.b.f.a f54409e;
+    public d.b.i0.e1.b.f.a f54410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f54410f;
+    public c f54411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public l.d f54411g = new C1236b();
+    public l.d f54412g = new C1237b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements l.c {
         public a() {
         }
@@ -49,63 +49,63 @@ public class b {
     }
 
     /* renamed from: d.b.i0.e1.b.f.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1236b implements l.d {
-        public C1236b() {
+    /* loaded from: classes3.dex */
+    public class C1237b implements l.d {
+        public C1237b() {
         }
 
         @Override // d.b.h0.r.s.l.d
         public void onClick() {
             b.this.c();
-            if (b.this.f54410f != null) {
-                b.this.f54410f.a();
+            if (b.this.f54411f != null) {
+                b.this.f54411f.a();
             }
             b.this.d();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
     }
 
     public b(f fVar) {
-        this.f54406b = new l(fVar.getPageActivity());
-        h hVar = new h(fVar.getString(R.string.delete), this.f54406b);
-        this.f54408d = hVar;
-        hVar.m(this.f54411g);
+        this.f54407b = new l(fVar.getPageActivity());
+        h hVar = new h(fVar.getString(R.string.delete), this.f54407b);
+        this.f54409d = hVar;
+        hVar.m(this.f54412g);
         ArrayList arrayList = new ArrayList();
-        this.f54407c = arrayList;
-        arrayList.add(this.f54408d);
-        this.f54406b.m(new a());
-        this.f54406b.k(this.f54407c);
-        this.f54405a = new j(fVar, this.f54406b);
+        this.f54408c = arrayList;
+        arrayList.add(this.f54409d);
+        this.f54407b.m(new a());
+        this.f54407b.k(this.f54408c);
+        this.f54406a = new j(fVar, this.f54407b);
         e();
         f();
     }
 
     public final void c() {
-        if (this.f54409e == null) {
+        if (this.f54410e == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.f54409e.f54401a);
-        httpMessage.addParam("thread_id", this.f54409e.f54402b);
-        httpMessage.addParam("post_id", this.f54409e.f54403c);
-        httpMessage.addParam("ori_ugc_nid", this.f54409e.f54404d);
+        httpMessage.addParam("type", this.f54410e.f54402a);
+        httpMessage.addParam("thread_id", this.f54410e.f54403b);
+        httpMessage.addParam("post_id", this.f54410e.f54404c);
+        httpMessage.addParam("ori_ugc_nid", this.f54410e.f54405d);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void d() {
-        j jVar = this.f54405a;
+        j jVar = this.f54406a;
         if (jVar == null || !jVar.isShowing()) {
             return;
         }
-        this.f54405a.dismiss();
+        this.f54406a.dismiss();
     }
 
     public void e() {
-        l lVar = this.f54406b;
+        l lVar = this.f54407b;
         if (lVar != null) {
             lVar.j();
         }
@@ -120,15 +120,15 @@ public class b {
     }
 
     public void g(d.b.i0.e1.b.f.a aVar) {
-        this.f54409e = aVar;
+        this.f54410e = aVar;
     }
 
     public void h(c cVar) {
-        this.f54410f = cVar;
+        this.f54411f = cVar;
     }
 
     public void i() {
-        j jVar = this.f54405a;
+        j jVar = this.f54406a;
         if (jVar != null) {
             jVar.show();
         }

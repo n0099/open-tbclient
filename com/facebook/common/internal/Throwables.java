@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class Throwables {
     public static List<Throwable> getCausalChain(Throwable th) {
         Preconditions.checkNotNull(th);

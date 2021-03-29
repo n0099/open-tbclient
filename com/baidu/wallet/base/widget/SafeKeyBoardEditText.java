@@ -11,28 +11,28 @@ import com.baidu.apollon.utils.GlobalUtils;
 public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public SafeKeyBoardState f23916a;
+    public SafeKeyBoardState f23917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f23917b;
+    public Context f23918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f23918c;
+    public ViewGroup f23919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SafeScrollView f23919d;
+    public SafeScrollView f23920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f23920e;
+    public View f23921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23921f;
+    public boolean f23922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23922g;
+    public boolean f23923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23923h;
+    public int f23924h;
     public int i;
     public boolean j;
     public boolean k;
@@ -65,7 +65,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public void dismissKeyBorad() {
-        this.f23919d.dismissKeyBoard(this);
+        this.f23920d.dismissKeyBoard(this);
     }
 
     public CheckFunc getCheckFunc() {
@@ -73,7 +73,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public int getCloseBtnVisibility() {
-        return this.f23923h;
+        return this.f23924h;
     }
 
     public int getGap() {
@@ -88,7 +88,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public SafeKeyBoardState getKeyBoardState() {
-        return this.f23916a;
+        return this.f23917a;
     }
 
     public View.OnClickListener getOnConfirmListener() {
@@ -96,11 +96,11 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public boolean getUseKeyDot() {
-        return this.f23921f;
+        return this.f23922f;
     }
 
     public boolean getUseKeyX() {
-        return this.f23922g;
+        return this.f23923g;
     }
 
     public boolean getUseRandKey() {
@@ -112,17 +112,17 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public ViewGroup getViewGroup() {
-        return this.f23918c;
+        return this.f23919c;
     }
 
     public View getVisibleView() {
-        return this.f23920e;
+        return this.f23921e;
     }
 
     public void initSafeKeyBoardParams(ViewGroup viewGroup, SafeScrollView safeScrollView, View view, boolean z) {
-        this.f23918c = viewGroup;
-        this.f23919d = safeScrollView;
-        this.f23920e = view;
+        this.f23919c = viewGroup;
+        this.f23920d = safeScrollView;
+        this.f23921e = view;
         if (z) {
             safeScrollView.showKeyBoard(viewGroup, this, view);
         }
@@ -144,14 +144,14 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
         requestFocus();
         this.off = layout.getOffsetForHorizontal(layout.getLineForVertical(getScrollY() + ((int) motionEvent.getY())), (int) motionEvent.getX());
         if (hasFocus()) {
-            SafeScrollView safeScrollView = this.f23919d;
+            SafeScrollView safeScrollView = this.f23920d;
             if (safeScrollView == null) {
-                GlobalUtils.showInputMethod(this.f23917b, this);
+                GlobalUtils.showInputMethod(this.f23918b, this);
                 return true;
             } else if (safeScrollView.isPopupWindowShowing()) {
                 return true;
             } else {
-                this.f23919d.showKeyBoard(this.f23918c, this, this.f23920e);
+                this.f23920d.showKeyBoard(this.f23919c, this, this.f23921e);
                 return true;
             }
         }
@@ -163,7 +163,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public void setCloseBtnVisibility(int i) {
-        this.f23923h = i;
+        this.f23924h = i;
     }
 
     public void setConfirmListener(View.OnClickListener onClickListener) {
@@ -199,11 +199,11 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public void setUseKeyDot(boolean z) {
-        this.f23921f = z;
+        this.f23922f = z;
     }
 
     public void setUseKeyX(boolean z) {
-        this.f23922g = z;
+        this.f23923g = z;
     }
 
     public void setUseRandKey(boolean z) {
@@ -216,9 +216,9 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
 
     public SafeKeyBoardEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f23921f = false;
-        this.f23922g = false;
-        this.f23923h = 0;
+        this.f23922f = false;
+        this.f23923g = false;
+        this.f23924h = 0;
         this.i = 0;
         this.j = true;
         this.l = true;
@@ -229,16 +229,16 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
 
     public SafeKeyBoardEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23921f = false;
-        this.f23922g = false;
-        this.f23923h = 0;
+        this.f23922f = false;
+        this.f23923g = false;
+        this.f23924h = 0;
         this.i = 0;
         this.j = true;
         this.l = true;
         this.m = 0;
         this.o = false;
         this.p = false;
-        this.f23917b = context;
+        this.f23918b = context;
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardEditText.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
@@ -256,19 +256,19 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 if (!z) {
                     SafeKeyBoardEditText safeKeyBoardEditText = SafeKeyBoardEditText.this;
                     if (!safeKeyBoardEditText.isAlwaysShow) {
-                        if (safeKeyBoardEditText.f23919d != null) {
-                            SafeKeyBoardEditText.this.f23919d.dismissKeyBoard(SafeKeyBoardEditText.this);
+                        if (safeKeyBoardEditText.f23920d != null) {
+                            SafeKeyBoardEditText.this.f23920d.dismissKeyBoard(SafeKeyBoardEditText.this);
                         } else {
-                            GlobalUtils.hideInputMethod(SafeKeyBoardEditText.this.f23917b, SafeKeyBoardEditText.this);
+                            GlobalUtils.hideInputMethod(SafeKeyBoardEditText.this.f23918b, SafeKeyBoardEditText.this);
                         }
                     }
                 } else if (SafeKeyBoardEditText.this.l) {
-                    GlobalUtils.hideInputMethod(SafeKeyBoardEditText.this.f23917b, SafeKeyBoardEditText.this);
-                    if (SafeKeyBoardEditText.this.f23919d != null && SafeKeyBoardEditText.this.f23919d.hasWindowFocus() && !SafeKeyBoardEditText.this.f23919d.isPopupWindowShowing()) {
-                        SafeScrollView safeScrollView = SafeKeyBoardEditText.this.f23919d;
-                        ViewGroup viewGroup = SafeKeyBoardEditText.this.f23918c;
+                    GlobalUtils.hideInputMethod(SafeKeyBoardEditText.this.f23918b, SafeKeyBoardEditText.this);
+                    if (SafeKeyBoardEditText.this.f23920d != null && SafeKeyBoardEditText.this.f23920d.hasWindowFocus() && !SafeKeyBoardEditText.this.f23920d.isPopupWindowShowing()) {
+                        SafeScrollView safeScrollView = SafeKeyBoardEditText.this.f23920d;
+                        ViewGroup viewGroup = SafeKeyBoardEditText.this.f23919c;
                         SafeKeyBoardEditText safeKeyBoardEditText2 = SafeKeyBoardEditText.this;
-                        safeScrollView.showKeyBoard(viewGroup, safeKeyBoardEditText2, safeKeyBoardEditText2.f23920e);
+                        safeScrollView.showKeyBoard(viewGroup, safeKeyBoardEditText2, safeKeyBoardEditText2.f23921e);
                     }
                 }
                 if (SafeKeyBoardEditText.this.n != null) {

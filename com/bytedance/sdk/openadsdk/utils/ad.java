@@ -7,16 +7,16 @@ import android.graphics.drawable.Drawable;
 public final class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30361a;
+    public static String f30362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Resources f30362b;
+    public static Resources f30363b;
 
     public static String a(Context context) {
-        if (f30361a == null) {
-            f30361a = context.getPackageName();
+        if (f30362a == null) {
+            f30362a = context.getPackageName();
         }
-        return f30361a;
+        return f30362a;
     }
 
     public static int b(Context context, String str) {
@@ -64,10 +64,10 @@ public final class ad {
     }
 
     public static int a(Context context, String str, String str2) {
-        if (f30362b == null) {
-            f30362b = context.getResources();
+        if (f30363b == null) {
+            f30363b = context.getResources();
         }
-        return f30362b.getIdentifier(str, str2, a(context));
+        return f30363b.getIdentifier(str, str2, a(context));
     }
 
     public static String a(Context context, String str) {

@@ -17,16 +17,16 @@ import com.baidu.tieba.R;
 public class UserRecommendItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ClickableHeaderImageView f16793e;
+    public ClickableHeaderImageView f16794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CardUserLikeButton f16794f;
+    public CardUserLikeButton f16795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16795g;
+    public TextView f16796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16796h;
+    public TextView f16797h;
     public boolean i;
     public int j;
 
@@ -37,7 +37,7 @@ public class UserRecommendItemView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UserRecommendItemView.this.f16793e.onClick(UserRecommendItemView.this.f16793e);
+            UserRecommendItemView.this.f16794e.onClick(UserRecommendItemView.this.f16794e);
         }
     }
 
@@ -51,16 +51,16 @@ public class UserRecommendItemView extends LinearLayout {
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_user_recommend_item, (ViewGroup) this, true);
         ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
-        this.f16793e = clickableHeaderImageView;
+        this.f16794e = clickableHeaderImageView;
         clickableHeaderImageView.setAutoChangeStyle(true);
-        this.f16793e.setDefaultResource(17170445);
-        this.f16793e.setIsRound(true);
-        this.f16793e.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f16794e.setDefaultResource(17170445);
+        this.f16794e.setIsRound(true);
+        this.f16794e.setScaleType(ImageView.ScaleType.FIT_XY);
         CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
-        this.f16794f = cardUserLikeButton;
+        this.f16795f = cardUserLikeButton;
         cardUserLikeButton.setGravity(17);
-        this.f16795g = (TextView) findViewById(R.id.user_recommend_username);
-        this.f16796h = (TextView) findViewById(R.id.user_recommend_fans_num);
+        this.f16796g = (TextView) findViewById(R.id.user_recommend_username);
+        this.f16797h = (TextView) findViewById(R.id.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -73,31 +73,31 @@ public class UserRecommendItemView extends LinearLayout {
             return;
         }
         this.j = i;
-        this.f16796h.setTextColor(SkinManager.getColor(i, R.color.CAM_X0109));
+        this.f16797h.setTextColor(SkinManager.getColor(i, R.color.CAM_X0109));
         if (this.i) {
-            this.f16795g.setTextColor(SkinManager.getColor(i, R.color.cp_cont_r));
+            this.f16796g.setTextColor(SkinManager.getColor(i, R.color.cp_cont_r));
         } else {
-            this.f16795g.setTextColor(SkinManager.getColor(i, R.color.CAM_X0105));
+            this.f16796g.setTextColor(SkinManager.getColor(i, R.color.CAM_X0105));
         }
         setBackgroundColor(SkinManager.getColor(i, R.color.CAM_X0201));
-        this.f16794f.g(i);
-        this.f16793e.setPlaceHolder(1);
+        this.f16795f.g(i);
+        this.f16794e.setPlaceHolder(1);
     }
 
     public TextView getFansNum() {
-        return this.f16796h;
+        return this.f16797h;
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.f16793e;
+        return this.f16794e;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.f16794f;
+        return this.f16795f;
     }
 
     public TextView getUsername() {
-        return this.f16795g;
+        return this.f16796g;
     }
 
     public void setIsGod(boolean z) {
@@ -106,9 +106,9 @@ public class UserRecommendItemView extends LinearLayout {
         }
         this.i = z;
         if (z) {
-            this.f16795g.setTextColor(SkinManager.getColor(this.j, R.color.cp_cont_r));
+            this.f16796g.setTextColor(SkinManager.getColor(this.j, R.color.cp_cont_r));
         } else {
-            this.f16795g.setTextColor(SkinManager.getColor(this.j, R.color.CAM_X0105));
+            this.f16796g.setTextColor(SkinManager.getColor(this.j, R.color.CAM_X0105));
         }
     }
 

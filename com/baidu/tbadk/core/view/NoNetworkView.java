@@ -27,16 +27,16 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public static boolean k;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13432e;
+    public TextView f13433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f13433f;
+    public Context f13434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13434g;
+    public boolean f13435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13435h;
+    public int f13436h;
     public final ArrayList<b> i;
 
     /* loaded from: classes3.dex */
@@ -65,7 +65,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13435h = 0;
+        this.f13436h = 0;
         this.i = new ArrayList<>();
         b(context, attributeSet);
     }
@@ -101,13 +101,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     }
 
     public void b(Context context, AttributeSet attributeSet) {
-        this.f13433f = context;
+        this.f13434f = context;
         LayoutInflater.from(context).inflate(getLayout(), this);
-        this.f13432e = (TextView) findViewById(R.id.no_network_guide);
+        this.f13433e = (TextView) findViewById(R.id.no_network_guide);
         setOnClickListener(this);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.noNetworkView);
-            this.f13434g = obtainStyledAttributes.getBoolean(R$styleable.noNetworkView_is_support_offline, false);
+            this.f13435g = obtainStyledAttributes.getBoolean(R$styleable.noNetworkView_is_support_offline, false);
             obtainStyledAttributes.recycle();
         }
         try {
@@ -140,11 +140,11 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void e(boolean z) {
         if (z) {
-            if (1 == this.f13435h) {
+            if (1 == this.f13436h) {
                 return;
             }
-            this.f13435h = 1;
-            this.f13432e.setText(R.string.no_network_guide);
+            this.f13436h = 1;
+            this.f13433e.setText(R.string.no_network_guide);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);
             alphaAnimation.setDuration(500L);
@@ -153,12 +153,12 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             for (int i = 0; i < this.i.size(); i++) {
                 this.i.get(i).b(false);
             }
-        } else if (this.f13434g && !BdSocketLinkService.isAvailable()) {
-            if (2 == this.f13435h) {
+        } else if (this.f13435g && !BdSocketLinkService.isAvailable()) {
+            if (2 == this.f13436h) {
                 return;
             }
-            this.f13435h = 2;
-            this.f13432e.setText(R.string.offline_guide);
+            this.f13436h = 2;
+            this.f13433e.setText(R.string.offline_guide);
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation2.setFillAfter(true);
             alphaAnimation2.setDuration(500L);
@@ -167,8 +167,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             for (int i2 = 0; i2 < this.i.size(); i2++) {
                 this.i.get(i2).b(false);
             }
-        } else if (this.f13435h != 0) {
-            this.f13435h = 0;
+        } else if (this.f13436h != 0) {
+            this.f13436h = 0;
             if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.8f);
                 alphaAnimation3.setFillAfter(true);
@@ -195,9 +195,9 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this && getVisibility() == 0) {
-            Intent intent = new Intent(this.f13433f, NoNetworkMoreActivity.class);
+            Intent intent = new Intent(this.f13434f, NoNetworkMoreActivity.class);
             intent.addFlags(268435456);
-            this.f13433f.startActivity(intent);
+            this.f13434f.startActivity(intent);
         }
     }
 
@@ -216,14 +216,14 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public NoNetworkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13435h = 0;
+        this.f13436h = 0;
         this.i = new ArrayList<>();
         b(context, attributeSet);
     }
 
     public NoNetworkView(Context context) {
         super(context);
-        this.f13435h = 0;
+        this.f13436h = 0;
         this.i = new ArrayList<>();
         b(context, null);
     }

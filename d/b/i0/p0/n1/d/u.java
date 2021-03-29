@@ -26,19 +26,19 @@ import java.util.List;
 public class u implements l0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f58042a;
+    public FrsFragment f58043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.j.e.s f58043b;
+    public d.b.b.j.e.s f58044b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<Integer, a2> f58045d;
+    public final HashMap<Integer, a2> f58046d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.b.b.j.e.n> f58046e;
+    public ArrayList<d.b.b.j.e.n> f58047e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrsViewData f58047f;
+    public FrsViewData f58048f;
     public i0 i;
     public d.b.b.j.e.a j;
     public c0 k;
@@ -56,24 +56,24 @@ public class u implements l0 {
     public x w;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f58044c = new LinkedList();
+    public List<d.b.b.j.e.a> f58045c = new LinkedList();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58048g = false;
+    public boolean f58049g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.i0.p0.i f58049h = new d.b.i0.p0.i();
+    public final d.b.i0.p0.i f58050h = new d.b.i0.p0.i();
 
     public u(FrsFragment frsFragment, d.b.b.j.e.s sVar, boolean z) {
-        this.f58043b = sVar;
+        this.f58044b = sVar;
         p(frsFragment, sVar);
-        this.f58045d = new HashMap<>();
+        this.f58046d = new HashMap<>();
         n(z);
     }
 
     @Override // d.b.i0.p0.n1.d.l0
     public void a(String str) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null) {
             return;
         }
@@ -99,23 +99,23 @@ public class u implements l0 {
                 it.remove();
             }
         }
-        this.f58043b.setData(arrayList);
-        this.f58047f = frsViewData;
+        this.f58044b.setData(arrayList);
+        this.f58048f = frsViewData;
         w();
         y();
-        this.f58046e = arrayList;
+        this.f58047e = arrayList;
     }
 
     @Override // d.b.i0.p0.n1.d.l0
     public HashMap<Integer, a2> c() {
-        return this.f58045d;
+        return this.f58046d;
     }
 
     @Override // d.b.i0.p0.n1.d.l0
     public void d() {
         List<d.b.b.j.e.n> data;
-        d.b.b.j.e.s sVar = this.f58043b;
-        if (sVar == null || sVar.getData() == null || this.f58043b.getData().size() == 0 || (data = this.f58043b.getData()) == null || data.size() == 0) {
+        d.b.b.j.e.s sVar = this.f58044b;
+        if (sVar == null || sVar.getData() == null || this.f58044b.getData().size() == 0 || (data = this.f58044b.getData()) == null || data.size() == 0) {
             return;
         }
         for (d.b.b.j.e.n nVar : data) {
@@ -151,11 +151,11 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public void g(d.b.b.j.e.w wVar) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
                 ((d.b.i0.p0.k) aVar).c0(wVar);
             } else if ((aVar instanceof x) || (aVar instanceof d0)) {
@@ -166,16 +166,16 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public void h() {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
-                ((d.b.i0.p0.k) aVar).i(this.f58042a.getPageContext(), this.f58042a.getUniqueId());
+                ((d.b.i0.p0.k) aVar).i(this.f58043a.getPageContext(), this.f58043a.getUniqueId());
             }
         }
-        z(this.f58044c);
+        z(this.f58045c);
     }
 
     @Override // d.b.i0.p0.n1.d.l0
@@ -191,7 +191,7 @@ public class u implements l0 {
         if (bdUniqueId == null) {
             return false;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar != null && aVar.G() == bdUniqueId) {
                 return true;
             }
@@ -201,11 +201,11 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public void k(d.b.i0.p0.f fVar) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
                 ((d.b.i0.p0.k) aVar).o0(fVar);
             }
@@ -214,7 +214,7 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public List<d.b.b.j.e.n> l() {
-        d.b.b.j.e.s sVar = this.f58043b;
+        d.b.b.j.e.s sVar = this.f58044b;
         if (sVar != null) {
             return sVar.getData();
         }
@@ -223,7 +223,7 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public void m() {
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
                 ((d.b.i0.p0.k) aVar).m0();
             } else if (aVar instanceof d.b.i0.r2.l) {
@@ -234,15 +234,15 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public void n(boolean z) {
-        if (this.f58048g != z) {
-            this.f58048g = z;
+        if (this.f58049g != z) {
+            this.f58049g = z;
         }
     }
 
     @Override // d.b.i0.p0.n1.d.l0
     public void notifyDataSetChanged() {
-        if (this.f58043b.getListAdapter() != null) {
-            this.f58043b.getListAdapter().notifyDataSetChanged();
+        if (this.f58044b.getListAdapter() != null) {
+            this.f58044b.getListAdapter().notifyDataSetChanged();
         }
     }
 
@@ -255,9 +255,9 @@ public class u implements l0 {
             d.b.b.j.e.n nVar = arrayList.get(i);
             if (nVar instanceof AdvertAppInfo) {
                 arrayList2.add(Integer.valueOf(i));
-                HashMap<Integer, a2> hashMap = this.f58045d;
+                HashMap<Integer, a2> hashMap = this.f58046d;
                 if (hashMap != null && !hashMap.containsValue(nVar)) {
-                    this.f58045d.put(Integer.valueOf(i), (a2) nVar);
+                    this.f58046d.put(Integer.valueOf(i), (a2) nVar);
                 }
             }
         }
@@ -265,120 +265,120 @@ public class u implements l0 {
     }
 
     public void p(FrsFragment frsFragment, d.b.b.j.e.s sVar) {
-        this.f58042a = frsFragment;
-        this.j = d.b.i0.p0.e.e().b(frsFragment.getPageContext(), d.b.i0.c3.x.H3, this.f58042a.getUniqueId(), false);
-        c0 c0Var = new c0(frsFragment.q(), a2.N2, this.f58042a.getUniqueId());
+        this.f58043a = frsFragment;
+        this.j = d.b.i0.p0.e.e().b(frsFragment.getPageContext(), d.b.i0.c3.x.H3, this.f58043a.getUniqueId(), false);
+        c0 c0Var = new c0(frsFragment.q(), a2.N2, this.f58043a.getUniqueId());
         this.k = c0Var;
         c0Var.q0(sVar);
-        o oVar = new o(frsFragment.q(), a2.O2, this.f58042a.getUniqueId());
+        o oVar = new o(frsFragment.q(), a2.O2, this.f58043a.getUniqueId());
         this.l = oVar;
         oVar.q0(sVar);
-        z zVar = new z(frsFragment.q(), a2.Q2, this.f58042a.getUniqueId());
+        z zVar = new z(frsFragment.q(), a2.Q2, this.f58043a.getUniqueId());
         this.m = zVar;
         zVar.q0(sVar);
-        w wVar = new w(frsFragment.q(), a2.R2, this.f58042a.getUniqueId());
+        w wVar = new w(frsFragment.q(), a2.R2, this.f58043a.getUniqueId());
         this.n = wVar;
         wVar.q0(sVar);
-        n nVar = new n(frsFragment.q(), a2.T2, this.f58042a.getUniqueId());
+        n nVar = new n(frsFragment.q(), a2.T2, this.f58043a.getUniqueId());
         this.o = nVar;
         nVar.q0(sVar);
-        q qVar = new q(frsFragment.q(), a2.U2, this.f58042a.getUniqueId());
+        q qVar = new q(frsFragment.q(), a2.U2, this.f58043a.getUniqueId());
         this.p = qVar;
         qVar.q0(sVar);
-        e0 e0Var = new e0(frsFragment.q(), a2.Z2, this.f58042a.getUniqueId());
+        e0 e0Var = new e0(frsFragment.q(), a2.Z2, this.f58043a.getUniqueId());
         this.r = e0Var;
         e0Var.q0(sVar);
-        a0 a0Var = new a0(frsFragment.q(), a2.s3, this.f58042a.getUniqueId());
+        a0 a0Var = new a0(frsFragment.q(), a2.s3, this.f58043a.getUniqueId());
         this.q = a0Var;
         a0Var.q0(sVar);
-        y yVar = new y(frsFragment.q(), a2.a3, this.f58042a.getUniqueId());
+        y yVar = new y(frsFragment.q(), a2.a3, this.f58043a.getUniqueId());
         this.s = yVar;
         yVar.q0(sVar);
-        v vVar = new v(frsFragment.q(), a2.b3, this.f58042a.getUniqueId());
+        v vVar = new v(frsFragment.q(), a2.b3, this.f58043a.getUniqueId());
         this.t = vVar;
         vVar.q0(sVar);
-        d0 d0Var = new d0(frsFragment.getPageContext(), a2.e3, this.f58042a.getUniqueId());
+        d0 d0Var = new d0(frsFragment.getPageContext(), a2.e3, this.f58043a.getUniqueId());
         this.u = d0Var;
         d0Var.q0(sVar);
-        p pVar = new p(frsFragment.getPageContext(), a2.x3, this.f58042a.getUniqueId());
+        p pVar = new p(frsFragment.getPageContext(), a2.x3, this.f58043a.getUniqueId());
         this.v = pVar;
         pVar.q0(sVar);
-        t tVar = new t(frsFragment.getPageContext(), a2.c3, this.f58042a.getUniqueId());
+        t tVar = new t(frsFragment.getPageContext(), a2.c3, this.f58043a.getUniqueId());
         tVar.q0(sVar);
-        b0 b0Var = new b0(frsFragment.getPageContext(), a2.j3, this.f58042a.getUniqueId());
+        b0 b0Var = new b0(frsFragment.getPageContext(), a2.j3, this.f58043a.getUniqueId());
         b0Var.q0(sVar);
         a aVar = new a(frsFragment.getPageContext(), a2.W2, frsFragment.getUniqueId());
         aVar.q0(sVar);
         aVar.p(1);
         d dVar = new d(frsFragment.getPageContext(), a2.S2, frsFragment.getUniqueId());
         dVar.q0(sVar);
-        b bVar = new b(frsFragment.getPageContext(), a2.l3, this.f58042a.getUniqueId());
+        b bVar = new b(frsFragment.getPageContext(), a2.l3, this.f58043a.getUniqueId());
         bVar.q0(sVar);
         bVar.J0(true);
-        i iVar = new i(frsFragment.getPageContext(), a2.k3, this.f58042a.getUniqueId());
+        i iVar = new i(frsFragment.getPageContext(), a2.k3, this.f58043a.getUniqueId());
         iVar.q0(sVar);
         iVar.J0(true);
-        j jVar = new j(frsFragment.getPageContext(), a2.m3, this.f58042a.getUniqueId());
+        j jVar = new j(frsFragment.getPageContext(), a2.m3, this.f58043a.getUniqueId());
         jVar.q0(sVar);
         jVar.K0(true);
-        d0 d0Var2 = new d0(frsFragment.getPageContext(), a2.n3, this.f58042a.getUniqueId());
+        d0 d0Var2 = new d0(frsFragment.getPageContext(), a2.n3, this.f58043a.getUniqueId());
         d0Var2.q0(sVar);
-        s sVar2 = new s(frsFragment.getPageContext(), a2.w3, this.f58042a.getUniqueId());
+        s sVar2 = new s(frsFragment.getPageContext(), a2.w3, this.f58043a.getUniqueId());
         sVar2.q0(sVar);
-        r rVar = new r(frsFragment.getPageContext(), a2.o3, this.f58042a.getUniqueId());
+        r rVar = new r(frsFragment.getPageContext(), a2.o3, this.f58043a.getUniqueId());
         rVar.q0(sVar);
-        this.i = new i0(frsFragment.getPageContext(), d.b.i0.c3.q.f53571g, this.f58042a.getUniqueId());
-        x xVar = new x(frsFragment.getPageContext(), a2.d3, this.f58042a.getUniqueId());
+        this.i = new i0(frsFragment.getPageContext(), d.b.i0.c3.q.f53572g, this.f58043a.getUniqueId());
+        x xVar = new x(frsFragment.getPageContext(), a2.d3, this.f58043a.getUniqueId());
         this.w = xVar;
         xVar.q0(sVar);
-        d.b.b.j.e.a<? extends z1, ? extends TypeAdapter.ViewHolder> d2 = d.b.i0.p0.e.e().d(frsFragment.getPageContext(), this.f58042a.getUniqueId(), true);
-        d.b.b.j.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> c2 = d.b.i0.p0.e.e().c(frsFragment.getPageContext(), a2.B3, this.f58042a.getUniqueId());
-        d.b.i0.p0.s sVar3 = new d.b.i0.p0.s(frsFragment.getPageContext(), d.b.i0.p0.t.f58578f);
-        m mVar = new m(frsFragment.getPageContext(), d.b.i0.p0.v.f58618e);
-        FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(frsFragment.getPageContext(), d.b.i0.p0.x.i, this.f58042a.getUniqueId());
-        g gVar = new g(frsFragment.getPageContext(), a2.Y2, this.f58042a.getUniqueId());
+        d.b.b.j.e.a<? extends z1, ? extends TypeAdapter.ViewHolder> d2 = d.b.i0.p0.e.e().d(frsFragment.getPageContext(), this.f58043a.getUniqueId(), true);
+        d.b.b.j.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> c2 = d.b.i0.p0.e.e().c(frsFragment.getPageContext(), a2.B3, this.f58043a.getUniqueId());
+        d.b.i0.p0.s sVar3 = new d.b.i0.p0.s(frsFragment.getPageContext(), d.b.i0.p0.t.f58579f);
+        m mVar = new m(frsFragment.getPageContext(), d.b.i0.p0.v.f58619e);
+        FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(frsFragment.getPageContext(), d.b.i0.p0.x.i, this.f58043a.getUniqueId());
+        g gVar = new g(frsFragment.getPageContext(), a2.Y2, this.f58043a.getUniqueId());
         gVar.l0((BdTypeRecyclerView) sVar);
-        this.f58044c.add(this.j);
-        this.f58044c.add(this.k);
-        this.f58044c.add(this.l);
-        this.f58044c.add(this.m);
-        this.f58044c.add(this.n);
-        this.f58044c.add(this.o);
-        this.f58044c.add(this.p);
-        this.f58044c.add(this.q);
-        this.f58044c.add(this.r);
-        this.f58044c.add(this.s);
-        this.f58044c.add(this.t);
-        this.f58044c.add(this.i);
-        this.f58044c.add(tVar);
-        this.f58044c.add(b0Var);
-        this.f58044c.add(aVar);
-        this.f58044c.add(dVar);
-        this.f58044c.add(bVar);
-        this.f58044c.add(iVar);
-        this.f58044c.add(jVar);
-        this.f58044c.add(this.w);
-        this.f58044c.add(this.u);
-        this.f58044c.add(this.v);
-        this.f58044c.add(d2);
-        this.f58044c.add(c2);
-        this.f58044c.add(sVar3);
-        this.f58044c.add(mVar);
-        this.f58044c.add(sVar2);
-        this.f58044c.add(rVar);
-        this.f58044c.add(frsUserRecommendAdapter);
-        this.f58044c.add(d0Var2);
-        this.f58044c.add(gVar);
-        this.f58044c.add(d.b.i0.q0.b.d().c(this.f58042a.getBaseFragmentActivity(), AdvertAppInfo.n4));
-        d.b.i0.e.f.b bVar2 = new d.b.i0.e.f.b(this.f58042a, 1);
-        bVar2.t(this.f58044c);
+        this.f58045c.add(this.j);
+        this.f58045c.add(this.k);
+        this.f58045c.add(this.l);
+        this.f58045c.add(this.m);
+        this.f58045c.add(this.n);
+        this.f58045c.add(this.o);
+        this.f58045c.add(this.p);
+        this.f58045c.add(this.q);
+        this.f58045c.add(this.r);
+        this.f58045c.add(this.s);
+        this.f58045c.add(this.t);
+        this.f58045c.add(this.i);
+        this.f58045c.add(tVar);
+        this.f58045c.add(b0Var);
+        this.f58045c.add(aVar);
+        this.f58045c.add(dVar);
+        this.f58045c.add(bVar);
+        this.f58045c.add(iVar);
+        this.f58045c.add(jVar);
+        this.f58045c.add(this.w);
+        this.f58045c.add(this.u);
+        this.f58045c.add(this.v);
+        this.f58045c.add(d2);
+        this.f58045c.add(c2);
+        this.f58045c.add(sVar3);
+        this.f58045c.add(mVar);
+        this.f58045c.add(sVar2);
+        this.f58045c.add(rVar);
+        this.f58045c.add(frsUserRecommendAdapter);
+        this.f58045c.add(d0Var2);
+        this.f58045c.add(gVar);
+        this.f58045c.add(d.b.i0.q0.b.d().c(this.f58043a.getBaseFragmentActivity(), AdvertAppInfo.n4));
+        d.b.i0.e.f.b bVar2 = new d.b.i0.e.f.b(this.f58043a, 1);
+        bVar2.t(this.f58045c);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
-        z(this.f58044c);
-        sVar.a(this.f58044c);
+        z(this.f58045c);
+        sVar.a(this.f58045c);
         AbsDelegateAdapterList absDelegateAdapterList = new AbsDelegateAdapterList();
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2003008, absDelegateAdapterList);
         CustomMessage customMessage = new CustomMessage(2003008);
-        customMessage.setTag(this.f58042a.getUniqueId());
+        customMessage.setTag(this.f58043a.getUniqueId());
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         t("page_frs");
@@ -389,16 +389,16 @@ public class u implements l0 {
         while (it.hasNext()) {
             d.b.b.j.e.a<?, ?> next = it.next();
             if (next instanceof d.b.i0.p0.k) {
-                ((d.b.i0.p0.k) next).i(this.f58042a.getPageContext(), this.f58042a.getUniqueId());
+                ((d.b.i0.p0.k) next).i(this.f58043a.getPageContext(), this.f58043a.getUniqueId());
             }
         }
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(absDelegateAdapterList);
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list != null) {
             list.addAll(arrayList);
         }
-        d.b.b.j.e.s sVar4 = this.f58043b;
+        d.b.b.j.e.s sVar4 = this.f58044b;
         if (sVar4 != null) {
             sVar4.a(arrayList);
         }
@@ -413,9 +413,9 @@ public class u implements l0 {
     }
 
     public void r() {
-        ArrayList<d.b.b.j.e.n> arrayList = this.f58046e;
+        ArrayList<d.b.b.j.e.n> arrayList = this.f58047e;
         if (arrayList != null) {
-            this.f58043b.setData(arrayList);
+            this.f58044b.setData(arrayList);
         }
         notifyDataSetChanged();
     }
@@ -450,11 +450,11 @@ public class u implements l0 {
 
     @Override // d.b.i0.p0.n1.d.l0
     public void setFromCDN(boolean z) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
                 ((d.b.i0.p0.k) aVar).setFromCDN(z);
             }
@@ -494,7 +494,7 @@ public class u implements l0 {
     }
 
     public final void t(String str) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null) {
             return;
         }
@@ -506,22 +506,22 @@ public class u implements l0 {
     }
 
     public final void u() {
-        if (ListUtils.isEmpty(this.f58044c) || this.f58042a == null) {
+        if (ListUtils.isEmpty(this.f58045c) || this.f58043a == null) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
-                ((d.b.i0.p0.k) aVar).r0(this.f58042a.getTbPageTag());
+                ((d.b.i0.p0.k) aVar).r0(this.f58043a.getTbPageTag());
             }
         }
     }
 
     public void v(FrsViewData frsViewData) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
                 ((d.b.i0.p0.k) aVar).p0(frsViewData);
             }
@@ -530,33 +530,33 @@ public class u implements l0 {
 
     public final void w() {
         d.b.i0.p0.j2.b b2;
-        if (this.f58047f == null) {
+        if (this.f58048f == null) {
             return;
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if ((aVar instanceof d.b.i0.p0.j2.d) && (b2 = ((d.b.i0.p0.j2.d) aVar).b()) != null) {
-                if (this.f58047f.needLog == 1) {
-                    b2.f57699a = true;
+                if (this.f58048f.needLog == 1) {
+                    b2.f57700a = true;
                 } else {
-                    b2.f57699a = false;
+                    b2.f57700a = false;
                 }
-                if (this.f58047f.getForum() != null) {
-                    b2.f57701c = this.f58047f.getForum().getId();
+                if (this.f58048f.getForum() != null) {
+                    b2.f57702c = this.f58048f.getForum().getId();
                 }
-                FrsFragment frsFragment = this.f58042a;
+                FrsFragment frsFragment = this.f58043a;
                 if (frsFragment != null && frsFragment.M() != null) {
-                    int N = this.f58042a.M().N();
+                    int N = this.f58043a.M().N();
                     if (N == -1) {
-                        N = this.f58042a.M().M();
+                        N = this.f58043a.M().M();
                     }
-                    b2.f57700b = N;
+                    b2.f57701b = N;
                 }
             }
         }
     }
 
     public final void x(ArrayList<d.b.b.j.e.n> arrayList) {
-        List<d.b.b.j.e.a> list = this.f58044c;
+        List<d.b.b.j.e.a> list = this.f58045c;
         if (list == null || list.size() == 0) {
             return;
         }
@@ -567,7 +567,7 @@ public class u implements l0 {
                 i++;
             }
         }
-        for (d.b.b.j.e.a aVar : this.f58044c) {
+        for (d.b.b.j.e.a aVar : this.f58045c) {
             if (aVar instanceof d.b.i0.p0.k) {
                 ((d.b.i0.p0.k) aVar).s0(i);
             }
@@ -576,11 +576,11 @@ public class u implements l0 {
 
     public final void y() {
         i0 i0Var;
-        FrsViewData frsViewData = this.f58047f;
-        if (frsViewData == null || frsViewData.getForum() == null || StringUtils.isNull(this.f58047f.getForum().getId()) || (i0Var = this.i) == null) {
+        FrsViewData frsViewData = this.f58048f;
+        if (frsViewData == null || frsViewData.getForum() == null || StringUtils.isNull(this.f58048f.getForum().getId()) || (i0Var = this.i) == null) {
             return;
         }
-        i0Var.y0(this.f58047f.getForum().getId());
+        i0Var.y0(this.f58048f.getForum().getId());
     }
 
     public final void z(List<d.b.b.j.e.a> list) {
@@ -589,7 +589,7 @@ public class u implements l0 {
         }
         for (d.b.b.j.e.a aVar : list) {
             if (aVar instanceof d.b.i0.p0.k) {
-                ((d.b.i0.p0.k) aVar).n0(this.f58049h);
+                ((d.b.i0.p0.k) aVar).n0(this.f58050h);
             }
         }
     }

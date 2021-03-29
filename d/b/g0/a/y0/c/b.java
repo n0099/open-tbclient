@@ -4,30 +4,30 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47079b = k.f45050a;
+    public static final boolean f47080b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, Object> f47080a;
+    public final LruCache<String, Object> f47081a;
 
     /* renamed from: d.b.g0.a.y0.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0881b {
+    /* loaded from: classes2.dex */
+    public static class C0882b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f47081a = new b();
+        public static final b f47082a = new b();
     }
 
     public static b c() {
-        return C0881b.f47081a;
+        return C0882b.f47082a;
     }
 
     public synchronized void a() {
-        if (this.f47080a != null) {
-            this.f47080a.evictAll();
+        if (this.f47081a != null) {
+            this.f47081a.evictAll();
         }
     }
 
@@ -35,20 +35,20 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        RESULT result = (RESULT) this.f47080a.get(str);
+        RESULT result = (RESULT) this.f47081a.get(str);
         if (result == null) {
-            if (f47079b) {
+            if (f47080b) {
                 Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
             }
             return null;
         }
         try {
-            if (f47079b) {
+            if (f47080b) {
                 Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
             }
             return result;
         } catch (Exception e2) {
-            if (f47079b) {
+            if (f47080b) {
                 Log.e("SwanAppLaunchCache", Log.getStackTraceString(e2));
             }
             return null;
@@ -57,10 +57,10 @@ public final class b {
 
     public synchronized <RESULT> void d(String str, RESULT result) {
         if (!TextUtils.isEmpty(str) && result != null) {
-            if (f47079b) {
+            if (f47080b) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.f47080a.put(str, result);
+            this.f47081a.put(str, result);
         }
     }
 
@@ -68,13 +68,13 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (f47079b) {
+        if (f47080b) {
             Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
         }
-        this.f47080a.remove(str);
+        this.f47081a.remove(str);
     }
 
     public b() {
-        this.f47080a = new LruCache<>(10);
+        this.f47081a = new LruCache<>(10);
     }
 }

@@ -18,18 +18,18 @@ import java.util.Iterator;
 public class e extends BaseAdapter implements o {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42374e;
+    public Context f42375e;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c> f42376g;
+    public ArrayList<c> f42377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<c> f42377h;
+    public ArrayList<c> f42378h;
     public boolean i;
     public DataSetObserver k;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListAdapter f42375f = null;
+    public ListAdapter f42376f = null;
     public DataSetObserver j = null;
     public b l = null;
 
@@ -67,29 +67,29 @@ public class e extends BaseAdapter implements o {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f42379a;
+        public View f42380a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f42380b;
+        public Object f42381b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f42381c;
+        public boolean f42382c;
 
         public c(e eVar) {
         }
     }
 
     public e(Context context) {
-        this.f42374e = null;
-        this.f42376g = null;
-        this.f42377h = null;
+        this.f42375e = null;
+        this.f42377g = null;
+        this.f42378h = null;
         boolean z = false;
         this.i = false;
         this.k = null;
-        this.f42374e = context;
-        this.f42376g = new ArrayList<>();
-        this.f42377h = new ArrayList<>();
-        if (i(this.f42376g) && i(this.f42377h)) {
+        this.f42375e = context;
+        this.f42377g = new ArrayList<>();
+        this.f42378h = new ArrayList<>();
+        if (i(this.f42377g) && i(this.f42378h)) {
             z = true;
         }
         this.i = z;
@@ -98,7 +98,7 @@ public class e extends BaseAdapter implements o {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             return this.i && listAdapter.areAllItemsEnabled();
         }
@@ -114,13 +114,13 @@ public class e extends BaseAdapter implements o {
             return;
         }
         c cVar = new c(this);
-        cVar.f42379a = view;
-        cVar.f42380b = obj;
-        cVar.f42381c = z;
-        if (i >= 0 && i <= this.f42377h.size()) {
-            this.f42377h.add(i, cVar);
+        cVar.f42380a = view;
+        cVar.f42381b = obj;
+        cVar.f42382c = z;
+        if (i >= 0 && i <= this.f42378h.size()) {
+            this.f42378h.add(i, cVar);
         } else {
-            this.f42377h.add(cVar);
+            this.f42378h.add(cVar);
         }
         notifyDataSetChanged();
     }
@@ -133,9 +133,9 @@ public class e extends BaseAdapter implements o {
     public int getCount() {
         int l;
         int n;
-        if (this.f42375f != null) {
+        if (this.f42376f != null) {
             l = l() + n();
-            n = this.f42375f.getCount();
+            n = this.f42376f.getCount();
         } else {
             l = l();
             n = n();
@@ -147,57 +147,57 @@ public class e extends BaseAdapter implements o {
     public Object getItem(int i) {
         int n = n();
         if (i < n) {
-            return this.f42376g.get(i).f42380b;
+            return this.f42377g.get(i).f42381b;
         }
         int i2 = i - n;
         int i3 = 0;
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-            return this.f42375f.getItem(i2);
+            return this.f42376f.getItem(i2);
         }
         int i4 = i2 - i3;
-        if (i4 < 0 || i4 >= this.f42377h.size()) {
+        if (i4 < 0 || i4 >= this.f42378h.size()) {
             return null;
         }
-        return this.f42377h.get(i4).f42380b;
+        return this.f42378h.get(i4).f42381b;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2;
         int n = n();
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter == null || i < n || (i2 = i - n) >= listAdapter.getCount()) {
             return Long.MIN_VALUE;
         }
-        return this.f42375f.getItemId(i2);
+        return this.f42376f.getItemId(i2);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
         int n = n();
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter == null || i < n || (i2 = i - n) >= listAdapter.getCount()) {
             return -2;
         }
-        return this.f42375f.getItemViewType(i2);
+        return this.f42376f.getItemViewType(i2);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int n = n();
         if (i < n) {
-            View view2 = this.f42376g.get(i).f42379a;
+            View view2 = this.f42377g.get(i).f42380a;
             return view2 == null ? j() : view2;
         }
         int i2 = i - n;
         int i3 = 0;
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         View view3 = null;
         if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
             try {
-                view3 = this.f42375f.getView(i2, view, viewGroup);
+                view3 = this.f42376f.getView(i2, view, viewGroup);
             } catch (Exception e2) {
                 if (e2.getMessage() != null) {
                     BdLog.detailException(e2);
@@ -206,12 +206,12 @@ public class e extends BaseAdapter implements o {
                 }
             } catch (OutOfMemoryError unused) {
                 BdBaseApplication.getInst().onAppMemoryLow();
-                view3 = this.f42375f.getView(i2, view, viewGroup);
+                view3 = this.f42376f.getView(i2, view, viewGroup);
             }
             return view3 == null ? j() : view3;
         }
         try {
-            view3 = this.f42377h.get(i2 - i3).f42379a;
+            view3 = this.f42378h.get(i2 - i3).f42380a;
         } catch (Exception e3) {
             BdLog.detailException(e3);
         }
@@ -220,7 +220,7 @@ public class e extends BaseAdapter implements o {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             return listAdapter.getViewTypeCount() + 1;
         }
@@ -228,7 +228,7 @@ public class e extends BaseAdapter implements o {
     }
 
     public ListAdapter getWrappedAdapter() {
-        return this.f42375f;
+        return this.f42376f;
     }
 
     public void h(View view, Object obj, boolean z, int i) {
@@ -236,20 +236,20 @@ public class e extends BaseAdapter implements o {
             return;
         }
         c cVar = new c(this);
-        cVar.f42379a = view;
-        cVar.f42380b = obj;
-        cVar.f42381c = z;
-        if (i >= 0 && i <= this.f42376g.size()) {
-            this.f42376g.add(i, cVar);
+        cVar.f42380a = view;
+        cVar.f42381b = obj;
+        cVar.f42382c = z;
+        if (i >= 0 && i <= this.f42377g.size()) {
+            this.f42377g.add(i, cVar);
         } else {
-            this.f42376g.add(cVar);
+            this.f42377g.add(cVar);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean hasStableIds() {
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             return listAdapter.hasStableIds();
         }
@@ -260,7 +260,7 @@ public class e extends BaseAdapter implements o {
         if (arrayList != null) {
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (!it.next().f42381c) {
+                if (!it.next().f42382c) {
                     return false;
                 }
             }
@@ -271,7 +271,7 @@ public class e extends BaseAdapter implements o {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         return listAdapter == null || listAdapter.isEmpty();
     }
 
@@ -280,47 +280,47 @@ public class e extends BaseAdapter implements o {
         int i2;
         int n = n();
         if (i < n) {
-            return this.f42376g.get(i).f42381c;
+            return this.f42377g.get(i).f42382c;
         }
         int i3 = i - n;
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             i2 = listAdapter.getCount();
             if (i3 < i2) {
-                return this.f42375f.isEnabled(i3);
+                return this.f42376f.isEnabled(i3);
             }
         } else {
             i2 = 0;
         }
         int i4 = i3 - i2;
-        if (i4 < 0 || i4 >= this.f42377h.size()) {
+        if (i4 < 0 || i4 >= this.f42378h.size()) {
             return false;
         }
-        return this.f42377h.get(i4).f42381c;
+        return this.f42378h.get(i4).f42382c;
     }
 
     public final View j() {
-        TextView textView = new TextView(this.f42374e);
+        TextView textView = new TextView(this.f42375e);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
-        int e2 = d.b.b.e.p.l.e(this.f42374e, 15.0f);
+        int e2 = d.b.b.e.p.l.e(this.f42375e, 15.0f);
         textView.setPadding(e2, e2, e2, e2);
         return textView;
     }
 
     public int k() {
-        return this.f42377h.size();
+        return this.f42378h.size();
     }
 
     public int l() {
-        return this.f42377h.size();
+        return this.f42378h.size();
     }
 
     public int m() {
-        return this.f42376g.size();
+        return this.f42377g.size();
     }
 
     public int n() {
-        return this.f42376g.size();
+        return this.f42377g.size();
     }
 
     @Override // android.widget.BaseAdapter, d.b.b.j.e.o
@@ -331,7 +331,7 @@ public class e extends BaseAdapter implements o {
     }
 
     public int o() {
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             return listAdapter.getCount();
         }
@@ -343,10 +343,10 @@ public class e extends BaseAdapter implements o {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.f42377h.size(); i++) {
-            if (this.f42377h.get(i).f42379a == view) {
-                this.f42377h.remove(i);
-                if (i(this.f42376g) && i(this.f42377h)) {
+        for (int i = 0; i < this.f42378h.size(); i++) {
+            if (this.f42378h.get(i).f42380a == view) {
+                this.f42378h.remove(i);
+                if (i(this.f42377g) && i(this.f42378h)) {
                     z = true;
                 }
                 this.i = z;
@@ -362,10 +362,10 @@ public class e extends BaseAdapter implements o {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.f42376g.size(); i++) {
-            if (this.f42376g.get(i).f42379a == view) {
-                this.f42376g.remove(i);
-                if (i(this.f42376g) && i(this.f42377h)) {
+        for (int i = 0; i < this.f42377g.size(); i++) {
+            if (this.f42377g.get(i).f42380a == view) {
+                this.f42377g.remove(i);
+                if (i(this.f42377g) && i(this.f42378h)) {
                     z = true;
                 }
                 this.i = z;
@@ -377,8 +377,8 @@ public class e extends BaseAdapter implements o {
     }
 
     public void r(ListAdapter listAdapter) {
-        ListAdapter listAdapter2 = this.f42375f;
-        this.f42375f = listAdapter;
+        ListAdapter listAdapter2 = this.f42376f;
+        this.f42376f = listAdapter;
         if (listAdapter != null) {
             boolean z = listAdapter instanceof Filterable;
         }
@@ -389,7 +389,7 @@ public class e extends BaseAdapter implements o {
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
         super.registerDataSetObserver(dataSetObserver);
         this.j = dataSetObserver;
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             listAdapter.registerDataSetObserver(this.k);
         }
@@ -403,7 +403,7 @@ public class e extends BaseAdapter implements o {
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         super.unregisterDataSetObserver(dataSetObserver);
         this.j = dataSetObserver;
-        ListAdapter listAdapter = this.f42375f;
+        ListAdapter listAdapter = this.f42376f;
         if (listAdapter != null) {
             listAdapter.unregisterDataSetObserver(this.k);
         }

@@ -41,10 +41,10 @@ public class a extends d.b.i0.x.b<d.b.i0.h2.e.c> {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (a.this.o == null || ListUtils.isEmpty(a.this.o.f55273e)) {
+            if (a.this.o == null || ListUtils.isEmpty(a.this.o.f55274e)) {
                 return 0;
             }
-            return a.this.o.f55273e.size() % 4 == 0 ? a.this.o.f55273e.size() / 4 : (a.this.o.f55273e.size() / 4) + 1;
+            return a.this.o.f55274e.size() % 4 == 0 ? a.this.o.f55274e.size() / 4 : (a.this.o.f55274e.size() / 4) + 1;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -90,7 +90,7 @@ public class a extends d.b.i0.x.b<d.b.i0.h2.e.c> {
     public void n(d.b.i0.h2.e.c cVar) {
         if (z(cVar)) {
             this.o = cVar;
-            if (ListUtils.getCount(cVar.f55273e) <= 2) {
+            if (ListUtils.getCount(cVar.f55274e) <= 2) {
                 this.s.getLayoutParams().height = d.b.b.e.p.l.g(this.m.getPageActivity(), R.dimen.ds140);
             }
             this.s.setAdapter(this.p);
@@ -129,13 +129,13 @@ public class a extends d.b.i0.x.b<d.b.i0.h2.e.c> {
 
     public final List<d.b.i0.h2.e.f> y(int i) {
         d.b.i0.h2.e.c cVar = this.o;
-        if (cVar == null || ListUtils.isEmpty(cVar.f55273e)) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f55274e)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i2 = i * 4;
         for (int i3 = i2; i3 < i2 + 4; i3++) {
-            d.b.i0.h2.e.f fVar = (d.b.i0.h2.e.f) ListUtils.getItem(this.o.f55273e, i3);
+            d.b.i0.h2.e.f fVar = (d.b.i0.h2.e.f) ListUtils.getItem(this.o.f55274e, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -145,18 +145,18 @@ public class a extends d.b.i0.x.b<d.b.i0.h2.e.c> {
 
     public final boolean z(d.b.i0.h2.e.c cVar) {
         d.b.i0.h2.e.c cVar2;
-        if (cVar == null || ListUtils.isEmpty(cVar.f55273e) || cVar == (cVar2 = this.o)) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f55274e) || cVar == (cVar2 = this.o)) {
             return false;
         }
-        if (cVar2 == null || ListUtils.isEmpty(cVar2.f55273e)) {
+        if (cVar2 == null || ListUtils.isEmpty(cVar2.f55274e)) {
             return true;
         }
-        if (!ListUtils.isEmpty(cVar.f55273e)) {
-            if (cVar.f55273e.size() != this.o.f55273e.size()) {
+        if (!ListUtils.isEmpty(cVar.f55274e)) {
+            if (cVar.f55274e.size() != this.o.f55274e.size()) {
                 return true;
             }
-            for (int i = 0; i < cVar.f55273e.size(); i++) {
-                if (this.o.f55273e.get(i) == null || cVar.f55273e.get(i).f55282e != this.o.f55273e.get(i).f55282e) {
+            for (int i = 0; i < cVar.f55274e.size(); i++) {
+                if (this.o.f55274e.get(i) == null || cVar.f55274e.get(i).f55283e != this.o.f55274e.get(i).f55283e) {
                     return true;
                 }
             }

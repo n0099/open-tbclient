@@ -3,24 +3,24 @@ package d.b.i0.l0.z.b;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f56703a = 0;
+    public int f56704a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56704b = false;
+    public boolean f56705b = false;
 
     public int a() {
-        return this.f56703a;
+        return this.f56704a;
     }
 
     public boolean b() {
-        return this.f56704b;
+        return this.f56705b;
     }
 
     public void c(boolean z) {
-        this.f56704b = z;
+        this.f56705b = z;
     }
 
     public void d(int i) {
-        this.f56703a = i;
+        this.f56704a = i;
     }
 }

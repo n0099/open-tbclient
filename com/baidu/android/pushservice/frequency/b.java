@@ -21,11 +21,11 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f3032a;
+    public static volatile b f3033a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -40,14 +40,14 @@ public class b {
     }
 
     public static b a() {
-        if (f3032a == null) {
+        if (f3033a == null) {
             synchronized (b.class) {
-                if (f3032a == null) {
-                    f3032a = new b();
+                if (f3033a == null) {
+                    f3033a = new b();
                 }
             }
         }
-        return f3032a;
+        return f3033a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -226,13 +226,13 @@ public class b {
         if (b(context, str, aVar)) {
             return;
         }
-        final String str2 = h.f3066c + h.f3070g;
+        final String str2 = h.f3067c + h.f3071g;
         final HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.3
             /* JADX WARN: Can't wrap try/catch for region: R(7:(2:7|8)|(1:10)(2:26|(7:28|29|30|12|13|14|(2:16|17)(2:19|(2:21|22)(1:23))))|11|12|13|14|(0)(0)) */
-            /* JADX WARN: Removed duplicated region for block: B:25:0x0084  */
-            /* JADX WARN: Removed duplicated region for block: B:26:0x008c  */
+            /* JADX WARN: Removed duplicated region for block: B:25:0x0083  */
+            /* JADX WARN: Removed duplicated region for block: B:26:0x008b  */
             @Override // com.baidu.android.pushservice.h.c
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -292,7 +292,7 @@ public class b {
     }
 
     public void a(final Context context, final HashMap<String, Object> hashMap, final UploadDataListener uploadDataListener) {
-        final String str = h.f3066c + h.f3068e;
+        final String str = h.f3067c + h.f3069e;
         final HashMap hashMap2 = new HashMap();
         hashMap2.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.1

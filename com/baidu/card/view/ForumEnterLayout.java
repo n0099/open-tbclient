@@ -23,20 +23,20 @@ import d.b.b.e.p.l;
 import d.b.h0.b.d;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.u.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ForumEnterLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4403e;
+    public Context f4404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterButton f4404f;
+    public ThreadForumEnterButton f4405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f4405g;
+    public ThreadForumEnterGoodsButton f4406g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f4406h;
+    public TextView f4407h;
     public EMTextView i;
     public d.b.h0.r.q.a j;
     public Drawable k;
@@ -47,16 +47,16 @@ public class ForumEnterLayout extends RelativeLayout {
     public View.OnClickListener p;
     public final View.OnClickListener q;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == ForumEnterLayout.this.f4406h) {
+            if (view == ForumEnterLayout.this.f4407h) {
                 ThreadCardUtils.jumpToPBCommentArea(ForumEnterLayout.this.j, view.getContext(), ForumEnterLayout.this.o, 2);
-            } else if (view == ForumEnterLayout.this.f4404f && ForumEnterLayout.this.p != null) {
+            } else if (view == ForumEnterLayout.this.f4405f && ForumEnterLayout.this.p != null) {
                 ForumEnterLayout.this.p.onClick(view);
             }
             if (ForumEnterLayout.this.j != null) {
@@ -84,13 +84,13 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     public void g() {
-        int k = (l.k(this.f4403e) - (this.l * 2)) - this.m;
+        int k = (l.k(this.f4404e) - (this.l * 2)) - this.m;
         if (k > 0) {
             this.n = k / 2;
         } else {
-            this.n = l.g(this.f4403e, R.dimen.tbds540);
+            this.n = l.g(this.f4404e, R.dimen.tbds540);
         }
-        this.f4406h.setMaxWidth(this.n);
+        this.f4407h.setMaxWidth(this.n);
     }
 
     public final void h(View view, a2 a2Var) {
@@ -120,16 +120,16 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     public final void i(Context context) {
-        this.f4403e = context;
+        this.f4404e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_item, (ViewGroup) this, true);
         TextView textView = (TextView) inflate.findViewById(R.id.text_post);
-        this.f4406h = textView;
+        this.f4407h = textView;
         textView.setCompoundDrawablePadding(l.g(context, R.dimen.tbds10));
-        this.f4404f = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
-        this.f4405g = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
-        this.f4404f.setAfterClickListener(this.q);
-        this.f4405g.setAfterClickListener(this.q);
-        this.f4406h.setOnClickListener(this.q);
+        this.f4405f = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
+        this.f4406g = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
+        this.f4405f.setAfterClickListener(this.q);
+        this.f4406g.setAfterClickListener(this.q);
+        this.f4407h.setOnClickListener(this.q);
         this.i = (EMTextView) inflate.findViewById(R.id.tv_ueg);
     }
 
@@ -146,8 +146,8 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     public void m(TbPageContext tbPageContext, int i) {
-        this.f4404f.d();
-        this.f4405g.e();
+        this.f4405f.d();
+        this.f4406g.e();
         this.k = getArrowRight();
         c a2 = c.a(this.i);
         a2.n(R.color.CAM_X0109);
@@ -160,38 +160,38 @@ public class ForumEnterLayout extends RelativeLayout {
         g();
         a2 n = aVar.n();
         if ((aVar.u() || !n.T1) && !StringUtils.isNull(n.i0()) && !j(n)) {
-            this.f4404f.setVisibility(0);
-            this.f4404f.b(n, this.n);
+            this.f4405f.setVisibility(0);
+            this.f4405f.b(n, this.n);
             z = true;
         } else {
-            this.f4404f.setVisibility(8);
+            this.f4405f.setVisibility(8);
             z = false;
         }
         if (!l(aVar) && !k(aVar) && aVar.v() && aVar.n().a2()) {
-            this.f4405g.setVisibility(0);
-            this.f4405g.a(n);
+            this.f4406g.setVisibility(0);
+            this.f4406g.a(n);
             z = true;
         } else {
-            this.f4405g.setVisibility(8);
+            this.f4406g.setVisibility(8);
         }
         if (ThreadCardUtils.isSelf(n) && n.b2) {
-            this.f4406h.setVisibility(0);
-            this.f4406h.setTextSize(0, l.g(getContext(), R.dimen.tbds32));
-            this.f4406h.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this.f4406h, R.color.CAM_X0109);
-            this.f4406h.setText(R.string.private_desc);
-            this.f4406h.setOnClickListener(null);
+            this.f4407h.setVisibility(0);
+            this.f4407h.setTextSize(0, l.g(getContext(), R.dimen.tbds32));
+            this.f4407h.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.f4407h, R.color.CAM_X0109);
+            this.f4407h.setText(R.string.private_desc);
+            this.f4407h.setOnClickListener(null);
             z = true;
         } else {
-            this.f4406h.setVisibility(8);
+            this.f4407h.setVisibility(8);
         }
-        int visibility = this.f4406h.getVisibility();
+        int visibility = this.f4407h.getVisibility();
         if (n.D2 == 1 && n.W1) {
             this.i.setVisibility(0);
-            this.f4406h.setVisibility(8);
+            this.f4407h.setVisibility(8);
         } else {
             this.i.setVisibility(8);
-            this.f4406h.setVisibility(visibility);
+            this.f4407h.setVisibility(visibility);
         }
         setVisibility(z ? 0 : 8);
     }

@@ -1,5 +1,5 @@
 package d.b.g0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static final int abc_fade_in = 2130771968;
     public static final int abc_fade_out = 2130771969;

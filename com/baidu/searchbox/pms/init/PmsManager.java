@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.init;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 @Autowired
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PmsManager {
     public static IPmsManager sPmsManager;
 

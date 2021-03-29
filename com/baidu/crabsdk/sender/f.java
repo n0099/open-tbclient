@@ -10,21 +10,21 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f4765g = false;
+    public static boolean f4766g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4766h = Environment.getExternalStorageDirectory().getPath() + File.separator + p.b() + File.separator + "oom" + File.separator;
+    public static final String f4767h = Environment.getExternalStorageDirectory().getPath() + File.separator + p.b() + File.separator + "oom" + File.separator;
     public static f i = new f();
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f4767e = null;
+    public Thread.UncaughtExceptionHandler f4768e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4768f = null;
+    public Context f4769f = null;
 
     public static f a() {
         return i;
@@ -41,12 +41,12 @@ public final class f implements Thread.UncaughtExceptionHandler {
     }
 
     public final void c(Context context) {
-        if (this.f4767e == null) {
-            this.f4767e = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.f4768e == null) {
+            this.f4768e = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.f4768f == null) {
-            this.f4768f = context.getApplicationContext();
+        if (this.f4769f == null) {
+            this.f4769f = context.getApplicationContext();
         }
     }
 
@@ -100,10 +100,10 @@ public final class f implements Thread.UncaughtExceptionHandler {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x0053, code lost:
         com.baidu.crabsdk.c.a.a("pw", r0);
      */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x007b A[Catch: all -> 0x00d0, TryCatch #0 {all -> 0x00d0, blocks: (B:35:0x006e, B:37:0x007b, B:39:0x0081, B:40:0x008f, B:41:0x0093, B:42:0x00a2), top: B:74:0x006e }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0142 A[Catch: Exception -> 0x014c, TryCatch #2 {Exception -> 0x014c, blocks: (B:58:0x011e, B:59:0x0122, B:61:0x012a, B:62:0x013e, B:63:0x0142), top: B:78:0x011e }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0158  */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x012a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x007b A[Catch: all -> 0x00cf, TryCatch #3 {all -> 0x00cf, blocks: (B:35:0x006e, B:37:0x007b, B:39:0x0081, B:40:0x008f, B:41:0x0093, B:42:0x00a2), top: B:80:0x006e }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0141 A[Catch: Exception -> 0x014b, TryCatch #1 {Exception -> 0x014b, blocks: (B:58:0x011d, B:59:0x0121, B:61:0x0129, B:62:0x013d, B:63:0x0141), top: B:76:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0157  */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0129 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:84:? A[RETURN, SYNTHETIC] */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
@@ -161,54 +161,54 @@ public final class f implements Thread.UncaughtExceptionHandler {
             java.lang.String r4 = "pw"
             com.baidu.crabsdk.c.a.a(r4, r0)
         L58:
-            if (r5 == 0) goto L150
+            if (r5 == 0) goto L14f
             java.lang.String r0 = r1.trim()
             boolean r0 = r0.equals(r3)
-            if (r0 != 0) goto L150
+            if (r0 != 0) goto L14f
             boolean r0 = com.baidu.crabsdk.a.n
-            if (r0 == 0) goto Le6
+            if (r0 == 0) goto Le5
             boolean r0 = b(r9)
-            if (r0 == 0) goto Le6
-            java.lang.String r0 = com.baidu.crabsdk.sender.f.f4766h     // Catch: java.lang.Throwable -> Ld0
-            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> Ld0
-            r1.<init>(r0)     // Catch: java.lang.Throwable -> Ld0
-            boolean r3 = r1.exists()     // Catch: java.lang.Throwable -> Ld0
+            if (r0 == 0) goto Le5
+            java.lang.String r0 = com.baidu.crabsdk.sender.f.f4767h     // Catch: java.lang.Throwable -> Lcf
+            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> Lcf
+            r1.<init>(r0)     // Catch: java.lang.Throwable -> Lcf
+            boolean r3 = r1.exists()     // Catch: java.lang.Throwable -> Lcf
             if (r3 != 0) goto La2
-            boolean r1 = r1.mkdirs()     // Catch: java.lang.Throwable -> Ld0
+            boolean r1 = r1.mkdirs()     // Catch: java.lang.Throwable -> Lcf
             if (r1 != 0) goto L93
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Ld0
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lcf
             java.lang.String r3 = "app文件创建失败  fileName is "
-            r1.<init>(r3)     // Catch: java.lang.Throwable -> Ld0
-            r1.append(r0)     // Catch: java.lang.Throwable -> Ld0
-            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Ld0
+            r1.<init>(r3)     // Catch: java.lang.Throwable -> Lcf
+            r1.append(r0)     // Catch: java.lang.Throwable -> Lcf
+            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Lcf
         L8f:
-            com.baidu.crabsdk.c.a.d(r1)     // Catch: java.lang.Throwable -> Ld0
+            com.baidu.crabsdk.c.a.d(r1)     // Catch: java.lang.Throwable -> Lcf
             goto La2
         L93:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Ld0
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lcf
             java.lang.String r3 = "app文件创建ok  fileName is "
-            r1.<init>(r3)     // Catch: java.lang.Throwable -> Ld0
-            r1.append(r0)     // Catch: java.lang.Throwable -> Ld0
-            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Ld0
+            r1.<init>(r3)     // Catch: java.lang.Throwable -> Lcf
+            r1.append(r0)     // Catch: java.lang.Throwable -> Lcf
+            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Lcf
             goto L8f
         La2:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Ld0
-            r1.<init>()     // Catch: java.lang.Throwable -> Ld0
-            r1.append(r0)     // Catch: java.lang.Throwable -> Ld0
-            long r3 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> Ld0
-            r1.append(r3)     // Catch: java.lang.Throwable -> Ld0
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lcf
+            r1.<init>()     // Catch: java.lang.Throwable -> Lcf
+            r1.append(r0)     // Catch: java.lang.Throwable -> Lcf
+            long r3 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> Lcf
+            r1.append(r3)     // Catch: java.lang.Throwable -> Lcf
             java.lang.String r0 = ".hprof"
-            r1.append(r0)     // Catch: java.lang.Throwable -> Ld0
-            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> Ld0
-            android.os.Debug.dumpHprofData(r0)     // Catch: java.lang.Throwable -> Ld0
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Ld0
+            r1.append(r0)     // Catch: java.lang.Throwable -> Lcf
+            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> Lcf
+            android.os.Debug.dumpHprofData(r0)     // Catch: java.lang.Throwable -> Lcf
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lcf
             java.lang.String r3 = "输出OOM的dump信息 name="
-            r1.<init>(r3)     // Catch: java.lang.Throwable -> Ld0
-            r1.append(r0)     // Catch: java.lang.Throwable -> Ld0
-            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> Ld0
-            com.baidu.crabsdk.c.a.c(r0)     // Catch: java.lang.Throwable -> Ld0
-            goto Le6
-        Ld0:
+            r1.<init>(r3)     // Catch: java.lang.Throwable -> Lcf
+            r1.append(r0)     // Catch: java.lang.Throwable -> Lcf
+            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> Lcf
+            com.baidu.crabsdk.c.a.c(r0)     // Catch: java.lang.Throwable -> Lcf
+            goto Le5
+        Lcf:
             r0 = move-exception
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             java.lang.String r3 = "oom save fail"
@@ -217,63 +217,63 @@ public final class f implements Thread.UncaughtExceptionHandler {
             r1.append(r0)
             java.lang.String r0 = r1.toString()
             com.baidu.crabsdk.c.a.d(r0)
-        Le6:
+        Le5:
             boolean r0 = com.baidu.crabsdk.sender.h.a()
-            if (r0 == 0) goto L150
+            if (r0 == 0) goto L14f
             boolean r0 = com.baidu.crabsdk.sender.h.g()
-            if (r0 == 0) goto L150
+            if (r0 == 0) goto L14f
             boolean r0 = com.baidu.crabsdk.sender.h.n(r9)
-            if (r0 == 0) goto L150
-            com.baidu.crabsdk.sender.f.f4765g = r2
-            android.content.Context r0 = r7.f4768f
-            if (r0 == 0) goto L11e
-            if (r8 == 0) goto L11e
-            if (r9 != 0) goto L103
-            goto L11e
-        L103:
+            if (r0 == 0) goto L14f
+            com.baidu.crabsdk.sender.f.f4766g = r2
+            android.content.Context r0 = r7.f4769f
+            if (r0 == 0) goto L11d
+            if (r8 == 0) goto L11d
+            if (r9 != 0) goto L102
+            goto L11d
+        L102:
             java.util.Map r0 = com.baidu.crabsdk.sender.g.c(r0, r9, r2)
             java.lang.String r0 = com.baidu.crabsdk.sender.i.h(r0)
-            android.content.Context r1 = r7.f4768f
+            android.content.Context r1 = r7.f4769f
             com.baidu.crabsdk.sender.i.g(r1, r0)
             com.baidu.crabsdk.sender.h.o(r9)
             com.baidu.crabsdk.sender.h.p(r9)
             com.baidu.crabsdk.sender.h.j()
-            android.content.Context r0 = r7.f4768f
+            android.content.Context r0 = r7.f4769f
             com.baidu.crabsdk.sender.k.b(r2, r0)
-        L11e:
-            long r0 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L14c
-        L122:
-            long r2 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L14c
-            boolean r4 = com.baidu.crabsdk.sender.f.f4765g     // Catch: java.lang.Exception -> L14c
-            if (r4 == 0) goto L142
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L14c
+        L11d:
+            long r0 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L14b
+        L121:
+            long r2 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L14b
+            boolean r4 = com.baidu.crabsdk.sender.f.f4766g     // Catch: java.lang.Exception -> L14b
+            if (r4 == 0) goto L141
+            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L14b
             java.lang.String r5 = "^^ upload finished()! --> cost : "
-            r4.<init>(r5)     // Catch: java.lang.Exception -> L14c
+            r4.<init>(r5)     // Catch: java.lang.Exception -> L14b
             long r2 = r2 - r0
-            r4.append(r2)     // Catch: java.lang.Exception -> L14c
+            r4.append(r2)     // Catch: java.lang.Exception -> L14b
             java.lang.String r0 = "ms"
-            r4.append(r0)     // Catch: java.lang.Exception -> L14c
-            java.lang.String r0 = r4.toString()     // Catch: java.lang.Exception -> L14c
-        L13e:
-            com.baidu.crabsdk.c.a.c(r0)     // Catch: java.lang.Exception -> L14c
-            goto L150
-        L142:
+            r4.append(r0)     // Catch: java.lang.Exception -> L14b
+            java.lang.String r0 = r4.toString()     // Catch: java.lang.Exception -> L14b
+        L13d:
+            com.baidu.crabsdk.c.a.c(r0)     // Catch: java.lang.Exception -> L14b
+            goto L14f
+        L141:
             long r2 = r2 - r0
             r4 = 2500(0x9c4, double:1.235E-320)
             int r6 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r6 <= 0) goto L122
+            if (r6 <= 0) goto L121
             java.lang.String r0 = "T^T upload timeout!"
-            goto L13e
-        L14c:
+            goto L13d
+        L14b:
             r0 = move-exception
             r0.printStackTrace()
-        L150:
-            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4767e
+        L14f:
+            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4768e
             boolean r0 = r0.equals(r7)
-            if (r0 != 0) goto L15d
-            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4767e
+            if (r0 != 0) goto L15c
+            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4768e
             r0.uncaughtException(r8, r9)
-        L15d:
+        L15c:
             return
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.crabsdk.sender.f.uncaughtException(java.lang.Thread, java.lang.Throwable):void");

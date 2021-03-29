@@ -10,30 +10,30 @@ import java.util.Set;
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f33158a;
+    public c f33159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TubeDetailParam f33159b;
+    public TubeDetailParam f33160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f33160c;
+    public com.kwad.sdk.core.i.a f33161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Set<b.a> f33161d = new LinkedHashSet();
+    public Set<b.a> f33162d = new LinkedHashSet();
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<com.kwad.sdk.contentalliance.tube.detail.a> f33162e = new LinkedHashSet();
+    public Set<com.kwad.sdk.contentalliance.tube.detail.a> f33163e = new LinkedHashSet();
 
     /* renamed from: f  reason: collision with root package name */
-    public SceneImpl f33163f;
+    public SceneImpl f33164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.tube.b f33164g;
+    public com.kwad.sdk.contentalliance.tube.b f33165g;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f33161d.clear();
-        com.kwad.sdk.core.i.a aVar = this.f33160c;
+        this.f33162d.clear();
+        com.kwad.sdk.core.i.a aVar = this.f33161c;
         if (aVar != null) {
             aVar.f();
         }

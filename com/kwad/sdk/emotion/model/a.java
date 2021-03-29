@@ -3,26 +3,26 @@ package com.kwad.sdk.emotion.model;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34686a;
+    public String f34687a;
 
     /* renamed from: com.kwad.sdk.emotion.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0397a {
+    public static class C0398a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final a f34687a;
+        public final a f34688a;
 
-        public C0397a() {
-            this.f34687a = new a();
+        public C0398a() {
+            this.f34688a = new a();
         }
 
-        public C0397a a(String str) {
-            this.f34687a.f34686a = str;
+        public C0398a a(String str) {
+            this.f34688a.f34687a = str;
             return this;
         }
 
         public a a() {
-            return new a(this.f34687a.f34686a);
+            return new a(this.f34688a.f34687a);
         }
     }
 
@@ -30,14 +30,14 @@ public class a {
     }
 
     public a(String str) {
-        this.f34686a = str;
+        this.f34687a = str;
     }
 
-    public static C0397a a() {
-        return new C0397a();
+    public static C0398a a() {
+        return new C0398a();
     }
 
     public String b() {
-        return this.f34686a;
+        return this.f34687a;
     }
 }

@@ -14,14 +14,14 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMGetStarOnlineRequest";
     public long mAppid;
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

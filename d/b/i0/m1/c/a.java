@@ -8,47 +8,47 @@ import tbclient.Lbs;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C1343a> f56853a = new ArrayList<>();
+    public ArrayList<C1344a> f56854a = new ArrayList<>();
 
     /* renamed from: d.b.i0.m1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1343a {
+    public static class C1344a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f56854a;
+        public String f56855a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56855b;
+        public String f56856b;
 
         public String a() {
-            return this.f56854a;
+            return this.f56855a;
         }
 
         public String b() {
-            return this.f56855b;
+            return this.f56856b;
         }
 
         public void c(Lbs lbs) {
             if (lbs == null) {
                 return;
             }
-            this.f56854a = lbs.name;
+            this.f56855a = lbs.name;
             String str = lbs.lat;
             String str2 = lbs.lng;
-            this.f56855b = lbs.sn;
+            this.f56856b = lbs.sn;
         }
 
         public void d(String str) {
-            this.f56854a = str;
+            this.f56855a = str;
         }
 
         public void e(String str) {
-            this.f56855b = str;
+            this.f56856b = str;
         }
     }
 
-    public ArrayList<C1343a> a() {
-        return this.f56853a;
+    public ArrayList<C1344a> a() {
+        return this.f56854a;
     }
 
     public void b(DataRes dataRes) {
@@ -57,13 +57,13 @@ public class a {
             return;
         }
         for (Lbs lbs : list) {
-            C1343a c1343a = new C1343a();
-            c1343a.c(lbs);
-            this.f56853a.add(c1343a);
+            C1344a c1344a = new C1344a();
+            c1344a.c(lbs);
+            this.f56854a.add(c1344a);
         }
     }
 
-    public void c(ArrayList<C1343a> arrayList) {
-        this.f56853a = arrayList;
+    public void c(ArrayList<C1344a> arrayList) {
+        this.f56854a = arrayList;
     }
 }

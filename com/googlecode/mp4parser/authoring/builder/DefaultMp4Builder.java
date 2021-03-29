@@ -403,29 +403,29 @@ public class DefaultMp4Builder implements Mp4Builder {
     public class a implements Box {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<Track> f31023e;
+        public List<Track> f31024e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<List<Sample>> f31024f;
+        public List<List<Sample>> f31025f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Container f31025g;
+        public Container f31026g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f31026h;
+        public long f31027h;
 
         public a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map<Track, int[]> map, long j) {
-            this.f31024f = new ArrayList();
-            this.f31026h = j;
-            this.f31023e = movie.getTracks();
+            this.f31025f = new ArrayList();
+            this.f31027h = j;
+            this.f31024e = movie.getTracks();
             for (int i = 0; i < map.values().iterator().next().length; i++) {
-                for (Track track : this.f31023e) {
+                for (Track track : this.f31024e) {
                     int[] iArr = map.get(track);
                     long j2 = 0;
                     for (int i2 = 0; i2 < i; i2++) {
                         j2 += iArr[i2];
                     }
-                    this.f31024f.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
+                    this.f31025f.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
                 }
             }
         }
@@ -466,7 +466,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.f31024f) {
+            for (List<Sample> list : this.f31025f) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }
@@ -480,12 +480,12 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public Container getParent() {
-            return this.f31025g;
+            return this.f31026g;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return this.f31026h + 16;
+            return this.f31027h + 16;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -499,7 +499,7 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public void setParent(Container container) {
-            this.f31025g = container;
+            this.f31026g = container;
         }
 
         public /* synthetic */ a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map map, long j, a aVar) {

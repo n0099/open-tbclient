@@ -157,7 +157,7 @@ public class FileProvider extends ContentProvider {
     }
 
     public static int modeToMode(String str) {
-        if (r.f7663a.equals(str)) {
+        if (r.f7664a.equals(str)) {
             return 268435456;
         }
         if ("w".equals(str) || "wt".equals(str)) {

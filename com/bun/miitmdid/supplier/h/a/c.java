@@ -5,26 +5,26 @@ import android.database.ContentObserver;
 public class c extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27133a;
+    public String f27134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27134b;
+    public int f27135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f27135c;
+    public b f27136c;
 
     public c(b bVar, int i, String str) {
         super(null);
-        this.f27135c = bVar;
-        this.f27134b = i;
-        this.f27133a = str;
+        this.f27136c = bVar;
+        this.f27135b = i;
+        this.f27134a = str;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        b bVar = this.f27135c;
+        b bVar = this.f27136c;
         if (bVar != null) {
-            bVar.a(this.f27134b, this.f27133a);
+            bVar.a(this.f27135b, this.f27134a);
         } else {
             com.bun.miitmdid.utils.a.b("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
         }

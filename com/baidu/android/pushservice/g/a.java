@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.PushSettings;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static String a(Throwable th) {
         if (th == null) {

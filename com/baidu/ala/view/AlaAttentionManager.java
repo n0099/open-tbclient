@@ -25,7 +25,7 @@ import d.b.h0.s.d.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaAttentionManager {
     public static final int ALA_LIVE_PUSH_REMIND_TIME_INTERVAL = 86400000;
     public static final int ATTENTION_REQUEST_MAP_MAX_SIZE = 3;
@@ -33,7 +33,7 @@ public class AlaAttentionManager {
     public HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap = new HashMap<>();
     public HashMap<String, AttentionAsyncTask> mAttentionTaskMap = new HashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class AttentionAsyncTask extends BdAsyncTask<Integer, Integer, String> {
         public String forumId;
         public String from;
@@ -116,13 +116,13 @@ public class AlaAttentionManager {
             super.onPostExecute((AttentionAsyncTask) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.f13692a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                aVar.f13693b = this.mNetwork.getErrorString();
-                aVar.f13695d = this.isAttention;
-                aVar.f13694c = this.toUid;
-                aVar.f13696e = this.isGod;
+                aVar.f13693a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                aVar.f13694b = this.mNetwork.getErrorString();
+                aVar.f13696d = this.isAttention;
+                aVar.f13695c = this.toUid;
+                aVar.f13697e = this.isGod;
                 aVar.b(str, this.showToastAfterAttentionSuc);
-                aVar.f13697f = this.mNetwork.getNetContext().getResponse();
+                aVar.f13698f = this.mNetwork.getNetContext().getResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -220,15 +220,15 @@ public class AlaAttentionManager {
     }
 
     public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
-        if (aVar != null && aVar.f13698g != null && aVar.f13697f != null && fVar != null && fVar.getPageActivity() != null) {
-            int i = aVar.f13697f.mServerErrorCode;
+        if (aVar != null && aVar.f13699g != null && aVar.f13698f != null && fVar != null && fVar.getPageActivity() != null) {
+            int i = aVar.f13698f.mServerErrorCode;
             if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004)) {
                 return false;
             }
-            if (aVar.f13699h) {
+            if (aVar.f13700h) {
                 return true;
             }
-            JSONObject optJSONObject = aVar.f13698g.optJSONObject("info");
+            JSONObject optJSONObject = aVar.f13699g.optJSONObject("info");
             if (optJSONObject == null) {
                 return false;
             }
@@ -237,7 +237,7 @@ public class AlaAttentionManager {
             String optString3 = optJSONObject.optString("block_confirm");
             String optString4 = optJSONObject.optString("block_cancel");
             if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                aVar.f13699h = true;
+                aVar.f13700h = true;
                 a aVar2 = new a(fVar.getPageActivity());
                 aVar2.setAutoNight(z);
                 aVar2.setMessage(optString);

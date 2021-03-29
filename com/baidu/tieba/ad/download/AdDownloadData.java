@@ -23,24 +23,24 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f14520a;
+        public final String f14521a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14521b;
+        public String f14522b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f14522c;
+        public String f14523c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f14523d;
+        public int f14524d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14524e;
+        public int f14525e;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
-            this.f14520a = downloadCacheKey.mAdId;
-            this.f14521b = downloadCacheKey.mDownloadUrl;
-            this.f14522c = downloadCacheKey.mPackageName;
+            this.f14521a = downloadCacheKey.mAdId;
+            this.f14522b = downloadCacheKey.mDownloadUrl;
+            this.f14523c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
@@ -144,11 +144,11 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     }
 
     public AdDownloadData(b bVar) {
-        this.mAdId = bVar.f14520a;
-        this.mPackageName = bVar.f14522c;
-        this.mDownloadUrl = bVar.f14521b;
-        this.mFakeDownloadTime = bVar.f14523d;
-        this.mFakeDownloadPercent = bVar.f14524e;
+        this.mAdId = bVar.f14521a;
+        this.mPackageName = bVar.f14523c;
+        this.mDownloadUrl = bVar.f14522b;
+        this.mFakeDownloadTime = bVar.f14524d;
+        this.mFakeDownloadPercent = bVar.f14525e;
         this.mExtra = new AdDownloadExtra(this);
     }
 }

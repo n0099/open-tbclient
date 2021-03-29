@@ -9,11 +9,11 @@ import d.b.i0.p0.w1.d.d;
 /* loaded from: classes4.dex */
 public class a extends d.b.b.j.e.a<d, GameSubCommentView.GameSubCommentViewHolder> {
     public TbPageContext m;
-    public InterfaceC1443a n;
+    public InterfaceC1444a n;
 
     /* renamed from: d.b.i0.p0.w1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1443a {
+    public interface InterfaceC1444a {
         void a(d dVar);
 
         void b(d dVar);
@@ -45,7 +45,7 @@ public class a extends d.b.b.j.e.a<d, GameSubCommentView.GameSubCommentViewHolde
         return gameSubCommentViewHolder.a();
     }
 
-    public void j0(InterfaceC1443a interfaceC1443a) {
-        this.n = interfaceC1443a;
+    public void j0(InterfaceC1444a interfaceC1444a) {
+        this.n = interfaceC1444a;
     }
 }

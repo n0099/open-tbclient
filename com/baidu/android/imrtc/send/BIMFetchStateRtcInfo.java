@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public static final String TAG = "BIMFetchStateRtcInfo";
     public List<UserState> mUkStates;
     public String roomStateMsg;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class UserState {
         public int status;
         public long uk;

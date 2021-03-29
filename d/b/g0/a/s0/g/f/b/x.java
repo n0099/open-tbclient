@@ -3,7 +3,7 @@ package d.b.g0.a.s0.g.f.b;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class x extends d.b.g0.a.s0.a<d.b.g0.a.s0.g.h.b> {
     @Override // d.b.g0.a.s0.a
     @NonNull

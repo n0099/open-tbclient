@@ -18,11 +18,11 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
     public static class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsLiveGameCardView f14995a;
+        public AlaGameFrsLiveGameCardView f14996a;
 
         public AlaGameFrsGameViewHolder(AlaGameFrsLiveGameCardView alaGameFrsLiveGameCardView) {
             super(alaGameFrsLiveGameCardView.m());
-            this.f14995a = alaGameFrsLiveGameCardView;
+            this.f14996a = alaGameFrsLiveGameCardView;
         }
     }
 
@@ -60,7 +60,7 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
     public void n(c cVar) {
         a2 a2Var;
         a aVar;
-        if (cVar == null || (a2Var = cVar.f60685e) == null || (aVar = this.n) == null) {
+        if (cVar == null || (a2Var = cVar.f60686e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(a2Var);

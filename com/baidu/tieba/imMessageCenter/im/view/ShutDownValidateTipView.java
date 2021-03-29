@@ -13,24 +13,24 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ShutDownValidateTipView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18294e;
+    public TextView f18295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f18295f;
+    public ImageView f18296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18296g;
+    public TextView f18297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18297h;
+    public TextView f18298h;
     public boolean i;
     public ArrayList<c> j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         public a() {
         }
@@ -48,7 +48,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Animation.AnimationListener {
         public b() {
         }
@@ -67,7 +67,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void b(boolean z);
     }
@@ -80,24 +80,24 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void a(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.f18295f = (ImageView) findViewById(R.id.no_network_icon);
-        this.f18296g = (TextView) findViewById(R.id.no_network_guide1);
-        this.f18297h = (TextView) findViewById(R.id.no_network_guide2);
-        this.f18294e = (TextView) findViewById(R.id.no_network_showmore);
+        this.f18296f = (ImageView) findViewById(R.id.no_network_icon);
+        this.f18297g = (TextView) findViewById(R.id.no_network_guide1);
+        this.f18298h = (TextView) findViewById(R.id.no_network_guide2);
+        this.f18295e = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void b(int i) {
-        SkinManager.setImageResource(this.f18295f, R.drawable.icon_error);
+        SkinManager.setImageResource(this.f18296f, R.drawable.icon_error);
         SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i != 1 && i != 4) {
-            this.f18296g.setTextColor(-14277082);
-            this.f18297h.setTextColor(-5065030);
-            this.f18294e.setTextColor(-14277082);
+            this.f18297g.setTextColor(-14277082);
+            this.f18298h.setTextColor(-5065030);
+            this.f18295e.setTextColor(-14277082);
             return;
         }
-        this.f18296g.setTextColor(-10523526);
-        this.f18297h.setTextColor(-8682095);
-        this.f18294e.setTextColor(-10523526);
+        this.f18297g.setTextColor(-10523526);
+        this.f18298h.setTextColor(-8682095);
+        this.f18295e.setTextColor(-10523526);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -112,7 +112,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        TextView textView = this.f18294e;
+        TextView textView = this.f18295e;
         if (textView == null) {
             return;
         }

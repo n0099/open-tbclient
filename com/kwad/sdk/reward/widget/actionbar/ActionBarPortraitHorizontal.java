@@ -26,28 +26,28 @@ import com.kwad.sdk.widget.KsLogoView;
 public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f36500a;
+    public ViewGroup f36501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f36501b;
+    public ViewGroup f36502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f36502c;
+    public ImageView f36503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AppScoreView f36503d;
+    public AppScoreView f36504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36504e;
+    public TextView f36505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f36505f;
+    public View f36506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f36506g;
+    public ViewGroup f36507g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f36507h;
+    public TextView f36508h;
     public TextView i;
     public TextView j;
     public TextProgressBar k;
@@ -81,14 +81,14 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_video_actionbar_portrait_horizontal, this);
-        this.f36500a = (ViewGroup) findViewById(R.id.ksad_top_container);
-        this.f36501b = (ViewGroup) findViewById(R.id.ksad_top_container_product);
-        this.f36502c = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f36503d = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f36504e = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f36505f = findViewById(R.id.ksad_video_place_holder);
-        this.f36506g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
-        this.f36507h = (TextView) findViewById(R.id.ksad_app_name);
+        this.f36501a = (ViewGroup) findViewById(R.id.ksad_top_container);
+        this.f36502b = (ViewGroup) findViewById(R.id.ksad_top_container_product);
+        this.f36503c = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f36504d = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f36505e = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f36506f = findViewById(R.id.ksad_video_place_holder);
+        this.f36507g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
+        this.f36508h = (TextView) findViewById(R.id.ksad_app_name);
         this.i = (TextView) findViewById(R.id.ksad_product_name);
         this.j = (TextView) findViewById(R.id.ksad_app_desc);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
@@ -149,37 +149,37 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
         AdInfo j = com.kwad.sdk.core.response.b.c.j(this.m);
         this.n = j;
         if (com.kwad.sdk.core.response.b.a.y(j)) {
-            this.f36501b.setVisibility(8);
-            this.f36500a.setVisibility(0);
-            this.f36500a.setOnClickListener(this);
-            this.f36507h.setText(com.kwad.sdk.core.response.b.a.q(this.n));
+            this.f36502b.setVisibility(8);
+            this.f36501a.setVisibility(0);
+            this.f36501a.setOnClickListener(this);
+            this.f36508h.setText(com.kwad.sdk.core.response.b.a.q(this.n));
         } else {
-            this.f36501b.setVisibility(0);
-            this.f36500a.setVisibility(8);
+            this.f36502b.setVisibility(0);
+            this.f36501a.setVisibility(8);
             this.i.setText(this.n.adBaseInfo.productName);
-            this.f36501b.setOnClickListener(this);
+            this.f36502b.setOnClickListener(this);
         }
         this.k.setOnClickListener(this);
         this.o = aVar;
         this.p = bVar;
-        KSImageLoader.loadAppIcon(this.f36502c, com.kwad.sdk.core.response.b.a.o(this.n), adTemplate, 16);
+        KSImageLoader.loadAppIcon(this.f36503c, com.kwad.sdk.core.response.b.a.o(this.n), adTemplate, 16);
         float u = com.kwad.sdk.core.response.b.a.u(this.n);
         if (u >= 3.0f) {
-            this.f36503d.setScore(u);
-            this.f36503d.setVisibility(0);
+            this.f36504d.setScore(u);
+            this.f36504d.setVisibility(0);
         } else {
-            this.f36503d.setVisibility(8);
+            this.f36504d.setVisibility(8);
         }
         String t = com.kwad.sdk.core.response.b.a.t(this.n);
         if (!TextUtils.isEmpty(t)) {
-            this.f36504e.setText(t);
-            this.f36504e.setVisibility(0);
+            this.f36505e.setText(t);
+            this.f36505e.setVisibility(0);
         } else {
-            this.f36504e.setVisibility(8);
+            this.f36505e.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.f36505f.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f36506f.getLayoutParams();
         layoutParams.height = i;
-        this.f36505f.setLayoutParams(layoutParams);
+        this.f36506f.setLayoutParams(layoutParams);
         this.j.setText(com.kwad.sdk.core.response.b.a.n(this.n));
         this.k.a(com.kwad.sdk.core.response.b.a.w(this.n), this.k.getMax());
         this.l.setVisibility(8);
@@ -187,14 +187,14 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
         if (bVar2 != null) {
             bVar2.a(getAppDownloadListener());
         }
-        this.f36506g.setOnClickListener(this);
+        this.f36507g.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.p, view == this.k);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.m, new a.InterfaceC0378a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.m, new a.InterfaceC0379a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
             public void a() {
                 if (ActionBarPortraitHorizontal.this.o != null) {
                     ActionBarPortraitHorizontal.this.o.a();

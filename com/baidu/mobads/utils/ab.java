@@ -37,11 +37,7 @@ public class ab implements IXAdViewUtils {
                     Rect rect = new Rect();
                     view.getGlobalVisibleRect(rect);
                     if (rect.top <= i && rect.left <= i2) {
-                        double width = rect.width() * rect.height();
-                        double width2 = view.getWidth() * view.getHeight();
-                        Double.isNaN(width);
-                        Double.isNaN(width2);
-                        return (int) ((width * 100.0d) / width2);
+                        return (int) (((rect.width() * rect.height()) * 100.0d) / (view.getWidth() * view.getHeight()));
                     }
                 }
             } catch (Exception unused) {

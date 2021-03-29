@@ -9,32 +9,32 @@ import com.baidu.pano.platform.comapi.a.a;
 public class ImageMarker extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Drawable f6362a;
+    public Drawable f6363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f6363b;
+    public Bitmap f6364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6364c;
+    public String f6365c;
 
     public Bitmap getMarkerBitmap() {
-        return this.f6363b;
+        return this.f6364b;
     }
 
     public Drawable getMarkerDrawable() {
-        return this.f6362a;
+        return this.f6363a;
     }
 
     public void setMarker(Drawable drawable) {
-        this.f6362a = drawable;
+        this.f6363a = drawable;
         if (drawable != null) {
             Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-            this.f6363b = bitmap;
+            this.f6364b = bitmap;
             if (bitmap != null) {
                 Bitmap.Config config = bitmap.getConfig();
                 Bitmap.Config config2 = Bitmap.Config.ARGB_8888;
                 if (config != config2) {
-                    this.f6363b = this.f6363b.copy(config2, true);
+                    this.f6364b = this.f6364b.copy(config2, true);
                     return;
                 }
                 return;
@@ -45,10 +45,10 @@ public class ImageMarker extends a {
 
     @Override // com.baidu.pano.platform.comapi.a.a
     public Bundle toBundle(String str, Bundle bundle) {
-        String str2 = this.f6364c;
+        String str2 = this.f6365c;
         if (str2 != null && !str2.equals("")) {
             bundle.putInt("markerType", 1001);
-            bundle.putString("image_url", this.f6364c);
+            bundle.putString("image_url", this.f6365c);
         } else {
             bundle.putInt("markerType", 1002);
         }
@@ -56,6 +56,6 @@ public class ImageMarker extends a {
     }
 
     public void setMarker(String str) {
-        this.f6364c = str;
+        this.f6365c = str;
     }
 }

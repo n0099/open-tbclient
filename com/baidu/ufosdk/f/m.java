@@ -205,7 +205,7 @@ public final class m {
     public static Bitmap c(Context context) {
         Throwable th;
         InputStream inputStream;
-        Bitmap bitmap = com.baidu.ufosdk.b.f22907g;
+        Bitmap bitmap = com.baidu.ufosdk.b.f22908g;
         if (bitmap != null) {
             return bitmap;
         }

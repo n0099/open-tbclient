@@ -34,7 +34,7 @@ public interface GifDecoder {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public @interface GifDecodeStatus {
     }
 

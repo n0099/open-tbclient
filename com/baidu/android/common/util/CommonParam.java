@@ -2,14 +2,14 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2513a = false;
+    public static final boolean f2514a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2514b = "CommonParam";
+    public static final String f2515b = "CommonParam";
 
     @Deprecated
     public static String getCUID(Context context) {

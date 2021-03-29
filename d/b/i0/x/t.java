@@ -9,50 +9,50 @@ import java.util.List;
 public class t {
 
     /* renamed from: b  reason: collision with root package name */
-    public static t f62308b;
+    public static t f62309b;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<StatisticItem> f62309a;
+    public List<StatisticItem> f62310a;
 
     public static t b() {
-        if (f62308b == null) {
+        if (f62309b == null) {
             synchronized (t.class) {
-                if (f62308b == null) {
-                    f62308b = new t();
+                if (f62309b == null) {
+                    f62309b = new t();
                 }
             }
         }
-        return f62308b;
+        return f62309b;
     }
 
     public void a(StatisticItem statisticItem) {
         if (statisticItem == null) {
             return;
         }
-        if (this.f62309a == null) {
-            this.f62309a = new ArrayList();
+        if (this.f62310a == null) {
+            this.f62310a = new ArrayList();
         }
-        this.f62309a.add(statisticItem);
+        this.f62310a.add(statisticItem);
     }
 
     public void c() {
-        if (ListUtils.getCount(this.f62309a) == 0) {
+        if (ListUtils.getCount(this.f62310a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f62309a) {
+        for (StatisticItem statisticItem : this.f62310a) {
             if (statisticItem != null) {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f62309a.clear();
+        this.f62310a.clear();
     }
 
     public void d(boolean z) {
-        if (ListUtils.getCount(this.f62309a) == 0) {
+        if (ListUtils.getCount(this.f62310a) == 0) {
             return;
         }
         int i = -1;
-        for (StatisticItem statisticItem : this.f62309a) {
+        for (StatisticItem statisticItem : this.f62310a) {
             if (statisticItem != null && i != statisticItem.getPosition()) {
                 i = statisticItem.getPosition();
                 statisticItem.delete(TiebaStatic.Params.OBJ_PARAM2);
@@ -60,19 +60,19 @@ public class t {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f62309a.clear();
+        this.f62310a.clear();
     }
 
     public void e(boolean z) {
-        if (ListUtils.getCount(this.f62309a) == 0) {
+        if (ListUtils.getCount(this.f62310a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f62309a) {
+        for (StatisticItem statisticItem : this.f62310a) {
             if (statisticItem != null) {
                 statisticItem.param("obj_type", z ? 1 : 0);
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f62309a.clear();
+        this.f62310a.clear();
     }
 }

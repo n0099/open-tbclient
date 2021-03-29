@@ -8,7 +8,7 @@ import java.util.List;
 import tbclient.MoreTreasureTrove.DataRes;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static List<n> a(List<ThreadInfo> list) {
         if (list == null) {

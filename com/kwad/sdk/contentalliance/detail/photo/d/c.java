@@ -3,8 +3,8 @@ package com.kwad.sdk.contentalliance.detail.photo.d;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f32271a;
+    public d f32272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.photo.f.c f32272b;
+    public com.kwad.sdk.contentalliance.detail.photo.f.c f32273b;
 }

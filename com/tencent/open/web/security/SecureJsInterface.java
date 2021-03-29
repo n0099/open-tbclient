@@ -7,7 +7,7 @@ public class SecureJsInterface extends a.b {
     public static boolean isPWDEdit = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39339a;
+    public String f39340a;
 
     public void clearAllEdit() {
         f.c("openSDK_LOG.SecureJsInterface", "-->clear all edit.");
@@ -29,19 +29,19 @@ public class SecureJsInterface extends a.b {
             i = -1;
         }
         if (i >= 0) {
-            boolean z = a.f39342c;
-            boolean z2 = a.f39341b;
+            boolean z = a.f39343c;
+            boolean z2 = a.f39342b;
             if (z2) {
                 if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i)).booleanValue()) {
-                    a.f39341b = false;
+                    a.f39342b = false;
                     return;
                 }
                 return;
             }
-            String str2 = a.f39340a;
-            this.f39339a = str2;
+            String str2 = a.f39341a;
+            this.f39340a = str2;
             JniInterface.insetTextToArray(i, str2, str2.length());
-            f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39339a);
+            f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39340a);
             return;
         }
         throw new RuntimeException("position is illegal.");

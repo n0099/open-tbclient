@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.data.ForumData;
 public class o implements d.b.b.j.e.n {
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f53524e;
+    public final boolean f53525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ForumData f53525f;
+    public ForumData f53526f;
 
     public o(ForumData forumData, boolean z) {
-        this.f53525f = forumData;
-        this.f53524e = z;
+        this.f53526f = forumData;
+        this.f53525e = z;
     }
 
     public ForumData a() {
-        return this.f53525f;
+        return this.f53526f;
     }
 
     public boolean e() {
-        return this.f53524e;
+        return this.f53525e;
     }
 
     @Override // d.b.b.j.e.n

@@ -75,7 +75,7 @@ import tbclient.Personalized.DataRes;
 import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public boolean B;
     public int C;
@@ -88,14 +88,14 @@ public class e {
     public int L;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f63051a;
+    public final long f63052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.i0.z0.g.b f63052b;
+    public final d.b.i0.z0.g.b f63053b;
     public Runnable b0;
 
     /* renamed from: e  reason: collision with root package name */
-    public DataRes.Builder f63055e;
+    public DataRes.Builder f63056e;
     public final TbPageContext<?> j;
     public final BdTypeRecyclerView k;
     public final BigdaySwipeRefreshLayout l;
@@ -108,19 +108,19 @@ public class e {
     public d.b.i0.i2.i v;
 
     /* renamed from: c  reason: collision with root package name */
-    public i0 f63053c = null;
+    public i0 f63054c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d.b.b.j.e.n> f63054d = new LinkedList();
+    public final List<d.b.b.j.e.n> f63055d = new LinkedList();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63056f = 1;
+    public int f63057f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63057g = false;
+    public boolean f63058g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63058h = false;
+    public boolean f63059h = false;
     public int i = 0;
     public int n = 2000;
     public d.b.h0.m0.c r = null;
@@ -133,7 +133,7 @@ public class e {
     public boolean D = false;
     public boolean H = true;
     public BdUniqueId M = BdUniqueId.gen();
-    public a.C1117a N = new a.C1117a(2);
+    public a.C1118a N = new a.C1118a(2);
     public ThreadInfo O = null;
     public RecyclerView.OnScrollListener P = new v();
     public View.OnTouchListener Q = new c0();
@@ -159,7 +159,7 @@ public class e {
     public final d.b.b.c.g.a l0 = new a0(CmdConfigHttp.CMD_GET_MY_POST, 303111);
     public CustomMessageListener m0 = new b0(2921482);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements MessageQueue.IdleHandler {
         public a() {
         }
@@ -171,7 +171,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a0 extends d.b.b.c.g.a {
         public a0(int i, int i2) {
             super(i, i2);
@@ -195,7 +195,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends d.b.h0.z0.f0<DataRes> {
         public b(e eVar) {
         }
@@ -217,7 +217,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b0 extends CustomMessageListener {
         public b0(int i) {
             super(i);
@@ -232,7 +232,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.h0.z0.n<DataRes> {
         public c() {
         }
@@ -245,7 +245,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c0 implements View.OnTouchListener {
         public c0() {
         }
@@ -263,20 +263,20 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.h0.z0.f0<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataRes.Builder f63064a;
+        public final /* synthetic */ DataRes.Builder f63065a;
 
         public d(DataRes.Builder builder) {
-            this.f63064a = builder;
+            this.f63065a = builder;
         }
 
         @Override // d.b.h0.z0.f0
         public Object doInBackground() {
-            DataRes.Builder builder = new DataRes.Builder(this.f63064a.build(true));
-            e.this.f63052b.g(builder.thread_list);
+            DataRes.Builder builder = new DataRes.Builder(this.f63065a.build(true));
+            e.this.f63053b.g(builder.thread_list);
             try {
                 d.b.h0.r.r.a.f().e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount()).g("0", builder.build(true).toByteArray());
                 return null;
@@ -287,7 +287,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d0 implements a.b {
         public d0() {
         }
@@ -312,20 +312,20 @@ public class e {
     }
 
     /* renamed from: d.b.i0.z0.g.e$e  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1700e extends d.b.h0.z0.f0<Object> {
+    /* loaded from: classes3.dex */
+    public class C1701e extends d.b.h0.z0.f0<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataRes.Builder f63067a;
+        public final /* synthetic */ DataRes.Builder f63068a;
 
-        public C1700e(DataRes.Builder builder) {
-            this.f63067a = builder;
+        public C1701e(DataRes.Builder builder) {
+            this.f63068a = builder;
         }
 
         @Override // d.b.h0.z0.f0
         public Object doInBackground() {
-            DataRes.Builder builder = new DataRes.Builder(this.f63067a.build(true));
-            e.this.f63052b.g(builder.thread_list);
+            DataRes.Builder builder = new DataRes.Builder(this.f63068a.build(true));
+            e.this.f63053b.g(builder.thread_list);
             try {
                 d.b.h0.r.r.a.f().e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).g("0", builder.build(true).toByteArray());
                 return null;
@@ -336,7 +336,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e0 extends CustomMessageListener {
         public e0(int i) {
             super(i);
@@ -353,7 +353,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements HomePageYoungsterTopView.b {
         public f() {
         }
@@ -369,7 +369,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f0 extends CustomMessageListener {
         public f0(int i) {
             super(i);
@@ -384,7 +384,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g extends CustomMessageListener {
         public g(int i) {
             super(i);
@@ -394,24 +394,24 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a2 a2Var;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof a2) || e.this.f63055e == null || ListUtils.getCount(e.this.f63055e.thread_list) == 0 || (a2Var = (a2) customResponsedMessage.getData()) == null || a2Var.P0() == null || a2Var.o0() == null || ListUtils.getCount(e.this.f63055e.thread_list) == 0) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof a2) || e.this.f63056e == null || ListUtils.getCount(e.this.f63056e.thread_list) == 0 || (a2Var = (a2) customResponsedMessage.getData()) == null || a2Var.P0() == null || a2Var.o0() == null || ListUtils.getCount(e.this.f63056e.thread_list) == 0) {
                 return;
             }
-            for (int i = 0; i < e.this.f63055e.thread_list.size(); i++) {
-                ThreadInfo threadInfo = e.this.f63055e.thread_list.get(i);
+            for (int i = 0; i < e.this.f63056e.thread_list.size(); i++) {
+                ThreadInfo threadInfo = e.this.f63056e.thread_list.get(i);
                 if (threadInfo != null && threadInfo.id.longValue() == d.b.b.e.m.b.f(a2Var.o0(), -1L)) {
                     ThreadInfo.Builder builder = new ThreadInfo.Builder(threadInfo);
                     Zan.Builder builder2 = new Zan.Builder(builder.zan);
                     builder2.num = Integer.valueOf((int) a2Var.P0().getNum());
                     builder.zan = builder2.build(true);
-                    e.this.f63055e.thread_list.set(i, builder.build(true));
+                    e.this.f63056e.thread_list.set(i, builder.build(true));
                     return;
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g0 extends CustomMessageListener {
         public g0(int i) {
             super(i);
@@ -448,7 +448,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h extends CustomMessageListener {
         public h(int i) {
             super(i);
@@ -461,22 +461,22 @@ public class e {
             if (customResponsedMessage.getOrginalMessage() instanceof LiveRoomClosedQueryMessage) {
                 List<Long> ids = ((LiveRoomClosedQueryMessage) customResponsedMessage.getOrginalMessage()).getIds();
                 List<Object> originData = ((LiveRoomClosedQueryMessage) customResponsedMessage.getOrginalMessage()).getOriginData();
-                if (ListUtils.isEmpty(e.this.f63054d) || ListUtils.isEmpty(ids) || ListUtils.isEmpty(originData)) {
+                if (ListUtils.isEmpty(e.this.f63055d) || ListUtils.isEmpty(ids) || ListUtils.isEmpty(originData)) {
                     return;
                 }
                 for (int i = 0; i < originData.size(); i++) {
                     if ((originData.get(i) instanceof a2) && (a2Var = (a2) originData.get(i)) != null && a2Var.q1() != null && ids.contains(Long.valueOf(a2Var.q1().live_id))) {
-                        e.this.f63054d.remove(a2Var);
+                        e.this.f63055d.remove(a2Var);
                     }
                 }
                 if (e.this.m != null) {
-                    e.this.m.z(new ArrayList(e.this.f63054d));
+                    e.this.m.z(new ArrayList(e.this.f63055d));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h0 implements CustomMessageTask.CustomRunnable<Boolean> {
         public h0() {
         }
@@ -485,13 +485,13 @@ public class e {
         public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
             ThreadCardViewHolder c0 = e.this.c0();
             if (c0 != null && c0.b() != null) {
-                return new CustomResponsedMessage<>(2016323, Boolean.valueOf(c0.b().o(new a.C1117a(6))));
+                return new CustomResponsedMessage<>(2016323, Boolean.valueOf(c0.b().o(new a.C1118a(6))));
             }
             return new CustomResponsedMessage<>(2016323, Boolean.FALSE);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i extends CustomMessageListener {
         public i(int i) {
             super(i);
@@ -502,28 +502,28 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             User user;
             int intValue;
-            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || e.this.f63055e == null || ListUtils.isEmpty(e.this.f63055e.thread_list)) {
+            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || e.this.f63056e == null || ListUtils.isEmpty(e.this.f63056e.thread_list)) {
                 return;
             }
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13694c)) {
+            if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13695c)) {
                 return;
             }
             int i = 0;
             while (true) {
-                if (i >= e.this.f63055e.thread_list.size()) {
+                if (i >= e.this.f63056e.thread_list.size()) {
                     break;
                 }
-                ThreadInfo threadInfo = e.this.f63055e.thread_list.get(i);
-                if (threadInfo == null || (user = threadInfo.author) == null || user.id.longValue() != d.b.b.e.m.b.f(updateAttentionMessage.getData().f13694c, -1L)) {
+                ThreadInfo threadInfo = e.this.f63056e.thread_list.get(i);
+                if (threadInfo == null || (user = threadInfo.author) == null || user.id.longValue() != d.b.b.e.m.b.f(updateAttentionMessage.getData().f13695c, -1L)) {
                     i++;
                 } else {
                     ThreadInfo.Builder builder = new ThreadInfo.Builder(threadInfo);
                     User.Builder builder2 = new User.Builder(builder.author);
-                    builder2.is_like = Integer.valueOf(updateAttentionMessage.getData().f13695d ? 1 : 0);
-                    builder2.has_concerned = Integer.valueOf(updateAttentionMessage.getData().f13695d ? 1 : 0);
+                    builder2.is_like = Integer.valueOf(updateAttentionMessage.getData().f13696d ? 1 : 0);
+                    builder2.has_concerned = Integer.valueOf(updateAttentionMessage.getData().f13696d ? 1 : 0);
                     GodInfo.Builder builder3 = new GodInfo.Builder(builder2.god_data);
-                    if (updateAttentionMessage.getData().f13695d) {
+                    if (updateAttentionMessage.getData().f13696d) {
                         intValue = builder2.fans_num.intValue() + 1;
                         builder3.followed = 1;
                     } else {
@@ -533,14 +533,14 @@ public class e {
                     builder2.fans_num = Integer.valueOf(intValue);
                     builder2.god_data = builder3.build(true);
                     builder.author = builder2.build(true);
-                    e.this.f63055e.thread_list.set(i, builder.build(true));
+                    e.this.f63056e.thread_list.set(i, builder.build(true));
                 }
             }
             e.this.a1(updateAttentionMessage);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface i0 {
         void a(int i, d.b.h0.z0.c cVar, int i2);
 
@@ -553,7 +553,7 @@ public class e {
         void onError(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j extends CustomMessageListener {
         public j(int i) {
             super(i);
@@ -562,19 +562,19 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long) || e.this.f63055e == null || e.this.f63055e.hot_recomforum == null || ListUtils.isEmpty(e.this.f63055e.hot_recomforum.tab_list)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long) || e.this.f63056e == null || e.this.f63056e.hot_recomforum == null || ListUtils.isEmpty(e.this.f63056e.hot_recomforum.tab_list)) {
                 return;
             }
             long longValue = ((Long) customResponsedMessage.getData()).longValue();
-            DiscoverHotForum.Builder builder = new DiscoverHotForum.Builder(e.this.f63055e.hot_recomforum);
+            DiscoverHotForum.Builder builder = new DiscoverHotForum.Builder(e.this.f63056e.hot_recomforum);
             if (d.b.i0.z0.b.c.c(builder, longValue, customResponsedMessage.getCmd() == 2001335)) {
-                e.this.f63055e.hot_recomforum = builder.build(true);
-                e.this.E0(new DataRes.Builder(e.this.f63055e.build(true)));
+                e.this.f63056e.hot_recomforum = builder.build(true);
+                e.this.E0(new DataRes.Builder(e.this.f63056e.build(true)));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k implements ScrollFragmentTabHost.r {
         public k() {
         }
@@ -588,18 +588,18 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l extends d.b.h0.z0.f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f63079a;
+        public final /* synthetic */ String f63080a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f63080b;
+        public final /* synthetic */ boolean f63081b;
 
         public l(String str, boolean z) {
-            this.f63079a = str;
-            this.f63080b = z;
+            this.f63080a = str;
+            this.f63081b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -618,13 +618,13 @@ public class e {
                     if (builder.thread_list != null && builder.thread_list.size() > 0) {
                         for (int i = 0; i < builder.thread_list.size(); i++) {
                             ThreadInfo threadInfo = builder.thread_list.get(i);
-                            if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == d.b.b.e.m.b.f(this.f63079a, -1L)) {
+                            if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == d.b.b.e.m.b.f(this.f63080a, -1L)) {
                                 ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
                                 User.Builder builder3 = new User.Builder(builder2.author);
-                                builder3.is_like = Integer.valueOf(this.f63080b ? 1 : 0);
-                                builder3.has_concerned = Integer.valueOf(this.f63080b ? 1 : 0);
+                                builder3.is_like = Integer.valueOf(this.f63081b ? 1 : 0);
+                                builder3.has_concerned = Integer.valueOf(this.f63081b ? 1 : 0);
                                 GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
-                                if (this.f63080b) {
+                                if (this.f63081b) {
                                     intValue = builder3.fans_num.intValue() + 1;
                                     builder4.followed = 1;
                                 } else {
@@ -638,7 +638,7 @@ public class e {
                             }
                         }
                         DataRes.Builder builder5 = new DataRes.Builder(builder.build(true));
-                        e.this.f63052b.g(builder5.thread_list);
+                        e.this.f63053b.g(builder5.thread_list);
                         e2.g("0", builder5.build(true).toByteArray());
                         return Boolean.TRUE;
                     }
@@ -652,7 +652,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m implements d.b.h0.z0.n<Boolean> {
         public m(e eVar) {
         }
@@ -664,38 +664,38 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class n extends d.b.h0.z0.f0<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f63082a;
+        public final /* synthetic */ int f63083a;
 
         public n(int i) {
-            this.f63082a = i;
+            this.f63083a = i;
         }
 
         @Override // d.b.h0.z0.f0
         public Object doInBackground() {
             d.b.b.e.d.l<String> h2 = d.b.h0.r.r.a.f().h(e.this.Z, TbadkCoreApplication.getCurrentAccount());
             if (h2 != null) {
-                h2.e(e.this.Z, Integer.toString(this.f63082a), 43200000L);
+                h2.e(e.this.Z, Integer.toString(this.f63083a), 43200000L);
                 return null;
             }
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class o implements d.b.i0.z0.g.d {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f63085e;
+            public final /* synthetic */ int f63086e;
 
             public a(int i) {
-                this.f63085e = i;
+                this.f63086e = i;
             }
 
             @Override // java.lang.Runnable
@@ -704,10 +704,10 @@ public class e {
                     return;
                 }
                 e.this.k.requestFocusFromTouch();
-                if (this.f63085e > e.this.k.getCount() - 1) {
+                if (this.f63086e > e.this.k.getCount() - 1) {
                     return;
                 }
-                e.this.k.setSelection(this.f63085e);
+                e.this.k.setSelection(this.f63086e);
             }
         }
 
@@ -724,7 +724,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class p extends d.b.h0.z0.f0<String> {
         public p() {
         }
@@ -741,28 +741,28 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class q implements d.b.h0.z0.n<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.z0.g.d f63088a;
+        public final /* synthetic */ d.b.i0.z0.g.d f63089a;
 
         public q(e eVar, d.b.i0.z0.g.d dVar) {
-            this.f63088a = dVar;
+            this.f63089a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
-            d.b.i0.z0.g.d dVar = this.f63088a;
+            d.b.i0.z0.g.d dVar = this.f63089a;
             if (dVar != null) {
                 dVar.a(d.b.b.e.m.b.d(str, 0));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class r extends CustomMessageListener {
         public r(int i) {
             super(i);
@@ -775,13 +775,13 @@ public class e {
                 return;
             }
             TbSingleton.getInstance().isAddBanner = false;
-            e.this.f63054d.remove(e.this.G);
-            e.this.m.z(new ArrayList(e.this.f63054d));
+            e.this.f63055d.remove(e.this.G);
+            e.this.m.z(new ArrayList(e.this.f63055d));
             d.b.h0.r.d0.b.i().v("key_maintab_banner_close_time", System.currentTimeMillis());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class s extends CustomMessageListener {
         public s(int i) {
             super(i);
@@ -798,7 +798,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class t extends CustomMessageListener {
         public t(int i) {
             super(i);
@@ -811,7 +811,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class u extends CustomMessageListener {
         public u(int i) {
             super(i);
@@ -820,15 +820,15 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || e.this.f63055e == null || ListUtils.getCount(e.this.f63055e.thread_list) == 0) {
+            if (customResponsedMessage == null || e.this.f63056e == null || ListUtils.getCount(e.this.f63056e.thread_list) == 0) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
             e eVar = e.this;
-            eVar.X(str, eVar.f63054d);
+            eVar.X(str, eVar.f63055d);
             e.this.Y0(str);
             if (e.this.m != null) {
-                e.this.m.z(new ArrayList(e.this.f63054d));
+                e.this.m.z(new ArrayList(e.this.f63055d));
             }
             if (e.this.v == null || !e.this.z) {
                 return;
@@ -837,37 +837,36 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class v extends RecyclerView.OnScrollListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f63093a = -1;
+        public int f63094a = -1;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f63094b = 0;
+        public int f63095b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63095c = false;
+        public boolean f63096c = false;
 
         public v() {
         }
 
         public void a(int i, int i2) {
-            if (this.f63094b > i) {
-                this.f63095c = true;
+            if (this.f63095b > i) {
+                this.f63096c = true;
             }
             if (e.this.E != null && !e.this.y) {
-                e.this.E.a(this.f63094b, i);
-                throw null;
+                e.this.E.a(this.f63095b, i);
             }
-            this.f63094b = i;
+            this.f63095b = i;
             int i3 = (i2 + i) - 1;
-            if (!this.f63095c && this.f63093a != i3) {
-                this.f63093a = i3;
+            if (!this.f63096c && this.f63094a != i3) {
+                this.f63094a = i3;
                 e.this.z0(i3);
             }
-            if (this.f63095c && this.f63093a != i) {
-                this.f63093a = i;
+            if (this.f63096c && this.f63094a != i) {
+                this.f63094a = i;
                 e.this.z0(i);
             }
             e.this.a0 = i;
@@ -885,30 +884,30 @@ public class e {
             if (e.this.r == null) {
                 e.this.r = new d.b.h0.m0.c();
                 e.this.r.a(1005);
-                e.this.r.f50310e = 1;
+                e.this.r.f50311e = 1;
             }
             if (e.this.E != null && !e.this.y) {
                 e.this.E.b(recyclerView, i);
-                throw null;
-            } else if (i == 0) {
+            }
+            if (i == 0) {
                 d.b.i0.z0.g.c.b(e.this.k);
                 e.this.r.e();
                 d.b.i0.x.t.b().d(true);
                 d.b.i0.m.d.c().h("page_recommend", "show_");
                 d.b.i0.b3.c.g().h(e.this.I, false);
-                this.f63095c = false;
+                this.f63096c = false;
                 if (e.this.v == null || !e.this.z || e.this.y) {
                     return;
                 }
                 e.this.v.m(e.this.w, e.this.x, e.this.u, 1);
-            } else {
-                e.this.r.d();
-                if (i == 1) {
-                    if (e.this.o != null) {
-                        e.this.o.d();
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921418));
+                return;
+            }
+            e.this.r.d();
+            if (i == 1) {
+                if (e.this.o != null) {
+                    e.this.o.d();
                 }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921418));
             }
         }
 
@@ -927,7 +926,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class w extends CustomMessageListener {
         public w(int i) {
             super(i);
@@ -944,11 +943,11 @@ public class e {
             if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (c0 = e.this.c0()) == null || c0.b() == null) {
                 return;
             }
-            c0.b().o(new a.C1117a(3));
+            c0.b().o(new a.C1118a(3));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class x extends d.b.b.c.g.a {
         public x(int i, int i2) {
             super(i, i2);
@@ -980,19 +979,19 @@ public class e {
             if (j2 == 0) {
                 return;
             }
-            for (d.b.b.j.e.n nVar : e.this.f63054d) {
-                if ((nVar instanceof d.b.i0.z0.j.b.c.a) && (bVar = ((d.b.i0.z0.j.b.c.a) nVar).Y) != null && j2 == bVar.f63353b) {
-                    bVar.f63354c = j;
+            for (d.b.b.j.e.n nVar : e.this.f63055d) {
+                if ((nVar instanceof d.b.i0.z0.j.b.c.a) && (bVar = ((d.b.i0.z0.j.b.c.a) nVar).Y) != null && j2 == bVar.f63354b) {
+                    bVar.f63355c = j;
                     return;
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class y extends CustomMessageListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -1020,7 +1019,7 @@ public class e {
                 for (d.b.b.j.e.n nVar : h2) {
                     if (nVar instanceof d.b.i0.x.e0.k) {
                         d.b.i0.x.e0.k kVar = (d.b.i0.x.e0.k) nVar;
-                        if (kVar.o != 0 && (a2Var = kVar.f62196e) != null) {
+                        if (kVar.o != 0 && (a2Var = kVar.f62197e) != null) {
                             int[] p0 = a2Var.p0();
                             kVar.o = p0[0];
                             kVar.p = p0[1];
@@ -1032,7 +1031,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class z extends CustomMessageListener {
         public z(int i) {
             super(i);
@@ -1045,7 +1044,7 @@ public class e {
                 return;
             }
             j1 j1Var = (j1) customResponsedMessage.getData();
-            if (j1Var.f50822a != 1) {
+            if (j1Var.f50823a != 1) {
                 return;
             }
             int k = d.b.b.e.p.l.k(TbadkCoreApplication.getInst());
@@ -1054,7 +1053,7 @@ public class e {
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
             requestGetMyPostNetMessage.setTag(e.this.M);
-            requestGetMyPostNetMessage.setParams(d.b.b.e.m.b.f(j1Var.f50824c, 0L), 0L, 0L, k, i, f2, i2);
+            requestGetMyPostNetMessage.setParams(d.b.b.e.m.b.f(j1Var.f50825c, 0L), 0L, 0L, k, i, f2, i2);
             requestGetMyPostNetMessage.setBFrom("push");
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -1075,7 +1074,7 @@ public class e {
         aVar.d(this.R);
         this.m = b0Var;
         this.p = new d.b.i0.z0.g.k.a();
-        this.f63051a = d.b.h0.r.d0.b.i().k("recommend_frs_cache_time", 1800L) * 1000;
+        this.f63052a = d.b.h0.r.d0.b.i().k("recommend_frs_cache_time", 1800L) * 1000;
         bdTypeRecyclerView.setOnScrollListener(this.P);
         this.o = new d1();
         i0();
@@ -1083,7 +1082,7 @@ public class e {
         this.v = iVar;
         iVar.p(1);
         this.v.u(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.f63052b = new d.b.i0.z0.g.b(this.f63054d, this.m);
+        this.f63053b = new d.b.i0.z0.g.b(this.f63055d, this.m);
         SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(tbPageContext.getContext());
         this.J = smartBubbleAnimatedView;
         smartBubbleAnimatedView.setLayoutParams(new FrameLayout.LayoutParams(-1, d.b.b.e.p.l.g(tbPageContext.getContext(), R.dimen.tbds83)));
@@ -1121,22 +1120,22 @@ public class e {
     }
 
     public final void C0() {
-        if (ListUtils.getCount(this.f63054d) < this.p.e() - 40) {
+        if (ListUtils.getCount(this.f63055d) < this.p.e() - 40) {
             return;
         }
         List<d.b.b.j.e.n> list = null;
-        d.b.i0.z0.g.k.c c2 = this.p.c(true, this.f63055e, null, 1);
+        d.b.i0.z0.g.k.c c2 = this.p.c(true, this.f63056e, null, 1);
         int i2 = 0;
         if (c2 != null) {
-            list = c2.f63210a;
-            int i3 = c2.f63212c;
-            c2.f63212c = 0;
+            list = c2.f63211a;
+            int i3 = c2.f63213c;
+            c2.f63213c = 0;
             i2 = i3;
         }
         if (list != null) {
-            this.f63054d.clear();
-            this.f63054d.addAll(list);
-            this.m.A(new LinkedList(this.f63054d), i2);
+            this.f63055d.clear();
+            this.f63055d.addAll(list);
+            this.m.A(new LinkedList(this.f63055d), i2);
         }
     }
 
@@ -1152,55 +1151,55 @@ public class e {
         if (this.L == 1) {
             if (z3 && (dataRes.thread_list.size() >= 6 || j0())) {
                 K0();
-                this.f63055e = null;
+                this.f63056e = null;
             }
         } else if (z3 && j0()) {
-            this.f63055e = null;
+            this.f63056e = null;
         }
-        int size = z3 ? 0 : this.f63054d.size();
+        int size = z3 ? 0 : this.f63055d.size();
         DataRes.Builder builder = new DataRes.Builder(dataRes);
-        this.f63054d.clear();
-        d.b.i0.z0.g.k.c c2 = this.p.c(z2, this.f63055e, builder, !z3 ? 1 : 0);
+        this.f63055d.clear();
+        d.b.i0.z0.g.k.c c2 = this.p.c(z2, this.f63056e, builder, !z3 ? 1 : 0);
         if (c2 != null) {
-            list = c2.f63210a;
-            this.i = c2.f63211b;
-            i2 = c2.f63212c;
-            c2.f63212c = 0;
+            list = c2.f63211a;
+            this.i = c2.f63212b;
+            i2 = c2.f63213c;
+            c2.f63213c = 0;
         } else {
             list = null;
             i2 = 0;
         }
         if (list != null) {
-            this.f63054d.addAll(list);
+            this.f63055d.addAll(list);
             Q(list, size);
             J0(!z3 ? 1 : 0, list, size);
             if (this.D) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
             }
         }
-        if (this.f63055e == null) {
-            this.f63055e = builder;
-            this.f63052b.j(builder.thread_list);
+        if (this.f63056e == null) {
+            this.f63056e = builder;
+            this.f63053b.j(builder.thread_list);
         }
-        if (this.f63054d.size() != 0) {
+        if (this.f63055d.size() != 0) {
             if (z3) {
                 if (dataRes.live_answer != null) {
                     d.b.i0.z0.g.j.h hVar = new d.b.i0.z0.g.j.h();
                     this.G = hVar;
                     hVar.g(dataRes.live_answer);
-                    this.f63055e.live_answer = dataRes.live_answer;
+                    this.f63056e.live_answer = dataRes.live_answer;
                 } else if (z2) {
                     this.G = null;
-                    this.f63055e.live_answer = null;
+                    this.f63056e.live_answer = null;
                 }
-                this.f63055e.float_info = dataRes.float_info;
+                this.f63056e.float_info = dataRes.float_info;
             }
             long k2 = d.b.h0.r.d0.b.i().k("key_maintab_banner_close_time", 0L);
             if (this.G != null && !StringHelper.isTaday(k2)) {
                 TbSingleton.getInstance().isAddBanner = true;
-                this.f63054d.add(0, this.G);
+                this.f63055d.add(0, this.G);
             }
-            LinkedList linkedList = new LinkedList(this.f63054d);
+            LinkedList linkedList = new LinkedList(this.f63055d);
             d.b.i0.z0.g.h.b0 b0Var = this.m;
             Integer num = dataRes.is_new_url;
             if (num != null && num.intValue() == 1) {
@@ -1216,7 +1215,8 @@ public class e {
         }
         d.b.i0.z0.c.a.d().i(System.currentTimeMillis() - currentTimeMillis, 1);
         long e2 = d.b.i0.z0.c.a.d().e(1);
-        if (e2 > 0) {
+        int i3 = (e2 > 0L ? 1 : (e2 == 0L ? 0 : -1));
+        if (i3 > 0) {
             d.b.i0.z0.c.a.d().k(System.currentTimeMillis() - e2, 1);
             d.b.i0.z0.c.a.d().j(0L, 1);
         }
@@ -1227,25 +1227,25 @@ public class e {
         l1 l1Var = new l1();
         l1Var.a(dataRes.recom_post_topic);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, l1Var));
-        if (!z2 && e2 > 0) {
+        if (!z2 && i3 > 0) {
             d.b.h0.m0.l.b().H(System.currentTimeMillis() - e2);
         }
         return z5;
     }
 
     public final void E0(DataRes.Builder builder) {
-        d.b.h0.z0.h0.b(new C1700e(builder), null);
+        d.b.h0.z0.h0.b(new C1701e(builder), null);
     }
 
     public void F0(int i2, int i3) {
         a2 a2Var;
-        if (ListUtils.isEmpty(this.f63054d) || this.f63054d.size() <= i2) {
+        if (ListUtils.isEmpty(this.f63055d) || this.f63055d.size() <= i2) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        while (i2 < this.f63054d.size() && i2 <= i3) {
-            if (this.f63054d.get(i2).getType().getId() == a2.f3.getId() && (a2Var = (a2) this.f63054d.get(i2)) != null && a2Var.q1() != null) {
+        while (i2 < this.f63055d.size() && i2 <= i3) {
+            if (this.f63055d.get(i2).getType().getId() == a2.f3.getId() && (a2Var = (a2) this.f63055d.get(i2)) != null && a2Var.q1() != null) {
                 arrayList.add(Long.valueOf(a2Var.q1().live_id));
                 arrayList2.add(a2Var);
             }
@@ -1321,7 +1321,7 @@ public class e {
         if (iVar != null) {
             iVar.t(bdUniqueId);
         }
-        this.f63052b.i(bdUniqueId);
+        this.f63053b.i(bdUniqueId);
         this.d0.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.d0);
         this.h0.setTag(bdUniqueId);
@@ -1350,7 +1350,7 @@ public class e {
         if (list == null || list.isEmpty()) {
             return;
         }
-        int[] iArr = d.b.i0.c3.h0.f.f53379e;
+        int[] iArr = d.b.i0.c3.h0.f.f53380e;
         int i5 = 0;
         int i6 = 0;
         for (int i7 = 0; i7 < list.size() && i5 < iArr.length && (i4 = iArr[i5]) >= 0; i7++) {
@@ -1365,7 +1365,7 @@ public class e {
     }
 
     public final void K0() {
-        DataRes.Builder builder = this.f63055e;
+        DataRes.Builder builder = this.f63056e;
         if (builder == null) {
             return;
         }
@@ -1393,11 +1393,11 @@ public class e {
     }
 
     public final void N0(boolean z2) {
-        this.f63057g = z2;
+        this.f63058g = z2;
     }
 
     public void O0(i0 i0Var) {
-        this.f63053c = i0Var;
+        this.f63054c = i0Var;
     }
 
     public void P0(boolean z2) {
@@ -1405,26 +1405,25 @@ public class e {
     }
 
     public final void Q(List<d.b.b.j.e.n> list, int i2) {
-        Set<d.b.b.j.e.n> a2 = d.b.i0.r2.a.a(list, this.f63056f, "NEWINDEX");
+        Set<d.b.b.j.e.n> a2 = d.b.i0.r2.a.a(list, this.f63057f, "NEWINDEX");
         if (a2.size() > 0) {
             d.b.i0.b3.c.g().c(this.I, d.b.i0.b3.a.h("a002", "common_fill", true, a2.size()));
         }
     }
 
     public void Q0(d.b.h0.z0.b0 b0Var) {
-        if (b0Var == null) {
-            return;
+        if (b0Var != null) {
+            this.E = b0Var.a();
+            this.F = b0Var.b();
         }
-        b0Var.a();
-        throw null;
     }
 
     public final d.b.h0.z0.c R(boolean z2) {
-        String e2 = d.b.i0.r2.a.e(this.f63054d, z2);
+        String e2 = d.b.i0.r2.a.e(this.f63055d, z2);
         int T = T(z2);
         d.b.h0.z0.c cVar = new d.b.h0.z0.c();
-        cVar.f51657b = e2;
-        cVar.f51656a = T;
+        cVar.f51658b = e2;
+        cVar.f51657a = T;
         return cVar;
     }
 
@@ -1447,7 +1446,7 @@ public class e {
     public int T(boolean z2) {
         int i2;
         int i3;
-        List<d.b.b.j.e.n> list = this.f63054d;
+        List<d.b.b.j.e.n> list = this.f63055d;
         int i4 = 0;
         if (list == null || list.size() == 0) {
             return 0;
@@ -1455,8 +1454,8 @@ public class e {
         int i5 = -1;
         if (z2) {
             int i6 = 0;
-            while (i4 < this.f63054d.size()) {
-                d.b.b.j.e.n nVar = this.f63054d.get(i4);
+            while (i4 < this.f63055d.size()) {
+                d.b.b.j.e.n nVar = this.f63055d.get(i4);
                 if ((nVar instanceof d.b.i0.x.e0.b) && (i3 = ((d.b.i0.x.e0.b) nVar).position) != i5) {
                     i6++;
                     i5 = i3;
@@ -1467,8 +1466,8 @@ public class e {
                 i4++;
             }
         } else {
-            for (int size = this.f63054d.size() - 1; size >= 0; size--) {
-                d.b.b.j.e.n nVar2 = this.f63054d.get(size);
+            for (int size = this.f63055d.size() - 1; size >= 0; size--) {
+                d.b.b.j.e.n nVar2 = this.f63055d.get(size);
                 if ((nVar2 instanceof d.b.i0.x.e0.b) && (i2 = ((d.b.i0.x.e0.b) nVar2).position) != i5) {
                     i4++;
                     i5 = i2;
@@ -1478,7 +1477,7 @@ public class e {
                 }
             }
         }
-        return this.f63054d.size();
+        return this.f63055d.size();
     }
 
     public void T0() {
@@ -1562,11 +1561,9 @@ public class e {
 
     public void U0() {
         d.b.h0.z0.a0 a0Var = this.E;
-        if (a0Var == null) {
-            return;
+        if (a0Var != null) {
+            a0Var.c(true);
         }
-        a0Var.c(true);
-        throw null;
     }
 
     public final void V(DataRes.Builder builder) {
@@ -1607,8 +1604,8 @@ public class e {
                 this.n = 2000;
             }
             SmartBubbleAnimatedView smartBubbleAnimatedView = this.J;
-            smartBubbleAnimatedView.f16109e = str;
-            smartBubbleAnimatedView.f16110f = this.n;
+            smartBubbleAnimatedView.f16110e = str;
+            smartBubbleAnimatedView.f16111f = this.n;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 49;
             ScrollFragmentTabHost scrollFragmentTabHost2 = this.s;
@@ -1676,10 +1673,10 @@ public class e {
 
     public void X0() {
         d.b.i0.z0.c.a.d().j(System.currentTimeMillis(), 1);
-        this.f63056f = 1;
+        this.f63057f = 1;
         this.D = true;
-        if (this.f63054d.size() == 0 && !l0()) {
-            if (this.f63058h) {
+        if (this.f63055d.size() == 0 && !l0()) {
+            if (this.f63059h) {
                 return;
             }
             p0();
@@ -1690,7 +1687,7 @@ public class e {
 
     public void Y(Long l2) {
         List<ThreadInfo> list;
-        DataRes.Builder builder = this.f63055e;
+        DataRes.Builder builder = this.f63056e;
         if (builder == null || (list = builder.thread_list) == null) {
             return;
         }
@@ -1702,7 +1699,7 @@ public class e {
                 builder2.top_agree_post = null;
                 list.set(i2, builder2.build(true));
                 Z0();
-                D0(false, true, false, this.f63055e.build(true));
+                D0(false, true, false, this.f63056e.build(true));
                 return;
             }
         }
@@ -1712,28 +1709,28 @@ public class e {
         DataRes.Builder builder;
         BannerList bannerList;
         List<App> list;
-        if (TextUtils.isEmpty(str) || (builder = this.f63055e) == null || (bannerList = builder.banner_list) == null || (list = bannerList.app) == null || list.size() <= 0) {
+        if (TextUtils.isEmpty(str) || (builder = this.f63056e) == null || (bannerList = builder.banner_list) == null || (list = bannerList.app) == null || list.size() <= 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (App app : this.f63055e.banner_list.app) {
+        for (App app : this.f63056e.banner_list.app) {
             if (app != null && str.equals(app.id)) {
                 arrayList.add(app);
             }
         }
-        BannerList.Builder builder2 = new BannerList.Builder(this.f63055e.banner_list);
+        BannerList.Builder builder2 = new BannerList.Builder(this.f63056e.banner_list);
         List<App> list2 = builder2.app;
         if (list2 != null) {
             list2.removeAll(arrayList);
         }
-        this.f63055e.banner_list = builder2.build(false);
-        DataRes.Builder builder3 = new DataRes.Builder(this.f63055e.build(true));
+        this.f63056e.banner_list = builder2.build(false);
+        DataRes.Builder builder3 = new DataRes.Builder(this.f63056e.build(true));
         builder3.banner_list = builder2.build(true);
         E0(builder3);
     }
 
     public final void Z() {
-        Iterator<d.b.b.j.e.n> it = this.f63054d.iterator();
+        Iterator<d.b.b.j.e.n> it = this.f63055d.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -1742,7 +1739,7 @@ public class e {
                 break;
             }
         }
-        DataRes.Builder builder = this.f63055e;
+        DataRes.Builder builder = this.f63056e;
         if (builder == null) {
             return;
         }
@@ -1761,7 +1758,7 @@ public class e {
     }
 
     public final void Z0() {
-        DataRes.Builder builder = this.f63055e;
+        DataRes.Builder builder = this.f63056e;
         if (builder == null) {
             return;
         }
@@ -1780,7 +1777,7 @@ public class e {
     public final void a0(CustomResponsedMessage<?> customResponsedMessage) {
         DataRes.Builder builder;
         Long l2;
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (builder = this.f63055e) == null || ListUtils.getCount(builder.thread_list) == 0 || ListUtils.getCount(this.f63054d) == 0) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (builder = this.f63056e) == null || ListUtils.getCount(builder.thread_list) == 0 || ListUtils.getCount(this.f63055d) == 0) {
             return;
         }
         JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
@@ -1809,7 +1806,7 @@ public class e {
                 return;
             }
         }
-        Iterator<d.b.b.j.e.n> it = this.f63054d.iterator();
+        Iterator<d.b.b.j.e.n> it = this.f63055d.iterator();
         boolean z2 = false;
         while (true) {
             if (!it.hasNext()) {
@@ -1823,24 +1820,24 @@ public class e {
                         it.remove();
                         z2 = true;
                     } else if (z2) {
-                        d.b.i0.z0.g.k.b.b(this.f63054d);
+                        d.b.i0.z0.g.k.b.b(this.f63055d);
                         break;
                     }
                 }
             }
         }
-        DataRes.Builder builder2 = this.f63055e;
+        DataRes.Builder builder2 = this.f63056e;
         if (builder2 == null || builder2.thread_list == null) {
             return;
         }
         long f2 = d.b.b.e.m.b.f(optString, 0L);
         int i3 = 0;
         while (true) {
-            if (i3 < this.f63055e.thread_list.size()) {
-                ThreadInfo threadInfo = this.f63055e.thread_list.get(i3);
+            if (i3 < this.f63056e.thread_list.size()) {
+                ThreadInfo threadInfo = this.f63056e.thread_list.get(i3);
                 if (threadInfo != null && (l2 = threadInfo.tid) != null && l2.longValue() == f2) {
-                    d.b.i0.z0.g.l.c.d(threadInfo.tid.longValue(), i3, this.f63055e.thread_list, this.f63054d);
-                    this.f63055e.thread_list.remove(i3);
+                    d.b.i0.z0.g.l.c.d(threadInfo.tid.longValue(), i3, this.f63056e.thread_list, this.f63055d);
+                    this.f63056e.thread_list.remove(i3);
                     Z0();
                     break;
                 }
@@ -1862,10 +1859,10 @@ public class e {
     }
 
     public final void a1(UpdateAttentionMessage updateAttentionMessage) {
-        if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13694c)) {
+        if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13695c)) {
             return;
         }
-        d.b.h0.z0.h0.b(new l(updateAttentionMessage.getData().f13694c, updateAttentionMessage.getData().f13695d), new m(this));
+        d.b.h0.z0.h0.b(new l(updateAttentionMessage.getData().f13695c, updateAttentionMessage.getData().f13696d), new m(this));
     }
 
     public void b0(d.b.i0.z0.g.d dVar) {
@@ -2015,7 +2012,7 @@ public class e {
     public final boolean k0(boolean z2) {
         d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
         long k2 = i2.k("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-        return k2 == 0 ? z2 : Math.abs(System.currentTimeMillis() - k2) > this.f63051a;
+        return k2 == 0 ? z2 : Math.abs(System.currentTimeMillis() - k2) > this.f63052a;
     }
 
     public final boolean l0() {
@@ -2023,7 +2020,7 @@ public class e {
     }
 
     public final boolean m0() {
-        return this.f63057g;
+        return this.f63058g;
     }
 
     public final boolean n0() {
@@ -2036,14 +2033,14 @@ public class e {
     }
 
     public final void p0() {
-        this.f63058h = true;
+        this.f63059h = true;
         d.b.h0.z0.h0.b(new b(this), new c());
     }
 
     public final void q0() {
-        if (this.f63053c != null) {
-            DataRes.Builder builder = this.f63055e;
-            this.f63053c.a((builder == null || builder.thread_list == null || j0()) ? 0 : this.f63055e.thread_list.size(), R(true), 0);
+        if (this.f63054c != null) {
+            DataRes.Builder builder = this.f63056e;
+            this.f63054c.a((builder == null || builder.thread_list == null || j0()) ? 0 : this.f63056e.thread_list.size(), R(true), 0);
         }
     }
 
@@ -2051,12 +2048,12 @@ public class e {
         List<ThreadInfo> list;
         if (m0()) {
             d.b.i0.z0.c.a.d().j(0L, 1);
-        } else if (this.f63053c != null) {
+        } else if (this.f63054c != null) {
             C0();
-            this.f63056f++;
+            this.f63057f++;
             N0(true);
-            DataRes.Builder builder = this.f63055e;
-            this.f63053c.b(this.f63056f, (builder == null || (list = builder.thread_list) == null) ? 0 : list.size(), R(false), 0);
+            DataRes.Builder builder = this.f63056e;
+            this.f63054c.b(this.f63057f, (builder == null || (list = builder.thread_list) == null) ? 0 : list.size(), R(false), 0);
         }
     }
 
@@ -2082,7 +2079,7 @@ public class e {
         ThreadCardViewHolder c02 = c0();
         boolean z3 = false;
         if (c02 != null && c02.b() != null) {
-            z3 = c02.b().o(new a.C1117a(8, Boolean.valueOf(z2)));
+            z3 = c02.b().o(new a.C1118a(8, Boolean.valueOf(z2)));
         }
         if (z3) {
             return;
@@ -2095,10 +2092,10 @@ public class e {
     }
 
     public final void v0(DataRes dataRes) {
-        this.f63058h = true;
+        this.f63059h = true;
         if (dataRes != null) {
             if (D0(false, true, true, dataRes) && !j0()) {
-                i0 i0Var = this.f63053c;
+                i0 i0Var = this.f63054c;
                 if (i0Var != null) {
                     i0Var.d(true);
                     Looper.myQueue().addIdleHandler(new a());
@@ -2136,7 +2133,7 @@ public class e {
         if (d1Var != null) {
             d1Var.e();
         }
-        d.b.i0.z0.g.b bVar = this.f63052b;
+        d.b.i0.z0.g.b bVar = this.f63053b;
         if (bVar != null) {
             bVar.h();
         }
@@ -2181,10 +2178,10 @@ public class e {
                     d2.clear();
                 }
                 z4 = true;
-                DataRes.Builder builder2 = this.f63055e;
+                DataRes.Builder builder2 = this.f63056e;
                 size = (builder2 != null || (list = builder2.thread_list) == null) ? 0 : list.size();
                 if (z2 && i2 == 0 && dataRes2 != null && ListUtils.isEmpty(dataRes2.thread_list)) {
-                    i0 i0Var = this.f63053c;
+                    i0 i0Var = this.f63054c;
                     if (i0Var != null) {
                         i0Var.c();
                     }
@@ -2200,16 +2197,16 @@ public class e {
                     DataRes.Builder builder3 = new DataRes.Builder(dataRes2);
                     builder3.thread_list.add(0, this.O);
                     dataRes2 = builder3.build(false);
-                    DataRes.Builder builder4 = this.f63055e;
+                    DataRes.Builder builder4 = this.f63056e;
                     if (builder4 != null && !ListUtils.isEmpty(builder4.thread_list)) {
-                        Iterator<ThreadInfo> it = this.f63055e.thread_list.iterator();
+                        Iterator<ThreadInfo> it = this.f63056e.thread_list.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
                             ThreadInfo next = it.next();
                             if (next != null && (l2 = next.tid) != null && this.O.tid != null && l2.longValue() == this.O.tid.longValue()) {
-                                this.f63055e.thread_list.remove(next);
+                                this.f63056e.thread_list.remove(next);
                                 break;
                             }
                         }
@@ -2218,10 +2215,10 @@ public class e {
                 }
                 if ((!z4 || i2 == 0) && dataRes2 != null && D0(true, z2, z3, dataRes2)) {
                     t0();
-                    if (this.f63053c != null) {
+                    if (this.f63054c != null) {
                         d.b.h0.r.d0.b i3 = d.b.h0.r.d0.b.i();
                         i3.v("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
-                        this.f63053c.d(false);
+                        this.f63054c.d(false);
                     }
                     this.A = true;
                     this.B = z2;
@@ -2229,13 +2226,13 @@ public class e {
                     Z0();
                 } else {
                     this.A = false;
-                    if (this.f63054d.size() > 0) {
-                        i0 i0Var2 = this.f63053c;
+                    if (this.f63055d.size() > 0) {
+                        i0 i0Var2 = this.f63054c;
                         if (i0Var2 != null) {
                             i0Var2.onError(1, str);
                         }
                     } else {
-                        i0 i0Var3 = this.f63053c;
+                        i0 i0Var3 = this.f63054c;
                         if (i0Var3 != null) {
                             i0Var3.onError(2, str);
                         }
@@ -2256,7 +2253,7 @@ public class e {
             }
         }
         z4 = false;
-        DataRes.Builder builder22 = this.f63055e;
+        DataRes.Builder builder22 = this.f63056e;
         if (builder22 != null) {
         }
         if (z2) {
@@ -2266,7 +2263,7 @@ public class e {
         if (!z4) {
         }
         t0();
-        if (this.f63053c != null) {
+        if (this.f63054c != null) {
         }
         this.A = true;
         this.B = z2;

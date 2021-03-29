@@ -34,7 +34,7 @@ import d.b.i0.z0.b.e.z;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public d.b.i0.z0.b.e.d A;
     public p B;
@@ -46,25 +46,25 @@ public class a {
     public List<n> H;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f62672b;
+    public BdTypeRecyclerView f62673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f62673c;
+    public TbPageContext<?> f62674c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcernTipAdapter f62674d;
+    public ConcernTipAdapter f62675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcernEmotionTipAdapter f62675e;
+    public ConcernEmotionTipAdapter f62676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.z0.b.e.b f62676f;
+    public d.b.i0.z0.b.e.b f62677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.z0.b.e.a f62677g;
+    public d.b.i0.z0.b.e.a f62678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public v f62678h;
+    public v f62679h;
     public x j;
     public x k;
     public j l;
@@ -85,14 +85,14 @@ public class a {
     public ArrayList<r> i = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f62671a = new ArrayList();
+    public List<d.b.b.j.e.a> f62672a = new ArrayList();
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f62672b = bdTypeRecyclerView;
-        this.f62673c = (TbPageContext) d.b.b.a.j.a(context);
+        this.f62673b = bdTypeRecyclerView;
+        this.f62674c = (TbPageContext) d.b.b.a.j.a(context);
         b(context);
         i(bdTypeRecyclerView);
-        bdTypeRecyclerView.a(this.f62671a);
+        bdTypeRecyclerView.a(this.f62672a);
     }
 
     public List<n> a() {
@@ -102,66 +102,66 @@ public class a {
     public final void b(Context context) {
         for (int i = 0; i < d.b.i0.x.e0.b.P.size(); i++) {
             for (int i2 = 0; i2 < d.b.i0.x.e0.b.Q.size(); i2++) {
-                this.i.add(new r(this.f62673c, d.b.i0.x.e0.b.R[i][i2], d.b.i0.x.e0.b.P.get(i), d.b.i0.x.e0.b.Q.get(i2)));
+                this.i.add(new r(this.f62674c, d.b.i0.x.e0.b.R[i][i2], d.b.i0.x.e0.b.P.get(i), d.b.i0.x.e0.b.Q.get(i2)));
             }
         }
-        this.j = new x(this.f62673c, a2.e3, d.b.i0.x.e0.b.F);
-        this.k = new x(this.f62673c, a2.I2, d.b.i0.x.e0.b.G);
-        this.l = new j(this.f62673c, a2.x3, d.b.i0.x.e0.b.F);
-        this.m = new w(this.f62673c, d.b.i0.x.e0.k.v0);
-        this.n = new l(this.f62673c, d.b.i0.x.e0.k.w0);
-        this.u = new k(this.f62673c, d.b.i0.x.e0.k.C0);
-        this.v = new m(this.f62673c, d.b.i0.x.e0.k.D0);
-        this.o = new u(this.f62673c, d.b.i0.x.e0.k.B0);
-        this.p = new i(this.f62673c, d.b.i0.x.e0.k.x0);
-        this.q = new h(this.f62673c, d.b.i0.x.e0.k.y0);
-        this.r = new g(this.f62673c, d.b.i0.x.e0.k.z0);
-        this.t = new y(this.f62673c, d.b.i0.x.e0.l.V);
-        this.A = new d.b.i0.z0.b.e.d(this.f62673c, d.b.i0.x.e0.e.M0);
-        this.s = new f(this.f62673c, d.b.i0.x.e0.k.A0);
-        this.z = new s(this.f62673c, s1.i);
-        this.w = new d.b.i0.z0.b.e.n(this.f62673c, d.b.i0.x.e0.k.E0);
-        this.x = new t(this.f62673c, d.b.i0.x.e0.k.K0);
-        this.y = new o(this.f62673c, d.b.i0.x.e0.k.L0);
-        this.f62671a.addAll(this.i);
-        this.f62671a.add(this.j);
-        this.f62671a.add(this.k);
-        this.f62671a.add(this.l);
-        this.f62671a.add(this.m);
-        this.f62671a.add(this.n);
-        this.f62671a.add(this.u);
-        this.f62671a.add(this.v);
-        this.f62671a.add(this.o);
-        this.f62671a.add(this.p);
-        this.f62671a.add(this.q);
-        this.f62671a.add(this.r);
-        this.f62671a.add(this.t);
-        this.f62671a.add(this.s);
-        this.f62671a.add(this.z);
-        this.f62671a.add(this.w);
-        this.f62671a.add(this.x);
-        this.f62671a.add(this.y);
-        this.f62674d = new ConcernTipAdapter(this.f62673c.getContext());
-        this.f62675e = new ConcernEmotionTipAdapter(this.f62673c.getContext());
-        this.f62676f = new d.b.i0.z0.b.e.b(this.f62673c, d.b.i0.x.e0.j.M0);
-        this.f62677g = new d.b.i0.z0.b.e.a(this.f62673c, d.b.i0.x.e0.j.N0);
-        this.f62678h = new v(this.f62673c, d.b.i0.x.e0.k.o0);
-        this.B = new p(this.f62673c, d.b.i0.x.e0.k.p0);
-        this.C = new e(this.f62673c, d.b.i0.x.e0.k.q0);
-        this.D = new q(this.f62673c, d.b.i0.x.e0.k.r0);
-        this.E = new ConcernEmotionTipAdapter(this.f62673c.getContext(), d.b.i0.z0.b.f.b.j);
-        this.F = new z(this.f62673c, d.b.i0.x.e0.k.u0, (byte) 4);
-        this.f62671a.add(this.f62674d);
-        this.f62671a.add(this.f62675e);
-        this.f62671a.add(this.f62676f);
-        this.f62671a.add(this.f62677g);
-        this.f62671a.add(this.f62678h);
-        this.f62671a.add(this.B);
-        this.f62671a.add(this.C);
-        this.f62671a.add(this.D);
-        this.f62671a.add(this.A);
-        this.f62671a.add(this.E);
-        this.f62671a.add(this.F);
+        this.j = new x(this.f62674c, a2.e3, d.b.i0.x.e0.b.F);
+        this.k = new x(this.f62674c, a2.I2, d.b.i0.x.e0.b.G);
+        this.l = new j(this.f62674c, a2.x3, d.b.i0.x.e0.b.F);
+        this.m = new w(this.f62674c, d.b.i0.x.e0.k.v0);
+        this.n = new l(this.f62674c, d.b.i0.x.e0.k.w0);
+        this.u = new k(this.f62674c, d.b.i0.x.e0.k.C0);
+        this.v = new m(this.f62674c, d.b.i0.x.e0.k.D0);
+        this.o = new u(this.f62674c, d.b.i0.x.e0.k.B0);
+        this.p = new i(this.f62674c, d.b.i0.x.e0.k.x0);
+        this.q = new h(this.f62674c, d.b.i0.x.e0.k.y0);
+        this.r = new g(this.f62674c, d.b.i0.x.e0.k.z0);
+        this.t = new y(this.f62674c, d.b.i0.x.e0.l.V);
+        this.A = new d.b.i0.z0.b.e.d(this.f62674c, d.b.i0.x.e0.e.M0);
+        this.s = new f(this.f62674c, d.b.i0.x.e0.k.A0);
+        this.z = new s(this.f62674c, s1.i);
+        this.w = new d.b.i0.z0.b.e.n(this.f62674c, d.b.i0.x.e0.k.E0);
+        this.x = new t(this.f62674c, d.b.i0.x.e0.k.K0);
+        this.y = new o(this.f62674c, d.b.i0.x.e0.k.L0);
+        this.f62672a.addAll(this.i);
+        this.f62672a.add(this.j);
+        this.f62672a.add(this.k);
+        this.f62672a.add(this.l);
+        this.f62672a.add(this.m);
+        this.f62672a.add(this.n);
+        this.f62672a.add(this.u);
+        this.f62672a.add(this.v);
+        this.f62672a.add(this.o);
+        this.f62672a.add(this.p);
+        this.f62672a.add(this.q);
+        this.f62672a.add(this.r);
+        this.f62672a.add(this.t);
+        this.f62672a.add(this.s);
+        this.f62672a.add(this.z);
+        this.f62672a.add(this.w);
+        this.f62672a.add(this.x);
+        this.f62672a.add(this.y);
+        this.f62675d = new ConcernTipAdapter(this.f62674c.getContext());
+        this.f62676e = new ConcernEmotionTipAdapter(this.f62674c.getContext());
+        this.f62677f = new d.b.i0.z0.b.e.b(this.f62674c, d.b.i0.x.e0.j.M0);
+        this.f62678g = new d.b.i0.z0.b.e.a(this.f62674c, d.b.i0.x.e0.j.N0);
+        this.f62679h = new v(this.f62674c, d.b.i0.x.e0.k.o0);
+        this.B = new p(this.f62674c, d.b.i0.x.e0.k.p0);
+        this.C = new e(this.f62674c, d.b.i0.x.e0.k.q0);
+        this.D = new q(this.f62674c, d.b.i0.x.e0.k.r0);
+        this.E = new ConcernEmotionTipAdapter(this.f62674c.getContext(), d.b.i0.z0.b.f.b.j);
+        this.F = new z(this.f62674c, d.b.i0.x.e0.k.u0, (byte) 4);
+        this.f62672a.add(this.f62675d);
+        this.f62672a.add(this.f62676e);
+        this.f62672a.add(this.f62677f);
+        this.f62672a.add(this.f62678g);
+        this.f62672a.add(this.f62679h);
+        this.f62672a.add(this.B);
+        this.f62672a.add(this.C);
+        this.f62672a.add(this.D);
+        this.f62672a.add(this.A);
+        this.f62672a.add(this.E);
+        this.f62672a.add(this.F);
         g("page_concern");
         c();
     }
@@ -172,13 +172,13 @@ public class a {
             return;
         }
         this.G = new ArrayList<>();
-        d.b.b.j.e.a<?, ?> f2 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.j4, "CONCERN");
-        d.b.b.j.e.a<?, ?> f3 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.k4, "CONCERN");
-        d.b.b.j.e.a<?, ?> f4 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.o4, "CONCERN");
-        d.b.b.j.e.a<?, ?> f5 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.p4, "CONCERN");
-        d.b.b.j.e.a<?, ?> f6 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.q4, "CONCERN");
-        d.b.b.j.e.a<?, ?> f7 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.s4, "CONCERN");
-        d.b.b.j.e.a<?, ?> f8 = d.b.i0.r2.s.o().f(this.f62673c, AdvertAppInfo.r4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f2 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.j4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f3 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.k4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f4 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.o4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f5 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.p4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f6 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.q4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f7 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.s4, "CONCERN");
+        d.b.b.j.e.a<?, ?> f8 = d.b.i0.r2.s.o().f(this.f62674c, AdvertAppInfo.r4, "CONCERN");
         this.G.add(f2);
         this.G.add(f3);
         this.G.add(f4);
@@ -186,12 +186,12 @@ public class a {
         this.G.add(f6);
         this.G.add(f7);
         this.G.add(f8);
-        this.f62671a.addAll(this.G);
+        this.f62672a.addAll(this.G);
         AdvertAppInfo.t4.set(true);
     }
 
     public void d() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f62672b;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f62673b;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
@@ -215,7 +215,7 @@ public class a {
     }
 
     public final void g(String str) {
-        List<d.b.b.j.e.a> list = this.f62671a;
+        List<d.b.b.j.e.a> list = this.f62672a;
         if (list == null) {
             return;
         }
@@ -231,9 +231,9 @@ public class a {
         while (it.hasNext()) {
             it.next().m = bdUniqueId;
         }
-        this.f62676f.m = bdUniqueId;
-        this.f62677g.m = bdUniqueId;
-        this.f62678h.m = bdUniqueId;
+        this.f62677f.m = bdUniqueId;
+        this.f62678g.m = bdUniqueId;
+        this.f62679h.m = bdUniqueId;
         this.D.m = bdUniqueId;
         this.B.m = bdUniqueId;
         this.C.m = bdUniqueId;
@@ -274,6 +274,6 @@ public class a {
 
     public void j(List<n> list) {
         this.H = list;
-        this.f62672b.setData(list);
+        this.f62673b.setData(list);
     }
 }

@@ -17,20 +17,20 @@ public class g implements Handler.Callback {
     public static final Printer o = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public long f65863g;
+    public long f65864g;
     public boolean l;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65862f = 0;
+    public int f65863f = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<List<Runnable>> f65864h = new SparseArray<>();
+    public final SparseArray<List<Runnable>> f65865h = new SparseArray<>();
     public final List<Printer> i = new LinkedList();
     public final List<Printer> j = new LinkedList();
     public boolean k = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f65861e = new Handler(i.a().getLooper(), this);
+    public Handler f65862e = new Handler(i.a().getLooper(), this);
 
     /* loaded from: classes6.dex */
     public static class a implements Printer {
@@ -89,13 +89,13 @@ public class g implements Handler.Callback {
         }
         for (int i2 = 0; i2 < i; i2++) {
             int i3 = (int) j;
-            List<Runnable> list = this.f65864h.get(i3);
+            List<Runnable> list = this.f65865h.get(i3);
             if (list == null) {
-                synchronized (this.f65864h) {
-                    list = this.f65864h.get(i3);
+                synchronized (this.f65865h) {
+                    list = this.f65865h.get(i3);
                     if (list == null) {
                         list = new LinkedList<>();
-                        this.f65864h.put(i3, list);
+                        this.f65865h.put(i3, list);
                     }
                 }
             }
@@ -113,10 +113,10 @@ public class g implements Handler.Callback {
             h.a(32L);
             this.l = true;
         }
-        this.f65863g = SystemClock.uptimeMillis();
+        this.f65864g = SystemClock.uptimeMillis();
         try {
             g(this.i, str);
-            this.f65861e.sendEmptyMessage(0);
+            this.f65862e.sendEmptyMessage(0);
         } catch (Exception e2) {
             l.k.b(e2);
         }
@@ -151,35 +151,35 @@ public class g implements Handler.Callback {
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        if (this.f65861e.hasMessages(0)) {
+        if (this.f65862e.hasMessages(0)) {
             return true;
         }
         int i = message.what;
         if (i == 0) {
-            this.f65862f = 0;
-            if (this.f65864h.size() != 0 && this.f65864h.keyAt(0) == 0) {
-                f(this.f65864h.valueAt(0));
-                this.f65862f++;
+            this.f65863f = 0;
+            if (this.f65865h.size() != 0 && this.f65865h.keyAt(0) == 0) {
+                f(this.f65865h.valueAt(0));
+                this.f65863f++;
             }
         } else if (i == 1) {
-            this.f65861e.removeMessages(2);
-            if (this.f65864h.size() != 0) {
-                SparseArray<List<Runnable>> sparseArray = this.f65864h;
+            this.f65862e.removeMessages(2);
+            if (this.f65865h.size() != 0) {
+                SparseArray<List<Runnable>> sparseArray = this.f65865h;
                 if (sparseArray.keyAt(sparseArray.size() - 1) == 0) {
-                    f(this.f65864h.get(Integer.MAX_VALUE));
+                    f(this.f65865h.get(Integer.MAX_VALUE));
                 }
             }
             return true;
         } else if (i == 2) {
-            f(this.f65864h.valueAt(this.f65862f));
-            this.f65862f++;
+            f(this.f65865h.valueAt(this.f65863f));
+            this.f65863f++;
         }
-        if (this.f65862f >= this.f65864h.size()) {
+        if (this.f65863f >= this.f65865h.size()) {
             return true;
         }
-        long keyAt = this.f65864h.keyAt(this.f65862f);
+        long keyAt = this.f65865h.keyAt(this.f65863f);
         if (keyAt != 2147483647L) {
-            this.f65861e.sendEmptyMessageAtTime(2, this.f65863g + keyAt);
+            this.f65862e.sendEmptyMessageAtTime(2, this.f65864g + keyAt);
         }
         return true;
     }
@@ -191,9 +191,9 @@ public class g implements Handler.Callback {
     public void j(String str) {
         SystemClock.uptimeMillis();
         try {
-            this.f65861e.removeMessages(2);
+            this.f65862e.removeMessages(2);
             g(this.j, str);
-            this.f65861e.sendEmptyMessage(1);
+            this.f65862e.sendEmptyMessage(1);
         } catch (Exception e2) {
             l.k.c(e2);
         }

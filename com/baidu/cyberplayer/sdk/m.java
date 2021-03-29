@@ -12,10 +12,10 @@ import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);

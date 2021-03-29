@@ -9,13 +9,13 @@ import java.util.LinkedHashMap;
 public class n {
 
     /* renamed from: c  reason: collision with root package name */
-    public static n f56159c;
+    public static n f56160c;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f56160a = new LinkedHashMap<>(150, 0.75f, true);
+    public LinkedHashMap<String, Integer> f56161a = new LinkedHashMap<>(150, 0.75f, true);
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f56161b = new a(2005016);
+    public CustomMessageListener f56162b = new a(2005016);
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -29,31 +29,31 @@ public class n {
             if (customResponsedMessage == null) {
                 return;
             }
-            n.this.f56160a.clear();
+            n.this.f56161a.clear();
         }
     }
 
     public n() {
-        MessageManager.getInstance().registerListener(this.f56161b);
+        MessageManager.getInstance().registerListener(this.f56162b);
     }
 
     public static n d() {
-        if (f56159c == null) {
+        if (f56160c == null) {
             synchronized (n.class) {
-                if (f56159c == null) {
-                    f56159c = new n();
+                if (f56160c == null) {
+                    f56160c = new n();
                 }
             }
         }
-        return f56159c;
+        return f56160c;
     }
 
     public void b() {
-        this.f56160a.clear();
+        this.f56161a.clear();
     }
 
     public int c(String str) {
-        Integer num = this.f56160a.get(str);
+        Integer num = this.f56161a.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -64,13 +64,13 @@ public class n {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f56160a.remove(str);
+        this.f56161a.remove(str);
     }
 
     public void f(String str, int i) {
-        if (i == 0 && this.f56160a.containsKey(str)) {
+        if (i == 0 && this.f56161a.containsKey(str)) {
             return;
         }
-        this.f56160a.put(str, Integer.valueOf(i));
+        this.f56161a.put(str, Integer.valueOf(i));
     }
 }

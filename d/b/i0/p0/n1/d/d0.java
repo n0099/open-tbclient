@@ -86,27 +86,27 @@ public class d0 extends d.b.i0.p0.k<z1, AutoVideoCardViewHolder<a2>> implements 
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1115a {
+    public class b implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f57966a;
+        public final /* synthetic */ s0 f57967a;
 
         public b(s0 s0Var) {
-            this.f57966a = s0Var;
+            this.f57967a = s0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f57966a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f57967a.getVideoContainer());
             if (!(aVar instanceof a2)) {
-                ThreadCardUtils.jumpToPB(aVar, d0.this.f42357e, d0.this.z, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, d0.this.f42358e, d0.this.z, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, d0.this.f42357e, d0.this.z, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, d0.this.f42358e, d0.this.z, false, computeViewArea);
         }
     }
 
@@ -125,7 +125,7 @@ public class d0 extends d.b.i0.p0.k<z1, AutoVideoCardViewHolder<a2>> implements 
                     d0.this.B.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), d0.this.z, false, d.b.i.e.a((d.b.b.j.e.s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -143,15 +143,15 @@ public class d0 extends d.b.i0.p0.k<z1, AutoVideoCardViewHolder<a2>> implements 
             return null;
         }
         d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-        oVar.f56163a = a2Var.X1() ? "3" : "2";
-        if (this.A.f57702d == 501) {
-            oVar.f56163a = "frs_tab";
+        oVar.f56164a = a2Var.X1() ? "3" : "2";
+        if (this.A.f57703d == 501) {
+            oVar.f56164a = "frs_tab";
         }
-        oVar.f56166d = this.A.f57701c;
-        oVar.f56165c = a2Var.w1();
-        oVar.f56168f = a2Var.R0;
-        oVar.f56169g = a2Var.V0;
-        oVar.f56170h = a2Var.S0;
+        oVar.f56167d = this.A.f57702c;
+        oVar.f56166c = a2Var.w1();
+        oVar.f56169f = a2Var.R0;
+        oVar.f56170g = a2Var.V0;
+        oVar.f56171h = a2Var.S0;
         oVar.l = a2Var.T0;
         if (a2Var.u1() != null) {
             oVar.m = a2Var.u1().video_md5;

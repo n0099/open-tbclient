@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static Field a(Class<?> cls, String str) {
         for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {

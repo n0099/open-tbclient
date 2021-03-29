@@ -9,13 +9,13 @@ public class e extends d.b.g0.l.l.d<d.b.g0.l.l.j.e> {
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public g f48974h;
+    public g f48975h;
     @Nullable
     public g i;
 
     public e(g gVar, d.b.g0.l.l.k.g gVar2, @Nullable g gVar3, @Nullable g gVar4) {
         super(gVar, gVar2);
-        this.f48974h = gVar3;
+        this.f48975h = gVar3;
         this.i = gVar4;
     }
 
@@ -35,13 +35,13 @@ public class e extends d.b.g0.l.l.d<d.b.g0.l.l.j.e> {
     @Override // d.b.g0.l.l.d
     /* renamed from: o */
     public d.b.g0.l.k.a l(d.b.g0.l.l.j.e eVar) {
-        this.f48931e.E();
-        d.b.g0.l.q.a.e(this.f48932f.a(), eVar.f48990a);
-        g gVar = this.f48931e;
-        if (gVar == this.f48974h || gVar == this.i) {
+        this.f48932e.E();
+        d.b.g0.l.q.a.e(this.f48933f.a(), eVar.f48991a);
+        g gVar = this.f48932e;
+        if (gVar == this.f48975h || gVar == this.i) {
             gVar = null;
         }
-        f.c(eVar.f48991b, gVar, this.f48974h, this.i);
+        f.c(eVar.f48992b, gVar, this.f48975h, this.i);
         return null;
     }
 

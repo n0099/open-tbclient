@@ -32,7 +32,7 @@ import d.b.h0.r.s.b;
 import d.b.h0.z0.n;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ValidateActivity extends BaseActivity<ValidateActivity> implements BdListView.p {
     public d.b.h0.r.s.b deleteItemDialog;
     public n<LinkedList<GroupNewsPojo>> getDataCallBack;
@@ -48,7 +48,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public d.b.b.c.g.c mListener = new e(0);
     public CustomMessageListener mCustomListener = new f(2001125);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements n<Boolean> {
         public a() {
         }
@@ -64,7 +64,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements n<LinkedList<GroupNewsPojo>> {
         public b() {
         }
@@ -84,7 +84,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements n<Integer> {
         public c() {
         }
@@ -101,7 +101,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements b.c {
         public d() {
         }
@@ -118,7 +118,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends d.b.b.c.g.c {
         public e(int i) {
             super(i);
@@ -190,7 +190,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public f(int i) {
             super(i);

@@ -12,26 +12,26 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b<List> f4702a = new b<>(com.baidu.crabsdk.a.f4640g);
+    public static b<List> f4703a = new b<>(com.baidu.crabsdk.a.f4641g);
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4703b = "";
+    public static String f4704b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4704c = "";
+    public static String f4705c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4705d = 0;
+    public static int f4706d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4706e = 0;
+    public static int f4707e = 0;
 
     public static String a() {
-        return f4702a.size() > 0 ? new JSONArray((Collection) f4702a).toString() : "";
+        return f4703a.size() > 0 ? new JSONArray((Collection) f4703a).toString() : "";
     }
 
     public static boolean b() {
@@ -43,7 +43,7 @@ public final class u {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4705d, f4706e))) {
+                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4706d, f4707e))) {
                     if (childAt instanceof WebView) {
                         return (WebView) childAt;
                     }
@@ -58,7 +58,7 @@ public final class u {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x005b A[Catch: Exception -> 0x00c9, TryCatch #0 {Exception -> 0x00c9, blocks: (B:16:0x0049, B:18:0x0053, B:21:0x005b, B:23:0x0067), top: B:27:0x0049 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x005b A[Catch: Exception -> 0x00c8, TryCatch #0 {Exception -> 0x00c8, blocks: (B:16:0x0049, B:18:0x0053, B:21:0x005b, B:23:0x0067), top: B:27:0x0049 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -68,20 +68,20 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (f4705d == 0 || f4706e == 0) {
+        if (f4706d == 0 || f4707e == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            f4706e = displayMetrics.heightPixels;
-            f4705d = displayMetrics.widthPixels;
+            f4707e = displayMetrics.heightPixels;
+            f4706d = displayMetrics.widthPixels;
         }
         if (motionEvent.getAction() != 0) {
             return;
         }
         String name = activity.getClass().getName();
-        if (!name.equals(f4704c)) {
+        if (!name.equals(f4705c)) {
             com.baidu.crabsdk.c.a.c("***** !tempName.equals(activityName) *****");
-            f4704c = name;
-            f4702a.clear();
+            f4705c = name;
+            f4703a.clear();
         }
         if (activity != null) {
             try {
@@ -90,17 +90,17 @@ public final class u {
                     c2 = c(decorView);
                     if (c2 == null) {
                         String url = c2.getUrl();
-                        if (url.equals(f4703b)) {
+                        if (url.equals(f4704b)) {
                             return;
                         }
                         com.baidu.crabsdk.c.a.c("-------- !tempUrl.equals(mUrl) --------");
-                        f4703b = url;
+                        f4704b = url;
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                         arrayList.add(c2.getTitle());
-                        arrayList.add(f4703b);
-                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4703b);
-                        f4702a.add(arrayList);
+                        arrayList.add(f4704b);
+                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4704b);
+                        f4703a.add(arrayList);
                         StringBuilder sb = new StringBuilder("###### jsonArray.toString() : ");
                         sb.append(a());
                         com.baidu.crabsdk.c.a.c(sb.toString());

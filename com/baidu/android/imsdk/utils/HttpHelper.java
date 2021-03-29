@@ -24,7 +24,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpHelper {
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
     public static final String CONTENT_JSON = "application/json";
@@ -36,7 +36,7 @@ public class HttpHelper {
     public static final String TAG = "HttpHelper";
     public static Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -55,14 +55,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ResponseResult {
         public int mErrorCode;
         public String mErrorMsg;
@@ -84,7 +84,7 @@ public class HttpHelper {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Result {
         public int errorCode;
         public InputStream inputStream = null;
@@ -95,7 +95,7 @@ public class HttpHelper {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x006a  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0069  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

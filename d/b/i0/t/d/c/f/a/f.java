@@ -13,7 +13,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.c, LiveTabConcernRecommendLi
     public i o;
 
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.c.f60361h);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.c.f60362h);
         this.m = tbPageContext;
     }
 
@@ -35,7 +35,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.c, LiveTabConcernRecommendLi
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.f.b.c cVar, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
         h hVar;
-        if (liveTabConcernRecommendLineHolder == null || (hVar = liveTabConcernRecommendLineHolder.f14799a) == null) {
+        if (liveTabConcernRecommendLineHolder == null || (hVar = liveTabConcernRecommendLineHolder.f14800a) == null) {
             return null;
         }
         hVar.n(cVar);

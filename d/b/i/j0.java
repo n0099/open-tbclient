@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j0 extends c implements p<a2> {
     public TbPageContext i;
     public TbImageView j;
     public boolean k = true;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f51779e;
+        public final /* synthetic */ ThemeCardInUserData f51780e;
 
         public a(ThemeCardInUserData themeCardInUserData) {
-            this.f51779e = themeCardInUserData;
+            this.f51780e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.i.getPageActivity(), this.f51779e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.i.getPageActivity(), this.f51780e.getCardId())));
         }
     }
 

@@ -4,14 +4,14 @@ import com.squareup.wire2.FieldEncoding;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedSink f66323a;
+    public final BufferedSink f66324a;
 
     public d(BufferedSink bufferedSink) {
-        this.f66323a = bufferedSink;
+        this.f66324a = bufferedSink;
     }
 
     public static int a(int i) {
@@ -111,15 +111,15 @@ public final class d {
     }
 
     public void k(ByteString byteString) throws IOException {
-        this.f66323a.write(byteString);
+        this.f66324a.write(byteString);
     }
 
     public void l(int i) throws IOException {
-        this.f66323a.writeIntLe(i);
+        this.f66324a.writeIntLe(i);
     }
 
     public void m(long j) throws IOException {
-        this.f66323a.writeLongLe(j);
+        this.f66324a.writeLongLe(j);
     }
 
     public void n(int i) throws IOException {
@@ -131,7 +131,7 @@ public final class d {
     }
 
     public void o(String str) throws IOException {
-        this.f66323a.writeUtf8(str);
+        this.f66324a.writeUtf8(str);
     }
 
     public void p(int i, FieldEncoding fieldEncoding) throws IOException {
@@ -140,17 +140,17 @@ public final class d {
 
     public void q(int i) throws IOException {
         while ((i & com.alipay.sdk.encrypt.a.f1896g) != 0) {
-            this.f66323a.writeByte((i & 127) | 128);
+            this.f66324a.writeByte((i & 127) | 128);
             i >>>= 7;
         }
-        this.f66323a.writeByte(i);
+        this.f66324a.writeByte(i);
     }
 
     public void r(long j) throws IOException {
         while (((-128) & j) != 0) {
-            this.f66323a.writeByte((((int) j) & 127) | 128);
+            this.f66324a.writeByte((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        this.f66323a.writeByte((int) j);
+        this.f66324a.writeByte((int) j);
     }
 }

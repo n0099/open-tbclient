@@ -13,66 +13,66 @@ import org.json.JSONObject;
 public class q {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, String> f49300f;
+    public static final ConcurrentHashMap<String, String> f49301f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49301a;
+    public int f49302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49302b;
+    public int f49303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49303c;
+    public String f49304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f49304d;
+    public JSONObject f49305d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<g> f49305e = new ArrayList();
+    public List<g> f49306e = new ArrayList();
 
     static {
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f49300f = concurrentHashMap;
+        f49301f = concurrentHashMap;
         concurrentHashMap.put("1415", "66");
     }
 
     public q(String str, JSONObject jSONObject) {
-        this.f49303c = str;
-        this.f49304d = jSONObject;
+        this.f49304c = str;
+        this.f49305d = jSONObject;
     }
 
     public List<g> a() {
-        return this.f49305e;
+        return this.f49306e;
     }
 
     public String b() {
-        return this.f49303c;
+        return this.f49304c;
     }
 
     public int c() {
-        return this.f49301a;
+        return this.f49302a;
     }
 
     public int d() {
-        return this.f49302b;
+        return this.f49303b;
     }
 
     public boolean e() {
         String str;
         try {
-            JSONObject jSONObject = this.f49304d;
-            this.f49301a = jSONObject.getInt("threshold");
-            this.f49302b = jSONObject.getInt("timeup");
+            JSONObject jSONObject = this.f49305d;
+            this.f49302a = jSONObject.getInt("threshold");
+            this.f49303b = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                 String string = jSONObject2.getString("ubcid");
-                if (TextUtils.isEmpty(string) || !f49300f.containsKey(string)) {
+                if (TextUtils.isEmpty(string) || !f49301f.containsKey(string)) {
                     str = string;
                 } else {
                     String optString = jSONObject2.optString("bizid");
-                    f49300f.get(string);
+                    f49301f.get(string);
                     str = optString;
                 }
                 String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
@@ -103,7 +103,7 @@ public class q {
                     if (jSONObject2.has("appblacklist")) {
                         gVar.l(jSONObject2.getString("appblacklist"));
                     }
-                    this.f49305e.add(gVar);
+                    this.f49306e.add(gVar);
                 }
             }
             return true;

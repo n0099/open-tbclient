@@ -203,7 +203,8 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
                     velocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     float yVelocity = this.mVelocityTracker.getYVelocity(this.mActivePointerId);
-                    fling(kSCoordinatorLayout, v, yVelocity < 0.0f ? -10000 : 0, yVelocity < 0.0f ? 0 : -v.getTop(), yVelocity);
+                    int i = (yVelocity > 0.0f ? 1 : (yVelocity == 0.0f ? 0 : -1));
+                    fling(kSCoordinatorLayout, v, i < 0 ? -10000 : 0, i < 0 ? 0 : -v.getTop(), yVelocity);
                 }
             } else if (actionMasked == 2) {
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
@@ -211,20 +212,20 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
                     return false;
                 }
                 int y2 = (int) motionEvent.getY(findPointerIndex);
-                int i = this.mLastMotionY - y2;
+                int i2 = this.mLastMotionY - y2;
                 if (!this.mIsBeingDragged) {
-                    int abs = Math.abs(i);
-                    int i2 = this.mTouchSlop;
-                    if (abs > i2) {
+                    int abs = Math.abs(i2);
+                    int i3 = this.mTouchSlop;
+                    if (abs > i3) {
                         this.mIsBeingDragged = true;
-                        i = i > 0 ? i - i2 : i + i2;
+                        i2 = i2 > 0 ? i2 - i3 : i2 + i3;
                     }
                 }
-                int i3 = i;
+                int i4 = i2;
                 if (this.mIsBeingDragged) {
                     this.mLastMotionY = y2;
                     KSAppBarLayout.KSBehavior kSBehavior = (B) this.mBehavior;
-                    kSBehavior.scroll(kSCoordinatorLayout, v, i3, kSBehavior.getMaxDragOffset((KSAppBarLayout) v), 0);
+                    kSBehavior.scroll(kSCoordinatorLayout, v, i4, kSBehavior.getMaxDragOffset((KSAppBarLayout) v), 0);
                 }
             }
             this.mIsBeingDragged = false;

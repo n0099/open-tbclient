@@ -270,7 +270,7 @@ public class NotificationCompat {
                     this.mFlags = i | this.mFlags;
                     return;
                 }
-                this.mFlags = (i ^ (-1)) & this.mFlags;
+                this.mFlags = (~i) & this.mFlags;
             }
 
             @Override // androidx.core.app.NotificationCompat.Action.Extender
@@ -607,21 +607,8 @@ public class NotificationCompat {
             int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.compat_notification_large_icon_max_width);
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.compat_notification_large_icon_max_height);
             if (bitmap.getWidth() > dimensionPixelSize || bitmap.getHeight() > dimensionPixelSize2) {
-                double d2 = dimensionPixelSize;
-                double max = Math.max(1, bitmap.getWidth());
-                Double.isNaN(d2);
-                Double.isNaN(max);
-                double d3 = d2 / max;
-                double d4 = dimensionPixelSize2;
-                double max2 = Math.max(1, bitmap.getHeight());
-                Double.isNaN(d4);
-                Double.isNaN(max2);
-                double min = Math.min(d3, d4 / max2);
-                double width = bitmap.getWidth();
-                Double.isNaN(width);
-                double height = bitmap.getHeight();
-                Double.isNaN(height);
-                return Bitmap.createScaledBitmap(bitmap, (int) Math.ceil(width * min), (int) Math.ceil(height * min), true);
+                double min = Math.min(dimensionPixelSize / Math.max(1, bitmap.getWidth()), dimensionPixelSize2 / Math.max(1, bitmap.getHeight()));
+                return Bitmap.createScaledBitmap(bitmap, (int) Math.ceil(bitmap.getWidth() * min), (int) Math.ceil(bitmap.getHeight() * min), true);
             }
             return bitmap;
         }
@@ -633,7 +620,7 @@ public class NotificationCompat {
                 return;
             }
             Notification notification2 = this.mNotification;
-            notification2.flags = (i ^ (-1)) & notification2.flags;
+            notification2.flags = (~i) & notification2.flags;
         }
 
         public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
@@ -1161,15 +1148,15 @@ public class NotificationCompat {
         public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:65:0x0184  */
-        /* JADX WARN: Removed duplicated region for block: B:66:0x0190  */
-        /* JADX WARN: Removed duplicated region for block: B:69:0x0198  */
-        /* JADX WARN: Removed duplicated region for block: B:72:0x019e  */
-        /* JADX WARN: Removed duplicated region for block: B:76:0x01c0  */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x0204  */
-        /* JADX WARN: Removed duplicated region for block: B:85:0x0209  */
-        /* JADX WARN: Removed duplicated region for block: B:86:0x020b  */
-        /* JADX WARN: Removed duplicated region for block: B:90:0x0215  */
+        /* JADX WARN: Removed duplicated region for block: B:65:0x0183  */
+        /* JADX WARN: Removed duplicated region for block: B:66:0x018f  */
+        /* JADX WARN: Removed duplicated region for block: B:69:0x0197  */
+        /* JADX WARN: Removed duplicated region for block: B:72:0x019d  */
+        /* JADX WARN: Removed duplicated region for block: B:76:0x01bf  */
+        /* JADX WARN: Removed duplicated region for block: B:82:0x0200  */
+        /* JADX WARN: Removed duplicated region for block: B:85:0x0205  */
+        /* JADX WARN: Removed duplicated region for block: B:86:0x0207  */
+        /* JADX WARN: Removed duplicated region for block: B:90:0x0211  */
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -1467,7 +1454,7 @@ public class NotificationCompat {
                 this.mFlags = i | this.mFlags;
                 return;
             }
-            this.mFlags = (i ^ (-1)) & this.mFlags;
+            this.mFlags = (~i) & this.mFlags;
         }
 
         public WearableExtender addAction(Action action) {

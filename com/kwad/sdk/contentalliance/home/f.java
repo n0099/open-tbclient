@@ -13,28 +13,28 @@ import java.util.List;
 public class f extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsFragment f32769a;
+    public KsFragment f32770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f32770b;
+    public i f32771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SlidePlayViewPager f32771c;
+    public SlidePlayViewPager f32772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.b.b f32772d;
+    public com.kwad.sdk.contentalliance.detail.b.b f32773d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SceneImpl f32773e;
+    public SceneImpl f32774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f32774f;
+    public h f32775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32775g;
+    public String f32776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<TrendInfo> f32776h;
+    public List<TrendInfo> f32777h;
     public TrendInfo i;
     public int j;
     public boolean k;
@@ -46,7 +46,7 @@ public class f extends com.kwad.sdk.core.e.b {
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        h hVar = this.f32774f;
+        h hVar = this.f32775f;
         if (hVar != null) {
             hVar.a();
         }

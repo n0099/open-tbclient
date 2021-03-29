@@ -10,31 +10,31 @@ import com.kwad.sdk.utils.p;
 public class c extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f32659b;
+    public View f32660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SlidePlayViewPager f32660c;
+    public SlidePlayViewPager f32661c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.swipe.c f32661d;
+    public com.kwad.sdk.contentalliance.home.swipe.c f32662d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.a.b f32662e;
+    public com.kwad.sdk.contentalliance.home.a.b f32663e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.h f32663f;
+    public com.kwad.sdk.contentalliance.home.h f32664f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f32664g = new Runnable() { // from class: com.kwad.sdk.contentalliance.home.b.c.1
+    public Runnable f32665g = new Runnable() { // from class: com.kwad.sdk.contentalliance.home.b.c.1
         @Override // java.lang.Runnable
         public void run() {
             c cVar = c.this;
-            cVar.b(cVar.f32659b);
+            cVar.b(cVar.f32660b);
         }
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnKeyListener f32665h = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.home.b.c.2
+    public View.OnKeyListener f32666h = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.home.b.c.2
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (i == 4 && keyEvent.getAction() == 1) {
@@ -47,11 +47,11 @@ public class c extends com.kwad.sdk.contentalliance.home.e {
     public d.a i = new d.a() { // from class: com.kwad.sdk.contentalliance.home.b.c.3
         @Override // com.kwad.sdk.contentalliance.home.d.a
         public boolean a() {
-            if (c.this.f32661d != null) {
-                if ((c.this.f32660c == null || c.this.f32660c.getSourceType() == 0) && !c.this.f32661d.b()) {
+            if (c.this.f32662d != null) {
+                if ((c.this.f32661c == null || c.this.f32661c.getSourceType() == 0) && !c.this.f32662d.b()) {
                     return false;
                 }
-                c.this.f32661d.c();
+                c.this.f32662d.c();
                 return true;
             }
             return false;
@@ -61,8 +61,8 @@ public class c extends com.kwad.sdk.contentalliance.home.e {
         public void b() {
             com.kwad.sdk.core.d.a.a("HomeBackPresenter", "onRefresh()");
             p.a(c.this.o(), "再按一次返回键退出", 3000L);
-            if (c.this.f32662e != null) {
-                c.this.f32662e.a(3);
+            if (c.this.f32663e != null) {
+                c.this.f32663e.a(3);
             }
         }
 
@@ -93,44 +93,44 @@ public class c extends com.kwad.sdk.contentalliance.home.e {
         if (view != null) {
             view.setFocusableInTouchMode(true);
             view.requestFocus();
-            view.setOnKeyListener(this.f32665h);
+            view.setOnKeyListener(this.f32666h);
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32659b = l();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a;
-        this.f32660c = fVar.f32771c;
-        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32774f;
-        this.f32663f = hVar;
+        this.f32660b = l();
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a;
+        this.f32661c = fVar.f32772c;
+        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32775f;
+        this.f32664f = hVar;
         if (hVar != null) {
-            this.f32661d = hVar.f32794g;
-            hVar.f32793f.add(this.j);
+            this.f32662d = hVar.f32795g;
+            hVar.f32794f.add(this.j);
         }
-        com.kwad.sdk.contentalliance.home.a.i iVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a.f32770b;
+        com.kwad.sdk.contentalliance.home.a.i iVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a.f32771b;
         if (iVar != null) {
-            this.f32662e = iVar.c();
+            this.f32663e = iVar.c();
         }
-        View view = this.f32659b;
+        View view = this.f32660b;
         if (view != null) {
             b(view);
-            this.f32659b.postDelayed(this.f32664g, 1000L);
+            this.f32660b.postDelayed(this.f32665g, 1000L);
         }
-        this.k.a(((com.kwad.sdk.contentalliance.home.e) this).f32768a.m);
+        this.k.a(((com.kwad.sdk.contentalliance.home.e) this).f32769a.m);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        View view = this.f32659b;
+        View view = this.f32660b;
         if (view != null) {
-            view.removeCallbacks(this.f32664g);
+            view.removeCallbacks(this.f32665g);
         }
-        com.kwad.sdk.contentalliance.home.h hVar = this.f32663f;
+        com.kwad.sdk.contentalliance.home.h hVar = this.f32664f;
         if (hVar != null) {
-            hVar.f32793f.remove(this.j);
+            hVar.f32794f.remove(this.j);
         }
     }
 

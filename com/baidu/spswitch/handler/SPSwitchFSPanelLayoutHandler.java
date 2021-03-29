@@ -1,7 +1,7 @@
 package com.baidu.spswitch.handler;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchFSPanelLayoutHandler {
     public boolean isSoftInputShowing;
     public final View mPanelLayout;

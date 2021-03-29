@@ -12,72 +12,78 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CommentUtils {
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0059: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:32:0x0059 */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0058: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:32:0x0058 */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String readApk(File file) {
         RandomAccessFile randomAccessFile;
         RandomAccessFile randomAccessFile2;
         RandomAccessFile randomAccessFile3 = null;
         try {
-        } catch (Throwable th) {
-            th = th;
-            randomAccessFile3 = randomAccessFile;
-        }
-        try {
             try {
-                randomAccessFile2 = new RandomAccessFile(file, r.f7663a);
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                return null;
-            }
-            try {
-                byte[] bArr = new byte[2];
-                long length = randomAccessFile2.length() - 2;
-                randomAccessFile2.seek(length);
-                randomAccessFile2.readFully(bArr);
-                int stream2Short = stream2Short(bArr, 0);
-                byte[] bArr2 = new byte[stream2Short];
-                randomAccessFile2.seek(length - stream2Short);
-                randomAccessFile2.readFully(bArr2);
-                String str = new String(bArr2, "utf-8");
                 try {
-                    randomAccessFile2.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                    randomAccessFile = new RandomAccessFile(file, r.f7664a);
+                    try {
+                        byte[] bArr = new byte[2];
+                        long length = randomAccessFile.length() - 2;
+                        randomAccessFile.seek(length);
+                        randomAccessFile.readFully(bArr);
+                        int stream2Short = stream2Short(bArr, 0);
+                        byte[] bArr2 = new byte[stream2Short];
+                        randomAccessFile.seek(length - stream2Short);
+                        randomAccessFile.readFully(bArr2);
+                        String str = new String(bArr2, "utf-8");
+                        try {
+                            randomAccessFile.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                        return str;
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        e.printStackTrace();
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        return null;
+                    } catch (IOException e4) {
+                        e = e4;
+                        e.printStackTrace();
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    randomAccessFile3 = randomAccessFile2;
+                    if (randomAccessFile3 != null) {
+                        try {
+                            randomAccessFile3.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                return str;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                e.printStackTrace();
-                if (randomAccessFile2 != null) {
-                    randomAccessFile2.close();
+            } catch (FileNotFoundException e6) {
+                e = e6;
+                randomAccessFile = null;
+            } catch (IOException e7) {
+                e = e7;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (randomAccessFile3 != null) {
                 }
-                return null;
-            } catch (IOException e5) {
-                e = e5;
-                e.printStackTrace();
-                if (randomAccessFile2 != null) {
-                    randomAccessFile2.close();
-                }
-                return null;
+                throw th;
             }
-        } catch (FileNotFoundException e6) {
-            e = e6;
-            randomAccessFile2 = null;
-        } catch (IOException e7) {
-            e = e7;
-            randomAccessFile2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (randomAccessFile3 != null) {
-                try {
-                    randomAccessFile3.close();
-                } catch (IOException e8) {
-                    e8.printStackTrace();
-                }
-            }
-            throw th;
+        } catch (IOException e8) {
+            e8.printStackTrace();
         }
     }
 

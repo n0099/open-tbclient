@@ -1,5 +1,5 @@
 package com.squareup.wire;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Preconditions {
     public static void checkArgument(boolean z, String str) {
         if (!z) {

@@ -32,25 +32,25 @@ public class OneKeyLoginSdkCall {
     public static final String TAG = "OneKeyLogin";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11262a = "ba8df9d21db832db598b22fc7cbfbcd6";
+    public static final String f11263a = "ba8df9d21db832db598b22fc7cbfbcd6";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11263b = "CMCC";
+    public static final String f11264b = "CMCC";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11264c = "CUCC";
+    public static final String f11265c = "CUCC";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11265d = "CTCC";
+    public static final String f11266d = "CTCC";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f11266e = 15000;
+    public static final int f11267e = 15000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static OneKeyLoginOptResult f11267f = null;
+    public static OneKeyLoginOptResult f11268f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static OneKeyLoginSdkCall f11268g = null;
+    public static OneKeyLoginSdkCall f11269g = null;
     public static final String oneKeyLoginAppKey = "350675";
     public static String signFromAbilityApi;
 
@@ -60,21 +60,21 @@ public class OneKeyLoginSdkCall {
     }
 
     public static OneKeyLoginSdkCall getInstance() {
-        if (f11268g == null) {
-            f11268g = new OneKeyLoginSdkCall();
+        if (f11269g == null) {
+            f11269g = new OneKeyLoginSdkCall();
         }
-        return f11268g;
+        return f11269g;
     }
 
     public boolean checkSupOauth() {
-        return f11267f != null;
+        return f11268f != null;
     }
 
     public JSONObject getEncryptPhone() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (f11267f != null) {
-                jSONObject.put("phone", f11267f.getSecurityPhone());
+            if (f11268f != null) {
+                jSONObject.put("phone", f11268f.getSecurityPhone());
                 jSONObject.put("operator", getOperatorType());
                 jSONObject.put("CUVersion", "2");
             }
@@ -86,8 +86,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getMobileOauthToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        d.b.f0.a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0578a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
-            @Override // d.b.f0.a.InterfaceC0578a
+        d.b.f0.a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0579a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+            @Override // d.b.f0.a.InterfaceC0579a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -125,15 +125,15 @@ public class OneKeyLoginSdkCall {
     }
 
     public String getOperatorType() {
-        OneKeyLoginOptResult oneKeyLoginOptResult = f11267f;
+        OneKeyLoginOptResult oneKeyLoginOptResult = f11268f;
         if (oneKeyLoginOptResult != null) {
             if ("1".equals(oneKeyLoginOptResult.getOperateType())) {
                 return OPERATOR_TYPE_CMCC;
             }
-            if ("2".equals(f11267f.getOperateType())) {
+            if ("2".equals(f11268f.getOperateType())) {
                 return OPERATOR_TYPE_CUCC;
             }
-            if ("3".equals(f11267f.getOperateType())) {
+            if ("3".equals(f11268f.getOperateType())) {
                 return OPERATOR_TYPE_CTCC;
             }
             return null;
@@ -142,12 +142,12 @@ public class OneKeyLoginSdkCall {
     }
 
     public OneKeyLoginOptResult getPreLoginOptResult() {
-        return f11267f;
+        return f11268f;
     }
 
     public void getToken(final SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        d.b.f0.a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0578a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
-            @Override // d.b.f0.a.InterfaceC0578a
+        d.b.f0.a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0579a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+            @Override // d.b.f0.a.InterfaceC0579a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -178,18 +178,18 @@ public class OneKeyLoginSdkCall {
     }
 
     public void initOneKeyLoginSdk(SapiConfiguration sapiConfiguration) {
-        d.b.f0.a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, f11262a);
+        d.b.f0.a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, f11263a);
         d.b.f0.a.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
     }
 
     public boolean isMeetOneKeyLoginGray(String str) {
         String str2;
-        if (TextUtils.equals(str, f11263b)) {
+        if (TextUtils.equals(str, f11264b)) {
             str2 = SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH;
-        } else if (TextUtils.equals(str, f11264c)) {
+        } else if (TextUtils.equals(str, f11265c)) {
             str2 = SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH;
         } else {
-            str2 = TextUtils.equals(str, f11265d) ? SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : null;
+            str2 = TextUtils.equals(str, f11266d) ? SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : null;
         }
         Log.d(TAG, "isMeetOneKeyLoginGray ? operator=" + str);
         if (TextUtils.isEmpty(str2)) {
@@ -242,7 +242,7 @@ public class OneKeyLoginSdkCall {
             return;
         }
         String b2 = d.b.f0.a.c().b(sapiConfiguration.context);
-        if (TextUtils.equals(b2, f11263b) || TextUtils.equals(b2, f11264c) || TextUtils.equals(b2, f11265d)) {
+        if (TextUtils.equals(b2, f11264b) || TextUtils.equals(b2, f11265c) || TextUtils.equals(b2, f11266d)) {
             if (!isMeetOneKeyLoginGray(b2)) {
                 Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + b2);
                 if (dVar != null) {
@@ -254,14 +254,14 @@ public class OneKeyLoginSdkCall {
                 return;
             }
             final String networkClass = SapiUtils.getNetworkClass(sapiConfiguration.context);
-            d.b.f0.a.c().g(sapiConfiguration.context, i, new a.InterfaceC0578a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
-                @Override // d.b.f0.a.InterfaceC0578a
+            d.b.f0.a.c().g(sapiConfiguration.context, i, new a.InterfaceC0579a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                @Override // d.b.f0.a.InterfaceC0579a
                 public void onFinish(String str2) {
                     Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
                     final OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);
                     if (OneKeyLoginOptResult.isValid(formatOptResult)) {
                         formatOptResult.generateSecurityPhone();
-                        OneKeyLoginOptResult unused = OneKeyLoginSdkCall.f11267f = formatOptResult;
+                        OneKeyLoginOptResult unused = OneKeyLoginSdkCall.f11268f = formatOptResult;
                     }
                     SapiStatUtil.statOneKeyPreGetPhone(formatOptResult.getCode(), formatOptResult.getSubCode(), formatOptResult.getSecurityPhone(), formatOptResult.getOperateType(), str, networkClass);
                     if (dVar != null) {

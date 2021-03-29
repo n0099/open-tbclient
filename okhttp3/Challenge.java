@@ -3,7 +3,7 @@ package okhttp3;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Challenge {
     public final Charset charset;
     public final String realm;

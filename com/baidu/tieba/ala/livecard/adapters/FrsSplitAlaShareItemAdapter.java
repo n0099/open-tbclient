@@ -28,11 +28,11 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f15029a;
+        public c f15030a;
 
         public FrsPageAlaShareHolder(c cVar) {
             super(cVar.m());
-            this.f15029a = cVar;
+            this.f15030a = cVar;
         }
     }
 
@@ -108,14 +108,14 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (z1Var != null) {
-            c cVar = frsPageAlaShareHolder.f15029a;
+            c cVar = frsPageAlaShareHolder.f15030a;
             if (cVar instanceof e) {
                 cVar.setPage(this.y);
             }
-            frsPageAlaShareHolder.f15029a.a(this.w);
-            j.h(frsPageAlaShareHolder.f15029a.P(), this.n);
-            j.h(frsPageAlaShareHolder.f15029a.R(), this.n);
-            frsPageAlaShareHolder.f15029a.n(z1Var.w);
+            frsPageAlaShareHolder.f15030a.a(this.w);
+            j.h(frsPageAlaShareHolder.f15030a.P(), this.n);
+            j.h(frsPageAlaShareHolder.f15030a.R(), this.n);
+            frsPageAlaShareHolder.f15030a.n(z1Var.w);
             z1Var.w.x4();
         }
         return frsPageAlaShareHolder.a();

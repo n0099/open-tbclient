@@ -18,15 +18,15 @@ public class c {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f51547e;
+        public final /* synthetic */ n f51548e;
 
         public a(n nVar) {
-            this.f51547e = nVar;
+            this.f51548e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            n nVar = this.f51547e;
+            n nVar = this.f51548e;
             if (nVar != null) {
                 nVar.d(new d.b.h0.w.a(14, -1, Boolean.TRUE));
             }

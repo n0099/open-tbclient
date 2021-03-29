@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class k extends a0 {
     public k(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/file/save");
@@ -25,7 +25,7 @@ public class k extends a0 {
                 return false;
             }
             String u = d.b.g0.a.a2.b.u(optParamsAsJo.optString("tempFilePath"), eVar.getAppId());
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
                 Log.d("SaveFileAction", "——> handle: tempFilePath " + u);
             }
@@ -35,7 +35,7 @@ public class k extends a0 {
                 return false;
             }
             int a2 = eVar.S().a(u);
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SaveFileAction", "——> handle: statusCode " + a2);
             }
             if (a2 > 2000) {
@@ -52,7 +52,7 @@ public class k extends a0 {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("savedFilePath", d.b.g0.a.a2.b.r(o, d.b.g0.a.r1.e.T()));
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + o + " update saveFilePath " + jSONObject.get("savedFilePath"));
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));

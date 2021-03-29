@@ -6,10 +6,10 @@ import java.util.Objects;
 public class e extends c {
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48922g;
+    public String f48923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48923h;
+    public int f48924h;
     public long i;
     public String j;
     public long k;
@@ -18,7 +18,7 @@ public class e extends c {
     public String n;
 
     public boolean a() {
-        return (TextUtils.isEmpty(this.f48922g) || this.i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true;
+        return (TextUtils.isEmpty(this.f48923g) || this.i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true;
     }
 
     public boolean equals(Object obj) {
@@ -27,16 +27,16 @@ public class e extends c {
         }
         if (obj != null && (obj instanceof e)) {
             e eVar = (e) obj;
-            return (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(eVar.j)) ? this.f48922g.equals(eVar.f48922g) && this.i == eVar.i : TextUtils.equals(this.f48922g, eVar.f48922g) && this.i == eVar.i && TextUtils.equals(this.j, eVar.j);
+            return (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(eVar.j)) ? this.f48923g.equals(eVar.f48923g) && this.i == eVar.i : TextUtils.equals(this.f48923g, eVar.f48923g) && this.i == eVar.i && TextUtils.equals(this.j, eVar.j);
         }
         return false;
     }
 
     public int hashCode() {
-        return Objects.hash(this.f48922g, Integer.valueOf(this.f48923h), Long.valueOf(this.i), this.j);
+        return Objects.hash(this.f48923g, Integer.valueOf(this.f48924h), Long.valueOf(this.i), this.j);
     }
 
     public String toString() {
-        return "bundleId=" + this.f48922g + ", category=" + this.f48923h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+        return "bundleId=" + this.f48923g + ", category=" + this.f48924h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
     }
 }

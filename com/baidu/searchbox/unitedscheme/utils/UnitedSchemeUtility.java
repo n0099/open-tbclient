@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class UnitedSchemeUtility {
     public static final boolean DEBUG = false;
     public static final String PARAMS_KEY = "params";

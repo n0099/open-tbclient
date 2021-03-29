@@ -1,5 +1,5 @@
 package d.b.i0.d1.w;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static long a(long j) {
         return j * 100;

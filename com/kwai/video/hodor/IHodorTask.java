@@ -19,15 +19,15 @@ public interface IHodorTask {
     public static final int TaskQosClass_User_Interactive = 2;
     public static final int TaskQosClass_Utility = 1;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface HodorTaskState {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface MediaDirEvictStrategy {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface TaskQosClass {
     }
 

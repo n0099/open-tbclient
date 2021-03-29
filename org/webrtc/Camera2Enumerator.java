@@ -70,7 +70,6 @@ public class Camera2Enumerator implements CameraEnumerator {
 
     public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
         long j;
-        int round;
         synchronized (cachedSupportedFormats) {
             if (cachedSupportedFormats.containsKey(str)) {
                 return cachedSupportedFormats.get(str);
@@ -94,13 +93,7 @@ public class Camera2Enumerator implements CameraEnumerator {
                     } catch (Exception unused) {
                         j = 0;
                     }
-                    if (j == 0) {
-                        round = i;
-                    } else {
-                        double d2 = j;
-                        Double.isNaN(d2);
-                        round = ((int) Math.round(1.0E9d / d2)) * 1000;
-                    }
+                    int round = j == 0 ? i : ((int) Math.round(1.0E9d / j)) * 1000;
                     arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
                     Logging.d(TAG, "Format: " + size.width + "x" + size.height + "@" + round);
                 }

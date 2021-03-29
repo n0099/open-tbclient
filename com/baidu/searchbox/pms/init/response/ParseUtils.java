@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ParseUtils {
     public static List<PackageInfo> parseItems(JSONObject jSONObject) {
         PackageInfo parsePkgItem;

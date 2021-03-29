@@ -129,13 +129,18 @@ public final class FlowableGroupBy$GroupBySubscriber<T, K, V> extends BasicIntQu
     }
 
     public void drainNormal() {
+        int i;
         a<b<K, V>> aVar = this.queue;
         c<? super b<K, V>> cVar = this.actual;
-        int i = 1;
+        int i2 = 1;
         do {
             long j = this.requested.get();
             long j2 = 0;
-            while (j2 != j) {
+            while (true) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
+                    break;
+                }
                 boolean z = this.done;
                 b<K, V> poll = aVar.poll();
                 boolean z2 = poll == null;
@@ -148,7 +153,7 @@ public final class FlowableGroupBy$GroupBySubscriber<T, K, V> extends BasicIntQu
                 cVar.onNext(poll);
                 j2++;
             }
-            if (j2 == j && checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
+            if (i == 0 && checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
                 return;
             }
             if (j2 != 0) {
@@ -157,8 +162,8 @@ public final class FlowableGroupBy$GroupBySubscriber<T, K, V> extends BasicIntQu
                 }
                 this.s.request(j2);
             }
-            i = addAndGet(-i);
-        } while (i != 0);
+            i2 = addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f

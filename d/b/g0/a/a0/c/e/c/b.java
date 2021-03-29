@@ -2,7 +2,7 @@ package d.b.g0.a.a0.c.e.c;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b extends d.b.g0.a.a0.a.c.b {
     public int G;
     public String H;

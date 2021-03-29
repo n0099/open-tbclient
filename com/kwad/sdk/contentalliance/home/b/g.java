@@ -9,29 +9,29 @@ import com.kwad.sdk.utils.v;
 public class g extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32687b;
+    public com.kwad.sdk.core.i.a f32688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SlidePlayViewPager f32688c;
+    public SlidePlayViewPager f32689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.a.i f32689d;
+    public com.kwad.sdk.contentalliance.home.a.i f32690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.a.d f32690e = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.b.g.1
+    public com.kwad.sdk.contentalliance.home.a.d f32691e = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.b.g.1
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            if (NetworkMonitor.a().b() && g.this.f32687b != null && g.this.f32687b.e() && v.c(g.this.o())) {
+            if (NetworkMonitor.a().b() && g.this.f32688b != null && g.this.f32688b.e() && v.c(g.this.o())) {
                 g.this.f();
             }
         }
     };
 
     /* renamed from: f  reason: collision with root package name */
-    public NetworkMonitor.a f32691f = new NetworkMonitor.a() { // from class: com.kwad.sdk.contentalliance.home.b.g.2
+    public NetworkMonitor.a f32692f = new NetworkMonitor.a() { // from class: com.kwad.sdk.contentalliance.home.b.g.2
         @Override // com.kwad.sdk.core.NetworkMonitor.a
         public void a(NetworkMonitor.NetworkState networkState) {
-            if (networkState != NetworkMonitor.NetworkState.NETWORK_MOBILE || !NetworkMonitor.a().b() || g.this.f32688c == null || g.this.f32688c.j() || g.this.f32687b == null || !g.this.f32687b.e()) {
+            if (networkState != NetworkMonitor.NetworkState.NETWORK_MOBILE || !NetworkMonitor.a().b() || g.this.f32689c == null || g.this.f32689c.j() || g.this.f32688b == null || !g.this.f32688b.e()) {
                 return;
             }
             g.this.f();
@@ -39,14 +39,14 @@ public class g extends com.kwad.sdk.contentalliance.home.e {
     };
 
     private void e() {
-        if (this.f32691f != null) {
-            NetworkMonitor.a().b(this.f32691f);
-            this.f32691f = null;
+        if (this.f32692f != null) {
+            NetworkMonitor.a().b(this.f32692f);
+            this.f32692f = null;
         }
-        com.kwad.sdk.contentalliance.home.a.i iVar = this.f32689d;
+        com.kwad.sdk.contentalliance.home.a.i iVar = this.f32690d;
         if (iVar != null) {
-            iVar.b(this.f32690e);
-            this.f32690e = null;
+            iVar.b(this.f32691e);
+            this.f32691e = null;
         }
     }
 
@@ -60,21 +60,21 @@ public class g extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a;
-        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32774f;
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a;
+        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32775f;
         if (hVar == null) {
             return;
         }
-        com.kwad.sdk.core.i.a aVar = hVar.f32788a;
-        this.f32687b = aVar;
+        com.kwad.sdk.core.i.a aVar = hVar.f32789a;
+        this.f32688b = aVar;
         if (aVar == null) {
             return;
         }
-        com.kwad.sdk.contentalliance.home.a.i iVar = fVar.f32770b;
-        this.f32689d = iVar;
-        this.f32688c = fVar.f32771c;
-        iVar.a(this.f32690e);
-        NetworkMonitor.a().a(this.f32691f);
+        com.kwad.sdk.contentalliance.home.a.i iVar = fVar.f32771b;
+        this.f32690d = iVar;
+        this.f32689c = fVar.f32772c;
+        iVar.a(this.f32691e);
+        NetworkMonitor.a().a(this.f32692f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

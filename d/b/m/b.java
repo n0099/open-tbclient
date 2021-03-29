@@ -7,23 +7,23 @@ import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b extends PlatformViewFactory {
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, a> f64026b = new HashMap<>();
+    public static HashMap<String, a> f64027b = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final BinaryMessenger f64027a;
+    public final BinaryMessenger f64028a;
 
     public b(BinaryMessenger binaryMessenger) {
         super(StandardMessageCodec.INSTANCE);
-        this.f64027a = binaryMessenger;
+        this.f64028a = binaryMessenger;
     }
 
     public static void a(int i) {
-        if (f64026b.containsKey(String.valueOf(i))) {
-            f64026b.remove(Integer.valueOf(i));
+        if (f64027b.containsKey(String.valueOf(i))) {
+            f64027b.remove(Integer.valueOf(i));
         }
     }
 
@@ -32,14 +32,14 @@ public final class b extends PlatformViewFactory {
         Map map = (obj == null || !(obj instanceof Map)) ? null : (Map) obj;
         String valueOf = map == null ? "0" : String.valueOf(map.get("persistentViewId"));
         if (Integer.parseInt(valueOf) < 0) {
-            a aVar = f64026b.get(valueOf);
+            a aVar = f64027b.get(valueOf);
             if (aVar == null) {
-                a aVar2 = new a(context, this.f64027a, i, map);
-                f64026b.put(valueOf, aVar2);
+                a aVar2 = new a(context, this.f64028a, i, map);
+                f64027b.put(valueOf, aVar2);
                 return aVar2;
             }
             return aVar;
         }
-        return new a(context, this.f64027a, i, map);
+        return new a(context, this.f64028a, i, map);
     }
 }

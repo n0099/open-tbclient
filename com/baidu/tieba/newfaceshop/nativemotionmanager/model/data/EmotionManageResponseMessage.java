@@ -3,7 +3,7 @@ package com.baidu.tieba.newfaceshop.nativemotionmanager.model.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmotionManageResponseMessage extends JsonHttpResponsedMessage {
     public EmotionManageData data;
 

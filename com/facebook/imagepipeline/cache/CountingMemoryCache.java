@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimmable {
     @VisibleForTesting
     public static final long PARAMS_INTERCHECK_INTERVAL_MS = TimeUnit.MINUTES.toMillis(5);
@@ -46,7 +46,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @VisibleForTesting
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class Entry<K, V> {
         public int clientCount = 0;
         public boolean isOrphan = false;
@@ -352,9 +352,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         ArrayList<Entry<K, V>> trimExclusivelyOwnedEntries;
         double trimRatio = this.mCacheTrimStrategy.getTrimRatio(memoryTrimType);
         synchronized (this) {
-            double sizeInBytes = this.mCachedEntries.getSizeInBytes();
-            Double.isNaN(sizeInBytes);
-            trimExclusivelyOwnedEntries = trimExclusivelyOwnedEntries(Integer.MAX_VALUE, Math.max(0, ((int) (sizeInBytes * (1.0d - trimRatio))) - getInUseSizeInBytes()));
+            trimExclusivelyOwnedEntries = trimExclusivelyOwnedEntries(Integer.MAX_VALUE, Math.max(0, ((int) (this.mCachedEntries.getSizeInBytes() * (1.0d - trimRatio))) - getInUseSizeInBytes()));
             makeOrphans(trimExclusivelyOwnedEntries);
         }
         maybeClose(trimExclusivelyOwnedEntries);

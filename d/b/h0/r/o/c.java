@@ -29,28 +29,28 @@ import d.b.b.e.p.l;
 public class c extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbImageView f50678a;
+    public TbImageView f50679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f50679b;
+    public TextView f50680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f50680c;
+    public TextView f50681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f50681d;
+    public Button f50682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.a.b0.a f50682e;
+    public d.b.h0.a.b0.a f50683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50683f;
+    public int f50684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50684g;
+    public int f50685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f50685h;
+    public RelativeLayout f50686h;
     public CustomMessageListener i;
 
     /* loaded from: classes3.dex */
@@ -60,17 +60,17 @@ public class c extends PopupWindow {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.f50682e == null) {
+            if (c.this.f50683e == null) {
                 return;
             }
-            if (c.this.f50682e.f49513d == d.b.h0.a.b0.a.H) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), c.this.f50682e.l) && !k.isEmpty(c.this.f50682e.k)) {
+            if (c.this.f50683e.f49514d == d.b.h0.a.b0.a.H) {
+                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), c.this.f50683e.l) && !k.isEmpty(c.this.f50683e.k)) {
                     c cVar = c.this;
-                    cVar.e(cVar.f50682e.k);
+                    cVar.e(cVar.f50683e.k);
                 }
-            } else if (c.this.f50682e.f49513d == d.b.h0.a.b0.a.I && !k.isEmpty(c.this.f50682e.k)) {
+            } else if (c.this.f50683e.f49514d == d.b.h0.a.b0.a.I && !k.isEmpty(c.this.f50683e.k)) {
                 c cVar2 = c.this;
-                cVar2.e(cVar2.f50682e.k);
+                cVar2.e(cVar2.f50683e.k);
             }
             c.this.dismiss();
         }
@@ -89,8 +89,8 @@ public class c extends PopupWindow {
 
     /* renamed from: d.b.h0.r.o.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1085c implements PopupWindow.OnDismissListener {
-        public C1085c() {
+    public class C1086c implements PopupWindow.OnDismissListener {
+        public C1086c() {
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
@@ -123,34 +123,34 @@ public class c extends PopupWindow {
         if (aVar == null) {
             return;
         }
-        this.f50682e = aVar;
-        if (k.isEmpty(aVar.f49514e)) {
-            this.f50679b.setText(context.getResources().getString(R.string.task_already_finish));
+        this.f50683e = aVar;
+        if (k.isEmpty(aVar.f49515e)) {
+            this.f50680b.setText(context.getResources().getString(R.string.task_already_finish));
         } else {
-            this.f50679b.setText(aVar.f49514e);
+            this.f50680b.setText(aVar.f49515e);
         }
         if (k.isEmpty(aVar.p)) {
-            this.f50679b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
+            this.f50680b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
         } else {
-            this.f50679b.setTextColor(d.b.i0.i1.o.k.b.b(aVar.p));
+            this.f50680b.setTextColor(d.b.i0.i1.o.k.b.b(aVar.p));
         }
-        if (k.isEmpty(aVar.f49515f)) {
-            this.f50680c.setText(context.getResources().getString(R.string.back));
+        if (k.isEmpty(aVar.f49516f)) {
+            this.f50681c.setText(context.getResources().getString(R.string.back));
         } else {
-            this.f50680c.setText(aVar.f49515f);
+            this.f50681c.setText(aVar.f49516f);
         }
         if (k.isEmpty(aVar.q)) {
-            this.f50680c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
+            this.f50681c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
         } else {
-            this.f50680c.setTextColor(d.b.i0.i1.o.k.b.b(aVar.q));
+            this.f50681c.setTextColor(d.b.i0.i1.o.k.b.b(aVar.q));
         }
         if (!k.isEmpty(aVar.o)) {
-            this.f50680c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(context, R.dimen.tbds120), d.b.i0.i1.o.k.b.b(aVar.o)));
+            this.f50681c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(context, R.dimen.tbds120), d.b.i0.i1.o.k.b.b(aVar.o)));
         }
         if (!k.isEmpty(aVar.j)) {
-            this.f50678a.W(aVar.j, 10, false);
+            this.f50679a.W(aVar.j, 10, false);
         } else {
-            this.f50678a.W(String.valueOf(R.drawable.banner_size), 24, false);
+            this.f50679a.W(String.valueOf(R.drawable.banner_size), 24, false);
         }
     }
 
@@ -175,15 +175,15 @@ public class c extends PopupWindow {
     public void g(Context context) {
         View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.popupwindow_business, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.lower_hair_img);
-        this.f50678a = tbImageView;
+        this.f50679a = tbImageView;
         tbImageView.setRadius(l.g(context, R.dimen.tbds32));
-        this.f50678a.setConrers(3);
-        this.f50679b = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
-        this.f50680c = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
-        this.f50681d = (Button) inflate.findViewById(R.id.btn_close);
-        this.f50685h = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
-        this.f50680c.setOnClickListener(new a());
-        this.f50681d.setOnClickListener(new b());
+        this.f50679a.setConrers(3);
+        this.f50680b = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
+        this.f50681c = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
+        this.f50682d = (Button) inflate.findViewById(R.id.btn_close);
+        this.f50686h = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
+        this.f50681c.setOnClickListener(new a());
+        this.f50682d.setOnClickListener(new b());
         setContentView(inflate);
         setWidth(-1);
         setHeight(-1);
@@ -191,7 +191,7 @@ public class c extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.black_alpha35)));
         setAnimationStyle(R.style.UpdateStyle);
         setClippingEnabled(false);
-        setOnDismissListener(new C1085c());
+        setOnDismissListener(new C1086c());
     }
 
     public final boolean h() {
@@ -199,16 +199,16 @@ public class c extends PopupWindow {
         if (currentActivity != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             currentActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            this.f50683f = displayMetrics.widthPixels;
-            this.f50684g = displayMetrics.heightPixels;
+            this.f50684f = displayMetrics.widthPixels;
+            this.f50685g = displayMetrics.heightPixels;
         }
-        return this.f50684g > 2000 && this.f50683f > 2000;
+        return this.f50685g > 2000 && this.f50684f > 2000;
     }
 
     public void i() {
         RelativeLayout relativeLayout;
-        if (h() && (relativeLayout = this.f50685h) != null && relativeLayout.getLayoutParams() != null) {
-            this.f50685h.getLayoutParams().width = (this.f50683f * 2) / 3;
+        if (h() && (relativeLayout = this.f50686h) != null && relativeLayout.getLayoutParams() != null) {
+            this.f50686h.getLayoutParams().width = (this.f50684f * 2) / 3;
         }
         showAtLocation(getContentView(), 17, 0, 0);
     }

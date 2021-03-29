@@ -22,16 +22,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    public static SapiLivenessRecogManager f5656a;
+    public static SapiLivenessRecogManager f5657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LivenessRecogCallback f5657b;
+    public LivenessRecogCallback f5658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f5658c;
+    public long f5659c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f5659d;
+    public long f5660d;
 
     private void a(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -94,7 +94,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f5657b = livenessRecogCallback;
+        this.f5658b = livenessRecogCallback;
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
             if (livenessRecogDTO.showGuidePage) {
                 Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
@@ -107,7 +107,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             context.startActivity(intent2);
             return;
         }
-        this.f5659d = System.currentTimeMillis();
+        this.f5660d = System.currentTimeMillis();
         Intent intent3 = new Intent(context, LivenessLoadingActivity.class);
         intent3.setFlags(268435456);
         context.startActivity(intent3);
@@ -118,16 +118,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     private void c(Context context) {
-        this.f5658c = System.currentTimeMillis();
+        this.f5659c = System.currentTimeMillis();
     }
 
     public static synchronized SapiLivenessRecogManager getInstance() {
         SapiLivenessRecogManager sapiLivenessRecogManager;
         synchronized (SapiLivenessRecogManager.class) {
-            if (f5656a == null) {
-                f5656a = new SapiLivenessRecogManager();
+            if (f5657a == null) {
+                f5657a = new SapiLivenessRecogManager();
             }
-            sapiLivenessRecogManager = f5656a;
+            sapiLivenessRecogManager = f5657a;
         }
         return sapiLivenessRecogManager;
     }
@@ -137,7 +137,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public void cleanLivenessRecogCallback() {
-        this.f5657b = null;
+        this.f5658b = null;
     }
 
     @Override // com.baidu.fsg.face.base.b
@@ -166,7 +166,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public LivenessRecogCallback getLivenessRecogCallback() {
-        return this.f5657b;
+        return this.f5658b;
     }
 
     private void b(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
@@ -220,7 +220,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f5657b = livenessRecogCallback;
+        this.f5658b = livenessRecogCallback;
         Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
         intent.setFlags(268435456);
         context.startActivity(intent);
@@ -234,10 +234,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
                 context.sendBroadcast(intent);
             }
-        }, System.currentTimeMillis() - this.f5659d >= 1000 ? 0L : 1000L);
+        }, System.currentTimeMillis() - this.f5660d >= 1000 ? 0L : 1000L);
     }
 
     private boolean a() {
-        return System.currentTimeMillis() - this.f5658c < 300;
+        return System.currentTimeMillis() - this.f5659c < 300;
     }
 }

@@ -23,7 +23,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
         a aVar = new a();
         this.mHistoryData = aVar;
-        aVar.f60506a = jSONObject.optInt("has_more") == 1;
+        aVar.f60507a = jSONObject.optInt("has_more") == 1;
         ArrayList arrayList = null;
         JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -36,7 +36,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             }
             arrayList = arrayList2;
         }
-        this.mHistoryData.f60507b = arrayList;
+        this.mHistoryData.f60508b = arrayList;
     }
 
     public a getRecentHistoryData() {

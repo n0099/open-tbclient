@@ -23,7 +23,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpExecutor {
     public static final long CONNECTION_TIMEOUT = 15;
     public static final long READ_TIMEOUT = 15;
@@ -31,7 +31,7 @@ public class HttpExecutor {
     public static volatile HttpExecutor mInstance;
     public OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class HttpExecutorLogger implements Interceptor {
         public HttpExecutorLogger() {
         }
@@ -55,7 +55,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class MyTrustManager implements X509TrustManager {
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
@@ -71,7 +71,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class TrustAllHostnameVerifier implements HostnameVerifier {
         public TrustAllHostnameVerifier() {
         }

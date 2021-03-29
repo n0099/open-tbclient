@@ -6,38 +6,38 @@ import java.util.ArrayList;
 public class o extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f49731c = BdUniqueId.gen();
+    public static final BdUniqueId f49732c = BdUniqueId.gen();
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f49732a;
+    public final ArrayList<String> f49733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.b.e f49733b;
+    public d.b.h0.b.e f49734b;
 
     public o() {
         ArrayList<String> arrayList = new ArrayList<>(2);
-        this.f49732a = arrayList;
+        this.f49733a = arrayList;
         arrayList.add("12_4_profile");
-        this.f49732a.add("12_4_profile_a");
+        this.f49733a.add("12_4_profile_a");
     }
 
     @Override // d.b.h0.b.f.a
     public ArrayList<String> a() {
-        return this.f49732a;
+        return this.f49733a;
     }
 
     @Override // d.b.h0.b.f.a
     public d.b.h0.b.e b() {
-        return this.f49733b;
+        return this.f49734b;
     }
 
     @Override // d.b.h0.b.f.a
     public BdUniqueId c() {
-        return f49731c;
+        return f49732c;
     }
 
     @Override // d.b.h0.b.f.a
     public void f(d.b.h0.b.e eVar) {
-        this.f49733b = eVar;
+        this.f49734b = eVar;
     }
 }

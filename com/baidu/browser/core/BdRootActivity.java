@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import d.b.h.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdRootActivity extends Activity {
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {

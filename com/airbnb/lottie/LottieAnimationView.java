@@ -501,7 +501,7 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     public void setComposition(@NonNull d dVar) {
-        if (d.a.a.c.f41119a) {
+        if (d.a.a.c.f41120a) {
             String str = TAG;
             Log.v(str, "Set Composition \n" + dVar);
         }

@@ -78,18 +78,18 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public class b implements TbImageView.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f13949a;
+        public final /* synthetic */ String f13950a;
 
         public b(String str) {
-            this.f13949a = str;
+            this.f13950a = str;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
             if (z) {
                 MaintabBottomIndicator.this.q.setVisibility(0);
-                if (!k.isEmpty(this.f13949a)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921491, this.f13949a));
+                if (!k.isEmpty(this.f13950a)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921491, this.f13950a));
                 }
                 MaintabBottomIndicator.this.q.setEvent(null);
             }
@@ -114,7 +114,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void a(String str, TbFragmentTabIndicator.a aVar) {
         View view;
-        if (aVar == null || (view = aVar.f13955a) == null) {
+        if (aVar == null || (view = aVar.f13956a) == null) {
             return;
         }
         addView(view);
@@ -124,7 +124,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void b(String str, TbFragmentTabIndicator.a aVar) {
         View view;
-        if (aVar == null || (view = aVar.f13955a) == null) {
+        if (aVar == null || (view = aVar.f13956a) == null) {
             return;
         }
         addView(view, -2, -2);
@@ -189,8 +189,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             HashMap<String, TbFragmentTabIndicator.a> hashMap = this.x;
             if (hashMap != null) {
                 for (TbFragmentTabIndicator.a aVar : hashMap.values()) {
-                    if (aVar != null && (view = aVar.f13955a) != null && view.isClickable()) {
-                        aVar.f13955a.performClick();
+                    if (aVar != null && (view = aVar.f13956a) != null && view.isClickable()) {
+                        aVar.f13956a.performClick();
                     }
                 }
                 return;
@@ -288,7 +288,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it;
-        int i5;
+        int left;
         int measuredHeight;
         int measuredHeight2;
         super.onLayout(z, i, i2, i3, i4);
@@ -299,25 +299,22 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         while (it.hasNext() && this.o != null && this.n != null) {
             TbFragmentTabIndicator.a value = it.next().getValue();
             if (value != null) {
-                int measuredWidth = value.f13955a.getMeasuredWidth();
-                int measuredHeight3 = value.f13955a.getMeasuredHeight();
-                if (value.f13956b) {
-                    i5 = this.o.getRight() - this.v;
+                int measuredWidth = value.f13956a.getMeasuredWidth();
+                int measuredHeight3 = value.f13956a.getMeasuredHeight();
+                if (value.f13957b) {
+                    left = this.o.getRight() - this.v;
                 } else {
-                    int left = this.o.getLeft();
-                    double measuredWidth2 = this.o.getMeasuredWidth();
-                    Double.isNaN(measuredWidth2);
-                    i5 = (left + ((int) (measuredWidth2 * 0.14d))) - measuredWidth;
+                    left = (this.o.getLeft() + ((int) (this.o.getMeasuredWidth() * 0.14d))) - measuredWidth;
                 }
                 if (this.k == 1) {
                     measuredHeight = this.n.getTop();
                     measuredHeight2 = this.w;
                 } else {
                     measuredHeight = getMeasuredHeight() / 2;
-                    measuredHeight2 = value.f13955a.getMeasuredHeight() / 2;
+                    measuredHeight2 = value.f13956a.getMeasuredHeight() / 2;
                 }
-                int i6 = measuredHeight - measuredHeight2;
-                value.f13955a.layout(i5, i6, measuredWidth + i5, measuredHeight3 + i6);
+                int i5 = measuredHeight - measuredHeight2;
+                value.f13956a.layout(left, i5, measuredWidth + left, measuredHeight3 + i5);
             }
         }
     }
@@ -334,10 +331,10 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
             TbFragmentTabIndicator.a value = entry.getValue();
             if (value != null) {
-                ViewGroup.LayoutParams layoutParams = value.f13955a.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = value.f13956a.getLayoutParams();
                 int i3 = layoutParams.width;
                 if (i3 == -2) {
-                    value.f13955a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                    value.f13956a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
                 } else {
                     if (i3 > size) {
                         i3 = size;
@@ -346,7 +343,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                     if (i4 > size2) {
                         i4 = size2;
                     }
-                    value.f13955a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+                    value.f13956a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
                 }
             }
         }

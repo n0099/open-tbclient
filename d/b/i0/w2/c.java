@@ -38,10 +38,10 @@ import java.util.ArrayList;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public WriteData f62165c;
+    public WriteData f62166c;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f62168f;
+    public View f62169f;
     public PostPrefixData k;
     public TextView l;
     public d.b.i0.u3.i m;
@@ -56,22 +56,22 @@ public class c {
     public d.b.h0.b0.b v;
 
     /* renamed from: a  reason: collision with root package name */
-    public NavigationBar f62163a = null;
+    public NavigationBar f62164a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f62164b = null;
+    public View f62165b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public EditText f62166d = null;
+    public EditText f62167d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f62167e = null;
+    public View f62168e = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f62169g = null;
+    public LinearLayout f62170g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditText f62170h = null;
+    public EditText f62171h = null;
     public TextView i = null;
     public RelativeLayout j = null;
     public boolean w = false;
@@ -136,8 +136,8 @@ public class c {
 
     /* renamed from: d.b.i0.w2.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1651c implements View.OnClickListener {
-        public View$OnClickListenerC1651c() {
+    public class View$OnClickListenerC1652c implements View.OnClickListener {
+        public View$OnClickListenerC1652c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -246,9 +246,9 @@ public class c {
     }
 
     public c(WriteShareActivity writeShareActivity) {
-        this.f62165c = null;
+        this.f62166c = null;
         this.u = writeShareActivity;
-        this.f62165c = writeShareActivity.getWriteData();
+        this.f62166c = writeShareActivity.getWriteData();
         if (this.v == null) {
             this.v = new d.b.h0.b0.b();
         }
@@ -257,23 +257,23 @@ public class c {
 
     public void A() {
         String str = "1";
-        if (this.f62165c.getType() == 3) {
-            String trim = this.f62166d.getText().toString().trim();
+        if (this.f62166c.getType() == 3) {
+            String trim = this.f62167d.getText().toString().trim();
             PostPrefixData postPrefixData = this.k;
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
                 if (this.u.getCurrentPrefixPosition() == this.k.getPrefixs().size() - 1) {
                     if (TextUtils.isEmpty(trim)) {
-                        this.f62165c.setIsNoTitle(true);
+                        this.f62166c.setIsNoTitle(true);
                     } else {
-                        this.f62165c.setIsNoTitle(false);
+                        this.f62166c.setIsNoTitle(false);
                     }
                 } else {
-                    this.f62165c.setIsNoTitle(false);
+                    this.f62166c.setIsNoTitle(false);
                 }
             } else if (TextUtils.isEmpty(trim)) {
-                this.f62165c.setIsNoTitle(true);
+                this.f62166c.setIsNoTitle(true);
             } else {
-                this.f62165c.setIsNoTitle(false);
+                this.f62166c.setIsNoTitle(false);
             }
             if (str == null && str.length() > 0 && this.w) {
                 this.i.setEnabled(true);
@@ -289,14 +289,14 @@ public class c {
     }
 
     public void B(View.OnFocusChangeListener onFocusChangeListener) {
-        this.f62166d.setOnFocusChangeListener(onFocusChangeListener);
-        this.f62170h.setOnFocusChangeListener(onFocusChangeListener);
-        this.f62164b.setOnFocusChangeListener(onFocusChangeListener);
+        this.f62167d.setOnFocusChangeListener(onFocusChangeListener);
+        this.f62171h.setOnFocusChangeListener(onFocusChangeListener);
+        this.f62165b.setOnFocusChangeListener(onFocusChangeListener);
         this.i.setOnFocusChangeListener(onFocusChangeListener);
     }
 
     public void C(View.OnClickListener onClickListener) {
-        this.f62164b.setOnClickListener(onClickListener);
+        this.f62165b.setOnClickListener(onClickListener);
     }
 
     public void D(View.OnClickListener onClickListener) {
@@ -304,7 +304,7 @@ public class c {
     }
 
     public void E(View.OnClickListener onClickListener) {
-        this.f62169g.setOnClickListener(onClickListener);
+        this.f62170g.setOnClickListener(onClickListener);
     }
 
     public void F(PostPrefixData postPrefixData) {
@@ -323,7 +323,7 @@ public class c {
     }
 
     public View n() {
-        return this.f62164b;
+        return this.f62165b;
     }
 
     public TextView o() {
@@ -331,11 +331,11 @@ public class c {
     }
 
     public EditText p() {
-        return this.f62170h;
+        return this.f62171h;
     }
 
     public EditText q() {
-        return this.f62166d;
+        return this.f62167d;
     }
 
     public TextView r() {
@@ -361,7 +361,7 @@ public class c {
             int size = prefixs.size();
             this.l.setText(prefixs.get(0));
             this.u.setCurrentPrefixPosition(0);
-            this.o.setOnClickListener(new View$OnClickListenerC1651c());
+            this.o.setOnClickListener(new View$OnClickListenerC1652c());
             ImageView imageView = (ImageView) this.u.findViewById(R.id.prefix_icon);
             this.n = imageView;
             if (size > 1) {
@@ -415,26 +415,26 @@ public class c {
         this.r.setRadius(0);
         this.s = (TextView) this.u.findViewById(R.id.post_share_title);
         this.t = (TextView) this.u.findViewById(R.id.post_share_content);
-        WriteData writeData = this.f62165c;
+        WriteData writeData = this.f62166c;
         if (writeData != null) {
             if (writeData.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
                 this.r.setEvent(new a());
             }
-            if (this.f62165c.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
-                if (this.f62165c.getShareSummaryImg() != null && this.f62165c.getShareSummaryImg().trim().length() > 0) {
-                    this.r.W(this.f62165c.getShareSummaryImg(), 10, true);
+            if (this.f62166c.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
+                if (this.f62166c.getShareSummaryImg() != null && this.f62166c.getShareSummaryImg().trim().length() > 0) {
+                    this.r.W(this.f62166c.getShareSummaryImg(), 10, true);
                 } else {
                     this.w = true;
                     A();
                 }
             } else {
-                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(this.f62165c.getShareLocalImageData());
+                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(this.f62166c.getShareLocalImageData());
                 if (Bytes2Bitmap != null) {
                     this.r.setImageBitmap(Bytes2Bitmap);
                 } else {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
-                    if (!TextUtils.isEmpty(this.f62165c.getShareLocalImageUri())) {
-                        imageFileInfo.setFilePath(FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), Uri.parse(this.f62165c.getShareLocalImageUri())));
+                    if (!TextUtils.isEmpty(this.f62166c.getShareLocalImageUri())) {
+                        imageFileInfo.setFilePath(FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), Uri.parse(this.f62166c.getShareLocalImageUri())));
                     }
                     imageFileInfo.clearAllActions();
                     imageFileInfo.addPersistAction(d.b.h0.b0.g.d.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
@@ -446,22 +446,22 @@ public class c {
                 this.w = true;
                 A();
             }
-            WriteData writeData2 = this.f62165c;
+            WriteData writeData2 = this.f62166c;
             writeData2.setShareSummaryImgType(d.b.b.e.p.f.s(writeData2.getShareSummaryImg()));
-            this.s.setText(this.f62165c.getShareSummaryTitle());
-            this.t.setText(this.f62165c.getShareSummaryContent());
+            this.s.setText(this.f62166c.getShareSummaryTitle());
+            this.t.setText(this.f62166c.getShareSummaryContent());
         }
     }
 
     public final void w() {
         NavigationBar navigationBar = (NavigationBar) this.u.findViewById(R.id.view_navigation_bar);
-        this.f62163a = navigationBar;
-        this.f62164b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f62163a.setTitleText(this.u.getPageContext().getString(R.string.share_navigationbar_title));
-        this.i = this.f62163a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.u.getPageContext().getString(R.string.send_post));
+        this.f62164a = navigationBar;
+        this.f62165b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f62164a.setTitleText(this.u.getPageContext().getString(R.string.share_navigationbar_title));
+        this.i = this.f62164a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.u.getPageContext().getString(R.string.send_post));
         this.j = (RelativeLayout) this.u.findViewById(R.id.parent);
-        this.f62167e = this.u.findViewById(R.id.interval_view);
-        this.f62168f = this.u.findViewById(R.id.prefix_interval_view);
+        this.f62168e = this.u.findViewById(R.id.interval_view);
+        this.f62169f = this.u.findViewById(R.id.prefix_interval_view);
         this.p = (LinearLayout) this.u.findViewById(R.id.post_share_layout);
         this.q = (LinearLayout) this.u.findViewById(R.id.post_share_content_layout);
         this.r = (ShareSDKImageView) this.u.findViewById(R.id.post_share_image);
@@ -470,43 +470,43 @@ public class c {
         y();
         x();
         LinearLayout linearLayout = (LinearLayout) this.u.findViewById(R.id.post_content_container);
-        this.f62169g = linearLayout;
+        this.f62170g = linearLayout;
         linearLayout.setDrawingCacheEnabled(false);
-        this.f62166d.setVisibility(0);
-        this.f62170h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        this.f62167d.setVisibility(0);
+        this.f62171h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
         A();
     }
 
     public void x() {
         EditText editText = (EditText) this.u.findViewById(R.id.post_content);
-        this.f62170h = editText;
+        this.f62171h = editText;
         editText.setDrawingCacheEnabled(false);
-        if (this.f62165c.getContent() != null && this.f62165c.getContent().length() > 0) {
-            SpannableString j = TbFaceManager.e().j(this.u.getPageContext().getContext(), this.f62165c.getContent());
-            this.f62170h.setText(j);
-            this.f62170h.setSelection(j.length());
+        if (this.f62166c.getContent() != null && this.f62166c.getContent().length() > 0) {
+            SpannableString j = TbFaceManager.e().j(this.u.getPageContext().getContext(), this.f62166c.getContent());
+            this.f62171h.setText(j);
+            this.f62171h.setSelection(j.length());
         }
-        this.f62170h.setOnTouchListener(new h(this));
-        this.f62170h.addTextChangedListener(new i());
+        this.f62171h.setOnTouchListener(new h(this));
+        this.f62171h.addTextChangedListener(new i());
     }
 
     public void y() {
-        this.f62166d = (EditText) this.u.findViewById(R.id.post_title);
-        if (this.f62165c.getType() == 3) {
-            if (this.f62165c.getTitle() != null && this.f62165c.getTitle().trim().length() > 0) {
-                this.f62166d.setText(this.f62165c.getTitle());
-                this.f62166d.setSelection(this.f62165c.getTitle().length());
+        this.f62167d = (EditText) this.u.findViewById(R.id.post_title);
+        if (this.f62166c.getType() == 3) {
+            if (this.f62166c.getTitle() != null && this.f62166c.getTitle().trim().length() > 0) {
+                this.f62167d.setText(this.f62166c.getTitle());
+                this.f62167d.setSelection(this.f62166c.getTitle().length());
             } else {
-                String str = this.u.getPageContext().getString(R.string.share_transfer_thread) + this.f62165c.getShareSummaryTitle();
-                this.f62166d.setText(str);
+                String str = this.u.getPageContext().getString(R.string.share_transfer_thread) + this.f62166c.getShareSummaryTitle();
+                this.f62167d.setText(str);
                 if (str.length() < 20) {
-                    this.f62166d.setSelection(str.length());
+                    this.f62167d.setSelection(str.length());
                 } else {
-                    this.f62166d.setSelection(20);
+                    this.f62167d.setSelection(20);
                 }
             }
         }
-        this.f62166d.addTextChangedListener(new g());
+        this.f62167d.addTextChangedListener(new g());
     }
 
     public void z(int i2) {
@@ -516,20 +516,20 @@ public class c {
         }
         writeShareActivity.getLayoutMode().k(i2 == 1);
         this.u.getLayoutMode().j(this.j);
-        this.f62163a.onChangeSkinType(this.u.getPageContext(), i2);
+        this.f62164a.onChangeSkinType(this.u.getPageContext(), i2);
         SkinManager.setTopBarCommonFinishButton(this.i, i2);
-        SkinManager.setBackgroundColor(this.f62167e, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(this.f62168f, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(this.f62166d, R.color.CAM_X0111);
+        SkinManager.setBackgroundColor(this.f62168e, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f62169f, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f62167d, R.color.CAM_X0111);
         SkinManager.setBackgroundColor(this.q, R.color.CAM_X0205);
         int color = SkinManager.getColor(R.color.CAM_X0105);
         int color2 = SkinManager.getColor(R.color.CAM_X0110);
-        this.f62166d.setTextColor(color);
-        this.f62170h.setTextColor(color);
+        this.f62167d.setTextColor(color);
+        this.f62171h.setTextColor(color);
         this.s.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         this.t.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-        m(this.f62166d, color2);
-        m(this.f62170h, color2);
+        m(this.f62167d, color2);
+        m(this.f62171h, color2);
         A();
     }
 }

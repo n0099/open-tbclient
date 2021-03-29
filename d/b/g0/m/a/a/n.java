@@ -17,15 +17,15 @@ public class n {
     public static class a extends Transition.EpicenterCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Rect f49117a;
+        public final /* synthetic */ Rect f49118a;
 
         public a(Rect rect) {
-            this.f49117a = rect;
+            this.f49118a = rect;
         }
 
         @Override // android.transition.Transition.EpicenterCallback
         public Rect onGetEpicenter(Transition transition) {
-            return this.f49117a;
+            return this.f49118a;
         }
     }
 
@@ -33,25 +33,25 @@ public class n {
     public static class b implements ViewTreeObserver.OnPreDrawListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f49118e;
+        public final /* synthetic */ View f49119e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f49119f;
+        public final /* synthetic */ Transition f49120f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f49120g;
+        public final /* synthetic */ View f49121g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f49121h;
+        public final /* synthetic */ f f49122h;
         public final /* synthetic */ Map i;
         public final /* synthetic */ Map j;
         public final /* synthetic */ ArrayList k;
 
         public b(View view, Transition transition, View view2, f fVar, Map map, Map map2, ArrayList arrayList) {
-            this.f49118e = view;
-            this.f49119f = transition;
-            this.f49120g = view2;
-            this.f49121h = fVar;
+            this.f49119e = view;
+            this.f49120f = transition;
+            this.f49121g = view2;
+            this.f49122h = fVar;
             this.i = map;
             this.j = map2;
             this.k = arrayList;
@@ -59,12 +59,12 @@ public class n {
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
         public boolean onPreDraw() {
-            this.f49118e.getViewTreeObserver().removeOnPreDrawListener(this);
-            Transition transition = this.f49119f;
+            this.f49119e.getViewTreeObserver().removeOnPreDrawListener(this);
+            Transition transition = this.f49120f;
             if (transition != null) {
-                transition.removeTarget(this.f49120g);
+                transition.removeTarget(this.f49121g);
             }
-            View view = this.f49121h.getView();
+            View view = this.f49122h.getView();
             if (view != null) {
                 if (!this.i.isEmpty()) {
                     n.m(this.j, view);
@@ -76,11 +76,11 @@ public class n {
                         }
                     }
                 }
-                if (this.f49119f != null) {
+                if (this.f49120f != null) {
                     n.h(this.k, view);
                     this.k.removeAll(this.j.values());
-                    this.k.add(this.f49120g);
-                    n.c(this.f49119f, this.k);
+                    this.k.add(this.f49121g);
+                    n.c(this.f49120f, this.k);
                     return true;
                 }
                 return true;
@@ -93,22 +93,22 @@ public class n {
     public static class c extends Transition.EpicenterCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public Rect f49122a;
+        public Rect f49123a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f49123b;
+        public final /* synthetic */ e f49124b;
 
         public c(e eVar) {
-            this.f49123b = eVar;
+            this.f49124b = eVar;
         }
 
         @Override // android.transition.Transition.EpicenterCallback
         public Rect onGetEpicenter(Transition transition) {
             View view;
-            if (this.f49122a == null && (view = this.f49123b.f49128a) != null) {
-                this.f49122a = n.n(view);
+            if (this.f49123a == null && (view = this.f49124b.f49129a) != null) {
+                this.f49123a = n.n(view);
             }
-            return this.f49122a;
+            return this.f49123a;
         }
     }
 
@@ -116,16 +116,16 @@ public class n {
     public static class d implements ViewTreeObserver.OnPreDrawListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f49124e;
+        public final /* synthetic */ View f49125e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f49125f;
+        public final /* synthetic */ Transition f49126f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f49126g;
+        public final /* synthetic */ ArrayList f49127g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Transition f49127h;
+        public final /* synthetic */ Transition f49128h;
         public final /* synthetic */ ArrayList i;
         public final /* synthetic */ Transition j;
         public final /* synthetic */ ArrayList k;
@@ -135,10 +135,10 @@ public class n {
         public final /* synthetic */ View o;
 
         public d(View view, Transition transition, ArrayList arrayList, Transition transition2, ArrayList arrayList2, Transition transition3, ArrayList arrayList3, Map map, ArrayList arrayList4, Transition transition4, View view2) {
-            this.f49124e = view;
-            this.f49125f = transition;
-            this.f49126g = arrayList;
-            this.f49127h = transition2;
+            this.f49125e = view;
+            this.f49126f = transition;
+            this.f49127g = arrayList;
+            this.f49128h = transition2;
             this.i = arrayList2;
             this.j = transition3;
             this.k = arrayList3;
@@ -150,12 +150,12 @@ public class n {
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
         public boolean onPreDraw() {
-            this.f49124e.getViewTreeObserver().removeOnPreDrawListener(this);
-            Transition transition = this.f49125f;
+            this.f49125e.getViewTreeObserver().removeOnPreDrawListener(this);
+            Transition transition = this.f49126f;
             if (transition != null) {
-                n.s(transition, this.f49126g);
+                n.s(transition, this.f49127g);
             }
-            Transition transition2 = this.f49127h;
+            Transition transition2 = this.f49128h;
             if (transition2 != null) {
                 n.s(transition2, this.i);
             }
@@ -179,7 +179,7 @@ public class n {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f49128a;
+        public View f49129a;
     }
 
     /* loaded from: classes3.dex */

@@ -78,13 +78,7 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
         for (Sample sample : track.getSamples()) {
             j += sample.getSize();
         }
-        double d2 = j;
-        double duration = track.getDuration();
-        double timescale = track.getTrackMetaData().getTimescale();
-        Double.isNaN(duration);
-        Double.isNaN(timescale);
-        Double.isNaN(d2);
-        return ((long) (d2 / (duration / timescale))) * 8;
+        return ((long) (j / (track.getDuration() / track.getTrackMetaData().getTimescale()))) * 8;
     }
 
     public String getFormat(AbstractSampleEntry abstractSampleEntry) {

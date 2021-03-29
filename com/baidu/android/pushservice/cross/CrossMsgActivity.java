@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.m;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CrossMsgActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {

@@ -36,21 +36,21 @@ public enum XAdErrorCode {
     public static final String ERROR_CODE_MESSAGE = "msg";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8351a;
+    public int f8352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8352b;
+    public String f8353b;
 
     XAdErrorCode(int i, String str) {
-        this.f8351a = i;
-        this.f8352b = str;
+        this.f8352a = i;
+        this.f8353b = str;
     }
 
     public int getCode() {
-        return this.f8351a;
+        return this.f8352a;
     }
 
     public String getMessage() {
-        return this.f8352b;
+        return this.f8353b;
     }
 }

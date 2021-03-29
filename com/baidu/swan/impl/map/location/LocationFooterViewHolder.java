@@ -9,10 +9,10 @@ import com.baidu.tieba.R;
 public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f12967a;
+    public TextView f12968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f12968b;
+    public ProgressBar f12969b;
 
     public LocationFooterViewHolder(View view) {
         super(view);
@@ -20,8 +20,8 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     }
 
     public final void a(View view) {
-        this.f12967a = (TextView) view.findViewById(R.id.loading_text);
-        this.f12968b = (ProgressBar) view.findViewById(R.id.loading_progress);
+        this.f12968a = (TextView) view.findViewById(R.id.loading_text);
+        this.f12969b = (ProgressBar) view.findViewById(R.id.loading_progress);
     }
 
     public void b(boolean z) {

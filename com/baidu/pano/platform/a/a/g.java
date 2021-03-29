@@ -21,7 +21,7 @@ import org.apache.http.params.HttpParams;
 public class g implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpClient f9337a;
+    public final HttpClient f9338a;
 
     /* loaded from: classes2.dex */
     public static final class a extends HttpEntityEnclosingRequestBase {
@@ -39,7 +39,7 @@ public class g implements i {
     }
 
     public g(HttpClient httpClient) {
-        this.f9337a = httpClient;
+        this.f9338a = httpClient;
     }
 
     public static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
@@ -102,7 +102,7 @@ public class g implements i {
         int t = nVar.t();
         HttpConnectionParams.setConnectionTimeout(params, 5000);
         HttpConnectionParams.setSoTimeout(params, t);
-        return this.f9337a.execute(b2);
+        return this.f9338a.execute(b2);
     }
 
     public static void a(HttpEntityEnclosingRequestBase httpEntityEnclosingRequestBase, com.baidu.pano.platform.a.n<?> nVar) throws com.baidu.pano.platform.a.a {

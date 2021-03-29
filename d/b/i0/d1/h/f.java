@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends SQLiteOpenHelper {
     public f(Context context, String str) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, 14);
@@ -161,7 +161,7 @@ public class f extends SQLiteOpenHelper {
                 Iterator<String> it = g2.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.f53810e) || next.startsWith(l.f53808e))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.f53811e) || next.startsWith(l.f53809e))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e2) {
@@ -430,7 +430,7 @@ public class f extends SQLiteOpenHelper {
             Iterator<String> it = g2.iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                if (!TextUtils.isEmpty(next) && (next.startsWith(m.f53810e) || next.startsWith(l.f53808e))) {
+                if (!TextUtils.isEmpty(next) && (next.startsWith(m.f53811e) || next.startsWith(l.f53809e))) {
                     try {
                         sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_count LONG default -1;");
                     } catch (Exception e2) {
@@ -479,13 +479,13 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    HashMap<String, SQLiteDatabase> hashMap = g.f53798c;
+                    HashMap<String, SQLiteDatabase> hashMap = g.f53799c;
                     hashMap.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
                     k.b();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    HashMap<String, SQLiteDatabase> hashMap2 = g.f53798c;
+                    HashMap<String, SQLiteDatabase> hashMap2 = g.f53799c;
                     hashMap2.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {

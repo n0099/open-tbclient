@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class q {
     public static int a() {
         if (new File("/system/bin/su").exists() && b("/system/bin/su")) {

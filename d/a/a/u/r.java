@@ -52,10 +52,10 @@ public class r {
                 break;
             }
             i2++;
-            list.get(i2).f41454f = Float.valueOf(list.get(i2).f41453e);
+            list.get(i2).f41455f = Float.valueOf(list.get(i2).f41454e);
         }
         d.a.a.w.a<?> aVar = list.get(i);
-        if (aVar.f41450b == 0) {
+        if (aVar.f41451b == 0) {
             list.remove(aVar);
         }
     }

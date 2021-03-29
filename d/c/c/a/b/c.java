@@ -6,16 +6,16 @@ import java.io.Closeable;
 public final class c implements Closeable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final a0 f65459e;
+    public final a0 f65460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.bytedance.sdk.a.b.w f65460f;
+    public final com.bytedance.sdk.a.b.w f65461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f65461g;
+    public final int f65462g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f65462h;
+    public final String f65463h;
     public final u i;
     public final v j;
     public final d k;
@@ -27,14 +27,14 @@ public final class c implements Closeable {
     public volatile h q;
 
     public c(a aVar) {
-        this.f65459e = aVar.f65463a;
-        this.f65460f = aVar.f65464b;
-        this.f65461g = aVar.f65465c;
-        this.f65462h = aVar.f65466d;
-        this.i = aVar.f65467e;
-        this.j = aVar.f65468f.c();
-        this.k = aVar.f65469g;
-        this.l = aVar.f65470h;
+        this.f65460e = aVar.f65464a;
+        this.f65461f = aVar.f65465b;
+        this.f65462g = aVar.f65466c;
+        this.f65463h = aVar.f65467d;
+        this.i = aVar.f65468e;
+        this.j = aVar.f65469f.c();
+        this.k = aVar.f65470g;
+        this.l = aVar.f65471h;
         this.m = aVar.i;
         this.n = aVar.j;
         this.o = aVar.k;
@@ -70,7 +70,7 @@ public final class c implements Closeable {
     }
 
     public a0 n() {
-        return this.f65459e;
+        return this.f65460e;
     }
 
     public String o(String str) {
@@ -83,24 +83,24 @@ public final class c implements Closeable {
     }
 
     public com.bytedance.sdk.a.b.w q() {
-        return this.f65460f;
+        return this.f65461f;
     }
 
     public int r() {
-        return this.f65461g;
+        return this.f65462g;
     }
 
     public boolean s() {
-        int i = this.f65461g;
+        int i = this.f65462g;
         return i >= 200 && i < 300;
     }
 
     public String t() {
-        return this.f65462h;
+        return this.f65463h;
     }
 
     public String toString() {
-        return "Response{protocol=" + this.f65460f + ", code=" + this.f65461g + ", message=" + this.f65462h + ", url=" + this.f65459e.a() + '}';
+        return "Response{protocol=" + this.f65461f + ", code=" + this.f65462g + ", message=" + this.f65463h + ", url=" + this.f65460e.a() + '}';
     }
 
     public u v() {
@@ -127,40 +127,40 @@ public final class c implements Closeable {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public a0 f65463a;
+        public a0 f65464a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.a.b.w f65464b;
+        public com.bytedance.sdk.a.b.w f65465b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f65465c;
+        public int f65466c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f65466d;
+        public String f65467d;
 
         /* renamed from: e  reason: collision with root package name */
-        public u f65467e;
+        public u f65468e;
 
         /* renamed from: f  reason: collision with root package name */
-        public v.a f65468f;
+        public v.a f65469f;
 
         /* renamed from: g  reason: collision with root package name */
-        public d f65469g;
+        public d f65470g;
 
         /* renamed from: h  reason: collision with root package name */
-        public c f65470h;
+        public c f65471h;
         public c i;
         public c j;
         public long k;
         public long l;
 
         public a() {
-            this.f65465c = -1;
-            this.f65468f = new v.a();
+            this.f65466c = -1;
+            this.f65469f = new v.a();
         }
 
         public a a(int i) {
-            this.f65465c = i;
+            this.f65466c = i;
             return this;
         }
 
@@ -173,55 +173,55 @@ public final class c implements Closeable {
             if (cVar != null) {
                 l("networkResponse", cVar);
             }
-            this.f65470h = cVar;
+            this.f65471h = cVar;
             return this;
         }
 
         public a d(d dVar) {
-            this.f65469g = dVar;
+            this.f65470g = dVar;
             return this;
         }
 
         public a e(u uVar) {
-            this.f65467e = uVar;
+            this.f65468e = uVar;
             return this;
         }
 
         public a f(v vVar) {
-            this.f65468f = vVar.h();
+            this.f65469f = vVar.h();
             return this;
         }
 
         public a g(com.bytedance.sdk.a.b.w wVar) {
-            this.f65464b = wVar;
+            this.f65465b = wVar;
             return this;
         }
 
         public a h(a0 a0Var) {
-            this.f65463a = a0Var;
+            this.f65464a = a0Var;
             return this;
         }
 
         public a i(String str) {
-            this.f65466d = str;
+            this.f65467d = str;
             return this;
         }
 
         public a j(String str, String str2) {
-            this.f65468f.b(str, str2);
+            this.f65469f.b(str, str2);
             return this;
         }
 
         public c k() {
-            if (this.f65463a != null) {
-                if (this.f65464b != null) {
-                    if (this.f65465c >= 0) {
-                        if (this.f65466d != null) {
+            if (this.f65464a != null) {
+                if (this.f65465b != null) {
+                    if (this.f65466c >= 0) {
+                        if (this.f65467d != null) {
                             return new c(this);
                         }
                         throw new IllegalStateException("message == null");
                     }
-                    throw new IllegalStateException("code < 0: " + this.f65465c);
+                    throw new IllegalStateException("code < 0: " + this.f65466c);
                 }
                 throw new IllegalStateException("protocol == null");
             }
@@ -272,15 +272,15 @@ public final class c implements Closeable {
         }
 
         public a(c cVar) {
-            this.f65465c = -1;
-            this.f65463a = cVar.f65459e;
-            this.f65464b = cVar.f65460f;
-            this.f65465c = cVar.f65461g;
-            this.f65466d = cVar.f65462h;
-            this.f65467e = cVar.i;
-            this.f65468f = cVar.j.h();
-            this.f65469g = cVar.k;
-            this.f65470h = cVar.l;
+            this.f65466c = -1;
+            this.f65464a = cVar.f65460e;
+            this.f65465b = cVar.f65461f;
+            this.f65466c = cVar.f65462g;
+            this.f65467d = cVar.f65463h;
+            this.f65468e = cVar.i;
+            this.f65469f = cVar.j.h();
+            this.f65470g = cVar.k;
+            this.f65471h = cVar.l;
             this.i = cVar.m;
             this.j = cVar.n;
             this.k = cVar.o;

@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static String a(Context context, String str) {
         try {

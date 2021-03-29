@@ -6,17 +6,17 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity;
 import protobuf.CommitInviteMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestCommitInviteMessage f54339e;
+    public RequestCommitInviteMessage f54340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f54340f;
+    public long f54341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f54341g;
+    public long f54342g;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -36,16 +36,16 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         if (bundle == null) {
             return;
         }
-        this.f54340f = bundle.getLong("gid", -1L);
-        this.f54341g = bundle.getLong("groupid", -1L);
+        this.f54341f = bundle.getLong("gid", -1L);
+        this.f54342g = bundle.getLong("groupid", -1L);
     }
 
     public void initWithIntent(Intent intent) {
         if (intent == null) {
             return;
         }
-        this.f54340f = intent.getLongExtra("gid", -1L);
-        this.f54341g = intent.getLongExtra("groupid", -1L);
+        this.f54341f = intent.getLongExtra("gid", -1L);
+        this.f54342g = intent.getLongExtra("groupid", -1L);
     }
 
     public final RequestCommitInviteMessage s(long j, long j2, String str) {
@@ -60,13 +60,13 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
     }
 
     public void t(Bundle bundle) {
-        bundle.putLong("gid", this.f54340f);
-        bundle.putLong("groupid", this.f54341g);
+        bundle.putLong("gid", this.f54341f);
+        bundle.putLong("groupid", this.f54342g);
     }
 
     public void u(String str) {
-        RequestCommitInviteMessage s = s(this.f54340f, this.f54341g, str);
-        this.f54339e = s;
+        RequestCommitInviteMessage s = s(this.f54341f, this.f54342g, str);
+        this.f54340e = s;
         super.sendMessage(s);
     }
 }

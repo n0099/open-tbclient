@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GETTYPE = "";
     public static final String DEFAULT_MAX_TIME = "";

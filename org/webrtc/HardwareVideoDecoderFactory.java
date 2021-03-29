@@ -2,7 +2,7 @@ package org.webrtc;
 
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class HardwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
     @Deprecated
     public HardwareVideoDecoderFactory() {

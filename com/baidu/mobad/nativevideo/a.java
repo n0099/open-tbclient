@@ -11,45 +11,45 @@ import java.util.List;
 public class a implements BaiduNative.BaiduNativeNetworkListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.production.b.e f8058a;
+    public com.baidu.mobads.production.b.e f8059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0103a f8059b;
+    public InterfaceC0104a f8060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduNative f8060c;
+    public BaiduNative f8061c;
 
     /* renamed from: com.baidu.mobad.nativevideo.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0103a {
+    public interface InterfaceC0104a {
         void a(NativeErrorCode nativeErrorCode);
 
         void a(List<e> list);
     }
 
-    public a(Context context, String str, InterfaceC0103a interfaceC0103a) {
+    public a(Context context, String str, InterfaceC0104a interfaceC0104a) {
         com.baidu.mobads.production.h.a aVar = new com.baidu.mobads.production.h.a(context, str);
-        this.f8058a = aVar;
-        this.f8059b = interfaceC0103a;
-        this.f8060c = new BaiduNative(context, str, this, aVar);
+        this.f8059a = aVar;
+        this.f8060b = interfaceC0104a;
+        this.f8061c = new BaiduNative(context, str, this, aVar);
     }
 
     public void a(RequestParameters requestParameters) {
-        this.f8060c.makeRequest(requestParameters);
+        this.f8061c.makeRequest(requestParameters);
     }
 
     @Override // com.baidu.mobad.feeds.BaiduNative.BaiduNativeNetworkListener
     public void onNativeFail(NativeErrorCode nativeErrorCode) {
-        this.f8059b.a(nativeErrorCode);
+        this.f8060b.a(nativeErrorCode);
     }
 
     @Override // com.baidu.mobad.feeds.BaiduNative.BaiduNativeNetworkListener
     public void onNativeLoad(List<NativeResponse> list) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < list.size(); i++) {
-            com.baidu.mobads.production.b.e eVar = this.f8058a;
-            arrayList.add(new XAdVideoResponse(list.get(i), eVar.f8436d, eVar.f8440h));
+            com.baidu.mobads.production.b.e eVar = this.f8059a;
+            arrayList.add(new XAdVideoResponse(list.get(i), eVar.f8437d, eVar.f8441h));
         }
-        this.f8059b.a(arrayList);
+        this.f8060b.a(arrayList);
     }
 }

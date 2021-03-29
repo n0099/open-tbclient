@@ -10,12 +10,12 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 public class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f8286a;
+    public final /* synthetic */ g f8287a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(g gVar, Looper looper) {
         super(looper);
-        this.f8286a = gVar;
+        this.f8287a = gVar;
     }
 
     @Override // android.os.Handler
@@ -30,32 +30,32 @@ public class i extends Handler {
         e eVar = (e) message.getData().getParcelable("APK_INFO");
         if ("OK".equals(string)) {
             String e2 = eVar.e();
-            context = this.f8286a.l;
+            context = this.f8287a.l;
             b bVar = new b(e2, context, eVar);
             try {
                 try {
-                    if (this.f8286a.f8284g != g.f8283f) {
-                        this.f8286a.a(bVar);
+                    if (this.f8287a.f8285g != g.f8284f) {
+                        this.f8287a.a(bVar);
                         bVar.a(g.f());
-                        this.f8286a.a(true);
+                        this.f8287a.a(true);
                     } else {
                         bVar.a();
                         bVar.a(g.f());
-                        if (g.f8279b != null) {
-                            g.f8279b.f8249a = eVar.b();
+                        if (g.f8280b != null) {
+                            g.f8280b.f8250a = eVar.b();
                         }
-                        this.f8286a.j();
-                        z2 = this.f8286a.n;
+                        this.f8287a.j();
+                        z2 = this.f8287a.n;
                         if (z2) {
-                            this.f8286a.n = false;
-                            g gVar = this.f8286a;
-                            o = this.f8286a.o();
+                            this.f8287a.n = false;
+                            g gVar = this.f8287a;
+                            o = this.f8287a.o();
                             gVar.a(o, "load remote file just downloaded");
                         }
                     }
                 } catch (g.a e3) {
-                    this.f8286a.a(false);
-                    iXAdLogger2 = this.f8286a.m;
+                    this.f8287a.a(false);
+                    iXAdLogger2 = this.f8287a.m;
                     iXAdLogger2.d("XAdApkLoader", "download apk file failed: " + e3.toString());
                 }
                 return;
@@ -63,13 +63,13 @@ public class i extends Handler {
                 bVar.delete();
             }
         }
-        iXAdLogger = this.f8286a.m;
+        iXAdLogger = this.f8287a.m;
         iXAdLogger.d("XAdApkLoader", "mOnApkDownloadCompleted: download failed, code: " + string);
-        this.f8286a.a(false);
-        z = this.f8286a.n;
+        this.f8287a.a(false);
+        z = this.f8287a.n;
         if (z) {
-            this.f8286a.n = false;
-            this.f8286a.a(false, "Refused to download remote for version...");
+            this.f8287a.n = false;
+            this.f8287a.a(false, "Refused to download remote for version...");
         }
     }
 }

@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f68069e = new a();
+    public static final b f68074e = new a();
 
     /* loaded from: classes7.dex */
     public static final class TimeoutTimedObserver<T> extends AtomicReference<b> implements o<T>, b {
@@ -30,15 +30,15 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
         public final class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final long f68070e;
+            public final long f68075e;
 
             public a(long j) {
-                this.f68070e = j;
+                this.f68075e = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f68070e == TimeoutTimedObserver.this.index) {
+                if (this.f68075e == TimeoutTimedObserver.this.index) {
                     TimeoutTimedObserver.this.done = true;
                     TimeoutTimedObserver.this.s.dispose();
                     DisposableHelper.dispose(TimeoutTimedObserver.this);
@@ -112,7 +112,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.f68069e)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.f68074e)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }
@@ -135,15 +135,15 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
         public final class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final long f68072e;
+            public final long f68077e;
 
             public a(long j) {
-                this.f68072e = j;
+                this.f68077e = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f68072e == TimeoutTimedOtherObserver.this.index) {
+                if (this.f68077e == TimeoutTimedOtherObserver.this.index) {
                     TimeoutTimedOtherObserver.this.done = true;
                     TimeoutTimedOtherObserver.this.s.dispose();
                     DisposableHelper.dispose(TimeoutTimedOtherObserver.this);
@@ -222,7 +222,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.f68069e)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.f68074e)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }

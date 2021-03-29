@@ -163,6 +163,7 @@ public class Statistics {
                                     Statistics.this.merge(properties);
                                 }
 
+                                /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
                                 /* JADX DEBUG: Method merged with bridge method */
                                 /* JADX WARN: Can't rename method to resolve collision */
                                 @Override // com.baidu.idl.util.NetUtil.RequestAdapter
@@ -176,22 +177,16 @@ public class Statistics {
                                                 break;
                                             }
                                             byteArrayOutputStream.write(bArr, 0, read);
-                                        } catch (Throwable th) {
+                                        } finally {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (IOException unused) {
                                             }
-                                            throw th;
                                         }
                                     }
                                     byteArrayOutputStream.flush();
                                     JSONObject jSONObject = new JSONObject(new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
-                                    StatisticsResult statisticsResult = new StatisticsResult(jSONObject.getInt("errno"), jSONObject.getString("errnmsg"));
-                                    try {
-                                        byteArrayOutputStream.close();
-                                    } catch (IOException unused2) {
-                                    }
-                                    return statisticsResult;
+                                    return new StatisticsResult(jSONObject.getInt("errno"), jSONObject.getString("errnmsg"));
                                 }
                             });
                         }

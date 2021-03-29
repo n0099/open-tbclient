@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f30724a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+    public static final List<String> f30725a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
         {
             add("HUAWEI");
             add("OPPO");
@@ -30,7 +30,7 @@ public class f {
         String trim = str == null ? RomUtils.UNKNOWN : str.trim();
         try {
             if (!TextUtils.isEmpty(trim)) {
-                for (String str2 : f30724a) {
+                for (String str2 : f30725a) {
                     if (str2.equalsIgnoreCase(trim)) {
                         return str2;
                     }

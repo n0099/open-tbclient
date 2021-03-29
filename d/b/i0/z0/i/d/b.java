@@ -11,7 +11,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.b.j.e.s;
 import d.b.h0.r.q.s1;
 import d.b.i.k0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<s1, ThreadCardViewHolder<s1>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -19,7 +19,7 @@ public class b extends d.b.b.j.e.a<s1, ThreadCardViewHolder<s1>> implements d.b.
     public String p;
     public d.b.h0.m.f q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.h0.m.f<MetaData> {
         public a(b bVar) {
         }

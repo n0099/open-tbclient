@@ -10,26 +10,26 @@ public class y {
     public static class a extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteData f53614a;
+        public final /* synthetic */ WriteData f53615a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f53615b;
+        public final /* synthetic */ String f53616b;
 
         public a(WriteData writeData, String str) {
-            this.f53614a = writeData;
-            this.f53615b = str;
+            this.f53615a = writeData;
+            this.f53616b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             d.b.b.e.d.l<String> g2 = d.b.h0.r.r.a.f().g("tb.pb_editor");
-            WriteData writeData = this.f53614a;
+            WriteData writeData = this.f53615a;
             if (writeData != null && writeData.hasContentToSave()) {
-                g2.e(y.d(this.f53615b), this.f53614a.toDraftString(), 604800000L);
+                g2.e(y.d(this.f53616b), this.f53615a.toDraftString(), 604800000L);
                 return null;
             }
-            g2.remove(y.d(this.f53615b));
+            g2.remove(y.d(this.f53616b));
             return null;
         }
     }
@@ -38,18 +38,18 @@ public class y {
     public static class b extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteData f53616a;
+        public final /* synthetic */ WriteData f53617a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f53617b;
+        public final /* synthetic */ boolean f53618b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f53618c;
+        public final /* synthetic */ String f53619c;
 
         public b(WriteData writeData, boolean z, String str) {
-            this.f53616a = writeData;
-            this.f53617b = z;
-            this.f53618c = str;
+            this.f53617a = writeData;
+            this.f53618b = z;
+            this.f53619c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,18 +58,18 @@ public class y {
             WriteData writeData;
             WriteData writeData2;
             d.b.b.e.d.l<String> g2 = d.b.h0.r.r.a.f().g("tb.pb_editor");
-            WriteData writeData3 = this.f53616a;
-            if (writeData3 != null && writeData3.hasContentToSave() && !this.f53617b) {
-                String draftString = this.f53616a.toDraftString();
-                g2.e(y.c(this.f53618c), draftString, 604800000L);
-                if ("0".equals(this.f53618c) || (writeData2 = this.f53616a) == null || writeData2.getStatisticFrom() != 1) {
+            WriteData writeData3 = this.f53617a;
+            if (writeData3 != null && writeData3.hasContentToSave() && !this.f53618b) {
+                String draftString = this.f53617a.toDraftString();
+                g2.e(y.c(this.f53619c), draftString, 604800000L);
+                if ("0".equals(this.f53619c) || (writeData2 = this.f53617a) == null || writeData2.getStatisticFrom() != 1) {
                     return null;
                 }
                 g2.e(y.c("0"), draftString, 604800000L);
                 return null;
             }
-            g2.remove(y.c(this.f53618c));
-            if ("0".equals(this.f53618c) || (writeData = this.f53616a) == null || writeData.getStatisticFrom() != 1) {
+            g2.remove(y.c(this.f53619c));
+            if ("0".equals(this.f53619c) || (writeData = this.f53617a) == null || writeData.getStatisticFrom() != 1) {
                 return null;
             }
             g2.remove(y.c("0"));
@@ -81,26 +81,26 @@ public class y {
     public static class c extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteData f53619a;
+        public final /* synthetic */ WriteData f53620a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f53620b;
+        public final /* synthetic */ String f53621b;
 
         public c(WriteData writeData, String str) {
-            this.f53619a = writeData;
-            this.f53620b = str;
+            this.f53620a = writeData;
+            this.f53621b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             d.b.b.e.d.l<String> g2 = d.b.h0.r.r.a.f().g("tb.pb_editor");
-            WriteData writeData = this.f53619a;
+            WriteData writeData = this.f53620a;
             if (writeData != null && writeData.hasContentToSave()) {
-                g2.e(y.e(this.f53620b), this.f53619a.toDraftString(), 604800000L);
+                g2.e(y.e(this.f53621b), this.f53620a.toDraftString(), 604800000L);
                 return null;
             }
-            g2.remove(y.e(this.f53620b));
+            g2.remove(y.e(this.f53621b));
             return null;
         }
     }
@@ -114,15 +114,15 @@ public class y {
     public static class e extends BdAsyncTask<String, String, WriteData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d f53621a;
+        public final d f53622a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f53622b;
+        public final String f53623b;
 
         public e(String str, d dVar) {
             setPriority(3);
-            this.f53621a = dVar;
-            this.f53622b = str;
+            this.f53622a = dVar;
+            this.f53623b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,7 +131,7 @@ public class y {
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = d.b.h0.r.r.a.f().g("tb.pb_editor").get(this.f53622b);
+                str = d.b.h0.r.r.a.f().g("tb.pb_editor").get(this.f53623b);
             } catch (Exception unused) {
                 str = null;
             }
@@ -143,7 +143,7 @@ public class y {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            d dVar = this.f53621a;
+            d dVar = this.f53622a;
             if (dVar != null) {
                 dVar.onDraftLoaded(writeData);
             }

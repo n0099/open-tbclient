@@ -5,10 +5,10 @@ import com.baidu.swan.apps.performance.HybridUbcFlow;
 import d.b.g0.a.j1.g;
 import d.b.g0.a.j1.l.f;
 import d.b.g0.a.s0.k.f.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
         public a() {
         }

@@ -14,30 +14,30 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class o extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46458e;
+        public final /* synthetic */ CallbackHandler f46459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46459f;
+        public final /* synthetic */ String f46460f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46460g;
+        public final /* synthetic */ String f46461g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f46461h;
+        public final /* synthetic */ Context f46462h;
         public final /* synthetic */ JSONObject i;
 
         public a(CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject) {
-            this.f46458e = callbackHandler;
-            this.f46459f = str;
-            this.f46460g = str2;
-            this.f46461h = context;
+            this.f46459e = callbackHandler;
+            this.f46460f = str;
+            this.f46461g = str2;
+            this.f46462h = context;
             this.i = jSONObject;
         }
 
@@ -45,19 +45,19 @@ public class o extends a0 {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.e eVar) {
-            if (eVar != null && !eVar.f46770d) {
-                if (o.this.n(eVar, this.f46460g)) {
-                    o.this.m(this.f46461h, this.i, this.f46458e, this.f46459f);
+            if (eVar != null && !eVar.f46771d) {
+                if (o.this.n(eVar, this.f46461g)) {
+                    o.this.m(this.f46462h, this.i, this.f46459e, this.f46460f);
                     return;
                 } else {
-                    this.f46458e.handleSchemeDispatchCallback(this.f46459f, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
+                    this.f46459e.handleSchemeDispatchCallback(this.f46460f, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
                     return;
                 }
             }
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.i("OpenAppAction", "no configuration of authority");
             }
-            d.b.g0.a.v1.c.c.m(10005, this.f46458e, this.f46459f);
+            d.b.g0.a.v1.c.c.m(10005, this.f46459e, this.f46460f);
             d.b.g0.a.z1.h.q(10005, eVar);
         }
     }
@@ -78,7 +78,7 @@ public class o extends a0 {
             return false;
         }
         String optString = a2.optString("cb");
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("OpenAppAction", "params is " + a2.toString());
         }
         String optString2 = a2.optString("open", "");
@@ -90,7 +90,7 @@ public class o extends a0 {
 
     public final void l(@NonNull d.b.g0.a.r1.e eVar, @NonNull String str) {
         d.b.g0.a.z1.k.e eVar2 = new d.b.g0.a.z1.k.e();
-        eVar2.f47252c = eVar.L().S();
+        eVar2.f47253c = eVar.L().S();
         eVar2.a("appkey", eVar.getAppId());
         eVar2.a(Config.ROM, "Android");
         try {
@@ -105,7 +105,7 @@ public class o extends a0 {
         String optString = jSONObject.optString("open");
         boolean S = !TextUtils.isEmpty(optString) ? k0.S(context, optString, callbackHandler, str) : false;
         boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("OpenAppAction", "open app result=" + S + "\nisNeedDownload=" + optBoolean);
         }
         if (optBoolean) {
@@ -125,7 +125,7 @@ public class o extends a0 {
             }
             JSONObject jSONObject = eVar.o;
             if (jSONObject != null && jSONObject.keys() != null) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.i("OpenAppAction", "source: " + S + " openUrl:" + str + " 配置数据:" + jSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("scene");

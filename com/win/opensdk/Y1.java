@@ -6,5 +6,5 @@ import android.os.Looper;
 public class Y1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f39839a = new Handler(Looper.getMainLooper());
+    public static Handler f39840a = new Handler(Looper.getMainLooper());
 }

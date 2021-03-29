@@ -6,29 +6,29 @@ public class g<E> implements Cloneable {
     public static final Object i = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49167e;
+    public boolean f49168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f49168f;
+    public int[] f49169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object[] f49169g;
+    public Object[] f49170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49170h;
+    public int f49171h;
 
     public g() {
         this(10);
     }
 
     public void b() {
-        int i2 = this.f49170h;
-        Object[] objArr = this.f49169g;
+        int i2 = this.f49171h;
+        Object[] objArr = this.f49170g;
         for (int i3 = 0; i3 < i2; i3++) {
             objArr[i3] = null;
         }
-        this.f49170h = 0;
-        this.f49167e = false;
+        this.f49171h = 0;
+        this.f49168e = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,8 +38,8 @@ public class g<E> implements Cloneable {
         try {
             g<E> gVar2 = (g) super.clone();
             try {
-                gVar2.f49168f = (int[]) this.f49168f.clone();
-                gVar2.f49169g = (Object[]) this.f49169g.clone();
+                gVar2.f49169f = (int[]) this.f49169f.clone();
+                gVar2.f49170g = (Object[]) this.f49170g.clone();
                 return gVar2;
             } catch (CloneNotSupportedException unused) {
                 gVar = gVar2;
@@ -50,9 +50,9 @@ public class g<E> implements Cloneable {
     }
 
     public final void d() {
-        int i2 = this.f49170h;
-        int[] iArr = this.f49168f;
-        Object[] objArr = this.f49169g;
+        int i2 = this.f49171h;
+        int[] iArr = this.f49169f;
+        Object[] objArr = this.f49170g;
         int i3 = 0;
         for (int i4 = 0; i4 < i2; i4++) {
             Object obj = objArr[i4];
@@ -65,38 +65,38 @@ public class g<E> implements Cloneable {
                 i3++;
             }
         }
-        this.f49167e = false;
-        this.f49170h = i3;
+        this.f49168e = false;
+        this.f49171h = i3;
     }
 
     public int e(int i2) {
-        if (this.f49167e) {
+        if (this.f49168e) {
             d();
         }
-        return this.f49168f[i2];
+        return this.f49169f[i2];
     }
 
     public int f() {
-        if (this.f49167e) {
+        if (this.f49168e) {
             d();
         }
-        return this.f49170h;
+        return this.f49171h;
     }
 
     public E g(int i2) {
-        if (this.f49167e) {
+        if (this.f49168e) {
             d();
         }
-        return (E) this.f49169g[i2];
+        return (E) this.f49170g[i2];
     }
 
     public String toString() {
         if (f() <= 0) {
             return StringUtil.EMPTY_ARRAY;
         }
-        StringBuilder sb = new StringBuilder(this.f49170h * 28);
+        StringBuilder sb = new StringBuilder(this.f49171h * 28);
         sb.append('{');
-        for (int i2 = 0; i2 < this.f49170h; i2++) {
+        for (int i2 = 0; i2 < this.f49171h; i2++) {
             if (i2 > 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -114,15 +114,15 @@ public class g<E> implements Cloneable {
     }
 
     public g(int i2) {
-        this.f49167e = false;
+        this.f49168e = false;
         if (i2 == 0) {
-            this.f49168f = b.f49145a;
-            this.f49169g = b.f49146b;
+            this.f49169f = b.f49146a;
+            this.f49170g = b.f49147b;
         } else {
             int d2 = b.d(i2);
-            this.f49168f = new int[d2];
-            this.f49169g = new Object[d2];
+            this.f49169f = new int[d2];
+            this.f49170g = new Object[d2];
         }
-        this.f49170h = 0;
+        this.f49171h = 0;
     }
 }

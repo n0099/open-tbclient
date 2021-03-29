@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.android.lbspay.network.NewCashierContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class ChannelViewBase extends RelativeLayout {
     public ChannelViewBase(Context context) {
         super(context);

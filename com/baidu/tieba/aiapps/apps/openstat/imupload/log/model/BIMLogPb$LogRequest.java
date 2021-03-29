@@ -60,10 +60,10 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         public static final class b extends GeneratedMessageLite.Builder<AuthInfo, b> implements Object {
 
             /* renamed from: e  reason: collision with root package name */
-            public int f14682e;
+            public int f14683e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Object f14683f = "";
+            public Object f14684f = "";
 
             public b() {
                 maybeForceBuilderInitialization();
@@ -109,16 +109,16 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
             /* renamed from: n */
             public AuthInfo buildPartial() {
                 AuthInfo authInfo = new AuthInfo(this);
-                int i = (this.f14682e & 1) != 1 ? 0 : 1;
-                authInfo.token = this.f14683f;
+                int i = (this.f14683e & 1) != 1 ? 0 : 1;
+                authInfo.token = this.f14684f;
                 authInfo.bitField0 = i;
                 return authInfo;
             }
 
             public b o() {
                 super.clear();
-                this.f14683f = "";
-                this.f14682e &= -2;
+                this.f14684f = "";
+                this.f14683e &= -2;
                 return this;
             }
 
@@ -140,8 +140,8 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
             public b s(AuthInfo authInfo) {
                 if (authInfo != AuthInfo.getDefaultInstance() && authInfo.hasToken()) {
-                    this.f14682e |= 1;
-                    this.f14683f = authInfo.token;
+                    this.f14683e |= 1;
+                    this.f14684f = authInfo.token;
                 }
                 return this;
             }
@@ -405,17 +405,17 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
     public static final class b extends GeneratedMessageLite.Builder<BIMLogPb$LogRequest, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14684e;
+        public int f14685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f14685f;
+        public long f14686f;
         public long i;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f14686g = "";
+        public Object f14687g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public AuthInfo f14687h = AuthInfo.getDefaultInstance();
+        public AuthInfo f14688h = AuthInfo.getDefaultInstance();
         public Object j = "";
         public ByteString k = ByteString.EMPTY;
 
@@ -463,17 +463,17 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         /* renamed from: n */
         public BIMLogPb$LogRequest buildPartial() {
             BIMLogPb$LogRequest bIMLogPb$LogRequest = new BIMLogPb$LogRequest(this);
-            int i = this.f14684e;
+            int i = this.f14685e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            bIMLogPb$LogRequest.version = this.f14685f;
+            bIMLogPb$LogRequest.version = this.f14686f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            bIMLogPb$LogRequest.serviceName = this.f14686g;
+            bIMLogPb$LogRequest.serviceName = this.f14687g;
             if ((i & 4) == 4) {
                 i2 |= 4;
             }
-            bIMLogPb$LogRequest.authInfo = this.f14687h;
+            bIMLogPb$LogRequest.authInfo = this.f14688h;
             if ((i & 8) == 8) {
                 i2 |= 8;
             }
@@ -492,22 +492,22 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
         public b o() {
             super.clear();
-            this.f14685f = 0L;
-            int i = this.f14684e & (-2);
-            this.f14684e = i;
-            this.f14686g = "";
-            this.f14684e = i & (-3);
-            this.f14687h = AuthInfo.getDefaultInstance();
-            int i2 = this.f14684e & (-5);
-            this.f14684e = i2;
+            this.f14686f = 0L;
+            int i = this.f14685e & (-2);
+            this.f14685e = i;
+            this.f14687g = "";
+            this.f14685e = i & (-3);
+            this.f14688h = AuthInfo.getDefaultInstance();
+            int i2 = this.f14685e & (-5);
+            this.f14685e = i2;
             this.i = 0L;
             int i3 = i2 & (-9);
-            this.f14684e = i3;
+            this.f14685e = i3;
             this.j = "";
             int i4 = i3 & (-17);
-            this.f14684e = i4;
+            this.f14685e = i4;
             this.k = ByteString.EMPTY;
-            this.f14684e = i4 & (-33);
+            this.f14685e = i4 & (-33);
             return this;
         }
 
@@ -528,14 +528,14 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         }
 
         public b s(AuthInfo authInfo) {
-            if ((this.f14684e & 4) == 4 && this.f14687h != AuthInfo.getDefaultInstance()) {
-                AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f14687h);
+            if ((this.f14685e & 4) == 4 && this.f14688h != AuthInfo.getDefaultInstance()) {
+                AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f14688h);
                 newBuilder.s(authInfo);
-                this.f14687h = newBuilder.buildPartial();
+                this.f14688h = newBuilder.buildPartial();
             } else {
-                this.f14687h = authInfo;
+                this.f14688h = authInfo;
             }
-            this.f14684e |= 4;
+            this.f14685e |= 4;
             return this;
         }
 
@@ -547,8 +547,8 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
                 x(bIMLogPb$LogRequest.getVersion());
             }
             if (bIMLogPb$LogRequest.hasServiceName()) {
-                this.f14684e |= 2;
-                this.f14686g = bIMLogPb$LogRequest.serviceName;
+                this.f14685e |= 2;
+                this.f14687g = bIMLogPb$LogRequest.serviceName;
             }
             if (bIMLogPb$LogRequest.hasAuthInfo()) {
                 s(bIMLogPb$LogRequest.getAuthInfo());
@@ -557,7 +557,7 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
                 w(bIMLogPb$LogRequest.getRequestTimestampMs());
             }
             if (bIMLogPb$LogRequest.hasSign()) {
-                this.f14684e |= 16;
+                this.f14685e |= 16;
                 this.j = bIMLogPb$LogRequest.sign;
             }
             if (bIMLogPb$LogRequest.hasPayload()) {
@@ -602,7 +602,7 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f14684e |= 32;
+                this.f14685e |= 32;
                 this.k = byteString;
                 return this;
             }
@@ -610,14 +610,14 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         }
 
         public b w(long j) {
-            this.f14684e |= 8;
+            this.f14685e |= 8;
             this.i = j;
             return this;
         }
 
         public b x(long j) {
-            this.f14684e |= 1;
-            this.f14685f = j;
+            this.f14685e |= 1;
+            this.f14686f = j;
             return this;
         }
 

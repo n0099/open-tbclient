@@ -11,7 +11,7 @@ import androidx.core.view.GravityCompat;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import d.b.g0.a.a0.a.c.b;
 import d.b.g0.a.c0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<V extends TextView, M extends b> extends d.b.g0.a.a0.a.d.a<V, M> {
     public a(@Nullable Context context, @NonNull M m) {
         super(context, m);
@@ -43,7 +43,7 @@ public abstract class a<V extends TextView, M extends b> extends d.b.g0.a.a0.a.d
     }
 
     public void W(@NonNull V v, @NonNull M m) {
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextView", "renderText");
         }
         v.setText(m.x);
@@ -53,7 +53,7 @@ public abstract class a<V extends TextView, M extends b> extends d.b.g0.a.a0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextView", "renderTextStyle");
         }
         if (m.z) {
@@ -90,7 +90,7 @@ public abstract class a<V extends TextView, M extends b> extends d.b.g0.a.a0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextView", "renderTextStyleFontWeight");
         }
         String str = m.D;
@@ -117,7 +117,7 @@ public abstract class a<V extends TextView, M extends b> extends d.b.g0.a.a0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextView", "renderTextStyleLineSpace");
         }
         int i = m.B;
@@ -136,7 +136,7 @@ public abstract class a<V extends TextView, M extends b> extends d.b.g0.a.a0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-TextView", "renderTextStyleTextAlign");
         }
         String str = m.C;

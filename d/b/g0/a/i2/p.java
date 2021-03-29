@@ -11,19 +11,19 @@ import rx.subjects.PublishSubject;
 public final class p {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f44739b;
+    public static volatile k f44740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f44740c;
+    public static volatile k f44741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile k f44741d;
+    public static volatile k f44742d;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44738a = d.b.g0.a.k.f45050a;
+    public static final boolean f44739a = d.b.g0.a.k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h.n.b f44742e = new c();
+    public static final h.n.b f44743e = new c();
 
     /* loaded from: classes3.dex */
     public static class a implements h.n.b<Throwable> {
@@ -31,7 +31,7 @@ public final class p {
         @Override // h.n.b
         /* renamed from: a */
         public void call(Throwable th) {
-            if (p.f44738a) {
+            if (p.f44739a) {
                 Log.wtf("SwanAppExecutorUtils", "delay task fail", th);
             }
         }
@@ -58,9 +58,9 @@ public final class p {
             Thread currentThread = Thread.currentThread();
             currentThread.setName(name + "-" + ((String) pair.second));
             try {
-                long currentTimeMillis = p.f44738a ? System.currentTimeMillis() : 0L;
+                long currentTimeMillis = p.f44739a ? System.currentTimeMillis() : 0L;
                 ((Runnable) pair.first).run();
-                if (p.f44738a) {
+                if (p.f44739a) {
                     Log.d("SwanAppExecutorUtils", "Task [" + ((String) pair.second) + "] caused " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
                 }
             } finally {
@@ -78,7 +78,7 @@ public final class p {
         @Override // h.n.f
         /* renamed from: a */
         public h.d<?> call(Pair<Runnable, String> pair) {
-            return h.h.g(pair).h(Schedulers.io()).f(p.f44742e).m();
+            return h.h.g(pair).h(Schedulers.io()).f(p.f44743e).m();
         }
     }
 
@@ -88,7 +88,7 @@ public final class p {
         @Override // h.n.f
         /* renamed from: a */
         public h.d<?> call(Pair<Runnable, String> pair) {
-            return h.h.g(pair).h(Schedulers.computation()).f(p.f44742e).m();
+            return h.h.g(pair).h(Schedulers.computation()).f(p.f44743e).m();
         }
     }
 
@@ -96,18 +96,18 @@ public final class p {
     public static class f implements h.n.b<Throwable> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44743e;
+        public final /* synthetic */ String f44744e;
 
         public f(String str) {
-            this.f44743e = str;
+            this.f44744e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(Throwable th) {
-            if (p.f44738a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f44743e + "] fail!", th);
+            if (p.f44739a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f44744e + "] fail!", th);
             }
         }
     }
@@ -126,18 +126,18 @@ public final class p {
     public static class h implements h.n.b<Throwable> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44744e;
+        public final /* synthetic */ String f44745e;
 
         public h(String str) {
-            this.f44744e = str;
+            this.f44745e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(Throwable th) {
-            if (p.f44738a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f44744e + "] fail!", th);
+            if (p.f44739a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f44745e + "] fail!", th);
             }
         }
     }
@@ -187,39 +187,39 @@ public final class p {
     }
 
     public static j f() {
-        if (f44740c == null) {
+        if (f44741c == null) {
             synchronized (p.class) {
-                if (f44740c == null) {
-                    f44740c = new k(PublishSubject.L());
-                    f44740c.t().h(new e()).y().z();
+                if (f44741c == null) {
+                    f44741c = new k(PublishSubject.L());
+                    f44741c.t().h(new e()).y().z();
                 }
             }
         }
-        return f44740c;
+        return f44741c;
     }
 
     public static j g() {
-        if (f44739b == null) {
+        if (f44740b == null) {
             synchronized (p.class) {
-                if (f44739b == null) {
-                    f44739b = new k(PublishSubject.L());
-                    f44739b.t().h(new d()).y().z();
+                if (f44740b == null) {
+                    f44740b = new k(PublishSubject.L());
+                    f44740b.t().h(new d()).y().z();
                 }
             }
         }
-        return f44739b;
+        return f44740b;
     }
 
     public static j h() {
-        if (f44741d == null) {
+        if (f44742d == null) {
             synchronized (p.class) {
-                if (f44741d == null) {
-                    f44741d = new k(PublishSubject.L());
-                    f44741d.t().p(Schedulers.io()).e(f44742e).y().z();
+                if (f44742d == null) {
+                    f44742d = new k(PublishSubject.L());
+                    f44742d.t().p(Schedulers.io()).e(f44743e).y().z();
                 }
             }
         }
-        return f44741d;
+        return f44742d;
     }
 
     public static String i(String str) {

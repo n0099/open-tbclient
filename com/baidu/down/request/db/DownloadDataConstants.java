@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DownloadDataConstants {
     public static final String DB_TABLE = "downloads";
     public static final String DEFAULT_DL_BINARY_EXTENSION = ".bin";
@@ -13,7 +13,7 @@ public final class DownloadDataConstants {
     public static final String DEFAULT_DL_TEXT_EXTENSION = ".txt";
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Columns implements BaseColumns {
         public static final String COLUMN_CURRENT_BYTES = "current_bytes";
         public static final String COLUMN_ETAG = "etag";

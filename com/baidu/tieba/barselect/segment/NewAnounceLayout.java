@@ -24,7 +24,7 @@ import d.b.i0.v.b.f;
 public class NewAnounceLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public float f15195h;
+    public float f15196h;
     public Context i;
     public View j;
     public TextView k;
@@ -41,12 +41,12 @@ public class NewAnounceLayout extends CardBasicLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-            d dVar = NewAnounceLayout.this.f15194g;
-            if (dVar == null || dVar.k() == 0 || TextUtils.isEmpty(NewAnounceLayout.this.f15194g.b()) || NewAnounceLayout.this.f15194g.f() == 2) {
+            d dVar = NewAnounceLayout.this.f15195g;
+            if (dVar == null || dVar.k() == 0 || TextUtils.isEmpty(NewAnounceLayout.this.f15195g.b()) || NewAnounceLayout.this.f15195g.f() == 2) {
                 return;
             }
             PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.i);
-            pbActivityConfig.createNormalCfg(NewAnounceLayout.this.f15194g.k() + "", (String) null, (String) null, true);
+            pbActivityConfig.createNormalCfg(NewAnounceLayout.this.f15195g.k() + "", (String) null, (String) null, true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
         }
     }
@@ -78,10 +78,10 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     public void d(int i) {
-        if (this.f15194g == null) {
+        if (this.f15195g == null) {
             return;
         }
-        if (this.f15192e != d.b.i0.v.e.a.f61956c) {
+        if (this.f15193e != d.b.i0.v.e.a.f61957c) {
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205, i);
         } else {
             View view = this.j;
@@ -89,7 +89,7 @@ public class NewAnounceLayout extends CardBasicLayout {
                 view.setBackgroundColor(0);
             }
         }
-        if (TextUtils.isEmpty(this.f15194g.b())) {
+        if (TextUtils.isEmpty(this.f15195g.b())) {
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i);
         } else {
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i);
@@ -101,7 +101,7 @@ public class NewAnounceLayout extends CardBasicLayout {
     public final void e(String str) {
         if (str != null && !TextUtils.isEmpty(str)) {
             this.l.setVisibility(0);
-            int lineEnd = new StaticLayout(str, this.k.getPaint(), (int) this.f15195h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+            int lineEnd = new StaticLayout(str, this.k.getPaint(), (int) this.f15196h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
             String substring = str.substring(0, lineEnd);
             if (lineEnd >= str.length()) {
                 this.l.setVisibility(8);
@@ -109,7 +109,7 @@ public class NewAnounceLayout extends CardBasicLayout {
                 return;
             }
             String substring2 = str.substring(lineEnd, str.length());
-            if (new StaticLayout(substring2, this.m.getPaint(), (int) this.f15195h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+            if (new StaticLayout(substring2, this.m.getPaint(), (int) this.f15196h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
                 this.n.setVisibility(8);
             } else {
                 this.n.setVisibility(0);
@@ -126,22 +126,22 @@ public class NewAnounceLayout extends CardBasicLayout {
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.f15193f != null && this.f15194g != null && this.f15192e >= 0) {
-            this.f15195h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
-            if (this.f15192e == d.b.i0.v.e.a.f61955b) {
-                this.f15195h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
+        if (this.f15194f != null && this.f15195g != null && this.f15193e >= 0) {
+            this.f15196h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
+            if (this.f15193e == d.b.i0.v.e.a.f61956b) {
+                this.f15196h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
             }
-            if (this.f15192e == d.b.i0.v.e.a.f61957d) {
-                this.f15195h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+            if (this.f15193e == d.b.i0.v.e.a.f61958d) {
+                this.f15196h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
             }
-            if (this.f15192e == d.b.i0.v.e.a.f61956c) {
-                this.f15195h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
+            if (this.f15193e == d.b.i0.v.e.a.f61957c) {
+                this.f15196h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
                 this.j.setPadding(0, 0, 0, 0);
                 this.k.setPadding(0, 0, 0, 0);
                 this.m.setPadding(0, 0, 0, 0);
                 this.n.setPadding(0, 0, 0, 0);
             }
-            e(this.f15194g.b());
+            e(this.f15195g.b());
             return;
         }
         setVisibility(8);

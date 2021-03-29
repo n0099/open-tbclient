@@ -17,42 +17,42 @@ import com.baidu.tieba.R;
 public class f extends ClickableSpan {
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49976g;
+    public int f49977g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49977h;
+    public String f49978h;
     public String i;
     public int j;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49974e = -1;
+    public int f49975e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49975f = -1;
+    public int f49976f = -1;
     public int k = 0;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49978a;
+        public int f49979a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49979b;
+        public String f49980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f49980c;
+        public String f49981c;
 
         public a(int i, String str, String str2) {
-            this.f49978a = i;
-            this.f49979b = str;
-            this.f49980c = str2;
+            this.f49979a = i;
+            this.f49980b = str;
+            this.f49981c = str2;
         }
     }
 
     public f(int i, String str) {
-        this.f49977h = str;
-        this.f49976g = i;
+        this.f49978h = str;
+        this.f49977g = i;
     }
 
     public static void a(Context context, h hVar, int i, String str, String str2) {
@@ -93,21 +93,21 @@ public class f extends ClickableSpan {
     }
 
     public String d() {
-        return this.f49977h;
+        return this.f49978h;
     }
 
     public boolean e() {
-        int i = this.f49976g;
+        int i = this.f49977g;
         return i == 2 || i == 16 || i == 18 || i == 39;
     }
 
     public final boolean f() {
-        int i = this.f49976g;
+        int i = this.f49977g;
         return i == 2 || i == 16 || i == 18 || i == 39;
     }
 
     public void g(int i) {
-        this.f49974e = i;
+        this.f49975e = i;
     }
 
     public void h(int i) {
@@ -119,7 +119,7 @@ public class f extends ClickableSpan {
     }
 
     public void j(int i) {
-        this.f49975f = i;
+        this.f49976f = i;
     }
 
     public void k(int i) {
@@ -128,9 +128,9 @@ public class f extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.f49976g, this.f49977h, this.i));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.f49977g, this.f49978h, this.i));
         int i = 2;
-        if (this.f49976g == 2) {
+        if (this.f49977g == 2) {
             int i2 = this.k;
             int i3 = 1;
             if (i2 == 1) {
@@ -146,7 +146,7 @@ public class f extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
-        int i = this.f49975f;
+        int i = this.f49976f;
         if (i != -1) {
             textPaint.setColor(SkinManager.getColor(i));
         } else if (f()) {
@@ -155,7 +155,7 @@ public class f extends ClickableSpan {
             textPaint.setColor(textPaint.linkColor);
         }
         textPaint.setUnderlineText(false);
-        int i2 = this.f49974e;
+        int i2 = this.f49975e;
         if (i2 != -1) {
             textPaint.bgColor = i2;
         } else if (this.j == 1 && e()) {

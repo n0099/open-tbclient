@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class DefaultDecoder implements PlatformDecoder {
     public static final int DECODE_BUFFER_SIZE = 16384;
     public final BitmapPool mBitmapPool;

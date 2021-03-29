@@ -98,19 +98,19 @@ public class a extends d.b.i0.x.b<d.b.i0.f2.e.d> {
             }
             d.b.i0.s2.a.v().L(2, false, true);
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f62180f.getPageActivity(), false, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f62181f.getPageActivity(), false, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser())));
         } else if (view.getId() == R.id.concer_action) {
             if (this.B == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f62180f.getPageActivity(), true, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser()).updateFollowNum(this.D, this.B.getPortrait())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f62181f.getPageActivity(), true, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser()).updateFollowNum(this.D, this.B.getPortrait())));
         } else if (view.getId() == R.id.attention_action) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.f62180f.getPageActivity(), this.B.getLike_bars(), this.B.getUserId(), this.B.getSex())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.f62181f.getPageActivity(), this.B.getLike_bars(), this.B.getUserId(), this.B.getSex())));
         } else if (view.getId() == R.id.thread_action) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f62180f.getPageActivity(), this.B.getUserId(), this.B.getSex(), this.B.getPortrait())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f62181f.getPageActivity(), this.B.getUserId(), this.B.getSex(), this.B.getPortrait())));
         }
     }
 
@@ -119,11 +119,11 @@ public class a extends d.b.i0.x.b<d.b.i0.f2.e.d> {
     /* renamed from: u */
     public void n(d.b.i0.f2.e.d dVar) {
         this.B = dVar.j;
-        this.D = dVar.f54764f;
-        this.m.setText(StringHelper.numFormatOverWanNa(dVar.f54763e));
-        this.o.setText(Integer.toString(dVar.f54764f));
-        this.q.setText(Integer.toString(dVar.f54765g));
-        this.s.setText(StringHelper.longNumFormatOver9999wan(dVar.f54766h));
+        this.D = dVar.f54765f;
+        this.m.setText(StringHelper.numFormatOverWanNa(dVar.f54764e));
+        this.o.setText(Integer.toString(dVar.f54765f));
+        this.q.setText(Integer.toString(dVar.f54766g));
+        this.s.setText(StringHelper.longNumFormatOver9999wan(dVar.f54767h));
         this.u.setOnClickListener(this);
         this.v.setOnClickListener(this);
         this.w.setOnClickListener(this);

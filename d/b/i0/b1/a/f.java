@@ -20,7 +20,7 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import d.b.h0.r.q.a2;
 import d.b.i0.x.b0;
 import d.b.i0.x.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends d.b.b.j.e.a<d.b.i0.x.e0.k, d> {
     public TbPageContext<HotTopicActivity> m;
     public boolean n;
@@ -29,7 +29,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.x.e0.k, d> {
     public d.b.b.e.k.b<TbImageView> q;
     public b0<d.b.i0.x.e0.k> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.e.k.c<ConstrainImageLayout> {
         public a() {
         }
@@ -75,7 +75,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.x.e0.k, d> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.e.k.c<TbImageView> {
         public b() {
         }
@@ -128,7 +128,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.x.e0.k, d> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends b0<d.b.i0.x.e0.k> {
         public c() {
         }
@@ -158,15 +158,15 @@ public class f extends d.b.b.j.e.a<d.b.i0.x.e0.k, d> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public n f52021a;
+        public n f52022a;
 
         public d(f fVar, n nVar) {
             super(nVar.m());
-            this.f52021a = nVar;
+            this.f52022a = nVar;
         }
     }
 
@@ -202,9 +202,9 @@ public class f extends d.b.b.j.e.a<d.b.i0.x.e0.k, d> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, d dVar) {
-        dVar.f52021a.n(kVar);
-        dVar.f52021a.q(this.r);
-        dVar.f52021a.U(!(z(i + 1) instanceof d.b.i0.b1.c.n));
+        dVar.f52022a.n(kVar);
+        dVar.f52022a.q(this.r);
+        dVar.f52022a.U(!(z(i + 1) instanceof d.b.i0.b1.c.n));
         TbPageContext<HotTopicActivity> tbPageContext = this.m;
         if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.b.i0.b1.b.a)) {
             this.m.getOrignalPage().businessStatisticForTopic(kVar);

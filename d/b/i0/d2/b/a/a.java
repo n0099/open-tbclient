@@ -10,13 +10,13 @@ import java.io.OutputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54096a;
+    public int f54097a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54097b;
+    public int f54098b;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54101f;
+    public int f54102f;
     public OutputStream j;
     public Bitmap k;
     public byte[] l;
@@ -25,19 +25,19 @@ public class a {
     public byte[] o;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54098c = 0;
+    public int f54099c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54099d = 0;
+    public int f54100d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54100e = -1;
+    public int f54101e = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54102g = -1;
+    public int f54103g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54103h = 0;
+    public int f54104h = 0;
     public boolean i = false;
     public boolean[] p = new boolean[256];
     public int q = 7;
@@ -61,7 +61,7 @@ public class a {
             if (this.t) {
                 l();
                 n();
-                if (this.f54102g >= 0) {
+                if (this.f54103g >= 0) {
                     m();
                 }
             }
@@ -113,9 +113,9 @@ public class a {
         this.l = null;
         this.n = 8;
         this.q = 7;
-        int i8 = this.f54100e;
+        int i8 = this.f54101e;
         if (i8 != -1) {
-            this.f54101f = c(i8);
+            this.f54102f = c(i8);
         }
     }
 
@@ -163,7 +163,7 @@ public class a {
             } catch (IOException unused) {
                 z = false;
             }
-            this.f54101f = 0;
+            this.f54102f = 0;
             this.j = null;
             this.k = null;
             this.l = null;
@@ -187,8 +187,8 @@ public class a {
     public void f() {
         int width = this.k.getWidth();
         int height = this.k.getHeight();
-        if (width != this.f54096a || height != this.f54097b) {
-            Bitmap createBitmap = Bitmap.createBitmap(this.f54096a, this.f54097b, Bitmap.Config.RGB_565);
+        if (width != this.f54097a || height != this.f54098b) {
+            Bitmap createBitmap = Bitmap.createBitmap(this.f54097a, this.f54098b, Bitmap.Config.RGB_565);
             new Canvas(createBitmap).drawBitmap(this.k, 0.0f, 0.0f, new Paint());
             this.k = createBitmap;
         }
@@ -207,18 +207,18 @@ public class a {
 
     public void g(int i) {
         if (i >= 0) {
-            this.f54102g = i;
+            this.f54103g = i;
         }
     }
 
     public void h(int i, int i2) {
-        this.f54096a = i;
-        this.f54097b = i2;
+        this.f54097a = i;
+        this.f54098b = i2;
         if (i < 1) {
-            this.f54096a = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            this.f54097a = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
         }
-        if (this.f54097b < 1) {
-            this.f54097b = 240;
+        if (this.f54098b < 1) {
+            this.f54098b = 240;
         }
         this.u = true;
     }
@@ -245,7 +245,7 @@ public class a {
         this.j.write(33);
         this.j.write(249);
         this.j.write(4);
-        if (this.f54100e == -1) {
+        if (this.f54101e == -1) {
             i = 0;
             i2 = 0;
         } else {
@@ -257,17 +257,17 @@ public class a {
             i2 = i3 & 7;
         }
         this.j.write(i | (i2 << 2) | 0 | 0);
-        p(this.f54103h);
-        this.j.write(this.f54101f);
+        p(this.f54104h);
+        this.j.write(this.f54102f);
         this.j.write(0);
     }
 
     public void k() throws IOException {
         this.j.write(44);
-        p(this.f54098c);
-        p(this.f54099d);
-        p(this.f54096a);
-        p(this.f54097b);
+        p(this.f54099c);
+        p(this.f54100d);
+        p(this.f54097a);
+        p(this.f54098b);
         if (this.t) {
             this.j.write(0);
         } else {
@@ -276,8 +276,8 @@ public class a {
     }
 
     public void l() throws IOException {
-        p(this.f54096a);
-        p(this.f54097b);
+        p(this.f54097a);
+        p(this.f54098b);
         this.j.write(this.q | 240);
         this.j.write(0);
         this.j.write(0);
@@ -290,7 +290,7 @@ public class a {
         q("NETSCAPE2.0");
         this.j.write(3);
         this.j.write(1);
-        p(this.f54102g);
+        p(this.f54103g);
         this.j.write(0);
     }
 
@@ -305,7 +305,7 @@ public class a {
     }
 
     public void o() throws IOException {
-        new b(this.f54096a, this.f54097b, this.m, this.n).f(this.j);
+        new b(this.f54097a, this.f54098b, this.m, this.n).f(this.j);
     }
 
     public void p(int i) throws IOException {

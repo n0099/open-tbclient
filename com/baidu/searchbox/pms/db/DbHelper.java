@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "pms.db";
     public static final int DB_VERSION = 1;

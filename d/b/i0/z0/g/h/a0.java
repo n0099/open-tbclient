@@ -18,33 +18,33 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a0 extends d.b.b.j.e.a<d.b.i0.z0.g.j.h, CardViewHolder<b>> {
     public static final int n = d.b.b.e.p.l.k(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
     public TbPageContext m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.j.e.w {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f63105e;
+        public final /* synthetic */ b f63106e;
 
         public a(b bVar) {
-            this.f63105e = bVar;
+            this.f63106e = bVar;
         }
 
         @Override // d.b.b.j.e.w
         public void f(View view, d.b.b.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             b bVar;
-            if (view == null || (bVar = this.f63105e) == null || d.b.b.e.p.k.isEmpty(bVar.p)) {
+            if (view == null || (bVar = this.f63106e) == null || d.b.b.e.p.k.isEmpty(bVar.p)) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12885"));
-            UrlManager.getInstance().dealOneLink(a0.this.m, new String[]{this.f63105e.p});
+            UrlManager.getInstance().dealOneLink(a0.this.m, new String[]{this.f63106e.p});
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends d.b.i0.x.b<d.b.i0.z0.g.j.h> {
         public TbImageView m;
         public ImageView n;
@@ -91,10 +91,10 @@ public class a0 extends d.b.b.j.e.a<d.b.i0.z0.g.j.h, CardViewHolder<b>> {
         /* renamed from: v */
         public void n(d.b.i0.z0.g.j.h hVar) {
             if (hVar != null) {
-                w(hVar.f63191f, hVar.f63190e);
+                w(hVar.f63192f, hVar.f63191e);
                 this.m.setPlaceHolder(2);
-                this.m.W(hVar.f63192g, 10, false);
-                this.p = hVar.f63193h;
+                this.m.W(hVar.f63193g, 10, false);
+                this.p = hVar.f63194h;
             }
             o(l(), TbadkCoreApplication.getInst().getSkinType());
         }

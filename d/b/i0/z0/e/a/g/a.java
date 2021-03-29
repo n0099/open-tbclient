@@ -15,43 +15,43 @@ import com.google.android.material.tabs.TabLayout;
 import d.b.b.e.p.l;
 import d.b.h0.r.f0.m.c;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements TabLayout.OnTabSelectedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TabLayout.OnTabSelectedListener f62977a;
+    public TabLayout.OnTabSelectedListener f62978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f62978b;
+    public Context f62979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TabLayout f62979c;
+    public TabLayout f62980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62980d;
+    public int f62981d;
 
     public a(Context context) {
-        this.f62978b = context;
+        this.f62979b = context;
         c();
     }
 
     public Context a() {
-        return this.f62978b;
+        return this.f62979b;
     }
 
     public TabLayout b() {
-        return this.f62979c;
+        return this.f62980c;
     }
 
     public final void c() {
         TabLayout tabLayout = (TabLayout) LayoutInflater.from(a()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
-        this.f62979c = tabLayout;
+        this.f62980c = tabLayout;
         tabLayout.setOnTabSelectedListener(this);
     }
 
     public void d(int i) {
-        for (int i2 = 0; i2 < this.f62979c.getTabCount(); i2++) {
-            TabLayout.Tab tabAt = this.f62979c.getTabAt(i2);
+        for (int i2 = 0; i2 < this.f62980c.getTabCount(); i2++) {
+            TabLayout.Tab tabAt = this.f62980c.getTabAt(i2);
             if (tabAt != null) {
                 if (tabAt.isSelected()) {
                     g(tabAt);
@@ -66,11 +66,11 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     public void e(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.f62977a = onTabSelectedListener;
+        this.f62978a = onTabSelectedListener;
     }
 
     public void f(FrsTabInfoData frsTabInfoData) {
-        i(this.f62980d, frsTabInfoData.tabList, this.f62979c);
+        i(this.f62981d, frsTabInfoData.tabList, this.f62980c);
     }
 
     public final void g(TabLayout.Tab tab) {
@@ -148,7 +148,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
     public void onTabReselected(TabLayout.Tab tab) {
         g(tab);
-        TabLayout.OnTabSelectedListener onTabSelectedListener = this.f62977a;
+        TabLayout.OnTabSelectedListener onTabSelectedListener = this.f62978a;
         if (onTabSelectedListener != null) {
             onTabSelectedListener.onTabReselected(tab);
         }
@@ -157,10 +157,10 @@ public class a implements TabLayout.OnTabSelectedListener {
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
     public void onTabSelected(TabLayout.Tab tab) {
         if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-            this.f62980d = ((FrsTabItemData) tab.getTag()).tabId;
+            this.f62981d = ((FrsTabItemData) tab.getTag()).tabId;
         }
         g(tab);
-        TabLayout.OnTabSelectedListener onTabSelectedListener = this.f62977a;
+        TabLayout.OnTabSelectedListener onTabSelectedListener = this.f62978a;
         if (onTabSelectedListener != null) {
             onTabSelectedListener.onTabSelected(tab);
         }
@@ -169,7 +169,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
         h(tab);
-        TabLayout.OnTabSelectedListener onTabSelectedListener = this.f62977a;
+        TabLayout.OnTabSelectedListener onTabSelectedListener = this.f62978a;
         if (onTabSelectedListener != null) {
             onTabSelectedListener.onTabUnselected(tab);
         }

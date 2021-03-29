@@ -15,7 +15,7 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
     public final f.a.b actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68058d;
+    public b f68063d;
     public final boolean delayErrors;
     public volatile boolean disposed;
     public final h<? super T, ? extends c> mapper;
@@ -65,7 +65,7 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
     @Override // f.a.t.b
     public void dispose() {
         this.disposed = true;
-        this.f68058d.dispose();
+        this.f68063d.dispose();
         this.set.dispose();
     }
 
@@ -81,7 +81,7 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
 
     @Override // f.a.t.b
     public boolean isDisposed() {
-        return this.f68058d.isDisposed();
+        return this.f68063d.isDisposed();
     }
 
     @Override // f.a.o
@@ -130,15 +130,15 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
             cVar.a(innerObserver);
         } catch (Throwable th) {
             f.a.u.a.a(th);
-            this.f68058d.dispose();
+            this.f68063d.dispose();
             onError(th);
         }
     }
 
     @Override // f.a.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68058d, bVar)) {
-            this.f68058d = bVar;
+        if (DisposableHelper.validate(this.f68063d, bVar)) {
+            this.f68063d = bVar;
             this.actual.onSubscribe(this);
         }
     }

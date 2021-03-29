@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.upload;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IFileUploadListener {
     void onFailed(int i, String str);
 

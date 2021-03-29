@@ -6,28 +6,28 @@ import android.graphics.drawable.Drawable;
 public class BdMenuItem {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23745a = 0;
+    public static final int f23746a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f23746b;
+    public final int f23747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f23747c;
+    public boolean f23748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f23748d;
+    public boolean f23749d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23749e;
+    public boolean f23750e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f23750f;
+    public CharSequence f23751f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f23751g;
+    public Drawable f23752g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23752h;
+    public int f23753h;
     public String i;
     public OnItemClickListener j;
     public Context k;
@@ -39,24 +39,24 @@ public class BdMenuItem {
     }
 
     public BdMenuItem(Context context, int i, CharSequence charSequence) {
-        this.f23747c = true;
-        this.f23748d = false;
-        this.f23749e = false;
-        this.f23752h = 0;
+        this.f23748c = true;
+        this.f23749d = false;
+        this.f23750e = false;
+        this.f23753h = 0;
         this.k = context;
-        this.f23746b = i;
-        this.f23750f = charSequence;
+        this.f23747b = i;
+        this.f23751f = charSequence;
     }
 
     public Drawable getIcon() {
-        Drawable drawable = this.f23751g;
+        Drawable drawable = this.f23752g;
         if (drawable != null) {
             return drawable;
         }
-        if (this.f23752h != 0) {
-            Drawable drawable2 = this.k.getResources().getDrawable(this.f23752h);
-            this.f23752h = 0;
-            this.f23751g = drawable2;
+        if (this.f23753h != 0) {
+            Drawable drawable2 = this.k.getResources().getDrawable(this.f23753h);
+            this.f23753h = 0;
+            this.f23752g = drawable2;
             return drawable2;
         }
         return null;
@@ -67,7 +67,7 @@ public class BdMenuItem {
     }
 
     public int getItemId() {
-        return this.f23746b;
+        return this.f23747b;
     }
 
     public BdMenu getMenu() {
@@ -79,33 +79,33 @@ public class BdMenuItem {
     }
 
     public CharSequence getTitle() {
-        return this.f23750f;
+        return this.f23751f;
     }
 
     public boolean isChecked() {
-        return this.f23748d;
+        return this.f23749d;
     }
 
     public boolean isEnabled() {
-        return this.f23747c;
+        return this.f23748c;
     }
 
     public void setChecked(boolean z) {
-        this.f23748d = z;
+        this.f23749d = z;
     }
 
     public void setEnabled(boolean z) {
-        this.f23747c = z;
+        this.f23748c = z;
     }
 
     public BdMenuItem setIcon(Drawable drawable) {
-        this.f23752h = 0;
-        this.f23751g = drawable;
+        this.f23753h = 0;
+        this.f23752g = drawable;
         return this;
     }
 
     public BdMenuItem setIconUrl(String str) {
-        this.f23752h = 0;
+        this.f23753h = 0;
         this.i = str;
         return this;
     }
@@ -119,59 +119,59 @@ public class BdMenuItem {
     }
 
     public void setShowTip(boolean z) {
-        this.f23749e = z;
+        this.f23750e = z;
     }
 
     public BdMenuItem setTitle(CharSequence charSequence) {
-        this.f23750f = charSequence;
+        this.f23751f = charSequence;
         return this;
     }
 
     public boolean showTip() {
-        return this.f23749e;
+        return this.f23750e;
     }
 
     public BdMenuItem setTitle(int i) {
-        this.f23750f = this.k.getResources().getText(i, this.f23750f);
+        this.f23751f = this.k.getResources().getText(i, this.f23751f);
         return this;
     }
 
     public BdMenuItem setIcon(int i) {
-        this.f23751g = null;
-        this.f23752h = i;
+        this.f23752g = null;
+        this.f23753h = i;
         return this;
     }
 
     public BdMenuItem(Context context, int i, CharSequence charSequence, int i2) {
-        this.f23747c = true;
-        this.f23748d = false;
-        this.f23749e = false;
-        this.f23752h = 0;
+        this.f23748c = true;
+        this.f23749d = false;
+        this.f23750e = false;
+        this.f23753h = 0;
         this.k = context;
-        this.f23746b = i;
-        this.f23750f = charSequence;
-        this.f23752h = i2;
+        this.f23747b = i;
+        this.f23751f = charSequence;
+        this.f23753h = i2;
     }
 
     public BdMenuItem(Context context, int i, CharSequence charSequence, Drawable drawable) {
-        this.f23747c = true;
-        this.f23748d = false;
-        this.f23749e = false;
-        this.f23752h = 0;
+        this.f23748c = true;
+        this.f23749d = false;
+        this.f23750e = false;
+        this.f23753h = 0;
         this.k = context;
-        this.f23746b = i;
-        this.f23750f = charSequence;
-        this.f23751g = drawable;
+        this.f23747b = i;
+        this.f23751f = charSequence;
+        this.f23752g = drawable;
     }
 
     public BdMenuItem(Context context, int i, CharSequence charSequence, String str) {
-        this.f23747c = true;
-        this.f23748d = false;
-        this.f23749e = false;
-        this.f23752h = 0;
+        this.f23748c = true;
+        this.f23749d = false;
+        this.f23750e = false;
+        this.f23753h = 0;
         this.k = context;
-        this.f23746b = i;
-        this.f23750f = charSequence;
+        this.f23747b = i;
+        this.f23751f = charSequence;
         this.i = str;
     }
 }

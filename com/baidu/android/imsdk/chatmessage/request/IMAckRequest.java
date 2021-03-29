@@ -21,7 +21,7 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMAckRequest extends BaseHttpRequest {
     public static final String TAG = "IMAckRequest";
     public JSONArray mAckList = new JSONArray();

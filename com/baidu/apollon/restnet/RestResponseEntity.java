@@ -3,50 +3,50 @@ package com.baidu.apollon.restnet;
 import com.baidu.apollon.restnet.http.HttpStatus;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RestResponseEntity<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpStatus f3731a;
+    public final HttpStatus f3732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.apollon.restnet.http.a f3732b;
+    public com.baidu.apollon.restnet.http.a f3733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f3733c;
+    public T f3734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3734d;
+    public String f3735d;
 
     public RestResponseEntity(HttpStatus httpStatus) {
-        this.f3731a = httpStatus;
+        this.f3732a = httpStatus;
     }
 
     public HttpStatus a() {
-        return this.f3731a;
+        return this.f3732a;
     }
 
     public String b(String str) {
-        com.baidu.apollon.restnet.http.a aVar = this.f3732b;
+        com.baidu.apollon.restnet.http.a aVar = this.f3733b;
         return aVar != null ? aVar.c(str) : "";
     }
 
     public void c(String str) {
-        this.f3734d = str;
+        this.f3735d = str;
     }
 
     public T getBody() {
-        return this.f3733c;
+        return this.f3734c;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("<");
-        sb.append(this.f3731a.toString());
+        sb.append(this.f3732a.toString());
         sb.append(' ');
-        sb.append(this.f3731a.getReasonPhrase());
+        sb.append(this.f3732a.getReasonPhrase());
         sb.append(',');
         T body = getBody();
-        com.baidu.apollon.restnet.http.a aVar = this.f3732b;
+        com.baidu.apollon.restnet.http.a aVar = this.f3733b;
         if (body != null) {
             sb.append(body);
             if (aVar != null) {
@@ -61,7 +61,7 @@ public class RestResponseEntity<T> {
     }
 
     public List<String> a(String str) {
-        com.baidu.apollon.restnet.http.a aVar = this.f3732b;
+        com.baidu.apollon.restnet.http.a aVar = this.f3733b;
         if (aVar != null) {
             return aVar.get((Object) str);
         }
@@ -69,22 +69,22 @@ public class RestResponseEntity<T> {
     }
 
     public RestResponseEntity(T t, HttpStatus httpStatus) {
-        this.f3731a = httpStatus;
-        this.f3733c = t;
+        this.f3732a = httpStatus;
+        this.f3734c = t;
     }
 
     public String b() {
-        return this.f3734d;
+        return this.f3735d;
     }
 
     public RestResponseEntity(com.baidu.apollon.restnet.http.a aVar, HttpStatus httpStatus) {
-        this.f3732b = aVar;
-        this.f3731a = httpStatus;
+        this.f3733b = aVar;
+        this.f3732a = httpStatus;
     }
 
     public RestResponseEntity(T t, com.baidu.apollon.restnet.http.a aVar, HttpStatus httpStatus) {
-        this.f3732b = aVar;
-        this.f3733c = t;
-        this.f3731a = httpStatus;
+        this.f3733b = aVar;
+        this.f3734c = t;
+        this.f3732a = httpStatus;
     }
 }

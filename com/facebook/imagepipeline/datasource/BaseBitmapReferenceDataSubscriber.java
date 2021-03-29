@@ -7,7 +7,7 @@ import com.facebook.datasource.DataSource;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseBitmapReferenceDataSubscriber extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
     public abstract void onNewResultImpl(@Nullable CloseableReference<Bitmap> closeableReference);
 

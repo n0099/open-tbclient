@@ -1,5 +1,5 @@
 package com.baidu.apollon.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class StatisticsSettings {
     public abstract String getCommonHeader();
 

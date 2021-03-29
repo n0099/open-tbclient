@@ -10,32 +10,32 @@ import com.baidu.apollon.utils.LogUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CustomerService extends MyDb {
     public static final String CS_GET_DATA_ERROR = "CS_getDbDataError";
     public static final String CS_OPEN_DB_ERROR = "CS_openDbError";
     public static final String sMarkString = "kf";
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f3822a;
+    public final byte[] f3823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3823b;
+    public long f3824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3824c;
+    public int f3825c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f3826b = "customerservice.db";
+        public static final String f3827b = "customerservice.db";
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f3825a = 2;
+        public static int f3826a = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final CustomerService f3827c = new CustomerService(PayStatisticsUtil.c(), f3826b, f3825a);
+        public static final CustomerService f3828c = new CustomerService(PayStatisticsUtil.c(), f3827b, f3826a);
     }
 
     private e[] a() {
@@ -59,13 +59,13 @@ public class CustomerService extends MyDb {
                 int i = 0;
                 while (rawQuery.moveToNext()) {
                     e eVar = new e();
-                    eVar.f3869h = rawQuery.getString(0);
+                    eVar.f3870h = rawQuery.getString(0);
                     eVar.i = rawQuery.getLong(1);
                     eVar.j = rawQuery.getString(2);
                     eVar.k = rawQuery.getString(3);
                     eVar.l = rawQuery.getString(4);
                     eVar.m = rawQuery.getLong(5);
-                    if (1 < a.f3825a) {
+                    if (1 < a.f3826a) {
                         eVar.n = rawQuery.getString(6);
                     }
                     int i2 = i + 1;
@@ -93,26 +93,26 @@ public class CustomerService extends MyDb {
     }
 
     public static CustomerService getInstance() {
-        return a.f3827c;
+        return a.f3828c;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0158  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x015d  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0179  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0157  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x015c  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0178  */
     /* JADX WARN: Removed duplicated region for block: B:72:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:46:0x014d -> B:61:0x016f). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:46:0x014c -> B:63:0x016e). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void enqueEvent(e eVar) {
         Cursor cursor;
-        if (eVar == null || TextUtils.isEmpty(eVar.f3869h)) {
+        if (eVar == null || TextUtils.isEmpty(eVar.f3870h)) {
             return;
         }
         if (this.mDb != null) {
             StringBuilder sb = new StringBuilder();
             ContentValues contentValues = new ContentValues();
-            contentValues.put("en", eVar.f3869h);
+            contentValues.put("en", eVar.f3870h);
             contentValues.put("et", Long.valueOf(eVar.i));
             contentValues.put("ev", eVar.j);
             contentValues.put("eg", eVar.k);
@@ -130,16 +130,16 @@ public class CustomerService extends MyDb {
                     if (rawQuery != null) {
                         try {
                             if (rawQuery.moveToFirst()) {
-                                if (this.f3824c < rawQuery.getLong(0)) {
+                                if (this.f3825c < rawQuery.getLong(0)) {
                                     sb.delete(0, sb.length());
-                                    if (0 < this.f3823b) {
+                                    if (0 < this.f3824b) {
                                         sb.append("select min(rowid), max(rowid) from stat_event where ");
                                         sb.append("rowid <= ");
-                                        sb.append(insert - this.f3824c);
+                                        sb.append(insert - this.f3825c);
                                         sb.append(" and et < ");
                                         sb.append(eVar.i);
                                         sb.append(" - ");
-                                        sb.append(this.f3823b);
+                                        sb.append(this.f3824b);
                                         cursor2 = this.mDb.rawQuery(sb.toString(), null);
                                         if (cursor2 != null && cursor2.moveToFirst()) {
                                             sb.delete(0, sb.length());
@@ -153,7 +153,7 @@ public class CustomerService extends MyDb {
                                         }
                                     } else {
                                         sb.append("delete from stat_event where rowid < ");
-                                        sb.append(insert - this.f3824c);
+                                        sb.append(insert - this.f3825c);
                                         this.mDb.execSQL(sb.toString());
                                     }
                                 }
@@ -233,7 +233,7 @@ public class CustomerService extends MyDb {
         if (a2.length == 0) {
             return null;
         }
-        synchronized (this.f3822a) {
+        synchronized (this.f3823a) {
             try {
                 StatisticsSettings a3 = PayStatisticsUtil.getInstance().a();
                 jSONObject = a3 != null ? new JSONObject(a3.getCommonHeader()) : null;
@@ -257,7 +257,7 @@ public class CustomerService extends MyDb {
     }
 
     public boolean isEnabled() {
-        return this.f3824c > 0 || 0 < this.f3823b;
+        return this.f3825c > 0 || 0 < this.f3824b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -280,15 +280,15 @@ public class CustomerService extends MyDb {
     }
 
     public void setConfig(int i, int i2) {
-        this.f3823b = i;
-        this.f3824c = i2;
+        this.f3824b = i;
+        this.f3825c = i2;
     }
 
     public CustomerService(Context context, String str, int i) {
         super(context, str, i);
-        this.f3822a = new byte[0];
-        this.f3823b = 0L;
-        this.f3824c = 200;
+        this.f3823a = new byte[0];
+        this.f3824b = 0L;
+        this.f3825c = 200;
         if (this.mDb == null) {
             PayStatisticsUtil.onEvent(CS_OPEN_DB_ERROR);
         }
@@ -299,7 +299,7 @@ public class CustomerService extends MyDb {
             return;
         }
         e eVar = new e();
-        eVar.f3869h = str;
+        eVar.f3870h = str;
         eVar.j = str2;
         eVar.k = str3;
         eVar.l = com.baidu.apollon.statistics.a.a();

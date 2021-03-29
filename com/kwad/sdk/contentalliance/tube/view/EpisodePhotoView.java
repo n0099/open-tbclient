@@ -23,70 +23,70 @@ import com.kwad.sdk.utils.ao;
 public class EpisodePhotoView extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f33329a;
+    public ImageView f33330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33330b;
+    public TextView f33331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f33331c;
+    public AdTemplate f33332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PhotoInfo f33332d;
+    public PhotoInfo f33333d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f33333e;
+    public FrameLayout f33334e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33334f;
+    public int f33335f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33335g;
+    public long f33336g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f33336h;
+    public float f33337h;
     public RectF i;
     public Path j;
 
     public EpisodePhotoView(@NonNull Context context) {
         super(context);
         setLayerType(1, null);
-        this.f33336h = ao.a(context, 4.0f);
+        this.f33337h = ao.a(context, 4.0f);
     }
 
     public EpisodePhotoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         setLayerType(1, null);
-        this.f33336h = ao.a(context, 4.0f);
+        this.f33337h = ao.a(context, 4.0f);
     }
 
     private void c() {
-        String g2 = d.g(this.f33332d);
+        String g2 = d.g(this.f33333d);
         if (TextUtils.isEmpty(g2)) {
-            g2 = d.d(this.f33332d);
+            g2 = d.d(this.f33333d);
         }
-        KSImageLoader.loadImage(this.f33329a, g2, this.f33331c, KSImageLoader.IMGOPTION_TUBE);
+        KSImageLoader.loadImage(this.f33330a, g2, this.f33332c, KSImageLoader.IMGOPTION_TUBE);
     }
 
     private void d() {
-        this.f33333e.setVisibility(8);
+        this.f33334e.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.widget.a
     public void a() {
         super.a();
-        e.a(this.f33331c);
+        e.a(this.f33332c);
     }
 
     public void a(int i, long j) {
-        this.f33334f = i;
-        this.f33335g = j;
+        this.f33335f = i;
+        this.f33336g = j;
     }
 
     public void b() {
-        this.f33329a = (ImageView) findViewById(R.id.ksad_tube_trend_episode_cover);
-        this.f33333e = (FrameLayout) findViewById(R.id.ksad_tube_trend_episode_more);
-        this.f33330b = (TextView) findViewById(R.id.ksad_tube_trend_episode_name);
+        this.f33330a = (ImageView) findViewById(R.id.ksad_tube_trend_episode_cover);
+        this.f33334e = (FrameLayout) findViewById(R.id.ksad_tube_trend_episode_more);
+        this.f33331b = (TextView) findViewById(R.id.ksad_tube_trend_episode_name);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -102,7 +102,7 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
             this.j.reset();
         }
         float[] fArr = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-        float f2 = this.f33336h;
+        float f2 = this.f33337h;
         fArr[0] = f2;
         fArr[1] = f2;
         fArr[2] = f2;
@@ -118,15 +118,15 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
     }
 
     public int getPosition() {
-        return this.f33334f;
+        return this.f33335f;
     }
 
     public AdTemplate getTemplateData() {
-        return this.f33331c;
+        return this.f33332c;
     }
 
     public long getTubeId() {
-        return this.f33335g;
+        return this.f33336g;
     }
 
     @Override // android.view.View
@@ -137,29 +137,29 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
 
     public void setLookMoreVisibility(boolean z) {
         if (z) {
-            this.f33333e.setVisibility(0);
-            this.f33330b.setVisibility(8);
+            this.f33334e.setVisibility(0);
+            this.f33331b.setVisibility(8);
             return;
         }
-        this.f33333e.setVisibility(8);
-        this.f33330b.setVisibility(0);
+        this.f33334e.setVisibility(8);
+        this.f33331b.setVisibility(0);
     }
 
     public void setRadius(float f2) {
-        this.f33336h = f2;
+        this.f33337h = f2;
         invalidate();
     }
 
     public void setTemplateData(@NonNull AdTemplate adTemplate) {
-        this.f33331c = adTemplate;
+        this.f33332c = adTemplate;
         PhotoInfo k = c.k(adTemplate);
-        this.f33332d = k;
+        this.f33333d = k;
         if (k == null) {
             return;
         }
         d();
         c();
-        this.f33330b.setText(d.B(this.f33332d));
-        this.f33330b.setVisibility(0);
+        this.f33331b.setText(d.B(this.f33333d));
+        this.f33331b.setVisibility(0);
     }
 }

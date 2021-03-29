@@ -9,7 +9,7 @@ import java.util.Map;
 public class fj implements fx {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40503a = false;
+    public static boolean f40504a = false;
 
     /* renamed from: a  reason: collision with other field name */
     public fl f382a;
@@ -21,7 +21,7 @@ public class fj implements fx {
     public a f381a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f40504b = null;
+    public a f40505b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public fo f383a = null;
@@ -48,7 +48,7 @@ public class fj implements fx {
         public void a(fa faVar) {
             StringBuilder sb;
             String str;
-            if (fj.f40503a) {
+            if (fj.f40504a) {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
                 sb.append(fj.this.f385a.format(new Date()));
@@ -99,7 +99,7 @@ public class fj implements fx {
                     faVar4.a(faVar.e());
                     faVar4.a(faVar.m285a());
                     faVar4.b(faVar.f());
-                    faVar4.a(faVar.m288a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f40967h), (String) null);
+                    faVar4.a(faVar.m288a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f40968h), (String) null);
                     faVar2 = faVar4;
                 }
             }
@@ -116,7 +116,7 @@ public class fj implements fx {
         public void a(gc gcVar) {
             StringBuilder sb;
             String str;
-            if (fj.f40503a) {
+            if (fj.f40504a) {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
                 sb.append(fj.this.f385a.format(new Date()));
@@ -152,12 +152,12 @@ public class fj implements fx {
 
     private void a() {
         this.f381a = new a(true);
-        this.f40504b = new a(false);
+        this.f40505b = new a(false);
         fl flVar = this.f382a;
         a aVar = this.f381a;
         flVar.a(aVar, aVar);
         fl flVar2 = this.f382a;
-        a aVar2 = this.f40504b;
+        a aVar2 = this.f40505b;
         flVar2.b(aVar2, aVar2);
         this.f383a = new fk(this);
     }

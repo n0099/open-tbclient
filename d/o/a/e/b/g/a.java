@@ -10,10 +10,10 @@ import java.util.List;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f66957b;
+    public static volatile a f66962b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66958a;
+    public String f66963a;
 
     public a() {
     }
@@ -24,15 +24,15 @@ public class a {
     }
 
     public static a l(Context context) {
-        if (f66957b == null) {
+        if (f66962b == null) {
             synchronized (a.class) {
-                if (f66957b == null) {
+                if (f66962b == null) {
                     d.y(context);
-                    f66957b = new a();
+                    f66962b = new a();
                 }
             }
         }
-        return f66957b;
+        return f66962b;
     }
 
     public static synchronized void q(b bVar) {
@@ -46,8 +46,8 @@ public class a {
             if (bVar == null) {
                 return;
             }
-            if (f66957b == null) {
-                f66957b = bVar.b();
+            if (f66962b == null) {
+                f66962b = bVar.b();
             } else if (!d.p()) {
                 d.G(bVar);
             } else if (z) {
@@ -72,7 +72,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66958a = str;
+        this.f66963a = str;
     }
 
     @Deprecated
@@ -137,11 +137,11 @@ public class a {
 
     public File k() {
         File file = null;
-        if (TextUtils.isEmpty(this.f66958a)) {
+        if (TextUtils.isEmpty(this.f66963a)) {
             return null;
         }
         try {
-            File file2 = new File(this.f66958a);
+            File file2 = new File(this.f66963a);
             try {
                 if (!file2.exists()) {
                     file2.mkdirs();

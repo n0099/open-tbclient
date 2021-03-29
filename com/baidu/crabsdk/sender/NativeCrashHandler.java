@@ -3,7 +3,7 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.crabsdk.CrabSDK;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NativeCrashHandler {
     public static NativeCrashHandler bZ;
     public boolean ca = false;

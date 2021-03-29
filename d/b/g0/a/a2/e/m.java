@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class m extends a0 {
     public m(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/setStorageSync");
@@ -46,7 +46,7 @@ public class m extends a0 {
                     return false;
                 }
                 S.g().putString(y, x);
-                d.b.g0.a.f2.d.f44466h.b();
+                d.b.g0.a.f2.d.f44467h.b();
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }

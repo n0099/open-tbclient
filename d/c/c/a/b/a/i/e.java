@@ -16,10 +16,10 @@ import javax.net.ssl.X509TrustManager;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f65416a = a();
+    public static final e f65417a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Logger f65417b = Logger.getLogger(y.class.getName());
+    public static final Logger f65418b = Logger.getLogger(y.class.getName());
 
     public static e a() {
         e a2 = a.a();
@@ -47,7 +47,7 @@ public class e {
     }
 
     public static e j() {
-        return f65416a;
+        return f65417a;
     }
 
     public static byte[] n(List<w> list) {
@@ -68,7 +68,7 @@ public class e {
     }
 
     public Object c(String str) {
-        if (f65417b.isLoggable(Level.FINE)) {
+        if (f65418b.isLoggable(Level.FINE)) {
             return new Throwable(str);
         }
         return null;
@@ -79,7 +79,7 @@ public class e {
     }
 
     public void f(int i, String str, Throwable th) {
-        f65417b.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
+        f65418b.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
     public void g(String str, Object obj) {

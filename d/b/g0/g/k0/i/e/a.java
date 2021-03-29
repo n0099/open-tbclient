@@ -6,16 +6,16 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecommendItemModel f48301a;
+    public RecommendItemModel f48302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendItemModel> f48302b;
+    public List<RecommendItemModel> f48303b;
 
     public a() {
     }
 
     public a(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
-        this.f48301a = recommendItemModel;
-        this.f48302b = list;
+        this.f48302a = recommendItemModel;
+        this.f48303b = list;
     }
 }

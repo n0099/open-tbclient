@@ -7,32 +7,32 @@ import com.baidu.android.pushservice.i.a.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3471a;
+    public String f3472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3472b;
+    public String f3473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3473c;
+    public String f3474c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3474d;
+    public String f3475d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3475e;
+    public String f3476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3476f;
+    public String f3477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3477g;
+    public String f3478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3478h;
+    public String f3479h;
     public String i;
     public String j;
     public int k;
@@ -45,16 +45,16 @@ public class i {
         try {
             publicMsg.mMsgId = this.j;
             publicMsg.mAppId = this.i;
-            if (TextUtils.isEmpty(this.f3477g) && TextUtils.isEmpty(this.f3478h)) {
-                publicMsg.mTitle = this.f3475e;
-                publicMsg.mDescription = this.f3476f;
-                publicMsg.mUrl = this.f3471a;
-                str = this.f3473c;
+            if (TextUtils.isEmpty(this.f3478g) && TextUtils.isEmpty(this.f3479h)) {
+                publicMsg.mTitle = this.f3476e;
+                publicMsg.mDescription = this.f3477f;
+                publicMsg.mUrl = this.f3472a;
+                str = this.f3474c;
             } else {
-                publicMsg.mTitle = this.f3477g;
-                publicMsg.mDescription = this.f3478h;
-                publicMsg.mUrl = this.f3472b;
-                str = this.f3474d;
+                publicMsg.mTitle = this.f3478g;
+                publicMsg.mDescription = this.f3479h;
+                publicMsg.mUrl = this.f3473b;
+                str = this.f3475d;
             }
             publicMsg.mPkgContent = str;
             return publicMsg;

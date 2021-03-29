@@ -6,11 +6,11 @@ import com.kwad.sdk.mvp.Presenter;
 public class a<MODEL, CallerContext extends b<?, MODEL>> extends Presenter {
 
     /* renamed from: b  reason: collision with root package name */
-    public CallerContext f35901b;
+    public CallerContext f35902b;
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f35901b = (CallerContext) n();
+        this.f35902b = (CallerContext) n();
     }
 }

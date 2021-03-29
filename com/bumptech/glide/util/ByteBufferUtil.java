@@ -39,7 +39,7 @@ public final class ByteBufferUtil {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f7663a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7664a);
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();

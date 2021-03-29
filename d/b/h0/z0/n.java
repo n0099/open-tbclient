@@ -1,5 +1,5 @@
 package d.b.h0.z0;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public interface n<T> {
     void onReturnDataInUI(T t);
 }

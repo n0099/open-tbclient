@@ -10,19 +10,19 @@ import com.baidu.tbadk.editortools.view.CommonTabHost;
 public abstract class a implements d.b.h0.w.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f51609e;
+    public b f51610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC1111a f51610f;
+    public InterfaceC1112a f51611f;
     public CommonTabHost.b m;
     public EditorTools n;
     public CommonTabContentView.c p;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51611g = 0;
+    public int f51612g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51612h = 0;
+    public int f51613h = 0;
     public int i = 0;
     public int j = 0;
     public int k = 0;
@@ -31,7 +31,7 @@ public abstract class a implements d.b.h0.w.b {
 
     /* renamed from: d.b.h0.w.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1111a {
+    public interface InterfaceC1112a {
         View getView(int i, View view, ViewGroup viewGroup);
     }
 
@@ -39,20 +39,20 @@ public abstract class a implements d.b.h0.w.b {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f51613a;
+        public int f51614a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51614b;
+        public int f51615b;
     }
 
-    public void A(InterfaceC1111a interfaceC1111a) {
-        this.f51610f = interfaceC1111a;
+    public void A(InterfaceC1112a interfaceC1112a) {
+        this.f51611f = interfaceC1112a;
     }
 
     public abstract void a();
 
     public int c() {
-        return this.f51611g;
+        return this.f51612g;
     }
 
     public void d(d.b.h0.w.a aVar) {
@@ -73,7 +73,7 @@ public abstract class a implements d.b.h0.w.b {
     }
 
     public b i() {
-        return this.f51609e;
+        return this.f51610e;
     }
 
     public CommonTabContentView.c j() {
@@ -93,21 +93,21 @@ public abstract class a implements d.b.h0.w.b {
     }
 
     public int n() {
-        return this.f51612h;
+        return this.f51613h;
     }
 
     public int o() {
         return this.i;
     }
 
-    public InterfaceC1111a p() {
-        return this.f51610f;
+    public InterfaceC1112a p() {
+        return this.f51611f;
     }
 
     public abstract void q(Context context);
 
     public void r(int i) {
-        this.f51611g = i;
+        this.f51612g = i;
     }
 
     public void s(CommonTabHost.b bVar) {
@@ -123,7 +123,7 @@ public abstract class a implements d.b.h0.w.b {
     }
 
     public void u(b bVar) {
-        this.f51609e = bVar;
+        this.f51610e = bVar;
     }
 
     public void v(CommonTabContentView.c cVar) {
@@ -139,7 +139,7 @@ public abstract class a implements d.b.h0.w.b {
     }
 
     public void y(int i) {
-        this.f51612h = i;
+        this.f51613h = i;
     }
 
     public void z(int i) {

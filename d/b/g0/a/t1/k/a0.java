@@ -10,11 +10,11 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f46287b = d.b.g0.a.k.f45050a;
+    public static final boolean f46288b = d.b.g0.a.k.f45051a;
 
     public a0(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
         super(unitedSchemeBaseDispatcher, str);
@@ -32,7 +32,7 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
         try {
             return new JSONObject(param);
         } catch (JSONException e2) {
-            if (f46287b) {
+            if (f46288b) {
                 e2.printStackTrace();
             }
             return null;
@@ -47,12 +47,12 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
 
     public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         try {
-            if (TextUtils.equals(this.f46289a, str)) {
+            if (TextUtils.equals(this.f46290a, str)) {
                 return g(context, unitedSchemeEntity, callbackHandler, c());
             }
             return i(context, unitedSchemeEntity, callbackHandler, str, c());
         } catch (Throwable th) {
-            if (f46287b) {
+            if (f46288b) {
                 Log.e("SwanAppAction", Log.getStackTraceString(th));
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
@@ -61,7 +61,7 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
     }
 
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, d.b.g0.a.r1.e eVar) {
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + this.f46289a + str);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + this.f46290a + str);
         return false;
     }
 }

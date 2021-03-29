@@ -8,23 +8,23 @@ import com.baidu.tbadk.core.util.NetWork;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f62619c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    public static final String f62620c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62620a;
+    public String f62621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetWork f62621b = null;
+    public NetWork f62622b = null;
 
     public void a() {
-        NetWork netWork = this.f62621b;
+        NetWork netWork = this.f62622b;
         if (netWork != null) {
             netWork.cancelNetConnect();
         }
     }
 
     public String b() {
-        NetWork netWork = this.f62621b;
+        NetWork netWork = this.f62622b;
         if (netWork != null) {
             return netWork.getErrorString();
         }
@@ -32,7 +32,7 @@ public class e {
     }
 
     public boolean c() {
-        NetWork netWork = this.f62621b;
+        NetWork netWork = this.f62622b;
         if (netWork != null) {
             return netWork.getNetContext().getResponse().isRequestSuccess();
         }
@@ -40,30 +40,30 @@ public class e {
     }
 
     public void d(String str) {
-        this.f62620a = str;
+        this.f62621a = str;
     }
 
     public String e(String str) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         String id = currentAccountObj != null ? currentAccountObj.getID() : null;
-        NetWork netWork = new NetWork(f62619c);
-        this.f62621b = netWork;
+        NetWork netWork = new NetWork(f62620c);
+        this.f62622b = netWork;
         netWork.addPostData("user_id", id);
-        this.f62621b.addPostData("forum_ids", str);
-        this.f62621b.addPostData("authsid", this.f62620a);
-        this.f62621b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-        this.f62621b.getNetContext().getRequest().mIsNeedTbs = true;
-        this.f62621b.setNeedSig(true);
-        return this.f62621b.postNetData();
+        this.f62622b.addPostData("forum_ids", str);
+        this.f62622b.addPostData("authsid", this.f62621a);
+        this.f62622b.getNetContext().getRequest().mNeedBackgroundLogin = true;
+        this.f62622b.getNetContext().getRequest().mIsNeedTbs = true;
+        this.f62622b.setNeedSig(true);
+        return this.f62622b.postNetData();
     }
 
     public String f() {
-        NetWork netWork = new NetWork(f62619c);
-        this.f62621b = netWork;
-        netWork.addPostData("authsid", this.f62620a);
-        this.f62621b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-        this.f62621b.getNetContext().getRequest().mIsNeedTbs = true;
-        this.f62621b.setNeedSig(true);
-        return this.f62621b.postNetData();
+        NetWork netWork = new NetWork(f62620c);
+        this.f62622b = netWork;
+        netWork.addPostData("authsid", this.f62621a);
+        this.f62622b.getNetContext().getRequest().mNeedBackgroundLogin = true;
+        this.f62622b.getNetContext().getRequest().mIsNeedTbs = true;
+        this.f62622b.setNeedSig(true);
+        return this.f62622b.postNetData();
     }
 }

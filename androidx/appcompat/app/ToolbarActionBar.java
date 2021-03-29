@@ -506,7 +506,7 @@ public class ToolbarActionBar extends ActionBar {
 
     @Override // androidx.appcompat.app.ActionBar
     public void setDisplayOptions(int i, int i2) {
-        this.mDecorToolbar.setDisplayOptions((i & i2) | ((i2 ^ (-1)) & this.mDecorToolbar.getDisplayOptions()));
+        this.mDecorToolbar.setDisplayOptions((i & i2) | ((~i2) & this.mDecorToolbar.getDisplayOptions()));
     }
 
     @Override // androidx.appcompat.app.ActionBar

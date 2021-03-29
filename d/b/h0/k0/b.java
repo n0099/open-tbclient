@@ -17,7 +17,7 @@ public abstract class b {
         if (dVar == null || dVar.m()) {
             return false;
         }
-        if (dVar.f50238a) {
+        if (dVar.f50239a) {
             dVar.u(c.b(dVar.h(), 6));
         } else {
             int c2 = getMaxCost() > e.b().c() ? e.b().c() : getMaxCost();

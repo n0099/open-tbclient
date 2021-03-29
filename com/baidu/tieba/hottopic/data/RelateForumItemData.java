@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import d.b.b.j.e.n;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RelateForumItemData implements Serializable, n {
     public static final BdUniqueId TYPE_FORUM_CARD = BdUniqueId.gen();
     public static final long serialVersionUID = 1;

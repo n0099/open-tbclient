@@ -9,16 +9,16 @@ import d.b.b.e.p.l;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f57834a;
+    public g f57835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f57835b;
+    public Intent f57836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57836c = 0;
+    public int f57837c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f57837d;
+    public a f57838d;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -26,22 +26,22 @@ public abstract class b {
     }
 
     public b(g gVar, Intent intent) {
-        this.f57834a = gVar;
-        this.f57835b = intent;
-        e c2 = d.d().c(this.f57835b.getStringExtra("info_forum_name_text"));
+        this.f57835a = gVar;
+        this.f57836b = intent;
+        e c2 = d.d().c(this.f57836b.getStringExtra("info_forum_name_text"));
         c2.b();
         c2.a();
         if (c2.c()) {
-            ((RelativeLayout.LayoutParams) this.f57834a.f57861g.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+            ((RelativeLayout.LayoutParams) this.f57835a.f57862g.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public int a() {
-        return this.f57836c;
+        return this.f57837c;
     }
 
     public void b(a aVar) {
-        this.f57837d = aVar;
+        this.f57838d = aVar;
     }
 
     public abstract void c();

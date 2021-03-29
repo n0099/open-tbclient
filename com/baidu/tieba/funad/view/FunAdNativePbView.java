@@ -39,13 +39,13 @@ import java.util.List;
 public class FunAdNativePbView extends FunAbsAdView {
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f16841f;
+    public RelativeLayout f16842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16842g;
+    public View f16843g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f16843h;
+    public EMTextView f16844h;
     public ViewGroup i;
     public TbImageView j;
     public View k;
@@ -76,7 +76,7 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void d(int i) {
-        this.f16841f.setVisibility(i);
+        this.f16842f.setVisibility(i);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -95,12 +95,12 @@ public class FunAdNativePbView extends FunAbsAdView {
         }
         FunNativeAd funNativeAd = (FunNativeAd) nVar.c();
         String title = funNativeAd.getTitle();
-        this.f16810e = title;
-        if (StringUtils.isNull(title) || this.f16810e.equals(activity.getString(R.string.fun_ad_label))) {
-            this.f16810e = activity.getString(R.string.fun_ad_title_promotion);
+        this.f16811e = title;
+        if (StringUtils.isNull(title) || this.f16811e.equals(activity.getString(R.string.fun_ad_label))) {
+            this.f16811e = activity.getString(R.string.fun_ad_title_promotion);
         }
-        this.o.setText(this.f16810e);
-        this.f16843h.setText(funNativeAd.getDescription());
+        this.o.setText(this.f16811e);
+        this.f16844h.setText(funNativeAd.getDescription());
         this.s.setViewData(funNativeAd, activity, getPageType());
         if (this.i.getChildCount() > 2) {
             ViewGroup viewGroup = this.i;
@@ -130,9 +130,9 @@ public class FunAdNativePbView extends FunAbsAdView {
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void g(Context context) {
         LayoutInflater.from(context).inflate(getLayoutId(), (ViewGroup) this, true);
-        this.f16841f = (RelativeLayout) findViewById(R.id.fun_card_layout);
-        this.f16842g = findViewById(R.id.divider_with_reply_title);
-        this.f16843h = (EMTextView) findViewById(R.id.fun_card_description);
+        this.f16842f = (RelativeLayout) findViewById(R.id.fun_card_layout);
+        this.f16843g = findViewById(R.id.divider_with_reply_title);
+        this.f16844h = (EMTextView) findViewById(R.id.fun_card_description);
         this.i = (ViewGroup) findViewById(R.id.media_bg);
         this.k = findViewById(R.id.media_mask);
         this.j = (TbImageView) findViewById(R.id.medig_image);
@@ -149,7 +149,7 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public List<View> getClickViews() {
-        return Arrays.asList(this, this.f16841f, this.i, this.o, this.s, this.q);
+        return Arrays.asList(this, this.f16842f, this.i, this.o, this.s, this.q);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -180,8 +180,8 @@ public class FunAdNativePbView extends FunAbsAdView {
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void h() {
         WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-        SkinManager.setBackgroundColor(this.f16842g, R.color.CAM_X0204);
-        d.b.h0.r.u.c.a(this.f16843h).n(R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f16843g, R.color.CAM_X0204);
+        d.b.h0.r.u.c.a(this.f16844h).n(R.color.CAM_X0105);
         d.b.h0.r.u.c.a(this.o).n(R.color.CAM_X0109);
         d.b.h0.r.u.c.a(this.n).n(R.color.CAM_X0101);
         d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.l);
@@ -242,7 +242,7 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void setFunAdViewVisible(boolean z) {
-        RelativeLayout relativeLayout = this.f16841f;
+        RelativeLayout relativeLayout = this.f16842f;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(z ? 0 : 8);
         }

@@ -22,29 +22,29 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f63531e;
+    public Activity f63532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d> f63532f;
+    public ArrayList<d> f63533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f63533g = new View$OnClickListenerC1721a();
+    public View.OnClickListener f63534g = new View$OnClickListenerC1722a();
 
     /* renamed from: d.b.i0.z2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1721a implements View.OnClickListener {
-        public View$OnClickListenerC1721a() {
+    public class View$OnClickListenerC1722a implements View.OnClickListener {
+        public View$OnClickListenerC1722a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Object tag = view.getTag();
-            if ((tag instanceof b) && (dVar = ((b) tag).f63538d) != null) {
-                if (dVar.f63541a == null) {
+            if ((tag instanceof b) && (dVar = ((b) tag).f63539d) != null) {
+                if (dVar.f63542a == null) {
                     BarFolderFirstDirActivity.k(a.this.c(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.c(), dVar.f63542b, dVar.f63541a, dVar.f63543c)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.c(), dVar.f63543b, dVar.f63542a, dVar.f63544c)));
                 }
             }
         }
@@ -54,76 +54,76 @@ public class a extends BaseAdapter {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f63535a;
+        public BarImageView f63536a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f63536b;
+        public TextView f63537b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BestStringsFitTextView f63537c;
+        public BestStringsFitTextView f63538c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f63538d;
+        public d f63539d;
     }
 
     public a(Activity activity, d.b.i0.z2.j.b bVar, boolean z) {
-        this.f63531e = activity;
-        this.f63532f = bVar.h();
+        this.f63532e = activity;
+        this.f63533f = bVar.h();
     }
 
     public final View a(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.f63531e).inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.f63532e).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.f63531e).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.f63532e).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.f63531e).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f63533g);
+        View inflate = LayoutInflater.from(this.f63532e).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.f63534g);
         b bVar = new b();
-        bVar.f63535a = (BarImageView) inflate.findViewById(R.id.portrait);
-        bVar.f63536b = (TextView) inflate.findViewById(R.id.name);
-        bVar.f63537c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        bVar.f63536a = (BarImageView) inflate.findViewById(R.id.portrait);
+        bVar.f63537b = (TextView) inflate.findViewById(R.id.name);
+        bVar.f63538c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(bVar);
         return inflate;
     }
 
     public final void b(ViewGroup viewGroup, b bVar, int i) {
-        d dVar = this.f63532f.get(i / 2);
-        bVar.f63538d = dVar;
-        bVar.f63536b.setText(dVar.f63542b);
-        if (dVar.f63545e != null) {
-            bVar.f63537c.setVisibility(0);
-            String[] strArr = new String[dVar.f63545e.size()];
-            for (int i2 = 0; i2 < dVar.f63545e.size(); i2++) {
-                strArr[i2] = dVar.f63545e.get(i2).f63542b;
+        d dVar = this.f63533f.get(i / 2);
+        bVar.f63539d = dVar;
+        bVar.f63537b.setText(dVar.f63543b);
+        if (dVar.f63546e != null) {
+            bVar.f63538c.setVisibility(0);
+            String[] strArr = new String[dVar.f63546e.size()];
+            for (int i2 = 0; i2 < dVar.f63546e.size(); i2++) {
+                strArr[i2] = dVar.f63546e.get(i2).f63543b;
             }
-            bVar.f63537c.setTextArray(strArr);
+            bVar.f63538c.setTextArray(strArr);
         } else {
-            bVar.f63537c.setVisibility(8);
+            bVar.f63538c.setVisibility(8);
         }
-        if (dVar.f63544d != null) {
-            int e2 = l.e(this.f63531e, 45.0f);
-            bVar.f63535a.setTag(dVar.f63544d);
-            bVar.f63535a.T(dVar.f63544d, 10, e2, e2, false);
+        if (dVar.f63545d != null) {
+            int e2 = l.e(this.f63532e, 45.0f);
+            bVar.f63536a.setTag(dVar.f63545d);
+            bVar.f63536a.T(dVar.f63545d, 10, e2, e2, false);
         }
     }
 
     public Activity c() {
-        return this.f63531e;
+        return this.f63532e;
     }
 
     public ArrayList<d> d() {
-        return this.f63532f;
+        return this.f63533f;
     }
 
     public void e(ArrayList<d> arrayList) {
-        this.f63532f = arrayList;
+        this.f63533f = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<d> arrayList = this.f63532f;
+        ArrayList<d> arrayList = this.f63533f;
         if (arrayList == null) {
             return 0;
         }

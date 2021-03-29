@@ -45,12 +45,12 @@ public class b extends d.b.i0.x.b<d.b.i0.t.d.f.c.e> {
     @Override // d.b.i0.x.b
     /* renamed from: u */
     public void n(d.b.i0.t.d.f.c.e eVar) {
-        if (eVar.f60538e == 1) {
-            this.m.setText(this.f62180f.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+        if (eVar.f60539e == 1) {
+            this.m.setText(this.f62181f.getResources().getString(R.string.live_sub_tab_no_attention_txt));
             SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.m.setText(this.f62180f.getResources().getString(R.string.live_sub_tab_empty_txt));
+        this.m.setText(this.f62181f.getResources().getString(R.string.live_sub_tab_empty_txt));
         SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_06);
     }
 }

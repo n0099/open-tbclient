@@ -8,51 +8,51 @@ import d.b.g0.a.i2.h0;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.t.b.d;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends d.b.g0.a.t.b.d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b {
 
         /* renamed from: d.b.g0.a.t.c.f.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0807a implements Runnable {
+        /* loaded from: classes2.dex */
+        public class RunnableC0808a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f46013e;
+            public final /* synthetic */ int f46014e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f46014f;
+            public final /* synthetic */ int f46015f;
 
             /* renamed from: d.b.g0.a.t.c.f.d$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0808a implements ValueAnimator.AnimatorUpdateListener {
+            /* loaded from: classes2.dex */
+            public class C0809a implements ValueAnimator.AnimatorUpdateListener {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ d.b.g0.a.p.d.c f46016e;
+                public final /* synthetic */ d.b.g0.a.p.d.c f46017e;
 
-                public C0808a(RunnableC0807a runnableC0807a, d.b.g0.a.p.d.c cVar) {
-                    this.f46016e = cVar;
+                public C0809a(RunnableC0808a runnableC0808a, d.b.g0.a.p.d.c cVar) {
+                    this.f46017e = cVar;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    this.f46016e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f46017e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
 
-            public RunnableC0807a(int i, int i2) {
-                this.f46013e = i;
-                this.f46014f = i2;
+            public RunnableC0808a(int i, int i2) {
+                this.f46014e = i;
+                this.f46015f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 d.b.g0.a.p.d.c o = d.b.g0.a.z0.f.V().o();
                 if (o != null) {
-                    ValueAnimator ofInt = ValueAnimator.ofInt(o.getWebViewScrollY(), d.r(o, h0.e(d.this.h(), this.f46013e)));
-                    ofInt.setDuration(this.f46014f);
-                    ofInt.addUpdateListener(new C0808a(this, o));
+                    ValueAnimator ofInt = ValueAnimator.ofInt(o.getWebViewScrollY(), d.r(o, h0.e(d.this.h(), this.f46014e)));
+                    ofInt.setDuration(this.f46015f);
+                    ofInt.addUpdateListener(new C0809a(this, o));
                     ofInt.start();
                 }
             }
@@ -66,7 +66,7 @@ public class d extends d.b.g0.a.t.b.d {
             int optInt = jSONObject.optInt("scrollTop", -1);
             int optInt2 = jSONObject.optInt("duration", -1);
             if (optInt > -1 && optInt2 > -1) {
-                k0.X(new RunnableC0807a(optInt, optInt2));
+                k0.X(new RunnableC0808a(optInt, optInt2));
                 return new d.b.g0.a.t.e.b(0);
             }
             d.b.g0.a.c0.c.b("Api-PageScrollTo", "illegal scrollTop or duration");
@@ -87,7 +87,7 @@ public class d extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b s(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-PageScrollTo", "page scroll to");
         }
         return i(str, false, new a());

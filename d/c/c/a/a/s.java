@@ -2,11 +2,11 @@ package d.c.c.a.a;
 
 import java.nio.charset.Charset;
 import kotlin.UShort;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f65167a = Charset.forName("UTF-8");
+    public static final Charset f65168a = Charset.forName("UTF-8");
 
     public static int a(int i) {
         return ((i & 255) << 24) | (((-16777216) & i) >>> 24) | ((16711680 & i) >>> 8) | ((65280 & i) << 8);

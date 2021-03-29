@@ -13,7 +13,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.e.e, SdkDoubleLiveViewHolder> {
     public int o;
 
     public e(TbPageContext tbPageContext, int i) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.e.f60327g);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.e.f60328g);
         this.m = tbPageContext;
         this.o = i;
     }
@@ -31,11 +31,11 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.e.e, SdkDoubleLiveViewHolder> {
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.e.e eVar, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
         f fVar;
-        if (sdkDoubleLiveViewHolder == null || (fVar = sdkDoubleLiveViewHolder.f14808a) == null) {
+        if (sdkDoubleLiveViewHolder == null || (fVar = sdkDoubleLiveViewHolder.f14809a) == null) {
             return null;
         }
         fVar.n(eVar);
-        sdkDoubleLiveViewHolder.f14808a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        sdkDoubleLiveViewHolder.f14809a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return sdkDoubleLiveViewHolder.a();
     }
 }

@@ -55,7 +55,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                     }
                 }
             }
-            if (str.startsWith(f.f49574a) && f.c(Uri.parse(str))) {
+            if (str.startsWith(f.f49575a) && f.c(Uri.parse(str))) {
                 UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
             } else {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
@@ -129,8 +129,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         int type = baseResp.getType();
         if (1 == type) {
             a aVar = new a();
-            aVar.f51898a = this;
-            aVar.f51899b = baseResp;
+            aVar.f51899a = this;
+            aVar.f51900b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

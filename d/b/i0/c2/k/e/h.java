@@ -27,7 +27,7 @@ public class h extends m<d.b.h0.r.q.p, PbBjhRecommendViewHolder> {
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (pbBjhRecommendViewHolder.f19516a != skinType) {
+        if (pbBjhRecommendViewHolder.f19517a != skinType) {
             SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.j, R.color.CAM_X0204, skinType);
             SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.y, R.color.CAM_X0203, skinType);
             SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.t, R.color.CAM_X0204, skinType);
@@ -40,14 +40,14 @@ public class h extends m<d.b.h0.r.q.p, PbBjhRecommendViewHolder> {
             SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.i, R.color.CAM_X0205, R.color.CAM_X0204, skinType);
             TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(d.b.b.e.p.l.g(this.m.P(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.n);
         }
-        pbBjhRecommendViewHolder.f19516a = skinType;
+        pbBjhRecommendViewHolder.f19517a = skinType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.b.j.e.a
     /* renamed from: l0 */
     public PbBjhRecommendViewHolder R(ViewGroup viewGroup) {
-        PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.m.P());
+        PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.m.P());
         j0(pbBjhRecommendViewHolder);
         return pbBjhRecommendViewHolder;
     }

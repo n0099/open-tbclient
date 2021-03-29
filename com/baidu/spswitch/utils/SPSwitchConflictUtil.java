@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.Window;
 import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.EmotionUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchConflictUtil {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface SwitchClickListener {
         void onClickSwitch(View view, boolean z);
     }

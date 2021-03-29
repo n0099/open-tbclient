@@ -13,62 +13,62 @@ import com.baidu.apollon.utils.ResUtils;
 public class RefreshLoadingDrawable extends Drawable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24152a = "RefreshLoadingView";
+    public static final String f24153a = "RefreshLoadingView";
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24155d;
+    public int f24156d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24156e;
+    public int f24157e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24157f;
+    public int f24158f;
     public int i;
     public Context j;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f24153b = new Paint();
+    public Paint f24154b = new Paint();
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f24154c = new Paint();
+    public Paint f24155c = new Paint();
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f24158g = new RectF();
+    public RectF f24159g = new RectF();
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f24159h = new Path();
+    public Path f24160h = new Path();
 
     public RefreshLoadingDrawable(Context context, int i, int i2) {
         i = i < 0 ? 0 : i;
-        this.f24155d = i2;
+        this.f24156d = i2;
         Context applicationContext = context.getApplicationContext();
         this.j = applicationContext;
         int dip2px = DisplayUtils.dip2px(applicationContext, 1.0f);
-        this.f24156e = dip2px;
+        this.f24157e = dip2px;
         int i3 = i + (dip2px * 2);
         this.i = i3;
-        this.f24153b.setAntiAlias(true);
-        this.f24153b.setDither(true);
-        this.f24153b.setColor(this.f24155d);
-        this.f24153b.setStyle(Paint.Style.STROKE);
-        this.f24153b.setStrokeJoin(Paint.Join.ROUND);
-        this.f24153b.setStrokeCap(Paint.Cap.ROUND);
-        this.f24153b.setStrokeWidth(this.f24156e);
-        this.f24154c.set(this.f24153b);
-        RectF rectF = this.f24158g;
-        int i4 = this.f24156e;
+        this.f24154b.setAntiAlias(true);
+        this.f24154b.setDither(true);
+        this.f24154b.setColor(this.f24156d);
+        this.f24154b.setStyle(Paint.Style.STROKE);
+        this.f24154b.setStrokeJoin(Paint.Join.ROUND);
+        this.f24154b.setStrokeCap(Paint.Cap.ROUND);
+        this.f24154b.setStrokeWidth(this.f24157e);
+        this.f24155c.set(this.f24154b);
+        RectF rectF = this.f24159g;
+        int i4 = this.f24157e;
         int i5 = this.i;
         rectF.set(i4, i4, i5 - i4, i5 - i4);
-        this.f24159h.reset();
+        this.f24160h.reset();
         float f2 = i3;
         float f3 = 0.5f * f2;
         float f4 = 0.25f * f2;
-        this.f24159h.moveTo(f3, f4);
+        this.f24160h.moveTo(f3, f4);
         float f5 = f2 * 0.75f;
-        this.f24159h.lineTo(f5, f3);
-        this.f24159h.lineTo(f3, f5);
-        this.f24159h.lineTo(f4, f3);
-        this.f24159h.close();
+        this.f24160h.lineTo(f5, f3);
+        this.f24160h.lineTo(f3, f5);
+        this.f24160h.lineTo(f4, f3);
+        this.f24160h.close();
     }
 
     public static RefreshLoadingDrawable newInstanceBlue(Context context) {
@@ -85,10 +85,10 @@ public class RefreshLoadingDrawable extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        canvas.drawArc(this.f24158g, -90.0f, (this.f24157f * 360.0f) / 100.0f, false, this.f24153b);
-        if (this.f24157f >= 100) {
-            this.f24154c.setColor(this.f24155d);
-            canvas.drawPath(this.f24159h, this.f24154c);
+        canvas.drawArc(this.f24159g, -90.0f, (this.f24158f * 360.0f) / 100.0f, false, this.f24154b);
+        if (this.f24158f >= 100) {
+            this.f24155c.setColor(this.f24156d);
+            canvas.drawPath(this.f24160h, this.f24155c);
         }
     }
 
@@ -122,9 +122,9 @@ public class RefreshLoadingDrawable extends Drawable {
         if (i > 100) {
             i = 100;
         }
-        if (this.f24157f == i) {
+        if (this.f24158f == i) {
             return;
         }
-        this.f24157f = i;
+        this.f24158f = i;
     }
 }

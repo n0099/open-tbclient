@@ -2,7 +2,7 @@ package com.baidu.fsg.base.armor;
 
 import android.content.Context;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RimArmor {
     public static final String KEY = "key";
     public static RimArmor ins;

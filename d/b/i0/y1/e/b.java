@@ -23,34 +23,34 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62591a;
+    public int f62592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f62592b;
+    public final BdUniqueId f62593b;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f62594d;
+    public d f62595d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f62595e;
+    public c f62596e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.b.i0.y1.c.b> f62596f;
+    public List<d.b.i0.y1.c.b> f62597f;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f62593c = new Gson();
+    public Gson f62594c = new Gson();
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f62597g = new a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
+    public d.b.b.c.g.a f62598g = new a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f62598h = new C1677b(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
+    public HttpMessageListener f62599h = new C1678b(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -61,7 +61,7 @@ public class b {
             if (responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == b.this.f62592b) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == b.this.f62593b) {
                 d.b.i0.y1.c.c cVar = null;
                 if (responsedMessage instanceof InterestedForumHttpResMsg) {
                     cVar = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
@@ -69,26 +69,26 @@ public class b {
                     cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                 }
                 if (responsedMessage.getError() != 0) {
-                    if (b.this.f62594d != null) {
-                        b.this.f62594d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (b.this.f62595d != null) {
+                        b.this.f62595d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
-                } else if (cVar == null || ListUtils.isEmpty(cVar.f62586a)) {
-                    if (b.this.f62594d != null) {
-                        b.this.f62594d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                } else if (cVar == null || ListUtils.isEmpty(cVar.f62587a)) {
+                    if (b.this.f62595d != null) {
+                        b.this.f62595d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                     }
-                } else if (cVar == null || b.this.f62594d == null) {
+                } else if (cVar == null || b.this.f62595d == null) {
                 } else {
                     b.c(b.this);
-                    b.this.f62594d.b(cVar);
+                    b.this.f62595d.b(cVar);
                 }
             }
         }
     }
 
     /* renamed from: d.b.i0.y1.e.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1677b extends HttpMessageListener {
-        public C1677b(int i) {
+    /* loaded from: classes3.dex */
+    public class C1678b extends HttpMessageListener {
+        public C1678b(int i) {
             super(i);
         }
 
@@ -98,25 +98,25 @@ public class b {
             if (httpResponsedMessage == null) {
                 return;
             }
-            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == b.this.f62592b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
+            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == b.this.f62593b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                 InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                 if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                    if (b.this.f62594d != null) {
-                        b.this.f62594d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (b.this.f62595d != null) {
+                        b.this.f62595d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (b.this.f62595e != null) {
-                    b.this.f62595e.a();
+                } else if (b.this.f62596e != null) {
+                    b.this.f62596e.a();
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void b(d.b.i0.y1.c.c cVar);
 
@@ -124,18 +124,18 @@ public class b {
     }
 
     public b(BdUniqueId bdUniqueId) {
-        this.f62592b = bdUniqueId;
-        this.f62597g.setTag(bdUniqueId);
-        this.f62598h.setTag(this.f62592b);
-        MessageManager.getInstance().registerListener(this.f62597g);
-        MessageManager.getInstance().registerListener(this.f62598h);
+        this.f62593b = bdUniqueId;
+        this.f62598g.setTag(bdUniqueId);
+        this.f62599h.setTag(this.f62593b);
+        MessageManager.getInstance().registerListener(this.f62598g);
+        MessageManager.getInstance().registerListener(this.f62599h);
         k();
         j();
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i = bVar.f62591a;
-        bVar.f62591a = i + 1;
+        int i = bVar.f62592a;
+        bVar.f62592a = i + 1;
         return i;
     }
 
@@ -155,7 +155,7 @@ public class b {
         }
         httpMessage.addParam("interestList", encode);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-        httpMessage.setTag(this.f62592b);
+        httpMessage.setTag(this.f62593b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -173,31 +173,31 @@ public class b {
         HashMap hashMap = new HashMap();
         for (d.b.i0.y1.c.a aVar : list) {
             HashMap hashMap2 = new HashMap();
-            for (d.b.i0.y1.c.d dVar : aVar.f62578a) {
-                if (dVar.f62588b) {
-                    RecommendForumInfo recommendForumInfo = dVar.f62587a;
+            for (d.b.i0.y1.c.d dVar : aVar.f62579a) {
+                if (dVar.f62589b) {
+                    RecommendForumInfo recommendForumInfo = dVar.f62588a;
                     hashMap2.put(recommendForumInfo.forum_id, recommendForumInfo.forum_name);
                 }
             }
-            hashMap.put(aVar.f62580c, hashMap2);
+            hashMap.put(aVar.f62581c, hashMap2);
         }
-        return this.f62593c.toJson(hashMap);
+        return this.f62594c.toJson(hashMap);
     }
 
     public void h() {
         InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-        List<d.b.i0.y1.c.b> list = this.f62596f;
+        List<d.b.i0.y1.c.b> list = this.f62597f;
         if (list == null) {
             interestedForumReqMsg.classidList = f(null);
         } else {
-            interestedForumReqMsg.classidList = f(list.subList((this.f62591a - 1) * 3, Math.min(list.size(), this.f62591a * 3)));
+            interestedForumReqMsg.classidList = f(list.subList((this.f62592a - 1) * 3, Math.min(list.size(), this.f62592a * 3)));
         }
-        interestedForumReqMsg.setTag(this.f62592b);
+        interestedForumReqMsg.setTag(this.f62593b);
         MessageManager.getInstance().sendMessage(interestedForumReqMsg);
     }
 
     public boolean i() {
-        return (this.f62591a - 1) * 3 < this.f62596f.size();
+        return (this.f62592a - 1) * 3 < this.f62597f.size();
     }
 
     public final void j() {
@@ -217,15 +217,15 @@ public class b {
     }
 
     public void m(List<d.b.i0.y1.c.b> list) {
-        this.f62596f = list;
-        this.f62591a = 1;
+        this.f62597f = list;
+        this.f62592a = 1;
     }
 
     public void n(c cVar) {
-        this.f62595e = cVar;
+        this.f62596e = cVar;
     }
 
     public void o(d dVar) {
-        this.f62594d = dVar;
+        this.f62595d = dVar;
     }
 }

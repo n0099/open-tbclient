@@ -6,10 +6,10 @@ import java.io.File;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f39306a;
+    public static Context f39307a;
 
     public static final Context a() {
-        Context context = f39306a;
+        Context context = f39307a;
         if (context == null) {
             return null;
         }
@@ -28,6 +28,6 @@ public final class e {
     }
 
     public static final void a(Context context) {
-        f39306a = context;
+        f39307a = context;
     }
 }

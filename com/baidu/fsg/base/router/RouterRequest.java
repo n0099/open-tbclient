@@ -4,57 +4,57 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RouterRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5258a = "RouterRequest";
+    public static final String f5259a = "RouterRequest";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5259b = "";
+    public String f5260b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5260c = "";
+    public String f5261c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap f5261d = new HashMap();
+    public HashMap f5262d = new HashMap();
 
     public RouterRequest action(String str) {
-        this.f5260c = str;
+        this.f5261c = str;
         return this;
     }
 
     public RouterRequest data(String str, Object obj) {
-        this.f5261d.put(str, obj);
+        this.f5262d.put(str, obj);
         return this;
     }
 
     public String getAction() {
-        return this.f5260c;
+        return this.f5261c;
     }
 
     public HashMap getData() {
-        return this.f5261d;
+        return this.f5262d;
     }
 
     public String getProvider() {
-        return this.f5259b;
+        return this.f5260b;
     }
 
     public RouterRequest provider(String str) {
-        this.f5259b = str;
+        this.f5260b = str;
         return this;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("provider", this.f5259b);
-            jSONObject.put("action", this.f5260c);
+            jSONObject.put("provider", this.f5260b);
+            jSONObject.put("action", this.f5261c);
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                for (Object obj : this.f5261d.keySet()) {
-                    jSONObject2.put(obj.toString(), this.f5261d.get(obj));
+                for (Object obj : this.f5262d.keySet()) {
+                    jSONObject2.put(obj.toString(), this.f5262d.get(obj));
                 }
                 jSONObject.put("data", jSONObject2);
             } catch (Exception e2) {
@@ -68,7 +68,7 @@ public class RouterRequest {
     }
 
     public RouterRequest data(HashMap hashMap) {
-        this.f5261d = hashMap;
+        this.f5262d = hashMap;
         return this;
     }
 }

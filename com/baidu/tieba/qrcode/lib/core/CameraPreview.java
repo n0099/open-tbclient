@@ -12,16 +12,16 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public static final String l = CameraPreview.class.getSimpleName();
 
     /* renamed from: e  reason: collision with root package name */
-    public Camera f20652e;
+    public Camera f20653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20653f;
+    public boolean f20654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f20654g;
+    public boolean f20655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.o2.b.a.b f20655h;
+    public d.b.i0.o2.b.a.b f20656h;
     public SurfaceTexture i;
     public Runnable j;
     public Camera.AutoFocusCallback k;
@@ -33,9 +33,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
 
         @Override // java.lang.Runnable
         public void run() {
-            if (CameraPreview.this.f20652e != null && CameraPreview.this.f20653f && CameraPreview.this.f20654g) {
+            if (CameraPreview.this.f20653e != null && CameraPreview.this.f20654f && CameraPreview.this.f20655g) {
                 try {
-                    CameraPreview.this.f20652e.autoFocus(CameraPreview.this.k);
+                    CameraPreview.this.f20653e.autoFocus(CameraPreview.this.k);
                 } catch (Exception unused) {
                 }
             }
@@ -72,8 +72,8 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
 
     public CameraPreview(Context context) {
         super(context);
-        this.f20653f = false;
-        this.f20654g = false;
+        this.f20654f = false;
+        this.f20655g = false;
         this.j = new a();
         this.k = new b();
         setSurfaceTextureListener(this);
@@ -82,28 +82,28 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public final void f() {
         Camera camera;
         SurfaceTexture surfaceTexture = this.i;
-        if (surfaceTexture == null || (camera = this.f20652e) == null) {
+        if (surfaceTexture == null || (camera = this.f20653e) == null) {
             return;
         }
         try {
-            this.f20653f = true;
+            this.f20654f = true;
             camera.setPreviewTexture(surfaceTexture);
-            this.f20655h.i(this.f20652e);
-            this.f20652e.startPreview();
-            this.f20652e.autoFocus(this.k);
+            this.f20656h.i(this.f20653e);
+            this.f20653e.startPreview();
+            this.f20653e.autoFocus(this.k);
         } catch (Exception e2) {
             Log.e(l, e2.toString(), e2);
         }
     }
 
     public void g() {
-        if (this.f20652e != null) {
+        if (this.f20653e != null) {
             try {
                 removeCallbacks(this.j);
-                this.f20653f = false;
-                this.f20652e.cancelAutoFocus();
-                this.f20652e.setOneShotPreviewCallback(null);
-                this.f20652e.stopPreview();
+                this.f20654f = false;
+                this.f20653e.cancelAutoFocus();
+                this.f20653e.setOneShotPreviewCallback(null);
+                this.f20653e.stopPreview();
             } catch (Exception e2) {
                 Log.e(l, e2.toString(), e2);
             }
@@ -114,9 +114,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onMeasure(int i, int i2) {
         int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i);
         int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i2);
-        d.b.i0.o2.b.a.b bVar = this.f20655h;
+        d.b.i0.o2.b.a.b bVar = this.f20656h;
         if (bVar != null && bVar.e() != null) {
-            Point e2 = this.f20655h.e();
+            Point e2 = this.f20656h.e();
             float f2 = defaultSize;
             float f3 = defaultSize2;
             float f4 = e2.x;
@@ -133,14 +133,14 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        this.f20654g = true;
+        this.f20655g = true;
         this.i = surfaceTexture;
         f();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        this.f20654g = false;
+        this.f20655g = false;
         g();
         return true;
     }
@@ -159,12 +159,12 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     }
 
     public void setCamera(Camera camera) {
-        this.f20652e = camera;
+        this.f20653e = camera;
         if (camera != null) {
             d.b.i0.o2.b.a.b bVar = new d.b.i0.o2.b.a.b(getContext());
-            this.f20655h = bVar;
-            bVar.h(this.f20652e);
-            if (this.f20653f) {
+            this.f20656h = bVar;
+            bVar.h(this.f20653e);
+            if (this.f20654f) {
                 requestLayout();
             } else {
                 f();

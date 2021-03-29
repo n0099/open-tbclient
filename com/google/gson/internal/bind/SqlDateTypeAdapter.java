@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f30973b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
+    public static final TypeAdapterFactory f30974b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
             if (aVar.c() == Date.class) {
@@ -27,7 +27,7 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final DateFormat f30974a = new SimpleDateFormat("MMM d, yyyy");
+    public final DateFormat f30975a = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
@@ -38,7 +38,7 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
             return null;
         }
         try {
-            return new Date(this.f30974a.parse(aVar.K()).getTime());
+            return new Date(this.f30975a.parse(aVar.K()).getTime());
         } catch (ParseException e2) {
             throw new JsonSyntaxException(e2);
         }
@@ -48,6 +48,6 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: b */
     public synchronized void write(b bVar, Date date) throws IOException {
-        bVar.O(date == null ? null : this.f30974a.format((java.util.Date) date));
+        bVar.O(date == null ? null : this.f30975a.format((java.util.Date) date));
     }
 }

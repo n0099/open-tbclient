@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class BufferMemoryChunk implements MemoryChunk, Closeable {
     public static final String TAG = "BufferMemoryChunk";
     public ByteBuffer mBuffer;

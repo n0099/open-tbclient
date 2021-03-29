@@ -3,24 +3,24 @@ package com.baidu.sapi2.share.face;
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11395a;
+    public String f11396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11396b;
+    public long f11397b;
 
     public a(String str, long j) {
-        this.f11395a = str;
-        this.f11396b = j;
+        this.f11396a = str;
+        this.f11397b = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(a aVar) {
-        long j = aVar.f11396b - this.f11396b;
-        if (j > 0) {
+        int i = ((aVar.f11397b - this.f11397b) > 0L ? 1 : ((aVar.f11397b - this.f11397b) == 0L ? 0 : -1));
+        if (i > 0) {
             return -1;
         }
-        return j == 0 ? 0 : 1;
+        return i == 0 ? 0 : 1;
     }
 }

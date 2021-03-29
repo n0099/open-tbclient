@@ -16,11 +16,11 @@ public class UserInfo extends BaseApi {
     }
 
     public void getOpenId(IUiListener iUiListener) {
-        HttpUtils.requestAsync(this.f39097b, e.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(iUiListener));
+        HttpUtils.requestAsync(this.f39098b, e.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(iUiListener));
     }
 
     public void getUserInfo(IUiListener iUiListener) {
-        HttpUtils.requestAsync(this.f39097b, e.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(iUiListener));
+        HttpUtils.requestAsync(this.f39098b, e.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(iUiListener));
     }
 
     public UserInfo(Context context, c cVar, QQToken qQToken) {

@@ -48,47 +48,52 @@ public final class FlowableScanSeed$ScanSeedSubscriber<T, R> extends AtomicInteg
     }
 
     public void drain() {
+        int i;
         Throwable th;
         if (getAndIncrement() != 0) {
             return;
         }
         g.d.c<? super R> cVar = this.actual;
         e<R> eVar = this.queue;
-        int i = this.limit;
-        int i2 = this.consumed;
-        int i3 = 1;
+        int i2 = this.limit;
+        int i3 = this.consumed;
+        int i4 = 1;
         do {
             long j = this.requested.get();
             long j2 = 0;
-            while (j2 != j) {
-                if (this.cancelled) {
-                    eVar.clear();
-                    return;
-                }
-                boolean z = this.done;
-                if (z && (th = this.error) != null) {
-                    eVar.clear();
-                    cVar.onError(th);
-                    return;
-                }
-                Object obj = (R) eVar.poll();
-                boolean z2 = obj == null;
-                if (z && z2) {
-                    cVar.onComplete();
-                    return;
-                } else if (z2) {
+            while (true) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
                     break;
+                } else if (this.cancelled) {
+                    eVar.clear();
+                    return;
                 } else {
-                    cVar.onNext(obj);
-                    j2++;
-                    i2++;
-                    if (i2 == i) {
-                        this.s.request(i);
-                        i2 = 0;
+                    boolean z = this.done;
+                    if (z && (th = this.error) != null) {
+                        eVar.clear();
+                        cVar.onError(th);
+                        return;
+                    }
+                    Object obj = (R) eVar.poll();
+                    boolean z2 = obj == null;
+                    if (z && z2) {
+                        cVar.onComplete();
+                        return;
+                    } else if (z2) {
+                        break;
+                    } else {
+                        cVar.onNext(obj);
+                        j2++;
+                        i3++;
+                        if (i3 == i2) {
+                            this.s.request(i2);
+                            i3 = 0;
+                        }
                     }
                 }
             }
-            if (j2 == j && this.done) {
+            if (i == 0 && this.done) {
                 Throwable th2 = this.error;
                 if (th2 != null) {
                     eVar.clear();
@@ -102,9 +107,9 @@ public final class FlowableScanSeed$ScanSeedSubscriber<T, R> extends AtomicInteg
             if (j2 != 0) {
                 b.e(this.requested, j2);
             }
-            this.consumed = i2;
-            i3 = addAndGet(-i3);
-        } while (i3 != 0);
+            this.consumed = i3;
+            i4 = addAndGet(-i4);
+        } while (i4 != 0);
     }
 
     @Override // g.d.c

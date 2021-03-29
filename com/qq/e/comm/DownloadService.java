@@ -12,14 +12,14 @@ import com.qq.e.comm.util.StringUtil;
 public class DownloadService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public SVSD f38251a;
+    public SVSD f38252a;
 
     private boolean a(String str) {
-        if (this.f38251a == null) {
+        if (this.f38252a == null) {
             try {
                 if (GDTADManager.getInstance().initWith(getApplicationContext(), str)) {
                     SVSD aPKDownloadServiceDelegate = GDTADManager.getInstance().getPM().getPOFactory().getAPKDownloadServiceDelegate(this);
-                    this.f38251a = aPKDownloadServiceDelegate;
+                    this.f38252a = aPKDownloadServiceDelegate;
                     aPKDownloadServiceDelegate.onCreate();
                 } else {
                     GDTLogger.report("Init GDTADManager fail in DownloadService.oncreate");
@@ -28,13 +28,13 @@ public class DownloadService extends Service {
                 th.printStackTrace();
             }
         }
-        return this.f38251a != null;
+        return this.f38252a != null;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         GDTLogger.d("DownloadService.onBind");
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             return svsd.onBind(intent);
         }
@@ -43,12 +43,12 @@ public class DownloadService extends Service {
         if (StringUtil.isEmpty(stringExtra) || !a(stringExtra)) {
             return null;
         }
-        return this.f38251a.onBind(intent);
+        return this.f38252a.onBind(intent);
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             svsd.onConfigurationChanged(configuration);
         }
@@ -61,7 +61,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             svsd.onDestroy();
         }
@@ -69,7 +69,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             svsd.onLowMemory();
         }
@@ -77,7 +77,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service
     public void onRebind(Intent intent) {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             svsd.onRebind(intent);
         }
@@ -94,12 +94,12 @@ public class DownloadService extends Service {
             GDTLogger.w("Failto Start new download Service");
             return 2;
         }
-        return this.f38251a.onStartCommand(intent, i, i2);
+        return this.f38252a.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             svsd.onTaskRemoved(intent);
         }
@@ -107,7 +107,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service, android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         if (svsd != null) {
             svsd.onTrimMemory(i);
         }
@@ -115,7 +115,7 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        SVSD svsd = this.f38251a;
+        SVSD svsd = this.f38252a;
         return svsd != null ? svsd.onUnbind(intent) : super.onUnbind(intent);
     }
 }

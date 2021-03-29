@@ -94,7 +94,7 @@ public class d extends d.b.i0.x.c<y> {
             for (int i = 0; i < ListUtils.getCount(this.A); i++) {
                 d.b.i0.a1.b.c cVar = (d.b.i0.a1.b.c) ListUtils.getItem(this.A, i);
                 d.b.i0.a1.b.c cVar2 = (d.b.i0.a1.b.c) ListUtils.getItem(list, i);
-                if ((cVar instanceof a1) && (cVar2 instanceof a1) && !((a1) cVar).f57323a.getUserId().equals(((a1) cVar2).f57323a.getUserId())) {
+                if ((cVar instanceof a1) && (cVar2 instanceof a1) && !((a1) cVar).f57324a.getUserId().equals(((a1) cVar2).f57324a.getUserId())) {
                     return true;
                 }
             }

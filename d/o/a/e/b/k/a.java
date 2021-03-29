@@ -6,13 +6,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements ThreadFactory {
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f67082e;
+    public final String f67087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicInteger f67083f;
+    public final AtomicInteger f67088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f67084g;
+    public final boolean f67089g;
 
     public a(String str) {
         this(str, false);
@@ -20,9 +20,9 @@ public class a implements ThreadFactory {
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        int incrementAndGet = this.f67083f.incrementAndGet();
-        Thread thread = new Thread(runnable, this.f67082e + "-" + incrementAndGet);
-        if (!this.f67084g) {
+        int incrementAndGet = this.f67088f.incrementAndGet();
+        Thread thread = new Thread(runnable, this.f67087e + "-" + incrementAndGet);
+        if (!this.f67089g) {
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -34,8 +34,8 @@ public class a implements ThreadFactory {
     }
 
     public a(String str, boolean z) {
-        this.f67083f = new AtomicInteger();
-        this.f67082e = str;
-        this.f67084g = z;
+        this.f67088f = new AtomicInteger();
+        this.f67087e = str;
+        this.f67089g = z;
     }
 }

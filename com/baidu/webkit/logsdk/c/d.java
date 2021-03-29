@@ -6,19 +6,19 @@ import java.util.Comparator;
 public final class d implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f27009a;
+    public final /* synthetic */ c f27010a;
 
     public d(c cVar) {
-        this.f27009a = cVar;
+        this.f27010a = cVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // java.util.Comparator
     public final /* synthetic */ int compare(File file, File file2) {
-        long lastModified = file.lastModified() - file2.lastModified();
-        if (lastModified > 0) {
+        int i = ((file.lastModified() - file2.lastModified()) > 0L ? 1 : ((file.lastModified() - file2.lastModified()) == 0L ? 0 : -1));
+        if (i > 0) {
             return 1;
         }
-        return lastModified == 0 ? 0 : -1;
+        return i == 0 ? 0 : -1;
     }
 }

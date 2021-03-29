@@ -12,22 +12,22 @@ import java.util.regex.Pattern;
 public final class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f57292e = Pattern.compile(",");
+    public static final Pattern f57293e = Pattern.compile(",");
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f57293a;
+    public final Context f57294a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f57294b;
+    public Point f57295b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f57295c;
+    public Point f57296c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Point f57296d;
+    public Point f57297d;
 
     public b(Context context) {
-        this.f57293a = context;
+        this.f57294a = context;
     }
 
     public static boolean a(Camera camera) {
@@ -36,13 +36,11 @@ public final class b {
 
     public static int b(CharSequence charSequence, int i) {
         int i2 = 0;
-        for (String str : f57292e.split(charSequence)) {
+        for (String str : f57293e.split(charSequence)) {
             try {
                 double parseDouble = Double.parseDouble(str.trim());
                 int i3 = (int) (10.0d * parseDouble);
-                double d2 = i;
-                Double.isNaN(d2);
-                if (Math.abs(d2 - parseDouble) < Math.abs(i - i2)) {
+                if (Math.abs(i - parseDouble) < Math.abs(i - i2)) {
                     i2 = i3;
                 }
             } catch (NumberFormatException unused) {
@@ -98,14 +96,14 @@ public final class b {
     }
 
     public Point e() {
-        return this.f57295c;
+        return this.f57296c;
     }
 
     public int f() {
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         int i = 0;
         Camera.getCameraInfo(0, cameraInfo);
-        int rotation = ((WindowManager) this.f57293a.getSystemService("window")).getDefaultDisplay().getRotation();
+        int rotation = ((WindowManager) this.f57294a.getSystemService("window")).getDefaultDisplay().getRotation();
         if (rotation != 0) {
             if (rotation == 1) {
                 i = 90;
@@ -126,30 +124,30 @@ public final class b {
         if (a(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.f57294b = a.d(this.f57293a);
+        this.f57295b = a.d(this.f57294a);
         Point point = new Point();
-        Point point2 = this.f57294b;
+        Point point2 = this.f57295b;
         point.x = point2.x;
         point.y = point2.y;
-        int c2 = a.c(this.f57293a);
+        int c2 = a.c(this.f57294a);
         if (c2 == 0) {
-            Point point3 = this.f57294b;
+            Point point3 = this.f57295b;
             point.x = point3.y;
             point.y = point3.x;
         }
         Point g2 = g(parameters, point);
-        this.f57296d = g2;
+        this.f57297d = g2;
         if (c2 == 0) {
-            Point point4 = this.f57296d;
-            this.f57295c = new Point(point4.y, point4.x);
+            Point point4 = this.f57297d;
+            this.f57296c = new Point(point4.y, point4.x);
             return;
         }
-        this.f57295c = g2;
+        this.f57296c = g2;
     }
 
     public void i(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        Point point = this.f57296d;
+        Point point = this.f57297d;
         parameters.setPreviewSize(point.x, point.y);
         j(parameters);
         camera.setDisplayOrientation(f());
@@ -195,9 +193,7 @@ public final class b {
                 }
             }
             if (str2 != null || str4 != null) {
-                double d2 = i;
-                Double.isNaN(d2);
-                parameters.set("zoom", String.valueOf(d2 / 10.0d));
+                parameters.set("zoom", String.valueOf(i / 10.0d));
             }
             if (str3 != null) {
                 parameters.set("taking-picture-zoom", i);

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class b extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31862b;
+    public String f31863b;
 
     public b(@Nullable JSONObject jSONObject) {
         super(jSONObject);
@@ -15,10 +15,10 @@ public class b extends c {
 
     @Override // com.kwad.sdk.c.c
     public String a(AdTemplate adTemplate) {
-        return this.f31862b;
+        return this.f31863b;
     }
 
     public void a(String str) {
-        this.f31862b = str;
+        this.f31863b = str;
     }
 }

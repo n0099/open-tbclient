@@ -27,28 +27,28 @@ import tbclient.ShortUserInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f55733a = 3;
+    public int f55734a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f55734b;
+    public TbPageContext<?> f55735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f55735c;
+    public View f55736c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RoundRelativeLayout f55736d;
+    public RoundRelativeLayout f55737d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f55737e;
+    public ImageView f55738e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f55738f;
+    public ImageView f55739f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f55739g;
+    public TbImageView f55740g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f55740h;
+    public ImageView f55741h;
     public TextView i;
     public TextView j;
     public ImageView k;
@@ -65,9 +65,9 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(b.this.f55734b.getPageActivity());
+            HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(b.this.f55735b.getPageActivity());
             hotUserRankActivityConfig.setCategory(b.this.o);
-            b.this.f55734b.sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
+            b.this.f55735b.sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             StatisticItem statisticItem = new StatisticItem("c13655");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, b.this.p);
@@ -76,43 +76,43 @@ public class b {
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f55734b = tbPageContext;
+        this.f55735b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_tabfeed_hot_user_rank_header_view, (ViewGroup) null);
-        this.f55735c = inflate;
-        this.f55736d = (RoundRelativeLayout) inflate.findViewById(R.id.view_container);
-        this.f55737e = (ImageView) this.f55735c.findViewById(R.id.ic_red_background);
-        this.f55738f = (ImageView) this.f55735c.findViewById(R.id.ic_red_pic);
-        this.f55739g = (TbImageView) this.f55735c.findViewById(R.id.rank_icon);
-        this.f55740h = (ImageView) this.f55735c.findViewById(R.id.rank_icon_default);
-        this.i = (TextView) this.f55735c.findViewById(R.id.forum_text);
-        this.j = (TextView) this.f55735c.findViewById(R.id.no_1_user);
-        this.l = (HotUserRankImageOverlayView) this.f55735c.findViewById(R.id.image_overlay_view);
-        this.k = (ImageView) this.f55735c.findViewById(R.id.iv_crown);
-        this.m = (ImageView) this.f55735c.findViewById(R.id.icon_arrow);
+        this.f55736c = inflate;
+        this.f55737d = (RoundRelativeLayout) inflate.findViewById(R.id.view_container);
+        this.f55738e = (ImageView) this.f55736c.findViewById(R.id.ic_red_background);
+        this.f55739f = (ImageView) this.f55736c.findViewById(R.id.ic_red_pic);
+        this.f55740g = (TbImageView) this.f55736c.findViewById(R.id.rank_icon);
+        this.f55741h = (ImageView) this.f55736c.findViewById(R.id.rank_icon_default);
+        this.i = (TextView) this.f55736c.findViewById(R.id.forum_text);
+        this.j = (TextView) this.f55736c.findViewById(R.id.no_1_user);
+        this.l = (HotUserRankImageOverlayView) this.f55736c.findViewById(R.id.image_overlay_view);
+        this.k = (ImageView) this.f55736c.findViewById(R.id.iv_crown);
+        this.m = (ImageView) this.f55736c.findViewById(R.id.icon_arrow);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds114);
         this.l.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2_6), R.color.CAM_X0501, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62));
         this.l.setStrokeStyle(1);
         this.l.setLoadImageType(12);
         this.l.setFirstImageStrokeColor(R.color.CAM_X0314);
-        this.f55736d.setOnClickListener(new a());
+        this.f55737d.setOnClickListener(new a());
         int g2 = l.g(tbPageContext.getPageActivity(), R.dimen.tbds90);
         this.n = g2;
-        this.f55736d.setRoundLayoutRadius(new float[]{g2, g2, g2, g2, g2, g2, g2, g2});
+        this.f55737d.setRoundLayoutRadius(new float[]{g2, g2, g2, g2, g2, g2, g2, g2});
     }
 
     public View d() {
-        return this.f55735c;
+        return this.f55736c;
     }
 
     public void e() {
-        if (this.f55733a != TbadkCoreApplication.getInst().getSkinType()) {
-            this.f55733a = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setBackgroundColor(this.f55736d, R.color.CAM_X0206);
-            if (this.f55740h.getVisibility() == 0) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55740h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.f55734a != TbadkCoreApplication.getInst().getSkinType()) {
+            this.f55734a = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setBackgroundColor(this.f55737d, R.color.CAM_X0206);
+            if (this.f55741h.getVisibility() == 0) {
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55741h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55737e, R.drawable.ic_pic_mask_list_red, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setImageResource(this.f55738f, R.drawable.pic_list_redword);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55738e, R.drawable.ic_pic_mask_list_red, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.f55739f, R.drawable.pic_list_redword);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0311);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0311);
@@ -125,20 +125,20 @@ public class b {
         if (cVar == null) {
             return;
         }
-        String str = cVar.f55715b;
+        String str = cVar.f55716b;
         this.o = str;
         if (TextUtils.isEmpty(str)) {
             this.o = "";
         }
         TextView textView = this.i;
         textView.setText(this.o + "榜");
-        List<ShortUserInfo> list = cVar.f55714a;
+        List<ShortUserInfo> list = cVar.f55715a;
         if (list != null && list.size() > 0) {
             TextView textView2 = this.j;
-            textView2.setText("NO.1 " + cVar.f55714a.get(0).user_name);
+            textView2.setText("NO.1 " + cVar.f55715a.get(0).user_name);
             ArrayList arrayList = new ArrayList();
             int i = 0;
-            for (ShortUserInfo shortUserInfo : cVar.f55714a) {
+            for (ShortUserInfo shortUserInfo : cVar.f55715a) {
                 if (i > 2) {
                     break;
                 }
@@ -146,14 +146,14 @@ public class b {
                 arrayList.add(shortUserInfo.portrait);
             }
             this.l.setData(arrayList);
-            if (!TextUtils.isEmpty(cVar.f55716c)) {
-                this.f55739g.setVisibility(0);
-                this.f55740h.setVisibility(8);
-                this.f55739g.W(cVar.f55716c, 12, false);
+            if (!TextUtils.isEmpty(cVar.f55717c)) {
+                this.f55740g.setVisibility(0);
+                this.f55741h.setVisibility(8);
+                this.f55740g.W(cVar.f55717c, 12, false);
             } else {
-                this.f55740h.setVisibility(0);
-                this.f55739g.setVisibility(8);
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55740h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+                this.f55741h.setVisibility(0);
+                this.f55740g.setVisibility(8);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55741h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
         }
         e();

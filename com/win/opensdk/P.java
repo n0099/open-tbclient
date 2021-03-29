@@ -3,9 +3,9 @@ package com.win.opensdk;
 public class P {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ S f39734a;
+    public final /* synthetic */ S f39735a;
 
     public P(S s) {
-        this.f39734a = s;
+        this.f39735a = s;
     }
 }

@@ -23,28 +23,28 @@ import org.json.JSONObject;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public ActiveCenterData f49615a;
+    public ActiveCenterData f49616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49616b;
+    public boolean f49617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49617c;
+    public boolean f49618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f49618d;
+    public boolean f49619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f49619e;
+    public final f f49620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f49620f;
+    public final g f49621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i f49621g;
+    public final i f49622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b f49622h;
+    public final b f49623h;
     public final h i;
     public final d j;
     public final c k;
@@ -61,10 +61,10 @@ public class q {
 
         @Override // d.b.h0.a.q.e
         public void d(TbPageContext<?> tbPageContext) {
-            if (q.this.f49615a == null || q.this.f49615a.mission == null) {
+            if (q.this.f49616a == null || q.this.f49616a.mission == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49615a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49616a.mission.final_reward_url});
         }
     }
 
@@ -80,10 +80,10 @@ public class q {
 
         @Override // d.b.h0.a.q.e
         public void d(TbPageContext<?> tbPageContext) {
-            if (q.this.f49615a == null || q.this.f49615a.mission == null) {
+            if (q.this.f49616a == null || q.this.f49616a.mission == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49615a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49616a.mission.final_reward_url});
         }
     }
 
@@ -94,15 +94,15 @@ public class q {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContext f49625e;
+            public final /* synthetic */ TbPageContext f49626e;
 
             public a(d dVar, TbPageContext tbPageContext) {
-                this.f49625e = tbPageContext;
+                this.f49626e = tbPageContext;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.h0.r.a0.b.e(this.f49625e.getPageActivity(), 1);
+                d.b.h0.r.a0.b.e(this.f49626e.getPageActivity(), 1);
             }
         }
 
@@ -124,10 +124,10 @@ public class q {
     public abstract class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49626a;
+        public int f49627a;
 
         public e(int i) {
-            this.f49626a = i;
+            this.f49627a = i;
         }
 
         public abstract void a();
@@ -139,7 +139,7 @@ public class q {
         }
 
         public boolean c() {
-            return (q.this.f49615a == null || q.this.f49615a.mission == null || q.this.f49615a.getCurTaskType() != this.f49626a) ? false : true;
+            return (q.this.f49616a == null || q.this.f49616a.mission == null || q.this.f49616a.getCurTaskType() != this.f49627a) ? false : true;
         }
 
         public abstract void d(TbPageContext<?> tbPageContext);
@@ -155,27 +155,27 @@ public class q {
     public class f extends e {
 
         /* renamed from: c  reason: collision with root package name */
-        public s f49628c;
+        public s f49629c;
 
         public f(int i) {
             super(i);
-            this.f49628c = new s();
+            this.f49629c = new s();
         }
 
         @Override // d.b.h0.a.q.e
         public void a() {
-            if (this.f49628c == null || q.this.f49615a == null) {
+            if (this.f49629c == null || q.this.f49616a == null) {
                 return;
             }
-            this.f49628c.a();
+            this.f49629c.a();
         }
 
         @Override // d.b.h0.a.q.e
         public void d(TbPageContext<?> tbPageContext) {
-            if (this.f49628c == null || q.this.f49615a == null) {
+            if (this.f49629c == null || q.this.f49616a == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49615a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49616a.mission.final_reward_url});
         }
     }
 
@@ -183,20 +183,20 @@ public class q {
     public class g extends e {
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f49630c;
+        public boolean f49631c;
 
         public g(int i) {
             super(i);
-            this.f49630c = false;
+            this.f49631c = false;
         }
 
         @Override // d.b.h0.a.q.e
         public void a() {
-            if (!f() || this.f49630c) {
+            if (!f() || this.f49631c) {
                 return;
             }
             q.this.t();
-            this.f49630c = true;
+            this.f49631c = true;
         }
 
         @Override // d.b.h0.a.q.e
@@ -231,10 +231,10 @@ public class q {
 
         @Override // d.b.h0.a.q.e
         public void d(TbPageContext<?> tbPageContext) {
-            if (q.this.f49615a == null || q.this.f49615a.mission == null) {
+            if (q.this.f49616a == null || q.this.f49616a.mission == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49615a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{q.this.f49616a.mission.final_reward_url});
         }
     }
 
@@ -245,15 +245,15 @@ public class q {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContext f49634e;
+            public final /* synthetic */ TbPageContext f49635e;
 
             public a(i iVar, TbPageContext tbPageContext) {
-                this.f49634e = tbPageContext;
+                this.f49635e = tbPageContext;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.h0.r.a0.b.e(this.f49634e.getPageActivity(), 1);
+                d.b.h0.r.a0.b.e(this.f49635e.getPageActivity(), 1);
             }
         }
 
@@ -276,11 +276,11 @@ public class q {
     public static class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public static q f49635a = new q();
+        public static q f49636a = new q();
     }
 
     public static q g() {
-        return j.f49635a;
+        return j.f49636a;
     }
 
     public final void b() {
@@ -288,11 +288,11 @@ public class q {
     }
 
     public ActiveCenterData c() {
-        return this.f49615a;
+        return this.f49616a;
     }
 
     public b d() {
-        return this.f49622h;
+        return this.f49623h;
     }
 
     public c e() {
@@ -304,11 +304,11 @@ public class q {
     }
 
     public f h() {
-        return this.f49619e;
+        return this.f49620e;
     }
 
     public g i() {
-        return this.f49620f;
+        return this.f49621f;
     }
 
     public h j() {
@@ -316,11 +316,11 @@ public class q {
     }
 
     public i k() {
-        return this.f49621g;
+        return this.f49622g;
     }
 
     public void l(TbPageContext<?> tbPageContext) {
-        ActiveCenterData activeCenterData = this.f49615a;
+        ActiveCenterData activeCenterData = this.f49616a;
         if (activeCenterData == null) {
             return;
         }
@@ -345,7 +345,7 @@ public class q {
     }
 
     public boolean m() {
-        ActiveCenterData activeCenterData = this.f49615a;
+        ActiveCenterData activeCenterData = this.f49616a;
         return activeCenterData != null && activeCenterData.is_new_window;
     }
 
@@ -362,19 +362,19 @@ public class q {
     }
 
     public boolean o() {
-        return this.f49617c;
+        return this.f49618c;
     }
 
     public final boolean p() {
-        ActiveCenterData activeCenterData = this.f49615a;
-        return (activeCenterData == null || activeCenterData.mission == null || !m() || n() || this.f49616b) ? false : true;
+        ActiveCenterData activeCenterData = this.f49616a;
+        return (activeCenterData == null || activeCenterData.mission == null || !m() || n() || this.f49617b) ? false : true;
     }
 
     public void q(ActiveCenterData activeCenterData) {
         if (activeCenterData == null) {
             return;
         }
-        this.f49615a = activeCenterData;
+        this.f49616a = activeCenterData;
         Activity b2 = d.b.b.a.b.f().b();
         if (b2 == null || !"MainTabActivity".equals(b2.getClass().getSimpleName())) {
             return;
@@ -392,15 +392,15 @@ public class q {
     }
 
     public void s() {
-        if (this.f49618d || !d.b.h0.a.c.y().I()) {
+        if (this.f49619d || !d.b.h0.a.c.y().I()) {
             return;
         }
-        this.f49618d = true;
+        this.f49619d = true;
     }
 
     public void t() {
         ActiveCenterData.ActiveCenterMissionData activeCenterMissionData;
-        ActiveCenterData activeCenterData = this.f49615a;
+        ActiveCenterData activeCenterData = this.f49616a;
         if (activeCenterData == null || (activeCenterMissionData = activeCenterData.mission) == null) {
             return;
         }
@@ -419,25 +419,25 @@ public class q {
     }
 
     public void u(boolean z) {
-        this.f49616b = z;
+        this.f49617b = z;
     }
 
     public q() {
-        this.f49616b = false;
-        this.f49617c = true;
-        this.f49618d = false;
-        this.f49619e = new f(12);
-        this.f49620f = new g(6);
-        this.f49621g = new i(10);
-        this.f49622h = new b(7);
+        this.f49617b = false;
+        this.f49618c = true;
+        this.f49619d = false;
+        this.f49620e = new f(12);
+        this.f49621f = new g(6);
+        this.f49622g = new i(10);
+        this.f49623h = new b(7);
         this.i = new h(5);
         this.j = new d(this, 9);
         this.k = new c(13);
         if (d.b.h0.a.c.y().s()) {
-            this.f49617c = d.b.h0.r.d0.b.i().g("key_delete_mission_home_entrance", true);
+            this.f49618c = d.b.h0.r.d0.b.i().g("key_delete_mission_home_entrance", true);
             return;
         }
-        this.f49617c = true;
+        this.f49618c = true;
         d.b.h0.r.d0.b.i().s("key_delete_mission_home_entrance", true);
     }
 }

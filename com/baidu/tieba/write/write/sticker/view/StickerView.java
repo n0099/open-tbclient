@@ -20,16 +20,16 @@ import d.b.i0.u3.v.n.b.b;
 public class StickerView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22598e;
+    public Context f22599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f22599f;
+    public a f22600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Matrix f22600g;
+    public Matrix f22601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Matrix f22601h;
+    public Matrix f22602h;
     public PointF i;
     public b j;
     public Paint k;
@@ -48,7 +48,7 @@ public class StickerView extends ImageView {
     }
 
     public final void a(Context context) {
-        this.f22598e = context;
+        this.f22599e = context;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.j = new b(context);
         Paint paint = new Paint();
@@ -64,12 +64,12 @@ public class StickerView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        a aVar = this.f22599f;
+        a aVar = this.f22600f;
         if (aVar == null) {
             return;
         }
         aVar.a(canvas);
-        float[] b2 = h.b(this.f22599f.c(), this.f22599f.b());
+        float[] b2 = h.b(this.f22600f.c(), this.f22600f.b());
         float f2 = b2[0];
         float f3 = b2[1];
         float f4 = b2[2];
@@ -95,7 +95,7 @@ public class StickerView extends ImageView {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.f22599f.b().postTranslate((getWidth() - this.f22599f.e()) / 2, (getHeight() - this.f22599f.d()) / 2);
+            this.f22600f.b().postTranslate((getWidth() - this.f22600f.e()) / 2, (getHeight() - this.f22600f.d()) / 2);
         }
     }
 
@@ -111,25 +111,25 @@ public class StickerView extends ImageView {
                     }
                     int i = this.l;
                     if (i == 2) {
-                        this.f22601h.set(this.f22600g);
+                        this.f22602h.set(this.f22601g);
                         float d2 = d.b.i0.u3.v.n.c.a.d(motionEvent) / this.s;
                         float c2 = d.b.i0.u3.v.n.c.a.c(motionEvent) - this.t;
                         PointF b2 = d.b.i0.u3.v.n.c.a.b(motionEvent);
-                        Matrix matrix = this.f22601h;
+                        Matrix matrix = this.f22602h;
                         PointF pointF = this.i;
                         matrix.postScale(d2, d2, pointF.x, pointF.y);
-                        Matrix matrix2 = this.f22601h;
+                        Matrix matrix2 = this.f22602h;
                         PointF pointF2 = this.i;
                         matrix2.postRotate(c2, pointF2.x, pointF2.y);
-                        Matrix matrix3 = this.f22601h;
+                        Matrix matrix3 = this.f22602h;
                         float f2 = b2.x;
                         PointF pointF3 = this.i;
                         matrix3.postTranslate(f2 - pointF3.x, b2.y - pointF3.y);
-                        this.f22599f.b().set(this.f22601h);
+                        this.f22600f.b().set(this.f22602h);
                     } else if (i == 1) {
-                        this.f22601h.set(this.f22600g);
-                        this.f22601h.postTranslate(motionEvent.getX() - this.q, motionEvent.getY() - this.r);
-                        this.f22599f.b().set(this.f22601h);
+                        this.f22602h.set(this.f22601g);
+                        this.f22602h.postTranslate(motionEvent.getX() - this.q, motionEvent.getY() - this.r);
+                        this.f22600f.b().set(this.f22602h);
                     }
                     if (this.m) {
                         return true;
@@ -141,7 +141,7 @@ public class StickerView extends ImageView {
                     this.s = d.b.i0.u3.v.n.c.a.d(motionEvent);
                     this.t = d.b.i0.u3.v.n.c.a.c(motionEvent);
                     this.i = d.b.i0.u3.v.n.c.a.b(motionEvent);
-                    this.f22600g.set(this.f22599f.b());
+                    this.f22601g.set(this.f22600f.b());
                     return true;
                 } else if (actionMasked != 6) {
                     return true;
@@ -165,7 +165,7 @@ public class StickerView extends ImageView {
         }
         this.q = motionEvent.getX();
         this.r = motionEvent.getY();
-        if (this.f22599f == null) {
+        if (this.f22600f == null) {
             return false;
         }
         if (this.n && this.j.b(motionEvent)) {
@@ -176,7 +176,7 @@ public class StickerView extends ImageView {
                 return true;
             }
             return true;
-        } else if (b(this.f22599f, motionEvent)) {
+        } else if (b(this.f22600f, motionEvent)) {
             this.m = true;
             if (System.currentTimeMillis() - this.p <= 300 && (aVar = this.o) != null) {
                 aVar.b(this);
@@ -184,7 +184,7 @@ public class StickerView extends ImageView {
             }
             this.p = System.currentTimeMillis();
             this.l = 1;
-            this.f22600g.set(this.f22599f.b());
+            this.f22601g.set(this.f22600f.b());
             return true;
         } else {
             this.m = false;
@@ -204,12 +204,12 @@ public class StickerView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.f22599f = new a(bitmap);
+        this.f22600f = new a(bitmap);
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        this.f22599f = new a(BitmapHelper.getResBitmap(this.f22598e, i));
+        this.f22600f = new a(BitmapHelper.getResBitmap(this.f22599e, i));
     }
 
     public void setRemoveRes(int i) {
@@ -226,8 +226,8 @@ public class StickerView extends ImageView {
 
     public StickerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f22600g = new Matrix();
-        this.f22601h = new Matrix();
+        this.f22601g = new Matrix();
+        this.f22602h = new Matrix();
         this.i = new PointF();
         this.m = true;
         this.n = false;

@@ -5,110 +5,110 @@ import d.b.g0.a.i2.h0;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47645a;
+    public String f47646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47646b;
+    public String f47647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47647c;
+    public String f47648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f47648d;
+    public int f47649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47649e;
+    public int f47650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47650f;
+    public int f47651f;
 
     /* renamed from: d.b.g0.e.a.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0936b {
+    public static class C0937b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47651a;
+        public String f47652a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47652b;
+        public String f47653b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f47653c;
+        public String f47654c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f47654d;
+        public int f47655d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47655e;
+        public int f47656e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f47656f;
+        public int f47657f;
 
         public b g() {
             return new b(this);
         }
 
-        public C0936b h(int i) {
-            this.f47655e = h0.f(i);
+        public C0937b h(int i) {
+            this.f47656e = h0.f(i);
             return this;
         }
 
-        public C0936b i(String str) {
-            this.f47651a = str;
+        public C0937b i(String str) {
+            this.f47652a = str;
             return this;
         }
 
-        public C0936b j(int i) {
-            this.f47656f = i;
+        public C0937b j(int i) {
+            this.f47657f = i;
             return this;
         }
 
-        public C0936b k(int i) {
-            this.f47654d = h0.f(i);
+        public C0937b k(int i) {
+            this.f47655d = h0.f(i);
             return this;
         }
 
-        public C0936b l(String str) {
-            this.f47652b = str;
+        public C0937b l(String str) {
+            this.f47653b = str;
             return this;
         }
 
-        public C0936b m(String str) {
-            this.f47653c = str;
+        public C0937b m(String str) {
+            this.f47654c = str;
             return this;
         }
     }
 
     public int a() {
-        return this.f47649e;
+        return this.f47650e;
     }
 
     public String b() {
-        return this.f47645a;
+        return this.f47646a;
     }
 
     public int c() {
-        return this.f47650f;
+        return this.f47651f;
     }
 
     public int d() {
-        return this.f47648d;
+        return this.f47649d;
     }
 
     public String e() {
-        return this.f47646b;
+        return this.f47647b;
     }
 
     public String f() {
-        return this.f47647c;
+        return this.f47648c;
     }
 
-    public b(C0936b c0936b) {
-        this.f47646b = c0936b.f47652b;
-        this.f47645a = c0936b.f47651a;
-        this.f47648d = c0936b.f47654d;
-        this.f47649e = c0936b.f47655e;
-        this.f47647c = c0936b.f47653c;
-        this.f47650f = c0936b.f47656f;
+    public b(C0937b c0937b) {
+        this.f47647b = c0937b.f47653b;
+        this.f47646a = c0937b.f47652a;
+        this.f47649d = c0937b.f47655d;
+        this.f47650e = c0937b.f47656e;
+        this.f47648c = c0937b.f47654c;
+        this.f47651f = c0937b.f47657f;
     }
 }

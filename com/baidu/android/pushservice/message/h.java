@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum h {
     TYPE_INVALUE(-1),
     MSG_ID_HANDSHAKE(1),
@@ -11,10 +11,10 @@ public enum h {
     
 
     /* renamed from: h  reason: collision with root package name */
-    public short f3470h;
+    public short f3471h;
 
     h(int i2) {
-        this.f3470h = (short) i2;
+        this.f3471h = (short) i2;
     }
 
     public static h a(short s) {
@@ -37,6 +37,6 @@ public enum h {
     }
 
     public short b() {
-        return this.f3470h;
+        return this.f3471h;
     }
 }

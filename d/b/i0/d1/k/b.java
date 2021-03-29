@@ -30,171 +30,171 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 import protobuf.NewpushRepair;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f53882h;
+    public static volatile b f53883h;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessage<String> f53887e;
+    public CustomMessage<String> f53888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f53888f;
+    public BdUniqueId f53889f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f53883a = new AtomicBoolean(false);
+    public final AtomicBoolean f53884a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.i0.d1.k.a f53884b = new d.b.i0.d1.k.a();
+    public final d.b.i0.d1.k.a f53885b = new d.b.i0.d1.k.a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.i0.d1.k.a f53885c = new d.b.i0.d1.k.a();
+    public final d.b.i0.d1.k.a f53886c = new d.b.i0.d1.k.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.i0.d1.k.a f53886d = new d.b.i0.d1.k.a();
+    public final d.b.i0.d1.k.a f53887d = new d.b.i0.d1.k.a();
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f53889g = new k(2016008);
+    public CustomMessageListener f53890g = new k(2016008);
 
-    /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class a implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f53890a;
+        public final /* synthetic */ List f53891a;
 
         public a(b bVar, List list) {
-            this.f53890a = list;
+            this.f53891a = list;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
-                this.f53890a.add(it.next());
+                this.f53891a.add(it.next());
             }
         }
     }
 
     /* renamed from: d.b.i0.d1.k.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1201b implements a.InterfaceC1200a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f53891a;
-
-        public C1201b(b bVar, List list) {
-            this.f53891a = list;
-        }
-
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
-        public void a(Iterator<ImMessageCenterPojo> it) {
-            while (it.hasNext()) {
-                ImMessageCenterPojo next = it.next();
-                if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0) {
-                    this.f53891a.add(next);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class C1202b implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ List f53892a;
 
-        public c(b bVar, List list) {
+        public C1202b(b bVar, List list) {
             this.f53892a = list;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
-                if (next.getCustomGroupType() == 2 && next.getIsFriend() == 1 && next.getIs_hidden() == 0) {
+                if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0) {
                     this.f53892a.add(next);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class c implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f53893a;
+        public final /* synthetic */ List f53893a;
 
-        public d(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f53893a = imMessageCenterPojo;
+        public c(b bVar, List list) {
+            this.f53893a = list;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
+        public void a(Iterator<ImMessageCenterPojo> it) {
+            while (it.hasNext()) {
+                ImMessageCenterPojo next = it.next();
+                if (next.getCustomGroupType() == 2 && next.getIsFriend() == 1 && next.getIs_hidden() == 0) {
+                    this.f53893a.add(next);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements a.InterfaceC1201a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ImMessageCenterPojo f53894a;
+
+        public d(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
+            this.f53894a = imMessageCenterPojo;
+        }
+
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
                 if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0 && next.getIs_hidden() == 0) {
-                    if (this.f53893a.getLast_content_time() < next.getLast_content_time()) {
-                        this.f53893a.setLast_content(next.getLast_content());
-                        this.f53893a.setLast_content_time(next.getLast_content_time());
-                        this.f53893a.setLast_rid(next.getLast_rid());
-                        this.f53893a.setLast_user_name(next.getLast_user_name());
-                        this.f53893a.setSend_status(next.getSend_status());
+                    if (this.f53894a.getLast_content_time() < next.getLast_content_time()) {
+                        this.f53894a.setLast_content(next.getLast_content());
+                        this.f53894a.setLast_content_time(next.getLast_content_time());
+                        this.f53894a.setLast_rid(next.getLast_rid());
+                        this.f53894a.setLast_user_name(next.getLast_user_name());
+                        this.f53894a.setSend_status(next.getSend_status());
                     }
-                    ImMessageCenterPojo imMessageCenterPojo = this.f53893a;
+                    ImMessageCenterPojo imMessageCenterPojo = this.f53894a;
                     imMessageCenterPojo.setUnread_count(imMessageCenterPojo.getUnread_count() + next.getUnread_count());
-                    this.f53893a.setIs_hidden(0);
+                    this.f53894a.setIs_hidden(0);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements CustomMessageTask.CustomRunnable<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f53894e;
+        public final /* synthetic */ ImMessageCenterPojo f53895e;
 
         public e(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f53894e = imMessageCenterPojo;
+            this.f53895e = imMessageCenterPojo;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-            d.b.i0.d1.h.j.f().j(this.f53894e);
+            d.b.i0.d1.h.j.f().j(this.f53895e);
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class f implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class f implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f53895a;
+        public final /* synthetic */ ImMessageCenterPojo f53896a;
 
         public f(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f53895a = imMessageCenterPojo;
+            this.f53896a = imMessageCenterPojo;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
                 if (next.getCustomGroupType() == 4 && next.getIs_hidden() == 0 && (next.getUserType() == 1 || next.getUserType() == 3)) {
-                    if (this.f53895a.getLast_content_time() < next.getLast_content_time()) {
-                        this.f53895a.setLast_content(next.getLast_content());
-                        this.f53895a.setLast_content_time(next.getLast_content_time());
-                        this.f53895a.setLast_rid(next.getLast_rid());
-                        this.f53895a.setLast_user_name(next.getLast_user_name());
+                    if (this.f53896a.getLast_content_time() < next.getLast_content_time()) {
+                        this.f53896a.setLast_content(next.getLast_content());
+                        this.f53896a.setLast_content_time(next.getLast_content_time());
+                        this.f53896a.setLast_rid(next.getLast_rid());
+                        this.f53896a.setLast_user_name(next.getLast_user_name());
                     }
-                    this.f53895a.setIs_hidden(0);
-                    ImMessageCenterPojo imMessageCenterPojo = this.f53895a;
+                    this.f53896a.setIs_hidden(0);
+                    ImMessageCenterPojo imMessageCenterPojo = this.f53896a;
                     imMessageCenterPojo.setUnread_count(imMessageCenterPojo.getUnread_count() + next.getUnread_count());
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements CustomMessageTask.CustomRunnable<String> {
         public g(b bVar) {
         }
@@ -210,60 +210,60 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class h implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class h implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LongSparseArray f53896a;
+        public final /* synthetic */ LongSparseArray f53897a;
 
         public h(LongSparseArray longSparseArray) {
-            this.f53896a = longSparseArray;
+            this.f53897a = longSparseArray;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
                 if (b.this.A(next)) {
-                    this.f53896a.put(d.b.b.e.m.b.f(next.getGid(), 0L), Long.valueOf(d.b.i0.d1.w.b.c(next.getPulled_msgId())));
+                    this.f53897a.put(d.b.b.e.m.b.f(next.getGid(), 0L), Long.valueOf(d.b.i0.d1.w.b.c(next.getPulled_msgId())));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class i implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class i implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f53898a;
+        public final /* synthetic */ List f53899a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewpushRepair.Builder f53899b;
+        public final /* synthetic */ NewpushRepair.Builder f53900b;
 
         public i(b bVar, List list, NewpushRepair.Builder builder) {
-            this.f53898a = list;
-            this.f53899b = builder;
+            this.f53899a = list;
+            this.f53900b = builder;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
                 long f2 = d.b.b.e.m.b.f(next.getGid(), 0L);
                 long sid = next.getSid();
                 if (sid > 0) {
-                    this.f53898a.add(MessageUtils.makeNewpushGroupRepair(f2, next.getUserType(), sid, 0L, d.b.i0.d1.w.b.c(next.getPulled_msgId())));
+                    this.f53899a.add(MessageUtils.makeNewpushGroupRepair(f2, next.getUserType(), sid, 0L, d.b.i0.d1.w.b.c(next.getPulled_msgId())));
                 }
             }
-            if (this.f53898a.size() <= 10) {
-                this.f53899b.groups = this.f53898a;
+            if (this.f53899a.size() <= 10) {
+                this.f53900b.groups = this.f53899a;
                 return;
             }
-            this.f53899b.followType = "0";
+            this.f53900b.followType = "0";
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j implements CustomMessageTask.CustomRunnable<String> {
         public j(b bVar) {
         }
@@ -298,7 +298,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k extends CustomMessageListener {
         public k(int i) {
             super(i);
@@ -330,7 +330,7 @@ public class b {
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                 }
-                b.this.f53883a.set(true);
+                b.this.f53884a.set(true);
                 b.this.M();
                 return;
             }
@@ -342,17 +342,17 @@ public class b {
                     }
                 }
             }
-            b.this.f53883a.set(true);
+            b.this.f53884a.set(true);
             b.this.M();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class l implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class l implements a.InterfaceC1201a {
         public l(b bVar) {
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
@@ -366,12 +366,12 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class m implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class m implements a.InterfaceC1201a {
         public m(b bVar) {
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
@@ -385,12 +385,12 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class n implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class n implements a.InterfaceC1201a {
         public n(b bVar) {
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
@@ -404,35 +404,17 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class o implements a.InterfaceC1200a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f53901a;
-
-        public o(b bVar, List list) {
-            this.f53901a = list;
-        }
-
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
-        public void a(Iterator<ImMessageCenterPojo> it) {
-            while (it.hasNext()) {
-                this.f53901a.add(it.next());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class p implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class o implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ List f53902a;
 
-        public p(b bVar, List list) {
+        public o(b bVar, List list) {
             this.f53902a = list;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 this.f53902a.add(it.next());
@@ -440,17 +422,17 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class q implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class p implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ List f53903a;
 
-        public q(b bVar, List list) {
+        public p(b bVar, List list) {
             this.f53903a = list;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 this.f53903a.add(it.next());
@@ -458,17 +440,17 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class r implements a.InterfaceC1200a {
+    /* loaded from: classes3.dex */
+    public class q implements a.InterfaceC1201a {
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ List f53904a;
 
-        public r(b bVar, List list) {
+        public q(b bVar, List list) {
             this.f53904a = list;
         }
 
-        @Override // d.b.i0.d1.k.a.InterfaceC1200a
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
         public void a(Iterator<ImMessageCenterPojo> it) {
             while (it.hasNext()) {
                 this.f53904a.add(it.next());
@@ -476,23 +458,41 @@ public class b {
         }
     }
 
+    /* loaded from: classes3.dex */
+    public class r implements a.InterfaceC1201a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ List f53905a;
+
+        public r(b bVar, List list) {
+            this.f53905a = list;
+        }
+
+        @Override // d.b.i0.d1.k.a.InterfaceC1201a
+        public void a(Iterator<ImMessageCenterPojo> it) {
+            while (it.hasNext()) {
+                this.f53905a.add(it.next());
+            }
+        }
+    }
+
     public b() {
-        MessageManager.getInstance().registerListener(this.f53889g);
-        this.f53887e = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
+        MessageManager.getInstance().registerListener(this.f53890g);
+        this.f53888e = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
         BdUniqueId gen = BdUniqueId.gen();
-        this.f53888f = gen;
-        this.f53887e.setTag(gen);
+        this.f53889f = gen;
+        this.f53888e.setTag(gen);
     }
 
     public static b o() {
-        if (f53882h == null) {
+        if (f53883h == null) {
             synchronized (b.class) {
-                if (f53882h == null) {
-                    f53882h = new b();
+                if (f53883h == null) {
+                    f53883h = new b();
                 }
             }
         }
-        return f53882h;
+        return f53883h;
     }
 
     public final boolean A(ImMessageCenterPojo imMessageCenterPojo) {
@@ -525,7 +525,7 @@ public class b {
     }
 
     public final void D(ImMessageCenterPojo imMessageCenterPojo, boolean z) {
-        if (this.f53883a.get()) {
+        if (this.f53884a.get()) {
             if (imMessageCenterPojo.getCustomGroupType() == 2) {
                 P(imMessageCenterPojo, z, 1);
             } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
@@ -537,7 +537,7 @@ public class b {
     }
 
     public final void E(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.f53883a.get()) {
+        if (this.f53884a.get()) {
             if (imMessageCenterPojo.getCustomGroupType() == 2) {
                 L(imMessageCenterPojo, false, 2);
                 L(v(false), false, 1);
@@ -568,7 +568,7 @@ public class b {
 
     public void H(String str, int i2) {
         d.b.i0.d1.k.a n2;
-        if (this.f53883a.get() && (n2 = n(i2)) != null) {
+        if (this.f53884a.get() && (n2 = n(i2)) != null) {
             n2.e(str);
         }
     }
@@ -579,16 +579,16 @@ public class b {
         }
         for (ImMessageCenterPojo imMessageCenterPojo : list) {
             if (imMessageCenterPojo != null) {
-                this.f53884b.e(imMessageCenterPojo.getGid());
+                this.f53885b.e(imMessageCenterPojo.getGid());
             }
         }
     }
 
     public void J() {
-        if (this.f53883a.get()) {
-            this.f53884b.d(new l(this));
-            this.f53885c.d(new m(this));
-            this.f53886d.d(new n(this));
+        if (this.f53884a.get()) {
+            this.f53885b.d(new l(this));
+            this.f53886c.d(new m(this));
+            this.f53887d.d(new n(this));
             K();
         }
     }
@@ -640,7 +640,7 @@ public class b {
     }
 
     public void T(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.f53883a.get()) {
+        if (this.f53884a.get()) {
             ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i2 == null) {
                 F(imMessageCenterPojo);
@@ -668,7 +668,7 @@ public class b {
     }
 
     public void U(ImMessageCenterPojo imMessageCenterPojo, int i2) {
-        if (this.f53883a.get() && imMessageCenterPojo != null) {
+        if (this.f53884a.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo i3 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i3 == null) {
                 imMessageCenterPojo.setUnread_count(i2);
@@ -691,7 +691,7 @@ public class b {
     }
 
     public void V(int i2, long j2, String str) {
-        if (this.f53883a.get()) {
+        if (this.f53884a.get()) {
             ImMessageCenterPojo i3 = i(str, i2);
             if (i3 == null) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -706,7 +706,7 @@ public class b {
     }
 
     public void W(ImMessageCenterPojo imMessageCenterPojo) {
-        if (!this.f53883a.get() || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
+        if (!this.f53884a.get() || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             return;
         }
         ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
@@ -721,7 +721,7 @@ public class b {
     public void X(int i2, ChatMessage chatMessage, String str, int i3) {
         int userType;
         ImMessageCenterPojo i4;
-        if (this.f53883a.get()) {
+        if (this.f53884a.get()) {
             UserData userData = null;
             if ((i2 == 2 || i2 == 4) && chatMessage != null) {
                 if (String.valueOf(chatMessage.getUserId()).equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -814,7 +814,7 @@ public class b {
     }
 
     public void Y(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.f53883a.get() && imMessageCenterPojo != null) {
+        if (this.f53884a.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i2 == null) {
                 F(imMessageCenterPojo);
@@ -832,7 +832,7 @@ public class b {
     }
 
     public ImMessageCenterPojo a0(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.f53883a.get() && imMessageCenterPojo != null) {
+        if (this.f53884a.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i2 == null) {
                 F(imMessageCenterPojo);
@@ -847,9 +847,9 @@ public class b {
     }
 
     public final void g() {
-        this.f53884b.b();
-        this.f53885c.b();
-        this.f53886d.b();
+        this.f53885b.b();
+        this.f53886c.b();
+        this.f53887d.b();
         K();
     }
 
@@ -863,7 +863,7 @@ public class b {
 
     public ImMessageCenterPojo i(String str, int i2) {
         d.b.i0.d1.k.a n2;
-        if (this.f53883a.get() && (n2 = n(i2)) != null) {
+        if (this.f53884a.get() && (n2 = n(i2)) != null) {
             return n2.c(str);
         }
         return null;
@@ -871,38 +871,38 @@ public class b {
 
     public List<ImMessageCenterPojo> j() {
         LinkedList linkedList = new LinkedList();
-        this.f53884b.d(new r(this, linkedList));
+        this.f53885b.d(new r(this, linkedList));
         return linkedList;
     }
 
     public List<ImMessageCenterPojo> k() {
         LinkedList linkedList = new LinkedList();
-        this.f53884b.d(new o(this, linkedList));
-        this.f53885c.d(new p(this, linkedList));
-        this.f53886d.d(new q(this, linkedList));
+        this.f53885b.d(new o(this, linkedList));
+        this.f53886c.d(new p(this, linkedList));
+        this.f53887d.d(new q(this, linkedList));
         return linkedList;
     }
 
     public List<ImMessageCenterPojo> l() {
         LinkedList linkedList = new LinkedList();
-        this.f53886d.d(new a(this, linkedList));
+        this.f53887d.d(new a(this, linkedList));
         return linkedList;
     }
 
     public List<ImMessageCenterPojo> m() {
         LinkedList linkedList = new LinkedList();
-        this.f53885c.d(new C1201b(this, linkedList));
+        this.f53886c.d(new C1202b(this, linkedList));
         return linkedList;
     }
 
     public final d.b.i0.d1.k.a n(int i2) {
         if (i2 == 2) {
-            return this.f53885c;
+            return this.f53886c;
         }
         if (i2 == 4) {
-            return this.f53886d;
+            return this.f53887d;
         }
-        return this.f53884b;
+        return this.f53885b;
     }
 
     public long p(String str, int i2) {
@@ -924,7 +924,7 @@ public class b {
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
         imMessageCenterPojo.setIs_hidden(1);
-        this.f53886d.d(new f(this, imMessageCenterPojo));
+        this.f53887d.d(new f(this, imMessageCenterPojo));
         c2.setUserType(imMessageCenterPojo.getUserType());
         c2.setLast_content(imMessageCenterPojo.getLast_content());
         c2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
@@ -955,8 +955,8 @@ public class b {
 
     public LongSparseArray<Long> r() {
         LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-        if (this.f53883a.get()) {
-            this.f53884b.d(new h(longSparseArray));
+        if (this.f53884a.get()) {
+            this.f53885b.d(new h(longSparseArray));
         }
         return longSparseArray;
     }
@@ -964,8 +964,8 @@ public class b {
     public NewpushRepair s() {
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         ArrayList arrayList = new ArrayList();
-        if (this.f53883a.get()) {
-            this.f53886d.d(new i(this, arrayList, builder));
+        if (this.f53884a.get()) {
+            this.f53887d.d(new i(this, arrayList, builder));
         }
         return builder.build(false);
     }
@@ -983,7 +983,7 @@ public class b {
 
     public List<ImMessageCenterPojo> u() {
         LinkedList linkedList = new LinkedList();
-        this.f53885c.d(new c(this, linkedList));
+        this.f53886c.d(new c(this, linkedList));
         return linkedList;
     }
 
@@ -998,7 +998,7 @@ public class b {
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
         imMessageCenterPojo.setIs_hidden(1);
-        this.f53885c.d(new d(this, imMessageCenterPojo));
+        this.f53886c.d(new d(this, imMessageCenterPojo));
         c2.setLast_content(imMessageCenterPojo.getLast_content());
         c2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
         c2.setLast_rid(imMessageCenterPojo.getLast_rid());
@@ -1033,15 +1033,15 @@ public class b {
     }
 
     public void w() {
-        this.f53883a.set(false);
+        this.f53884a.set(false);
         g();
-        MessageManager.getInstance().removeMessage(2016008, this.f53888f);
-        this.f53887e.setData(TbadkCoreApplication.getCurrentAccount());
+        MessageManager.getInstance().removeMessage(2016008, this.f53889f);
+        this.f53888e.setData(TbadkCoreApplication.getCurrentAccount());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016008, new j(this));
         customMessageTask.setParallel(TiebaIMConfig.getParallel());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         customMessageTask.setPriority(4);
-        MessageManager.getInstance().sendMessage(this.f53887e, customMessageTask);
+        MessageManager.getInstance().sendMessage(this.f53888e, customMessageTask);
     }
 
     public final void x() {
@@ -1091,7 +1091,7 @@ public class b {
                 str2 = "";
                 str = str2;
             }
-            ImMessageCenterPojo c3 = this.f53884b.c(str3);
+            ImMessageCenterPojo c3 = this.f53885b.c(str3);
             if (c3 != null) {
                 str2 = c3.getGroup_name();
             }
@@ -1105,6 +1105,6 @@ public class b {
     }
 
     public boolean z() {
-        return this.f53883a.get();
+        return this.f53884a.get();
     }
 }

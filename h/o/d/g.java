@@ -12,13 +12,13 @@ import rx.internal.operators.NotificationLite;
 public class g implements k {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f67930g;
+    public static final int f67935g;
 
     /* renamed from: e  reason: collision with root package name */
-    public Queue<Object> f67931e;
+    public Queue<Object> f67936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Object f67932f;
+    public volatile Object f67937f;
 
     static {
         int i = f.c() ? 16 : 128;
@@ -31,43 +31,43 @@ public class g implements k {
                 printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e2.getMessage());
             }
         }
-        f67930g = i;
+        f67935g = i;
     }
 
     public g(Queue<Object> queue, int i) {
-        this.f67931e = queue;
+        this.f67936e = queue;
     }
 
     public static g a() {
         if (f0.b()) {
-            return new g(true, f67930g);
+            return new g(true, f67935g);
         }
         return new g();
     }
 
     public static g b() {
         if (f0.b()) {
-            return new g(false, f67930g);
+            return new g(false, f67935g);
         }
         return new g();
     }
 
     public Object c(Object obj) {
-        return NotificationLite.d(obj);
-    }
-
-    public boolean d(Object obj) {
         return NotificationLite.e(obj);
     }
 
+    public boolean d(Object obj) {
+        return NotificationLite.f(obj);
+    }
+
     public boolean e() {
-        Queue<Object> queue = this.f67931e;
+        Queue<Object> queue = this.f67936e;
         return queue == null || queue.isEmpty();
     }
 
     public void f() {
-        if (this.f67932f == null) {
-            this.f67932f = NotificationLite.b();
+        if (this.f67937f == null) {
+            this.f67937f = NotificationLite.b();
         }
     }
 
@@ -75,11 +75,11 @@ public class g implements k {
         boolean z;
         boolean z2;
         synchronized (this) {
-            Queue<Object> queue = this.f67931e;
+            Queue<Object> queue = this.f67936e;
             z = true;
             z2 = false;
             if (queue != null) {
-                z2 = !queue.offer(NotificationLite.g(obj));
+                z2 = !queue.offer(NotificationLite.h(obj));
                 z = false;
             }
         }
@@ -93,12 +93,12 @@ public class g implements k {
 
     public Object h() {
         synchronized (this) {
-            Queue<Object> queue = this.f67931e;
+            Queue<Object> queue = this.f67936e;
             if (queue == null) {
                 return null;
             }
             Object peek = queue.peek();
-            Object obj = this.f67932f;
+            Object obj = this.f67937f;
             if (peek == null && obj != null && queue.peek() == null) {
                 peek = obj;
             }
@@ -108,14 +108,14 @@ public class g implements k {
 
     public Object i() {
         synchronized (this) {
-            Queue<Object> queue = this.f67931e;
+            Queue<Object> queue = this.f67936e;
             if (queue == null) {
                 return null;
             }
             Object poll = queue.poll();
-            Object obj = this.f67932f;
+            Object obj = this.f67937f;
             if (poll == null && obj != null && queue.peek() == null) {
-                this.f67932f = null;
+                this.f67937f = null;
                 poll = obj;
             }
             return poll;
@@ -124,7 +124,7 @@ public class g implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f67931e == null;
+        return this.f67936e == null;
     }
 
     public synchronized void j() {
@@ -136,10 +136,10 @@ public class g implements k {
     }
 
     public g(boolean z, int i) {
-        this.f67931e = z ? new j<>(i) : new r<>(i);
+        this.f67936e = z ? new j<>(i) : new r<>(i);
     }
 
     public g() {
-        this(new h.o.d.j.c(f67930g), f67930g);
+        this(new h.o.d.j.c(f67935g), f67935g);
     }
 }

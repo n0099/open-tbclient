@@ -24,23 +24,23 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static final String TAG = "PushMessageReceiver";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends Handler {
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f2644d;
+        public final WeakReference<Context> f2645d;
 
         public a(Context context) {
             super(context.getMainLooper());
-            this.f2644d = new WeakReference<>(context);
+            this.f2645d = new WeakReference<>(context);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum b {
         MSG_PASS(1),
         MSG_ARRIVED(2),
@@ -48,15 +48,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2649d;
+        public int f2650d;
 
         b(int i) {
-            this.f2649d = i;
+            this.f2650d = i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2649d;
+            return this.f2650d;
         }
     }
 
@@ -264,8 +264,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     public abstract void onNotificationClicked(Context context, String str, String str2, String str3);
 
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0302  */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x030b  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0301  */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x030a  */
     @Override // android.content.BroadcastReceiver
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -634,8 +634,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final a aVar = new a(context) { // from class: com.baidu.android.pushservice.PushMessageReceiver.1
                         @Override // android.os.Handler
                         public void handleMessage(Message message) {
-                            if (this.f2644d.get() != null) {
-                                PushMessageReceiver.this.onMessage(this.f2644d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            if (this.f2645d.get() != null) {
+                                PushMessageReceiver.this.onMessage(this.f2645d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
                                 PushMessageReceiver.sendCallback(context, intent, 10, false);
                             }
                         }

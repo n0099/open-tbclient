@@ -17,28 +17,28 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f57057a;
+    public BaseActivity f57058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57058b;
+    public View f57059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f57059c;
+    public View f57060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f57060d;
+    public NavigationBar f57061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f57061e;
+    public BdTypeListView f57062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f57062f;
+    public g f57063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f57063g;
+    public NoNetworkView f57064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.n0.c.o.a f57064h;
+    public d.b.i0.n0.c.o.a f57065h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -47,97 +47,97 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.f57057a.finish();
+            b.this.f57058a.finish();
         }
     }
 
     public b(BaseActivity baseActivity) {
-        this.f57057a = baseActivity;
+        this.f57058a = baseActivity;
         baseActivity.setContentView(R.layout.forum_member_activity);
-        this.f57058b = this.f57057a.findViewById(R.id.activity_root_view);
-        NavigationBar navigationBar = (NavigationBar) this.f57057a.findViewById(R.id.view_navigation_bar);
-        this.f57060d = navigationBar;
-        navigationBar.setCenterTextTitle(this.f57057a.getString(R.string.forummember)).setOnClickListener(new a());
-        this.f57060d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f57057a.setNetRefreshViewTopMargin(BdListViewHelper.f14030a);
-        this.f57063g = (NoNetworkView) this.f57057a.findViewById(R.id.view_no_network);
-        this.f57061e = (BdTypeListView) this.f57057a.findViewById(R.id.forum_member_listview);
-        g gVar = new g(this.f57057a.getPageContext());
-        this.f57062f = gVar;
-        gVar.Z(this.f57057a.getUniqueId());
-        BaseActivity baseActivity2 = this.f57057a;
+        this.f57059b = this.f57058a.findViewById(R.id.activity_root_view);
+        NavigationBar navigationBar = (NavigationBar) this.f57058a.findViewById(R.id.view_navigation_bar);
+        this.f57061d = navigationBar;
+        navigationBar.setCenterTextTitle(this.f57058a.getString(R.string.forummember)).setOnClickListener(new a());
+        this.f57061d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f57058a.setNetRefreshViewTopMargin(BdListViewHelper.f14031a);
+        this.f57064g = (NoNetworkView) this.f57058a.findViewById(R.id.view_no_network);
+        this.f57062e = (BdTypeListView) this.f57058a.findViewById(R.id.forum_member_listview);
+        g gVar = new g(this.f57058a.getPageContext());
+        this.f57063f = gVar;
+        gVar.Z(this.f57058a.getUniqueId());
+        BaseActivity baseActivity2 = this.f57058a;
         if (baseActivity2 instanceof f.g) {
-            this.f57062f.b((f.g) baseActivity2);
+            this.f57063f.b((f.g) baseActivity2);
         }
-        BaseActivity baseActivity3 = this.f57057a;
+        BaseActivity baseActivity3 = this.f57058a;
         if (baseActivity3 instanceof BdListView.p) {
-            this.f57061e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
+            this.f57062e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
         }
-        this.f57061e.setPullRefresh(this.f57062f);
-        this.f57059c = BdListViewHelper.d(this.f57057a.getPageContext().getPageActivity(), this.f57061e, BdListViewHelper.HeadType.DEFAULT);
-        d.b.i0.n0.c.o.a aVar = new d.b.i0.n0.c.o.a(this.f57057a, this.f57061e);
-        this.f57064h = aVar;
-        this.f57061e.a(aVar.a());
+        this.f57062e.setPullRefresh(this.f57063f);
+        this.f57060c = BdListViewHelper.d(this.f57058a.getPageContext().getPageActivity(), this.f57062e, BdListViewHelper.HeadType.DEFAULT);
+        d.b.i0.n0.c.o.a aVar = new d.b.i0.n0.c.o.a(this.f57058a, this.f57062e);
+        this.f57065h = aVar;
+        this.f57062e.a(aVar.a());
     }
 
     public void b(boolean z) {
-        BdListViewHelper.c(this.f57059c, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.c(this.f57060c, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void c() {
-        this.f57061e.A(0L);
+        this.f57062e.A(0L);
     }
 
     public void d() {
-        this.f57061e.setVisibility(0);
-        this.f57057a.hideLoadingView(this.f57058b);
+        this.f57062e.setVisibility(0);
+        this.f57058a.hideLoadingView(this.f57059b);
     }
 
     public void e() {
-        this.f57061e.setVisibility(0);
-        this.f57057a.hideNetRefreshView(this.f57058b);
+        this.f57062e.setVisibility(0);
+        this.f57058a.hideNetRefreshView(this.f57059b);
     }
 
     public void f(List<n> list) {
         if (list == null) {
             return;
         }
-        this.f57061e.setData(list);
+        this.f57062e.setData(list);
     }
 
     public void g() {
-        this.f57064h.b();
+        this.f57065h.b();
     }
 
     public void h(int i) {
-        this.f57060d.onChangeSkinType(this.f57057a.getPageContext(), i);
-        this.f57063g.c(this.f57057a.getPageContext(), i);
+        this.f57061d.onChangeSkinType(this.f57058a.getPageContext(), i);
+        this.f57064g.c(this.f57058a.getPageContext(), i);
         g();
-        SkinManager.setBackgroundColor(this.f57058b, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f57059b, R.color.CAM_X0204);
     }
 
     public void i() {
-        this.f57064h.c();
+        this.f57065h.c();
     }
 
     public void j(NoNetworkView.b bVar) {
         if (bVar == null) {
             return;
         }
-        this.f57063g.a(bVar);
+        this.f57064g.a(bVar);
     }
 
     public void k() {
-        this.f57061e.setVisibility(8);
-        this.f57057a.showLoadingView(this.f57058b, true);
+        this.f57062e.setVisibility(8);
+        this.f57058a.showLoadingView(this.f57059b, true);
     }
 
     public void l(String str) {
-        this.f57061e.setVisibility(8);
-        this.f57057a.showNetRefreshView(this.f57058b, str, true);
+        this.f57062e.setVisibility(8);
+        this.f57058a.showNetRefreshView(this.f57059b, str, true);
     }
 
     public void m() {
-        this.f57061e.F();
+        this.f57062e.F();
     }
 }

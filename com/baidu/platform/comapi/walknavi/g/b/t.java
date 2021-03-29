@@ -5,26 +5,26 @@ import android.os.Handler;
 public class t implements com.baidu.platform.comapi.walknavi.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f10114a;
+    public final /* synthetic */ String f10115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ c f10115b;
+    public final /* synthetic */ c f10116b;
 
     public t(c cVar, String str) {
-        this.f10115b = cVar;
-        this.f10114a = str;
+        this.f10116b = cVar;
+        this.f10115a = str;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c
     public void a(boolean z, float f2) {
         Handler handler;
         if (z) {
-            this.f10115b.R = z;
-            handler = this.f10115b.n;
+            this.f10116b.R = z;
+            handler = this.f10116b.n;
             handler.postDelayed(new u(this), 500L);
             return;
         }
-        com.baidu.platform.comapi.walknavi.d.e.c().a(this.f10114a, true);
+        com.baidu.platform.comapi.walknavi.d.e.c().a(this.f10115a, true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c

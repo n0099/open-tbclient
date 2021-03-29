@@ -11,29 +11,29 @@ import java.util.Locale;
 public class Layer {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<com.ksad.lottie.model.content.b> f31559a;
+    public final List<com.ksad.lottie.model.content.b> f31560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.d f31560b;
+    public final com.ksad.lottie.d f31561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31561c;
+    public final String f31562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f31562d;
+    public final long f31563d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LayerType f31563e;
+    public final LayerType f31564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f31564f;
+    public final long f31565f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f31565g;
+    public final String f31566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<Mask> f31566h;
+    public final List<Mask> f31567h;
     public final l i;
     public final int j;
     public final int k;
@@ -71,14 +71,14 @@ public class Layer {
     }
 
     public Layer(List<com.ksad.lottie.model.content.b> list, com.ksad.lottie.d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f2, float f3, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.ksad.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.ksad.lottie.model.a.b bVar) {
-        this.f31559a = list;
-        this.f31560b = dVar;
-        this.f31561c = str;
-        this.f31562d = j;
-        this.f31563e = layerType;
-        this.f31564f = j2;
-        this.f31565g = str2;
-        this.f31566h = list2;
+        this.f31560a = list;
+        this.f31561b = dVar;
+        this.f31562c = str;
+        this.f31563d = j;
+        this.f31564e = layerType;
+        this.f31565f = j2;
+        this.f31566g = str2;
+        this.f31567h = list2;
         this.i = lVar;
         this.j = i;
         this.k = i2;
@@ -95,7 +95,7 @@ public class Layer {
     }
 
     public com.ksad.lottie.d a() {
-        return this.f31560b;
+        return this.f31561b;
     }
 
     public String a(String str) {
@@ -103,13 +103,13 @@ public class Layer {
         sb.append(str);
         sb.append(f());
         sb.append("\n");
-        Layer a2 = this.f31560b.a(m());
+        Layer a2 = this.f31561b.a(m());
         if (a2 != null) {
             String str2 = "\t\tParents: ";
             while (true) {
                 sb.append(str2);
                 sb.append(a2.f());
-                a2 = this.f31560b.a(a2.m());
+                a2 = this.f31561b.a(a2.m());
                 if (a2 == null) {
                     break;
                 }
@@ -129,10 +129,10 @@ public class Layer {
             sb.append("\tBackground: ");
             sb.append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(r()), Integer.valueOf(q()), Integer.valueOf(p())));
         }
-        if (!this.f31559a.isEmpty()) {
+        if (!this.f31560a.isEmpty()) {
             sb.append(str);
             sb.append("\tShapes:\n");
-            for (com.ksad.lottie.model.content.b bVar : this.f31559a) {
+            for (com.ksad.lottie.model.content.b bVar : this.f31560a) {
                 sb.append(str);
                 sb.append("\t\t");
                 sb.append(bVar);
@@ -147,7 +147,7 @@ public class Layer {
     }
 
     public float c() {
-        return this.n / this.f31560b.k();
+        return this.n / this.f31561b.k();
     }
 
     public List<com.ksad.lottie.e.a<Float>> d() {
@@ -155,16 +155,16 @@ public class Layer {
     }
 
     public long e() {
-        return this.f31562d;
+        return this.f31563d;
     }
 
     public String f() {
-        return this.f31561c;
+        return this.f31562c;
     }
 
     @Nullable
     public String g() {
-        return this.f31565g;
+        return this.f31566g;
     }
 
     public int h() {
@@ -176,11 +176,11 @@ public class Layer {
     }
 
     public List<Mask> j() {
-        return this.f31566h;
+        return this.f31567h;
     }
 
     public LayerType k() {
-        return this.f31563e;
+        return this.f31564e;
     }
 
     public MatteType l() {
@@ -188,11 +188,11 @@ public class Layer {
     }
 
     public long m() {
-        return this.f31564f;
+        return this.f31565f;
     }
 
     public List<com.ksad.lottie.model.content.b> n() {
-        return this.f31559a;
+        return this.f31560a;
     }
 
     public l o() {

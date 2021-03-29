@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RedPackMsg extends NormalMsg {
     public static final Parcelable.Creator<RedPackMsg> CREATOR = new Parcelable.Creator<RedPackMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RedPackMsg.1
         /* JADX DEBUG: Method merged with bridge method */

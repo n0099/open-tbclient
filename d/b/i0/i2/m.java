@@ -9,64 +9,64 @@ import com.baidu.tieba.play.VideoLoadingProgressView;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f56153a;
+    public ViewGroup f56154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f56154b;
+    public ImageView f56155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoLoadingProgressView f56155c;
+    public VideoLoadingProgressView f56156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ObjectAnimator f56156d;
+    public ObjectAnimator f56157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f56157e;
+    public ObjectAnimator f56158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ObjectAnimator f56158f;
+    public ObjectAnimator f56159f;
 
     public m(ViewGroup viewGroup) {
-        this.f56153a = viewGroup;
-        this.f56154b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.f56155c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.f56154a = viewGroup;
+        this.f56155b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.f56156c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         d();
     }
 
     public final void a() {
-        this.f56156d.cancel();
-        this.f56157e.cancel();
-        this.f56158f.cancel();
+        this.f56157d.cancel();
+        this.f56158e.cancel();
+        this.f56159f.cancel();
     }
 
     public void b() {
         a();
-        this.f56153a.setVisibility(8);
-        this.f56155c.h();
+        this.f56154a.setVisibility(8);
+        this.f56156c.h();
     }
 
     public void c() {
         a();
-        this.f56157e.start();
-        this.f56158f.start();
+        this.f56158e.start();
+        this.f56159f.start();
     }
 
     public final void d() {
-        this.f56156d = ObjectAnimator.ofFloat(this.f56154b, "alpha", 1.0f, 0.5f);
-        this.f56157e = ObjectAnimator.ofFloat(this.f56154b, "alpha", 0.5f, 0.0f);
-        this.f56158f = ObjectAnimator.ofFloat(this.f56155c, "alpha", 1.0f, 0.0f);
-        this.f56156d.setDuration(50L);
-        this.f56157e.setDuration(50L);
-        this.f56158f.setDuration(50L);
+        this.f56157d = ObjectAnimator.ofFloat(this.f56155b, "alpha", 1.0f, 0.5f);
+        this.f56158e = ObjectAnimator.ofFloat(this.f56155b, "alpha", 0.5f, 0.0f);
+        this.f56159f = ObjectAnimator.ofFloat(this.f56156c, "alpha", 1.0f, 0.0f);
+        this.f56157d.setDuration(50L);
+        this.f56158e.setDuration(50L);
+        this.f56159f.setDuration(50L);
     }
 
     public void e() {
         a();
-        this.f56155c.j();
+        this.f56156c.j();
     }
 
     public void f(VideoLoadingProgressView.c cVar) {
-        VideoLoadingProgressView videoLoadingProgressView = this.f56155c;
+        VideoLoadingProgressView videoLoadingProgressView = this.f56156c;
         if (videoLoadingProgressView != null) {
             videoLoadingProgressView.setLoadingAnimationListener(cVar);
         }
@@ -74,10 +74,10 @@ public class m {
 
     public void g() {
         a();
-        this.f56154b.setAlpha(1.0f);
-        this.f56155c.setAlpha(1.0f);
-        this.f56153a.setVisibility(0);
-        this.f56155c.l();
-        this.f56156d.start();
+        this.f56155b.setAlpha(1.0f);
+        this.f56156c.setAlpha(1.0f);
+        this.f56154a.setVisibility(0);
+        this.f56156c.l();
+        this.f56157d.start();
     }
 }

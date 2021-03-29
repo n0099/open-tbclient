@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<PlayPicInfoCard> {
     public final int descOnPic;
     public final long duration;
@@ -21,39 +21,39 @@ public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<Pla
     public final double ratio;
     public final int showDot;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18620a;
+        public String f18621a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18621b;
+        public String f18622b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.i0.i1.o.j.b f18622c;
+        public d.b.i0.i1.o.j.b f18623c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.b.i0.i1.o.j.a f18623d;
+        public d.b.i0.i1.o.j.a f18624d;
 
         public a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.f18620a = jSONObject.optString("lbText");
-                this.f18621b = jSONObject.optString("lbScheme");
+                this.f18621a = jSONObject.optString("lbText");
+                this.f18622b = jSONObject.optString("lbScheme");
                 d.b.i0.i1.o.j.b bVar = new d.b.i0.i1.o.j.b();
-                this.f18622c = bVar;
-                bVar.f55940d = jSONObject.optString("rText");
-                this.f18622c.f55939c = jSONObject.optInt("rIconType");
-                this.f18622c.f55937a = jSONObject.optString("rIcon");
-                this.f18622c.f55938b = jSONObject.optString("rIconN");
+                this.f18623c = bVar;
+                bVar.f55941d = jSONObject.optString("rText");
+                this.f18623c.f55940c = jSONObject.optInt("rIconType");
+                this.f18623c.f55938a = jSONObject.optString("rIcon");
+                this.f18623c.f55939b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
                     d.b.i0.i1.o.j.a aVar = new d.b.i0.i1.o.j.a(optJSONObject);
-                    this.f18623d = aVar;
+                    this.f18624d = aVar;
                     if (aVar.k()) {
                         return;
                     }
-                    this.f18623d = null;
+                    this.f18624d = null;
                 }
             }
         }
@@ -67,56 +67,56 @@ public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<Pla
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18624a;
+        public String f18625a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18625b;
+        public String f18626b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18626c;
+        public String f18627c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f18627d;
+        public String f18628d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18628e;
+        public int f18629e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f18629f;
+        public int f18630f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f18630g;
+        public int f18631g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f18631h;
+        public int f18632h;
         public String i;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18632a;
+        public String f18633a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18633b;
+        public String f18634b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f18634c;
+        public int f18635c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18635d;
+        public int f18636d;
 
         public c(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.f18632a = jSONObject.optString("pic");
-                this.f18633b = jSONObject.optString("picN");
-                this.f18634c = jSONObject.optInt("xPos");
-                this.f18635d = jSONObject.optInt("yPos");
+                this.f18633a = jSONObject.optString("pic");
+                this.f18634b = jSONObject.optString("picN");
+                this.f18635c = jSONObject.optInt("xPos");
+                this.f18636d = jSONObject.optInt("yPos");
             }
         }
 
@@ -129,7 +129,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<Pla
         }
 
         public boolean b() {
-            return (TextUtils.isEmpty(this.f18632a) && TextUtils.isEmpty(this.f18633b) && this.f18634c == 0 && this.f18635d == 0) ? false : true;
+            return (TextUtils.isEmpty(this.f18633a) && TextUtils.isEmpty(this.f18634b) && this.f18635c == 0 && this.f18636d == 0) ? false : true;
         }
     }
 
@@ -148,15 +148,15 @@ public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<Pla
             if (!TextUtils.isEmpty(optString)) {
                 b bVar = new b();
                 bVar.i = this.statistics;
-                bVar.f18630g = this.statTab;
-                bVar.f18624a = optJSONObject.optString("picId");
-                bVar.f18625b = optString;
-                bVar.f18626c = optJSONObject.optString("scheme");
-                bVar.f18627d = optJSONObject.optString("desc");
-                bVar.f18628e = d.b.i0.i1.o.k.b.b(optJSONObject.optString("descColor", ""));
-                bVar.f18629f = d.b.i0.i1.o.k.b.b(optJSONObject.optString("descColorNight", ""));
+                bVar.f18631g = this.statTab;
+                bVar.f18625a = optJSONObject.optString("picId");
+                bVar.f18626b = optString;
+                bVar.f18627c = optJSONObject.optString("scheme");
+                bVar.f18628d = optJSONObject.optString("desc");
+                bVar.f18629e = d.b.i0.i1.o.k.b.b(optJSONObject.optString("descColor", ""));
+                bVar.f18630f = d.b.i0.i1.o.k.b.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
-                bVar.f18631h = optInt <= 1 ? 1 : optInt;
+                bVar.f18632h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
             }
         }
@@ -194,7 +194,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<Pla
         int i;
         int i2 = 1;
         for (b bVar : this.imageResList) {
-            if (bVar != null && (i = bVar.f18631h) > i2) {
+            if (bVar != null && (i = bVar.f18632h) > i2) {
                 i2 = i;
             }
         }
@@ -226,12 +226,9 @@ public class PlayPicInfoCard extends BaseCardInfo implements d.b.i0.i1.o.i.a<Pla
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
-        double d2 = k;
-        double d3 = playPicInfoCard.ratio;
-        Double.isNaN(d2);
-        int i = (int) (d2 * d3);
+        int i = (int) (k * playPicInfoCard.ratio);
         for (b bVar : this.imageResList) {
-            d.h().k(bVar.f18625b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
+            d.h().k(bVar.f18626b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
         }
     }
 }

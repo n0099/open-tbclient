@@ -68,28 +68,28 @@ public final class TypeAdapters {
     public static final TypeAdapterFactory Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TypeAdapter<Class> f30992a;
+    public static final TypeAdapter<Class> f30993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f30993b;
+    public static final TypeAdapterFactory f30994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final TypeAdapter<BitSet> f30994c;
+    public static final TypeAdapter<BitSet> f30995c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TypeAdapterFactory f30995d;
+    public static final TypeAdapterFactory f30996d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final TypeAdapter<Boolean> f30996e;
+    public static final TypeAdapter<Boolean> f30997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final TypeAdapter<Boolean> f30997f;
+    public static final TypeAdapter<Boolean> f30998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final TypeAdapterFactory f30998g;
+    public static final TypeAdapterFactory f30999g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final TypeAdapter<Number> f30999h;
+    public static final TypeAdapter<Number> f31000h;
     public static final TypeAdapterFactory i;
     public static final TypeAdapter<Number> j;
     public static final TypeAdapterFactory k;
@@ -113,10 +113,10 @@ public final class TypeAdapters {
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, T> f31015a = new HashMap();
+        public final Map<String, T> f31016a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<T, String> f31016b = new HashMap();
+        public final Map<T, String> f31017b = new HashMap();
 
         public EnumTypeAdapter(Class<T> cls) {
             T[] enumConstants;
@@ -127,11 +127,11 @@ public final class TypeAdapters {
                     if (cVar != null) {
                         name = cVar.value();
                         for (String str : cVar.alternate()) {
-                            this.f31015a.put(str, t);
+                            this.f31016a.put(str, t);
                         }
                     }
-                    this.f31015a.put(name, t);
-                    this.f31016b.put(t, name);
+                    this.f31016a.put(name, t);
+                    this.f31017b.put(t, name);
                 }
             } catch (NoSuchFieldException e2) {
                 throw new AssertionError(e2);
@@ -146,14 +146,14 @@ public final class TypeAdapters {
                 aVar.I();
                 return null;
             }
-            return this.f31015a.get(aVar.K());
+            return this.f31016a.get(aVar.K());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: b */
         public void write(b bVar, T t) throws IOException {
-            bVar.O(t == null ? null : this.f31016b.get(t));
+            bVar.O(t == null ? null : this.f31017b.get(t));
         }
     }
 
@@ -161,49 +161,49 @@ public final class TypeAdapters {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31017a;
+        public static final /* synthetic */ int[] f31018a;
 
         static {
             int[] iArr = new int[JsonToken.values().length];
-            f31017a = iArr;
+            f31018a = iArr;
             try {
                 iArr[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31017a[JsonToken.BOOLEAN.ordinal()] = 2;
+                f31018a[JsonToken.BOOLEAN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31017a[JsonToken.STRING.ordinal()] = 3;
+                f31018a[JsonToken.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31017a[JsonToken.NULL.ordinal()] = 4;
+                f31018a[JsonToken.NULL.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31017a[JsonToken.BEGIN_ARRAY.ordinal()] = 5;
+                f31018a[JsonToken.BEGIN_ARRAY.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31017a[JsonToken.BEGIN_OBJECT.ordinal()] = 6;
+                f31018a[JsonToken.BEGIN_OBJECT.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f31017a[JsonToken.END_DOCUMENT.ordinal()] = 7;
+                f31018a[JsonToken.END_DOCUMENT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f31017a[JsonToken.NAME.ordinal()] = 8;
+                f31018a[JsonToken.NAME.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f31017a[JsonToken.END_OBJECT.ordinal()] = 9;
+                f31018a[JsonToken.END_OBJECT.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f31017a[JsonToken.END_ARRAY.ordinal()] = 10;
+                f31018a[JsonToken.END_ARRAY.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -233,8 +233,8 @@ public final class TypeAdapters {
                 throw null;
             }
         }.nullSafe();
-        f30992a = nullSafe;
-        f30993b = b(Class.class, nullSafe);
+        f30993a = nullSafe;
+        f30994b = b(Class.class, nullSafe);
         TypeAdapter<BitSet> nullSafe2 = new TypeAdapter<BitSet>() { // from class: com.google.gson.internal.bind.TypeAdapters.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
@@ -257,7 +257,7 @@ public final class TypeAdapters {
                 JsonToken M2 = aVar.M();
                 int i2 = 0;
                 while (M2 != JsonToken.END_ARRAY) {
-                    int i3 = a.f31017a[M2.ordinal()];
+                    int i3 = a.f31018a[M2.ordinal()];
                     boolean z2 = true;
                     if (i3 != 1) {
                         if (i3 == 2) {
@@ -294,9 +294,9 @@ public final class TypeAdapters {
                 bVar.t();
             }
         }.nullSafe();
-        f30994c = nullSafe2;
-        f30995d = b(BitSet.class, nullSafe2);
-        f30996e = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
+        f30995c = nullSafe2;
+        f30996d = b(BitSet.class, nullSafe2);
+        f30997e = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
@@ -319,7 +319,7 @@ public final class TypeAdapters {
                 bVar.M(bool);
             }
         };
-        f30997f = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
+        f30998f = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
@@ -338,8 +338,8 @@ public final class TypeAdapters {
                 bVar.O(bool == null ? StringUtil.NULL_STRING : bool.toString());
             }
         };
-        f30998g = c(Boolean.TYPE, Boolean.class, f30996e);
-        f30999h = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
+        f30999g = c(Boolean.TYPE, Boolean.class, f30997e);
+        f31000h = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
@@ -361,7 +361,7 @@ public final class TypeAdapters {
                 bVar.N(number);
             }
         };
-        i = c(Byte.TYPE, Byte.class, f30999h);
+        i = c(Byte.TYPE, Byte.class, f31000h);
         j = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.6
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -547,7 +547,7 @@ public final class TypeAdapters {
             @Override // com.google.gson.TypeAdapter
             public Number read(d.g.c.d.a aVar) throws IOException {
                 JsonToken M2 = aVar.M();
-                int i2 = a.f31017a[M2.ordinal()];
+                int i2 = a.f31018a[M2.ordinal()];
                 if (i2 == 1 || i2 == 3) {
                     return new LazilyParsedNumber(aVar.K());
                 }
@@ -942,7 +942,7 @@ public final class TypeAdapters {
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
             public JsonElement read(d.g.c.d.a aVar) throws IOException {
-                switch (a.f31017a[aVar.M().ordinal()]) {
+                switch (a.f31018a[aVar.M().ordinal()]) {
                     case 1:
                         return new JsonPrimitive((Number) new LazilyParsedNumber(aVar.K()));
                     case 2:

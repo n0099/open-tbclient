@@ -15,7 +15,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;

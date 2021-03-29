@@ -10,7 +10,7 @@ import kotlin.Metadata;
 @Target(allowedTargets = {AnnotationTarget.ANNOTATION_CLASS})
 @Documented
 @java.lang.annotation.Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public @interface Target {
     AnnotationTarget[] allowedTargets();
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class Camera1Capturer extends CameraCapturer {
     public final boolean captureToTexture;
 

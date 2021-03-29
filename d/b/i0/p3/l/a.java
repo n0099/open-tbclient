@@ -17,17 +17,17 @@ import java.nio.ByteBuffer;
 public class a extends d {
 
     /* renamed from: d  reason: collision with root package name */
-    public long f59091d;
+    public long f59092d;
 
     public a(String str) {
         super(str);
-        this.f59091d = 88200L;
+        this.f59092d = 88200L;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0172 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00dd A[Catch: all -> 0x01a9, Exception -> 0x01ac, TryCatch #9 {Exception -> 0x01ac, all -> 0x01a9, blocks: (B:11:0x002a, B:15:0x0057, B:17:0x005d, B:19:0x0069, B:22:0x006e, B:27:0x007e, B:34:0x00d7, B:36:0x00dd, B:38:0x00e3, B:39:0x00ef, B:41:0x00f3, B:43:0x0125, B:44:0x015a, B:45:0x015f, B:50:0x0176, B:53:0x017e, B:28:0x009c, B:30:0x00c2, B:55:0x019d), top: B:100:0x002a }] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01de A[Catch: Exception -> 0x01da, TRY_LEAVE, TryCatch #3 {Exception -> 0x01da, blocks: (B:85:0x01d6, B:89:0x01de), top: B:97:0x01d6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x01d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x016c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00d7 A[Catch: all -> 0x01a3, Exception -> 0x01a6, TryCatch #8 {Exception -> 0x01a6, all -> 0x01a3, blocks: (B:11:0x002a, B:15:0x0057, B:17:0x005d, B:19:0x0069, B:22:0x006e, B:27:0x007e, B:31:0x00d1, B:33:0x00d7, B:35:0x00dd, B:36:0x00e9, B:38:0x00ed, B:40:0x011f, B:41:0x0154, B:42:0x0159, B:47:0x0170, B:50:0x0178, B:28:0x009c, B:52:0x0197), top: B:96:0x002a }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x01d8 A[Catch: Exception -> 0x01d4, TRY_LEAVE, TryCatch #8 {Exception -> 0x01d4, blocks: (B:82:0x01d0, B:86:0x01d8), top: B:93:0x01d0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x01d0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // d.b.i0.p3.l.d
     @TargetApi(16)
     /*
@@ -46,14 +46,14 @@ public class a extends d {
         FileInputStream fileInputStream = null;
         try {
             try {
-                if (aVar.f59096b == 0) {
-                    aVar.f59096b = 48000;
+                if (aVar.f59097b == 0) {
+                    aVar.f59097b = 48000;
                 }
-                if (aVar.f59097c == 0) {
-                    aVar.f59097c = 1;
+                if (aVar.f59098c == 0) {
+                    aVar.f59098c = 1;
                 }
-                aVar.f59091d = (aVar.f59096b * 16) / 8;
-                FileInputStream fileInputStream2 = new FileInputStream(aVar.f59095a);
+                aVar.f59092d = (aVar.f59097b * 16) / 8;
+                FileInputStream fileInputStream2 = new FileInputStream(aVar.f59096a);
                 try {
                     fileOutputStream = new FileOutputStream(str);
                     try {
@@ -144,15 +144,9 @@ public class a extends d {
                                     int i7 = i3 + i6;
                                     byteBufferArr = inputBuffers;
                                     f2.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
-                                    double d2 = i7;
-                                    Double.isNaN(d2);
-                                    double d3 = (d2 / 2.0d) * 1000000.0d;
-                                    double d4 = aVar.f59091d;
-                                    Double.isNaN(d4);
-                                    long j5 = (long) (d3 / d4);
                                     i3 = i7;
                                     i2 = i6;
-                                    j3 = j5;
+                                    j3 = (long) (((i7 / 2.0d) * 1000000.0d) / aVar.f59092d);
                                     bArr = bArr2;
                                     z2 = z;
                                 }
@@ -228,7 +222,7 @@ public class a extends d {
             if (i2 >= 13) {
                 i2 = 4;
                 break;
-            } else if (iArr[i2] == this.f59096b) {
+            } else if (iArr[i2] == this.f59097b) {
                 break;
             } else {
                 i2++;
@@ -249,8 +243,8 @@ public class a extends d {
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
         mediaFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, 128000);
-        mediaFormat.setInteger("channel-count", this.f59097c);
-        mediaFormat.setInteger("sample-rate", this.f59096b);
+        mediaFormat.setInteger("channel-count", this.f59098c);
+        mediaFormat.setInteger("sample-rate", this.f59097b);
         mediaFormat.setInteger("aac-profile", 2);
         createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
         return createEncoderByType;

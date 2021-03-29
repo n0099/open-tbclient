@@ -35,16 +35,16 @@ import org.json.JSONArray;
 public class t implements IXAdSystemUtils {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f8566e = null;
+    public static String f8567e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f8567f = null;
+    public static String f8568f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f8568g = null;
+    public static String f8569g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f8569h = -1;
+    public static long f8570h = -1;
     public static String i;
     public static String j;
     public static String k;
@@ -55,17 +55,17 @@ public class t implements IXAdSystemUtils {
     public int u;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String[]> f8563a = new ArrayList();
+    public static List<String[]> f8564a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String[]> f8564b = new ArrayList();
+    public static List<String[]> f8565b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public static JSONArray f8565c = new JSONArray();
+    public static JSONArray f8566c = new JSONArray();
     public static volatile t l = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f8570d = new JSONArray();
+    public JSONArray f8571d = new JSONArray();
     public String m = "";
     public String n = "";
     public int p = -1;
@@ -183,7 +183,7 @@ public class t implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.f8570d.put(runningAppProcessInfo.processName);
+                            this.f8571d.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -191,37 +191,37 @@ public class t implements IXAdSystemUtils {
         } catch (Exception e2) {
             adLogger.d(e2);
         }
-        adLogger.d("bgBrowsers:" + this.f8570d);
-        return this.f8570d;
+        adLogger.d("bgBrowsers:" + this.f8571d);
+        return this.f8571d;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getCUID(Context context) {
-        if (TextUtils.isEmpty(f8566e)) {
+        if (TextUtils.isEmpty(f8567e)) {
             com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new v(this, context));
         }
-        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(f8566e);
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(f8567e);
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getCell(Context context) {
         if (!MobadsPermissionSettings.hasPermissionGranted("permission_location")) {
-            List<String[]> list = f8563a;
+            List<String[]> list = f8564a;
             if (list == null) {
-                f8563a = new ArrayList();
+                f8564a = new ArrayList();
             } else {
                 list.clear();
             }
-            return f8563a;
+            return f8564a;
         }
-        List<String[]> list2 = f8563a;
+        List<String[]> list2 = f8564a;
         if (list2 == null || list2.size() == 0) {
             try {
                 com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new y(this, ((TelephonyManager) context.getSystemService("phone")).getCellLocation()));
             } catch (Throwable unused) {
             }
         }
-        return f8563a;
+        return f8564a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
@@ -258,14 +258,14 @@ public class t implements IXAdSystemUtils {
     public String getDeviceId(Context context) {
         String str = "";
         if (MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
-            if (TextUtils.isEmpty(f8568g) && context != null) {
+            if (TextUtils.isEmpty(f8569g) && context != null) {
                 try {
                     SharedPreferences sharedPreferences = context.getSharedPreferences("__x_adsdk_agent_header__", 0);
                     IBase64 base64 = XAdSDKFoundationFacade.getInstance().getBase64();
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (f8569h < 0) {
+                    if (f8570h < 0) {
                         long j2 = sharedPreferences.getLong("IA-Vuifb", 0L);
-                        f8569h = j2;
+                        f8570h = j2;
                         if (j2 == 0 && sharedPreferences.contains("deviceid")) {
                             String string = sharedPreferences.getString("deviceid", "");
                             SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -277,18 +277,18 @@ public class t implements IXAdSystemUtils {
                         }
                         str = base64.decodeStr(sharedPreferences.getString("uANvpyP-pyfb", ""));
                         if (!e(str)) {
-                            f8568g = str;
+                            f8569g = str;
                         }
                     }
-                    if (currentTimeMillis - f8569h > 129600000 && Build.VERSION.SDK_INT < 29) {
+                    if (currentTimeMillis - f8570h > 129600000 && Build.VERSION.SDK_INT < 29) {
                         String decodeStr = base64.decodeStr("uvNYwANvpyP-iyfb");
                         String str2 = (String) XAdSDKFoundationFacade.getInstance().getCommonUtils().a((TelephonyManager) context.getApplicationContext().getSystemService("phone"), decodeStr, new Object[0]);
-                        f8569h = currentTimeMillis;
+                        f8570h = currentTimeMillis;
                         SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                        edit2.putLong("IA-Vuifb", f8569h);
+                        edit2.putLong("IA-Vuifb", f8570h);
                         if (!e(str2) && !str2.equals(str)) {
                             edit2.putString("uANvpyP-pyfb", base64.encode(str2));
-                            f8568g = str2;
+                            f8569g = str2;
                         }
                         edit2.apply();
                     }
@@ -296,7 +296,7 @@ public class t implements IXAdSystemUtils {
                     q.a().d(th);
                 }
             }
-            return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(f8568g);
+            return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(f8569g);
         }
         return "";
     }
@@ -345,20 +345,20 @@ public class t implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getIMEI(Context context) {
         if (MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
-            if (TextUtils.isEmpty(f8567f)) {
+            if (TextUtils.isEmpty(f8568f)) {
                 Context applicationContext = context.getApplicationContext();
                 if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(applicationContext, "android.permission.READ_PHONE_STATE")) {
                     this.n = "1";
                     String deviceId = getDeviceId(applicationContext);
                     if (!e(deviceId)) {
                         this.m = "0";
-                        f8567f = deviceId;
+                        f8568f = deviceId;
                         return deviceId;
                     }
                 }
                 com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new u(this, applicationContext));
             }
-            return f8567f;
+            return f8568f;
         }
         return "";
     }
@@ -565,7 +565,7 @@ public class t implements IXAdSystemUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getWIFI(Context context) {
-        return f8564b;
+        return f8565b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
@@ -575,7 +575,7 @@ public class t implements IXAdSystemUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public JSONArray getWifiScans(Context context) {
-        return f8565c;
+        return f8566c;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

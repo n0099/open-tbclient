@@ -22,16 +22,16 @@ import java.text.DecimalFormat;
 public class HostMarketView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f10470e;
+    public ImageView f10471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f10471f;
+    public TextView f10472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f10472g;
+    public TextView f10473g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f10473h;
+    public TextView f10474h;
     public SwitchButton i;
     public o j;
     public a k;
@@ -39,7 +39,7 @@ public class HostMarketView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(a.C0569a c0569a);
+        void a(a.C0570a c0570a);
 
         void b(boolean z, o oVar, d.b.c0.k.j.a aVar);
     }
@@ -61,16 +61,16 @@ public class HostMarketView extends FrameLayout {
         }
 
         @Override // d.b.c0.k.j.a
-        public void a(a.C0569a c0569a) {
-            HostMarketView.this.k.a(c0569a);
-            if (c0569a == null) {
+        public void a(a.C0570a c0570a) {
+            HostMarketView.this.k.a(c0570a);
+            if (c0570a == null) {
                 return;
             }
-            if (c0569a.f42665a == 0) {
+            if (c0570a.f42666a == 0) {
                 if (HostMarketView.this.i.isChecked()) {
-                    HostMarketView.this.f10473h.setVisibility(0);
+                    HostMarketView.this.f10474h.setVisibility(0);
                 } else {
-                    HostMarketView.this.f10473h.setVisibility(4);
+                    HostMarketView.this.f10474h.setVisibility(4);
                 }
             } else {
                 HostMarketView.this.i.j();
@@ -85,9 +85,7 @@ public class HostMarketView extends FrameLayout {
     }
 
     public final String b(long j) {
-        double d2 = j;
-        Double.isNaN(d2);
-        return new DecimalFormat("0.00").format((d2 * 1.0d) / 100.0d);
+        return new DecimalFormat("0.00").format((j * 1.0d) / 100.0d);
     }
 
     public void d(o oVar) {
@@ -100,10 +98,10 @@ public class HostMarketView extends FrameLayout {
 
     public final void g(Context context) {
         LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-        this.f10470e = (ImageView) findViewById(f.icon);
-        this.f10471f = (TextView) findViewById(f.title);
-        this.f10472g = (TextView) findViewById(f.subtitle);
-        this.f10473h = (TextView) findViewById(f.cut_text);
+        this.f10471e = (ImageView) findViewById(f.icon);
+        this.f10472f = (TextView) findViewById(f.title);
+        this.f10473g = (TextView) findViewById(f.subtitle);
+        this.f10474h = (TextView) findViewById(f.cut_text);
         SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
         this.i = switchButton;
         switchButton.setOnCheckedChangeListener(new b());
@@ -123,24 +121,24 @@ public class HostMarketView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        d.b.c0.k.d.b.c().b(this.f10470e, this.j.getIcon());
-        this.f10471f.setText(this.j.getDisplayName());
-        this.f10472g.setText(this.j.S());
+        d.b.c0.k.d.b.c().b(this.f10471e, this.j.getIcon());
+        this.f10472f.setText(this.j.getDisplayName());
+        this.f10473g.setText(this.j.S());
         if (!TextUtils.isEmpty(this.j.M())) {
             try {
-                this.f10472g.setTextColor(Color.parseColor(this.j.M()));
+                this.f10473g.setTextColor(Color.parseColor(this.j.M()));
             } catch (Exception unused) {
             }
         }
         if (this.l) {
             this.i.setVisibility(4);
-            this.f10473h.setVisibility(0);
-            TextView textView = this.f10473h;
+            this.f10474h.setVisibility(0);
+            TextView textView = this.f10474h;
             textView.setText("-" + b(this.j.L()) + "元");
             return;
         }
         this.i.setVisibility(0);
-        this.f10473h.setVisibility(4);
+        this.f10474h.setVisibility(4);
         if (this.j.P() == 1) {
             this.i.setChecked(true);
         } else {

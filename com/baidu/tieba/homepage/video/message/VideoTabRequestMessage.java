@@ -7,7 +7,7 @@ import d.b.b.e.p.l;
 import d.b.h0.z0.w;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoTabRequestMessage extends NetMessage {
     public int load_type;
     public int new_net_type;

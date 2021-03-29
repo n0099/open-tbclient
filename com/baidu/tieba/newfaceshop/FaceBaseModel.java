@@ -5,22 +5,22 @@ import android.os.Looper;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
 import d.b.b.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Message f19183e;
+        public final /* synthetic */ Message f19184e;
 
         public a(Message message) {
-            this.f19183e = message;
+            this.f19184e = message;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            FaceBaseModel.this.sendMessage(this.f19183e);
+            FaceBaseModel.this.sendMessage(this.f19184e);
         }
     }
 

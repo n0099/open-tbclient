@@ -17,96 +17,96 @@ import java.util.HashMap;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8598a;
+    public long f8599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8599b;
+    public String f8600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8600c;
+    public String f8601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8601d;
+    public String f8602d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8602e;
+    public String f8603e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8603f;
+    public String f8604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8604g;
+    public String f8605g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8605h;
+    public String f8606h;
     public String i;
     public String j;
     public String k;
     public Context l;
     public h m;
     public IXAdSystemUtils n;
-    public C0109a o;
+    public C0110a o;
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0109a {
+    public static class C0110a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8606a;
+        public String f8607a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8607b;
+        public String f8608b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8608c;
+        public String f8609c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8609d;
+        public String f8610d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f8610e;
+        public String f8611e;
 
-        public C0109a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
-            this.f8606a = "";
-            this.f8607b = "";
-            this.f8608c = "";
-            this.f8609d = "";
-            this.f8610e = "";
+        public C0110a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+            this.f8607a = "";
+            this.f8608b = "";
+            this.f8609c = "";
+            this.f8610d = "";
+            this.f8611e = "";
             if (iXAdInstanceInfo != null) {
-                this.f8606a = iXAdInstanceInfo.getAdId();
-                this.f8607b = iXAdInstanceInfo.getQueryKey();
-                this.f8609d = iXAdInstanceInfo.getCreativeType().getValue();
+                this.f8607a = iXAdInstanceInfo.getAdId();
+                this.f8608b = iXAdInstanceInfo.getQueryKey();
+                this.f8610d = iXAdInstanceInfo.getCreativeType().getValue();
             }
             if (iXAdProdInfo != null) {
-                this.f8610e = iXAdProdInfo.getAdPlacementId();
-                this.f8608c = iXAdProdInfo.getProdType();
+                this.f8611e = iXAdProdInfo.getAdPlacementId();
+                this.f8609c = iXAdProdInfo.getProdType();
             }
         }
     }
 
-    public a(C0109a c0109a) {
-        this(c0109a.f8606a, c0109a.f8607b, c0109a.f8608c);
-        this.o = c0109a;
+    public a(C0110a c0110a) {
+        this(c0110a.f8607a, c0110a.f8608b, c0110a.f8609c);
+        this.o = c0110a;
     }
 
     public HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("adid", this.f8599b);
-        hashMap.put("appsec", this.f8602e);
-        hashMap.put("appsid", this.f8603f);
-        hashMap.put("pack", this.f8601d);
-        hashMap.put("qk", this.f8600c);
-        hashMap.put(IXAdRequestInfo.SN, this.f8605h);
-        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f8598a);
-        hashMap.put("v", this.f8604g);
+        hashMap.put("adid", this.f8600b);
+        hashMap.put("appsec", this.f8603e);
+        hashMap.put("appsid", this.f8604f);
+        hashMap.put("pack", this.f8602d);
+        hashMap.put("qk", this.f8601c);
+        hashMap.put(IXAdRequestInfo.SN, this.f8606h);
+        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f8599a);
+        hashMap.put("v", this.f8605g);
         hashMap.put(IXAdRequestInfo.OS, this.i);
         hashMap.put("prod", this.j);
         hashMap.put("cuid", XAdSDKFoundationFacade.getInstance().getBase64().encode(this.k));
         hashMap.put(IXAdRequestInfo.P_VER, XAdSDKProxyVersion.RELEASE_TAG);
-        C0109a c0109a = this.o;
-        if (c0109a != null) {
-            hashMap.put("adt", c0109a.f8609d);
-            hashMap.put("apid", this.o.f8610e);
+        C0110a c0110a = this.o;
+        if (c0110a != null) {
+            hashMap.put("adt", c0110a.f8610d);
+            hashMap.put("apid", this.o.f8611e);
         }
         return hashMap;
     }
@@ -128,31 +128,31 @@ public abstract class a {
 
     @Deprecated
     public a(String str, String str2, String str3) {
-        this.f8599b = "-1";
-        this.f8600c = "";
-        this.f8601d = "";
-        this.f8602e = "";
-        this.f8603f = "";
-        this.f8604g = "";
-        this.f8605h = "";
+        this.f8600b = "-1";
+        this.f8601c = "";
+        this.f8602d = "";
+        this.f8603e = "";
+        this.f8604f = "";
+        this.f8605g = "";
+        this.f8606h = "";
         this.j = "";
         this.k = "";
         this.o = null;
         this.m = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         this.n = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         this.l = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-        this.f8598a = System.currentTimeMillis();
-        this.f8599b = str;
-        this.f8600c = str2;
-        this.f8602e = this.m.getAppSec(this.l);
+        this.f8599a = System.currentTimeMillis();
+        this.f8600b = str;
+        this.f8601c = str2;
+        this.f8603e = this.m.getAppSec(this.l);
         Context context = this.l;
         if (context != null) {
-            this.f8601d = context.getPackageName();
+            this.f8602d = context.getPackageName();
         }
-        this.f8603f = this.m.getAppId(this.l);
-        this.f8605h = this.n.getEncodedSN(this.l);
+        this.f8604f = this.m.getAppId(this.l);
+        this.f8606h = this.n.getEncodedSN(this.l);
         this.i = "android";
-        this.f8604g = "android_" + com.baidu.mobads.constants.a.f8205c + "_4.1.30";
+        this.f8605g = "android_" + com.baidu.mobads.constants.a.f8206c + "_4.1.30";
         this.j = str3;
         this.k = XAdSDKFoundationFacade.getInstance().getSystemUtils().getCUID(this.l);
     }

@@ -20,22 +20,22 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f54261f;
+    public static d f54262f;
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f54262a = new a();
+    public BroadcastReceiver f54263a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f54263b = new Object();
+    public Object f54264b = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, d.b.i0.e0.i.a> f54264c = null;
+    public Map<String, d.b.i0.e0.i.a> f54265c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.e0.i.a f54265d = null;
+    public d.b.i0.e0.i.a f54266d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54266e = false;
+    public boolean f54267e = false;
 
     /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
@@ -67,42 +67,42 @@ public class d {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ WriteHistroyDataReqIdl f54268e;
+            public final /* synthetic */ WriteHistroyDataReqIdl f54269e;
 
             public a(WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
-                this.f54268e = writeHistroyDataReqIdl;
+                this.f54269e = writeHistroyDataReqIdl;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 HashMap hashMap = new HashMap();
-                WriteHistroyDataReqIdl writeHistroyDataReqIdl = this.f54268e;
+                WriteHistroyDataReqIdl writeHistroyDataReqIdl = this.f54269e;
                 if (writeHistroyDataReqIdl != null) {
                     for (ConnectPointData connectPointData : writeHistroyDataReqIdl.connect_point_list) {
                         d.b.i0.e0.i.a a2 = d.b.i0.e0.i.a.a(connectPointData);
                         if (a2 != null) {
-                            hashMap.put(a2.f54246e, a2);
+                            hashMap.put(a2.f54247e, a2);
                         }
                     }
                 }
-                synchronized (d.this.f54263b) {
-                    if (d.this.f54264c == null) {
-                        d.this.f54264c = new ConcurrentHashMap();
+                synchronized (d.this.f54264b) {
+                    if (d.this.f54265c == null) {
+                        d.this.f54265c = new ConcurrentHashMap();
                     }
-                    d.this.f54264c.clear();
-                    d.this.f54264c.putAll(hashMap);
+                    d.this.f54265c.clear();
+                    d.this.f54265c.putAll(hashMap);
                 }
-                d.this.f54266e = true;
+                d.this.f54267e = true;
                 d.this.s();
                 ArrayList<d.b.i0.e0.i.a> arrayList = new ArrayList();
-                for (Map.Entry entry : d.this.f54264c.entrySet()) {
-                    if (d.this.f54265d != entry.getValue() && System.currentTimeMillis() - ((d.b.i0.e0.i.a) entry.getValue()).f54244c > 604800000) {
+                for (Map.Entry entry : d.this.f54265c.entrySet()) {
+                    if (d.this.f54266d != entry.getValue() && System.currentTimeMillis() - ((d.b.i0.e0.i.a) entry.getValue()).f54245c > 604800000) {
                         arrayList.add(entry.getValue());
                         d.b.i0.e0.d.c().b("conpoint_remove", "out_time", (String) entry.getKey());
                     }
                 }
                 for (d.b.i0.e0.i.a aVar : arrayList) {
-                    d.this.f54264c.remove(aVar.f54246e);
+                    d.this.f54265c.remove(aVar.f54247e);
                 }
             }
         }
@@ -122,41 +122,41 @@ public class d {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f54270e;
+        public final /* synthetic */ String f54271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f54271f;
+        public final /* synthetic */ boolean f54272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f54272g;
+        public final /* synthetic */ boolean f54273g;
 
         public c(String str, boolean z, boolean z2) {
-            this.f54270e = str;
-            this.f54271f = z;
-            this.f54272g = z2;
+            this.f54271e = str;
+            this.f54272f = z;
+            this.f54273g = z2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             HashMap hashMap;
-            if (d.this.f54265d != null) {
-                d.b.i0.e0.i.b bVar = d.this.f54265d.f54242a.get(this.f54270e);
+            if (d.this.f54266d != null) {
+                d.b.i0.e0.i.b bVar = d.this.f54266d.f54243a.get(this.f54271e);
                 if (bVar == null) {
                     bVar = new d.b.i0.e0.i.b();
-                    bVar.f54247a = this.f54270e;
-                    d.this.f54265d.f54242a.put(this.f54270e, bVar);
+                    bVar.f54248a = this.f54271e;
+                    d.this.f54266d.f54243a.put(this.f54271e, bVar);
                 }
-                bVar.a(this.f54271f ? 1 : 0);
-                synchronized (d.this.f54263b) {
-                    hashMap = new HashMap(d.this.f54264c);
+                bVar.a(this.f54272f ? 1 : 0);
+                synchronized (d.this.f54264b) {
+                    hashMap = new HashMap(d.this.f54265c);
                 }
                 d.b.i0.e0.i.c.h().j(hashMap);
             }
-            if (this.f54272g) {
+            if (this.f54273g) {
                 Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                 intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                intent.putExtra("ip", this.f54270e);
-                intent.putExtra("result", this.f54271f);
+                intent.putExtra("ip", this.f54271e);
+                intent.putExtra("result", this.f54272f);
                 f.b(TbadkCoreApplication.getInst().getContext(), intent);
             }
         }
@@ -164,103 +164,103 @@ public class d {
 
     /* renamed from: d.b.i0.e0.i.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1228d implements Runnable {
+    public class RunnableC1229d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f54274e;
+        public final /* synthetic */ String f54275e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f54275f;
+        public final /* synthetic */ boolean f54276f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f54276g;
+        public final /* synthetic */ int f54277g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f54277h;
+        public final /* synthetic */ boolean f54278h;
 
-        public RunnableC1228d(String str, boolean z, int i, boolean z2) {
-            this.f54274e = str;
-            this.f54275f = z;
-            this.f54276g = i;
-            this.f54277h = z2;
+        public RunnableC1229d(String str, boolean z, int i, boolean z2) {
+            this.f54275e = str;
+            this.f54276f = z;
+            this.f54277g = i;
+            this.f54278h = z2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             HashMap hashMap;
-            if (d.this.f54265d == null) {
+            if (d.this.f54266d == null) {
                 String b2 = d.b.i0.e0.i.a.b();
                 if (!TextUtils.isEmpty(b2)) {
                     d.b.i0.e0.i.a aVar = new d.b.i0.e0.i.a();
-                    aVar.f54246e = b2;
-                    d.this.f54265d = aVar;
-                    d.this.f54264c.put(b2, aVar);
+                    aVar.f54247e = b2;
+                    d.this.f54266d = aVar;
+                    d.this.f54265c.put(b2, aVar);
                 }
             }
-            if (d.this.f54265d != null) {
-                d.b.i0.e0.i.b bVar = d.this.f54265d.f54242a.get(this.f54274e);
+            if (d.this.f54266d != null) {
+                d.b.i0.e0.i.b bVar = d.this.f54266d.f54243a.get(this.f54275e);
                 if (bVar == null) {
                     bVar = new d.b.i0.e0.i.b();
-                    bVar.f54247a = this.f54274e;
-                    d.this.f54265d.f54242a.put(this.f54274e, bVar);
+                    bVar.f54248a = this.f54275e;
+                    d.this.f54266d.f54243a.put(this.f54275e, bVar);
                 }
-                bVar.a(this.f54275f ? 1 : 0);
-                if (this.f54275f) {
-                    d.b.i0.e0.i.b bVar2 = d.this.f54265d.f54243b.get(this.f54274e);
+                bVar.a(this.f54276f ? 1 : 0);
+                if (this.f54276f) {
+                    d.b.i0.e0.i.b bVar2 = d.this.f54266d.f54244b.get(this.f54275e);
                     if (bVar2 == null) {
                         bVar2 = new d.b.i0.e0.i.b();
-                        bVar2.f54247a = this.f54274e;
-                        d.this.f54265d.f54243b.put(this.f54274e, bVar2);
+                        bVar2.f54248a = this.f54275e;
+                        d.this.f54266d.f54244b.put(this.f54275e, bVar2);
                     }
-                    bVar2.a(this.f54276g);
+                    bVar2.a(this.f54277g);
                 }
-                synchronized (d.this.f54263b) {
-                    hashMap = new HashMap(d.this.f54264c);
+                synchronized (d.this.f54264b) {
+                    hashMap = new HashMap(d.this.f54265c);
                 }
                 d.b.i0.e0.i.c.h().j(hashMap);
             }
-            if (this.f54277h) {
+            if (this.f54278h) {
                 Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                 intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                intent.putExtra("ip", this.f54274e);
-                intent.putExtra("result", this.f54275f);
-                intent.putExtra("speed", this.f54276g);
+                intent.putExtra("ip", this.f54275e);
+                intent.putExtra("result", this.f54276f);
+                intent.putExtra("speed", this.f54277g);
                 f.b(TbadkCoreApplication.getInst().getContext(), intent);
             }
         }
     }
 
     public static final d m() {
-        if (f54261f == null) {
+        if (f54262f == null) {
             synchronized (d.class) {
-                if (f54261f == null) {
-                    f54261f = new d();
+                if (f54262f == null) {
+                    f54262f = new d();
                 }
             }
         }
-        return f54261f;
+        return f54262f;
     }
 
     public void j() {
-        TbadkCoreApplication.getInst().unregisterReceiver(this.f54262a);
+        TbadkCoreApplication.getInst().unregisterReceiver(this.f54263a);
     }
 
     public float k(String str, String str2) {
         d.b.i0.e0.i.a aVar;
         d.b.i0.e0.i.b bVar;
-        if (!this.f54266e || (aVar = this.f54265d) == null || (bVar = aVar.f54242a.get(str2)) == null) {
+        if (!this.f54267e || (aVar = this.f54266d) == null || (bVar = aVar.f54243a.get(str2)) == null) {
             return 0.0f;
         }
-        return bVar.f54249c;
+        return bVar.f54250c;
     }
 
     public float l(String str, String str2) {
         d.b.i0.e0.i.a aVar;
         d.b.i0.e0.i.b bVar;
-        if (!this.f54266e || (aVar = this.f54265d) == null || (bVar = aVar.f54243b.get(str2)) == null) {
+        if (!this.f54267e || (aVar = this.f54266d) == null || (bVar = aVar.f54244b.get(str2)) == null) {
             return 10000.0f;
         }
-        return bVar.f54249c;
+        return bVar.f54250c;
     }
 
     public void n(String str, int i, boolean z) {
@@ -268,8 +268,8 @@ public class d {
     }
 
     public final void o(String str, int i, boolean z, boolean z2) {
-        if (this.f54266e && !TextUtils.isEmpty(str)) {
-            e.i().o(new RunnableC1228d(str, z, i, z2));
+        if (this.f54267e && !TextUtils.isEmpty(str)) {
+            e.i().o(new RunnableC1229d(str, z, i, z2));
         }
     }
 
@@ -278,7 +278,7 @@ public class d {
     }
 
     public final void q(String str, boolean z, boolean z2) {
-        if (this.f54266e && !TextUtils.isEmpty(str)) {
+        if (this.f54267e && !TextUtils.isEmpty(str)) {
             e.i().o(new c(str, z, z2));
         }
     }
@@ -288,24 +288,24 @@ public class d {
     }
 
     public final void s() {
-        if (this.f54266e) {
+        if (this.f54267e) {
             String b2 = d.b.i0.e0.i.a.b();
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            if (!this.f54264c.containsKey(b2)) {
+            if (!this.f54265c.containsKey(b2)) {
                 e.i().g(false);
                 return;
             }
-            d.b.i0.e0.i.a aVar = this.f54264c.get(b2);
-            this.f54265d = aVar;
+            d.b.i0.e0.i.a aVar = this.f54265c.get(b2);
+            this.f54266d = aVar;
             if (aVar == null) {
                 e.i().g(false);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            d.b.i0.e0.i.a aVar2 = this.f54265d;
-            if (currentTimeMillis - aVar2.f54245d <= VideoCloudSetting.HOUR_MILLISECOND || currentTimeMillis - aVar2.f54244c >= VideoCloudSetting.HOUR_MILLISECOND) {
+            d.b.i0.e0.i.a aVar2 = this.f54266d;
+            if (currentTimeMillis - aVar2.f54246d <= VideoCloudSetting.HOUR_MILLISECOND || currentTimeMillis - aVar2.f54245c >= VideoCloudSetting.HOUR_MILLISECOND) {
                 return;
             }
             e.i().g(false);
@@ -314,13 +314,13 @@ public class d {
 
     public void t() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f54262a);
-            TbadkCoreApplication.getInst().registerReceiver(this.f54262a, new IntentFilter("action_sub_process_ip_data_change"));
+            TbadkCoreApplication.getInst().unregisterReceiver(this.f54263a);
+            TbadkCoreApplication.getInst().registerReceiver(this.f54263a, new IntentFilter("action_sub_process_ip_data_change"));
         } else {
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f54262a);
-            TbadkCoreApplication.getInst().registerReceiver(this.f54262a, new IntentFilter("action_main_process_ip_data_change"));
+            TbadkCoreApplication.getInst().unregisterReceiver(this.f54263a);
+            TbadkCoreApplication.getInst().registerReceiver(this.f54263a, new IntentFilter("action_main_process_ip_data_change"));
         }
-        if (this.f54266e) {
+        if (this.f54267e) {
             return;
         }
         d.b.i0.e0.i.c.h().i(new b());

@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.i0.d1.f.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<d> {
         public a(MsgMidViewItemAdapter msgMidViewItemAdapter, View view, d dVar) {
             super(view, dVar);

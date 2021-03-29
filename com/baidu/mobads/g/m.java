@@ -9,14 +9,14 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 public class m implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ double f8292a;
+    public final /* synthetic */ double f8293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ g f8293b;
+    public final /* synthetic */ g f8294b;
 
     public m(g gVar, double d2) {
-        this.f8293b = gVar;
-        this.f8292a = d2;
+        this.f8294b = gVar;
+        this.f8293a = d2;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0072, code lost:
@@ -38,50 +38,50 @@ public class m implements IOAdEventListener {
         e eVar5;
         e eVar6;
         e eVar7;
-        this.f8293b.n();
+        this.f8294b.n();
         if ("URLLoader.Load.Complete".equals(iOAdEvent.getType())) {
-            this.f8293b.k = new e((String) iOAdEvent.getData().get("message"));
+            this.f8294b.k = new e((String) iOAdEvent.getData().get("message"));
             double version = XAdSDKProxyVersion.getVersion();
-            k = this.f8293b.k();
+            k = this.f8294b.k();
             float f2 = k.getFloat("__badApkVersion__8.8448", 0.0f);
-            eVar = this.f8293b.k;
+            eVar = this.f8294b.k;
             boolean z3 = true;
             Boolean valueOf = Boolean.valueOf(((float) eVar.b()) == f2);
-            eVar2 = this.f8293b.k;
+            eVar2 = this.f8294b.k;
             if (version <= eVar2.b()) {
                 double floor = Math.floor(version);
-                eVar7 = this.f8293b.k;
+                eVar7 = this.f8294b.k;
             }
             z3 = false;
             Boolean valueOf2 = Boolean.valueOf(z3);
-            iXAdLogger = this.f8293b.m;
+            iXAdLogger = this.f8294b.m;
             iXAdLogger.d("XAdApkLoader", "try to download apk badVer=" + f2 + ", isBad=" + valueOf + ", compatible=" + valueOf2);
-            double d2 = this.f8292a;
-            eVar3 = this.f8293b.k;
+            double d2 = this.f8293a;
+            eVar3 = this.f8294b.k;
             if (d2 < eVar3.b()) {
-                eVar4 = this.f8293b.k;
+                eVar4 = this.f8294b.k;
                 if (eVar4 != null) {
-                    eVar5 = this.f8293b.k;
+                    eVar5 = this.f8294b.k;
                     if (eVar5.a().booleanValue() && valueOf2.booleanValue() && !valueOf.booleanValue()) {
-                        g gVar = this.f8293b;
+                        g gVar = this.f8294b;
                         eVar6 = gVar.k;
                         gVar.a(eVar6);
                         return;
                     }
                 }
             }
-            z2 = this.f8293b.n;
+            z2 = this.f8294b.n;
             if (z2) {
-                this.f8293b.n = false;
-                this.f8293b.a(false, "Refused to download remote for version...");
+                this.f8294b.n = false;
+                this.f8294b.a(false, "Refused to download remote for version...");
                 return;
             }
             return;
         }
-        z = this.f8293b.n;
+        z = this.f8294b.n;
         if (z) {
-            this.f8293b.n = false;
-            this.f8293b.a(false, "remote update Network access failed");
+            this.f8294b.n = false;
+            this.f8294b.a(false, "remote update Network access failed");
         }
     }
 }

@@ -16,18 +16,18 @@ import java.util.concurrent.ConcurrentHashMap;
 import okhttp3.Headers;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f44510d = Sets.newHashSet("REFERER", "USER-AGENT");
+    public static final Set<String> f44511d = Sets.newHashSet("REFERER", "USER-AGENT");
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f44511c;
+    public ConcurrentHashMap<String, Long> f44512c;
 
     public a(d.b.g0.a.t1.j jVar, String str) {
         super(jVar, str);
-        this.f44511c = new ConcurrentHashMap<>();
+        this.f44512c = new ConcurrentHashMap<>();
     }
 
     public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
@@ -38,7 +38,7 @@ public class a extends a0 {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !f44510d.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !f44511d.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (TextUtils.isEmpty(optString)) {
                     optString = "";
@@ -128,7 +128,7 @@ public class a extends a0 {
                 jSONObject.put("cancelTag", str);
             }
         } catch (JSONException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
         }
@@ -144,17 +144,17 @@ public class a extends a0 {
             return 0L;
         }
         try {
-            return this.f44511c.get(str).longValue();
+            return this.f44512c.get(str).longValue();
         } catch (Exception unused) {
             return 0L;
         }
     }
 
     public final void q(String str) {
-        if (this.f44511c == null || TextUtils.isEmpty(str)) {
+        if (this.f44512c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f44511c.remove(str);
+        this.f44512c.remove(str);
     }
 
     public void r(String str, Headers headers) {
@@ -171,7 +171,7 @@ public class a extends a0 {
                 d.b.g0.a.z0.f.V().N(new d.b.g0.a.k0.b.b(str, hashMap));
             }
         } catch (JSONException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
         }

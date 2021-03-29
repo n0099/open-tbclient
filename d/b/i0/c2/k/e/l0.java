@@ -64,7 +64,7 @@ public class l0 extends m<d.b.i0.c2.h.o, PbReplyTitleViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public PbReplyTitleViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.pb_reply_title_layout, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.pb_reply_title_layout, viewGroup, false);
         this.y = inflate;
         PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.m.getPageContext(), inflate);
         PbFragment pbFragment = this.n;
@@ -86,7 +86,7 @@ public class l0 extends m<d.b.i0.c2.h.o, PbReplyTitleViewHolder> {
         super.X(i, view, viewGroup, oVar, pbReplyTitleViewHolder);
         if (pbReplyTitleViewHolder != null) {
             j0();
-            oVar.k = this.x.f52424f;
+            oVar.k = this.x.f52425f;
             pbReplyTitleViewHolder.h(oVar);
         }
         return view;

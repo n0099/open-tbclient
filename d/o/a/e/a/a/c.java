@@ -11,11 +11,11 @@ import org.json.JSONObject;
 public class c extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f66787d;
+    public final JSONObject f66792d;
 
     public c(Context context, d.o.a.e.b.j.a aVar, String str, JSONObject jSONObject) {
         super(context, aVar, str);
-        this.f66787d = jSONObject;
+        this.f66792d = jSONObject;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -77,13 +77,13 @@ public class c extends a {
 
     @Override // d.o.a.e.a.a.e
     public Intent b() {
-        String optString = this.f66787d.optString("action");
-        String optString2 = this.f66787d.optString("category");
-        int optInt = this.f66787d.optInt("flags", 1342210048);
-        String optString3 = this.f66787d.optString("path_extra_key");
-        String optString4 = this.f66787d.optString("path_data_key");
-        JSONObject optJSONObject = this.f66787d.optJSONObject("extra");
-        JSONObject optJSONObject2 = this.f66787d.optJSONObject("extra_type");
+        String optString = this.f66792d.optString("action");
+        String optString2 = this.f66792d.optString("category");
+        int optInt = this.f66792d.optInt("flags", 1342210048);
+        String optString3 = this.f66792d.optString("path_extra_key");
+        String optString4 = this.f66792d.optString("path_data_key");
+        JSONObject optJSONObject = this.f66792d.optJSONObject("extra");
+        JSONObject optJSONObject2 = this.f66792d.optJSONObject("extra_type");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
@@ -93,13 +93,13 @@ public class c extends a {
         }
         if (!TextUtils.isEmpty(optString4)) {
             try {
-                intent.setData(Uri.parse(String.format(optString4, this.f66786c)));
+                intent.setData(Uri.parse(String.format(optString4, this.f66791c)));
             } catch (Throwable unused) {
             }
         }
         intent.setFlags(optInt);
         if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.f66786c);
+            intent.putExtra(optString3, this.f66791c);
         }
         b(intent, optJSONObject, optJSONObject2);
         return intent;

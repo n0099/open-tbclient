@@ -20,29 +20,29 @@ import d.b.i0.r0.c;
 public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BdUniqueId f16805a;
+    public final BdUniqueId f16806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f16806b;
+    public final Activity f16807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FunAbsAdView f16807c;
+    public final FunAbsAdView f16808c;
 
     /* loaded from: classes4.dex */
     public class a implements a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Object f16808a;
+        public final /* synthetic */ Object f16809a;
 
         public a(Object obj) {
-            this.f16808a = obj;
+            this.f16809a = obj;
         }
 
         @Override // d.b.i0.q0.a.e
         public void onAdClicked(String str) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f16805a == AdvertAppInfo.n4 ? "a006" : "a005").param("obj_locate", 0));
-            if (c.d((FunNativeAd) this.f16808a)) {
-                FunAdNativeViewHolder.this.f16807c.setDownloadDelayText(FunAdNativeViewHolder.this.f16806b.getString(R.string.fun_ad_downloading), 1000L);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f16806a == AdvertAppInfo.n4 ? "a006" : "a005").param("obj_locate", 0));
+            if (c.d((FunNativeAd) this.f16809a)) {
+                FunAdNativeViewHolder.this.f16808c.setDownloadDelayText(FunAdNativeViewHolder.this.f16807b.getString(R.string.fun_ad_downloading), 1000L);
             }
         }
 
@@ -52,12 +52,12 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
 
         @Override // d.b.i0.q0.a.e
         public void onAdError(String str) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f16805a == AdvertAppInfo.n4 ? "a006" : "a005").param("obj_locate", 1));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f16806a == AdvertAppInfo.n4 ? "a006" : "a005").param("obj_locate", 1));
         }
 
         @Override // d.b.i0.q0.a.e
         public void onAdShow(String str) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f16805a == AdvertAppInfo.n4 ? "a006" : "a005").param("obj_locate", 0));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f16806a == AdvertAppInfo.n4 ? "a006" : "a005").param("obj_locate", 0));
         }
 
         @Override // d.b.i0.q0.a.e
@@ -67,9 +67,9 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
 
     public FunAdNativeViewHolder(@NonNull FunAbsAdView funAbsAdView, @NonNull Activity activity, @NonNull BdUniqueId bdUniqueId) {
         super(funAbsAdView);
-        this.f16805a = bdUniqueId;
-        this.f16807c = funAbsAdView;
-        this.f16806b = activity;
+        this.f16806a = bdUniqueId;
+        this.f16808c = funAbsAdView;
+        this.f16807b = activity;
     }
 
     public final boolean e(FunNativeAd funNativeAd) {
@@ -81,32 +81,32 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public FunAbsAdView f() {
-        return this.f16807c;
+        return this.f16808c;
     }
 
     public void g(View.OnClickListener onClickListener) {
-        if (this.f16807c.getFeedBackView() != null) {
-            this.f16807c.getFeedBackView().setOnClickListener(onClickListener);
+        if (this.f16808c.getFeedBackView() != null) {
+            this.f16808c.getFeedBackView().setOnClickListener(onClickListener);
         }
     }
 
     public void h(@NonNull n nVar) {
-        String str = this.f16805a == AdvertAppInfo.n4 ? "6051001773-1862514716" : "6051001775-457565154";
+        String str = this.f16806a == AdvertAppInfo.n4 ? "6051001773-1862514716" : "6051001775-457565154";
         if (nVar.c() == null) {
-            nVar.i(d.b.i0.q0.a.h().i(this.f16806b, str));
+            nVar.i(d.b.i0.q0.a.h().i(this.f16807b, str));
         }
         Object c2 = nVar.c();
         if (c2 == null) {
-            this.f16807c.setFunAdViewVisible(false);
+            this.f16808c.setFunAdViewVisible(false);
             return;
         }
-        this.f16807c.setFunAdViewVisible(true);
-        this.f16807c.f(nVar, this.f16806b);
-        this.f16807c.e(this.f16805a);
-        FunAbsAdView funAbsAdView = this.f16807c;
+        this.f16808c.setFunAdViewVisible(true);
+        this.f16808c.f(nVar, this.f16807b);
+        this.f16808c.e(this.f16806a);
+        FunAbsAdView funAbsAdView = this.f16808c;
         FunNativeAd funNativeAd = (FunNativeAd) c2;
         funAbsAdView.c(funNativeAd);
-        d.b.i0.q0.a.h().o(this.f16806b, c2, new a(c2), funAbsAdView, this.f16807c.getClickViews(), this.f16807c.getCreativeViews(), this.f16807c.getLogItem());
+        d.b.i0.q0.a.h().o(this.f16807b, c2, new a(c2), funAbsAdView, this.f16808c.getClickViews(), this.f16808c.getCreativeViews(), this.f16808c.getLogItem());
         if (!e(funNativeAd) || funAbsAdView == null || funAbsAdView.getChildCount() <= 1) {
             return;
         }

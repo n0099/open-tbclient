@@ -68,7 +68,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str2 = g.f59770a.get(Integer.valueOf(appData.mDiscardReason));
+                    String str2 = g.f59771a.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "未知原因";
                     }

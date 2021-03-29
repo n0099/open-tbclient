@@ -30,18 +30,18 @@ import d.b.g0.a.r1.m;
 import d.b.g0.a.y0.e.b;
 import d.b.g0.a.z1.h;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class c extends m {
-    public static final boolean u = k.f45050a;
+    public static final boolean u = k.f45051a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SwanAppActivity f45410f;
+    public final SwanAppActivity f45411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f45411g;
+    public f f45412g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.c f45412h;
+    public a.c f45413h;
     public final d.b.g0.a.c2.f.b i;
     public FrameLayout j;
     public d.b.g0.a.z1.a k;
@@ -55,18 +55,18 @@ public abstract class c extends m {
     public final d.b.g0.a.r1.b s;
     public boolean t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<i.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f45413e;
+        public final /* synthetic */ boolean f45414e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f45414f;
+        public final /* synthetic */ boolean f45415f;
 
         public a(boolean z, boolean z2) {
-            this.f45413e = z;
-            this.f45414f = z2;
+            this.f45414e = z;
+            this.f45415f = z2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public abstract class c extends m {
         public void onCallback(i.a aVar) {
             if (d.b.g0.a.r1.d.e().x()) {
                 c.this.s.f("event_first_action_launched");
-                c.this.t0(this.f45413e, this.f45414f);
+                c.this.t0(this.f45414e, this.f45415f);
                 c.this.A0();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -93,9 +93,9 @@ public abstract class c extends m {
     }
 
     /* renamed from: d.b.g0.a.o0.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0748c implements Runnable {
-        public RunnableC0748c() {
+    /* loaded from: classes2.dex */
+    public class RunnableC0749c implements Runnable {
+        public RunnableC0749c() {
         }
 
         @Override // java.lang.Runnable
@@ -104,7 +104,7 @@ public abstract class c extends m {
             if (c.u) {
                 Log.e("SwanActivityFrame", "try update on computation thread");
             }
-            if (c.this.f45410f == null || d.b.g0.a.r1.e.y() == null) {
+            if (c.this.f45411f == null || d.b.g0.a.r1.e.y() == null) {
                 return;
             }
             d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
@@ -114,25 +114,25 @@ public abstract class c extends m {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements Runnable {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f45419e;
+            public final /* synthetic */ Bitmap f45420e;
 
             public a(Bitmap bitmap) {
-                this.f45419e = bitmap;
+                this.f45420e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f45410f == null || d.b.g0.a.r1.e.O() == null) {
+                if (c.this.f45411f == null || d.b.g0.a.r1.e.O() == null) {
                     return;
                 }
-                c.this.E(this.f45419e);
+                c.this.E(this.f45420e);
             }
         }
 
@@ -145,29 +145,29 @@ public abstract class c extends m {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f45421a;
+        public static final /* synthetic */ int[] f45422a;
 
         static {
             int[] iArr = new int[FrameLifeState.values().length];
-            f45421a = iArr;
+            f45422a = iArr;
             try {
                 iArr[FrameLifeState.JUST_CREATED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f45421a[FrameLifeState.JUST_STARTED.ordinal()] = 2;
+                f45422a[FrameLifeState.JUST_STARTED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f45421a[FrameLifeState.JUST_RESUMED.ordinal()] = 3;
+                f45422a[FrameLifeState.JUST_RESUMED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f45421a[FrameLifeState.INACTIVATED.ordinal()] = 4;
+                f45422a[FrameLifeState.INACTIVATED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -175,7 +175,7 @@ public abstract class c extends m {
 
     public c(SwanAppActivity swanAppActivity, String str) {
         super(d.b.g0.a.r1.d.e());
-        this.f45412h = null;
+        this.f45413h = null;
         this.i = new d.b.g0.a.c2.f.b();
         this.o = FrameLifeState.INACTIVATED;
         this.p = null;
@@ -183,7 +183,7 @@ public abstract class c extends m {
         this.r = false;
         this.s = new d.b.g0.a.r1.b();
         this.t = true;
-        this.f45410f = swanAppActivity;
+        this.f45411f = swanAppActivity;
         this.n = str;
         this.l = new d.b.g0.a.o0.d();
         i(this.s);
@@ -207,10 +207,10 @@ public abstract class c extends m {
     }
 
     public void A() {
-        if (this.f45412h == null) {
-            this.f45412h = O();
+        if (this.f45413h == null) {
+            this.f45413h = O();
         }
-        q().y(null, this.f45412h);
+        q().y(null, this.f45413h);
     }
 
     public final synchronized void A0() {
@@ -220,7 +220,7 @@ public abstract class c extends m {
             FrameLifeState z2 = z(this.p);
             W("syncLifeState: pendingTarget=" + this.p + " fixedTarget=" + z2);
             this.p = null;
-            int i = e.f45421a[z2.ordinal()];
+            int i = e.f45422a[z2.ordinal()];
             if (i == 1) {
                 K();
                 F();
@@ -242,7 +242,7 @@ public abstract class c extends m {
     }
 
     public boolean B() {
-        if (this.m || !d.b.g0.a.q0.c.c().a(new WeakReference<>(this.f45410f))) {
+        if (this.m || !d.b.g0.a.q0.c.c().a(new WeakReference<>(this.f45411f))) {
             return false;
         }
         this.m = true;
@@ -252,12 +252,12 @@ public abstract class c extends m {
     public final void B0() {
         d.b.g0.a.p.c.b b2 = o().a().b();
         if (b2 != null) {
-            b2.a(this.f45410f);
+            b2.a(this.f45411f);
         }
     }
 
     public final void C() {
-        this.f45411g = new f(this.f45410f);
+        this.f45412g = new f(this.f45411f);
         c0();
     }
 
@@ -274,15 +274,15 @@ public abstract class c extends m {
             return;
         }
         b.a M = M();
-        fVar.f47250a = h.n(h());
-        fVar.f47254e = M.G();
-        fVar.f47252c = M.S();
+        fVar.f47251a = h.n(h());
+        fVar.f47255e = M.G();
+        fVar.f47253c = M.S();
         fVar.b(h.l(M.V()));
-        if (TextUtils.isEmpty(fVar.f47251b)) {
-            fVar.f47251b = PrefetchEvent.STATE_CLICK;
+        if (TextUtils.isEmpty(fVar.f47252b)) {
+            fVar.f47252b = PrefetchEvent.STATE_CLICK;
         }
         fVar.d(M.n0().getString(UBCCloudControlProcessor.UBC_KEY));
-        if (TextUtils.equals(fVar.f47251b, PrefetchEvent.STATE_CLICK)) {
+        if (TextUtils.equals(fVar.f47252b, PrefetchEvent.STATE_CLICK)) {
             d.b.g0.a.z1.d.a(fVar);
         } else {
             h.onEvent(fVar);
@@ -296,7 +296,7 @@ public abstract class c extends m {
 
     public final void E(Bitmap bitmap) {
         if (s().d()) {
-            y0(this.f45410f, M().J(), bitmap, (int) M().Y());
+            y0(this.f45411f, M().J(), bitmap, (int) M().Y());
         }
     }
 
@@ -324,7 +324,7 @@ public abstract class c extends m {
 
     public void F0() {
         q().Q();
-        this.f45412h = null;
+        this.f45413h = null;
     }
 
     public final synchronized void G() {
@@ -347,7 +347,7 @@ public abstract class c extends m {
     }
 
     public final synchronized void H0(FrameLifeState frameLifeState, boolean z) {
-        if (!this.f45410f.isDestroyed()) {
+        if (!this.f45411f.isDestroyed()) {
             boolean z2 = false;
             boolean z3 = z | (!this.o.hasCreated());
             if (this.o.hasCreated() && z3) {
@@ -409,10 +409,10 @@ public abstract class c extends m {
     public abstract a.c O();
 
     public f P() {
-        if (this.f45411g == null) {
+        if (this.f45412g == null) {
             C();
         }
-        return this.f45411g;
+        return this.f45412g;
     }
 
     @NonNull
@@ -421,11 +421,11 @@ public abstract class c extends m {
     }
 
     public boolean R() {
-        if (this.f45411g.k() != 1) {
+        if (this.f45412g.k() != 1) {
             return false;
         }
-        this.f45410f.moveTaskToBack(true);
-        this.f45410f.handleSwanAppExit(2);
+        this.f45411f.moveTaskToBack(true);
+        this.f45411f.handleSwanAppExit(2);
         p0.b().e(1);
         return true;
     }
@@ -480,7 +480,7 @@ public abstract class c extends m {
             UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("onCreateEnd");
             ubcFlowEvent3.a(true);
             o.A(ubcFlowEvent3);
-            d.b.g0.a.i2.d slideHelper = this.f45410f.getSlideHelper();
+            d.b.g0.a.i2.d slideHelper = this.f45411f.getSlideHelper();
             if (slideHelper != null) {
                 slideHelper.o();
             }
@@ -500,7 +500,7 @@ public abstract class c extends m {
         dVar.r(M());
         h.H(dVar);
         d.b.g0.a.j1.i.j(aVar);
-        d.b.g0.a.i2.e.i(this.f45410f);
+        d.b.g0.a.i2.e.i(this.f45411f);
     }
 
     public abstract void a0();
@@ -544,9 +544,9 @@ public abstract class c extends m {
         if (this.k != null && x()) {
             d.b.g0.a.z1.k.a aVar = new d.b.g0.a.z1.k.a();
             b.a M = M();
-            aVar.f47250a = h.n(h());
-            aVar.f47254e = M.G();
-            aVar.f47252c = M.S();
+            aVar.f47251a = h.n(h());
+            aVar.f47255e = M.G();
+            aVar.f47253c = M.S();
             aVar.i(M);
             aVar.d(M.n0().getString(UBCCloudControlProcessor.UBC_KEY));
             aVar.b(h.l(M.V()));
@@ -579,9 +579,9 @@ public abstract class c extends m {
         this.k = h.e("607");
         I0();
         if (x()) {
-            s().j0(this.f45410f);
+            s().j0(this.f45411f);
         }
-        p.j(new RunnableC0748c(), "saveSwanAppHistory");
+        p.j(new RunnableC0749c(), "saveSwanAppHistory");
         HybridUbcFlow o2 = d.b.g0.a.j1.i.o("startup");
         UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_page_show");
         ubcFlowEvent2.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
@@ -643,7 +643,7 @@ public abstract class c extends m {
                 d.b.g0.a.c0.d.d.e.g(M.d0());
             }
         }
-        d.b.g0.a.z0.f.V().x(this.f45410f);
+        d.b.g0.a.z0.f.V().x(this.f45411f);
         UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("onUpdateStart");
         ubcFlowEvent2.a(true);
         o.A(ubcFlowEvent2);
@@ -663,8 +663,8 @@ public abstract class c extends m {
     }
 
     public final void w0() {
-        d.b.g0.a.t1.k.p0.c.f46466b = null;
-        d.b.g0.a.j1.i.f44885d = null;
+        d.b.g0.a.t1.k.p0.c.f46467b = null;
+        d.b.g0.a.j1.i.f44886d = null;
     }
 
     public void x0() {
@@ -679,8 +679,8 @@ public abstract class c extends m {
     }
 
     public void z0() {
-        FrameLayout frameLayout = (FrameLayout) this.f45410f.findViewById(d.b.g0.a.f.ai_apps_activity_root);
+        FrameLayout frameLayout = (FrameLayout) this.f45411f.findViewById(d.b.g0.a.f.ai_apps_activity_root);
         this.j = frameLayout;
-        d.b.g0.a.q1.b.d.a.e(this.f45410f, frameLayout);
+        d.b.g0.a.q1.b.d.a.e(this.f45411f, frameLayout);
     }
 }

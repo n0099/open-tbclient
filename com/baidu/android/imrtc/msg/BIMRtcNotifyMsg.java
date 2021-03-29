@@ -12,7 +12,7 @@ import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcNotifyMsg {
     public static final String TAG = "IMRtcNotifyMsg";
 

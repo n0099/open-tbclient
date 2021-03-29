@@ -5,13 +5,13 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f56781a;
+    public final String f56782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f56782b;
+    public final JSONObject f56783b;
 
     public a(String str, JSONObject jSONObject) {
-        this.f56781a = str;
-        this.f56782b = jSONObject;
+        this.f56782a = str;
+        this.f56783b = jSONObject;
     }
 }

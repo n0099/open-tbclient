@@ -11,26 +11,26 @@ import java.io.File;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebKitFactory.WebkitInstallListener f26880a;
+    public WebKitFactory.WebkitInstallListener f26881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EngineManager f26881b;
+    public EngineManager f26882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26882c = 13;
+    public int f26883c = 13;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
-        this.f26881b = engineManager;
-        this.f26880a = webkitInstallListener;
+        this.f26882b = engineManager;
+        this.f26881a = webkitInstallListener;
     }
 
     public final boolean a() {
         boolean unZip;
-        EngineManager engineManager = this.f26881b;
+        EngineManager engineManager = this.f26882b;
         if (engineManager != null) {
             engineManager.onInstallStart();
         }
-        WebKitFactory.WebkitInstallListener webkitInstallListener = this.f26880a;
+        WebKitFactory.WebkitInstallListener webkitInstallListener = this.f26881a;
         if (webkitInstallListener != null) {
             webkitInstallListener.onInstallStart();
         }
@@ -54,7 +54,7 @@ public abstract class a {
                     unZip = ZipUtils.getInstance().unZip(WebKitFactory.getContext(), c2, downloadLibPath, false);
                     if (!unZip) {
                         Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install unzip failed");
-                        this.f26882c = 6;
+                        this.f26883c = 6;
                     }
                 } else {
                     Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install create path failed");
@@ -64,21 +64,21 @@ public abstract class a {
         unZip = false;
         Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=" + unZip);
         if (unZip) {
-            this.f26882c = 0;
+            this.f26883c = 0;
             ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
         }
-        WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f26880a;
+        WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f26881a;
         if (webkitInstallListener2 != null) {
-            int i2 = this.f26882c;
+            int i2 = this.f26883c;
             if (i2 == 0) {
-                this.f26880a.onInstallFinish(this.f26882c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+                this.f26881a.onInstallFinish(this.f26883c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
             } else {
                 webkitInstallListener2.onInstallFinish(i2, null);
             }
         }
-        EngineManager engineManager2 = this.f26881b;
+        EngineManager engineManager2 = this.f26882b;
         if (engineManager2 != null) {
-            engineManager2.onInstallFinish(this.f26882c == 0);
+            engineManager2.onInstallFinish(this.f26883c == 0);
         }
         return unZip;
     }

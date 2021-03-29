@@ -1,5 +1,5 @@
 package d.b.g0.a.y0.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static boolean a(int i) {
         return (i & 1) == 1;

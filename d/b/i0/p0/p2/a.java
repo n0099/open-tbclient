@@ -19,24 +19,24 @@ import kotlin.jvm.internal.Intrinsics;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<d.b.b.j.e.a<?, ?>> f58332a = new ArrayList();
+    public final List<d.b.b.j.e.a<?, ?>> f58333a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f58333b;
+    public final b f58334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TbPageContext<?> f58334c;
+    public final TbPageContext<?> f58335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BdTypeRecyclerView f58335d;
+    public final BdTypeRecyclerView f58336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final VideoMiddlePageViewModel f58336e;
+    public final VideoMiddlePageViewModel f58337e;
 
     /* renamed from: d.b.i0.p0.p2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1424a<T> implements Observer<Integer> {
-        public C1424a() {
+    public static final class C1425a<T> implements Observer<Integer> {
+        public C1425a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,43 +56,43 @@ public final class a {
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, VideoMiddlePageViewModel videoMiddlePageViewModel) {
-        this.f58334c = tbPageContext;
-        this.f58335d = bdTypeRecyclerView;
-        this.f58336e = videoMiddlePageViewModel;
-        TbPageContext<?> tbPageContext2 = this.f58334c;
+        this.f58335c = tbPageContext;
+        this.f58336d = bdTypeRecyclerView;
+        this.f58337e = videoMiddlePageViewModel;
+        TbPageContext<?> tbPageContext2 = this.f58335c;
         BdUniqueId bdUniqueId = g.K;
         Intrinsics.checkExpressionValueIsNotNull(bdUniqueId, "VideoAggregationData.TYPE_VIDEO_AGGREGATION");
-        b bVar = new b(tbPageContext2, bdUniqueId, this.f58336e);
-        this.f58333b = bVar;
-        this.f58332a.add(bVar);
-        this.f58335d.a(this.f58332a);
-        MutableLiveData<Integer> c2 = this.f58336e.c();
-        Activity pageActivity = this.f58334c.getPageActivity();
+        b bVar = new b(tbPageContext2, bdUniqueId, this.f58337e);
+        this.f58334b = bVar;
+        this.f58333a.add(bVar);
+        this.f58336d.a(this.f58333a);
+        MutableLiveData<Integer> c2 = this.f58337e.c();
+        Activity pageActivity = this.f58335c.getPageActivity();
         if (pageActivity == null) {
             throw new TypeCastException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
-        c2.observe((LifecycleOwner) pageActivity, new C1424a());
+        c2.observe((LifecycleOwner) pageActivity, new C1425a());
     }
 
     public final BdTypeRecyclerView a() {
-        return this.f58335d;
+        return this.f58336d;
     }
 
     public final VideoMiddlePageViewModel b() {
-        return this.f58336e;
+        return this.f58337e;
     }
 
     public final void c() {
-        this.f58333b.onDestroy();
+        this.f58334b.onDestroy();
     }
 
     public final void d(List<? extends BaseCardInfo> list) {
-        Integer value = this.f58336e.c().getValue();
+        Integer value = this.f58337e.c().getValue();
         if (value == null) {
             value = 0;
         }
         e(value.intValue(), list);
-        this.f58335d.setData(list);
+        this.f58336d.setData(list);
     }
 
     public final void e(int i, List<? extends BaseCardInfo> list) {
@@ -114,7 +114,7 @@ public final class a {
     }
 
     public final void f() {
-        List<BaseCardInfo> value = this.f58336e.j().getValue();
+        List<BaseCardInfo> value = this.f58337e.j().getValue();
         if (value != null) {
             Intrinsics.checkExpressionValueIsNotNull(value, "viewModel.videoDataList.value ?: return");
             for (BaseCardInfo baseCardInfo : value) {
@@ -122,7 +122,7 @@ public final class a {
                     ((i) baseCardInfo).setAutoPlay(false);
                 }
             }
-            this.f58335d.setData(value);
+            this.f58336d.setData(value);
         }
     }
 }

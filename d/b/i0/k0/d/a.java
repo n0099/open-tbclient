@@ -11,21 +11,21 @@ import java.lang.ref.WeakReference;
 public class a extends ImageSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Drawable> f56448e;
+    public WeakReference<Drawable> f56449e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56449f;
+    public int f56450f;
 
     public a(@NonNull Drawable drawable, int i) {
         super(drawable, i);
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f56448e;
+        WeakReference<Drawable> weakReference = this.f56449e;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.f56448e = new WeakReference<>(drawable2);
+            this.f56449e = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
@@ -58,11 +58,11 @@ public class a extends ImageSpan {
             fontMetricsInt.bottom = i8;
             fontMetricsInt.descent = i8;
         }
-        return bounds.right + this.f56449f;
+        return bounds.right + this.f56450f;
     }
 
     public a(@NonNull Drawable drawable, int i, int i2) {
         super(drawable, i);
-        this.f56449f = i2;
+        this.f56450f = i2;
     }
 }

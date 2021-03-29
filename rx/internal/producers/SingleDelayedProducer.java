@@ -37,16 +37,17 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
 
     @Override // h.f
     public void request(long j) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException("n >= 0 required");
         }
-        if (j == 0) {
+        if (i == 0) {
             return;
         }
         do {
-            int i = get();
-            if (i != 0) {
-                if (i == 1 && compareAndSet(1, 3)) {
+            int i2 = get();
+            if (i2 != 0) {
+                if (i2 == 1 && compareAndSet(1, 3)) {
                     emit(this.child, this.value);
                     return;
                 }

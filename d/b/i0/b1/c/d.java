@@ -13,7 +13,7 @@ import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.Hottopic.HotThread;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends a2 {
     public List<d.b.i0.x.e0.b> E3;
     public z0 F3;
@@ -77,7 +77,7 @@ public class d extends a2 {
                         bVar = new d.b.i0.x.e0.l(a2Var);
                     } else if (d.b.i0.x.e0.k.i0(a2Var)) {
                         bVar = new d.b.i0.x.e0.k();
-                        bVar.f62196e = a2Var;
+                        bVar.f62197e = a2Var;
                     }
                     if (bVar != null && bVar.isValid()) {
                         bVar.X("c10816");
@@ -110,12 +110,12 @@ public class d extends a2 {
                     d.b.i0.x.e0.b bVar = null;
                     if (a2Var.s1) {
                         bVar = new d.b.i0.x.e0.k();
-                        bVar.f62196e = a2Var;
+                        bVar.f62197e = a2Var;
                     } else if (d.b.i0.x.e0.l.d0(a2Var)) {
                         bVar = new d.b.i0.x.e0.l(a2Var);
                     } else if (d.b.i0.x.e0.k.i0(a2Var)) {
                         bVar = new d.b.i0.x.e0.k();
-                        bVar.f62196e = a2Var;
+                        bVar.f62197e = a2Var;
                     }
                     if (bVar != null && bVar.isValid()) {
                         bVar.X("c10816");
@@ -157,7 +157,7 @@ public class d extends a2 {
                     z1 z1Var = new z1();
                     z1Var.w = a2Var;
                     z1Var.position = i;
-                    z1Var.f50953e = true;
+                    z1Var.f50954e = true;
                     arrayList2.add(z1Var);
                     z1 z1Var2 = new z1();
                     z1Var2.w = a2Var;
@@ -165,13 +165,13 @@ public class d extends a2 {
                     if (a2Var.P1()) {
                         z1Var2.j = true;
                     } else if (a2Var.V2() == 1) {
-                        z1Var2.f50956h = true;
+                        z1Var2.f50957h = true;
                         z1Var2.x = p0[0];
                         z1Var2.y = p0[1];
                     } else if (a2Var.V2() >= 2) {
                         z1Var2.i = true;
                     } else {
-                        z1Var2.f50954f = true;
+                        z1Var2.f50955f = true;
                     }
                     arrayList2.add(z1Var2);
                     if (a2Var.y0() != null) {
@@ -195,7 +195,7 @@ public class d extends a2 {
                     z1 z1Var6 = new z1();
                     z1Var6.w = a2Var;
                     z1Var6.position = i;
-                    z1Var6.f50953e = true;
+                    z1Var6.f50954e = true;
                     arrayList2.add(z1Var6);
                     z1 z1Var7 = new z1();
                     z1Var7.w = a2Var;

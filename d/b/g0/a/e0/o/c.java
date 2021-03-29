@@ -6,9 +6,9 @@ import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.swan.apps.core.container.NgWebView;
 import d.b.g0.a.e0.i.a;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
-    public static final boolean B = k.f45050a;
+    public static final boolean B = k.f45051a;
     public final String A;
 
     public c(Context context) {
@@ -38,9 +38,9 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
     public void j(d.b.g0.a.e0.w.a aVar) {
         if (aVar != null && a.b.h(0)) {
             if (B) {
-                Log.d("SwanAppMasterManager", "pathList item: " + aVar.f44309b);
+                Log.d("SwanAppMasterManager", "pathList item: " + aVar.f44310b);
             }
-            this.f12153f.getSettings().setCodeCacheSetting(d.b.g0.a.e0.i.b.a("appjs", aVar.f44309b));
+            this.f12154f.getSettings().setCodeCacheSetting(d.b.g0.a.e0.i.b.a("appjs", aVar.f44310b));
         }
     }
 

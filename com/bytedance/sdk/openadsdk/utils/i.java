@@ -25,23 +25,23 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30430a = null;
+    public static String f30431a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f30431b = false;
+    public static volatile boolean f30432b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30432c = true;
+    public static volatile boolean f30433c = true;
 
     /* loaded from: classes6.dex */
     public static class a extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                boolean unused = i.f30432c = true;
+                boolean unused = i.f30433c = true;
                 u.c("DeviceUtils", "screen_on");
             } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                boolean unused2 = i.f30432c = false;
+                boolean unused2 = i.f30433c = false;
                 u.c("DeviceUtils", "screen_off");
             }
         }
@@ -52,13 +52,13 @@ public class i {
             try {
                 PowerManager powerManager = (PowerManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("power");
                 if (powerManager != null) {
-                    f30432c = powerManager.isScreenOn();
+                    f30433c = powerManager.isScreenOn();
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        return f30432c;
+        return f30433c;
     }
 
     public static boolean c(Context context) {
@@ -99,7 +99,7 @@ public class i {
             jSONObject.put("screen_width", al.c(context));
             jSONObject.put("screen_height", al.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f30434a);
+            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f30435a);
             jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
             jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
         } catch (Throwable unused) {
@@ -110,11 +110,11 @@ public class i {
     @NonNull
     public static String b() {
         String str;
-        if (!TextUtils.isEmpty(f30430a)) {
-            return f30430a;
+        if (!TextUtils.isEmpty(f30431a)) {
+            return f30431a;
         }
         String a2 = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", 172800000L);
-        f30430a = a2;
+        f30431a = a2;
         if (TextUtils.isEmpty(a2)) {
             TTCustomController e2 = com.bytedance.sdk.openadsdk.core.i.d().e();
             if (e2 != null && e2.isCanUseWifiState() && e2.isCanUseLocation()) {
@@ -126,20 +126,20 @@ public class i {
                 str = "DU:MM:YA:DD:RE:SS";
             }
             String str2 = TextUtils.isEmpty(str) ? "DU:MM:YA:DD:RE:SS" : str;
-            f30430a = str2;
+            f30431a = str2;
             com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", str2);
         }
-        return f30430a;
+        return f30431a;
     }
 
     public static void a(Context context) {
-        if (f30431b) {
+        if (f30432b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f30432c = powerManager.isScreenOn();
+                f30433c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -149,7 +149,7 @@ public class i {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(aVar, intentFilter);
-        f30431b = true;
+        f30432b = true;
     }
 
     @SuppressLint({"NewApi"})

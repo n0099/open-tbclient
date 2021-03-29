@@ -11,7 +11,7 @@ import com.baidu.apollon.utils.ResUtils;
 public class EditTextDialog extends BaseDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23806a;
+    public TextView f23807a;
     public PluginEditText mContentEditText;
 
     public EditTextDialog(Context context) {
@@ -47,7 +47,7 @@ public class EditTextDialog extends BaseDialog {
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
         });
-        this.f23806a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
+        this.f23807a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
     }
 
     public void setHint(int i) {
@@ -63,11 +63,11 @@ public class EditTextDialog extends BaseDialog {
     }
 
     public void setTextColor(int i) {
-        this.f23806a.setTextColor(i);
+        this.f23807a.setTextColor(i);
     }
 
     public void setTipsText(String str) {
-        this.f23806a.setText(str);
+        this.f23807a.setText(str);
     }
 
     public EditTextDialog(Context context, int i) {
@@ -79,6 +79,6 @@ public class EditTextDialog extends BaseDialog {
     }
 
     public void setTipsText(int i) {
-        this.f23806a.setText(i);
+        this.f23807a.setText(i);
     }
 }

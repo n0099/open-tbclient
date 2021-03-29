@@ -90,7 +90,7 @@ public class e0 extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b
                 b0Var.a(threadCardViewHolder.a(), a2Var);
             }
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), this.y, false);
-            threadCardViewHolder.b().o(new a.C1117a(1));
+            threadCardViewHolder.b().o(new a.C1118a(1));
         }
     }
 

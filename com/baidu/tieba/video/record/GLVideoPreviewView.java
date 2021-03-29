@@ -45,16 +45,16 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     public static boolean p;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f21807e;
+    public h f21808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f21808f;
+    public c f21809f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f21809g;
+    public d f21810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21810h;
+    public b f21811h;
     public int i;
     public int j;
     public g.a k;
@@ -68,8 +68,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (GLVideoPreviewView.this.f21808f != null) {
-                GLVideoPreviewView.this.f21808f.I();
+            if (GLVideoPreviewView.this.f21809f != null) {
+                GLVideoPreviewView.this.f21809f.I();
             }
         }
     }
@@ -92,16 +92,16 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         public d.b.i0.s1.g L;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.e.c.c f21812e;
+        public d.e.c.c f21813e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.e.c.c f21813f;
+        public d.e.c.c f21814f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile SurfaceTexture f21814g;
+        public volatile SurfaceTexture f21815g;
 
         /* renamed from: h  reason: collision with root package name */
-        public GLVideoPreviewView f21815h;
+        public GLVideoPreviewView f21816h;
         public int k;
         public HandlerThread s;
         public Handler t;
@@ -128,32 +128,32 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         public class a extends BdAsyncTask<Void, Void, Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f21816a;
+            public final /* synthetic */ Bitmap f21817a;
 
             public a(Bitmap bitmap) {
-                this.f21816a = bitmap;
+                this.f21817a = bitmap;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: b */
             public void onPostExecute(Void r3) {
-                if (c.this.f21815h == null || c.this.f21815h.k == null) {
+                if (c.this.f21816h == null || c.this.f21816h.k == null) {
                     return;
                 }
-                c.this.f21815h.k.a(true, c.this.K);
+                c.this.f21816h.k.a(true, c.this.K);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 try {
-                    c.this.K = FileHelper.saveFileAsPic(d.b.i0.p3.c.f58892f, "pic_" + System.currentTimeMillis(), this.f21816a, 80, Bitmap.CompressFormat.JPEG);
+                    c.this.K = FileHelper.saveFileAsPic(d.b.i0.p3.c.f58893f, "pic_" + System.currentTimeMillis(), this.f21817a, 80, Bitmap.CompressFormat.JPEG);
                     return null;
                 } finally {
-                    Bitmap bitmap = this.f21816a;
+                    Bitmap bitmap = this.f21817a;
                     if (bitmap != null && !bitmap.isRecycled()) {
-                        this.f21816a.recycle();
+                        this.f21817a.recycle();
                     }
                 }
             }
@@ -166,17 +166,17 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f21812e != null) {
-                    c.this.f21812e.c(false);
-                    c.this.f21812e = null;
+                if (c.this.f21813e != null) {
+                    c.this.f21813e.c(false);
+                    c.this.f21813e = null;
                 }
-                if (c.this.f21813f != null) {
-                    c.this.f21813f.c(false);
-                    c.this.f21813f = null;
+                if (c.this.f21814f != null) {
+                    c.this.f21814f.c(false);
+                    c.this.f21814f = null;
                 }
-                if (c.this.f21814g != null) {
-                    c.this.f21814g.release();
-                    c.this.f21814g = null;
+                if (c.this.f21815g != null) {
+                    c.this.f21815g.release();
+                    c.this.f21815g = null;
                 }
                 faceunity.fuDestroyItem(c.this.m);
                 int[] iArr = c.this.o;
@@ -194,19 +194,19 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
         /* renamed from: com.baidu.tieba.video.record.GLVideoPreviewView$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class HandlerC0225c extends Handler {
+        public class HandlerC0226c extends Handler {
 
             /* renamed from: a  reason: collision with root package name */
-            public WeakReference<Context> f21819a;
+            public WeakReference<Context> f21820a;
 
-            public HandlerC0225c(Looper looper, Context context) {
+            public HandlerC0226c(Looper looper, Context context) {
                 super(looper);
-                this.f21819a = new WeakReference<>(context);
+                this.f21820a = new WeakReference<>(context);
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                this.f21819a.get();
+                this.f21820a.get();
                 super.handleMessage(message);
                 int i = message.what;
                 if (i != 1) {
@@ -296,17 +296,17 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         }
 
         public c(Context context, GLVideoPreviewView gLVideoPreviewView, d.b.i0.s1.g gVar) {
-            this.f21815h = gLVideoPreviewView;
+            this.f21816h = gLVideoPreviewView;
             this.L = gVar;
             HandlerThread handlerThread = new HandlerThread("CreateItemThread");
             this.s = handlerThread;
             handlerThread.start();
-            this.t = new HandlerC0225c(this.s.getLooper(), context);
+            this.t = new HandlerC0226c(this.s.getLooper(), context);
             D(d.b.i0.p3.a.b(2));
         }
 
         public void A() {
-            this.f21815h.queueEvent(new b());
+            this.f21816h.queueEvent(new b());
         }
 
         public final void B(Bitmap bitmap) {
@@ -315,15 +315,15 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 new a(bitmap).execute(new Void[0]);
                 return;
             }
-            GLVideoPreviewView gLVideoPreviewView = this.f21815h;
+            GLVideoPreviewView gLVideoPreviewView = this.f21816h;
             if (gLVideoPreviewView == null || gLVideoPreviewView.k == null) {
                 return;
             }
-            this.f21815h.k.a(false, this.K);
+            this.f21816h.k.a(false, this.K);
         }
 
         public final void C() {
-            GLVideoPreviewView gLVideoPreviewView = this.f21815h;
+            GLVideoPreviewView gLVideoPreviewView = this.f21816h;
             if (gLVideoPreviewView != null) {
                 Handler mainHandler = gLVideoPreviewView.getMainHandler();
                 mainHandler.sendMessage(mainHandler.obtainMessage(1));
@@ -342,11 +342,11 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             if (aVar == null) {
                 return;
             }
-            this.w = aVar.f58874b;
-            this.x = aVar.f58875c;
-            this.y = aVar.f58876d;
-            this.z = aVar.f58877e;
-            this.A = aVar.f58878f;
+            this.w = aVar.f58875b;
+            this.x = aVar.f58876c;
+            this.y = aVar.f58877d;
+            this.z = aVar.f58878e;
+            this.A = aVar.f58879f;
         }
 
         public void E(String str) {
@@ -381,11 +381,11 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         }
 
         public void I() {
-            if (this.f21814g != null) {
+            if (this.f21815g != null) {
                 faceunity.fuOnCameraChange();
-                this.f21814g.release();
+                this.f21815g.release();
             }
-            this.f21814g = new SurfaceTexture(this.k);
+            this.f21815g = new SurfaceTexture(this.k);
             C();
         }
 
@@ -403,8 +403,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             }
             float[] fArr = new float[16];
             try {
-                this.f21814g.updateTexImage();
-                this.f21814g.getTransformMatrix(fArr);
+                this.f21815g.updateTexImage();
+                this.f21815g.getTransformMatrix(fArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 d.b.i0.s1.g gVar = this.L;
@@ -416,8 +416,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 this.p = false;
                 this.t.sendEmptyMessage(1);
             }
-            if (this.f21815h.f21810h != null) {
-                this.f21815h.f21810h.onFaceIdentifyState(faceunity.fuIsTracking() > 0);
+            if (this.f21816h.f21811h != null) {
+                this.f21816h.f21811h.onFaceIdentifyState(faceunity.fuIsTracking() > 0);
             }
             faceunity.fuItemSetParam(this.l, "color_level", this.w);
             faceunity.fuItemSetParam(this.l, "blur_level", this.x);
@@ -431,7 +431,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             faceunity.fuItemSetParam(this.l, "tooth_whiten", 0.0d);
             byte[] bArr = this.E;
             if (bArr != null && bArr.length != 0 && this.G) {
-                int i2 = 1 | (this.f21815h.f21807e.l == 1 ? 0 : 32);
+                int i2 = 1 | (this.f21816h.f21808e.l == 1 ? 0 : 32);
                 if (this.F) {
                     faceunity.fuItemSetParam(this.n, "isAndroid", 1.0d);
                     faceunity.fuItemSetParam(this.n, "rotationAngle", y() ? 270.0d : 90.0d);
@@ -439,7 +439,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                     faceunity.fuItemSetParam(this.m, "isAndroid", 1.0d);
                     faceunity.fuItemSetParam(this.m, "rotationAngle", y() ? 270.0d : 90.0d);
                 }
-                this.f21815h.f21807e.j();
+                this.f21816h.f21808e.j();
                 long currentTimeMillis = System.currentTimeMillis();
                 byte[] bArr2 = this.E;
                 int i3 = this.k;
@@ -450,27 +450,27 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 int fuDualInputToTexture = faceunity.fuDualInputToTexture(bArr2, i3, i2, i4, i5, i6, this.o);
                 this.r += System.currentTimeMillis() - currentTimeMillis;
                 try {
-                    this.f21812e.b(fuDualInputToTexture, fArr);
-                    if (this.f21815h.l) {
+                    this.f21813e.b(fuDualInputToTexture, fArr);
+                    if (this.f21816h.l) {
                         z(gl10);
-                        this.f21815h.l = false;
+                        this.f21816h.l = false;
                     }
-                    if (this.H != null && this.H.s(2) && this.f21815h.f21807e != null) {
-                        this.I = this.f21815h.f21807e.o();
-                        this.H.E(new d.c(new File(this.I), GLVideoPreviewView.n, GLVideoPreviewView.o, 2097152, null, this.f21814g.getTimestamp()));
+                    if (this.H != null && this.H.s(2) && this.f21816h.f21808e != null) {
+                        this.I = this.f21816h.f21808e.o();
+                        this.H.E(new d.c(new File(this.I), GLVideoPreviewView.n, GLVideoPreviewView.o, 2097152, null, this.f21815g.getTimestamp()));
                     }
                     if (this.H == null || !this.H.s(1)) {
                         return;
                     }
-                    this.H.D(this.f21812e, fuDualInputToTexture, fArr);
+                    this.H.D(this.f21813e, fuDualInputToTexture, fArr);
                     if (GLVideoPreviewView.p) {
-                        this.H.t(this.f21814g);
+                        this.H.t(this.f21815g);
                     }
                     boolean unused = GLVideoPreviewView.p = true;
                     return;
                 } catch (Throwable th) {
                     BdLog.e(th);
-                    this.f21815h.d(null);
+                    this.f21816h.d(null);
                     d.b.i0.s1.g gVar2 = this.L;
                     if (gVar2 != null) {
                         gVar2.c(23, d.b.i0.s1.a.a(th));
@@ -479,7 +479,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                     return;
                 }
             }
-            this.f21815h.requestRender();
+            this.f21816h.requestRender();
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -489,27 +489,27 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             this.E = bArr;
-            this.f21815h.requestRender();
+            this.f21816h.requestRender();
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-            this.f21815h.i = i;
-            this.f21815h.j = i2;
+            this.f21816h.i = i;
+            this.f21816h.j = i2;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            this.f21812e = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            this.f21813e = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
             d.e.c.c cVar = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.f21813f = cVar;
+            this.f21814f = cVar;
             this.k = cVar.a();
             I();
             boolean unused = GLVideoPreviewView.p = false;
         }
 
         public boolean y() {
-            return this.f21815h.f21807e.j();
+            return this.f21816h.f21808e.j();
         }
 
         public final void z(GL10 gl10) {
@@ -518,8 +518,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             try {
                 System.gc();
                 System.gc();
-                int i = this.f21815h.i;
-                int i2 = this.f21815h.j;
+                int i = this.f21816h.i;
+                int i2 = this.f21816h.j;
                 int i3 = i * i2;
                 int[] iArr = new int[i3];
                 int[] iArr2 = new int[i3];
@@ -537,7 +537,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 bitmap = Bitmap.createBitmap(iArr2, i, i2, Bitmap.Config.ARGB_8888);
             } catch (GLException unused) {
             } catch (OutOfMemoryError unused2) {
-                GLVideoPreviewView gLVideoPreviewView = this.f21815h;
+                GLVideoPreviewView gLVideoPreviewView = this.f21816h;
                 if (gLVideoPreviewView != null && (context = gLVideoPreviewView.getContext()) != null && (context instanceof Activity)) {
                     ((Activity) context).finish();
                 }
@@ -558,25 +558,25 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         if (kVar != null) {
             this.m = kVar.get();
         }
-        this.f21807e = hVar;
-        this.f21808f = new c(context, this, this.m);
+        this.f21808e = hVar;
+        this.f21809f = new c(context, this, this.m);
         setEGLContextClientVersion(2);
-        setRenderer(this.f21808f);
+        setRenderer(this.f21809f);
         setRenderMode(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Handler getMainHandler() {
-        return this.f21807e.n();
+        return this.f21808e.n();
     }
 
     @Override // d.b.i0.p3.m.g
     public void a(Camera camera) {
         if (camera != null) {
             try {
-                camera.setPreviewCallback(this.f21808f);
-                camera.setPreviewTexture(this.f21808f.f21814g);
-                this.f21808f.f21814g.setOnFrameAvailableListener(this.f21808f);
+                camera.setPreviewCallback(this.f21809f);
+                camera.setPreviewTexture(this.f21809f.f21815g);
+                this.f21809f.f21815g.setOnFrameAvailableListener(this.f21809f);
                 camera.startPreview();
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -592,8 +592,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     public void b(Camera camera) {
         try {
             d dVar = new d();
-            this.f21809g = dVar;
-            this.f21808f.F(dVar);
+            this.f21810g = dVar;
+            this.f21809f.F(dVar);
             p = false;
         } catch (Throwable th) {
             BdLog.e(th);
@@ -607,7 +607,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     @Override // d.b.i0.p3.m.g
     public void c(Camera camera) {
         try {
-            this.f21808f.A();
+            this.f21809f.A();
         } catch (Exception e2) {
             e2.printStackTrace();
             d.b.i0.s1.g gVar = this.m;
@@ -620,8 +620,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     @Override // d.b.i0.p3.m.g
     public void d(Camera camera) {
         try {
-            if (this.f21809g != null) {
-                this.f21809g.F();
+            if (this.f21810g != null) {
+                this.f21810g.F();
             }
         } catch (Throwable th) {
             BdLog.e(th);
@@ -642,7 +642,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
         super.onResume();
-        c cVar = this.f21808f;
+        c cVar = this.f21809f;
         if (cVar != null) {
             cVar.H();
         }
@@ -650,7 +650,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        h hVar = this.f21807e;
+        h hVar = this.f21808e;
         if (hVar == null) {
             return false;
         }
@@ -658,7 +658,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     }
 
     public void setBeautyLevel(d.b.i0.p3.a aVar) {
-        c cVar = this.f21808f;
+        c cVar = this.f21809f;
         if (cVar != null) {
             cVar.D(aVar);
         }
@@ -666,26 +666,26 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
     public void setFaceIdentifyStateListener(b bVar) {
         if (bVar != null) {
-            this.f21810h = bVar;
+            this.f21811h = bVar;
         }
     }
 
     public void setFilter(String str) {
-        c cVar = this.f21808f;
+        c cVar = this.f21809f;
         if (cVar != null) {
             cVar.E(str);
         }
     }
 
     public void setIsChangingCamera(boolean z) {
-        this.f21808f.J = z;
+        this.f21809f.J = z;
     }
 
     @Override // d.b.i0.p3.m.g
-    public void setOnEncoderStatusUpdateListener(d.InterfaceC1804d interfaceC1804d) {
-        d dVar = this.f21809g;
+    public void setOnEncoderStatusUpdateListener(d.InterfaceC1805d interfaceC1805d) {
+        d dVar = this.f21810g;
         if (dVar != null) {
-            dVar.C(interfaceC1804d);
+            dVar.C(interfaceC1805d);
         }
     }
 
@@ -694,7 +694,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         if (i <= 0 || i2 <= 0) {
             return;
         }
-        c cVar = this.f21808f;
+        c cVar = this.f21809f;
         cVar.i = i;
         cVar.j = i2;
         int round = Math.round(n * ((i * 1.0f) / i2));
@@ -707,14 +707,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     }
 
     public void setSticker(StickerItem stickerItem) {
-        c cVar = this.f21808f;
+        c cVar = this.f21809f;
         if (cVar != null) {
             cVar.G(stickerItem);
         }
     }
 
     public void t() {
-        c cVar = this.f21808f;
+        c cVar = this.f21809f;
         if (cVar != null) {
             cVar.E = null;
         }

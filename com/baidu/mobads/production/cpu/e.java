@@ -11,7 +11,7 @@ public class e extends com.baidu.mobads.vo.d {
     public e(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, String str2, CPUWebAdRequestParam cPUWebAdRequestParam) {
         super(context, activity, slotType);
         d dVar = new d(context.getApplicationContext(), str2, str);
-        this.f8625b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+        this.f8626b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
     }
 
     private Uri.Builder a(Map<String, Object> map, String str) {
@@ -30,7 +30,7 @@ public class e extends com.baidu.mobads.vo.d {
     }
 
     public String c() {
-        return this.f8625b;
+        return this.f8626b;
     }
 
     public e(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, int i, CPUWebAdRequestParam cPUWebAdRequestParam) {
@@ -39,7 +39,7 @@ public class e extends com.baidu.mobads.vo.d {
         if (i != 1080) {
             cPUWebAdRequestParam.getParameters().remove("city");
         }
-        this.f8625b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+        this.f8626b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
     }
 
     private Map<String, Object> a(d dVar, CPUWebAdRequestParam cPUWebAdRequestParam) {

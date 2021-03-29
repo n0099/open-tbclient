@@ -121,10 +121,11 @@ public class StringHelper extends k {
         for (int i2 = 0; i2 < 3; i2++) {
             j += parseVersion2[i2] << (24 - (i2 * 8));
         }
-        if (j2 > j) {
+        int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+        if (i3 > 0) {
             return 1;
         }
-        return j2 == j ? 0 : -1;
+        return i3 == 0 ? 0 : -1;
     }
 
     public static String cutChineseAndEnglishWithSuffix(String str, int i, String str2) {
@@ -1223,17 +1224,18 @@ public class StringHelper extends k {
         }
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
-        } else if (j > 10000) {
-            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
-        } else {
-            if (j == 10000) {
-                return "1W";
-            }
-            if (j < 0) {
-                return "0";
-            }
-            return "" + j;
         }
+        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i > 0) {
+            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
+        }
+        if (i == 0) {
+            return "1W";
+        }
+        if (j < 0) {
+            return "0";
+        }
+        return "" + j;
     }
 
     public static String numFormatOverWanNa(long j) {
@@ -1242,17 +1244,18 @@ public class StringHelper extends k {
         }
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
-        } else if (j > 10000) {
-            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
-        } else {
-            if (j == 10000) {
-                return "1W";
-            }
-            if (j < 0) {
-                return "--";
-            }
-            return "" + j;
         }
+        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i > 0) {
+            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
+        }
+        if (i == 0) {
+            return "1W";
+        }
+        if (j < 0) {
+            return "--";
+        }
+        return "" + j;
     }
 
     public static String numFormatOverWanWithNegative(long j) {
@@ -1261,26 +1264,28 @@ public class StringHelper extends k {
         }
         if (j >= 10000000) {
             return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
-        } else if (j > 10000) {
-            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
-        } else {
-            if (j == 10000) {
-                return "1W";
-            }
-            if (j < -99990000) {
-                return "-9999W+";
-            }
-            if (j <= -10000000) {
-                return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
-            } else if (j < -10000) {
-                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
-            } else {
-                if (j == -10000) {
-                    return "-1W";
-                }
-                return "" + j;
-            }
         }
+        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i > 0) {
+            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
+        }
+        if (i == 0) {
+            return "1W";
+        }
+        if (j < -99990000) {
+            return "-9999W+";
+        }
+        if (j <= -10000000) {
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+        }
+        int i2 = (j > (-10000L) ? 1 : (j == (-10000L) ? 0 : -1));
+        if (i2 < 0) {
+            return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
+        }
+        if (i2 == 0) {
+            return "-1W";
+        }
+        return "" + j;
     }
 
     public static String numFormatOverWanWithoutDecimals(long j) {
@@ -1385,12 +1390,7 @@ public class StringHelper extends k {
         if (j < 10000) {
             return j + "";
         } else if (j < 10000000) {
-            StringBuilder sb = new StringBuilder();
-            double d2 = j;
-            Double.isNaN(d2);
-            sb.append(String.format("%.1f", Double.valueOf(d2 / 10000.0d)));
-            sb.append(ExifInterface.LONGITUDE_WEST);
-            return sb.toString();
+            return String.format("%.1f", Double.valueOf(j / 10000.0d)) + ExifInterface.LONGITUDE_WEST;
         } else {
             float f2 = ((float) (j / 1000000)) / 10.0f;
             if (f2 >= 9999.0f) {
@@ -1435,17 +1435,13 @@ public class StringHelper extends k {
         if (j < 10000) {
             return j + "";
         } else if (j < 10000000) {
-            double d2 = j;
-            Double.isNaN(d2);
-            String format = String.format("%.1f", Double.valueOf(d2 / 10000.0d));
+            String format = String.format("%.1f", Double.valueOf(j / 10000.0d));
             if (format.endsWith(".0")) {
                 format = format.substring(0, format.length() - 2);
             }
             return format + ExifInterface.LONGITUDE_WEST;
         } else {
-            double d3 = j;
-            Double.isNaN(d3);
-            String format2 = String.format("%.1f", Double.valueOf((d3 / 1000000.0d) / 10.0d));
+            String format2 = String.format("%.1f", Double.valueOf((j / 1000000.0d) / 10.0d));
             if (format2.endsWith(".0")) {
                 format2 = format2.substring(0, format2.length() - 2);
             }
@@ -1467,9 +1463,7 @@ public class StringHelper extends k {
         if (j < 10000) {
             return j + "";
         } else if (j < 10000000) {
-            double d2 = j;
-            Double.isNaN(d2);
-            String format = String.format("%.1f", Double.valueOf(d2 / 10000.0d));
+            String format = String.format("%.1f", Double.valueOf(j / 10000.0d));
             if (format.endsWith(".0")) {
                 format = format.substring(0, format.length() - 2);
             }

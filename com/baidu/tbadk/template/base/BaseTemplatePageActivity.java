@@ -17,11 +17,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         a aVar = this.mPageLoader;
-        if (aVar == null) {
-            return;
+        if (aVar != null) {
+            aVar.a(i);
         }
-        aVar.a(i);
-        throw null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -37,32 +35,26 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     public void onDestroy() {
         super.onDestroy();
         a aVar = this.mPageLoader;
-        if (aVar == null) {
-            return;
+        if (aVar != null) {
+            aVar.b();
         }
-        aVar.b();
-        throw null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         a aVar = this.mPageLoader;
-        if (aVar == null) {
-            return;
+        if (aVar != null) {
+            aVar.c();
         }
-        aVar.c();
-        throw null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a aVar = this.mPageLoader;
-        if (aVar == null) {
-            return;
+        if (aVar != null) {
+            aVar.d();
         }
-        aVar.d();
-        throw null;
     }
 }

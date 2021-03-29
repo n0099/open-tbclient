@@ -8,10 +8,10 @@ import android.provider.Settings;
 public class k extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f56147a;
+    public Context f56148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f56148b;
+    public a f56149b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -20,18 +20,18 @@ public class k extends ContentObserver {
 
     public k(Context context, Handler handler) {
         super(handler);
-        this.f56147a = context;
+        this.f56148a = context;
     }
 
     public final void a() {
-        Context context = this.f56147a;
+        Context context = this.f56148a;
         if (context == null) {
             return;
         }
         try {
             int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
-            if (this.f56148b != null) {
-                a aVar = this.f56148b;
+            if (this.f56149b != null) {
+                a aVar = this.f56149b;
                 boolean z = true;
                 if (i != 1) {
                     z = false;
@@ -44,7 +44,7 @@ public class k extends ContentObserver {
     }
 
     public void b(a aVar) {
-        this.f56148b = aVar;
+        this.f56149b = aVar;
         a();
     }
 

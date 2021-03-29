@@ -7,28 +7,28 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51470a;
+    public String f51471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51471b;
+    public String f51472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51472c;
+    public String f51473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51473d;
+    public int f51474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51474e;
+    public boolean f51475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51475f;
+    public boolean f51476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51476g;
+    public String f51477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FrsTabItemData> f51477h;
+    public List<FrsTabItemData> f51478h;
     public PostPrefixData i;
     public boolean j;
 }

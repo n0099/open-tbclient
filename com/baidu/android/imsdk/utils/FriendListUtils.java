@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FriendListUtils {
     public static final long DEFAULT_LAST_TIME = 0;
     public static final long DEFAULT_PENULT_TIME = -3;

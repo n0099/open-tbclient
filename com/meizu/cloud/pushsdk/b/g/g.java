@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Logger f37591a = Logger.getLogger(g.class.getName());
+    public static final Logger f37592a = Logger.getLogger(g.class.getName());
 
     public static c a(l lVar) {
         if (lVar != null) {
@@ -38,19 +38,19 @@ public final class g {
                 return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
                     @Override // com.meizu.cloud.pushsdk.b.g.l
                     public void a(b bVar, long j) throws IOException {
-                        o.a(bVar.f37583b, 0L, j);
+                        o.a(bVar.f37584b, 0L, j);
                         while (j > 0) {
                             n.this.a();
-                            j jVar = bVar.f37582a;
-                            int min = (int) Math.min(j, jVar.f37605c - jVar.f37604b);
-                            outputStream.write(jVar.f37603a, jVar.f37604b, min);
-                            int i = jVar.f37604b + min;
-                            jVar.f37604b = i;
+                            j jVar = bVar.f37583a;
+                            int min = (int) Math.min(j, jVar.f37606c - jVar.f37605b);
+                            outputStream.write(jVar.f37604a, jVar.f37605b, min);
+                            int i = jVar.f37605b + min;
+                            jVar.f37605b = i;
                             long j2 = min;
                             j -= j2;
-                            bVar.f37583b -= j2;
-                            if (i == jVar.f37605c) {
-                                bVar.f37582a = jVar.a();
+                            bVar.f37584b -= j2;
+                            if (i == jVar.f37606c) {
+                                bVar.f37583a = jVar.a();
                                 k.a(jVar);
                             }
                         }
@@ -93,20 +93,21 @@ public final class g {
                 return new m() { // from class: com.meizu.cloud.pushsdk.b.g.g.2
                     @Override // com.meizu.cloud.pushsdk.b.g.m
                     public long b(b bVar, long j) throws IOException {
-                        if (j < 0) {
+                        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                        if (i < 0) {
                             throw new IllegalArgumentException("byteCount < 0: " + j);
-                        } else if (j == 0) {
+                        } else if (i == 0) {
                             return 0L;
                         } else {
                             n.this.a();
                             j c2 = bVar.c(1);
-                            int read = inputStream.read(c2.f37603a, c2.f37605c, (int) Math.min(j, 2048 - c2.f37605c));
+                            int read = inputStream.read(c2.f37604a, c2.f37606c, (int) Math.min(j, 2048 - c2.f37606c));
                             if (read == -1) {
                                 return -1L;
                             }
-                            c2.f37605c += read;
+                            c2.f37606c += read;
                             long j2 = read;
-                            bVar.f37583b += j2;
+                            bVar.f37584b += j2;
                             return j2;
                         }
                     }

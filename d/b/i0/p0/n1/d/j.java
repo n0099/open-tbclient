@@ -149,30 +149,30 @@ public class j extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
     }
 
     /* loaded from: classes4.dex */
-    public class d implements a.InterfaceC1115a {
+    public class d implements a.InterfaceC1116a {
         public d() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            d.b.h0.z0.t.e(3, j.this.f42357e, aVar.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs", "");
+            d.b.h0.z0.t.e(3, j.this.f42358e, aVar.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs", "");
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e implements a.InterfaceC1115a {
+    public class e implements a.InterfaceC1116a {
         public e() {
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            d.b.h0.z0.t.e(3, j.this.f42357e, aVar.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs", "");
+            d.b.h0.z0.t.e(3, j.this.f42358e, aVar.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs", "");
         }
     }
 
@@ -192,7 +192,7 @@ public class j extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
             } else {
                 z = false;
             }
-            d.b.h0.z0.t.d(3, z, j.this.f42357e, aVar.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs", "");
+            d.b.h0.z0.t.d(3, z, j.this.f42358e, aVar.n(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, "frs", "");
         }
     }
 
@@ -211,7 +211,7 @@ public class j extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     j.this.D.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), j.this.B, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -252,7 +252,7 @@ public class j extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         } else {
             f0Var.x(true);
         }
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds38));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds38));
         bVar.n(f0Var);
         d.b.i.f0 f0Var2 = new d.b.i.f0(this.w);
         f0Var2.n(Boolean.TRUE);
@@ -277,8 +277,8 @@ public class j extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(3);

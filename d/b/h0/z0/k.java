@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.FileHelper;
 public class k {
 
     /* renamed from: c  reason: collision with root package name */
-    public static k f51708c = new k();
+    public static k f51709c = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f51709a;
+    public c f51710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51710b;
+    public b f51711b;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -36,27 +36,27 @@ public class k {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (k.this.f51710b == null || bool == null) {
+            if (k.this.f51711b == null || bool == null) {
                 return;
             }
-            k.this.f51710b.onResult(bool.booleanValue());
+            k.this.f51711b.onResult(bool.booleanValue());
         }
     }
 
     public static k e() {
-        return f51708c;
+        return f51709c;
     }
 
     public void c(b bVar) {
-        this.f51710b = bVar;
-        c cVar = this.f51709a;
+        this.f51711b = bVar;
+        c cVar = this.f51710a;
         if (cVar != null) {
             cVar.cancel();
         }
         c cVar2 = new c();
-        this.f51709a = cVar2;
+        this.f51710a = cVar2;
         cVar2.setPriority(4);
-        this.f51709a.execute(new String[0]);
+        this.f51710a.execute(new String[0]);
     }
 
     public final boolean d() {

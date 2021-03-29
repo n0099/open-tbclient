@@ -5,13 +5,13 @@ import java.util.Map;
 public class a0 extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42056a;
+    public boolean f42057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f42057b;
+    public Map<String, String> f42058b;
 
     public a0(boolean z, Map<String, String> map) {
-        this.f42056a = z;
-        this.f42057b = map;
+        this.f42057a = z;
+        this.f42058b = map;
     }
 }

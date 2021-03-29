@@ -12,17 +12,17 @@ import java.io.IOException;
 public abstract class b<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f35245a;
+    public final String f35246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AssetManager f35246b;
+    public final AssetManager f35247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f35247c;
+    public T f35248c;
 
     public b(AssetManager assetManager, String str) {
-        this.f35246b = assetManager;
-        this.f35245a = str;
+        this.f35247b = assetManager;
+        this.f35246a = str;
     }
 
     public abstract T a(AssetManager assetManager, String str);
@@ -30,8 +30,8 @@ public abstract class b<T> implements d<T> {
     @Override // com.kwad.sdk.glide.load.a.d
     public void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            T a2 = a(this.f35246b, this.f35245a);
-            this.f35247c = a2;
+            T a2 = a(this.f35247b, this.f35246a);
+            this.f35248c = a2;
             aVar.a((d.a<? super T>) a2);
         } catch (IOException e2) {
             if (Log.isLoggable(AssetPathFetcher.TAG, 3)) {
@@ -45,7 +45,7 @@ public abstract class b<T> implements d<T> {
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void b() {
-        T t = this.f35247c;
+        T t = this.f35248c;
         if (t == null) {
             return;
         }

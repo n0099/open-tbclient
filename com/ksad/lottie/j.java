@@ -7,30 +7,30 @@ public final class j<V> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public final V f31429a;
+    public final V f31430a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final Throwable f31430b;
+    public final Throwable f31431b;
 
     public j(V v) {
-        this.f31429a = v;
-        this.f31430b = null;
+        this.f31430a = v;
+        this.f31431b = null;
     }
 
     public j(Throwable th) {
-        this.f31430b = th;
-        this.f31429a = null;
+        this.f31431b = th;
+        this.f31430a = null;
     }
 
     @Nullable
     public V a() {
-        return this.f31429a;
+        return this.f31430a;
     }
 
     @Nullable
     public Throwable b() {
-        return this.f31430b;
+        return this.f31431b;
     }
 
     public boolean equals(Object obj) {

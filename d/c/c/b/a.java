@@ -30,43 +30,43 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f65578a = null;
+    public static String f65579a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static p f65579b = null;
+    public static p f65580b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d.c.c.b.c.b f65580c = null;
+    public static d.c.c.b.c.b f65581c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f65581d = true;
+    public static boolean f65582d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.c.c.b.c.a f65582e;
+    public static d.c.c.b.c.a f65583e;
 
     /* renamed from: d.c.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1791a extends g {
+    public static class C1792a extends g {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f65583e;
+        public final /* synthetic */ Context f65584e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1791a(String str, Context context) {
+        public C1792a(String str, Context context) {
             super(str);
-            this.f65583e = context;
+            this.f65584e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.a(this.f65583e).n();
-            b.a(this.f65583e);
-            b.k(this.f65583e);
+            b.a(this.f65584e).n();
+            b.a(this.f65584e);
+            b.k(this.f65584e);
         }
     }
 
     public static d.c.c.b.c.b a() {
-        d.c.c.b.c.b bVar = f65580c;
+        d.c.c.b.c.b bVar = f65581c;
         if (bVar != null) {
             return bVar;
         }
@@ -81,7 +81,7 @@ public class a {
         if (activity == null) {
             return;
         }
-        e.b(new C1791a("adnet onActivityResume", activity.getApplicationContext()));
+        e.b(new C1792a("adnet onActivityResume", activity.getApplicationContext()));
     }
 
     public static void d(Context context, Application application, boolean z) {
@@ -101,32 +101,32 @@ public class a {
     }
 
     public static void e(d.c.c.b.c.a aVar) {
-        f65582e = aVar;
+        f65583e = aVar;
     }
 
     public static void f(d.c.c.b.c.b bVar) {
-        f65580c = bVar;
+        f65581c = bVar;
     }
 
     public static void g(boolean z) {
-        f65581d = z;
+        f65582d = z;
     }
 
     public static String h(Context context) {
         try {
-            if (TextUtils.isEmpty(f65578a)) {
+            if (TextUtils.isEmpty(f65579a)) {
                 File file = new File(context.getCacheDir(), "VAdNetSdk");
                 file.mkdirs();
-                f65578a = file.getAbsolutePath();
+                f65579a = file.getAbsolutePath();
             }
         } catch (Throwable th) {
             q.b(th, "init adnetsdk default directory error ", new Object[0]);
         }
-        return f65578a;
+        return f65579a;
     }
 
     public static boolean i() {
-        return f65581d;
+        return f65582d;
     }
 
     public static void j() {
@@ -134,7 +134,7 @@ public class a {
     }
 
     public static d.c.c.b.c.a k() {
-        return f65582e;
+        return f65583e;
     }
 
     /* loaded from: classes5.dex */
@@ -142,35 +142,35 @@ public class a {
         public static b k;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f65584a;
+        public final boolean f65585a;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Context f65591h;
+        public final Context f65592h;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f65585b = false;
+        public volatile boolean f65586b = false;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f65586c = true;
+        public boolean f65587c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f65587d = false;
+        public boolean f65588d = false;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f65588e = 0;
+        public long f65589e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f65589f = 0;
+        public long f65590f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public AtomicBoolean f65590g = new AtomicBoolean(false);
+        public AtomicBoolean f65591g = new AtomicBoolean(false);
         public volatile boolean i = false;
         public final h j = new h(Looper.getMainLooper(), this);
 
         /* renamed from: d.c.c.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1792a extends g {
-            public C1792a(String str) {
+        public class C1793a extends g {
+            public C1793a(String str) {
                 super(str);
             }
 
@@ -182,20 +182,20 @@ public class a {
 
         /* renamed from: d.c.c.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1793b extends g {
+        public class C1794b extends g {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f65593e;
+            public final /* synthetic */ boolean f65594e;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1793b(String str, boolean z) {
+            public C1794b(String str, boolean z) {
                 super(str);
-                this.f65593e = z;
+                this.f65594e = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.o(this.f65593e);
+                b.this.o(this.f65594e);
             }
         }
 
@@ -203,17 +203,17 @@ public class a {
         public class c implements o.a<JSONObject> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f65595e;
+            public final /* synthetic */ int f65596e;
 
             public c(int i) {
-                this.f65595e = i;
+                this.f65596e = i;
             }
 
             @Override // d.c.c.b.d.o.a
             public void a(o<JSONObject> oVar) {
-                JSONObject jSONObject = oVar.f65738a;
+                JSONObject jSONObject = oVar.f65739a;
                 if (jSONObject == null) {
-                    b.this.c(this.f65595e + 1);
+                    b.this.c(this.f65596e + 1);
                     return;
                 }
                 String str = null;
@@ -222,14 +222,14 @@ public class a {
                 } catch (Exception unused) {
                 }
                 if (!"success".equals(str)) {
-                    b.this.c(this.f65595e + 1);
+                    b.this.c(this.f65596e + 1);
                     return;
                 }
                 try {
                     if (b.this.g(jSONObject)) {
                         b.this.j(101);
                     } else {
-                        b.this.c(this.f65595e + 1);
+                        b.this.c(this.f65596e + 1);
                     }
                 } catch (Exception unused2) {
                 }
@@ -237,13 +237,13 @@ public class a {
 
             @Override // d.c.c.b.d.o.a
             public void b(o<JSONObject> oVar) {
-                b.this.c(this.f65595e + 1);
+                b.this.c(this.f65596e + 1);
             }
         }
 
         public b(Context context, boolean z) {
-            this.f65591h = context;
-            this.f65584a = z;
+            this.f65592h = context;
+            this.f65585a = z;
         }
 
         public static b a(Context context) {
@@ -292,7 +292,7 @@ public class a {
                     d.c.c.b.d.g gVar = new d.c.c.b.d.g();
                     gVar.b(10000);
                     gVar.c(0);
-                    fVar.setRetryPolicy(gVar).build(a.b(this.f65591h));
+                    fVar.setRetryPolicy(gVar).build(a.b(this.f65592h));
                     return;
                 } catch (Throwable th) {
                     d.c("AppConfig", "try app config exception: " + th);
@@ -303,11 +303,11 @@ public class a {
         }
 
         public synchronized void e(boolean z) {
-            if (this.f65584a) {
+            if (this.f65585a) {
                 p(z);
-            } else if (this.f65588e <= 0) {
+            } else if (this.f65589e <= 0) {
                 try {
-                    e.b(new C1792a("adnet tryRefreshConfig"));
+                    e.b(new C1793a("adnet tryRefreshConfig"));
                 } catch (Throwable unused) {
                 }
             }
@@ -332,7 +332,7 @@ public class a {
             }
             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
             synchronized (this) {
-                SharedPreferences.Editor edit = this.f65591h.getSharedPreferences("ss_app_config", 0).edit();
+                SharedPreferences.Editor edit = this.f65592h.getSharedPreferences("ss_app_config", 0).edit();
                 edit.putLong("last_refresh_time", System.currentTimeMillis());
                 edit.apply();
             }
@@ -348,7 +348,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Address a2 = a.a().a(this.f65591h);
+            Address a2 = a.a().a(this.f65592h);
             d.c.c.b.e.g gVar = new d.c.c.b.e.g("https://" + str + "/get_domains/v4/");
             if (a2 != null && a2.hasLatitude() && a2.hasLongitude()) {
                 gVar.c("latitude", a2.getLatitude());
@@ -358,7 +358,7 @@ public class a {
                     gVar.e("city", Uri.encode(locality));
                 }
             }
-            if (this.f65585b) {
+            if (this.f65586b) {
                 gVar.d("force", 1);
             }
             try {
@@ -380,8 +380,8 @@ public class a {
         }
 
         public synchronized void i() {
-            if (System.currentTimeMillis() - this.f65588e > VideoCloudSetting.HOUR_MILLISECOND) {
-                this.f65588e = System.currentTimeMillis();
+            if (System.currentTimeMillis() - this.f65589e > VideoCloudSetting.HOUR_MILLISECOND) {
+                this.f65589e = System.currentTimeMillis();
                 try {
                     if (f.a().r() != null) {
                         f.a().r().d();
@@ -399,15 +399,15 @@ public class a {
         }
 
         public boolean m(boolean z) {
-            d.c("TNCManager", "doRefresh: updating state " + this.f65590g.get());
-            if (!this.f65590g.compareAndSet(false, true)) {
+            d.c("TNCManager", "doRefresh: updating state " + this.f65591g.get());
+            if (!this.f65591g.compareAndSet(false, true)) {
                 d.c("TNCManager", "doRefresh, already running");
                 return false;
             }
             if (z) {
-                this.f65589f = System.currentTimeMillis();
+                this.f65590f = System.currentTimeMillis();
             }
-            e.b(new C1793b("adnet doRefresh", z));
+            e.b(new C1794b("adnet doRefresh", z));
             return true;
         }
 
@@ -416,12 +416,12 @@ public class a {
                 return;
             }
             this.i = true;
-            long j = this.f65591h.getSharedPreferences("ss_app_config", 0).getLong("last_refresh_time", 0L);
+            long j = this.f65592h.getSharedPreferences("ss_app_config", 0).getLong("last_refresh_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (j > currentTimeMillis) {
                 j = currentTimeMillis;
             }
-            this.f65588e = j;
+            this.f65589e = j;
             if (f.a().r() != null) {
                 f.a().r().a();
             }
@@ -430,7 +430,7 @@ public class a {
         public void o(boolean z) {
             d.c("TNCManager", "doRefresh, actual request");
             n();
-            this.f65587d = true;
+            this.f65588d = true;
             if (!z) {
                 this.j.sendEmptyMessage(102);
                 return;
@@ -438,25 +438,25 @@ public class a {
             try {
                 r();
             } catch (Exception unused) {
-                this.f65590g.set(false);
+                this.f65591g.set(false);
             }
         }
 
         public final void p(boolean z) {
-            if (this.f65587d) {
+            if (this.f65588d) {
                 return;
             }
-            if (this.f65586c) {
-                this.f65586c = false;
-                this.f65588e = 0L;
-                this.f65589f = 0L;
+            if (this.f65587c) {
+                this.f65587c = false;
+                this.f65589e = 0L;
+                this.f65590f = 0L;
             }
             long j = z ? Constants.SYNC_MSG_DELAY_TIME : 43200000L;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f65588e <= j || currentTimeMillis - this.f65589f <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+            if (currentTimeMillis - this.f65589e <= j || currentTimeMillis - this.f65590f <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return;
             }
-            boolean a2 = d.c.c.b.e.e.a(this.f65591h);
+            boolean a2 = d.c.c.b.e.e.a(this.f65592h);
             if (!this.i || a2) {
                 m(a2);
             }
@@ -479,21 +479,21 @@ public class a {
         public void a(Message message) {
             int i = message.what;
             if (i == 101) {
-                this.f65587d = false;
-                this.f65588e = System.currentTimeMillis();
+                this.f65588d = false;
+                this.f65589e = System.currentTimeMillis();
                 d.c("TNCManager", "doRefresh, succ");
-                if (this.f65586c) {
+                if (this.f65587c) {
                     b();
                 }
-                this.f65590g.set(false);
+                this.f65591g.set(false);
             } else if (i != 102) {
             } else {
-                this.f65587d = false;
-                if (this.f65586c) {
+                this.f65588d = false;
+                if (this.f65587c) {
                     b();
                 }
                 d.c("TNCManager", "doRefresh, error");
-                this.f65590g.set(false);
+                this.f65591g.set(false);
             }
         }
 
@@ -510,7 +510,7 @@ public class a {
                 }
             }
             try {
-                if (this.f65584a) {
+                if (this.f65585a) {
                     n();
                 } else {
                     i();

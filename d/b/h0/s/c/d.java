@@ -2,33 +2,33 @@ package d.b.h0.s.c;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51150c;
+    public int f51151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51151d;
+    public long f51152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51152e;
+    public long f51153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51153f;
+    public String f51154f;
     public String m;
     public boolean q;
     public String r;
     public String s;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51148a = 1;
+    public int f51149a = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51154g = 0;
+    public int f51155g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51155h = 1;
+    public int f51156h = 1;
     public int i = 0;
     public int j = 0;
     public int k = 300;
@@ -38,10 +38,10 @@ public class d {
     public int p = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f51149b = new h();
+    public h f51150b = new h();
 
     public h a() {
-        return this.f51149b;
+        return this.f51150b;
     }
 
     public int b() {
@@ -53,15 +53,15 @@ public class d {
     }
 
     public boolean d() {
-        return this.f51155h == 1;
+        return this.f51156h == 1;
     }
 
     public boolean e() {
-        return this.f51148a > 0;
+        return this.f51149a > 0;
     }
 
     public boolean f() {
-        return this.f51154g == 1;
+        return this.f51155g == 1;
     }
 
     public boolean g() {
@@ -69,9 +69,9 @@ public class d {
     }
 
     public boolean h() {
-        if (this.f51150c == 1) {
+        if (this.f51151c == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.f51151d < currentTimeMillis && currentTimeMillis < this.f51152e;
+            return this.f51152d < currentTimeMillis && currentTimeMillis < this.f51153e;
         }
         return false;
     }
@@ -81,26 +81,26 @@ public class d {
     }
 
     public String j() {
-        return this.f51153f;
+        return this.f51154f;
     }
 
     public void k(JSONObject jSONObject) throws JSONException {
         if (jSONObject == null) {
             return;
         }
-        this.f51148a = jSONObject.optInt("als_control", 1);
+        this.f51149a = jSONObject.optInt("als_control", 1);
         jSONObject.optInt("not_use_lego_patch", 0);
-        this.f51155h = jSONObject.optInt("ad_video_not_autoplay", 1);
+        this.f51156h = jSONObject.optInt("ad_video_not_autoplay", 1);
         this.j = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.f51149b.a(jSONObject);
+        this.f51150b.a(jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
         if (optJSONObject != null) {
-            this.f51150c = optJSONObject.optInt("log_feed_switch", 0);
-            this.f51151d = optJSONObject.optLong("start_time", -1L);
-            this.f51152e = optJSONObject.optLong("end_time", -1L);
-            this.f51153f = optJSONObject.optString("ext_info");
+            this.f51151c = optJSONObject.optInt("log_feed_switch", 0);
+            this.f51152d = optJSONObject.optLong("start_time", -1L);
+            this.f51153e = optJSONObject.optLong("end_time", -1L);
+            this.f51154f = optJSONObject.optString("ext_info");
         }
-        this.f51154g = jSONObject.optInt("ad_collect_switch", 0);
+        this.f51155g = jSONObject.optInt("ad_collect_switch", 0);
         JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
         if (optJSONObject2 != null) {
             this.k = optJSONObject2.optInt("interval", 300);

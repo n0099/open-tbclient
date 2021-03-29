@@ -5,20 +5,20 @@ import d.b.g0.p.i;
 public final class b extends i {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f49331d;
+    public static volatile b f49332d;
 
     public b() {
         super("aiapp_open_stat");
     }
 
     public static b f() {
-        if (f49331d == null) {
+        if (f49332d == null) {
             synchronized (b.class) {
-                if (f49331d == null) {
-                    f49331d = new b();
+                if (f49332d == null) {
+                    f49332d = new b();
                 }
             }
         }
-        return f49331d;
+        return f49332d;
     }
 }

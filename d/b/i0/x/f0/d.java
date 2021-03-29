@@ -10,7 +10,7 @@ public class d extends d.b.b.j.e.a<e, CardViewHolder<f>> {
     public TbPageContext<?> n;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.f62231f);
+        super(tbPageContext.getPageActivity(), e.f62232f);
         this.n = tbPageContext;
     }
 

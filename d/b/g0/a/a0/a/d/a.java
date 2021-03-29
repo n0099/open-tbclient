@@ -23,41 +23,41 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<V extends View, M extends b> extends d.b.g0.a.a0.b.a<V, M> {
 
     /* renamed from: d.b.g0.a.a0.a.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0588a implements ValueAnimator.AnimatorUpdateListener {
+    /* loaded from: classes2.dex */
+    public class C0589a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppComponentContainerView f43096e;
+        public final /* synthetic */ SwanAppComponentContainerView f43097e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f43097f;
+        public final /* synthetic */ boolean f43098f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f43098g;
+        public final /* synthetic */ b f43099g;
 
-        public C0588a(a aVar, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, b bVar) {
-            this.f43096e = swanAppComponentContainerView;
-            this.f43097f = z;
-            this.f43098g = bVar;
+        public C0589a(a aVar, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, b bVar) {
+            this.f43097e = swanAppComponentContainerView;
+            this.f43098f = z;
+            this.f43099g = bVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            ViewGroup.LayoutParams layoutParams = this.f43096e.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f43097e.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                if (this.f43097f) {
+                if (this.f43098f) {
                     marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 } else {
                     marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 }
-                this.f43098g.l.m(marginLayoutParams.leftMargin);
-                this.f43098g.l.n(marginLayoutParams.topMargin);
-                this.f43096e.setLayoutParams(marginLayoutParams);
+                this.f43099g.l.m(marginLayoutParams.leftMargin);
+                this.f43099g.l.n(marginLayoutParams.topMargin);
+                this.f43097e.setLayoutParams(marginLayoutParams);
             }
         }
     }
@@ -109,7 +109,7 @@ public abstract class a<V extends View, M extends b> extends d.b.g0.a.a0.b.a<V, 
         int e3 = z ? aVar2.e() : aVar2.f();
         if (e2 != e3) {
             ValueAnimator ofInt = ValueAnimator.ofInt(e2, e3);
-            ofInt.addUpdateListener(new C0588a(this, swanAppComponentContainerView, z, bVar2));
+            ofInt.addUpdateListener(new C0589a(this, swanAppComponentContainerView, z, bVar2));
             return ofInt;
         }
         return null;
@@ -237,11 +237,11 @@ public abstract class a<V extends View, M extends b> extends d.b.g0.a.a0.b.a<V, 
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-View", "renderAlpha");
         }
         if (L()) {
-            if (d.b.g0.a.a0.b.a.f43099h) {
+            if (d.b.g0.a.a0.b.a.f43100h) {
                 Log.d("Component-View", "renderAlpha with animation");
             }
             if (N()) {
@@ -262,7 +262,7 @@ public abstract class a<V extends View, M extends b> extends d.b.g0.a.a0.b.a<V, 
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-View", "renderBackground");
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
@@ -276,7 +276,7 @@ public abstract class a<V extends View, M extends b> extends d.b.g0.a.a0.b.a<V, 
         if (m.n == null) {
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-View", "renderPadding");
         }
         JSONArray jSONArray = m.s;

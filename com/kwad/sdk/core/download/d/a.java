@@ -14,10 +14,10 @@ import java.io.File;
 public class a implements AdDownloadProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f33586a;
+    public boolean f33587a;
 
     public a(boolean z) {
-        this.f33586a = z;
+        this.f33587a = z;
     }
 
     private String a(String str) {
@@ -52,7 +52,7 @@ public class a implements AdDownloadProxy {
         DownloadTask.DownloadRequest downloadRequest = new DownloadTask.DownloadRequest(downloadParams.mFileUrl);
         downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
         downloadRequest.setTag(downloadParams);
-        downloadRequest.setNotificationVisibility(this.f33586a ? 3 : 0);
+        downloadRequest.setNotificationVisibility(this.f33587a ? 3 : 0);
         com.ksad.download.a.a.a(context, str, downloadRequest);
     }
 }

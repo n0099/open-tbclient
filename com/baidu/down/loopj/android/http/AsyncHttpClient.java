@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AsyncHttpClient {
     public static final boolean DEBUG = false;
     public static final int DEFAULT_MAX_CONNECTIONS = 20;

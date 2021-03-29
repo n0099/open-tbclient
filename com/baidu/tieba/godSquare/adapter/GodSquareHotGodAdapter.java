@@ -21,11 +21,11 @@ public class GodSquareHotGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.u0.d.a f16939a;
+        public d.b.i0.u0.d.a f16940a;
 
         public ViewHolder(GodSquareHotGodAdapter godSquareHotGodAdapter, d.b.i0.u0.d.a aVar) {
             super(aVar.m());
-            this.f16939a = aVar;
+            this.f16940a = aVar;
         }
     }
 
@@ -38,22 +38,22 @@ public class GodSquareHotGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
-            if (view == null || GodSquareHotGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62210e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (view == null || GodSquareHotGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62211e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             if (view.getId() != GodSquareHotGodAdapter.this.n.m.getId()) {
                 if (view.getId() == GodSquareHotGodAdapter.this.n.m().getId() || view.getId() == GodSquareHotGodAdapter.this.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62210e.getUserId()));
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62211e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62210e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62211e.getUserId()));
         }
     }
 
     public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f62209h);
+        super(tbPageContext.getPageActivity(), h.f62210h);
         this.o = new a();
         this.m = tbPageContext;
     }
@@ -74,7 +74,7 @@ public class GodSquareHotGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         d.b.i0.u0.d.a aVar;
-        if (viewHolder == null || (aVar = viewHolder.f16939a) == null) {
+        if (viewHolder == null || (aVar = viewHolder.f16940a) == null) {
             return null;
         }
         aVar.n(hVar);

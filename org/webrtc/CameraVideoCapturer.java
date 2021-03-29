@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import android.media.MediaRecorder;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public interface CameraVideoCapturer extends VideoCapturer {
 
     /* loaded from: classes7.dex */

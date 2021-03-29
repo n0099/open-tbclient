@@ -26,15 +26,15 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
     public class a implements w {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f55699e;
+        public final /* synthetic */ b f55700e;
 
         public a(b bVar) {
-            this.f55699e = bVar;
+            this.f55700e = bVar;
         }
 
         @Override // d.b.b.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            this.f55699e.u();
+            this.f55700e.u();
             StatisticItem statisticItem = new StatisticItem("c13647");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("obj_id", m.this.E(i) + 1);
@@ -91,10 +91,10 @@ public class m extends d.b.b.j.e.a<u1, CardViewHolder<b>> {
         /* renamed from: v */
         public void n(u1 u1Var) {
             if (u1Var != null) {
-                this.o = u1Var.f50894f;
+                this.o = u1Var.f50895f;
                 this.n.setScaleType(ImageView.ScaleType.FIT_XY);
                 this.n.setPlaceHolder(2);
-                this.n.W(u1Var.f50893e, 10, false);
+                this.n.W(u1Var.f50894e, 10, false);
             }
             o(this.m, TbadkCoreApplication.getInst().getSkinType());
         }

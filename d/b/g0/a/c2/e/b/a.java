@@ -19,27 +19,27 @@ public class a extends a0 {
 
     /* renamed from: d.b.g0.a.c2.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0637a implements a.c {
+    public class C0638a implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43788a;
+        public final /* synthetic */ UnitedSchemeEntity f43789a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43789b;
+        public final /* synthetic */ CallbackHandler f43790b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ k f43790c;
+        public final /* synthetic */ k f43791c;
 
-        public C0637a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar) {
-            this.f43788a = unitedSchemeEntity;
-            this.f43789b = callbackHandler;
-            this.f43790c = kVar;
+        public C0638a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar) {
+            this.f43789a = unitedSchemeEntity;
+            this.f43790b = callbackHandler;
+            this.f43791c = kVar;
         }
 
         @Override // d.b.g0.a.c2.e.a.c
         public void a(float f2, int i) {
             c.g("compass", "handle compass change, angle:" + f2 + ",accuracy: " + i);
-            a.this.k(this.f43788a, this.f43789b, this.f43790c, f2, i);
+            a.this.k(this.f43789a, this.f43790b, this.f43791c, f2, i);
         }
     }
 
@@ -52,21 +52,21 @@ public class a extends a0 {
         if (eVar == null) {
             c.b("compass", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "startCompass --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             c.b("compass", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "startCompass --- illegal context");
             }
             return false;
         } else {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("SwanAppAction", "startCompass --- params is empty");
                 }
                 c.b("compass", "none params");
@@ -75,7 +75,7 @@ public class a extends a0 {
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("SwanAppAction", "startCompass --- cb is empty");
                 }
                 c.b("compass", "cb is empty");
@@ -86,7 +86,7 @@ public class a extends a0 {
             k kVar = new k("compassChange", optParamsAsJo, optString);
             d.b.g0.a.c2.e.a i = d.b.g0.a.c2.e.a.i();
             i.l(context);
-            i.o(new C0637a(unitedSchemeEntity, callbackHandler, kVar));
+            i.o(new C0638a(unitedSchemeEntity, callbackHandler, kVar));
             c.g("compass", "start listen compass");
             i.p();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -100,7 +100,7 @@ public class a extends a0 {
         try {
             jSONObject.put("direction", f2);
             jSONObject.put("accuracy", d.b.g0.a.c2.e.a.h(i));
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
             }
             kVar.c(unitedSchemeEntity, callbackHandler, jSONObject);

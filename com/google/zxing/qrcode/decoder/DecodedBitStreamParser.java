@@ -15,8 +15,8 @@ public final class DecodedBitStreamParser {
     public static final char[] ALPHANUMERIC_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
     public static final int GB2312_SUBSET = 1;
 
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00e7 A[LOOP:0: B:65:0x001e->B:61:0x00e7, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00c6 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00e7 A[LOOP:0: B:64:0x001e->B:61:0x00e7, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x00c6 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

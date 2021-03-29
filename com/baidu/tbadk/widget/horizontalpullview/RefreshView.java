@@ -19,16 +19,16 @@ import d.b.h0.b1.h.a;
 public class RefreshView extends FrameLayout implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f14163e;
+    public ImageView f14164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f14164f;
+    public TextView f14165f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14165g;
+    public int f14166g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14166h;
+    public int f14167h;
 
     public RefreshView(@NonNull Context context) {
         this(context, null);
@@ -36,34 +36,34 @@ public class RefreshView extends FrameLayout implements a {
 
     @Override // d.b.h0.b1.h.a
     public void a(View view) {
-        if (this.f14166h != 2) {
-            this.f14166h = 2;
-            this.f14164f.setText("释放跳转");
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14163e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
+        if (this.f14167h != 2) {
+            this.f14167h = 2;
+            this.f14165f.setText("释放跳转");
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14164e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
         }
     }
 
     @Override // d.b.h0.b1.h.a
     public void b(View view) {
-        if (this.f14166h != 1) {
-            this.f14166h = 1;
-            this.f14164f.setText("查看更多");
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14163e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
+        if (this.f14167h != 1) {
+            this.f14167h = 1;
+            this.f14165f.setText("查看更多");
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14164e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
         }
     }
 
     public final void c(Context context) {
         LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-        this.f14163e = (ImageView) findViewById(R.id.arrow_icon);
-        this.f14164f = (TextView) findViewById(R.id.text);
+        this.f14164e = (ImageView) findViewById(R.id.arrow_icon);
+        this.f14165f = (TextView) findViewById(R.id.text);
     }
 
     public void d() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.f14165g) {
-            this.f14166h = 0;
-            this.f14165g = skinType;
-            SkinManager.setViewTextColor(this.f14164f, R.color.CAM_X0109);
+        if (skinType != this.f14166g) {
+            this.f14167h = 0;
+            this.f14166g = skinType;
+            SkinManager.setViewTextColor(this.f14165f, R.color.CAM_X0109);
         }
     }
 
@@ -78,7 +78,7 @@ public class RefreshView extends FrameLayout implements a {
 
     public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14165g = 3;
+        this.f14166g = 3;
         c(context);
     }
 }

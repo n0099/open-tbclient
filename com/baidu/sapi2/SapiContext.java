@@ -43,22 +43,22 @@ public final class SapiContext implements NoProguard {
     public static final String KEY_SHARE_STORAGE = "share_storage";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10646c = "current_account";
+    public static final String f10647c = "current_account";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f10647d = "login_accounts";
+    public static final String f10648d = "login_accounts";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f10648e = "first_install";
+    public static final String f10649e = "first_install";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f10649f = "sapi_options";
+    public static final String f10650f = "sapi_options";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f10650g = "pkg_signs";
+    public static final String f10651g = "pkg_signs";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f10651h = "hosts_hijacked";
+    public static final String f10652h = "hosts_hijacked";
     public static final String i = "device_info_read_times";
     public static final String j = "root_status";
     public static final String k = "en_current_account";
@@ -79,14 +79,14 @@ public final class SapiContext implements NoProguard {
     public static String z;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f10652a;
+    public SharedPreferences f10653a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10653b;
+    public Context f10654b;
 
     public SapiContext(Context context) {
-        this.f10653b = context;
-        this.f10652a = context.getSharedPreferences(SharedPreferencesUtil.f9733c, 0);
+        this.f10654b = context;
+        this.f10653a = context.getSharedPreferences(SharedPreferencesUtil.f9734c, 0);
     }
 
     private void a(List<SapiAccount> list) {
@@ -97,7 +97,7 @@ public final class SapiContext implements NoProguard {
     }
 
     private SapiOptions.c b() {
-        String string = getString(f10650g);
+        String string = getString(f10651g);
         if (!TextUtils.isEmpty(string)) {
             try {
                 return SapiOptions.c.a(new JSONObject(string));
@@ -190,7 +190,7 @@ public final class SapiContext implements NoProguard {
     public String getAccountEncryptKey() {
         if (TextUtils.isEmpty(z)) {
             try {
-                z = SecurityUtil.md5((this.f10653b.getPackageName() + SapiUtils.getPackageSign(this.f10653b, this.f10653b.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                z = SecurityUtil.md5((this.f10654b.getPackageName() + SapiUtils.getPackageSign(this.f10654b, this.f10654b.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
@@ -243,7 +243,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public boolean getBoolean(String str, boolean z2) {
-        return this.f10652a.getBoolean(str, z2);
+        return this.f10653a.getBoolean(str, z2);
     }
 
     public int getCancelNuomiAddrCount() {
@@ -273,14 +273,14 @@ public final class SapiContext implements NoProguard {
         String str;
         if (!TextUtils.isEmpty(getString(k))) {
             str = SapiDataEncryptor.decryptAccountInfo(getString(k), getAccountEncryptKey());
-        } else if (TextUtils.isEmpty(getString(f10646c))) {
+        } else if (TextUtils.isEmpty(getString(f10647c))) {
             str = null;
         } else {
-            str = getString(f10646c);
+            str = getString(f10647c);
             String encryptAccountInfo = SapiDataEncryptor.encryptAccountInfo(str, getAccountEncryptKey());
             if (!TextUtils.isEmpty(encryptAccountInfo)) {
                 put(k, encryptAccountInfo);
-                put(f10646c, "");
+                put(f10647c, "");
             }
         }
         if (TextUtils.isEmpty(str)) {
@@ -325,7 +325,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public int getInt(String str, int i2) {
-        return this.f10652a.getInt(str, i2);
+        return this.f10653a.getInt(str, i2);
     }
 
     public boolean getIsAlreadyShowExplainCamera() {
@@ -340,14 +340,14 @@ public final class SapiContext implements NoProguard {
         String str;
         if (!TextUtils.isEmpty(getString(l))) {
             str = SapiDataEncryptor.decryptAccountInfo(getString(l), getAccountEncryptKey());
-        } else if (TextUtils.isEmpty(getString(f10647d))) {
+        } else if (TextUtils.isEmpty(getString(f10648d))) {
             str = null;
         } else {
-            String string = getString(f10647d);
+            String string = getString(f10648d);
             String encryptAccountInfo = SapiDataEncryptor.encryptAccountInfo(string, getAccountEncryptKey());
             if (!TextUtils.isEmpty(encryptAccountInfo)) {
                 put(l, encryptAccountInfo);
-                put(f10647d, "");
+                put(f10648d, "");
             }
             str = string;
         }
@@ -368,7 +368,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public long getLong(String str, long j2) {
-        return this.f10652a.getLong(str, j2);
+        return this.f10653a.getLong(str, j2);
     }
 
     public boolean getModifiedDirExecPer() {
@@ -408,7 +408,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public SapiOptions getSapiOptions() {
-        String string = getString(f10649f);
+        String string = getString(f10650f);
         if (!TextUtils.isEmpty(string)) {
             try {
                 return SapiOptions.fromJSON(new JSONObject(string));
@@ -431,7 +431,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public String getString(String str) {
-        return this.f10652a.getString(str, "");
+        return this.f10653a.getString(str, "");
     }
 
     public String getTid() {
@@ -487,19 +487,19 @@ public final class SapiContext implements NoProguard {
     }
 
     public boolean isFirstLaunch() {
-        if (getBoolean(f10648e, true)) {
-            put(f10648e, false);
+        if (getBoolean(f10649e, true)) {
+            put(f10649e, false);
             return true;
         }
         return false;
     }
 
     public boolean isHostsHijacked() {
-        return getBoolean(f10651h, false);
+        return getBoolean(f10652h, false);
     }
 
     public boolean isMeetOneKeyLoginGray(int i2) {
-        return getSapiOptions().gray.getGrayModuleByFunName(i2 != 1 ? i2 != 2 ? i2 != 3 ? "unkown" : SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH).f10805c;
+        return getSapiOptions().gray.getGrayModuleByFunName(i2 != 1 ? i2 != 2 ? i2 != 3 ? "unkown" : SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH).f10806c;
     }
 
     public void markAsDeleteFaceLogin(JSONArray jSONArray) {
@@ -518,7 +518,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public void put(String str, String str2) {
-        this.f10652a.edit().putString(str, str2).apply();
+        this.f10653a.edit().putString(str, str2).apply();
     }
 
     public void putEncryptStr(String str, String str2) {
@@ -588,18 +588,18 @@ public final class SapiContext implements NoProguard {
     public void setCurrentAccount(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
             put(k, "");
-            SapiUtils.webLogout(this.f10653b);
+            SapiUtils.webLogout(this.f10654b);
             return;
         }
         JSONObject jSONObject = sapiAccount.toJSONObject();
         if (jSONObject != null) {
             put(k, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), getAccountEncryptKey()));
-            SapiUtils.webLogin(this.f10653b, sapiAccount.bduss, sapiAccount.ptoken);
+            SapiUtils.webLogin(this.f10654b, sapiAccount.bduss, sapiAccount.ptoken);
         }
     }
 
     public void setHostsHijacked(boolean z2) {
-        put(f10651h, z2);
+        put(f10652h, z2);
     }
 
     public void setIsAlreadyShowExplainCamera(boolean z2) {
@@ -624,7 +624,7 @@ public final class SapiContext implements NoProguard {
 
     public void setPkgSigns(SapiOptions.c cVar) {
         if (cVar != null) {
-            put(f10650g, cVar.e());
+            put(f10651g, cVar.e());
         }
     }
 
@@ -634,7 +634,7 @@ public final class SapiContext implements NoProguard {
 
     public void setSapiOptions(SapiOptions sapiOptions) {
         if (sapiOptions != null) {
-            put(f10649f, sapiOptions.toJSON());
+            put(f10650f, sapiOptions.toJSON());
         }
     }
 
@@ -678,15 +678,15 @@ public final class SapiContext implements NoProguard {
     }
 
     public void put(String str, int i2) {
-        this.f10652a.edit().putInt(str, i2).apply();
+        this.f10653a.edit().putInt(str, i2).apply();
     }
 
     public void put(String str, long j2) {
-        this.f10652a.edit().putLong(str, j2).apply();
+        this.f10653a.edit().putLong(str, j2).apply();
     }
 
     public void put(String str, boolean z2) {
-        this.f10652a.edit().putBoolean(str, z2).apply();
+        this.f10653a.edit().putBoolean(str, z2).apply();
     }
 
     private String a() {

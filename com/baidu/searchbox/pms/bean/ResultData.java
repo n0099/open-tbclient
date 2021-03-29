@@ -1,7 +1,7 @@
 package com.baidu.searchbox.pms.bean;
 
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResultData {
     public List<PackageInfo> addList;
     public List<PackageInfo> configChangeList;

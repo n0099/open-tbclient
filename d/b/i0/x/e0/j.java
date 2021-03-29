@@ -9,7 +9,7 @@ public class j extends k {
     public static final BdUniqueId N0 = BdUniqueId.gen();
 
     public j(a2 a2Var) {
-        this.f62196e = a2Var;
+        this.f62197e = a2Var;
     }
 
     public static boolean i0(a2 a2Var) {
@@ -24,7 +24,7 @@ public class j extends k {
 
     @Override // d.b.i0.x.e0.k, com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        a2 a2Var = this.f62196e;
+        a2 a2Var = this.f62197e;
         if (a2Var != null && a2Var.s1() == 67) {
             return N0;
         }
@@ -41,6 +41,6 @@ public class j extends k {
 
     @Override // d.b.i0.x.e0.k, d.b.i0.x.e0.b, d.b.h0.r.q.a
     public a2 n() {
-        return this.f62196e;
+        return this.f62197e;
     }
 }

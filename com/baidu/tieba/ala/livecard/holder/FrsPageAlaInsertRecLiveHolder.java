@@ -6,10 +6,10 @@ import d.b.i0.t.i.e.a;
 public class FrsPageAlaInsertRecLiveHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f15032a;
+    public a f15033a;
 
     public FrsPageAlaInsertRecLiveHolder(a aVar) {
         super(aVar.m());
-        this.f15032a = aVar;
+        this.f15033a = aVar;
     }
 }

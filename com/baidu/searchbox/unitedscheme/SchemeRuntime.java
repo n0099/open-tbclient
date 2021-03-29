@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import d.b.g0.a.t1.b;
 import d.b.g0.a.t1.d;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeRuntime {
     @Inject
     public static ISchemeHeadIoc getSchemeHeadIoc() {

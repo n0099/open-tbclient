@@ -2,7 +2,7 @@ package d.b.h.a.k;
 
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static Object a(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Object obj2) {
         try {

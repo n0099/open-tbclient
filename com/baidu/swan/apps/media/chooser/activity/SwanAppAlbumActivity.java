@@ -31,7 +31,7 @@ import d.b.g0.a.i2.p;
 import d.b.g0.a.i2.u;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.OnClickListener, ActivityResultDispatcherHolder {
     public static final int MSG_LOAD_FINISHED = 0;
     public static final int REQUEST_CODE_RESULT_DISPATCHER = 1;
@@ -54,7 +54,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
     public ArrayList<d.b.g0.a.b1.d.e.a> mGroupImages = new ArrayList<>();
     public AdapterView.OnItemClickListener mAlbumNameClickListener = new e();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnTouchListener {
         public a() {
         }
@@ -69,7 +69,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.b1.d.d.e {
         public b() {
         }
@@ -80,7 +80,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Animation.AnimationListener {
         public c() {
         }
@@ -105,7 +105,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements Animation.AnimationListener {
         public d() {
         }
@@ -128,7 +128,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements AdapterView.OnItemClickListener {
         public e() {
         }
@@ -139,7 +139,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
                 SwanAppAlbumActivity.this.startHideAnimation();
             }
             SwanAppAlbumActivity.this.mAlbumNameTv.setText(((d.b.g0.a.b1.d.e.a) SwanAppAlbumActivity.this.mGroupImages.get(i)).c());
-            ArrayList<MediaModel> arrayList = ((d.b.g0.a.b1.d.e.a) SwanAppAlbumActivity.this.mGroupImages.get(i)).f43448h;
+            ArrayList<MediaModel> arrayList = ((d.b.g0.a.b1.d.e.a) SwanAppAlbumActivity.this.mGroupImages.get(i)).f43449h;
             SwanAppAlbumActivity.this.mAdapter.x(arrayList);
             if (arrayList.size() == 0) {
                 SwanAppAlbumActivity.this.mBottomPreviewLayout.setVisibility(8);
@@ -149,20 +149,20 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class f extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<SwanAppAlbumActivity> f12293a;
+        public WeakReference<SwanAppAlbumActivity> f12294a;
 
         public f(SwanAppAlbumActivity swanAppAlbumActivity) {
-            this.f12293a = new WeakReference<>(swanAppAlbumActivity);
+            this.f12294a = new WeakReference<>(swanAppAlbumActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
             super.handleMessage(message);
-            SwanAppAlbumActivity swanAppAlbumActivity = this.f12293a.get();
+            SwanAppAlbumActivity swanAppAlbumActivity = this.f12294a.get();
             if (swanAppAlbumActivity == null || swanAppAlbumActivity.isFinishing() || message.what != 0) {
                 return;
             }
@@ -192,40 +192,40 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             return;
         }
         Bundle e2 = u.e(getIntent(), "launchParams");
-        d.b.g0.a.b1.d.c.d.f43430b = u.g(e2, "launchType");
-        d.b.g0.a.b1.d.c.d.f43436h = u.c(e2, "isShowCamera", true);
+        d.b.g0.a.b1.d.c.d.f43431b = u.g(e2, "launchType");
+        d.b.g0.a.b1.d.c.d.f43437h = u.c(e2, "isShowCamera", true);
         d.b.g0.a.b1.d.c.d.i = u.c(e2, "isFrontCamera", false);
-        d.b.g0.a.b1.d.c.d.f43435g = u.f(e2, "maxDuration", 60);
-        d.b.g0.a.b1.d.c.d.f43431c = u.f(e2, "count", 9);
+        d.b.g0.a.b1.d.c.d.f43436g = u.f(e2, "maxDuration", 60);
+        d.b.g0.a.b1.d.c.d.f43432c = u.f(e2, "count", 9);
         String g2 = u.g(e2, "mode");
-        d.b.g0.a.b1.d.c.d.f43433e = u.c(e2, "compressed", true);
-        d.b.g0.a.b1.d.c.d.f43434f = u.g(e2, "swanAppId");
+        d.b.g0.a.b1.d.c.d.f43434e = u.c(e2, "compressed", true);
+        d.b.g0.a.b1.d.c.d.f43435f = u.g(e2, "swanAppId");
         if (!TextUtils.isEmpty(g2)) {
-            d.b.g0.a.b1.d.c.d.f43432d = g2;
+            d.b.g0.a.b1.d.c.d.f43433d = g2;
         }
         d.b.g0.a.b1.d.c.d.j = u.g(e2, "swanTmpPath");
-        int i = d.b.g0.a.b1.d.c.d.f43431c;
+        int i = d.b.g0.a.b1.d.c.d.f43432c;
         if (i < 1 || i > 9) {
-            d.b.g0.a.b1.d.c.d.f43431c = 9;
+            d.b.g0.a.b1.d.c.d.f43432c = 9;
         }
     }
 
     private void initAlbumNameAdapter() {
-        this.mAlbumNameListView.setAdapter((ListAdapter) new d.b.g0.a.b1.d.b.b(this, d.b.g0.a.b1.d.c.d.f43430b, this.mGroupImages));
+        this.mAlbumNameListView.setAdapter((ListAdapter) new d.b.g0.a.b1.d.b.b(this, d.b.g0.a.b1.d.c.d.f43431b, this.mGroupImages));
         this.mAlbumNameListView.setOnItemClickListener(this.mAlbumNameClickListener);
     }
 
     private void initData() {
         this.mHandler = new f(this);
         this.mEmptyView.b(true);
-        p.j(new d.b.g0.a.b1.d.f.a(d.b.g0.a.b1.d.c.d.f43430b, this.mHandler), "loadAlbumTask");
+        p.j(new d.b.g0.a.b1.d.f.a(d.b.g0.a.b1.d.c.d.f43431b, this.mHandler), "loadAlbumTask");
     }
 
     private void initImageAdapter() {
         d.b.g0.a.b1.d.b.a aVar = new d.b.g0.a.b1.d.b.a(this);
         this.mAdapter = aVar;
         this.mGridView.setAdapter((ListAdapter) aVar);
-        this.mAdapter.x(this.mGroupImages.get(0).f43448h);
+        this.mAdapter.x(this.mGroupImages.get(0).f43449h);
         this.mAdapter.z(new b());
     }
 
@@ -247,7 +247,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         this.mBottomPreviewTv.setOnClickListener(this);
         this.mAlbumNameListLayout.setOnTouchListener(new a());
         this.mBottomPreviewLayout.setVisibility(0);
-        this.mAlbumNameTv.setText(d.b.g0.a.b1.d.c.d.b(this, d.b.g0.a.b1.d.c.d.f43430b));
+        this.mAlbumNameTv.setText(d.b.g0.a.b1.d.c.d.b(this, d.b.g0.a.b1.d.c.d.f43431b));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -342,8 +342,8 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             }
         } else if (view == this.mSelectDoneTv) {
             Bundle bundle = new Bundle();
-            bundle.putBoolean("compressed", d.b.g0.a.b1.d.c.d.f43433e);
-            bundle.putString("swanAppId", d.b.g0.a.b1.d.c.d.f43434f);
+            bundle.putBoolean("compressed", d.b.g0.a.b1.d.c.d.f43434e);
+            bundle.putString("swanAppId", d.b.g0.a.b1.d.c.d.f43435f);
             bundle.putParcelableArrayList("mediaModels", d.b.g0.a.b1.d.c.e.e());
             bundle.putString("swanTmpPath", d.b.g0.a.b1.d.c.d.j);
             d.b.g0.a.b1.d.c.d.g(this, bundle);

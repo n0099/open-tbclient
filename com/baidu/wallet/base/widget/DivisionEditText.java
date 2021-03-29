@@ -13,19 +13,19 @@ public class DivisionEditText extends SafeKeyBoardEditText {
     public static final int VIEW_TYPE_PHONE = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f23795a;
+    public boolean f23796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23796b;
+    public int f23797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23797c;
+    public int f23798c;
 
     public DivisionEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f23795a = true;
-        this.f23796b = 0;
-        this.f23797c = 3;
+        this.f23796a = true;
+        this.f23797b = 0;
+        this.f23798c = 3;
         setUseSafeKeyBoard(false);
     }
 
@@ -34,21 +34,21 @@ public class DivisionEditText extends SafeKeyBoardEditText {
     }
 
     public boolean isFormatEnabled() {
-        return this.f23795a;
+        return this.f23796a;
     }
 
     public void setFormatEnable(boolean z) {
-        this.f23795a = z;
+        this.f23796a = z;
     }
 
     public void setViewType(int i) {
-        this.f23796b = i;
+        this.f23797b = i;
         if (i == 13) {
-            this.f23797c = 3;
+            this.f23798c = 3;
         } else if (i == 25) {
-            this.f23797c = 4;
+            this.f23798c = 4;
         } else if (i == 20) {
-            this.f23797c = 6;
+            this.f23798c = 6;
             if (isFormatEnabled()) {
                 setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
                 return;
@@ -62,53 +62,53 @@ public class DivisionEditText extends SafeKeyBoardEditText {
 
     public DivisionEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23795a = true;
-        this.f23796b = 0;
-        this.f23797c = 3;
+        this.f23796a = true;
+        this.f23797b = 0;
+        this.f23798c = 3;
         setUseSafeKeyBoard(false);
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.base.widget.DivisionEditText.1
 
             /* renamed from: g  reason: collision with root package name */
-            public char[] f23804g;
+            public char[] f23805g;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f23798a = 0;
+            public int f23799a = 0;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f23799b = 0;
+            public int f23800b = 0;
 
             /* renamed from: c  reason: collision with root package name */
-            public boolean f23800c = false;
+            public boolean f23801c = false;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f23801d = 0;
+            public int f23802d = 0;
 
             /* renamed from: h  reason: collision with root package name */
-            public StringBuffer f23805h = new StringBuffer();
+            public StringBuffer f23806h = new StringBuffer();
 
             /* renamed from: e  reason: collision with root package name */
-            public int f23802e = 0;
+            public int f23803e = 0;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 int i;
-                if (this.f23800c && DivisionEditText.this.isFormatEnabled()) {
-                    this.f23801d = DivisionEditText.this.getSelectionEnd();
+                if (this.f23801c && DivisionEditText.this.isFormatEnabled()) {
+                    this.f23802d = DivisionEditText.this.getSelectionEnd();
                     int i2 = 0;
-                    while (i2 < this.f23805h.length()) {
-                        if (this.f23805h.charAt(i2) == ' ') {
-                            this.f23805h.deleteCharAt(i2);
+                    while (i2 < this.f23806h.length()) {
+                        if (this.f23806h.charAt(i2) == ' ') {
+                            this.f23806h.deleteCharAt(i2);
                         } else {
                             i2++;
                         }
                     }
-                    if (DivisionEditText.this.f23796b != 13) {
-                        if (DivisionEditText.this.f23796b != 25) {
-                            if (DivisionEditText.this.f23796b == 20) {
+                    if (DivisionEditText.this.f23797b != 13) {
+                        if (DivisionEditText.this.f23797b != 25) {
+                            if (DivisionEditText.this.f23797b == 20) {
                                 i = 0;
-                                for (int i3 = 0; i3 < this.f23805h.length(); i3++) {
+                                for (int i3 = 0; i3 < this.f23806h.length(); i3++) {
                                     if (i3 == 6 || i3 == 15) {
-                                        this.f23805h.insert(i3, ' ');
+                                        this.f23806h.insert(i3, ' ');
                                         i++;
                                     }
                                 }
@@ -117,86 +117,86 @@ public class DivisionEditText extends SafeKeyBoardEditText {
                             }
                         } else {
                             i = 0;
-                            for (int i4 = 0; i4 < this.f23805h.length(); i4++) {
+                            for (int i4 = 0; i4 < this.f23806h.length(); i4++) {
                                 if (i4 == 4 || i4 == 9 || i4 == 14 || i4 == 19) {
-                                    this.f23805h.insert(i4, ' ');
+                                    this.f23806h.insert(i4, ' ');
                                     i++;
                                 }
                             }
                         }
                     } else {
                         i = 0;
-                        for (int i5 = 0; i5 < this.f23805h.length(); i5++) {
+                        for (int i5 = 0; i5 < this.f23806h.length(); i5++) {
                             if (i5 == 3 || i5 == 8) {
-                                this.f23805h.insert(i5, ' ');
+                                this.f23806h.insert(i5, ' ');
                                 i++;
                             }
                         }
                     }
-                    int i6 = this.f23802e;
+                    int i6 = this.f23803e;
                     if (i > i6) {
                         if (i - i6 > 1) {
-                            this.f23801d += i - i6;
+                            this.f23802d += i - i6;
                         } else {
-                            int i7 = this.f23801d;
-                            if (i7 - 1 >= 0 && this.f23805h.charAt(i7 - 1) == ' ') {
-                                this.f23801d += i - this.f23802e;
+                            int i7 = this.f23802d;
+                            if (i7 - 1 >= 0 && this.f23806h.charAt(i7 - 1) == ' ') {
+                                this.f23802d += i - this.f23803e;
                             }
                         }
                     }
-                    this.f23804g = new char[this.f23805h.length()];
-                    StringBuffer stringBuffer = this.f23805h;
-                    stringBuffer.getChars(0, stringBuffer.length(), this.f23804g, 0);
-                    String stringBuffer2 = this.f23805h.toString();
-                    if (stringBuffer2.length() > DivisionEditText.this.f23796b) {
-                        stringBuffer2 = stringBuffer2.substring(0, DivisionEditText.this.f23796b);
+                    this.f23805g = new char[this.f23806h.length()];
+                    StringBuffer stringBuffer = this.f23806h;
+                    stringBuffer.getChars(0, stringBuffer.length(), this.f23805g, 0);
+                    String stringBuffer2 = this.f23806h.toString();
+                    if (stringBuffer2.length() > DivisionEditText.this.f23797b) {
+                        stringBuffer2 = stringBuffer2.substring(0, DivisionEditText.this.f23797b);
                     }
                     DivisionEditText.this.setText(stringBuffer2);
                     Editable text = DivisionEditText.this.getText();
-                    if (this.f23801d > text.length()) {
-                        this.f23801d = text.length();
-                    } else if (this.f23801d < 0) {
-                        this.f23801d = 0;
+                    if (this.f23802d > text.length()) {
+                        this.f23802d = text.length();
+                    } else if (this.f23802d < 0) {
+                        this.f23802d = 0;
                     }
-                    Selection.setSelection(text, this.f23801d);
-                    if (DivisionEditText.this.f23796b == 13 && this.f23798a < editable.length()) {
+                    Selection.setSelection(text, this.f23802d);
+                    if (DivisionEditText.this.f23797b == 13 && this.f23799a < editable.length()) {
                         if (!DivisionEditText.this.isFormatEnabled() && text.length() == 11) {
                             Selection.setSelection(text, 11);
                         } else if (text.length() == 13) {
                             Selection.setSelection(text, 13);
                         }
                     }
-                    this.f23800c = false;
+                    this.f23801c = false;
                 }
             }
 
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                this.f23798a = charSequence.length();
-                if (this.f23805h.length() > 0) {
-                    StringBuffer stringBuffer = this.f23805h;
+                this.f23799a = charSequence.length();
+                if (this.f23806h.length() > 0) {
+                    StringBuffer stringBuffer = this.f23806h;
                     stringBuffer.delete(0, stringBuffer.length());
                 }
-                this.f23802e = 0;
+                this.f23803e = 0;
                 for (int i4 = 0; i4 < charSequence.length(); i4++) {
                     if (charSequence.charAt(i4) == ' ') {
-                        this.f23802e++;
+                        this.f23803e++;
                     }
                 }
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                this.f23799b = charSequence.length();
-                if (DivisionEditText.this.f23796b == 13 && this.f23799b >= 11 && !DivisionEditText.this.isFormatEnabled()) {
+                this.f23800b = charSequence.length();
+                if (DivisionEditText.this.f23797b == 13 && this.f23800b >= 11 && !DivisionEditText.this.isFormatEnabled()) {
                     DivisionEditText.this.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
                 }
-                this.f23805h.append(charSequence.toString());
-                int i4 = this.f23799b;
-                if (i4 != this.f23798a && i4 >= DivisionEditText.this.f23797c && !this.f23800c) {
-                    this.f23800c = true;
+                this.f23806h.append(charSequence.toString());
+                int i4 = this.f23800b;
+                if (i4 != this.f23799a && i4 >= DivisionEditText.this.f23798c && !this.f23801c) {
+                    this.f23801c = true;
                 } else {
-                    this.f23800c = false;
+                    this.f23801c = false;
                 }
             }
         });

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ArBridge {
     public static final boolean DEBUG = false;
     public static final int INVALID_MESSAGE_ID = -1;
@@ -43,12 +43,12 @@ public class ArBridge {
     public d.b.u.c.b mGameRecorder = new d.b.u.c.b(V8Engine.getAppContext());
 
     @NotProguard
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -57,12 +57,12 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(String str, int i, String str2);
     }

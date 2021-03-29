@@ -6,34 +6,34 @@ import com.baidu.android.imsdk.internal.Constants;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37809a;
+    public String f37810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37810b;
+    public String f37811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37811c;
+    public String f37812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37812d;
+    public String f37813d;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37813a;
+        public String f37814a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37814b;
+        public String f37815b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37815c;
+        public String f37816c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37816d;
+        public String f37817d;
 
         public a a(String str) {
-            this.f37813a = str;
+            this.f37814a = str;
             return this;
         }
 
@@ -42,17 +42,17 @@ public class d {
         }
 
         public a b(String str) {
-            this.f37814b = str;
+            this.f37815b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f37815c = str;
+            this.f37816c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f37816d = str;
+            this.f37817d = str;
             return this;
         }
     }
@@ -61,10 +61,10 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f37809a = !TextUtils.isEmpty(aVar.f37813a) ? aVar.f37813a : "";
-        this.f37810b = !TextUtils.isEmpty(aVar.f37814b) ? aVar.f37814b : "";
-        this.f37811c = !TextUtils.isEmpty(aVar.f37815c) ? aVar.f37815c : "";
-        this.f37812d = TextUtils.isEmpty(aVar.f37816d) ? "" : aVar.f37816d;
+        this.f37810a = !TextUtils.isEmpty(aVar.f37814a) ? aVar.f37814a : "";
+        this.f37811b = !TextUtils.isEmpty(aVar.f37815b) ? aVar.f37815b : "";
+        this.f37812c = !TextUtils.isEmpty(aVar.f37816c) ? aVar.f37816c : "";
+        this.f37813d = TextUtils.isEmpty(aVar.f37817d) ? "" : aVar.f37817d;
     }
 
     public static a a() {
@@ -73,26 +73,26 @@ public class d {
 
     public String b() {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        cVar.a("task_id", this.f37809a);
-        cVar.a("seq_id", this.f37810b);
-        cVar.a("push_timestamp", this.f37811c);
-        cVar.a(Constants.KEY_DEVICE_ID, this.f37812d);
+        cVar.a("task_id", this.f37810a);
+        cVar.a("seq_id", this.f37811b);
+        cVar.a("push_timestamp", this.f37812c);
+        cVar.a(Constants.KEY_DEVICE_ID, this.f37813d);
         return cVar.toString();
     }
 
     public String c() {
-        return this.f37809a;
+        return this.f37810a;
     }
 
     public String d() {
-        return this.f37810b;
+        return this.f37811b;
     }
 
     public String e() {
-        return this.f37811c;
+        return this.f37812c;
     }
 
     public String f() {
-        return this.f37812d;
+        return this.f37813d;
     }
 }

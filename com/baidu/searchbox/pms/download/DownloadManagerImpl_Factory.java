@@ -1,5 +1,5 @@
 package com.baidu.searchbox.pms.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadManagerImpl_Factory {
     public static volatile DownloadManagerImpl instance;
 

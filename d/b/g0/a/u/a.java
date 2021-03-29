@@ -2,7 +2,7 @@ package d.b.g0.a.u;
 
 import android.text.TextUtils;
 import d.b.g0.a.y0.e.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {

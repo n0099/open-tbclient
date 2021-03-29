@@ -21,28 +21,28 @@ import d.b.b.a.f;
 public class a extends d<PrivacyMarkActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public f<?> f61408a;
+    public f<?> f61409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61409b;
+    public View f61410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f61410c;
+    public NavigationBar f61411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61411d;
+    public TextView f61412d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f61412e;
+    public TextView f61413e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdSwitchView f61413f;
+    public BdSwitchView f61414f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f61414g;
+    public TextView f61415g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f61415h;
+    public TextView f61416h;
     public BdSwitchView i;
     public boolean j;
     public boolean k;
@@ -50,53 +50,53 @@ public class a extends d<PrivacyMarkActivity> {
 
     /* renamed from: d.b.i0.u2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1601a implements BdSwitchView.b {
-        public C1601a() {
+    public class C1602a implements BdSwitchView.b {
+        public C1602a() {
         }
 
         @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
         public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
-            if (view == a.this.f61413f) {
+            if (view == a.this.f61414f) {
                 a.this.k = switchState == BdSwitchView.SwitchState.ON;
-                a.this.f61408a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
+                a.this.f61409a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
             } else if (view == a.this.i) {
                 a.this.j = switchState == BdSwitchView.SwitchState.ON;
-                a.this.f61408a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
+                a.this.f61409a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
             }
-            TiebaStatic.log(new StatisticItem("c14003").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", view != a.this.f61413f ? 2 : 1));
+            TiebaStatic.log(new StatisticItem("c14003").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", view != a.this.f61414f ? 2 : 1));
         }
     }
 
     public a(f<PrivacyMarkActivity> fVar, int i) {
         super(fVar);
-        this.l = new C1601a();
-        this.f61408a = fVar;
+        this.l = new C1602a();
+        this.f61409a = fVar;
         k(fVar.getPageActivity(), i);
         l();
     }
 
     public View i() {
-        return this.f61409b;
+        return this.f61410b;
     }
 
     public final void k(Context context, int i) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.privacy_mark_activity, (ViewGroup) null);
-        this.f61409b = inflate;
+        this.f61410b = inflate;
         NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-        this.f61410c = navigationBar;
+        this.f61411c = navigationBar;
         navigationBar.setCenterTextTitle(context.getString(R.string.privacy_mark_setting));
-        this.f61410c.showBottomLine();
-        this.f61410c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f61411d = (TextView) this.f61409b.findViewById(R.id.inside_text);
-        this.f61412e = (TextView) this.f61409b.findViewById(R.id.inside_desc);
-        this.f61413f = (BdSwitchView) this.f61409b.findViewById(R.id.inside_switch);
-        this.f61414g = (TextView) this.f61409b.findViewById(R.id.outside_text);
-        this.f61415h = (TextView) this.f61409b.findViewById(R.id.outside_desc);
-        this.i = (BdSwitchView) this.f61409b.findViewById(R.id.outside_switch);
-        this.f61411d.setText(R.string.mark_show_inside);
-        this.f61412e.setText(R.string.mark_show_everywhere);
-        this.f61414g.setText(R.string.mark_show_outside);
-        this.f61415h.setText(R.string.mark_show_somewhere);
+        this.f61411c.showBottomLine();
+        this.f61411c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f61412d = (TextView) this.f61410b.findViewById(R.id.inside_text);
+        this.f61413e = (TextView) this.f61410b.findViewById(R.id.inside_desc);
+        this.f61414f = (BdSwitchView) this.f61410b.findViewById(R.id.inside_switch);
+        this.f61415g = (TextView) this.f61410b.findViewById(R.id.outside_text);
+        this.f61416h = (TextView) this.f61410b.findViewById(R.id.outside_desc);
+        this.i = (BdSwitchView) this.f61410b.findViewById(R.id.outside_switch);
+        this.f61412d.setText(R.string.mark_show_inside);
+        this.f61413e.setText(R.string.mark_show_everywhere);
+        this.f61415g.setText(R.string.mark_show_outside);
+        this.f61416h.setText(R.string.mark_show_somewhere);
         int i2 = i & 3;
         int i3 = (i >> 2) & 3;
         if (i2 == 3) {
@@ -105,31 +105,31 @@ public class a extends d<PrivacyMarkActivity> {
             this.i.k();
         }
         if (i3 == 3) {
-            this.f61413f.h();
+            this.f61414f.h();
         } else {
-            this.f61413f.k();
+            this.f61414f.k();
         }
         this.j = i2 != 3;
         this.k = i3 != 3;
-        this.f61413f.setOnSwitchStateChangeListener(this.l);
+        this.f61414f.setOnSwitchStateChangeListener(this.l);
         this.i.setOnSwitchStateChangeListener(this.l);
     }
 
     public void l() {
-        SkinManager.setViewTextColor(this.f61411d, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f61412e, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f61414g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f61415h, R.color.CAM_X0109);
-        this.f61410c.onChangeSkinType(this.f61408a, TbadkCoreApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(this.f61412d, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f61413e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f61415g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f61416h, R.color.CAM_X0109);
+        this.f61411c.onChangeSkinType(this.f61409a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void m() {
         boolean z = !this.k;
         this.k = z;
         if (z) {
-            this.f61413f.k();
+            this.f61414f.k();
         } else {
-            this.f61413f.h();
+            this.f61414f.h();
         }
     }
 

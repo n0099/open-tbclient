@@ -6,28 +6,28 @@ import tbclient.PlaceOrder.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61068a;
+    public String f61069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61069b;
+    public int f61070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61070c;
+    public int f61071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61071d;
+    public long f61072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61072e;
+    public String f61073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61073f;
+    public int f61074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61074g;
+    public String f61075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61075h;
+    public String f61076h;
     public long i;
     public int j;
     public int k;
@@ -37,21 +37,21 @@ public class a {
         PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
         paymentConfirmRequestData.setTdou_num(this.i);
         paymentConfirmRequestData.setOpen_id(this.l);
-        paymentConfirmRequestData.setOrder_id(this.f61074g);
-        paymentConfirmRequestData.setScene_id(this.f61069b);
-        paymentConfirmRequestData.setGoods_name(this.f61068a);
-        paymentConfirmRequestData.setGoods_pic(this.f61072e);
-        paymentConfirmRequestData.setTerminal("" + this.f61073f);
+        paymentConfirmRequestData.setOrder_id(this.f61075g);
+        paymentConfirmRequestData.setScene_id(this.f61070b);
+        paymentConfirmRequestData.setGoods_name(this.f61069a);
+        paymentConfirmRequestData.setGoods_pic(this.f61073e);
+        paymentConfirmRequestData.setTerminal("" + this.f61074f);
         paymentConfirmRequestData.setGoods_num((long) this.j);
-        paymentConfirmRequestData.setGoods_unit(this.f61075h);
-        paymentConfirmRequestData.setGoods_duration(this.f61071d);
-        paymentConfirmRequestData.setGoods_user_level(this.f61070c);
+        paymentConfirmRequestData.setGoods_unit(this.f61076h);
+        paymentConfirmRequestData.setGoods_duration(this.f61072d);
+        paymentConfirmRequestData.setGoods_user_level(this.f61071c);
         paymentConfirmRequestData.setPay_type(this.k);
         return paymentConfirmRequestData;
     }
 
     public String b() {
-        return this.f61074g;
+        return this.f61075g;
     }
 
     public void c(DataRes dataRes) {
@@ -59,14 +59,14 @@ public class a {
             return;
         }
         dataRes.timestamp.intValue();
-        this.f61068a = dataRes.goods_name;
-        this.f61069b = dataRes.scene_id.intValue();
-        this.f61070c = dataRes.goods_user_level.intValue();
-        this.f61071d = dataRes.goods_duration.intValue();
-        this.f61072e = dataRes.goods_pic;
-        this.f61073f = dataRes.terminal.intValue();
-        this.f61074g = dataRes.order_id;
-        this.f61075h = dataRes.goods_unit;
+        this.f61069a = dataRes.goods_name;
+        this.f61070b = dataRes.scene_id.intValue();
+        this.f61071c = dataRes.goods_user_level.intValue();
+        this.f61072d = dataRes.goods_duration.intValue();
+        this.f61073e = dataRes.goods_pic;
+        this.f61074f = dataRes.terminal.intValue();
+        this.f61075g = dataRes.order_id;
+        this.f61076h = dataRes.goods_unit;
         this.i = dataRes.tdou_num.intValue();
         dataRes.goods_price.intValue();
         this.j = dataRes.goods_num.intValue();

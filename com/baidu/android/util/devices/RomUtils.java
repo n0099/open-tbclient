@@ -6,7 +6,7 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RomUtils {
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
     public static final String KEY_VERSION_GIONEE = "ro.gn.sv.version";

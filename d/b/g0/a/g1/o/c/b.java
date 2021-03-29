@@ -2,7 +2,7 @@ package d.b.g0.a.g1.o.c;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class b {
     @NonNull
     public abstract String a();

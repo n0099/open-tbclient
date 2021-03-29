@@ -10,7 +10,7 @@ import d.b.b.e.p.k;
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoEasterEggData f59613a;
+    public VideoEasterEggData f59614a;
 
     @Override // d.b.i0.q3.c.a
     public void a(BdUniqueId bdUniqueId) {
@@ -22,7 +22,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String b() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -36,13 +36,13 @@ public class b implements a {
         }
         intent.getStringExtra("from");
         if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
-            this.f59613a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
+            this.f59614a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
         }
     }
 
     @Override // d.b.i0.q3.c.a
     public String d() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -51,7 +51,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String e() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -60,7 +60,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String f() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -69,7 +69,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String g() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -78,7 +78,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String getVideoUrl() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -87,7 +87,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String h() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }
@@ -96,7 +96,7 @@ public class b implements a {
 
     @Override // d.b.i0.q3.c.a
     public String i() {
-        VideoEasterEggData videoEasterEggData = this.f59613a;
+        VideoEasterEggData videoEasterEggData = this.f59614a;
         if (videoEasterEggData == null) {
             return null;
         }

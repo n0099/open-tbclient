@@ -20,20 +20,20 @@ import d.b.b.e.p.j;
 import d.b.h0.d0.g;
 import d.b.h0.d0.h;
 import d.b.h0.r.s.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LabelSettingView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18496e;
+    public int f18497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f18497f;
+    public TbPageContext<?> f18498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.g1.c.a f18498g;
+    public d.b.i0.g1.c.a f18499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NavigationBar f18499h;
+    public NavigationBar f18500h;
     public View i;
     public TextView j;
     public NoNetworkView k;
@@ -45,20 +45,20 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     public boolean q;
     public NoNetworkView.b r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements NoNetworkView.b {
         public a() {
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
-            if (z && LabelSettingView.this.o.getCount() == 0 && LabelSettingView.this.f18498g != null) {
-                LabelSettingView.this.f18498g.getLabel();
+            if (z && LabelSettingView.this.o.getCount() == 0 && LabelSettingView.this.f18499g != null) {
+                LabelSettingView.this.f18499g.getLabel();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
         public b() {
         }
@@ -66,11 +66,11 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            LabelSettingView.this.f18497f.getPageActivity().finish();
+            LabelSettingView.this.f18498f.getPageActivity().finish();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -81,26 +81,26 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || LabelSettingView.this.f18498g == null) {
+            if (!j.A() || LabelSettingView.this.f18499g == null) {
                 return;
             }
-            LabelSettingView.this.f18498g.getLabel();
+            LabelSettingView.this.f18499g.getLabel();
         }
     }
 
     public LabelSettingView(TbPageContext<?> tbPageContext, d.b.i0.g1.c.a aVar) {
         super(tbPageContext.getPageActivity());
-        this.f18496e = 3;
+        this.f18497e = 3;
         this.r = new a();
-        this.f18497f = tbPageContext;
-        this.f18498g = aVar;
+        this.f18498f = tbPageContext;
+        this.f18499g = aVar;
         j(tbPageContext.getPageActivity());
         m();
     }
@@ -146,19 +146,19 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
 
     public final void j(Context context) {
         LayoutInflater.from(context).inflate(R.layout.activity_label_setting_layout, (ViewGroup) this, true);
-        this.f18499h = (NavigationBar) findViewById(R.id.label_setting_navigation_bar_view);
+        this.f18500h = (NavigationBar) findViewById(R.id.label_setting_navigation_bar_view);
         this.k = (NoNetworkView) findViewById(R.id.label_setting_no_network_view);
         this.l = (GridLineView) findViewById(R.id.label_setting_gridview);
-        this.f18499h.setTitleText(context.getString(R.string.choose_interest_label));
-        this.i = this.f18499h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
-        this.j = (TextView) this.f18499h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
+        this.f18500h.setTitleText(context.getString(R.string.choose_interest_label));
+        this.i = this.f18500h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
+        this.j = (TextView) this.f18500h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
         this.k.a(this.r);
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f18497f.getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f18498f.getPageActivity());
         this.p = aVar;
-        aVar.setMessage(this.f18497f.getString(R.string.confirm_give_up_label));
-        this.p.setPositiveButton(this.f18497f.getString(R.string.alert_yes_button), new b());
-        this.p.setNegativeButton(this.f18497f.getString(R.string.cancel), new c());
-        this.p.create(this.f18497f);
+        aVar.setMessage(this.f18498f.getString(R.string.confirm_give_up_label));
+        this.p.setPositiveButton(this.f18498f.getString(R.string.alert_yes_button), new b());
+        this.p.setNegativeButton(this.f18498f.getString(R.string.cancel), new c());
+        this.p.create(this.f18498f);
         d.b.i0.g1.a.b bVar = new d.b.i0.g1.a.b(this);
         this.o = bVar;
         this.l.setAdapter((ListAdapter) bVar);
@@ -184,21 +184,21 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         NoNetworkView noNetworkView;
         NavigationBar navigationBar;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f18496e) {
+        if (skinType == this.f18497e) {
             return;
         }
-        this.f18496e = skinType;
-        TbPageContext<?> tbPageContext = this.f18497f;
-        if (tbPageContext != null && (navigationBar = this.f18499h) != null) {
+        this.f18497e = skinType;
+        TbPageContext<?> tbPageContext = this.f18498f;
+        if (tbPageContext != null && (navigationBar = this.f18500h) != null) {
             navigationBar.onChangeSkinType(tbPageContext, skinType);
         }
         TextView textView = this.j;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.drawable.color_nav_complete_selector);
         }
-        TbPageContext<?> tbPageContext2 = this.f18497f;
+        TbPageContext<?> tbPageContext2 = this.f18498f;
         if (tbPageContext2 != null && (noNetworkView = this.k) != null) {
-            noNetworkView.c(tbPageContext2, this.f18496e);
+            noNetworkView.c(tbPageContext2, this.f18497e);
         }
         GridLineView gridLineView = this.l;
         if (gridLineView != null) {
@@ -216,7 +216,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
-        setBackgroundColor(SkinManager.getColor(this.f18496e, R.color.CAM_X0205));
+        setBackgroundColor(SkinManager.getColor(this.f18497e, R.color.CAM_X0205));
     }
 
     public void n() {
@@ -241,11 +241,11 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
             if (f()) {
                 n();
             } else {
-                this.f18497f.getPageActivity().finish();
+                this.f18498f.getPageActivity().finish();
             }
-        } else if (view == this.j && this.f18498g != null && this.q) {
+        } else if (view == this.j && this.f18499g != null && this.q) {
             TiebaStatic.log(new StatisticItem("c12237").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            this.f18498g.subLabel(this.o.g());
+            this.f18499g.subLabel(this.o.g());
         }
     }
 
@@ -262,7 +262,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         if (this.n == null) {
             this.n = new h(getContext(), new d());
         }
-        this.n.j(this.f18497f.getResources().getDimensionPixelSize(R.dimen.ds380));
+        this.n.j(this.f18498f.getResources().getDimensionPixelSize(R.dimen.ds380));
         this.n.attachView(this, z);
         this.n.o();
         this.l.setVisibility(8);

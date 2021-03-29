@@ -4,14 +4,14 @@ public class b {
 
     /* renamed from: d.b.h0.s.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1103b {
+    public static class C1104b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f51408a = new b();
+        public static b f51409a = new b();
     }
 
     public static b e() {
-        return C1103b.f51408a;
+        return C1104b.f51409a;
     }
 
     public void a(int i) {
@@ -23,7 +23,7 @@ public class b {
     }
 
     public final void c(String str) {
-        d.b.b.c.e.c.i.a("IpReconnLogHelper", 0, 0, null, d.b.h0.r.h.f50619b, str);
+        d.b.b.c.e.c.i.a("IpReconnLogHelper", 0, 0, null, d.b.h0.r.h.f50620b, str);
     }
 
     public void d(String str) {

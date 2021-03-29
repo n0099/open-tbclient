@@ -3,10 +3,10 @@ package d.b.u.b.f;
 public class c implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64704e;
+    public int f64705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64705f;
+    public int f64706f;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: b */
@@ -20,18 +20,18 @@ public class c implements Cloneable {
     }
 
     public int c() {
-        return this.f64705f;
+        return this.f64706f;
     }
 
     public int d() {
-        return this.f64704e;
+        return this.f64705e;
     }
 
     public void e(int i) {
-        this.f64705f = i;
+        this.f64706f = i;
     }
 
     public void f(int i) {
-        this.f64704e = i;
+        this.f64705e = i;
     }
 }

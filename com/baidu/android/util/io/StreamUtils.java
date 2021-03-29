@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class StreamUtils {
     public static final boolean DEBUG = false;
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
@@ -77,7 +77,7 @@ public class StreamUtils {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0021 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0021 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v12 */
     @Deprecated

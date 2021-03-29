@@ -13,7 +13,7 @@ import com.baidu.mobads.production.cpu.CPUWebAdRequestParam;
 public final class CpuAdView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.production.cpu.c f8135a;
+    public com.baidu.mobads.production.cpu.c f8136a;
 
     public CpuAdView(Context context) {
         super(context);
@@ -21,7 +21,7 @@ public final class CpuAdView extends RelativeLayout {
 
     public boolean canGoBack() {
         try {
-            return ((WebView) this.f8135a.f8440h.getAdView()).canGoBack();
+            return ((WebView) this.f8136a.f8441h.getAdView()).canGoBack();
         } catch (Throwable unused) {
             return false;
         }
@@ -29,14 +29,14 @@ public final class CpuAdView extends RelativeLayout {
 
     public void goBack() {
         try {
-            ((WebView) this.f8135a.f8440h.getAdView()).goBack();
+            ((WebView) this.f8136a.f8441h.getAdView()).goBack();
         } catch (Throwable unused) {
         }
     }
 
     public void onDestroy() {
         try {
-            View adView = this.f8135a.f8440h.getAdView();
+            View adView = this.f8136a.f8441h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).destroy();
             }
@@ -54,7 +54,7 @@ public final class CpuAdView extends RelativeLayout {
 
     public void onPause() {
         try {
-            View adView = this.f8135a.f8440h.getAdView();
+            View adView = this.f8136a.f8441h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).onPause();
             }
@@ -64,7 +64,7 @@ public final class CpuAdView extends RelativeLayout {
 
     public void onResume() {
         try {
-            View adView = this.f8135a.f8440h.getAdView();
+            View adView = this.f8136a.f8441h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).onResume();
             }
@@ -80,7 +80,7 @@ public final class CpuAdView extends RelativeLayout {
         super(context);
         XAdView xAdView = new XAdView(context);
         com.baidu.mobads.production.cpu.c cVar = new com.baidu.mobads.production.cpu.c(context, xAdView, str, str2, cPUWebAdRequestParam);
-        this.f8135a = cVar;
+        this.f8136a = cVar;
         cVar.request();
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
@@ -93,7 +93,7 @@ public final class CpuAdView extends RelativeLayout {
         super(context);
         XAdView xAdView = new XAdView(context);
         com.baidu.mobads.production.cpu.c cVar = new com.baidu.mobads.production.cpu.c(context, xAdView, str, i, cPUWebAdRequestParam);
-        this.f8135a = cVar;
+        this.f8136a = cVar;
         cVar.request();
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }

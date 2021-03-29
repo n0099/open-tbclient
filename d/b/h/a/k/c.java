@@ -6,11 +6,11 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49458a;
+    public static String f49459a;
 
     public static ActivityManager.RunningAppProcessInfo a(Context context) {
         int myPid = Process.myPid();
@@ -28,10 +28,10 @@ public final class c {
 
     public static String b(Context context) {
         ActivityManager.RunningAppProcessInfo a2;
-        if (TextUtils.isEmpty(f49458a) && (a2 = a(context)) != null) {
-            f49458a = a2.processName;
+        if (TextUtils.isEmpty(f49459a) && (a2 = a(context)) != null) {
+            f49459a = a2.processName;
         }
-        return f49458a;
+        return f49459a;
     }
 
     public static boolean c(Context context) {

@@ -12,10 +12,10 @@ import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.ObjectStreamException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BIMLogPb {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
         public static final Parser<LogRequest> PARSER = new AbstractParser<LogRequest>() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequest.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public final class BIMLogPb {
         public Object sign;
         public long version;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
             public static final Parser<AuthInfo> PARSER = new AbstractParser<AuthInfo>() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequest.AuthInfo.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public final class BIMLogPb {
             public int memoizedSerializedSize;
             public Object token;
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<AuthInfo, Builder> implements AuthInfoOrBuilder {
                 public int bitField0;
                 public Object token = "";
@@ -305,11 +305,11 @@ public final class BIMLogPb {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public interface AuthInfoOrBuilder extends MessageLiteOrBuilder {
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogRequest, Builder> implements LogRequestOrBuilder {
             public int bitField0;
             public long requestTimestampMs;
@@ -772,11 +772,11 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface LogRequestOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
         public static final Parser<LogResponse> PARSER = new AbstractParser<LogResponse>() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogResponse.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -794,7 +794,7 @@ public final class BIMLogPb {
         public int memoizedSerializedSize;
         public long pingIntervalMs;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogResponse, Builder> implements LogResponseOrBuilder {
             public int bitField0;
             public int errorCode;
@@ -1131,7 +1131,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface LogResponseOrBuilder extends MessageLiteOrBuilder {
     }
 }

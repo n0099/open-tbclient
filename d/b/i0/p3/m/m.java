@@ -5,11 +5,11 @@ import android.animation.Animator;
 public abstract class m implements Animator.AnimatorListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59204e = false;
+    public boolean f59205e = false;
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        this.f59204e = true;
+        this.f59205e = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -22,6 +22,6 @@ public abstract class m implements Animator.AnimatorListener {
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        this.f59204e = false;
+        this.f59205e = false;
     }
 }

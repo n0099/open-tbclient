@@ -3,13 +3,13 @@ package d.b.g0.g.c;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f47933a;
+    public static volatile int f47934a;
 
     public static synchronized int a() {
         int i;
         synchronized (c.class) {
-            i = f47933a;
-            f47933a = i + 1;
+            i = f47934a;
+            f47934a = i + 1;
         }
         return i;
     }

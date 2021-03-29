@@ -17,7 +17,7 @@ import d.b.g0.a.i2.k0;
 import d.b.g0.a.i2.y;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends d.b.g0.a.t.b.d {
     public d(@NonNull d.b.g0.a.t.b.b bVar) {
         super(bVar);
@@ -88,7 +88,7 @@ public class d extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b u() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-SystemInfo", "start get common sys info sync");
         }
         JSONObject jSONObject = new JSONObject();
@@ -124,18 +124,18 @@ public class d extends d.b.g0.a.t.b.d {
             q(context, a2);
             s(context, a2, c2);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 e2.printStackTrace();
             }
         }
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.i("Api-SystemInfo-aiapp", "getSystemInfo:  " + a2);
         }
         return a2;
     }
 
     public d.b.g0.a.t.e.b x() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-SystemInfo", "start get system info");
         }
         JSONObject w = w(h());
@@ -146,7 +146,7 @@ public class d extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b y() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-SystemInfo", "start get system info sync");
         }
         JSONObject w = w(h());

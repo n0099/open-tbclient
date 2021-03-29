@@ -5,24 +5,24 @@ import java.util.ArrayList;
 public class d0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51156a;
+    public String f51157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Object> f51157b;
+    public ArrayList<Object> f51158b;
 
     public d0() {
         c(new ArrayList<>());
     }
 
     public ArrayList<Object> a() {
-        return this.f51157b;
+        return this.f51158b;
     }
 
     public String b() {
-        return this.f51156a;
+        return this.f51157a;
     }
 
     public void c(ArrayList<Object> arrayList) {
-        this.f51157b = arrayList;
+        this.f51158b = arrayList;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
     public static final String FORUM_NAME_STRING = "forumname";
     public NoDataView emptyView;
@@ -27,7 +27,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public TextView mTextView = null;
     public TextView mTextAuditTip = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

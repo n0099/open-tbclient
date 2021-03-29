@@ -10,21 +10,21 @@ import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43111e;
+    public String f43112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43112f = "";
+    public String f43113f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43113g = "";
+    public String f43114g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43114h = "";
+    public String f43115h = "";
     public String i = "";
     public boolean j = false;
     public boolean k = false;
@@ -33,14 +33,14 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     public String m;
 
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public b(@NonNull String str, @NonNull String str2) {
-        this.f43111e = "unknown";
+        this.f43112e = "unknown";
         this.m = "id";
         if (!TextUtils.isEmpty(str)) {
-            this.f43111e = str;
+            this.f43112e = str;
         } else {
             d.b.g0.a.a0.g.a.a("Component-Model-Base", "component type is empty");
         }
@@ -58,16 +58,16 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
             return;
         }
         String optString = jSONObject.optString(this.m);
-        this.f43112f = optString;
+        this.f43113f = optString;
         if (TextUtils.isEmpty(optString)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43111e + " component componentId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component componentId is empty");
         }
         String optString2 = jSONObject.optString("slaveId");
-        this.f43113g = optString2;
+        this.f43114g = optString2;
         if (TextUtils.isEmpty(optString2)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43111e + " component slaveId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component slaveId is empty");
         }
-        this.f43114h = jSONObject.optString("parentId");
+        this.f43115h = jSONObject.optString("parentId");
         this.i = jSONObject.optString("cb");
         this.j = jSONObject.optBoolean("hide", false);
         this.k = TextUtils.equals(jSONObject.optString("gesture"), "1");
@@ -108,9 +108,9 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     public final String d() {
         StringBuilder sb = new StringBuilder();
         sb.append("【");
-        sb.append(this.f43111e);
+        sb.append(this.f43112e);
         sb.append("#");
-        sb.append(TextUtils.isEmpty(this.f43112f) ? "" : this.f43112f);
+        sb.append(TextUtils.isEmpty(this.f43113f) ? "" : this.f43113f);
         sb.append("】");
         return sb.toString();
     }
@@ -119,17 +119,17 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
         if (jSONObject == null) {
             return;
         }
-        String optString = jSONObject.optString(this.m, bVar.f43112f);
-        this.f43112f = optString;
+        String optString = jSONObject.optString(this.m, bVar.f43113f);
+        this.f43113f = optString;
         if (TextUtils.isEmpty(optString)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43111e + " component componentId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component componentId is empty");
         }
-        String optString2 = jSONObject.optString("slaveId", bVar.f43113g);
-        this.f43113g = optString2;
+        String optString2 = jSONObject.optString("slaveId", bVar.f43114g);
+        this.f43114g = optString2;
         if (TextUtils.isEmpty(optString2)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43111e + " component slaveId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component slaveId is empty");
         }
-        this.f43114h = jSONObject.optString("parentId", bVar.f43114h);
+        this.f43115h = jSONObject.optString("parentId", bVar.f43115h);
         this.i = jSONObject.optString("cb", bVar.i);
         this.j = jSONObject.optBoolean("hide", bVar.j);
         this.k = TextUtils.equals(jSONObject.optString("gesture", bVar.k ? "1" : "0"), "1");
@@ -154,17 +154,17 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     }
 
     public void g(JSONObject jSONObject) {
-        String optString = jSONObject.optString(this.m, this.f43112f);
-        this.f43112f = optString;
+        String optString = jSONObject.optString(this.m, this.f43113f);
+        this.f43113f = optString;
         if (TextUtils.isEmpty(optString)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43111e + " component componentId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component componentId is empty");
         }
-        String optString2 = jSONObject.optString("slaveId", this.f43113g);
-        this.f43113g = optString2;
+        String optString2 = jSONObject.optString("slaveId", this.f43114g);
+        this.f43114g = optString2;
         if (TextUtils.isEmpty(optString2)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43111e + " component slaveId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component slaveId is empty");
         }
-        this.f43114h = jSONObject.optString("parentId", this.f43114h);
+        this.f43115h = jSONObject.optString("parentId", this.f43115h);
         this.i = jSONObject.optString("cb", this.i);
         this.j = jSONObject.optBoolean("hide", this.j);
         this.k = TextUtils.equals(jSONObject.optString("gesture", this.k ? "1" : "0"), "1");
@@ -174,10 +174,10 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     @Override // d.b.g0.a.e1.a
     public boolean isValid() {
         d.b.g0.a.e1.d.a.a aVar;
-        return (TextUtils.isEmpty(this.f43112f) || TextUtils.isEmpty(this.f43113g) || (aVar = this.l) == null || !aVar.i()) ? false : true;
+        return (TextUtils.isEmpty(this.f43113f) || TextUtils.isEmpty(this.f43114g) || (aVar = this.l) == null || !aVar.i()) ? false : true;
     }
 
     public String toString() {
-        return "SwanAppBaseComponentModel{componentType='" + this.f43111e + "', componentId='" + this.f43112f + "', slaveId='" + this.f43113g + "', parentId='" + this.f43114h + "', callback='" + this.i + "', hidden=" + this.j + ", gesture=" + this.k + ", position=" + this.l + ", mComponentIdKey='" + this.m + "'}";
+        return "SwanAppBaseComponentModel{componentType='" + this.f43112e + "', componentId='" + this.f43113f + "', slaveId='" + this.f43114g + "', parentId='" + this.f43115h + "', callback='" + this.i + "', hidden=" + this.j + ", gesture=" + this.k + ", position=" + this.l + ", mComponentIdKey='" + this.m + "'}";
     }
 }

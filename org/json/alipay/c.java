@@ -9,21 +9,21 @@ import java.io.StringReader;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68126a;
+    public int f68131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f68127b;
+    public Reader f68132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f68128c;
+    public char f68133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f68129d;
+    public boolean f68134d;
 
     public c(Reader reader) {
-        this.f68127b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f68129d = false;
-        this.f68126a = 0;
+        this.f68132b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f68134d = false;
+        this.f68131a = 0;
     }
 
     public c(String str) {
@@ -36,14 +36,14 @@ public final class c {
         }
         char[] cArr = new char[i];
         int i2 = 0;
-        if (this.f68129d) {
-            this.f68129d = false;
-            cArr[0] = this.f68128c;
+        if (this.f68134d) {
+            this.f68134d = false;
+            cArr[0] = this.f68133c;
             i2 = 1;
         }
         while (i2 < i) {
             try {
-                int read = this.f68127b.read(cArr, i2, i - i2);
+                int read = this.f68132b.read(cArr, i2, i - i2);
                 if (read == -1) {
                     break;
                 }
@@ -52,9 +52,9 @@ public final class c {
                 throw new JSONException(e2);
             }
         }
-        this.f68126a += i2;
+        this.f68131a += i2;
         if (i2 >= i) {
-            this.f68128c = cArr[i - 1];
+            this.f68133c = cArr[i - 1];
             return new String(cArr);
         }
         throw a("Substring bounds error");
@@ -66,30 +66,30 @@ public final class c {
 
     public final void a() {
         int i;
-        if (this.f68129d || (i = this.f68126a) <= 0) {
+        if (this.f68134d || (i = this.f68131a) <= 0) {
             throw new JSONException("Stepping back two steps is not supported");
         }
-        this.f68126a = i - 1;
-        this.f68129d = true;
+        this.f68131a = i - 1;
+        this.f68134d = true;
     }
 
     public final char b() {
-        if (this.f68129d) {
-            this.f68129d = false;
-            if (this.f68128c != 0) {
-                this.f68126a++;
+        if (this.f68134d) {
+            this.f68134d = false;
+            if (this.f68133c != 0) {
+                this.f68131a++;
             }
-            return this.f68128c;
+            return this.f68133c;
         }
         try {
-            int read = this.f68127b.read();
+            int read = this.f68132b.read();
             if (read <= 0) {
-                this.f68128c = (char) 0;
+                this.f68133c = (char) 0;
                 return (char) 0;
             }
-            this.f68126a++;
+            this.f68131a++;
             char c2 = (char) read;
-            this.f68128c = c2;
+            this.f68133c = c2;
             return c2;
         } catch (IOException e2) {
             throw new JSONException(e2);
@@ -143,7 +143,7 @@ public final class c {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x0147, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0146, code lost:
         throw a("Unterminated string");
      */
     /*
@@ -177,7 +177,7 @@ public final class c {
                             return Boolean.FALSE;
                         }
                         if (trim.equalsIgnoreCase(StringUtil.NULL_STRING)) {
-                            return b.f68124a;
+                            return b.f68129a;
                         }
                         if ((c2 >= '0' && c2 <= '9') || c2 == '.' || c2 == '-' || c2 == '+') {
                             if (c2 == '0') {
@@ -241,6 +241,6 @@ public final class c {
     }
 
     public final String toString() {
-        return " at character " + this.f68126a;
+        return " at character " + this.f68131a;
     }
 }

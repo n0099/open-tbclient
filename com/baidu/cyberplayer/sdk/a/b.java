@@ -14,10 +14,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(String str, long j);
 

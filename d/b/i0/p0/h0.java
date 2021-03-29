@@ -6,17 +6,17 @@ import java.util.LinkedList;
 public class h0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h0 f57557b = new h0();
+    public static final h0 f57558b = new h0();
 
     /* renamed from: a  reason: collision with root package name */
-    public LongSparseArray<LinkedList<String>> f57558a = new LongSparseArray<>();
+    public LongSparseArray<LinkedList<String>> f57559a = new LongSparseArray<>();
 
     public static h0 a() {
-        return f57557b;
+        return f57558b;
     }
 
     public void b(long j) {
-        LinkedList<String> linkedList = this.f57558a.get(j);
+        LinkedList<String> linkedList = this.f57559a.get(j);
         if (linkedList != null) {
             linkedList.clear();
         }

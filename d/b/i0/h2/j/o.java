@@ -36,10 +36,10 @@ public class o extends d.b.i0.x.b<d.b.i0.h2.e.l> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e == i) {
+        if (this.f62180e == i) {
             return;
         }
-        this.f62179e = i;
+        this.f62180e = i;
         SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setImageResource(this.p, R.drawable.icon_play_video, i);
@@ -49,9 +49,9 @@ public class o extends d.b.i0.x.b<d.b.i0.h2.e.l> {
     public void onClick(View view) {
         if (this.m == view) {
             MessageManager messageManager = MessageManager.getInstance();
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f62181g);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f62182g);
             d.b.i0.h2.e.l lVar = this.q;
-            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(lVar.f55304g, lVar.f55305h, "person_page")));
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(lVar.f55305g, lVar.f55306h, "person_page")));
         }
     }
 
@@ -63,8 +63,8 @@ public class o extends d.b.i0.x.b<d.b.i0.h2.e.l> {
             return;
         }
         this.q = lVar;
-        this.n.W(lVar.f55302e, 10, false);
-        this.o.setText(lVar.f55303f);
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        this.n.W(lVar.f55303e, 10, false);
+        this.o.setText(lVar.f55304f);
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -26,7 +26,7 @@ import com.baidu.tieba.lego.card.model.WebViewCard;
 import d.b.b.e.p.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WebViewCardView extends BaseCardView<WebViewCard> {
     public static boolean w = true;
     public boolean r;
@@ -35,7 +35,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     public XiubaTbJsBridge u;
     public final CustomMessageListener v;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebChromeClient {
         public a() {
         }
@@ -46,7 +46,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnTouchListener {
         public b() {
         }
@@ -60,7 +60,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements BaseWebView.d {
         public c() {
         }
@@ -72,7 +72,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);

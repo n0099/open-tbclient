@@ -8,22 +8,22 @@ import d.b.h0.r.q.m0;
 public class d extends BaseCardInfo implements p, m0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public AdvertAppInfo f62200e;
+    public AdvertAppInfo f62201e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62201f;
+    public String f62202f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62202g;
+    public int f62203g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62203h;
+    public boolean f62204h;
 
     public d(AdvertAppInfo advertAppInfo) {
-        this.f62201f = "";
-        this.f62202g = 0;
-        this.f62203h = false;
-        this.f62200e = advertAppInfo;
+        this.f62202f = "";
+        this.f62203g = 0;
+        this.f62204h = false;
+        this.f62201e = advertAppInfo;
         this.position = advertAppInfo.position;
     }
 
@@ -33,32 +33,32 @@ public class d extends BaseCardInfo implements p, m0 {
 
     @Override // d.b.h0.r.q.m0
     public boolean c() {
-        return this.f62203h;
+        return this.f62204h;
     }
 
     @Override // d.b.h0.r.q.m0
     public AdvertAppInfo d() {
-        return this.f62200e;
+        return this.f62201e;
     }
 
     public AdvertAppInfo g() {
-        return this.f62200e;
+        return this.f62201e;
     }
 
     @Override // d.b.i0.x.e0.p
     public int getPosition() {
-        AdvertAppInfo advertAppInfo = this.f62200e;
+        AdvertAppInfo advertAppInfo = this.f62201e;
         return d.b.b.e.m.b.d(advertAppInfo != null ? advertAppInfo.K3 : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        AdvertAppInfo advertAppInfo = this.f62200e;
+        AdvertAppInfo advertAppInfo = this.f62201e;
         if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.h4) {
             return AdvertAppInfo.j4;
         }
-        AdvertAppInfo advertAppInfo2 = this.f62200e;
+        AdvertAppInfo advertAppInfo2 = this.f62201e;
         if (advertAppInfo2 == null || (iLegoAdvert = advertAppInfo2.W3) == null) {
             return null;
         }
@@ -104,15 +104,15 @@ public class d extends BaseCardInfo implements p, m0 {
     @Override // d.b.h0.r.q.m0
     public void setPosition(int i) {
         this.position = i;
-        this.f62200e.position = i;
-        this.f62203h = true;
+        this.f62201e.position = i;
+        this.f62204h = true;
     }
 
     public d() {
-        this.f62201f = "";
-        this.f62202g = 0;
-        this.f62203h = false;
-        this.f62200e = null;
+        this.f62202f = "";
+        this.f62203g = 0;
+        this.f62204h = false;
+        this.f62201e = null;
         this.position = -1;
     }
 }

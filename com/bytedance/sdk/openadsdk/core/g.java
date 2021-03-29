@@ -13,13 +13,13 @@ import java.util.Iterator;
 public class g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f28356c = new Object();
+    public static final Object f28357c = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f28357a;
+    public c f28358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f28358b;
+    public Context f28359b;
 
     /* loaded from: classes6.dex */
     public class b extends AbstractCursor {
@@ -74,9 +74,9 @@ public class g {
 
     public g(Context context) {
         try {
-            this.f28358b = context == null ? p.a() : context.getApplicationContext();
-            if (this.f28357a == null) {
-                this.f28357a = new c();
+            this.f28359b = context == null ? p.a() : context.getApplicationContext();
+            if (this.f28358a == null) {
+                this.f28358a = new c();
             }
         } catch (Throwable unused) {
         }
@@ -84,19 +84,19 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Context c() {
-        Context context = this.f28358b;
+        Context context = this.f28359b;
         return context == null ? p.a() : context;
     }
 
     public c a() {
-        return this.f28357a;
+        return this.f28358a;
     }
 
     /* loaded from: classes6.dex */
     public class c {
 
         /* renamed from: b  reason: collision with root package name */
-        public SQLiteDatabase f28387b = null;
+        public SQLiteDatabase f28388b = null;
 
         public c() {
         }
@@ -105,10 +105,10 @@ public class g {
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         private synchronized void d() {
             try {
-                synchronized (g.f28356c) {
-                    if (this.f28387b == null || !this.f28387b.isOpen()) {
+                synchronized (g.f28357c) {
+                    if (this.f28388b == null || !this.f28388b.isOpen()) {
                         SQLiteDatabase writableDatabase = new a(g.this.c()).getWritableDatabase();
-                        this.f28387b = writableDatabase;
+                        this.f28388b = writableDatabase;
                         writableDatabase.setLockingEnabled(false);
                     }
                 }
@@ -118,7 +118,7 @@ public class g {
 
         private synchronized boolean e() {
             boolean z;
-            SQLiteDatabase sQLiteDatabase = this.f28387b;
+            SQLiteDatabase sQLiteDatabase = this.f28388b;
             if (sQLiteDatabase != null) {
                 z = sQLiteDatabase.inTransaction();
             }
@@ -129,7 +129,7 @@ public class g {
         public synchronized void a(String str) throws SQLException {
             try {
                 d();
-                this.f28387b.execSQL(str);
+                this.f28388b.execSQL(str);
             } catch (Throwable th) {
                 if (e()) {
                     throw th;
@@ -139,18 +139,18 @@ public class g {
 
         public synchronized void b() {
             d();
-            if (this.f28387b == null) {
+            if (this.f28388b == null) {
                 return;
             }
-            this.f28387b.setTransactionSuccessful();
+            this.f28388b.setTransactionSuccessful();
         }
 
         public synchronized void c() {
             d();
-            if (this.f28387b == null) {
+            if (this.f28388b == null) {
                 return;
             }
-            this.f28387b.endTransaction();
+            this.f28388b.endTransaction();
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -158,7 +158,7 @@ public class g {
             Cursor cursor;
             try {
                 d();
-                cursor = this.f28387b.query(str, strArr, str2, strArr2, str3, str4, str5);
+                cursor = this.f28388b.query(str, strArr, str2, strArr2, str3, str4, str5);
             } catch (Throwable th) {
                 th.printStackTrace();
                 b bVar = new b();
@@ -174,7 +174,7 @@ public class g {
             int i;
             try {
                 d();
-                i = this.f28387b.update(str, contentValues, str2, strArr);
+                i = this.f28388b.update(str, contentValues, str2, strArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (e()) {
@@ -189,7 +189,7 @@ public class g {
             long j;
             try {
                 d();
-                j = this.f28387b.insert(str, str2, contentValues);
+                j = this.f28388b.insert(str, str2, contentValues);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (e()) {
@@ -204,7 +204,7 @@ public class g {
             int i;
             try {
                 d();
-                i = this.f28387b.delete(str, str2, strArr);
+                i = this.f28388b.delete(str, str2, strArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (e()) {
@@ -217,10 +217,10 @@ public class g {
 
         public synchronized void a() {
             d();
-            if (this.f28387b == null) {
+            if (this.f28388b == null) {
                 return;
             }
-            this.f28387b.beginTransaction();
+            this.f28388b.beginTransaction();
         }
     }
 
@@ -228,11 +228,11 @@ public class g {
     public class a extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f28366a;
+        public final Context f28367a;
 
         public a(Context context) {
             super(context, "ttopensdk.db", (SQLiteDatabase.CursorFactory) null, 7);
-            this.f28366a = context;
+            this.f28367a = context;
         }
 
         private void a(SQLiteDatabase sQLiteDatabase, Context context) {
@@ -265,7 +265,7 @@ public class g {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                a(sQLiteDatabase, this.f28366a);
+                a(sQLiteDatabase, this.f28367a);
             } catch (Throwable unused) {
             }
         }
@@ -275,10 +275,10 @@ public class g {
             try {
                 com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade....数据库版本升级.....old:" + i + ",new:" + i2);
                 if (i <= i2) {
-                    a(sQLiteDatabase, g.this.f28358b);
+                    a(sQLiteDatabase, g.this.f28359b);
                 } else {
                     a(sQLiteDatabase);
-                    a(sQLiteDatabase, g.this.f28358b);
+                    a(sQLiteDatabase, g.this.f28359b);
                     com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade...逆向安装.数据库重置-创建表.....");
                 }
                 if (i == 1) {

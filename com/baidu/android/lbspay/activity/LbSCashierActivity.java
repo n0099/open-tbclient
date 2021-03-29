@@ -55,7 +55,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INoSupportAliAuthorizePay {
     public static final String AUTHPAY_CANCEL_HOST = "BdwAliPayWithholdingCancel";
     public static final String AUTHPAY_SUCCESS_HOST = "BdwAliPayWithholdingSuccess";

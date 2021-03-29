@@ -12,11 +12,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44803a = k.f45050a;
+    public static final boolean f44804a = k.f45051a;
 
     @Nullable
     public static Set<String> a(int i, List<String> list) {
@@ -29,10 +29,10 @@ public class d {
             if (cVar.D() && cVar.x() && list.contains(appId)) {
                 d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
                 d.b.g0.a.n1.c.c cVar2 = new d.b.g0.a.n1.c.c(i);
-                cVar2.b(cVar.f45390f);
+                cVar2.b(cVar.f45391f);
                 e2.h(cVar2);
                 hashSet.add(appId);
-                if (f44803a) {
+                if (f44804a) {
                     Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
                 }
             }
@@ -70,7 +70,7 @@ public class d {
                         if (z) {
                             if (set.contains(substring)) {
                             }
-                            if (f44803a) {
+                            if (f44804a) {
                                 Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
                             }
                             if (aVar == null) {
@@ -81,7 +81,7 @@ public class d {
                         } else {
                             if (!set.contains(substring)) {
                             }
-                            if (f44803a) {
+                            if (f44804a) {
                             }
                             if (aVar == null) {
                             }

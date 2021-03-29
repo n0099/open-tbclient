@@ -8,7 +8,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import d.b.g0.a.i2.g0;
 import d.b.g0.a.z0.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static int a(int i) {
         if (i != 0) {
@@ -44,7 +44,7 @@ public class b {
         if (I == null) {
             return false;
         }
-        return TextUtils.equals("none", I.f12615d.n);
+        return TextUtils.equals("none", I.f12616d.n);
     }
 
     public static void f(int i) {

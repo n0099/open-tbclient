@@ -23,14 +23,14 @@ import d.b.b.e.p.l;
 import d.b.i0.r2.s;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     public LinearLayout r;
     public BaseWebView s;
     public d.b.i0.c3.l0.a t;
     public XiubaTbJsBridge u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebChromeClient {
         public a() {
         }
@@ -41,7 +41,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements BaseWebView.d {
         public b() {
         }
@@ -140,7 +140,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.s, immersiveWebViewCard.getPageUrl());
         }
-        s.o().j().c(immersiveWebViewCard.getShowExtra(), this.f18636e);
+        s.o().j().c(immersiveWebViewCard.getShowExtra(), this.f18637e);
         immersiveWebViewCard.mHasShown = true;
     }
 

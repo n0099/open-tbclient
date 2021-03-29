@@ -10,7 +10,7 @@ public class c extends d.b.b.j.e.a<g, ConcernTabRecommendTitleView.ViewHolder> {
     public TbPageContext m;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g.f60543g);
+        super(tbPageContext.getPageActivity(), g.f60544g);
         this.m = tbPageContext;
     }
 

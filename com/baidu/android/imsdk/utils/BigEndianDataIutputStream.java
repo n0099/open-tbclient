@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BigEndianDataIutputStream {
     public byte[] buff = new byte[8];
     public DataInputStream mDis;

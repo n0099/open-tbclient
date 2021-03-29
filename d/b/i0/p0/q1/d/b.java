@@ -13,54 +13,54 @@ import d.b.h0.r.u.c;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f58367a;
+    public Context f58368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58368b;
+    public View f58369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f58369c;
+    public EMTextView f58370c;
 
     public b(Context context) {
-        this.f58367a = context;
+        this.f58368a = context;
         b(context);
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
         View view;
-        if (bdTypeRecyclerView == null || (view = this.f58368b) == null) {
+        if (bdTypeRecyclerView == null || (view = this.f58369b) == null) {
             return;
         }
         view.setVisibility(0);
-        bdTypeRecyclerView.s(this.f58368b);
+        bdTypeRecyclerView.s(this.f58369b);
     }
 
     public final void b(Context context) {
-        if (this.f58368b != null) {
+        if (this.f58369b != null) {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
-        this.f58368b = inflate;
-        this.f58369c = (EMTextView) inflate.findViewById(R.id.forum_rules_title);
+        this.f58369b = inflate;
+        this.f58370c = (EMTextView) inflate.findViewById(R.id.forum_rules_title);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
-        c a2 = c.a(this.f58369c);
+        c a2 = c.a(this.f58370c);
         a2.s(R.string.F_X02);
         a2.n(R.color.CAM_X0105);
     }
 
     public void d(BdTypeRecyclerView bdTypeRecyclerView) {
         View view;
-        if (bdTypeRecyclerView == null || (view = this.f58368b) == null) {
+        if (bdTypeRecyclerView == null || (view = this.f58369b) == null) {
             return;
         }
         view.setVisibility(8);
-        bdTypeRecyclerView.removeHeaderView(this.f58368b);
+        bdTypeRecyclerView.removeHeaderView(this.f58369b);
     }
 
     public void e(String str) {
-        this.f58369c.setText(str);
+        this.f58370c.setText(str);
     }
 }

@@ -6,27 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0755a> f45460a;
+    public List<C0756a> f45461a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45461b;
+    public String f45462b;
 
     /* renamed from: d.b.g0.a.p1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0755a {
+    /* loaded from: classes2.dex */
+    public static class C0756a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f45462a;
+        public String f45463a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45463b;
+        public String f45464b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45464c;
+        public String f45465c;
     }
 
     @Nullable
@@ -36,22 +36,22 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.f45461b = jSONObject.optString("more");
+        aVar.f45462b = jSONObject.optString("more");
         JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
         if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    C0755a c0755a = new C0755a();
+                    C0756a c0756a = new C0756a();
                     optJSONObject.optString(com.alipay.sdk.cons.b.f1858h);
-                    c0755a.f45463b = optJSONObject.optString(DpStatConstants.KEY_APP_NAME);
-                    c0755a.f45462a = optJSONObject.optString("photo_addr");
-                    c0755a.f45464c = optJSONObject.optString("scheme");
-                    arrayList.add(c0755a);
+                    c0756a.f45464b = optJSONObject.optString(DpStatConstants.KEY_APP_NAME);
+                    c0756a.f45463a = optJSONObject.optString("photo_addr");
+                    c0756a.f45465c = optJSONObject.optString("scheme");
+                    arrayList.add(c0756a);
                 }
             }
-            aVar.f45460a = arrayList;
+            aVar.f45461a = arrayList;
             return aVar;
         }
         return null;

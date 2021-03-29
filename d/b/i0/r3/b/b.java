@@ -17,28 +17,28 @@ public class b extends d.b.h0.w.c {
     public class a implements d.b.h0.w.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.r3.b.a f60011e;
+        public final /* synthetic */ d.b.i0.r3.b.a f60012e;
 
         public a(d.b.i0.r3.b.a aVar) {
-            this.f60011e = aVar;
+            this.f60012e = aVar;
         }
 
         @Override // d.b.h0.w.b
         public void onAction(d.b.h0.w.a aVar) {
-            d.b.i0.r3.b.a aVar2 = this.f60011e;
+            d.b.i0.r3.b.a aVar2 = this.f60012e;
             if (aVar2 == null || aVar2.a() == null || aVar == null) {
                 return;
             }
-            int i = aVar.f51523a;
+            int i = aVar.f51524a;
             if (i == 4) {
-                this.f60011e.v((String) aVar.f51525c);
+                this.f60012e.v((String) aVar.f51526c);
             } else if (i == 7) {
-                this.f60011e.m().showToast(R.string.over_limit_tip);
+                this.f60012e.m().showToast(R.string.over_limit_tip);
             } else if (i != 8) {
             } else {
-                this.f60011e.z();
-                if (b.this.f(this.f60011e.m(), 11001)) {
-                    this.f60011e.p();
+                this.f60012e.z();
+                if (b.this.f(this.f60012e.m(), 11001)) {
+                    this.f60012e.p();
                 }
             }
         }
@@ -75,7 +75,7 @@ public class b extends d.b.h0.w.c {
         m n = a2.n(5);
         if (n != null) {
             n.f(false);
-            n.f51532d = 0;
+            n.f51533d = 0;
         }
         a2.d(new c(a2.getContext()));
         a2.f();

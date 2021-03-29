@@ -12,29 +12,29 @@ import d.b.g0.a.u0.d;
 import d.b.g0.a.v1.c.i.b;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45108e;
+        public final /* synthetic */ CallbackHandler f45109e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45109f;
+        public final /* synthetic */ String f45110f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f45110g;
+        public final /* synthetic */ Context f45111g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f45111h;
+        public final /* synthetic */ String f45112h;
 
         public a(CallbackHandler callbackHandler, String str, Context context, String str2) {
-            this.f45108e = callbackHandler;
-            this.f45109f = str;
-            this.f45110g = context;
-            this.f45111h = str2;
+            this.f45109e = callbackHandler;
+            this.f45110f = str;
+            this.f45111g = context;
+            this.f45112h = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,29 +42,29 @@ public class c extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                c.this.l(this.f45110g, this.f45111h, this.f45109f, this.f45108e);
+                c.this.l(this.f45111g, this.f45112h, this.f45110f, this.f45109e);
             } else {
-                d.b.g0.a.v1.c.c.o(hVar, this.f45108e, this.f45109f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f45109e, this.f45110f);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f45112a;
+        public final /* synthetic */ Context f45113a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45113b;
+        public final /* synthetic */ CallbackHandler f45114b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f45114c;
+        public final /* synthetic */ String f45115c;
 
         public b(c cVar, Context context, CallbackHandler callbackHandler, String str) {
-            this.f45112a = context;
-            this.f45113b = callbackHandler;
-            this.f45114c = str;
+            this.f45113a = context;
+            this.f45114b = callbackHandler;
+            this.f45115c = str;
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -73,25 +73,25 @@ public class c extends a0 {
 
         @Override // d.b.g0.a.u0.d.c
         public void onFailed() {
-            d.b.g0.a.q1.b.f.d.e(this.f45112a, d.b.g0.a.h.aiapps_debug_game_core_download_failed).C();
-            this.f45113b.handleSchemeDispatchCallback(this.f45114c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            d.b.g0.a.q1.b.f.d.e(this.f45113a, d.b.g0.a.h.aiapps_debug_game_core_download_failed).C();
+            this.f45114b.handleSchemeDispatchCallback(this.f45115c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
         }
 
         @Override // d.b.g0.a.u0.d.c
         public void onSuccess() {
             File c2 = d.b.g0.g.n.a.b.c();
             File b2 = d.b.g0.g.n.a.b.b();
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("replaceGameCore", "gameCoreZipFile: " + c2 + " gameCoreDir: " + b2);
             }
             if (c2.exists() && d.b.g0.p.d.F(c2.getPath(), b2.getPath())) {
                 d.b.g0.a.m1.a.a.G(true);
-                d.b.g0.a.q1.b.f.d.e(this.f45112a, d.b.g0.a.h.aiapps_debug_game_core_download_success).C();
-                this.f45113b.handleSchemeDispatchCallback(this.f45114c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                d.b.g0.a.q1.b.f.d.e(this.f45113a, d.b.g0.a.h.aiapps_debug_game_core_download_success).C();
+                this.f45114b.handleSchemeDispatchCallback(this.f45115c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 return;
             }
-            d.b.g0.a.q1.b.f.d.e(this.f45112a, d.b.g0.a.h.aiapps_debug_game_core_download_failed).C();
-            this.f45113b.handleSchemeDispatchCallback(this.f45114c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            d.b.g0.a.q1.b.f.d.e(this.f45113a, d.b.g0.a.h.aiapps_debug_game_core_download_failed).C();
+            this.f45114b.handleSchemeDispatchCallback(this.f45115c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         }
     }
 

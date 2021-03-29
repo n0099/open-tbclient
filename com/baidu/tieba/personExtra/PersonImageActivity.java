@@ -105,16 +105,16 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public class e extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20379a;
+        public String f20380a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f20380b;
+        public byte[] f20381b;
 
         public e(String str, byte[] bArr) {
-            this.f20379a = null;
-            this.f20380b = null;
-            this.f20379a = str;
-            this.f20380b = bArr;
+            this.f20380a = null;
+            this.f20381b = null;
+            this.f20380a = str;
+            this.f20381b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -132,7 +132,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20379a, this.f20380b, PersonImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20380a, this.f20381b, PersonImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return PersonImageActivity.this.getPageContext().getString(R.string.save_fail);

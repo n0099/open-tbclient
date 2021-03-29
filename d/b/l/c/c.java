@@ -1,5 +1,5 @@
 package d.b.l.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface c {
     String a(String str, boolean z);
 

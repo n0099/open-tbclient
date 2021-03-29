@@ -94,24 +94,24 @@ public class m {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                int i2 = aVar.f62262a;
+                int i2 = aVar.f62263a;
                 if (i2 > 0) {
-                    aVar.f62263b = context.getString(i2);
+                    aVar.f62264b = context.getString(i2);
                 }
-                if (!d.b.b.e.p.k.isEmpty(aVar.f62263b)) {
+                if (!d.b.b.e.p.k.isEmpty(aVar.f62264b)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.f62263b);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f62264c)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.f62264b);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f62265c)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap bitmap = SkinManager.getBitmap(aVar.f62265d);
+                    Bitmap bitmap = SkinManager.getBitmap(aVar.f62266d);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                     if (bitmap != null) {
                         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                     }
                     d.b.h0.r.f0.i iVar = new d.b.h0.r.f0.i(bitmapDrawable);
-                    int i3 = aVar.f62266e;
+                    int i3 = aVar.f62267e;
                     if (i3 != 0) {
                         iVar.b(i3);
                     }
@@ -168,57 +168,57 @@ public class m {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f62262a;
+        public int f62263a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62263b;
+        public String f62264b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62264c;
+        public int f62265c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f62265d;
+        public int f62266d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f62266e;
+        public int f62267e;
 
         public a(int i, int i2, int i3) {
-            this.f62262a = -1;
-            this.f62263b = "";
-            this.f62264c = R.color.CAM_X0304;
-            this.f62265d = R.drawable.pic_dot_title;
-            this.f62266e = 0;
-            this.f62262a = i;
-            this.f62264c = i2;
-            this.f62265d = i3;
+            this.f62263a = -1;
+            this.f62264b = "";
+            this.f62265c = R.color.CAM_X0304;
+            this.f62266d = R.drawable.pic_dot_title;
+            this.f62267e = 0;
+            this.f62263a = i;
+            this.f62265c = i2;
+            this.f62266d = i3;
         }
 
         public a(int i) {
-            this.f62262a = -1;
-            this.f62263b = "";
-            this.f62264c = R.color.CAM_X0304;
-            this.f62265d = R.drawable.pic_dot_title;
-            this.f62266e = 0;
-            this.f62262a = i;
+            this.f62263a = -1;
+            this.f62264b = "";
+            this.f62265c = R.color.CAM_X0304;
+            this.f62266d = R.drawable.pic_dot_title;
+            this.f62267e = 0;
+            this.f62263a = i;
         }
 
         public a(String str) {
-            this.f62262a = -1;
-            this.f62263b = "";
-            this.f62264c = R.color.CAM_X0304;
-            this.f62265d = R.drawable.pic_dot_title;
-            this.f62266e = 0;
-            this.f62263b = str;
+            this.f62263a = -1;
+            this.f62264b = "";
+            this.f62265c = R.color.CAM_X0304;
+            this.f62266d = R.drawable.pic_dot_title;
+            this.f62267e = 0;
+            this.f62264b = str;
         }
 
         public a(String str, int i) {
-            this.f62262a = -1;
-            this.f62263b = "";
-            this.f62264c = R.color.CAM_X0304;
-            this.f62265d = R.drawable.pic_dot_title;
-            this.f62266e = 0;
-            this.f62263b = str;
-            this.f62265d = i;
+            this.f62263a = -1;
+            this.f62264b = "";
+            this.f62265c = R.color.CAM_X0304;
+            this.f62266d = R.drawable.pic_dot_title;
+            this.f62267e = 0;
+            this.f62264b = str;
+            this.f62266d = i;
         }
     }
 }

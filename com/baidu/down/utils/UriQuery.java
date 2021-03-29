@@ -2,7 +2,7 @@ package com.baidu.down.utils;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UriQuery {
     public static final boolean DEBUG = false;
     public static final String TAG = "UriQuery";

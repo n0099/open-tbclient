@@ -11,10 +11,10 @@ import android.widget.TextView;
 public final class ax extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23071a;
+    public final /* synthetic */ FeedbackHotActivity f23072a;
 
     public ax(FeedbackHotActivity feedbackHotActivity) {
-        this.f23071a = feedbackHotActivity;
+        this.f23072a = feedbackHotActivity;
     }
 
     @Override // android.os.Handler
@@ -28,23 +28,23 @@ public final class ax extends Handler {
         WebView webView3;
         super.handleMessage(message);
         if (message.what == 3) {
-            webView = this.f23071a.j;
+            webView = this.f23072a.j;
             if (webView.getProgress() < 100) {
-                webView2 = this.f23071a.j;
+                webView2 = this.f23072a.j;
                 webView2.stopLoading();
-                view = this.f23071a.l;
+                view = this.f23072a.l;
                 view.setVisibility(8);
-                Context applicationContext = this.f23071a.getApplicationContext();
-                textView2 = this.f23071a.m;
+                Context applicationContext = this.f23072a.getApplicationContext();
+                textView2 = this.f23072a.m;
                 com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                linearLayout = this.f23071a.f23011h;
+                linearLayout = this.f23072a.f23012h;
                 linearLayout.setVisibility(0);
-                webView3 = this.f23071a.j;
+                webView3 = this.f23072a.j;
                 webView3.setVisibility(8);
             }
         }
         if (message.what == 0) {
-            textView = this.f23071a.n;
+            textView = this.f23072a.n;
             textView.setText(com.baidu.ufosdk.f.s.a("8"));
         }
     }

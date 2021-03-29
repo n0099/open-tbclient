@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
     public long mAppid;
 

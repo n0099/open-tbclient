@@ -24,22 +24,22 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9245a;
+    public static String f9246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f9246b;
+    public static s f9247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9247c;
+    public Handler f9248c;
 
     static {
-        f9245a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f9246a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     public s() {
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.l.f5323a);
+        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.l.f5324a);
         handlerThread.start();
-        this.f9247c = new Handler(handlerThread.getLooper());
+        this.f9248c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -48,7 +48,7 @@ public class s {
                 return true;
             }
             try {
-                a(context, f9245a, str);
+                a(context, f9246a, str);
                 return true;
             } catch (Exception e2) {
                 bb.c().c(e2);
@@ -58,14 +58,14 @@ public class s {
     }
 
     public static s a() {
-        if (f9246b == null) {
+        if (f9247b == null) {
             synchronized (s.class) {
-                if (f9246b == null) {
-                    f9246b = new s();
+                if (f9247b == null) {
+                    f9247b = new s();
                 }
             }
         }
-        return f9246b;
+        return f9247b;
     }
 
     public void a(final Context context, final String str) {
@@ -74,7 +74,7 @@ public class s {
         if (str == null || "".equals(str)) {
             return;
         }
-        this.f9247c.post(new Runnable() { // from class: com.baidu.mobstat.s.1
+        this.f9248c.post(new Runnable() { // from class: com.baidu.mobstat.s.1
             @Override // java.lang.Runnable
             public void run() {
                 try {

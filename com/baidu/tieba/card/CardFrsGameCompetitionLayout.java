@@ -16,16 +16,16 @@ import java.util.List;
 public class CardFrsGameCompetitionLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameCompetitionItemView> f15232e;
+    public b<CardFrsGameCompetitionItemView> f15233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15233f;
+    public int f15234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15234g;
+    public int f15235g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15235h;
+    public int f15236h;
     public final ViewGroup.OnHierarchyChangeListener i;
 
     /* loaded from: classes4.dex */
@@ -39,16 +39,16 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
-            if (!(view2 instanceof CardFrsGameCompetitionItemView) || CardFrsGameCompetitionLayout.this.f15232e == null) {
+            if (!(view2 instanceof CardFrsGameCompetitionItemView) || CardFrsGameCompetitionLayout.this.f15233e == null) {
                 return;
             }
-            CardFrsGameCompetitionLayout.this.f15232e.e((CardFrsGameCompetitionItemView) view2);
+            CardFrsGameCompetitionLayout.this.f15233e.e((CardFrsGameCompetitionItemView) view2);
         }
     }
 
     public CardFrsGameCompetitionLayout(Context context) {
         super(context);
-        this.f15232e = null;
+        this.f15233e = null;
         this.i = new a();
         b();
     }
@@ -68,7 +68,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.f15233f;
+            layoutParams.leftMargin = this.f15234f;
         }
         cardFrsGameCompetitionItemView.setLayoutParams(layoutParams);
     }
@@ -83,7 +83,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     }
 
     public int getChildItemWidth() {
-        return this.f15235h;
+        return this.f15236h;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -102,13 +102,13 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15235h = this.f15234g + this.f15233f;
+        this.f15236h = this.f15235g + this.f15234f;
         int i = 0;
         int childCount = getChildCount();
         while (i < childCount && i < list.size()) {
             if (getChildAt(i) instanceof CardFrsGameCompetitionItemView) {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = (CardFrsGameCompetitionItemView) getChildAt(i);
-                c(cardFrsGameCompetitionItemView, i, this.f15234g);
+                c(cardFrsGameCompetitionItemView, i, this.f15235g);
                 d(cardFrsGameCompetitionItemView, list.get(i));
             }
             i++;
@@ -118,11 +118,11 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
             i++;
         }
         while (i < list.size()) {
-            CardFrsGameCompetitionItemView b2 = this.f15232e.b();
+            CardFrsGameCompetitionItemView b2 = this.f15233e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i, this.f15234g);
+            c(b2, i, this.f15235g);
             d(b2, list.get(i));
             addView(b2);
             i++;
@@ -130,30 +130,30 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     }
 
     public void setItemSpace(int i) {
-        this.f15233f = i;
+        this.f15234f = i;
     }
 
     public void setItemWidth(int i) {
-        this.f15234g = i;
+        this.f15235g = i;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
     }
 
     public void setViewPool(b<CardFrsGameCompetitionItemView> bVar) {
-        this.f15232e = bVar;
+        this.f15233e = bVar;
     }
 
     public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15232e = null;
+        this.f15233e = null;
         this.i = new a();
         b();
     }
 
     public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15232e = null;
+        this.f15233e = null;
         this.i = new a();
         b();
     }

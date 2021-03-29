@@ -10,7 +10,7 @@ public class IndependentProcessDownloadService extends DownloadService {
         super.onCreate();
         d.y(this);
         o K0 = d.K0();
-        this.f38838a = K0;
+        this.f38839a = K0;
         K0.c(new WeakReference(this));
     }
 }

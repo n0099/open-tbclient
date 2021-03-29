@@ -1,5 +1,5 @@
 package com.baidu.android.lbspay;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.baidu.android.lbspay";

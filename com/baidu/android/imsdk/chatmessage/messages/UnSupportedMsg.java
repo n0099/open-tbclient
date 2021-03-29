@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UnSupportedMsg extends NormalMsg {
     public static final Parcelable.Creator<UnSupportedMsg> CREATOR = new Parcelable.Creator<UnSupportedMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg.1
         /* JADX DEBUG: Method merged with bridge method */

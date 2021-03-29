@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.k>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -18,7 +18,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.j, CardViewHolder<d.b.i0.x.k>> im
     public String p;
     public b0 q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.j> {
         public a() {
         }

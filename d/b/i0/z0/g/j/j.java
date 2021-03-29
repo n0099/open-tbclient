@@ -1,81 +1,81 @@
 package d.b.i0.z0.g.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63195a;
+    public String f63196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63196b;
+    public String f63197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63197c = 0;
+    public int f63198c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63198d;
+    public long f63199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63199e;
+    public long f63200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f63200f;
+    public long f63201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63201g;
+    public int f63202g;
 
     public long a() {
-        return this.f63198d;
+        return this.f63199d;
     }
 
     public int b() {
-        return this.f63201g;
+        return this.f63202g;
     }
 
     public String c() {
-        return this.f63196b;
+        return this.f63197b;
     }
 
     public long d() {
-        return this.f63200f;
+        return this.f63201f;
     }
 
     public long e() {
-        return this.f63199e;
+        return this.f63200e;
     }
 
     public int f() {
-        return this.f63197c;
+        return this.f63198c;
     }
 
     public String g() {
-        return this.f63195a;
+        return this.f63196a;
     }
 
     public void h(long j) {
-        this.f63198d = j;
+        this.f63199d = j;
     }
 
     public void i(int i) {
-        this.f63201g = i;
+        this.f63202g = i;
     }
 
     public void j(String str) {
-        this.f63196b = str;
+        this.f63197b = str;
     }
 
     public void k(long j) {
-        this.f63200f = j;
+        this.f63201f = j;
     }
 
     public void l(long j) {
-        this.f63199e = j;
+        this.f63200e = j;
     }
 
     public void m(int i) {
-        this.f63197c = i;
+        this.f63198c = i;
     }
 
     public void n(String str) {
-        this.f63195a = str;
+        this.f63196a = str;
     }
 }

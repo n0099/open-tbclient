@@ -24,7 +24,7 @@ public class a {
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Accept", "application/json");
             httpURLConnection.setRequestProperty("User-Agent", k.a());
-            cVar.f33865a = httpURLConnection.getResponseCode();
+            cVar.f33866a = httpURLConnection.getResponseCode();
             InputStream inputStream = httpURLConnection.getInputStream();
             byte[] bArr = new byte[1024];
             while (true) {
@@ -37,12 +37,12 @@ public class a {
         } catch (MalformedURLException | IOException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
-        cVar.f33866b = sb.toString();
+        cVar.f33867b = sb.toString();
         return cVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:41:0x009d  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -85,9 +85,9 @@ public class a {
                 outputStream2.flush();
             }
             int responseCode = httpURLConnection.getResponseCode();
-            cVar.f33865a = responseCode;
+            cVar.f33866a = responseCode;
             if (responseCode == 200) {
-                cVar.f33866b = a(httpURLConnection.getInputStream());
+                cVar.f33867b = a(httpURLConnection.getInputStream());
             }
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();

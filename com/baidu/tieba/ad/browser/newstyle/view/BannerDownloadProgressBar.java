@@ -17,16 +17,16 @@ import com.baidu.tieba.R$styleable;
 public class BannerDownloadProgressBar extends AppCompatTextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14513e;
+    public int f14514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14514f;
+    public int f14515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f14515g;
+    public float f14516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14516h;
+    public int f14517h;
     public int i;
     public String j;
     public int k;
@@ -41,9 +41,9 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
 
     public BannerDownloadProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14513e = 0;
-        this.f14514f = -1;
-        this.f14515g = 10.0f;
+        this.f14514e = 0;
+        this.f14515f = -1;
+        this.f14516g = 10.0f;
         this.k = 100;
         this.l = 0;
         this.m = 0;
@@ -71,7 +71,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
 
     public final void g(Canvas canvas) {
         this.l = getMeasuredHeight() / 2;
-        float f2 = this.f14513e / (this.k + 0.0f);
+        float f2 = this.f14514e / (this.k + 0.0f);
         RectF rectF = this.q;
         int i = this.m;
         rectF.left = i;
@@ -84,7 +84,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         if (f3 < i2 * 2) {
             rectF2.right = i2 * 2;
         }
-        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f14516h, this.i}, (float[]) null, Shader.TileMode.CLAMP);
+        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f14517h, this.i}, (float[]) null, Shader.TileMode.CLAMP);
         this.s = linearGradient;
         this.n.setShader(linearGradient);
         RectF rectF3 = this.q;
@@ -97,15 +97,14 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public int getProgress() {
-        return this.f14513e;
+        return this.f14514e;
     }
 
     public final void h(Canvas canvas) {
         Paint.FontMetrics fontMetrics = this.p.getFontMetrics();
         float f2 = fontMetrics.descent;
-        double height = ((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f);
-        Double.isNaN(height);
-        canvas.drawText(this.j, (getMeasuredWidth() - this.p.measureText(this.j)) / 2.0f, (float) (height + 0.5d), this.p);
+        float measuredWidth = (getMeasuredWidth() - this.p.measureText(this.j)) / 2.0f;
+        canvas.drawText(this.j, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.p);
     }
 
     public final void i(Context context, AttributeSet attributeSet) {
@@ -115,13 +114,13 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         int parseColor2 = Color.parseColor("#2BBCFF");
         int parseColor3 = Color.parseColor("#2B87FF");
         this.m = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
-        this.f14516h = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_start, parseColor2);
+        this.f14517h = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_start, parseColor2);
         this.i = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_end, parseColor3);
-        this.f14514f = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_textColor, parseColor);
+        this.f14515f = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_textColor, parseColor);
         this.k = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_max, this.k);
-        this.f14513e = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_progress, 0);
+        this.f14514e = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_progress, 0);
         this.j = obtainStyledAttributes.getString(R$styleable.ad_progress_ad_btn_text);
-        this.f14515g = obtainStyledAttributes.getDimension(R$styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
+        this.f14516g = obtainStyledAttributes.getDimension(R$styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
         this.l = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ad_progress_ad_btn_radius, dimensionPixelSize);
         obtainStyledAttributes.recycle();
         j();
@@ -129,8 +128,8 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
 
     public final void j() {
         this.p.setAntiAlias(true);
-        this.p.setTextSize(this.f14515g);
-        this.p.setColor(this.f14514f);
+        this.p.setTextSize(this.f14516g);
+        this.p.setColor(this.f14515f);
         this.n.setAntiAlias(true);
         this.n.setStyle(Paint.Style.FILL);
         this.o.setAntiAlias(true);
@@ -141,7 +140,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f14513e > 0) {
+        if (this.f14514e > 0) {
             g(canvas);
         }
         f(canvas);
@@ -152,10 +151,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public void setForeground(int i, int i2) {
-        if (i == this.f14516h && i2 == this.i) {
+        if (i == this.f14517h && i2 == this.i) {
             return;
         }
-        this.f14516h = i;
+        this.f14517h = i;
         this.i = i2;
         j();
         postInvalidate();
@@ -166,10 +165,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public void setProgress(int i) {
-        if (i >= 0 && i <= this.k && i != this.f14513e) {
-            this.f14513e = i;
-            this.j = getResources().getString(R.string.ad_button_already_download) + this.f14513e + "%";
-            if (this.f14513e == this.k) {
+        if (i >= 0 && i <= this.k && i != this.f14514e) {
+            this.f14514e = i;
+            this.j = getResources().getString(R.string.ad_button_already_download) + this.f14514e + "%";
+            if (this.f14514e == this.k) {
                 this.j = "";
             }
             postInvalidate();
@@ -181,34 +180,34 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             return;
         }
         this.j = str;
-        this.f14513e = 0;
+        this.f14514e = 0;
         postInvalidate();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i) {
-        if (i == this.f14514f) {
+        if (i == this.f14515f) {
             return;
         }
-        this.f14514f = i;
+        this.f14515f = i;
         j();
         postInvalidate();
     }
 
     public void setTextSize(int i) {
         float f2 = i;
-        if (f2 == this.f14515g) {
+        if (f2 == this.f14516g) {
             return;
         }
-        this.f14515g = f2;
+        this.f14516g = f2;
         postInvalidate();
     }
 
     public BannerDownloadProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14513e = 0;
-        this.f14514f = -1;
-        this.f14515g = 10.0f;
+        this.f14514e = 0;
+        this.f14515f = -1;
+        this.f14516g = 10.0f;
         this.k = 100;
         this.l = 0;
         this.m = 0;

@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import d.b.g0.a.p.c.o0;
 import d.b.g0.a.p.d.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b<T extends c> extends d<T>, o0 {
     boolean B(int i);
 

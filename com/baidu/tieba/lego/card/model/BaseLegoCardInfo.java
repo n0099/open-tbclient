@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import d.b.i0.a;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
     public final boolean bCeiling;
     public final int cardType;
@@ -28,7 +28,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public int showSpace = 0;
     public boolean mHasShown = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject == null) {

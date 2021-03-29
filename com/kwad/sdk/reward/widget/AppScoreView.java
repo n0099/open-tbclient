@@ -10,10 +10,10 @@ import com.kwad.sdk.R;
 public class AppScoreView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f36463a;
+    public ImageView f36464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f36464b;
+    public ImageView f36465b;
 
     public AppScoreView(Context context) {
         this(context, null);
@@ -30,8 +30,8 @@ public class AppScoreView extends LinearLayout {
 
     private void a() {
         LinearLayout.inflate(getContext(), R.layout.ksad_app_score, this);
-        this.f36463a = (ImageView) findViewById(R.id.ksad_score_fourth);
-        this.f36464b = (ImageView) findViewById(R.id.ksad_score_fifth);
+        this.f36464a = (ImageView) findViewById(R.id.ksad_score_fourth);
+        this.f36465b = (ImageView) findViewById(R.id.ksad_score_fifth);
     }
 
     public void setScore(float f2) {
@@ -41,28 +41,31 @@ public class AppScoreView extends LinearLayout {
         int i2;
         double d2 = f2;
         if (d2 > 4.5d) {
-            this.f36463a.setImageResource(R.drawable.ksad_app_score_yellow);
-            imageView2 = this.f36464b;
+            this.f36464a.setImageResource(R.drawable.ksad_app_score_yellow);
+            imageView2 = this.f36465b;
             i2 = R.drawable.ksad_app_score_yellow;
         } else if (d2 > 4.0d) {
-            this.f36463a.setImageResource(R.drawable.ksad_app_score_yellow);
-            imageView2 = this.f36464b;
+            this.f36464a.setImageResource(R.drawable.ksad_app_score_yellow);
+            imageView2 = this.f36465b;
             i2 = R.drawable.ksad_app_score_half;
         } else {
             if (d2 > 3.5d) {
-                imageView = this.f36463a;
+                imageView = this.f36464a;
                 i = R.drawable.ksad_app_score_yellow;
-            } else if (d2 > 3.0d) {
-                imageView = this.f36463a;
-                i = R.drawable.ksad_app_score_half;
-            } else if (d2 != 3.0d) {
-                return;
             } else {
-                imageView = this.f36463a;
-                i = R.drawable.ksad_app_score_gray;
+                int i3 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
+                if (i3 > 0) {
+                    imageView = this.f36464a;
+                    i = R.drawable.ksad_app_score_half;
+                } else if (i3 != 0) {
+                    return;
+                } else {
+                    imageView = this.f36464a;
+                    i = R.drawable.ksad_app_score_gray;
+                }
             }
             imageView.setImageResource(i);
-            imageView2 = this.f36464b;
+            imageView2 = this.f36465b;
             i2 = R.drawable.ksad_app_score_gray;
         }
         imageView2.setImageResource(i2);

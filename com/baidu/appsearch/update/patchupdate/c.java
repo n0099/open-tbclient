@@ -2,22 +2,22 @@ package com.baidu.appsearch.update.patchupdate;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public RandomAccessFile f4076a;
+    public RandomAccessFile f4077a;
 
     public c(RandomAccessFile randomAccessFile) {
         if (randomAccessFile == null) {
             throw new NullPointerException("input RandomAccessFile is null");
         }
-        this.f4076a = randomAccessFile;
+        this.f4077a = randomAccessFile;
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public int a(ByteBuffer byteBuffer) {
-        int read = this.f4076a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+        int read = this.f4077a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
         if (read == -1) {
             return -1;
         }
@@ -27,11 +27,11 @@ public class c implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public void a(long j) {
-        this.f4076a.seek(j);
+        this.f4077a.seek(j);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f4076a.close();
+        this.f4077a.close();
     }
 }

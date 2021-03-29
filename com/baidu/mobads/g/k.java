@@ -3,19 +3,19 @@ package com.baidu.mobads.g;
 public class k extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f8288a;
+    public final /* synthetic */ boolean f8289a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ g f8289c;
+    public final /* synthetic */ g f8290c;
 
     public k(g gVar, boolean z) {
-        this.f8289c = gVar;
-        this.f8288a = z;
+        this.f8290c = gVar;
+        this.f8289a = z;
     }
 
     @Override // com.baidu.mobads.f.a
     public Object a() {
-        this.f8289c.c(this.f8288a);
+        this.f8290c.c(this.f8289a);
         return null;
     }
 }

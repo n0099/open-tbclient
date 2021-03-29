@@ -13,18 +13,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Common {
     public static AppExtraCall sAppExtraCall;
     public static volatile Device sCommonDevice;
     public static volatile Version sCommonVersion;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface AppExtraCall {
         JSONObject getAppExtraInfo();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Device {
         @NonNull
         public String mCPU = "";
@@ -36,7 +36,7 @@ public class Common {
         public String mMemory = "";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Version {
         public static final String SDK_VERSION = "sdkversion";
         @NonNull

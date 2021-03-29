@@ -16,21 +16,21 @@ public class c {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f59723a;
+        public static final /* synthetic */ int[] f59724a;
 
         static {
             int[] iArr = new int[FunNativeAd.InteractionType.values().length];
-            f59723a = iArr;
+            f59724a = iArr;
             try {
                 iArr[FunNativeAd.InteractionType.TYPE_DOWNLOAD.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f59723a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
+                f59724a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f59723a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
+                f59724a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -63,7 +63,7 @@ public class c {
         if (ksNativeAd != null) {
             return ksNativeAd.getActionDescription();
         }
-        int i2 = a.f59723a[funNativeAd.getInteractionType().ordinal()];
+        int i2 = a.f59724a[funNativeAd.getInteractionType().ordinal()];
         if (i2 == 1) {
             i = R.string.ad_interaction_type_download;
         } else if (i2 != 2) {

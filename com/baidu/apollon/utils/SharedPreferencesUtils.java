@@ -2,7 +2,7 @@ package com.baidu.apollon.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class SharedPreferencesUtils {
     public static void clear(Context context, String str) {
         SharedPreferences.Editor edit = context.getSharedPreferences(str, 0).edit();

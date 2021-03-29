@@ -12,18 +12,18 @@ import java.net.URL;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f22936a;
+    public static String f22937a;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x0158 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0146 A[Catch: Exception -> 0x0142, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:90:0x013e }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x014b A[Catch: Exception -> 0x0142, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:90:0x013e }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0150 A[Catch: Exception -> 0x0142, TRY_LEAVE, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:90:0x013e }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0163 A[Catch: Exception -> 0x015f, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:84:0x015b }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x0168 A[Catch: Exception -> 0x015f, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:84:0x015b }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x016d A[Catch: Exception -> 0x015f, TRY_LEAVE, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:84:0x015b }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x015b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x013e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0146 A[Catch: Exception -> 0x0142, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:88:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x014b A[Catch: Exception -> 0x0142, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:88:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0150 A[Catch: Exception -> 0x0142, TRY_LEAVE, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:88:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0163 A[Catch: Exception -> 0x015f, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:82:0x015b }] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0168 A[Catch: Exception -> 0x015f, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:82:0x015b }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x016d A[Catch: Exception -> 0x015f, TRY_LEAVE, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:82:0x015b }] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x015b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x013e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r3v0 */
     /* JADX WARN: Type inference failed for: r3v1 */
     /* JADX WARN: Type inference failed for: r3v14 */
@@ -66,10 +66,10 @@ public final class b {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setInstanceFollowRedirects(true);
-            if (f22936a == null) {
-                f22936a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
+            if (f22937a == null) {
+                f22937a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
             }
-            httpURLConnection.setRequestProperty("User-Agent", f22936a);
+            httpURLConnection.setRequestProperty("User-Agent", f22937a);
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.setReadTimeout(5000);
             httpURLConnection.setChunkedStreamingMode(0);

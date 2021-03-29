@@ -26,34 +26,34 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import protobuf.NewpushRepair;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static b r;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<GroupUpdateMessage> f53922e;
+    public List<GroupUpdateMessage> f53923e;
     public boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53918a = 900000;
+    public int f53919a = 900000;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53919b = 360000;
+    public int f53920b = 360000;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53920c = 360000;
+    public int f53921c = 360000;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f53921d = 0;
+    public int f53922d = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53923f = 0;
+    public int f53924f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f53924g = 0;
+    public long f53925g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53925h = 0;
+    public int f53926h = 0;
     public final BdUniqueId i = BdUniqueId.gen();
     public final Handler j = new g(null);
     public LongSparseArray<Long> k = null;
@@ -63,7 +63,7 @@ public class b {
     public final CustomMessageListener p = new e(2001011);
     public final CustomMessageListener q = new f(2005016);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -80,9 +80,9 @@ public class b {
     }
 
     /* renamed from: d.b.i0.d1.m.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1203b extends CustomMessageListener {
-        public C1203b(int i) {
+    /* loaded from: classes3.dex */
+    public static class C1204b extends CustomMessageListener {
+        public C1204b(int i) {
             super(i);
         }
 
@@ -95,7 +95,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.b.c.e.c.k.a {
         public c() {
         }
@@ -125,7 +125,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.b.c.g.c {
         public d(int i) {
             super(i);
@@ -146,7 +146,7 @@ public class b {
                 if (responseOnlineMessage.getError() != 0) {
                     return;
                 }
-                b.this.f53922e = responseOnlineMessage.getGroupInfos();
+                b.this.f53923e = responseOnlineMessage.getGroupInfos();
                 if (d.b.i0.d1.k.b.o().z()) {
                     b.this.o();
                 }
@@ -154,7 +154,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -173,7 +173,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public f(int i) {
             super(i);
@@ -191,11 +191,11 @@ public class b {
             if (b.this.l != null) {
                 b.this.l.clear();
             }
-            b.this.f53922e = null;
+            b.this.f53923e = null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class g extends Handler {
         public g() {
         }
@@ -210,12 +210,12 @@ public class b {
             } else if (i != 3) {
             } else {
                 b.l().j.removeMessages(3);
-                if (b.l().f53925h == 3) {
+                if (b.l().f53926h == 3) {
                     b.l().t();
                 } else {
                     b.l().u();
                 }
-                b.l().j.sendMessageDelayed(b.l().j.obtainMessage(3), b.l().f53920c);
+                b.l().j.sendMessageDelayed(b.l().j.obtainMessage(3), b.l().f53921c);
             }
         }
 
@@ -226,7 +226,7 @@ public class b {
 
     static {
         MessageManager.getInstance().registerListener(new a(2008017));
-        MessageManager.getInstance().registerListener(new C1203b(2016002));
+        MessageManager.getInstance().registerListener(new C1204b(2016002));
         r = null;
     }
 
@@ -243,11 +243,11 @@ public class b {
 
     public final void A(int i) {
         if (i == 1) {
-            if (this.f53921d != 2) {
-                this.f53921d = 1;
+            if (this.f53922d != 2) {
+                this.f53922d = 1;
             }
         } else if (i == 3 || i == 2) {
-            this.f53921d = 2;
+            this.f53922d = 2;
         }
     }
 
@@ -261,15 +261,15 @@ public class b {
     }
 
     public void D() {
-        l().f53920c = l().f53918a;
+        l().f53921c = l().f53919a;
     }
 
     public void E() {
-        this.f53920c = this.f53919b;
+        this.f53921c = this.f53920b;
     }
 
     public final void h() {
-        int i = this.f53921d;
+        int i = this.f53922d;
         if (i != 0) {
             if (i == 1) {
                 r(0L, 0L, 0L);
@@ -285,7 +285,7 @@ public class b {
     }
 
     public final void j() {
-        this.f53921d = 0;
+        this.f53922d = 0;
     }
 
     public final MessageSyncMessage k(LongSparseArray<Long> longSparseArray, int i) {
@@ -334,16 +334,16 @@ public class b {
     }
 
     public void o() {
-        if (this.f53922e == null) {
+        if (this.f53923e == null) {
             return;
         }
         boolean z = false;
         LongSparseArray<Long> r2 = d.b.i0.d1.k.b.o().r();
         if (r2 == null) {
-            this.f53922e = null;
+            this.f53923e = null;
             return;
         }
-        Iterator<GroupUpdateMessage> it = this.f53922e.iterator();
+        Iterator<GroupUpdateMessage> it = this.f53923e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -356,14 +356,14 @@ public class b {
                 }
             }
         }
-        this.f53925h = 3;
+        this.f53926h = 3;
         if (z) {
             Handler handler = this.j;
             handler.sendMessage(handler.obtainMessage(3));
         } else {
-            l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f53920c);
+            l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f53921c);
         }
-        this.f53922e = null;
+        this.f53923e = null;
     }
 
     public final void p(LongSparseArray<Long> longSparseArray, int i) {
@@ -413,9 +413,9 @@ public class b {
         if (longSparseArray != null) {
             if (longSparseArray.size() != 0) {
                 this.n = false;
-                this.f53925h = 4;
+                this.f53926h = 4;
                 this.j.removeMessages(3);
-                l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f53920c);
+                l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f53921c);
                 p(longSparseArray, 4);
             }
         }
@@ -427,11 +427,11 @@ public class b {
 
     public synchronized void s(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.f53923f++;
+        this.f53924f++;
         this.n = false;
-        this.f53925h = 1;
+        this.f53926h = 1;
         this.j.removeMessages(3);
-        l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f53920c);
+        l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f53921c);
         if (this.k == null) {
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
             this.k = longSparseArray;
@@ -505,7 +505,7 @@ public class b {
 
     public final synchronized void v(int i) {
         this.n = true;
-        this.f53925h = i;
+        this.f53926h = i;
         p(null, i);
     }
 
@@ -518,17 +518,17 @@ public class b {
     }
 
     public final synchronized void x() {
-        if (System.currentTimeMillis() - this.f53924g < 180000) {
+        if (System.currentTimeMillis() - this.f53925g < 180000) {
             return;
         }
         PushCountMessage pushCountMessage = new PushCountMessage();
-        pushCountMessage.setPusherCount(this.f53923f);
+        pushCountMessage.setPusherCount(this.f53924f);
         pushCountMessage.setUpFlowSize(d.b.b.e.r.h.j().p());
         pushCountMessage.setDownFlowSize(d.b.b.e.r.h.j().i());
         pushCountMessage.setEnterForeCount(TbadkCoreApplication.getInst().getEnterForeCount());
         MessageManager.getInstance().sendMessage(pushCountMessage);
-        this.f53924g = System.currentTimeMillis();
-        this.f53923f = 0;
+        this.f53925g = System.currentTimeMillis();
+        this.f53924f = 0;
         d.b.b.e.r.h.j().d();
         d.b.b.e.r.h.j().e();
         TbadkCoreApplication.getInst().clearEnterForeCount();
@@ -538,13 +538,13 @@ public class b {
         if (i <= 0) {
             return;
         }
-        this.f53918a = i;
+        this.f53919a = i;
     }
 
     public void z(int i) {
         if (i <= 0) {
             return;
         }
-        this.f53919b = i;
+        this.f53920b = i;
     }
 }

@@ -11,37 +11,37 @@ public class a {
     public static volatile a m;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43778a;
+    public Context f43779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorManager f43779b;
+    public SensorManager f43780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SensorEventListener f43780c;
+    public SensorEventListener f43781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SensorEventListener f43781d;
+    public SensorEventListener f43782d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Sensor f43782e;
+    public Sensor f43783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Sensor f43783f;
+    public Sensor f43784f;
     public c j;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f43784g = new float[3];
+    public float[] f43785g = new float[3];
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f43785h = new float[3];
+    public float[] f43786h = new float[3];
     public int i = -100;
     public boolean k = false;
     public long l = 0;
 
     /* renamed from: d.b.g0.a.c2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0636a implements SensorEventListener {
-        public C0636a() {
+    public class C0637a implements SensorEventListener {
+        public C0637a() {
         }
 
         @Override // android.hardware.SensorEventListener
@@ -52,7 +52,7 @@ public class a {
         public void onSensorChanged(SensorEvent sensorEvent) {
             Sensor sensor;
             if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-                a.this.f43784g = sensorEvent.values;
+                a.this.f43785g = sensorEvent.values;
                 a.this.i = sensorEvent.accuracy;
                 d.b.g0.a.c0.c.a("SwanAppCompassManager", "accelerometer changed accuracy: " + a.this.i);
                 a.this.k();
@@ -75,7 +75,7 @@ public class a {
         public void onSensorChanged(SensorEvent sensorEvent) {
             Sensor sensor;
             if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
-                a.this.f43785h = sensorEvent.values;
+                a.this.f43786h = sensorEvent.values;
                 a.this.i = sensorEvent.accuracy;
                 d.b.g0.a.c0.c.a("SwanAppCompassManager", "magneticFiled changed accuracy: " + a.this.i);
                 a.this.k();
@@ -115,30 +115,30 @@ public class a {
     public final float f() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.f43784g, this.f43785h);
+        SensorManager.getRotationMatrix(fArr2, null, this.f43785g, this.f43786h);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     public final SensorEventListener g() {
         d.b.g0.a.c0.c.g("compass", "get Accelerometer listener");
-        SensorEventListener sensorEventListener = this.f43780c;
+        SensorEventListener sensorEventListener = this.f43781c;
         if (sensorEventListener != null) {
             return sensorEventListener;
         }
-        C0636a c0636a = new C0636a();
-        this.f43780c = c0636a;
-        return c0636a;
+        C0637a c0637a = new C0637a();
+        this.f43781c = c0637a;
+        return c0637a;
     }
 
     public final SensorEventListener j() {
         d.b.g0.a.c0.c.g("compass", "get MagneticFiled listener");
-        SensorEventListener sensorEventListener = this.f43781d;
+        SensorEventListener sensorEventListener = this.f43782d;
         if (sensorEventListener != null) {
             return sensorEventListener;
         }
         b bVar = new b();
-        this.f43781d = bVar;
+        this.f43782d = bVar;
         return bVar;
     }
 
@@ -153,7 +153,7 @@ public class a {
     }
 
     public void l(Context context) {
-        this.f43778a = context;
+        this.f43779a = context;
     }
 
     public final void m() {
@@ -161,13 +161,13 @@ public class a {
         if (this.k) {
             q();
         }
-        this.f43779b = null;
-        this.f43783f = null;
-        this.f43782e = null;
-        this.f43780c = null;
-        this.f43781d = null;
+        this.f43780b = null;
+        this.f43784f = null;
+        this.f43783e = null;
+        this.f43781c = null;
+        this.f43782d = null;
         this.j = null;
-        this.f43778a = null;
+        this.f43779a = null;
         m = null;
     }
 
@@ -176,19 +176,19 @@ public class a {
     }
 
     public void p() {
-        Context context = this.f43778a;
+        Context context = this.f43779a;
         if (context == null) {
             d.b.g0.a.c0.c.b("compass", "start error, none context");
         } else if (this.k) {
             d.b.g0.a.c0.c.l("compass", "has already start");
         } else {
             SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-            this.f43779b = sensorManager;
+            this.f43780b = sensorManager;
             if (sensorManager != null) {
-                this.f43782e = sensorManager.getDefaultSensor(1);
-                this.f43783f = this.f43779b.getDefaultSensor(2);
-                this.f43779b.registerListener(g(), this.f43782e, 1);
-                this.f43779b.registerListener(j(), this.f43783f, 1);
+                this.f43783e = sensorManager.getDefaultSensor(1);
+                this.f43784f = this.f43780b.getDefaultSensor(2);
+                this.f43780b.registerListener(g(), this.f43783e, 1);
+                this.f43780b.registerListener(j(), this.f43784f, 1);
                 this.k = true;
                 d.b.g0.a.c0.c.g("compass", "start listen");
                 return;
@@ -205,19 +205,19 @@ public class a {
             return;
         }
         d.b.g0.a.c0.c.g("compass", "stop listen");
-        SensorEventListener sensorEventListener = this.f43780c;
-        if (sensorEventListener != null && (sensorManager2 = this.f43779b) != null) {
+        SensorEventListener sensorEventListener = this.f43781c;
+        if (sensorEventListener != null && (sensorManager2 = this.f43780b) != null) {
             sensorManager2.unregisterListener(sensorEventListener);
-            this.f43780c = null;
+            this.f43781c = null;
         }
-        SensorEventListener sensorEventListener2 = this.f43781d;
-        if (sensorEventListener2 != null && (sensorManager = this.f43779b) != null) {
+        SensorEventListener sensorEventListener2 = this.f43782d;
+        if (sensorEventListener2 != null && (sensorManager = this.f43780b) != null) {
             sensorManager.unregisterListener(sensorEventListener2);
-            this.f43781d = null;
+            this.f43782d = null;
         }
-        this.f43779b = null;
-        this.f43783f = null;
-        this.f43782e = null;
+        this.f43780b = null;
+        this.f43784f = null;
+        this.f43783e = null;
         this.k = false;
     }
 }

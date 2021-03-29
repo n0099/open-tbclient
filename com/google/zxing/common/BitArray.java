@@ -96,7 +96,7 @@ public final class BitArray implements Cloneable {
             return i2;
         }
         int i3 = i / 32;
-        int i4 = (((1 << (i & 31)) - 1) ^ (-1)) & this.bits[i3];
+        int i4 = (~((1 << (i & 31)) - 1)) & this.bits[i3];
         while (i4 == 0) {
             i3++;
             int[] iArr = this.bits;
@@ -116,14 +116,14 @@ public final class BitArray implements Cloneable {
             return i2;
         }
         int i3 = i / 32;
-        int i4 = (((1 << (i & 31)) - 1) ^ (-1)) & (this.bits[i3] ^ (-1));
+        int i4 = (~((1 << (i & 31)) - 1)) & (~this.bits[i3]);
         while (i4 == 0) {
             i3++;
             int[] iArr = this.bits;
             if (i3 == iArr.length) {
                 return this.size;
             }
-            i4 = iArr[i3] ^ (-1);
+            i4 = ~iArr[i3];
         }
         int numberOfTrailingZeros = (i3 << 5) + Integer.numberOfTrailingZeros(i4);
         int i5 = this.size;

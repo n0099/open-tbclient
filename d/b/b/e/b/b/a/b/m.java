@@ -7,10 +7,10 @@ import org.json.JSONObject;
 public class m implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public OrmObject f41621a;
+    public OrmObject f41622a;
 
     public m(OrmObject ormObject) {
-        this.f41621a = ormObject;
+        this.f41622a = ormObject;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -32,12 +32,12 @@ public class m implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41621a;
+        return this.f41622a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41621a;
+        return this.f41622a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -51,6 +51,6 @@ public class m implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
-        return OrmObject.jsonWithObject(this.f41621a);
+        return OrmObject.jsonWithObject(this.f41622a);
     }
 }

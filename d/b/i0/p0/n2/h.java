@@ -37,28 +37,28 @@ import java.util.ArrayList;
 public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f58176a;
+    public FrsFragment f58177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsHeaderViewContainer f58177b;
+    public FrsHeaderViewContainer f58178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.p0.q2.b f58178c;
+    public d.b.i0.p0.q2.b f58179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.p0.n1.e.a f58179d;
+    public d.b.i0.p0.n1.e.a f58180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58180e;
+    public boolean f58181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f58181f;
+    public BdUniqueId f58182f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58182g;
+    public int f58183g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58183h;
+    public String f58184h;
     public int i;
     public boolean j;
     public int k;
@@ -79,10 +79,10 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
         @Override // java.lang.Runnable
         public void run() {
             r x0;
-            if (h.this.f58176a != null && h.this.i == 0 && (x0 = h.this.f58176a.x0()) != null && x0.W() != null && !x0.W().o() && !x0.Y() && h.this.f58177b.isShown() && h.this.f58176a.isPrimary() && !h.this.j && h.this.f58176a.d2() && h.this.k == 1 && h.this.B() && h.this.f58178c != null && h.this.f58178c.q()) {
+            if (h.this.f58177a != null && h.this.i == 0 && (x0 = h.this.f58177a.x0()) != null && x0.W() != null && !x0.W().o() && !x0.Y() && h.this.f58178b.isShown() && h.this.f58177a.isPrimary() && !h.this.j && h.this.f58177a.d2() && h.this.k == 1 && h.this.B() && h.this.f58179c != null && h.this.f58179c.q()) {
                 TbadkSettings.getInst().saveBoolean("speed_icon_show" + TbadkCoreApplication.getCurrentAccount(), true);
                 h.this.x0();
-                h.this.f58176a.f15972g = true;
+                h.this.f58177a.f15973g = true;
                 h.this.j = true;
             }
         }
@@ -95,7 +95,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.f58176a != null && h.this.i == 0 && !h.this.f58176a.x0().Y() && h.this.f58177b.isShown() && h.this.f58176a.isPrimary()) {
+            if (h.this.f58177a != null && h.this.i == 0 && !h.this.f58177a.x0().Y() && h.this.f58178b.isShown() && h.this.f58177a.isPrimary()) {
                 h.this.u0();
             }
         }
@@ -124,10 +124,10 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.f58177b != null) {
-                int childCount = h.this.f58177b.getChildCount();
+            if (h.this.f58178b != null) {
+                int childCount = h.this.f58178b.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    a(h.this.f58177b.getChildAt(i));
+                    a(h.this.f58178b.getChildAt(i));
                 }
             }
         }
@@ -140,13 +140,13 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (h.this.f58176a == null) {
+            if (h.this.f58177a == null) {
                 return;
             }
-            FrsViewData S = h.this.f58176a.S();
-            if (S != null && S.getForum() != null && h.this.f58178c != null && (view == h.this.f58178c.e() || view == h.this.f58178c.f() || view == h.this.f58178c.i())) {
-                if (h.this.f58176a != null && S.getForum() != null) {
-                    TiebaStatic.log(new StatisticItem("c12046").param("fid", S.getForum().getId()).param("obj_locate", h.this.f58176a.L2() ? 1 : 2));
+            FrsViewData S = h.this.f58177a.S();
+            if (S != null && S.getForum() != null && h.this.f58179c != null && (view == h.this.f58179c.e() || view == h.this.f58179c.f() || view == h.this.f58179c.i())) {
+                if (h.this.f58177a != null && S.getForum() != null) {
+                    TiebaStatic.log(new StatisticItem("c12046").param("fid", S.getForum().getId()).param("obj_locate", h.this.f58177a.L2() ? 1 : 2));
                 }
                 ArrayList<String> arrayList = new ArrayList<>();
                 if (S.getEntelechyTabInfo() != null && S.getEntelechyTabInfo().tab != null) {
@@ -160,35 +160,35 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
             }
             int id = view.getId();
             if (id == R.id.tv_love) {
-                if (h.this.f58176a.u2()) {
+                if (h.this.f58177a.u2()) {
                     return;
                 }
                 if (!d.b.b.e.p.j.z()) {
-                    h.this.f58176a.showToast(R.string.neterror);
+                    h.this.f58177a.showToast(R.string.neterror);
                 } else if (!ViewHelper.checkUpIsLogin(h.this.mContext.getPageActivity())) {
-                    TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 1).param("fid", h.this.f58176a.h()));
+                    TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 1).param("fid", h.this.f58177a.h()));
                 } else {
                     h.this.z0(true);
                     if (d.b.b.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                         return;
                     }
                     StatisticItem statisticItem = new StatisticItem("c10048");
-                    statisticItem.param("fid", h.this.f58176a.h());
+                    statisticItem.param("fid", h.this.f58177a.h());
                     statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem);
                 }
             } else if (id == R.id.tv_sign) {
-                if (h.this.f58176a.u2()) {
+                if (h.this.f58177a.u2()) {
                     return;
                 }
                 if (!d.b.b.e.p.j.z()) {
-                    h.this.f58176a.showToast(R.string.neterror);
+                    h.this.f58177a.showToast(R.string.neterror);
                 } else if (ViewHelper.checkUpIsLogin(h.this.mContext.getPageActivity())) {
                     if (!h.this.x()) {
                         h.this.A0();
                         StatisticItem.make("c13560").param("obj_type", 2).eventStat();
                     } else if (TbadkCoreApplication.getInst().getUseNewResign() == 1) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SupplementSignActivityConfig(h.this.f58176a.getPageContext().getPageActivity(), d.b.b.e.m.b.d(h.this.f58176a.h(), 0), 24002)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SupplementSignActivityConfig(h.this.f58177a.getPageContext().getPageActivity(), d.b.b.e.m.b.d(h.this.f58177a.h(), 0), 24002)));
                     }
                 }
             } else if (id == R.id.frs_header_games) {
@@ -209,10 +209,10 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
                     TiebaStatic.log(new StatisticItem("c10502").param("fid", S.getForum().getId()).param("uid", S.getUserData().getUserId()));
                 }
             } else if (id == R.id.level_container) {
-                if (h.this.f58176a.u2() || h.this.i != 0 || !h.this.B() || h.this.f58178c == null) {
+                if (h.this.f58177a.u2() || h.this.i != 0 || !h.this.B() || h.this.f58179c == null) {
                     return;
                 }
-                h.this.f58178c.M(view, false);
+                h.this.f58179c.M(view, false);
             } else if (id == R.id.frs_hot_rank_entry) {
                 if (S == null || S.getForum() == null || TextUtils.isEmpty(S.getForum().getId())) {
                     return;
@@ -230,7 +230,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumMemberActivityConfig(h.this.getPageContext().getPageActivity(), String.valueOf(S.getForum().getId()), S.getForum().getName())));
             } else if (id == R.id.frs_manager_application_layout && ViewHelper.checkUpIsLogin(h.this.mContext.getPageActivity()) && S != null && S.getForum() != null && !TextUtils.isEmpty(S.getForum().getId())) {
                 UrlManager urlManager = UrlManager.getInstance();
-                TbPageContext<?> q = h.this.f58176a.q();
+                TbPageContext<?> q = h.this.f58177a.q();
                 urlManager.dealOneLink(q, new String[]{TbConfig.URL_FORUM_MANAGER_APPLY + S.getForum().getId()});
             }
         }
@@ -238,22 +238,22 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public h(FrsFragment frsFragment, d.b.i0.p0.n1.e.a aVar, FrsHeaderViewContainer frsHeaderViewContainer) {
         super(frsFragment.getPageContext());
-        this.f58180e = false;
-        this.f58182g = 0;
-        this.f58183h = "normal_page";
+        this.f58181e = false;
+        this.f58183g = 0;
+        this.f58184h = "normal_page";
         this.i = 0;
         this.j = false;
         this.p = new a();
         this.q = new b();
         this.r = new c();
         this.s = new d();
-        this.f58176a = frsFragment;
-        this.f58179d = aVar;
-        this.f58177b = frsHeaderViewContainer;
+        this.f58177a = frsFragment;
+        this.f58180d = aVar;
+        this.f58178b = frsHeaderViewContainer;
         BdUniqueId gen = BdUniqueId.gen();
-        this.f58181f = gen;
-        this.n = new g(this.f58176a, gen);
-        this.o = new f(this.f58176a);
+        this.f58182f = gen;
+        this.n = new g(this.f58177a, gen);
+        this.o = new f(this.f58177a);
         this.l = new d.b.i0.f0.a();
     }
 
@@ -269,7 +269,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void A() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.m();
         }
@@ -278,13 +278,13 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     public void A0() {
         g gVar = this.n;
         if (gVar != null) {
-            d.b.i0.p0.q2.b bVar = this.f58178c;
+            d.b.i0.p0.q2.b bVar = this.f58179c;
             if (bVar != null) {
-                gVar.v(bVar.p(), this.f58178c.d());
+                gVar.v(bVar.p(), this.f58179c.d());
             } else {
                 gVar.v(false, "");
             }
-            d.b.i0.p0.q2.b bVar2 = this.f58178c;
+            d.b.i0.p0.q2.b bVar2 = this.f58179c;
             if (bVar2 != null) {
                 this.n.u(bVar2.j());
             }
@@ -292,7 +292,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public final boolean B() {
-        return "frs_page".equals(this.f58183h) || "normal_page".equals(this.f58183h) || "book_page".equals(this.f58183h) || "brand_page".equals(this.f58183h);
+        return "frs_page".equals(this.f58184h) || "normal_page".equals(this.f58184h) || "book_page".equals(this.f58184h) || "brand_page".equals(this.f58184h);
     }
 
     public void B0() {
@@ -315,7 +315,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public boolean F() {
         d.b.i0.p0.q2.b bVar;
-        if (!B() || (bVar = this.f58178c) == null) {
+        if (!B() || (bVar = this.f58179c) == null) {
             return false;
         }
         return bVar.o();
@@ -334,7 +334,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void K() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.r();
         }
@@ -351,19 +351,19 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void L() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.t();
         }
-        FrsHeaderViewContainer frsHeaderViewContainer = this.f58177b;
+        FrsHeaderViewContainer frsHeaderViewContainer = this.f58178b;
         if (frsHeaderViewContainer != null) {
             frsHeaderViewContainer.removeCallbacks(this.r);
         }
     }
 
     public boolean M(int i) {
-        this.f58182g = i;
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        this.f58183g = i;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.c(i);
             return true;
@@ -372,7 +372,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void O(boolean z) {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.s(z);
         }
@@ -393,7 +393,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void R() {
-        this.f58178c.w();
+        this.f58179c.w();
     }
 
     public void S(ForumData forumData, FrsViewData frsViewData) {
@@ -401,20 +401,20 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
             return;
         }
         float y = y(forumData);
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar == null) {
             return;
         }
         bVar.B(forumData, frsViewData);
-        this.f58178c.E(forumData.isLike(), forumData.getLevelName(), forumData.getUser_level(), y, false);
-        this.f58178c.G(forumData.getSignData());
+        this.f58179c.E(forumData.isLike(), forumData.getLevelName(), forumData.getUser_level(), y, false);
+        this.f58179c.G(forumData.getSignData());
     }
 
     public void T(FrsViewData frsViewData) {
         if (frsViewData != null && B()) {
             S(frsViewData.getForum(), frsViewData);
-            if ("brand_page".equals(this.f58183h)) {
-                this.f58178c.b();
+            if ("brand_page".equals(this.f58184h)) {
+                this.f58179c.b();
             }
         }
     }
@@ -426,102 +426,102 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void V() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.S();
         }
     }
 
     public void W() {
-        FrsHeaderViewContainer frsHeaderViewContainer = this.f58177b;
+        FrsHeaderViewContainer frsHeaderViewContainer = this.f58178b;
         if (frsHeaderViewContainer != null) {
             frsHeaderViewContainer.removeCallbacks(this.r);
-            this.f58177b.postDelayed(this.r, 100L);
+            this.f58178b.postDelayed(this.r, 100L);
         }
     }
 
     public void X(FrsViewData frsViewData) {
-        if (frsViewData == null || this.f58178c == null || !B()) {
+        if (frsViewData == null || this.f58179c == null || !B()) {
             return;
         }
-        this.f58178c.u(y(frsViewData.getForum()));
+        this.f58179c.u(y(frsViewData.getForum()));
     }
 
     public void Y() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.x();
         }
     }
 
     public void b0(String str) {
-        if (this.f58176a.M() == null || this.f58176a.M().P() == null) {
+        if (this.f58177a.M() == null || this.f58177a.M().P() == null) {
             return;
         }
-        int x = this.f58176a.M().P().x();
-        int u = this.f58176a.M().P().u();
-        int t = this.f58176a.M().P().t();
+        int x = this.f58177a.M().P().x();
+        int u = this.f58177a.M().P().u();
+        int t = this.f58177a.M().P().t();
         d.b.i0.c3.e i = d.b.i0.c3.e.i();
         d.b.i0.c3.e.i().n(i.g("1~" + str, x, u, t), false);
     }
 
     public final void c0() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
-            this.f58177b.d(bVar.k());
-            this.f58177b.d(this.f58178c.g());
+            this.f58178b.d(bVar.k());
+            this.f58178b.d(this.f58179c.g());
             d0();
         }
-        this.f58180e = false;
+        this.f58181e = false;
     }
 
     public final void d0() {
         FrsFragment frsFragment;
-        if (this.m == null || (frsFragment = this.f58176a) == null || frsFragment.v2() == null) {
+        if (this.m == null || (frsFragment = this.f58177a) == null || frsFragment.v2() == null) {
             return;
         }
-        this.f58176a.v2().removeHeaderView(this.m.E());
+        this.f58177a.v2().removeHeaderView(this.m.E());
     }
 
     public void f0(boolean z) {
         if (z) {
-            d.b.i0.p0.q2.b bVar = this.f58178c;
+            d.b.i0.p0.q2.b bVar = this.f58179c;
             if (bVar != null) {
-                this.f58177b.d(bVar.g());
-                this.f58180e = false;
+                this.f58178b.d(bVar.g());
+                this.f58181e = false;
                 return;
             }
             return;
         }
-        d.b.i0.p0.q2.b bVar2 = this.f58178c;
-        if (bVar2 == null || bVar2.g() == null || this.f58180e) {
+        d.b.i0.p0.q2.b bVar2 = this.f58179c;
+        if (bVar2 == null || bVar2.g() == null || this.f58181e) {
             return;
         }
-        this.f58177b.b(this.f58178c.g(), this.f58177b.getHeaderViewsCount());
-        this.f58180e = true;
+        this.f58178b.b(this.f58179c.g(), this.f58178b.getHeaderViewsCount());
+        this.f58181e = true;
     }
 
     public void g0(int i) {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar == null || bVar.g() == null) {
             return;
         }
-        View findViewById = this.f58178c.g().findViewById(R.id.divider_bottom);
+        View findViewById = this.f58179c.g().findViewById(R.id.divider_bottom);
         if (findViewById != null) {
             findViewById.setVisibility(i);
         }
-        this.f58178c.m();
+        this.f58179c.m();
     }
 
     public void h0(int i) {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.D(i);
         }
     }
 
     public void i0(int i, ForumData forumData, FrsViewData frsViewData, boolean z) {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar == null) {
             return;
         }
@@ -529,11 +529,11 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
         if (forumData == null) {
             return;
         }
-        this.f58178c.E(i, forumData.getLevelName(), forumData.getUser_level(), y(forumData), z);
+        this.f58179c.E(i, forumData.getLevelName(), forumData.getUser_level(), y(forumData), z);
         if (forumData.getSignData() == null || forumData.getSignData().forum_rank != -2) {
             return;
         }
-        this.f58178c.a(false);
+        this.f58179c.a(false);
     }
 
     public void j0(FrsViewData frsViewData, boolean z) {
@@ -544,7 +544,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public void m0(int i) {
         d.b.i0.p0.q2.b bVar;
-        if (!B() || (bVar = this.f58178c) == null) {
+        if (!B() || (bVar = this.f58179c) == null) {
             return;
         }
         bVar.F(i);
@@ -555,7 +555,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
         if (!B() || (gVar = this.n) == null) {
             return;
         }
-        gVar.t(this.f58178c, frsViewData);
+        gVar.t(this.f58179c, frsViewData);
     }
 
     public void o0() {
@@ -565,7 +565,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public void p0(int i) {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.J(i);
         }
@@ -573,14 +573,14 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public void r0(int i) {
         if (i > 1) {
-            d.b.i0.p0.q2.b bVar = this.f58178c;
+            d.b.i0.p0.q2.b bVar = this.f58179c;
             if (bVar != null) {
                 bVar.H(false);
                 return;
             }
             return;
         }
-        d.b.i0.p0.q2.b bVar2 = this.f58178c;
+        d.b.i0.p0.q2.b bVar2 = this.f58179c;
         if (bVar2 != null) {
             bVar2.H(true);
         }
@@ -588,11 +588,11 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public void s() {
         d.b.i0.p0.q2.b bVar;
-        if (this.f58180e || (bVar = this.f58178c) == null) {
+        if (this.f58181e || (bVar = this.f58179c) == null) {
             return;
         }
-        this.f58177b.a(bVar.g());
-        this.f58180e = true;
+        this.f58178b.a(bVar.g());
+        this.f58181e = true;
     }
 
     public void s0(int i) {
@@ -604,32 +604,32 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     }
 
     public final void u(String str, int i, int i2) {
-        boolean z = !TextUtils.equals(this.f58183h, str);
+        boolean z = !TextUtils.equals(this.f58184h, str);
         this.k = i2;
-        this.f58183h = str;
+        this.f58184h = str;
         c0();
-        if (this.f58178c == null || z) {
-            d.b.i0.p0.q2.b e2 = this.f58179d.e(str, this.f58176a, i);
-            this.f58178c = e2;
-            e2.c(this.f58182g);
-            this.f58178c.A(this.s);
+        if (this.f58179c == null || z) {
+            d.b.i0.p0.q2.b e2 = this.f58180d.e(str, this.f58177a, i);
+            this.f58179c = e2;
+            e2.c(this.f58183g);
+            this.f58179c.A(this.s);
         }
         g gVar = this.n;
         if (gVar != null) {
-            this.f58178c.K(gVar);
+            this.f58179c.K(gVar);
         }
         f fVar = this.o;
         if (fVar != null) {
-            this.f58178c.I(fVar);
+            this.f58179c.I(fVar);
         }
-        this.f58177b.a(this.f58178c.k());
+        this.f58178b.a(this.f58179c.k());
         v(str);
         y0();
         v0();
     }
 
     public void u0() {
-        d.b.i0.p0.q2.b bVar = this.f58178c;
+        d.b.i0.p0.q2.b bVar = this.f58179c;
         if (bVar != null) {
             bVar.N();
         }
@@ -638,15 +638,15 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
     public final void v(String str) {
         FrsFragment frsFragment;
         RelativeLayout E;
-        if (this.m == null || (frsFragment = this.f58176a) == null || frsFragment.v2() == null || (E = this.m.E()) == null) {
+        if (this.m == null || (frsFragment = this.f58177a) == null || frsFragment.v2() == null || (E = this.m.E()) == null) {
             return;
         }
         if ("brand_page".equals(str)) {
-            this.f58176a.v2().removeHeaderView(E);
+            this.f58177a.v2().removeHeaderView(E);
             return;
         }
-        this.f58176a.v2().removeHeaderView(E);
-        this.f58176a.v2().t(E, 0);
+        this.f58177a.v2().removeHeaderView(E);
+        this.f58177a.v2().t(E, 0);
     }
 
     public void v0() {
@@ -655,7 +655,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public boolean w() {
         d.b.i0.p0.q2.b bVar;
-        if (!B() || (bVar = this.f58178c) == null) {
+        if (!B() || (bVar = this.f58179c) == null) {
             return false;
         }
         return bVar.l();
@@ -670,7 +670,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public boolean x() {
         d.b.i0.p0.q2.b bVar;
-        if (!B() || (bVar = this.f58178c) == null) {
+        if (!B() || (bVar = this.f58179c) == null) {
             return false;
         }
         return bVar.h();
@@ -678,7 +678,7 @@ public class h extends d.b.b.a.d<BaseFragmentActivity> {
 
     public final void x0() {
         d.b.i0.p0.q2.b bVar;
-        if (!B() || (bVar = this.f58178c) == null) {
+        if (!B() || (bVar = this.f58179c) == null) {
             return;
         }
         bVar.O();

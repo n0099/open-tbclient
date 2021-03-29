@@ -17,13 +17,13 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f55367a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    public static final int f55368a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f55368b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    public static final int f55369b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f55369c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    public static final int f55370c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<n> a(List<a2> list) {
         ArrayList arrayList = new ArrayList();
@@ -48,10 +48,10 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!ListUtils.isEmpty(list)) {
             k kVar = new k();
-            kVar.f55301h = f55369c;
-            kVar.f55300g = f55368b;
-            kVar.f55299f = f55367a;
-            kVar.f55298e = R.string.person_center_tab_main_list_title;
+            kVar.f55302h = f55370c;
+            kVar.f55301g = f55369b;
+            kVar.f55300f = f55368a;
+            kVar.f55299e = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             for (int i = 0; i < list.size(); i++) {
                 a2 a2Var = list.get(i);
@@ -97,7 +97,7 @@ public class a {
         a2Var.J1();
         if (a2Var.s1) {
             bVar = new d.b.i0.x.e0.k();
-            bVar.f62196e = a2Var;
+            bVar.f62197e = a2Var;
         } else if (e.i0(a2Var)) {
             bVar = new e(a2Var);
         } else if (f.l0(a2Var)) {
@@ -111,7 +111,7 @@ public class a {
             if (!a2Var.e2() && !a2Var.r2()) {
                 a2Var.Z1();
             }
-            bVar.f62196e = a2Var;
+            bVar.f62197e = a2Var;
         }
         if (bVar != null) {
             d.b.h0.b.f.a.e(bVar);

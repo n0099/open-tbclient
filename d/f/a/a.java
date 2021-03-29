@@ -7,22 +7,22 @@ import android.util.Log;
 import com.github.anrwatchdog.ANRError;
 /* loaded from: classes6.dex */
 public class a extends Thread {
-    public static final f p = new C1805a();
+    public static final f p = new C1806a();
     public static final e q = new b();
     public static final g r = new c();
     public final int i;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f65993e = p;
+    public f f65994e = p;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f65994f = q;
+    public e f65995f = q;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f65995g = r;
+    public g f65996g = r;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f65996h = new Handler(Looper.getMainLooper());
+    public final Handler f65997h = new Handler(Looper.getMainLooper());
     public String j = "";
     public boolean k = false;
     public boolean l = true;
@@ -32,7 +32,7 @@ public class a extends Thread {
 
     /* renamed from: d.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1805a implements f {
+    public static class C1806a implements f {
         @Override // d.f.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             throw aNRError;
@@ -88,9 +88,9 @@ public class a extends Thread {
 
     public a c(f fVar) {
         if (fVar == null) {
-            this.f65993e = p;
+            this.f65994e = p;
         } else {
-            this.f65993e = fVar;
+            this.f65994e = fVar;
         }
         return this;
     }
@@ -109,7 +109,7 @@ public class a extends Thread {
             boolean z = this.m == 0;
             this.m += j;
             if (z) {
-                this.f65996h.post(this.o);
+                this.f65997h.post(this.o);
             }
             try {
                 Thread.sleep(j);
@@ -118,21 +118,21 @@ public class a extends Thread {
                         Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
                         this.n = true;
                     } else {
-                        j = this.f65994f.a(this.m);
+                        j = this.f65995f.a(this.m);
                         if (j <= 0) {
                             if (this.j != null) {
                                 NewMainOnly = ANRError.New(this.m, this.j, this.k);
                             } else {
                                 NewMainOnly = ANRError.NewMainOnly(this.m);
                             }
-                            this.f65993e.onAppNotResponding(NewMainOnly);
+                            this.f65994e.onAppNotResponding(NewMainOnly);
                             j = this.i;
                             this.n = true;
                         }
                     }
                 }
             } catch (InterruptedException e2) {
-                this.f65995g.a(e2);
+                this.f65996g.a(e2);
                 return;
             }
         }

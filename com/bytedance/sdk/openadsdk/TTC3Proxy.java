@@ -6,7 +6,7 @@ import com.bytedance.sdk.openadsdk.component.reward.c;
 import com.bytedance.sdk.openadsdk.component.reward.d;
 import com.bytedance.sdk.openadsdk.component.reward.e;
 import com.bytedance.sdk.openadsdk.component.reward.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TTC3Proxy {
     public static void a(Context context) {
         try {

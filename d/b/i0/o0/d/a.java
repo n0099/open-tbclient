@@ -18,8 +18,8 @@ public class a extends d.b.i0.x.b<d.b.i0.o0.c.a> {
 
     /* renamed from: d.b.i0.o0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1367a implements a.e {
-        public C1367a(a aVar) {
+    public class C1368a implements a.e {
+        public C1368a(a aVar) {
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -67,12 +67,12 @@ public class a extends d.b.i0.x.b<d.b.i0.o0.c.a> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.m) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f62180f.getPageActivity());
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f62181f.getPageActivity());
             aVar.setTitle(R.string.confirm_delete_all_history);
             aVar.setCanceledOnTouchOutside(true);
-            aVar.setPositiveButton(R.string.confirm, new C1367a(this));
+            aVar.setPositiveButton(R.string.confirm, new C1368a(this));
             aVar.setNegativeButton(R.string.cancel, new b(this));
-            aVar.create(this.f62180f);
+            aVar.create(this.f62181f);
             aVar.show();
         }
     }

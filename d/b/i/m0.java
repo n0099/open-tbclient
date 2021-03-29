@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import d.b.i.u0.a;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
     public int j;
     public int k;
     public ThreadCommentAndPraiseInfoLayout l;
     public d.b.h0.r.q.a m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -30,15 +30,15 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements a.b {
         public b() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
-            if (c1117a.c() instanceof Boolean) {
-                if (!((Boolean) c1117a.c()).booleanValue()) {
+        public boolean a(a.C1118a c1118a) {
+            if (c1118a.c() instanceof Boolean) {
+                if (!((Boolean) c1118a.c()).booleanValue()) {
                     if ((m0.this.j & 128) <= 0) {
                         m0.this.j &= -5;
                         m0.this.j |= 64;
@@ -90,7 +90,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
 
     @Override // d.b.i.a
     public void c(int i) {
-        int i2 = (i ^ (-1)) & this.j;
+        int i2 = (~i) & this.j;
         this.j = i2;
         this.l.setShowFlag(i2);
         this.k = this.j;
@@ -103,7 +103,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
 
     @Override // d.b.i.a
     public void h() {
-        this.f51761e.m(4, new b());
+        this.f51762e.m(4, new b());
     }
 
     @Override // d.b.i.q
@@ -114,7 +114,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
     public final void t() {
         boolean z = false;
         k(this.l, 0);
-        d.b.i.a f2 = this.f51761e.f();
+        d.b.i.a f2 = this.f51762e.f();
         if (f2 == null) {
             return;
         }
@@ -132,7 +132,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
             }
         }
         if (z) {
-            List<h> h2 = this.f51761e.h();
+            List<h> h2 = this.f51762e.h();
             if (ListUtils.isEmpty(h2)) {
                 return;
             }

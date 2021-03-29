@@ -108,7 +108,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f49978a, aVar.f49979b, aVar.f49980c);
+            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f49979a, aVar.f49980b, aVar.f49981c);
         }
     }
 

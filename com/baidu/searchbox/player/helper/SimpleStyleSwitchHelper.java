@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     public ViewGroup mOriginPlayerContainer;
     public UniversalPlayer mPlayer;

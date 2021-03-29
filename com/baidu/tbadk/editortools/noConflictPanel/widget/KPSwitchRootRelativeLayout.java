@@ -9,7 +9,7 @@ import d.b.h0.w.v.c.c;
 public class KPSwitchRootRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13880e;
+    public c f13881e;
 
     public KPSwitchRootRelativeLayout(Context context) {
         super(context);
@@ -17,12 +17,12 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     }
 
     public final void a() {
-        this.f13880e = new c(this);
+        this.f13881e = new c(this);
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        this.f13880e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.f13881e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 

@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMFetchConfigMsg extends Message {
     public static final int MAX_COUNT = 50;
     public static final String TAG = "IMFetchConfigMsg";
@@ -25,7 +25,7 @@ public class IMFetchConfigMsg extends Message {
     public long mCursor;
     public long mLimit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class FetchConfigTask extends TaskManager.Task {
         public Context mContext;
         public int mErrorCode;

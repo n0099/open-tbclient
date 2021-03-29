@@ -3,7 +3,7 @@ package d.b.g0.a.p.b;
 import android.app.Activity;
 import androidx.annotation.NonNull;
 import d.b.g0.a.q0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j implements d.b.g0.a.p.c.x {
     @Override // d.b.g0.a.p.c.x
     public boolean a(Activity activity) {

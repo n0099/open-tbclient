@@ -8,7 +8,7 @@ import d.b.b.e.p.l;
 import d.b.h0.z0.w;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoPageRequest extends NetMessage {
     public String itemId;
     public String lastRank;

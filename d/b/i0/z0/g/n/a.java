@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout;
 import d.b.i0.z0.g.j.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.i.a<d.b.h0.r.q.a> {
     public HomePageAlaRecommendLayout j;
     public int k;

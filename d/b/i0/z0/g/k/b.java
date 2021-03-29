@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.DislikeReason;
 import tbclient.Personalized.ThreadPersonalized;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<n> list) {
         d.b.i0.x.e0.b bVar;

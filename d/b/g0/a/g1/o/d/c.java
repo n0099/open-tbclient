@@ -5,24 +5,24 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44584e = k.f45050a;
+    public static final boolean f44585e = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.g1.o.d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UbcFlowEvent f44585a;
+        public final /* synthetic */ UbcFlowEvent f44586a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UbcFlowEvent f44586b;
+        public final /* synthetic */ UbcFlowEvent f44587b;
 
         public a(UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-            this.f44585a = ubcFlowEvent;
-            this.f44586b = ubcFlowEvent2;
+            this.f44586a = ubcFlowEvent;
+            this.f44587b = ubcFlowEvent2;
         }
 
         @Override // d.b.g0.a.g1.o.d.a
@@ -30,13 +30,13 @@ public class c implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
             if (dVar == null) {
                 return false;
             }
-            return c.this.b(dVar, this.f44585a, this.f44586b);
+            return c.this.b(dVar, this.f44586a, this.f44587b);
         }
     }
 
     public c() {
         b.f().g();
-        if (f44584e) {
+        if (f44585e) {
             Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
         }
     }
@@ -50,7 +50,7 @@ public class c implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
     @Override // d.b.g0.a.i2.u0.b
     /* renamed from: c */
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
-        if (f44584e) {
+        if (f44585e) {
             Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
         }
         if (hybridUbcFlow == null) {
@@ -61,14 +61,14 @@ public class c implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
         if (f2 != null && f3 != null) {
             b.f().h(new a(f2, f3));
             b.f().a(hybridUbcFlow);
-            if (f44584e) {
+            if (f44585e) {
                 Log.d("MaUpdateReporter", "na_start ts - " + f2.g());
                 Log.d("MaUpdateReporter", "fmp_end ts - " + f3.g());
                 return;
             }
             return;
         }
-        if (f44584e) {
+        if (f44585e) {
             if (f2 == null) {
                 Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
             } else {

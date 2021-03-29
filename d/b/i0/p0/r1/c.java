@@ -30,7 +30,7 @@ public class c extends k<l, FrsFeedItemViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: t0 */
     public FrsFeedItemViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
         this.w = new a(this.o, inflate, 2, this.x, this.i);
         return new FrsFeedItemViewHolder(inflate);
     }

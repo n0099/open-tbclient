@@ -35,38 +35,21 @@ public final class InflaterSource implements Source {
         this.source.close();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0056, code lost:
-        releaseInflatedBytes();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x005d, code lost:
-        if (r1.pos != r1.limit) goto L28;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x005f, code lost:
-        r7.head = r1.pop();
-        okio.SegmentPool.recycle(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0068, code lost:
-        return -1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
-        return -1;
-     */
     @Override // okio.Source
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public long read(Buffer buffer, long j) throws IOException {
-        if (j >= 0) {
+        Segment writableSegment;
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
             if (this.closed) {
                 throw new IllegalStateException("closed");
             }
-            if (j == 0) {
+            if (i == 0) {
                 return 0L;
             }
             while (true) {
                 boolean refill = refill();
                 try {
-                    Segment writableSegment = buffer.writableSegment(1);
+                    writableSegment = buffer.writableSegment(1);
                     int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
                     if (inflate > 0) {
                         writableSegment.limit += inflate;
@@ -82,9 +65,15 @@ public final class InflaterSource implements Source {
                     throw new IOException(e2);
                 }
             }
-        } else {
-            throw new IllegalArgumentException("byteCount < 0: " + j);
+            releaseInflatedBytes();
+            if (writableSegment.pos == writableSegment.limit) {
+                buffer.head = writableSegment.pop();
+                SegmentPool.recycle(writableSegment);
+                return -1L;
+            }
+            return -1L;
         }
+        throw new IllegalArgumentException("byteCount < 0: " + j);
     }
 
     public boolean refill() throws IOException {

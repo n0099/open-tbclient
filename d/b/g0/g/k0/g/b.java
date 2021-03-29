@@ -3,5 +3,5 @@ package d.b.g0.g.k0.g;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f48254a = null;
+    public static final String f48255a = null;
 }

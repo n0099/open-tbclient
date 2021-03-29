@@ -15,7 +15,7 @@ import java.util.Locale;
 public class c implements SoUtils.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48221a = k.f45050a;
+    public static final boolean f48222a = k.f45051a;
 
     public final String a(String str) {
         File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(d.b.g0.a.w0.a.c(), str);
@@ -29,7 +29,7 @@ public class c implements SoUtils.a {
         }
         String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
         String str3 = Arrays.toString(strArr) + "\n" + l.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
-        if (f48221a) {
+        if (f48222a) {
             Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
         }
         c.b bVar = new c.b(10007);

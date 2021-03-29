@@ -1,19 +1,19 @@
 package d.b.j.d.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f63711a;
+    public final b f63712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f63712b;
+    public final int f63713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f63713c;
+    public byte[] f63714c;
 
     public f(b bVar) {
-        this.f63711a = bVar;
-        this.f63712b = bVar.a();
+        this.f63712a = bVar;
+        this.f63713b = bVar.a();
     }
 
     public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2);

@@ -6,51 +6,51 @@ import com.bytedance.sdk.openadsdk.TTImage;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28173a;
+    public String f28174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28174b;
+    public int f28175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28175c;
+    public int f28176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f28176d;
+    public double f28177d;
 
     public String a() {
-        return this.f28173a;
+        return this.f28174a;
     }
 
     public int b() {
-        return this.f28174b;
+        return this.f28175b;
     }
 
     public int c() {
-        return this.f28175c;
+        return this.f28176c;
     }
 
     public double d() {
-        return this.f28176d;
+        return this.f28177d;
     }
 
     public boolean e() {
-        return !TextUtils.isEmpty(this.f28173a) && this.f28174b > 0 && this.f28175c > 0;
+        return !TextUtils.isEmpty(this.f28174a) && this.f28175b > 0 && this.f28176c > 0;
     }
 
     public void a(String str) {
-        this.f28173a = str;
+        this.f28174a = str;
     }
 
     public void b(int i) {
-        this.f28175c = i;
+        this.f28176c = i;
     }
 
     public void a(int i) {
-        this.f28174b = i;
+        this.f28175b = i;
     }
 
     public void a(double d2) {
-        this.f28176d = d2;
+        this.f28177d = d2;
     }
 
     public static TTImage a(k kVar) {

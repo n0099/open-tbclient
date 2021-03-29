@@ -204,10 +204,10 @@ public class CommonTbJsBridge implements d.b.i0.c3.l0.b {
     public class c extends q.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f13095a;
+        public final /* synthetic */ int f13096a;
 
         public c(int i) {
-            this.f13095a = i;
+            this.f13096a = i;
         }
 
         @Override // d.b.h0.z0.q.a
@@ -221,8 +221,8 @@ public class CommonTbJsBridge implements d.b.i0.c3.l0.b {
                     CommonTbJsBridge.this.shareItem.V = 1;
                     CommonTbJsBridge.this.shareItem.x = str;
                 }
-                if (this.f13095a != 0) {
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, this.f13095a, CommonTbJsBridge.this.shareItem, true));
+                if (this.f13096a != 0) {
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, this.f13096a, CommonTbJsBridge.this.shareItem, true));
                 }
             }
         }
@@ -1492,16 +1492,16 @@ public class CommonTbJsBridge implements d.b.i0.c3.l0.b {
     public d.b.i0.c3.l0.d.c showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
         d.b.h0.a.b0.a aVar = new d.b.h0.a.b0.a();
-        aVar.f49512c = i;
-        aVar.f49513d = i2;
-        aVar.f49514e = str;
-        aVar.f49515f = str2;
+        aVar.f49513c = i;
+        aVar.f49514d = i2;
+        aVar.f49515e = str;
+        aVar.f49516f = str2;
         aVar.i = i3;
         aVar.l = str3;
         aVar.n = d2;
         aVar.j = str5;
         aVar.k = str6;
-        aVar.f49511b = i4;
+        aVar.f49512b = i4;
         aVar.o = str7;
         aVar.p = str8;
         aVar.q = str9;

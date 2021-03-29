@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DownPrefUtils {
     public static final boolean DEBUG = false;
     public static String HOST_TYPE_IP = "1";
@@ -61,7 +61,7 @@ public final class DownPrefUtils {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x00d1 -> B:46:0x00d4). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x00cf -> B:46:0x00d2). Please submit an issue!!! */
     public static void loadProperties(Context context) {
         FileInputStream fileInputStream;
         System.currentTimeMillis();

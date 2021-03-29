@@ -36,7 +36,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AccountManagerImpl {
     public static final String TAG = "AccountManagerImpl";
     public static Context mContext;
@@ -128,8 +128,8 @@ public class AccountManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0045  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x007b  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0043  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0079  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -144,7 +144,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f64551e) {
+                    if (a.f64552e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i, str, str2, str3, str4, iLoginListener);
                         return;
@@ -224,7 +224,7 @@ public class AccountManagerImpl {
             Utility.clearCache(mContext);
             this.mToken = null;
         }
-        if (!a.f64551e) {
+        if (!a.f64552e) {
             clearLoginParam(mContext);
             clearUid(mContext);
             disconnect(str);
@@ -527,7 +527,7 @@ public class AccountManagerImpl {
             ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
             noticeStateChanged(3);
             BIMManager.connectStatusNotify(0);
-            if (!a.f64551e) {
+            if (!a.f64552e) {
                 Utility.sendConnectionStateBroadCast(mContext, 0);
             }
         } else {

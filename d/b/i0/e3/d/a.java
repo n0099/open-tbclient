@@ -12,41 +12,41 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f54587e;
+    public TbPageContext f54588e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<b> f54588f = new LinkedList<>();
+    public LinkedList<b> f54589f = new LinkedList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54589g;
+    public int f54590g;
 
     public a(TbPageContext tbPageContext) {
-        this.f54587e = tbPageContext;
+        this.f54588e = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public b getItem(int i) {
-        return (b) ListUtils.getItem(this.f54588f, i);
+        return (b) ListUtils.getItem(this.f54589f, i);
     }
 
     public void b(int i) {
-        this.f54589g = i;
+        this.f54590g = i;
     }
 
     public void c(List<b> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f54588f.clear();
-        this.f54588f.addAll(list);
+        this.f54589f.clear();
+        this.f54589f.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f54588f);
+        return ListUtils.getCount(this.f54589f);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
         View view2;
         d.b.i0.e3.g.a aVar;
         if (view == null) {
-            aVar = new d.b.i0.e3.g.a(this.f54587e, this.f54589g);
+            aVar = new d.b.i0.e3.g.a(this.f54588e, this.f54590g);
             view2 = aVar.b();
             view2.setTag(aVar);
         } else {

@@ -3,42 +3,42 @@ package d.b.g0.g.i;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48176a;
+    public int f48177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48177b;
+    public String f48178b;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public h f48178a = new h();
+        public h f48179a = new h();
 
         public h a() {
-            return this.f48178a;
+            return this.f48179a;
         }
 
         public b b(String str) {
-            this.f48178a.f48177b = str;
+            this.f48179a.f48178b = str;
             return this;
         }
 
         public b c(int i) {
-            this.f48178a.f48176a = i;
+            this.f48179a.f48177a = i;
             return this;
         }
     }
 
     public String a() {
-        return this.f48177b;
+        return this.f48178b;
     }
 
     public int b() {
-        return this.f48176a;
+        return this.f48177a;
     }
 
     public String toString() {
-        return "V8EngineModel{mType=" + this.f48176a + ", mID='" + this.f48177b + "'}";
+        return "V8EngineModel{mType=" + this.f48177a + ", mID='" + this.f48178b + "'}";
     }
 
     public h() {

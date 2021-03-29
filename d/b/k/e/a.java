@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static boolean a(File file) {
         if (file.isDirectory()) {

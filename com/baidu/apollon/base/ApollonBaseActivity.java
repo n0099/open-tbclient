@@ -6,11 +6,11 @@ import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.utils.LogUtil;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ApollonBaseActivity extends Activity implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3510a = "ApollonBaseActivity";
+    public static final String f3511a = "ApollonBaseActivity";
     public static LinkedList<ApollonBaseActivity> mActivityStack = new LinkedList<>();
     public static int mLiveActivityNum = 0;
     public int mFlag = -1;
@@ -49,7 +49,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTasksTopOf(ApollonBaseActivity apollonBaseActivity) {
         synchronized (ApollonBaseActivity.class) {
-            LogUtil.d(f3510a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+            LogUtil.d(f3511a, "clearTasksTopOf. stack size = " + mActivityStack.size());
             for (int size = mActivityStack.size() + (-1); size > 0; size--) {
                 ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
                 if (apollonBaseActivity2 == apollonBaseActivity) {
@@ -62,7 +62,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTasksWithFlag(int i) {
         synchronized (ApollonBaseActivity.class) {
-            LogUtil.d(f3510a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+            LogUtil.d(f3511a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
             Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
             while (it.hasNext()) {
                 ApollonBaseActivity next = it.next();

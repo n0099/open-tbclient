@@ -13,7 +13,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<ByteString> BYTES;
     public static final ProtoAdapter<Double> DOUBLE;
@@ -38,7 +38,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<Integer> UINT32 = new i(FieldEncoding.VARINT, Integer.class);
     public static final ProtoAdapter<Integer> SINT32 = new j(FieldEncoding.VARINT, Integer.class);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class EnumConstantNotFoundException extends IllegalArgumentException {
         public final int value;
 
@@ -48,7 +48,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a extends ProtoAdapter<Float> {
         public a(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -76,7 +76,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b extends ProtoAdapter<Double> {
         public b(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -104,7 +104,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c extends ProtoAdapter<String> {
         public c(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -132,7 +132,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d extends ProtoAdapter<ByteString> {
         public d(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -160,7 +160,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e extends ProtoAdapter<List<E>> {
         public e(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -223,7 +223,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f extends ProtoAdapter<List<E>> {
         public f(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -286,7 +286,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class g extends ProtoAdapter<Boolean> {
         public g(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -321,7 +321,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class h extends ProtoAdapter<Integer> {
         public h(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -349,7 +349,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class i extends ProtoAdapter<Integer> {
         public i(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -377,7 +377,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class j extends ProtoAdapter<Integer> {
         public j(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -405,7 +405,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class k extends ProtoAdapter<Integer> {
         public k(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -433,7 +433,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class l extends ProtoAdapter<Long> {
         public l(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -461,7 +461,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class m extends ProtoAdapter<Long> {
         public m(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -489,7 +489,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class n extends ProtoAdapter<Long> {
         public n(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -517,7 +517,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class o extends ProtoAdapter<Long> {
         public o(FieldEncoding fieldEncoding, Class cls) {
             super(fieldEncoding, cls);
@@ -545,19 +545,19 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class p<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ProtoAdapter<K> f38610a;
+        public final ProtoAdapter<K> f38611a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProtoAdapter<V> f38611b;
+        public final ProtoAdapter<V> f38612b;
 
         public p(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.f38610a = protoAdapter;
-            this.f38611b = protoAdapter2;
+            this.f38611a = protoAdapter;
+            this.f38612b = protoAdapter2;
         }
 
         public Map.Entry<K, V> a(d.n.a.c cVar) {
@@ -568,15 +568,15 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
         public void encode(d.n.a.d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.f38610a.encodeWithTag(dVar, 1, entry.getKey());
-            this.f38611b.encodeWithTag(dVar, 2, entry.getValue());
+            this.f38611a.encodeWithTag(dVar, 1, entry.getKey());
+            this.f38612b.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: c */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.f38610a.encodedSizeWithTag(1, entry.getKey()) + this.f38611b.encodedSizeWithTag(2, entry.getValue());
+            return this.f38611a.encodedSizeWithTag(1, entry.getKey()) + this.f38612b.encodedSizeWithTag(2, entry.getValue());
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
@@ -586,15 +586,15 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class q<K, V> extends ProtoAdapter<Map<K, V>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final p<K, V> f38612a;
+        public final p<K, V> f38613a;
 
         public q(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.f38612a = new p<>(protoAdapter, protoAdapter2);
+            this.f38613a = new p<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -609,9 +609,9 @@ public abstract class ProtoAdapter<E> {
                 if (f2 == -1) {
                     break;
                 } else if (f2 == 1) {
-                    k = this.f38612a.f38610a.decode(cVar);
+                    k = this.f38613a.f38611a.decode(cVar);
                 } else if (f2 == 2) {
-                    v = this.f38612a.f38611b.decode(cVar);
+                    v = this.f38613a.f38612b.decode(cVar);
                 }
             }
             cVar.d(c2);
@@ -633,7 +633,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: c */
         public void encodeWithTag(d.n.a.d dVar, int i, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.f38612a.encodeWithTag(dVar, i, entry);
+                this.f38613a.encodeWithTag(dVar, i, entry);
             }
         }
 
@@ -647,7 +647,7 @@ public abstract class ProtoAdapter<E> {
         public int encodedSizeWithTag(int i, Map<K, V> map) {
             int i2 = 0;
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                i2 += this.f38612a.encodedSizeWithTag(i, entry);
+                i2 += this.f38613a.encodedSizeWithTag(i, entry);
             }
             return i2;
         }

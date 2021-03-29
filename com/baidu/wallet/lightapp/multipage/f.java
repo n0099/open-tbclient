@@ -11,22 +11,22 @@ import java.util.Vector;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Collection<Collection<c>> f25283a;
+    public Collection<Collection<c>> f25284a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f25284a = new f();
+        public static f f25285a = new f();
     }
 
     public static f a() {
-        return a.f25284a;
+        return a.f25285a;
     }
 
     public void b(Collection<c> collection) {
         if (collection != null) {
-            this.f25283a.remove(collection);
+            this.f25284a.remove(collection);
         }
     }
 
@@ -38,18 +38,18 @@ public class f {
     }
 
     public f() {
-        this.f25283a = new Vector();
+        this.f25284a = new Vector();
     }
 
     public void a(Collection<c> collection) {
         if (collection != null) {
-            this.f25283a.add(collection);
+            this.f25284a.add(collection);
         }
     }
 
     public int b() {
         int i = 0;
-        for (Collection<c> collection : this.f25283a) {
+        for (Collection<c> collection : this.f25284a) {
             i += collection.size();
         }
         LogUtil.d("LangbridgeRamMonitor", "UsingCellCount:" + i);

@@ -25,7 +25,7 @@ import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragme
 import d.b.b.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.b.i0.x1.h.c.a<Boolean> {
     public BaseFragment createEmotionFragment;
     public int isModerator;
@@ -43,7 +43,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public boolean edaitButtonShowCtrl = true;
     public int fragmentPostion = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends FragmentPagerAdapter {
         public a(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -71,7 +71,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends ViewPager.SimpleOnPageChangeListener {
         public b() {
         }

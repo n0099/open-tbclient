@@ -30,26 +30,26 @@ public class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f67270a;
+        public Intent f67275a;
 
         public final int e() {
-            return this.f67270a.getIntExtra("level", 0);
+            return this.f67275a.getIntExtra("level", 0);
         }
 
         public final int f() {
-            return this.f67270a.getIntExtra("scale", 0);
+            return this.f67275a.getIntExtra("scale", 0);
         }
 
         public final int g() {
-            return this.f67270a.getIntExtra("temperature", 0);
+            return this.f67275a.getIntExtra("temperature", 0);
         }
 
         public final int h() {
-            return this.f67270a.getIntExtra("voltage", 0);
+            return this.f67275a.getIntExtra("voltage", 0);
         }
 
         public b(Context context) {
-            this.f67270a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f67275a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 
@@ -136,12 +136,7 @@ public class a {
             b bVar = new b(context);
             jSONObject.put("batterycurrentvoltage", bVar.h());
             jSONObject.put("batterycurrenttemperature", bVar.g());
-            double e4 = bVar.e();
-            Double.isNaN(e4);
-            double d3 = d2 * e4;
-            double f3 = bVar.f();
-            Double.isNaN(f3);
-            jSONObject.put("batterycurrentcapacity", d3 / f3);
+            jSONObject.put("batterycurrentcapacity", (d2 * bVar.e()) / bVar.f());
             return jSONObject.toString();
         } catch (JSONException unused) {
             return "";
@@ -220,7 +215,7 @@ public class a {
                     case 12:
                     case 14:
                     case 15:
-                        str = g.f3873b;
+                        str = g.f3874b;
                         str2 = str;
                         break;
                     case 13:

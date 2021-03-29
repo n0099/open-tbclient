@@ -24,60 +24,60 @@ import d.b.g0.a.y0.e.b;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.t.b.d {
 
     /* renamed from: d.b.g0.a.t.c.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0822a extends d.b.g0.a.t.b.c {
+    /* loaded from: classes2.dex */
+    public class C0823a extends d.b.g0.a.t.b.c {
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46149d;
+        public final /* synthetic */ JSONObject f46150d;
 
         /* renamed from: d.b.g0.a.t.c.j.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0823a implements d.b.g0.a.i2.u0.b<h<JSONObject>> {
+        /* loaded from: classes2.dex */
+        public class C0824a implements d.b.g0.a.i2.u0.b<h<JSONObject>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f46151e;
+            public final /* synthetic */ c.b f46152e;
 
-            public C0823a(C0822a c0822a, c.b bVar) {
-                this.f46151e = bVar;
+            public C0824a(C0823a c0823a, c.b bVar) {
+                this.f46152e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.g0.a.i2.u0.b
             /* renamed from: a */
             public void onCallback(h<JSONObject> hVar) {
-                if (hVar.c() && hVar.f46807a != null) {
-                    this.f46151e.a(new d.b.g0.a.t.e.b(0, hVar.f46807a));
+                if (hVar.c() && hVar.f46808a != null) {
+                    this.f46152e.a(new d.b.g0.a.t.e.b(0, hVar.f46808a));
                     d.b.g0.a.r1.e s = d.b.g0.a.r1.d.e().s();
-                    s.R().A(f.a(s), hVar.f46807a.toString());
+                    s.R().A(f.a(s), hVar.f46808a.toString());
                     d.b.g0.a.c0.c.g("Api-Setting", "getSwanId success");
                     return;
                 }
-                this.f46151e.a(new d.b.g0.a.t.e.b(10001, "getSwanId failed: internal_error"));
+                this.f46152e.a(new d.b.g0.a.t.e.b(10001, "getSwanId failed: internal_error"));
                 d.b.g0.a.c0.c.b("Api-Setting", "getSwanId failed: internal_error");
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0822a(String str, JSONObject jSONObject) {
+        public C0823a(String str, JSONObject jSONObject) {
             super(str);
-            this.f46149d = jSONObject;
+            this.f46150d = jSONObject;
         }
 
         @Override // d.b.g0.a.t.b.c
         @NonNull
         public d.b.g0.a.t.e.b d(@NonNull JSONObject jSONObject, @NonNull c.b bVar) {
-            if (d.b.g0.a.j1.m.c.b() && a.this.u(this.f46149d)) {
-                bVar.a(new d.b.g0.a.t.e.b(0, this.f46149d));
+            if (d.b.g0.a.j1.m.c.b() && a.this.u(this.f46150d)) {
+                bVar.a(new d.b.g0.a.t.e.b(0, this.f46150d));
                 return new d.b.g0.a.t.e.b(0);
             }
             d.b.g0.a.c0.c.g("Api-Setting", "getSwanId start");
             if (SwanAppNetworkUtils.h(a.this.h())) {
                 d.b.g0.a.v1.c.i.e d2 = d.b.g0.a.r1.d.e().o().a().a().d(a.this.h());
-                d2.p(new C0823a(this, bVar));
+                d2.p(new C0824a(this, bVar));
                 d2.a();
                 return new d.b.g0.a.t.e.b(0);
             }
@@ -88,19 +88,19 @@ public class a extends d.b.g0.a.t.b.d {
         @Override // d.b.g0.a.t.b.c
         @NonNull
         public d.b.g0.a.t.e.b e(@NonNull JSONObject jSONObject) {
-            return new d.b.g0.a.t.e.b(0, this.f46149d);
+            return new d.b.g0.a.t.e.b(0, this.f46150d);
         }
 
         @Override // d.b.g0.a.t.b.c
         public boolean i() {
             if (d.b.g0.a.j1.m.c.b() && !i.e()) {
-                return a.this.u(this.f46149d);
+                return a.this.u(this.f46150d);
             }
             return false;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b {
         public b() {
         }
@@ -115,18 +115,18 @@ public class a extends d.b.g0.a.t.b.d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements d.b.g0.a.i2.u0.b<Map<String, d.b.g0.a.v1.c.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46153e;
+        public final /* synthetic */ CallbackHandler f46154e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46154f;
+        public final /* synthetic */ String f46155f;
 
         public c(CallbackHandler callbackHandler, String str) {
-            this.f46153e = callbackHandler;
-            this.f46154f = str;
+            this.f46154e = callbackHandler;
+            this.f46155f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -134,7 +134,7 @@ public class a extends d.b.g0.a.t.b.d {
         /* renamed from: a */
         public void onCallback(Map<String, d.b.g0.a.v1.c.e> map) {
             if (map == null) {
-                this.f46153e.handleSchemeDispatchCallback(this.f46154f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f46154e.handleSchemeDispatchCallback(this.f46155f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 return;
             }
             try {
@@ -142,57 +142,57 @@ public class a extends d.b.g0.a.t.b.d {
                 for (Map.Entry<String, d.b.g0.a.v1.c.e> entry : map.entrySet()) {
                     String key = entry.getKey();
                     d.b.g0.a.v1.c.e value = entry.getValue();
-                    if (!TextUtils.isEmpty(key) && value != null && value.b() && !value.f46770d && TextUtils.equals("2", value.f46771e)) {
+                    if (!TextUtils.isEmpty(key) && value != null && value.b() && !value.f46771d && TextUtils.equals("2", value.f46772e)) {
                         jSONObject.put(key, value.a() ? "1" : "0");
                     }
                 }
-                this.f46153e.handleSchemeDispatchCallback(this.f46154f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                this.f46154e.handleSchemeDispatchCallback(this.f46155f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException unused) {
-                this.f46153e.handleSchemeDispatchCallback(this.f46154f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f46154e.handleSchemeDispatchCallback(this.f46155f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements d.b.g0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f46155e;
+        public final /* synthetic */ boolean f46156e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46156f;
+        public final /* synthetic */ String f46157f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f46157g;
+        public final /* synthetic */ Activity f46158g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46158h;
+        public final /* synthetic */ String f46159h;
 
         public d(boolean z, String str, Activity activity, String str2) {
-            this.f46155e = z;
-            this.f46156f = str;
-            this.f46157g = activity;
-            this.f46158h = str2;
+            this.f46156e = z;
+            this.f46157f = str;
+            this.f46158g = activity;
+            this.f46159h = str2;
         }
 
         @Override // d.b.g0.a.m.a
         public void onResult(int i) {
             if (i != 0) {
-                a.this.c(this.f46156f, new d.b.g0.a.t.e.b(10004, "user not logged in"));
+                a.this.c(this.f46157f, new d.b.g0.a.t.e.b(10004, "user not logged in"));
             } else {
-                a.this.B(this.f46155e, this.f46156f, this.f46157g, this.f46158h, "snsapi_userinfo");
+                a.this.B(this.f46156e, this.f46157f, this.f46158g, this.f46159h, "snsapi_userinfo");
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46159e;
+        public final /* synthetic */ String f46160e;
 
         public e(String str) {
-            this.f46159e = str;
+            this.f46160e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -202,17 +202,17 @@ public class a extends d.b.g0.a.t.b.d {
             d.b.g0.a.t.e.b bVar;
             d.b.g0.a.c0.c.a("OpenData", "onOpenDataCallback:: ", aVar);
             if (aVar.y()) {
-                bVar = new d.b.g0.a.t.e.b(0, aVar.f46838g);
+                bVar = new d.b.g0.a.t.e.b(0, aVar.f46839g);
             } else {
                 int a2 = (int) aVar.j.a();
                 bVar = new d.b.g0.a.t.e.b(a2, d.b.g0.a.v1.c.c.f(a2));
                 d.b.g0.g.c0.c.e(a.this.a().h(), bVar.a());
             }
-            a.this.c(this.f46159e, bVar);
+            a.this.c(this.f46160e, bVar);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class f {
         public static String a(d.b.g0.a.r1.e eVar) {
             String B;
@@ -282,7 +282,7 @@ public class a extends d.b.g0.a.t.b.d {
             SwanAppActivity activity = d.b.g0.a.z0.f.V().getActivity();
             String showBy = activity != null ? activity.getShowBy() : "sys";
             String str2 = TextUtils.isEmpty(showBy) ? "sys" : showBy;
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 Log.d("Api-Setting", "showBy: " + str2);
             }
             jSONObject.put("showBy", str2);
@@ -291,7 +291,7 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b A(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-Setting", "start get user info");
         }
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
@@ -352,7 +352,7 @@ public class a extends d.b.g0.a.t.b.d {
         }
         try {
             JSONObject v = v(O, h());
-            if (d.b.g0.a.t.b.d.f45928c && v != null) {
+            if (d.b.g0.a.t.b.d.f45929c && v != null) {
                 Log.d("Api-Setting", "data: " + v.toString());
             }
             return new d.b.g0.a.t.e.b(0, v);
@@ -363,14 +363,14 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b x(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-Setting", "start request");
         }
         return i(str, true, new b());
     }
 
     public d.b.g0.a.t.e.b y() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-Setting", "start get slave id sync");
         }
         String containerId = a().g().getContainerId();
@@ -382,7 +382,7 @@ public class a extends d.b.g0.a.t.b.d {
             jSONObject.put("slaveId", containerId);
             return new d.b.g0.a.t.e.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 Log.d("Api-Setting", Log.getStackTraceString(e2));
             }
             return new d.b.g0.a.t.e.b(1001);
@@ -391,6 +391,6 @@ public class a extends d.b.g0.a.t.b.d {
 
     public d.b.g0.a.t.e.b z(String str) {
         d.b.g0.a.r1.e s = d.b.g0.a.r1.d.e().s();
-        return j(str, new C0822a("getSwanId", v.b(s.R().p(f.a(s), null))));
+        return j(str, new C0823a("getSwanId", v.b(s.R().p(f.a(s), null))));
     }
 }

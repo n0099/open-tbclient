@@ -27,7 +27,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMPushUploadManager {
     public static final long PING_INTERVAL_MS = 1000;
     public static final int TIME_OUT_S = 30;
@@ -35,7 +35,7 @@ public class IMPushUploadManager {
     public Context mContext;
     public OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public GzipRequestInterceptor() {
         }

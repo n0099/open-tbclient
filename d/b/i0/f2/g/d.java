@@ -28,14 +28,14 @@ public class d extends d.b.i0.x.b<k> {
     public class a extends PagerAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<PersonCenterSmartAppPageView> f54818a;
+        public List<PersonCenterSmartAppPageView> f54819a;
 
         public a(d dVar, List<PersonCenterSmartAppPageView> list) {
-            this.f54818a = list;
+            this.f54819a = list;
         }
 
         public void c(List<PersonCenterSmartAppPageView> list) {
-            this.f54818a = list;
+            this.f54819a = list;
             notifyDataSetChanged();
         }
 
@@ -46,12 +46,12 @@ public class d extends d.b.i0.x.b<k> {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.f54818a.size();
+            return this.f54819a.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getItemPosition(Object obj) {
-            int indexOf = this.f54818a.indexOf(obj);
+            int indexOf = this.f54819a.indexOf(obj);
             if (indexOf == -1) {
                 return -2;
             }
@@ -60,7 +60,7 @@ public class d extends d.b.i0.x.b<k> {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            PersonCenterSmartAppPageView personCenterSmartAppPageView = this.f54818a.get(i);
+            PersonCenterSmartAppPageView personCenterSmartAppPageView = this.f54819a.get(i);
             viewGroup.addView(personCenterSmartAppPageView);
             return personCenterSmartAppPageView;
         }
@@ -85,7 +85,7 @@ public class d extends d.b.i0.x.b<k> {
         this.o.setAdapter(aVar);
         this.p.setupWithViewPager(this.o);
         this.q.setVisibility(8);
-        o(l(), this.f62179e);
+        o(l(), this.f62180e);
     }
 
     @Override // d.b.i0.x.b
@@ -147,7 +147,7 @@ public class d extends d.b.i0.x.b<k> {
                 this.p.setVisibility(0);
             }
             this.r.c(this.n);
-            o(l(), this.f62179e);
+            o(l(), this.f62180e);
             return;
         }
         s(8);

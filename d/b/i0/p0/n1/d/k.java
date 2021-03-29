@@ -66,8 +66,8 @@ public class k extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
             }
             if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view instanceof TbImageView) {
-                    if (k.this.H.f62183a instanceof Boolean) {
-                        if (((Boolean) k.this.H.f62183a).booleanValue()) {
+                    if (k.this.H.f62184a instanceof Boolean) {
+                        if (((Boolean) k.this.H.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, k.this.i, k.this.E, k.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, k.this.i, k.this.E, k.this.i0());
@@ -94,8 +94,8 @@ public class k extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
             } else if (view.getId() == R.id.card_divider_tv) {
                 d.b.i0.p0.m2.l.a(k.this.E, a2Var.V0());
             } else if (view instanceof TbImageView) {
-                if (k.this.H.f62183a instanceof Boolean) {
-                    if (((Boolean) k.this.H.f62183a).booleanValue()) {
+                if (k.this.H.f62184a instanceof Boolean) {
+                    if (((Boolean) k.this.H.f62184a).booleanValue()) {
                         d.b.i0.p0.j2.c.j().g(k.this.E, a2Var, 1);
                     } else {
                         d.b.i0.p0.j2.c.j().g(k.this.E, a2Var, 3);
@@ -269,17 +269,17 @@ public class k extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
     public class f implements d.b.b.j.c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i.w f58012a;
+        public final /* synthetic */ d.b.i.w f58013a;
 
         public f(d.b.i.w wVar) {
-            this.f58012a = wVar;
+            this.f58013a = wVar;
         }
 
         @Override // d.b.b.j.c.b
         public void a(int i, int i2, int i3) {
             k.this.g0(i, i2, i3);
             if (k.this.J(1) && k.this.J(2)) {
-                this.f58012a.w(null);
+                this.f58013a.w(null);
             }
         }
     }
@@ -299,7 +299,7 @@ public class k extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
                     k.this.H.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 3, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -372,8 +372,8 @@ public class k extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
         }
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = this.A ? 10 : 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = this.A ? 10 : 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(1);
@@ -383,7 +383,7 @@ public class k extends d.b.i0.p0.k<a2, ThreadCardViewHolder<a2>> implements d.b.
             m0Var.c(4);
         }
         bVar.m(m0Var);
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds28));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds28));
         d.b.i.k0 i = bVar.i();
         i.r(3);
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(i);

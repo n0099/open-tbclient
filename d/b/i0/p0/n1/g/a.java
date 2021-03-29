@@ -120,8 +120,8 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
 
     /* renamed from: d.b.i0.p0.n1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1407a implements TbImageView.f {
-        public C1407a() {
+    public class C1408a implements TbImageView.f {
+        public C1408a() {
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
@@ -153,9 +153,7 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
             if (a.this.t.getWidth() <= 0) {
                 return;
             }
-            double width = a.this.t.getWidth();
-            Double.isNaN(width);
-            layoutParams.height = (int) (width * 0.5625d);
+            layoutParams.height = (int) (a.this.t.getWidth() * 0.5625d);
             a.this.t.setLayoutParams(layoutParams);
         }
     }
@@ -164,16 +162,16 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f58078e;
+        public final /* synthetic */ a2 f58079e;
 
         public c(a2 a2Var) {
-            this.f58078e = a2Var;
+            this.f58079e = a2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.A != null) {
-                a.this.f62180f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(a.this.f62180f.getContext(), "", this.f58078e.u1, true)));
+                a.this.f62181f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(a.this.f62181f.getContext(), "", this.f58079e.u1, true)));
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
         }
@@ -460,7 +458,7 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
         this.f0 = new p();
         this.g0 = new q();
         this.h0 = new r();
-        this.j0 = new C1407a();
+        this.j0 = new C1408a();
         this.k0 = new b();
         this.l0 = new e();
         this.m0 = new f();
@@ -525,7 +523,7 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
         this.m.R = 3;
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m2.findViewById(R.id.text_bottom_threaad);
         this.n = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13535f.setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this);
         this.n.setFrom(2);
         this.n.setShareReportFrom(1);
         this.n.setSourceFromForPb(3);
@@ -600,7 +598,7 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithThreadData(this.K);
             arrayList.add(videoItemData);
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f62180f.getPageActivity(), arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, str);
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f62181f.getPageActivity(), arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, str);
             if (this.K.V() != null) {
                 videoPlayActivityConfig.setNid(this.K.V().oriUgcNid);
             }
@@ -903,16 +901,16 @@ public class a extends d.b.i0.x.b<a2> implements z, Object {
             str = "frs_tab";
         }
         d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-        oVar.f56163a = str;
-        oVar.f56165c = this.K.w1();
-        oVar.f56166d = this.K.c0() + "";
-        oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f56164a = str;
+        oVar.f56166c = this.K.w1();
+        oVar.f56167d = this.K.c0() + "";
+        oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
         a2 a2Var2 = this.K;
-        oVar.f56168f = a2Var2.R0;
+        oVar.f56169f = a2Var2.R0;
         String str2 = a2Var2.T0;
         oVar.l = str2;
-        oVar.f56169g = str2;
-        oVar.f56170h = a2Var2.S0;
+        oVar.f56170g = str2;
+        oVar.f56171h = a2Var2.S0;
         oVar.i = "";
         oVar.m = a2Var2.u1().video_md5;
         d.b.i0.i2.h.e(this.K.u1().video_md5, "", "1", oVar, this.G.getPcdnState());

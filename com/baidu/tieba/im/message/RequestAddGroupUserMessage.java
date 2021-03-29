@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroupUsers.AddGroupUsersReqIdl;
 import protobuf.AddGroupUsers.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestAddGroupUserMessage extends TbSocketMessage {
     public int decision;
     public long groupId;

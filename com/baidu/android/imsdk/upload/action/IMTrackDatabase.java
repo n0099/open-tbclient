@@ -18,7 +18,7 @@ import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMTrackDatabase {
     public static final String DB_NAME = "im_track.db";
     public static final int DB_VERSION = 1;
@@ -30,7 +30,7 @@ public class IMTrackDatabase {
     public static final Object myLock = new Object();
     public Context context;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum AckEnum {
         ackId,
         type,
@@ -42,7 +42,7 @@ public class IMTrackDatabase {
         public static final String TABLE_NAME = "ack";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ConnectionEnum {
         connectionId,
         startTime,
@@ -56,7 +56,7 @@ public class IMTrackDatabase {
         public static final String TABLE_NAME = "connection";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum CrashEnum {
         crashId,
         exception,
@@ -67,7 +67,7 @@ public class IMTrackDatabase {
         public static final String TABLE_NAME = "crash";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum DbEnum {
         dbId,
         tableName,
@@ -83,7 +83,7 @@ public class IMTrackDatabase {
         public static final String TABLE_NAME = "db";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static final String SQL_TABLE_CREATE_ACK;
         public static final String SQL_TABLE_CREATE_CONNECTION;
@@ -194,7 +194,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum MsgEnum {
         msgId,
         msgCount,
@@ -208,7 +208,7 @@ public class IMTrackDatabase {
         public static final String TABLE_NAME = "msg";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum RequestEnum {
         id,
         method,
@@ -222,7 +222,7 @@ public class IMTrackDatabase {
         public static final String TABLE_NAME = "request";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum UiEnum {
         uiId,
         category,

@@ -17,16 +17,16 @@ import d.b.b.e.p.l;
 public class SearchView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15206e;
+    public Context f15207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15207f;
+    public View f15208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15208g;
+    public TextView f15209g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15209h;
+    public TextView f15210h;
     public View i;
     public ImageView j;
     public TextView k;
@@ -44,16 +44,16 @@ public class SearchView extends LinearLayout {
     }
 
     public final void b() {
-        this.f15207f = findViewById(R.id.search_view_title_container);
-        this.f15208g = (TextView) findViewById(R.id.search_view_title);
-        this.f15209h = (TextView) findViewById(R.id.search_view_rank);
+        this.f15208f = findViewById(R.id.search_view_title_container);
+        this.f15209g = (TextView) findViewById(R.id.search_view_title);
+        this.f15210h = (TextView) findViewById(R.id.search_view_rank);
         this.i = findViewById(R.id.search_container);
         this.j = (ImageView) findViewById(R.id.search_bar_icon);
         this.k = (TextView) findViewById(R.id.search_text);
     }
 
     public final void c() {
-        this.f15206e = getContext();
+        this.f15207e = getContext();
         setOrientation(1);
         setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -67,15 +67,15 @@ public class SearchView extends LinearLayout {
         int i2 = R.color.CAM_X0204;
         SkinManager.setBackgroundShapeDrawable(view, g2, i2, i2, i);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f15208g, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.f15209h, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f15209g, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.f15210h, R.color.CAM_X0105, 1, i);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i);
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
     }
 
     public void setRank(int i) {
-        this.f15207f.setVisibility(0);
-        this.f15209h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i)));
+        this.f15208f.setVisibility(0);
+        this.f15210h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i)));
     }
 
     public SearchView(Context context, AttributeSet attributeSet) {

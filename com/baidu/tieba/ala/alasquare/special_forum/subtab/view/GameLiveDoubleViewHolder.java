@@ -6,10 +6,10 @@ import d.b.i0.t.d.f.e.a.c;
 public class GameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f14925a;
+    public c f14926a;
 
     public GameLiveDoubleViewHolder(c cVar) {
         super(cVar.m());
-        this.f14925a = cVar;
+        this.f14926a = cVar;
     }
 }

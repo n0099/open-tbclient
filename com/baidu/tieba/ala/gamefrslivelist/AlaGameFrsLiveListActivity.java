@@ -109,8 +109,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             ArrayList arrayList = new ArrayList();
             if (k0Var.e() != null) {
                 for (d.b.h0.e0.b bVar : k0Var.e()) {
-                    if (bVar.getFragmentTabStructure().f50154a != null) {
-                        arrayList.add(bVar.getFragmentTabStructure().f50154a);
+                    if (bVar.getFragmentTabStructure().f50155a != null) {
+                        arrayList.add(bVar.getFragmentTabStructure().f50155a);
                     }
                 }
             }
@@ -132,13 +132,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f13312c = fragment;
-        bVar.f13310a = i;
+        bVar.f13313c = fragment;
+        bVar.f13311a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f13311b = fragmentTabIndicator;
+        bVar.f13312b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 

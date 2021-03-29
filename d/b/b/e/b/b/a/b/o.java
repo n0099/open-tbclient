@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class o implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<?> f41623a;
+    public Set<?> f41624a;
 
     public o(Set<?> set) {
-        this.f41623a = set;
+        this.f41624a = set;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -34,19 +34,19 @@ public class o implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41623a;
+        return this.f41624a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41623a;
+        return this.f41624a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object e(d.b.b.e.b.b.a.e.c cVar) {
         Type[] b2 = cVar.b();
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.f41623a) {
+        for (Object obj : this.f41624a) {
             if (obj != null) {
                 if (b2 != null && b2.length >= 1) {
                     Object f2 = d.b.b.e.b.b.a.e.f.a(obj).f(new d.b.b.e.b.b.a.e.c(b2[0]));
@@ -68,7 +68,7 @@ public class o implements h {
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
         Type[] b2 = cVar.b();
         JSONArray jSONArray = new JSONArray();
-        for (Object obj : this.f41623a) {
+        for (Object obj : this.f41624a) {
             if (obj != null) {
                 if (b2 != null && b2.length >= 1) {
                     Object f2 = d.b.b.e.b.b.a.e.f.a(obj).f(new d.b.b.e.b.b.a.e.c(b2[0]));

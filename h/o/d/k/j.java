@@ -13,8 +13,8 @@ public final class j<E> extends n<E> {
     @Override // java.util.Queue
     public boolean offer(E e2) {
         if (e2 != null) {
-            E[] eArr = this.f67966f;
-            long j = this.f67965e;
+            E[] eArr = this.f67971f;
+            long j = this.f67970e;
             long h2 = h();
             long a2 = a(h2);
             if (e(eArr, a2) != null) {
@@ -67,7 +67,7 @@ public final class j<E> extends n<E> {
             }
         } while (!j(k, 1 + k));
         long a2 = a(k);
-        E[] eArr = this.f67966f;
+        E[] eArr = this.f67971f;
         E c2 = c(eArr, a2);
         f(eArr, a2, null);
         return c2;

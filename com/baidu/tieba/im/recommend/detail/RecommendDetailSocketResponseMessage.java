@@ -6,7 +6,7 @@ import d.b.b.e.d.l;
 import d.b.h0.r.r.a;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage {
     public UserInfoBigVip mDetailInfo;
 

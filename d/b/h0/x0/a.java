@@ -5,27 +5,15 @@ import d.b.h0.x0.c.a;
 import d.b.h0.x0.c.b;
 /* loaded from: classes3.dex */
 public class a<Q extends d.b.h0.x0.c.a, P extends b> {
-    public void a(int i) {
-        throw null;
-    }
+    public abstract void a(int i);
 
-    public void b() {
-        throw null;
-    }
+    public abstract void b();
 
-    public void c() {
-        throw null;
-    }
+    public abstract void c();
 
-    public void d() {
-        throw null;
-    }
+    public abstract void d();
 
-    public void e() {
-        throw null;
-    }
+    public abstract void e();
 
-    public void f(BdUniqueId bdUniqueId) {
-        throw null;
-    }
+    public abstract void f(BdUniqueId bdUniqueId);
 }

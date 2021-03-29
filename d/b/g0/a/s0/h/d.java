@@ -11,7 +11,7 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import d.b.g0.a.z0.f;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a0 {
     public d(j jVar) {
         super(jVar, "/swanAPI/setFullscreenOrientationSync");
@@ -22,14 +22,14 @@ public class d extends a0 {
         if (eVar == null) {
             d.b.g0.a.c0.c.b("setFullscreenOrientationSync", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal runtime");
             }
             return false;
         } else if (context == null) {
             d.b.g0.a.c0.c.b("setFullscreenOrientationSync", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal context");
             }
             return false;
@@ -49,7 +49,7 @@ public class d extends a0 {
             }
             int j2 = j(optInt);
             ((SwanAppWebViewManager) j).T0(j2);
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("setFullscreenOrientationSync", "orientation set to : " + j2);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);

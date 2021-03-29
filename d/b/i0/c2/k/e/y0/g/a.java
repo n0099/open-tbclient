@@ -22,31 +22,31 @@ import java.util.Set;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionImageData> f52977e;
+    public List<EmotionImageData> f52978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52978f;
+    public int f52979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionView.c f52979g;
+    public EmotionView.c f52980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbEmotionBar.i f52980h;
+    public PbEmotionBar.i f52981h;
     public Set<String> i = new HashSet();
 
     /* renamed from: d.b.i0.c2.k.e.y0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1161a implements View.OnClickListener {
-        public View$OnClickListenerC1161a() {
+    public class View$OnClickListenerC1162a implements View.OnClickListener {
+        public View$OnClickListenerC1162a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f52980h == null || !(view instanceof EmotionView)) {
+            if (a.this.f52981h == null || !(view instanceof EmotionView)) {
                 return;
             }
             EmotionView emotionView = (EmotionView) view;
-            a.this.f52980h.a(emotionView.getData(), emotionView.getIsGif());
+            a.this.f52981h.a(emotionView.getData(), emotionView.getIsGif());
             TiebaStatic.log("c12176");
         }
     }
@@ -58,16 +58,16 @@ public class a extends BaseAdapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f52980h != null) {
+            if (a.this.f52981h != null) {
                 ArrayList arrayList = new ArrayList();
-                if (!ListUtils.isEmpty(a.this.f52977e)) {
-                    for (EmotionImageData emotionImageData : a.this.f52977e) {
+                if (!ListUtils.isEmpty(a.this.f52978e)) {
+                    for (EmotionImageData emotionImageData : a.this.f52978e) {
                         if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
                             arrayList.add(emotionImageData.getThumbUrl());
                         }
                     }
                 }
-                a.this.f52980h.b(null, null, arrayList);
+                a.this.f52981h.b(null, null, arrayList);
             }
         }
     }
@@ -96,10 +96,10 @@ public class a extends BaseAdapter {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionView f52984a;
+        public EmotionView f52985a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52985b;
+        public TextView f52986b;
     }
 
     public void d() {
@@ -107,23 +107,23 @@ public class a extends BaseAdapter {
     }
 
     public void e(List<EmotionImageData> list) {
-        this.f52977e = list;
+        this.f52978e = list;
     }
 
     public void f(EmotionView.c cVar) {
-        this.f52979g = cVar;
+        this.f52980g = cVar;
     }
 
     public void g(PbEmotionBar.i iVar) {
-        this.f52980h = iVar;
+        this.f52981h = iVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (ListUtils.isEmpty(this.f52977e)) {
+        if (ListUtils.isEmpty(this.f52978e)) {
             return 0;
         }
-        return this.f52977e.size() + 1;
+        return this.f52978e.size() + 1;
     }
 
     @Override // android.widget.Adapter
@@ -144,48 +144,48 @@ public class a extends BaseAdapter {
             dVar = new d();
             view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pb_emotion_bar, (ViewGroup) null);
             EmotionView emotionView = (EmotionView) view2.findViewById(R.id.iv_emotion);
-            dVar.f52984a = emotionView;
+            dVar.f52985a = emotionView;
             emotionView.A0();
-            dVar.f52984a.setController(this.f52979g);
-            dVar.f52984a.setOnClickListener(new View$OnClickListenerC1161a());
+            dVar.f52985a.setController(this.f52980g);
+            dVar.f52985a.setOnClickListener(new View$OnClickListenerC1162a());
             TextView textView = (TextView) view2.findViewById(R.id.tv_more);
-            dVar.f52985b = textView;
+            dVar.f52986b = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0109);
-            dVar.f52985b.setOnClickListener(new b());
+            dVar.f52986b.setOnClickListener(new b());
             view2.setTag(dVar);
         } else {
             view2 = view;
             dVar = (d) view.getTag();
         }
         if (i >= 0) {
-            if (i < this.f52977e.size()) {
-                dVar.f52984a.getLayoutParams().width = this.f52978f;
-                dVar.f52984a.getLayoutParams().height = this.f52978f;
-                dVar.f52984a.S();
-                dVar.f52984a.setTag(R.id.iv_emotion, null);
-                EmotionImageData emotionImageData = this.f52977e.get(i);
+            if (i < this.f52978e.size()) {
+                dVar.f52985a.getLayoutParams().width = this.f52979f;
+                dVar.f52985a.getLayoutParams().height = this.f52979f;
+                dVar.f52985a.S();
+                dVar.f52985a.setTag(R.id.iv_emotion, null);
+                EmotionImageData emotionImageData = this.f52978e.get(i);
                 if (emotionImageData != null) {
-                    dVar.f52984a.C0(emotionImageData);
+                    dVar.f52985a.C0(emotionImageData);
                     if (this.i != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
                         Set<String> set = this.i;
-                        set.add(emotionImageData.getThumbUrl() + dVar.f52984a.getLoadProcType());
+                        set.add(emotionImageData.getThumbUrl() + dVar.f52985a.getLoadProcType());
                     }
                 }
-                dVar.f52984a.setVisibility(0);
-                dVar.f52985b.setVisibility(8);
-            } else if (i == this.f52977e.size()) {
-                dVar.f52985b.getLayoutParams().width = this.f52978f;
-                dVar.f52985b.getLayoutParams().height = this.f52978f;
-                dVar.f52984a.setVisibility(8);
-                dVar.f52985b.setVisibility(0);
+                dVar.f52985a.setVisibility(0);
+                dVar.f52986b.setVisibility(8);
+            } else if (i == this.f52978e.size()) {
+                dVar.f52986b.getLayoutParams().width = this.f52979f;
+                dVar.f52986b.getLayoutParams().height = this.f52979f;
+                dVar.f52985a.setVisibility(8);
+                dVar.f52986b.setVisibility(0);
             }
         }
         return view2;
     }
 
     public void h(int i) {
-        if (this.f52978f != i) {
-            this.f52978f = i;
+        if (this.f52979f != i) {
+            this.f52979f = i;
             notifyDataSetChanged();
         }
     }

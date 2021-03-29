@@ -41,7 +41,7 @@ public class c extends com.baidu.mobads.production.a {
         arrayList.add(adConstants.getSupportedActionType4RequestingLandingPage());
         arrayList.add(adConstants.a());
         XAdSDKFoundationFacade.getInstance().getPackageUtils();
-        if (r.b(this.f8438f)) {
+        if (r.b(this.f8439f)) {
             arrayList.add(adConstants.getSupportedActionType4RequestingDownload());
         }
         this.z.b(XAdSDKFoundationFacade.getInstance().getCommonUtils().a((List<String>) arrayList));
@@ -109,7 +109,7 @@ public class c extends com.baidu.mobads.production.a {
 
     @Override // com.baidu.mobads.production.a
     public void c() {
-        IXAdContainer iXAdContainer = this.f8440h;
+        IXAdContainer iXAdContainer = this.f8441h;
         if (iXAdContainer != null) {
             iXAdContainer.load();
         } else {
@@ -133,7 +133,7 @@ public class c extends com.baidu.mobads.production.a {
 
     public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, new HashMap());
+            ((IXAdDummyContainer) this.f8441h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, new HashMap());
         } catch (Exception unused) {
         }
     }

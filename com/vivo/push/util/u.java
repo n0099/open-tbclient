@@ -12,28 +12,28 @@ import java.util.Properties;
 public final class u implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39566a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
+    public static final String f39567a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39567b = f39566a + File.separator + "config.txt";
+    public static final String f39568b = f39567a + File.separator + "config.txt";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39568c = "SdcardCache";
+    public static String f39569c = "SdcardCache";
 
     /* renamed from: d  reason: collision with root package name */
-    public File f39569d;
+    public File f39570d;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if ("mounted".equals(Environment.getExternalStorageState())) {
-            File file = new File(f39566a);
+            File file = new File(f39567a);
             boolean mkdirs = !file.exists() ? file.mkdirs() : true;
             if (mkdirs) {
-                File file2 = new File(f39567b);
-                this.f39569d = file2;
+                File file2 = new File(f39568b);
+                this.f39570d = file2;
                 if (!file2.exists()) {
                     try {
-                        this.f39569d.createNewFile();
+                        this.f39570d.createNewFile();
                         return true;
                     } catch (IOException e2) {
                         e2.printStackTrace();
@@ -50,7 +50,7 @@ public final class u implements c {
     public final void b(String str, String str2) {
         FileOutputStream fileOutputStream;
         Properties a2 = a();
-        String str3 = f39567b;
+        String str3 = f39568b;
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
@@ -100,7 +100,7 @@ public final class u implements c {
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0024, code lost:
         if (r2 == null) goto L10;
      */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x002c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x002c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -110,7 +110,7 @@ public final class u implements c {
         Properties properties = new Properties();
         BufferedInputStream bufferedInputStream2 = null;
         try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(f39567b));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(f39568b));
             try {
                 try {
                     properties.load(bufferedInputStream);

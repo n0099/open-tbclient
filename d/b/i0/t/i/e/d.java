@@ -56,22 +56,22 @@ public class d extends d.b.i0.x.b<h> implements z {
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void disableSwipeBack() {
-            if (d.this.u == null || ListUtils.isEmpty(d.this.u.f53364e) || d.this.u.f53364e.size() <= 1) {
+            if (d.this.u == null || ListUtils.isEmpty(d.this.u.f53365e) || d.this.u.f53365e.size() <= 1) {
                 return;
             }
-            if (d.this.f62180f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) d.this.f62180f.getOrignalPage()).setSwipeBackEnabled(false);
-            } else if (d.this.f62180f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) d.this.f62180f.getOrignalPage()).setSwipeBackEnabled(false);
+            if (d.this.f62181f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) d.this.f62181f.getOrignalPage()).setSwipeBackEnabled(false);
+            } else if (d.this.f62181f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) d.this.f62181f.getOrignalPage()).setSwipeBackEnabled(false);
             }
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void enableSwipeBack() {
-            if (d.this.f62180f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) d.this.f62180f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
-            } else if (d.this.f62180f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) d.this.f62180f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
+            if (d.this.f62181f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) d.this.f62181f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
+            } else if (d.this.f62181f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) d.this.f62181f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
             }
         }
     }
@@ -123,7 +123,7 @@ public class d extends d.b.i0.x.b<h> implements z {
             d.this.I(view, a2Var);
             d.this.F(a2Var);
             d dVar = d.this;
-            dVar.J(dVar.f62180f, a2Var);
+            dVar.J(dVar.f62181f, a2Var);
         }
 
         @Override // d.b.i0.t.i.d.c
@@ -151,13 +151,13 @@ public class d extends d.b.i0.x.b<h> implements z {
         aVar.d(k());
         this.n.setBackgroundResource(R.drawable.transparent_bg);
         this.n.setOnPageChangeListener(this.C);
-        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.f62180f, k());
+        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.f62181f, k());
         this.o = frsAlaStageLiveViewItemAdapter;
         this.n.setAdapter(frsAlaStageLiveViewItemAdapter);
-        if (this.f62180f.getOrignalPage() instanceof BaseActivity) {
-            this.A = ((BaseActivity) this.f62180f.getOrignalPage()).isSwipeBackEnabled();
-        } else if (this.f62180f.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.A = ((BaseFragmentActivity) this.f62180f.getOrignalPage()).isSwipeBackEnabled();
+        if (this.f62181f.getOrignalPage() instanceof BaseActivity) {
+            this.A = ((BaseActivity) this.f62181f.getOrignalPage()).isSwipeBackEnabled();
+        } else if (this.f62181f.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.A = ((BaseFragmentActivity) this.f62181f.getOrignalPage()).isSwipeBackEnabled();
         }
         this.m.setSwipeControlInterface(new a());
     }
@@ -172,18 +172,18 @@ public class d extends d.b.i0.x.b<h> implements z {
     public final void G() {
         int c2;
         h hVar = this.u;
-        if (hVar == null || !ListUtils.isEmpty(hVar.f53364e) || (c2 = this.x.c(this.v)) >= this.u.f53364e.size() || c2 < 0) {
+        if (hVar == null || !ListUtils.isEmpty(hVar.f53365e) || (c2 = this.x.c(this.v)) >= this.u.f53365e.size() || c2 < 0) {
             return;
         }
         CustomMessage customMessage = new CustomMessage(2921017);
-        List<a2> list = this.u.f53364e;
+        List<a2> list = this.u.f53365e;
         if (list != null && list.get(c2) != null) {
-            this.u.f53364e.get(c2).M1 = this.B;
+            this.u.f53365e.get(c2).M1 = this.B;
         }
-        customMessage.setData(this.u.f53364e.get(c2));
+        customMessage.setData(this.u.f53365e.get(c2));
         MessageManager.getInstance().sendMessage(customMessage);
-        if (this.u.f53364e.get(c2) != null) {
-            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.u.f53364e.get(c2).o0()));
+        if (this.u.f53365e.get(c2) != null) {
+            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.u.f53365e.get(c2).o0()));
         }
     }
 
@@ -196,7 +196,7 @@ public class d extends d.b.i0.x.b<h> implements z {
         } else {
             customMessage = new CustomMessage(2921016);
         }
-        if (customMessage == null || this.f62180f == null) {
+        if (customMessage == null || this.f62181f == null) {
             return;
         }
         customMessage.setData(a2Var);
@@ -226,8 +226,8 @@ public class d extends d.b.i0.x.b<h> implements z {
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
         h hVar = this.u;
-        if (hVar != null && !ListUtils.isEmpty(hVar.f53364e)) {
-            for (a2 a2Var2 : this.u.f53364e) {
+        if (hVar != null && !ListUtils.isEmpty(hVar.f53365e)) {
+            for (a2 a2Var2 : this.u.f53365e) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(L(a2Var2));
             }
         }
@@ -238,23 +238,23 @@ public class d extends d.b.i0.x.b<h> implements z {
     @Override // d.b.i0.x.b
     /* renamed from: K */
     public void n(h hVar) {
-        if (hVar == null || hVar.f53364e == null) {
+        if (hVar == null || hVar.f53365e == null) {
             return;
         }
         this.u = hVar;
         s(0);
         if (this.x == null) {
-            d.b.i0.t.i.d.b bVar = new d.b.i0.t.i.d.b(hVar.f53364e, this.y, this.z);
+            d.b.i0.t.i.d.b bVar = new d.b.i0.t.i.d.b(hVar.f53365e, this.y, this.z);
             this.x = bVar;
             bVar.i(2);
             this.x.h(6);
             this.x.g(1);
         }
-        this.x.j(hVar.f53364e);
+        this.x.j(hVar.f53365e);
         this.o.g(this.t);
         this.o.f(this.x.e(), this.D);
         this.n.setCurrentItem(this.x.d(), false);
-        if (hVar.f53364e.size() >= 2) {
+        if (hVar.f53365e.size() >= 2) {
             this.p.setVisibility(0);
             if (this.q.getCount() != this.x.b()) {
                 this.q.setCount(this.x.b());
@@ -264,8 +264,8 @@ public class d extends d.b.i0.x.b<h> implements z {
         } else {
             this.p.setVisibility(8);
         }
-        if (hVar.f53364e.size() > 0) {
-            this.w.b(hVar.f53364e.get(0), "ala_frs_stage_live_feed_back_type");
+        if (hVar.f53365e.size() > 0) {
+            this.w.b(hVar.f53365e.get(0), "ala_frs_stage_live_feed_back_type");
         }
         G();
         o(l(), TbadkCoreApplication.getInst().getSkinType());
@@ -290,11 +290,11 @@ public class d extends d.b.i0.x.b<h> implements z {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
-            this.f62179e = i;
+            this.f62180e = i;
         }
         this.w.c();
     }

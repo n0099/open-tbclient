@@ -7,10 +7,10 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f10312a;
+    public final /* synthetic */ a f10313a;
 
     public b(a aVar) {
-        this.f10312a = aVar;
+        this.f10313a = aVar;
     }
 
     @Override // android.os.Handler
@@ -21,9 +21,9 @@ public class b extends Handler {
             return;
         }
         WLocData wLocData = (WLocData) message.obj;
-        bVar = this.f10312a.f10309h;
+        bVar = this.f10313a.f10310h;
         if (bVar != null) {
-            bVar2 = this.f10312a.f10309h;
+            bVar2 = this.f10313a.f10310h;
             bVar2.a(wLocData);
         }
     }

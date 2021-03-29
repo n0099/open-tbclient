@@ -6,10 +6,10 @@ import java.util.Comparator;
 public class o implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ n f8553a;
+    public final /* synthetic */ n f8554a;
 
     public o(n nVar) {
-        this.f8553a = nVar;
+        this.f8554a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class o0 extends h {
     public FrameLayout l;
     public ItemCardView m;
@@ -22,22 +22,22 @@ public class o0 extends h {
     @Override // d.b.i.a
     public View g() {
         if (this.l == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f51762f);
+            FrameLayout frameLayout = new FrameLayout(this.f51763f);
             this.l = frameLayout;
             SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
             this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.l.removeAllViews();
         if (this.m == null) {
-            ItemCardView itemCardView = new ItemCardView(this.f51762f);
+            ItemCardView itemCardView = new ItemCardView(this.f51763f);
             this.m = itemCardView;
             itemCardView.setBackGroundColor(R.color.CAM_X0205);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-        layoutParams.rightMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-        layoutParams.bottomMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+        layoutParams.rightMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+        layoutParams.bottomMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         this.l.addView(this.m, layoutParams);
         return this.l;
     }

@@ -18,7 +18,7 @@ import com.baidu.fsg.base.widget.SafeScrollView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static final int DIALOG_LOADING = 242;
     public static final int DIALOG_PROMPT = 241;
@@ -26,13 +26,13 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String WITH_ANIM = "with_anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5129a = "BaseActivity";
+    public static final String f5130a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5130b = false;
+    public static final boolean f5131b = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5136h;
+    public long f5137h;
     public RimStatisticsUtil mStatUtil;
     public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
     public static int mLiveActivityNum = 0;
@@ -41,29 +41,29 @@ public class BaseActivity extends Activity implements NoProguard {
     public int mFlag = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5131c = false;
+    public boolean f5132c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5132d = true;
+    public boolean f5133d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5133e = MULTI_WINDOW_TIPS;
+    public String f5134e = MULTI_WINDOW_TIPS;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f5134f = null;
+    public SafeScrollView f5135f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5135g = false;
+    public boolean f5136g = false;
 
     @TargetApi(24)
     private void a() {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f5131c) {
-            RimGlobalUtils.toastWithText(getActivity(), this.f5133e, 1);
+        if (this.f5132c) {
+            RimGlobalUtils.toastWithText(getActivity(), this.f5134e, 1);
         }
-        if (this.f5132d) {
+        if (this.f5133d) {
             return;
         }
         finish();
@@ -182,7 +182,7 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public boolean isActivityInForeground() {
-        return this.f5135g;
+        return this.f5136g;
     }
 
     public boolean isRequestedOrientation() {
@@ -204,7 +204,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.f5136h = System.currentTimeMillis();
+        this.f5137h = System.currentTimeMillis();
         this.mStatUtil = RimStatisticsUtil.getInstance();
         RimStatisticsUtil.onPush(getClass().getSimpleName());
         if (isRequestedOrientation()) {
@@ -243,15 +243,15 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onMultiWindowModeChanged(boolean z) {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
-            SafeScrollView safeScrollView = this.f5134f;
+            SafeScrollView safeScrollView = this.f5135f;
             if (safeScrollView != null) {
                 safeScrollView.dismissKeyBoard();
             }
             if (z && isActivityInForeground()) {
-                if (this.f5131c) {
-                    RimGlobalUtils.toastWithText(getActivity(), this.f5133e, 1);
+                if (this.f5132c) {
+                    RimGlobalUtils.toastWithText(getActivity(), this.f5134e, 1);
                 }
-                if (this.f5132d) {
+                if (this.f5133d) {
                     return;
                 }
                 finish();
@@ -263,7 +263,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onPause() {
         super.onPause();
         decLiveActivityNum();
-        this.f5135g = false;
+        this.f5136g = false;
         RimStatisticsUtil.onOut(getClass().getSimpleName());
     }
 
@@ -271,10 +271,10 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onResume() {
         super.onResume();
         addLiveActivityNum();
-        this.f5135g = true;
-        if (0 != this.f5136h) {
-            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5136h);
-            this.f5136h = 0L;
+        this.f5136g = true;
+        if (0 != this.f5137h) {
+            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5137h);
+            this.f5137h = 0L;
         } else {
             RimStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
         }
@@ -286,23 +286,23 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.f5132d) {
-            this.f5132d = z;
+        if (z != this.f5133d) {
+            this.f5133d = z;
         }
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f5131c) {
-            this.f5131c = z;
+        if (z != this.f5132c) {
+            this.f5132c = z;
         }
     }
 
     public void setMultiWindowTipsId(String str) {
-        this.f5133e = str;
+        this.f5134e = str;
     }
 
     public void setSafeScrollView(SafeScrollView safeScrollView) {
-        this.f5134f = safeScrollView;
+        this.f5135f = safeScrollView;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context

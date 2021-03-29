@@ -8,46 +8,46 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Logger f65142a = Logger.getLogger(k.class.getName());
+    public static final Logger f65143a = Logger.getLogger(k.class.getName());
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements p {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f65143e;
+        public final /* synthetic */ r f65144e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ OutputStream f65144f;
+        public final /* synthetic */ OutputStream f65145f;
 
         public a(r rVar, OutputStream outputStream) {
-            this.f65143e = rVar;
-            this.f65144f = outputStream;
+            this.f65144e = rVar;
+            this.f65145f = outputStream;
         }
 
         @Override // d.c.c.a.a.p
         public r a() {
-            return this.f65143e;
+            return this.f65144e;
         }
 
         @Override // d.c.c.a.a.p
         public void b(d.c.c.a.a.c cVar, long j) throws IOException {
-            s.c(cVar.f65129f, 0L, j);
+            s.c(cVar.f65130f, 0L, j);
             while (j > 0) {
-                this.f65143e.h();
-                n nVar = cVar.f65128e;
-                int min = (int) Math.min(j, nVar.f65156c - nVar.f65155b);
-                this.f65144f.write(nVar.f65154a, nVar.f65155b, min);
-                int i = nVar.f65155b + min;
-                nVar.f65155b = i;
+                this.f65144e.h();
+                n nVar = cVar.f65129e;
+                int min = (int) Math.min(j, nVar.f65157c - nVar.f65156b);
+                this.f65145f.write(nVar.f65155a, nVar.f65156b, min);
+                int i = nVar.f65156b + min;
+                nVar.f65156b = i;
                 long j2 = min;
                 j -= j2;
-                cVar.f65129f -= j2;
-                if (i == nVar.f65156c) {
-                    cVar.f65128e = nVar.e();
+                cVar.f65130f -= j2;
+                if (i == nVar.f65157c) {
+                    cVar.f65129e = nVar.e();
                     o.b(nVar);
                 }
             }
@@ -55,20 +55,20 @@ public final class k {
 
         @Override // d.c.c.a.a.p, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            this.f65144f.close();
+            this.f65145f.close();
         }
 
         @Override // d.c.c.a.a.p, java.io.Flushable
         public void flush() throws IOException {
-            this.f65144f.flush();
+            this.f65145f.flush();
         }
 
         public String toString() {
-            return "sink(" + this.f65144f + SmallTailInfo.EMOTION_SUFFIX;
+            return "sink(" + this.f65145f + SmallTailInfo.EMOTION_SUFFIX;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c extends d.c.c.a.a.a {
         public final /* synthetic */ Socket k;
 
@@ -82,14 +82,14 @@ public final class k {
                 this.k.close();
             } catch (AssertionError e2) {
                 if (k.g(e2)) {
-                    Logger logger = k.f65142a;
+                    Logger logger = k.f65143a;
                     Level level = Level.WARNING;
                     logger.log(level, "Failed to close timed out socket " + this.k, (Throwable) e2);
                     return;
                 }
                 throw e2;
             } catch (Exception e3) {
-                Logger logger2 = k.f65142a;
+                Logger logger2 = k.f65143a;
                 Level level2 = Level.WARNING;
                 logger2.log(level2, "Failed to close timed out socket " + this.k, (Throwable) e3);
             }
@@ -167,37 +167,38 @@ public final class k {
         return new c(socket);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f65145e;
+        public final /* synthetic */ r f65146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ InputStream f65146f;
+        public final /* synthetic */ InputStream f65147f;
 
         public b(r rVar, InputStream inputStream) {
-            this.f65145e = rVar;
-            this.f65146f = inputStream;
+            this.f65146e = rVar;
+            this.f65147f = inputStream;
         }
 
         @Override // d.c.c.a.a.q
         public long a(d.c.c.a.a.c cVar, long j) throws IOException {
-            if (j < 0) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
-            } else if (j == 0) {
+            } else if (i == 0) {
                 return 0L;
             } else {
                 try {
-                    this.f65145e.h();
+                    this.f65146e.h();
                     n D = cVar.D(1);
-                    int read = this.f65146f.read(D.f65154a, D.f65156c, (int) Math.min(j, 8192 - D.f65156c));
+                    int read = this.f65147f.read(D.f65155a, D.f65157c, (int) Math.min(j, 8192 - D.f65157c));
                     if (read == -1) {
                         return -1L;
                     }
-                    D.f65156c += read;
+                    D.f65157c += read;
                     long j2 = read;
-                    cVar.f65129f += j2;
+                    cVar.f65130f += j2;
                     return j2;
                 } catch (AssertionError e2) {
                     if (k.g(e2)) {
@@ -210,16 +211,16 @@ public final class k {
 
         @Override // d.c.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            this.f65146f.close();
+            this.f65147f.close();
         }
 
         public String toString() {
-            return "source(" + this.f65146f + SmallTailInfo.EMOTION_SUFFIX;
+            return "source(" + this.f65147f + SmallTailInfo.EMOTION_SUFFIX;
         }
 
         @Override // d.c.c.a.a.q
         public r a() {
-            return this.f65145e;
+            return this.f65146e;
         }
     }
 }

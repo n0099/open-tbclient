@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Util {
     public static String openudid;
     public static PackageInfo packageInfo;

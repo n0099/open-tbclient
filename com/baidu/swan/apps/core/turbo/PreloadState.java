@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.core.turbo;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public enum PreloadState {
     UNKNOWN(0, 0),
     LOADED(1, 5),

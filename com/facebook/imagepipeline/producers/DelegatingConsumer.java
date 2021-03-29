@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
     public final Consumer<O> mConsumer;
 

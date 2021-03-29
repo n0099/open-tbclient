@@ -24,9 +24,11 @@ public class HttpMessageTask extends MessageTask {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String a() {
-            throw null;
-        }
+        public abstract int a();
+
+        public abstract String b();
+
+        public abstract boolean c();
     }
 
     public HttpMessageTask(int i, String str) {

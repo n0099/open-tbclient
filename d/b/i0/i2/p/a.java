@@ -14,18 +14,18 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f56171a;
+    public boolean f56172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56172b;
+    public boolean f56173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Integer> f56173c;
+    public HashMap<String, Integer> f56174c;
 
     /* renamed from: d.b.i0.i2.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1310a implements Runnable {
-        public RunnableC1310a(a aVar) {
+    public class RunnableC1311a implements Runnable {
+        public RunnableC1311a(a aVar) {
         }
 
         @Override // java.lang.Runnable
@@ -35,7 +35,7 @@ public class a {
     }
 
     public boolean a(Uri uri) {
-        HashMap<String, Integer> hashMap = this.f56173c;
+        HashMap<String, Integer> hashMap = this.f56174c;
         if (hashMap == null || uri == null) {
             return false;
         }
@@ -43,34 +43,34 @@ public class a {
     }
 
     public boolean b() {
-        return this.f56172b;
+        return this.f56173b;
     }
 
     public boolean c() {
-        if (this.f56171a) {
+        if (this.f56172a) {
             c.f();
         }
-        return this.f56171a;
+        return this.f56172a;
     }
 
     public void d(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        boolean z = this.f56171a;
-        this.f56171a = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1;
-        this.f56172b = jSONObject.optInt("p2p_config", 0) == 1;
+        boolean z = this.f56172a;
+        this.f56172a = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1;
+        this.f56173b = jSONObject.optInt("p2p_config", 0) == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
         if (optJSONArray != null) {
-            this.f56173c = new HashMap<>();
+            this.f56174c = new HashMap<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
                 if (!StringUtils.isNull(optString)) {
-                    this.f56173c.put(optString, 0);
+                    this.f56174c.put(optString, 0);
                 }
             }
         }
-        if (this.f56171a) {
+        if (this.f56172a) {
             c.f();
             if (z) {
                 return;
@@ -78,7 +78,7 @@ public class a {
             Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
             intent.putExtra("pcdn", true);
             TbadkCoreApplication.getInst().getContext().startService(intent);
-            e.a().postDelayed(new RunnableC1310a(this), 3000L);
+            e.a().postDelayed(new RunnableC1311a(this), 3000L);
         }
     }
 }

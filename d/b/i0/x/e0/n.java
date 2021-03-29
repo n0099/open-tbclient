@@ -8,22 +8,22 @@ public class n extends BaseCardInfo implements p {
     public static final BdUniqueId k = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62220e = true;
+    public boolean f62221e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f62221f = true;
+    public boolean f62222f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62222g;
+    public String f62223g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<m> f62223h;
+    public List<m> f62224h;
     public int i;
     public int j;
 
     @Override // d.b.i0.x.e0.p
     public void b(boolean z) {
-        this.f62220e = z;
+        this.f62221e = z;
     }
 
     @Override // d.b.i0.x.e0.p
@@ -38,7 +38,7 @@ public class n extends BaseCardInfo implements p {
 
     @Override // d.b.i0.x.e0.p
     public void h(boolean z) {
-        this.f62221f = z;
+        this.f62222f = z;
     }
 
     @Override // d.b.i0.x.e0.p

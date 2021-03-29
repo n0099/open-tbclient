@@ -7,29 +7,29 @@ import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48562a = "";
+    public String f48563a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48563b = Integer.MAX_VALUE;
+    public int f48564b = Integer.MAX_VALUE;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f48564c = false;
+    public boolean f48565c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f48565d = false;
+    public boolean f48566d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48566e;
+    public int f48567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48567f;
+    public String f48568f;
 
     public boolean a(d.b.g0.g.e.d.c cVar) throws JSTypeMismatchException {
         try {
-            this.f48562a = cVar.B("defaultValue");
-            this.f48563b = cVar.r("maxLength");
-            this.f48564c = cVar.m("multiple");
-            this.f48565d = cVar.m("confirmHold");
+            this.f48563a = cVar.B("defaultValue");
+            this.f48564b = cVar.r("maxLength");
+            this.f48565c = cVar.m("multiple");
+            this.f48566d = cVar.m("confirmHold");
             String B = cVar.B("confirmType");
             char c2 = 65535;
             switch (B.hashCode()) {
@@ -65,23 +65,23 @@ public class c {
                     break;
             }
             if (c2 == 0) {
-                this.f48566e = 6;
-                this.f48567f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                this.f48567e = 6;
+                this.f48568f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
             } else if (c2 == 1) {
-                this.f48566e = 5;
-                this.f48567f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                this.f48567e = 5;
+                this.f48568f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
             } else if (c2 == 2) {
-                this.f48566e = 3;
-                this.f48567f = "search";
+                this.f48567e = 3;
+                this.f48568f = "search";
             } else if (c2 == 3) {
-                this.f48566e = 2;
-                this.f48567f = "go";
+                this.f48567e = 2;
+                this.f48568f = "go";
             } else if (c2 != 4) {
-                this.f48566e = 6;
-                this.f48567f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                this.f48567e = 6;
+                this.f48568f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
             } else {
-                this.f48566e = 4;
-                this.f48567f = "send";
+                this.f48567e = 4;
+                this.f48568f = "send";
             }
             return true;
         } catch (Exception unused) {

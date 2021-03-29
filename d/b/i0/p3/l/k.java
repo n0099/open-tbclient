@@ -8,9 +8,7 @@ public class k {
         if (i > 2) {
             int i3 = i >> 1;
             double d2 = i3;
-            Double.isNaN(d2);
             double d3 = 0.7853981633974483d / d2;
-            Double.isNaN(d2);
             double cos = Math.cos(d2 * d3);
             dArr[0] = 1.0d;
             dArr[1] = cos;
@@ -20,11 +18,9 @@ public class k {
             }
             for (int i4 = 4; i4 < i3; i4 += 4) {
                 double d4 = i4;
-                Double.isNaN(d4);
                 double d5 = d3 * d4;
                 dArr[i4] = Math.cos(d5);
                 dArr[i4 + 1] = Math.sin(d5);
-                Double.isNaN(d4);
                 double d6 = 3.0d * d3 * d4;
                 dArr[i4 + 2] = Math.cos(d6);
                 dArr[i4 + 3] = Math.sin(d6);
@@ -2160,18 +2156,14 @@ public class k {
         if (i > 1) {
             int i3 = i >> 1;
             double d2 = i3;
-            Double.isNaN(d2);
             double d3 = 0.7853981633974483d / d2;
             int i4 = i2 + 0;
-            Double.isNaN(d2);
             dArr[i4] = Math.cos(d2 * d3);
             dArr[i2 + i3] = dArr[i4] * 0.5d;
             for (int i5 = 1; i5 < i3; i5++) {
-                double d4 = i5;
-                Double.isNaN(d4);
-                double d5 = d4 * d3;
-                dArr[i2 + i5] = Math.cos(d5) * 0.5d;
-                dArr[(i2 + i) - i5] = Math.sin(d5) * 0.5d;
+                double d4 = i5 * d3;
+                dArr[i2 + i5] = Math.cos(d4) * 0.5d;
+                dArr[(i2 + i) - i5] = Math.sin(d4) * 0.5d;
             }
         }
     }

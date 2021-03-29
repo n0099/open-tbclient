@@ -59,18 +59,18 @@ public class BdExpandListView extends BdTypeListView {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f22023a;
+        public int f22024a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f22024b;
+        public int f22025b;
 
         public c(int i, int i2, int i3, int i4) {
-            this.f22023a = i2;
-            this.f22024b = i4;
+            this.f22024a = i2;
+            this.f22025b = i4;
         }
 
         public int a(float f2) {
-            return (int) (this.f22023a + (f2 / 2.5f));
+            return (int) (this.f22024a + (f2 / 2.5f));
         }
     }
 
@@ -148,7 +148,7 @@ public class BdExpandListView extends BdTypeListView {
         if (this.S == null) {
             return;
         }
-        if (this.P.getHeight() >= this.S.f22024b - (this.V / 2)) {
+        if (this.P.getHeight() >= this.S.f22025b - (this.V / 2)) {
             L();
         } else {
             b bVar = this.W;
@@ -156,7 +156,7 @@ public class BdExpandListView extends BdTypeListView {
                 bVar.a();
             }
         }
-        this.O.startScroll(0, this.P.getHeight(), 0, this.S.f22023a - this.P.getHeight(), 200);
+        this.O.startScroll(0, this.P.getHeight(), 0, this.S.f22024a - this.P.getHeight(), 200);
         invalidate();
     }
 
@@ -201,16 +201,16 @@ public class BdExpandListView extends BdTypeListView {
                         if (this.P.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f2) >= this.U && this.a0 > 400) {
                             int a2 = this.S.a(this.R - this.Q);
                             c cVar = this.S;
-                            if (a2 > cVar.f22023a && a2 <= cVar.f22024b) {
+                            if (a2 > cVar.f22024a && a2 <= cVar.f22025b) {
                                 this.T = true;
                                 setClickEventEnabled(false);
                                 this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
-                                K(a2 - this.S.f22023a);
+                                K(a2 - this.S.f22024a);
                             } else {
                                 c cVar2 = this.S;
-                                if (a2 <= cVar2.f22023a) {
+                                if (a2 <= cVar2.f22024a) {
                                     this.T = false;
-                                } else if (a2 > cVar2.f22024b) {
+                                } else if (a2 > cVar2.f22025b) {
                                     this.T = true;
                                     setClickEventEnabled(false);
                                 } else {

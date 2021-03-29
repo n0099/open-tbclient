@@ -21,22 +21,22 @@ import org.webrtc.EglBase10;
 public final class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44783a = d.b.g0.a.k.f45050a;
+    public static final boolean f44784a = d.b.g0.a.k.f45051a;
 
     public static boolean a(File file, File file2, int i) {
         FileOutputStream fileOutputStream;
-        if (f44783a) {
+        if (f44784a) {
             Log.d(ImageUtils.TAG, "压缩图片");
         }
         if (file2 == null) {
-            if (f44783a) {
+            if (f44784a) {
                 Log.e(ImageUtils.TAG, "dest file is null");
             }
             return false;
         } else if (i >= 0 && i <= 100) {
             Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (decodeFile == null) {
-                if (f44783a) {
+                if (f44784a) {
                     Log.e(ImageUtils.TAG, "compress image，but decode bitmap is null");
                 }
                 return false;
@@ -58,7 +58,7 @@ public final class t {
             } catch (FileNotFoundException e3) {
                 e = e3;
                 fileOutputStream2 = fileOutputStream;
-                if (f44783a) {
+                if (f44784a) {
                     Log.e(ImageUtils.TAG, "压缩图片失败", e);
                 }
                 d.b.g0.p.d.a(fileOutputStream2);
@@ -70,7 +70,7 @@ public final class t {
                 throw th;
             }
         } else {
-            if (f44783a) {
+            if (f44784a) {
                 Log.e(ImageUtils.TAG, "quality must be 0..100");
             }
             return false;
@@ -106,7 +106,7 @@ public final class t {
     }
 
     public static File d(String str, String str2) {
-        if (f44783a) {
+        if (f44784a) {
             Log.d(ImageUtils.TAG, "获取temp路径");
         }
         String str3 = "swan_tmp_" + System.currentTimeMillis() + "_" + str2;
@@ -122,13 +122,13 @@ public final class t {
                 try {
                     file.createNewFile();
                 } catch (IOException e2) {
-                    if (f44783a) {
+                    if (f44784a) {
                         e2.printStackTrace();
                     }
                 }
             }
         }
-        if (f44783a && file != null) {
+        if (f44784a && file != null) {
             Log.e(ImageUtils.TAG, "temp路径:" + file.getAbsolutePath());
         }
         return file;

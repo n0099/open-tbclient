@@ -21,29 +21,29 @@ import org.json.JSONObject;
 public class a implements k0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47440b = k.f45050a;
+    public static final boolean f47441b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b0.a f47441a = new d.b.b0.a();
+    public d.b.b0.a f47442a = new d.b.b0.a();
 
     /* renamed from: d.b.g0.b.m.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0913a extends d.b.c0.l.a {
+    public class C0914a extends d.b.c0.l.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f47442a;
+        public final /* synthetic */ long f47443a;
 
-        public C0913a(a aVar, long j) {
-            this.f47442a = j;
+        public C0914a(a aVar, long j) {
+            this.f47443a = j;
         }
 
         @Override // d.b.c0.l.a
         public void a(int i, String str) {
-            if (a.f47440b) {
+            if (a.f47441b) {
                 Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
             }
             d.f(a.e());
-            d.y(String.valueOf(this.f47442a), a.e());
+            d.y(String.valueOf(this.f47443a), a.e());
         }
     }
 
@@ -54,7 +54,7 @@ public class a implements k0 {
 
         @Override // d.b.c0.l.a
         public void a(int i, String str) {
-            if (a.f47440b) {
+            if (a.f47441b) {
                 Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
             }
         }
@@ -71,21 +71,21 @@ public class a implements k0 {
         if (!TextUtils.isEmpty(r)) {
             try {
                 if (currentTimeMillis - Long.parseLong(r) < 86400) {
-                    if (f47440b) {
+                    if (f47441b) {
                         Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
                         return;
                     }
                     return;
                 }
             } catch (NumberFormatException e2) {
-                if (f47440b) {
+                if (f47441b) {
                     e2.printStackTrace();
                     return;
                 }
                 return;
             }
         }
-        this.f47441a.l(new C0913a(this, currentTimeMillis));
+        this.f47442a.l(new C0914a(this, currentTimeMillis));
     }
 
     @Override // d.b.g0.a.p.c.k0
@@ -112,9 +112,9 @@ public class a implements k0 {
             jSONObject.put("businessId", str6);
             jSONObject.put("naid", str7);
             jSONObject.put("scene", str8);
-            this.f47441a.k(jSONObject, new b(this));
+            this.f47442a.k(jSONObject, new b(this));
         } catch (JSONException e2) {
-            if (f47440b) {
+            if (f47441b) {
                 e2.printStackTrace();
             }
         }

@@ -13,16 +13,16 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class HomeInformationItemView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24573a;
+    public NetImageView f24574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24574b;
+    public TextView f24575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24575c;
+    public TextView f24576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24576d;
+    public TextView f24577d;
     public View mLine;
 
     public HomeInformationItemView(Context context, AttributeSet attributeSet) {
@@ -32,10 +32,10 @@ public class HomeInformationItemView extends BaseItemView {
     private void a() {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_item_view"), this);
-        this.f24573a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
-        this.f24574b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
-        this.f24575c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
-        this.f24576d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
+        this.f24574a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
+        this.f24575b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
+        this.f24576c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
+        this.f24577d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
         this.mLine = findViewById(ResUtils.id(getContext(), "home_info_item_line"));
     }
 
@@ -49,28 +49,28 @@ public class HomeInformationItemView extends BaseItemView {
             return;
         }
         a();
-        if (this.f24573a != null) {
+        if (this.f24574a != null) {
             String str = getData().value3;
             if (!TextUtils.isEmpty(str)) {
-                this.f24573a.setImageUrl(str);
+                this.f24574a.setImageUrl(str);
             }
         }
-        if (this.f24574b != null) {
+        if (this.f24575b != null) {
             String str2 = getData().name;
             if (!TextUtils.isEmpty(str2)) {
-                this.f24574b.setText(str2);
+                this.f24575b.setText(str2);
             }
         }
-        if (this.f24575c != null) {
+        if (this.f24576c != null) {
             String str3 = getData().value2;
             if (!TextUtils.isEmpty(str3)) {
-                this.f24575c.setText(str3);
+                this.f24576c.setText(str3);
             }
         }
-        if (this.f24576d != null) {
+        if (this.f24577d != null) {
             String str4 = getData().value1;
             if (!TextUtils.isEmpty(str4)) {
-                this.f24576d.setText(str4);
+                this.f24577d.setText(str4);
             }
         }
         if (TextUtils.isEmpty(getData().link_addr)) {

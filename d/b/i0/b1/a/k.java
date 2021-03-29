@@ -25,7 +25,7 @@ import com.baidu.tieba.hottopic.holder.TopicMediaHolder;
 import com.baidu.tieba.hottopic.view.TopicVideoControllerView;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import d.b.h0.r.s.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
     public CustomMessageListener A;
     public int m;
@@ -43,7 +43,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
     public CustomMessageListener y;
     public CustomMessageListener z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements TbImageView.f {
         public a(k kVar) {
         }
@@ -57,7 +57,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements CyberPlayerManager.OnErrorListener {
         public b() {
         }
@@ -72,7 +72,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -85,7 +85,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -94,19 +94,19 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (k.this.p == null || k.this.p.f17610b == null || k.this.p.f17614f == null || k.this.p.f17611c == null) {
+            if (k.this.p == null || k.this.p.f17611b == null || k.this.p.f17615f == null || k.this.p.f17612c == null) {
                 return;
             }
-            k.this.p.f17610b.setVisibility(0);
-            k.this.p.f17614f.setVisibility(8);
-            k.this.p.f17611c.stopPlayback();
+            k.this.p.f17611b.setVisibility(0);
+            k.this.p.f17615f.setVisibility(8);
+            k.this.p.f17612c.stopPlayback();
             k.this.r = true;
             k kVar = k.this;
             kVar.y0(kVar.p);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -125,7 +125,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public f(int i) {
             super(i);
@@ -137,152 +137,152 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
             if (k.this.v != null) {
                 k.this.v.removeMessages(1);
             }
-            if (k.this.p == null || k.this.p.f17612d == null || k.this.p.f17613e == null) {
+            if (k.this.p == null || k.this.p.f17613d == null || k.this.p.f17614e == null) {
                 return;
             }
-            k.this.p.f17612d.j();
-            k.this.p.f17613e.e();
+            k.this.p.f17613d.j();
+            k.this.p.f17614e.e();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f52037e;
+        public final /* synthetic */ TopicMediaHolder f52038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.o f52038f;
+        public final /* synthetic */ d.b.i0.b1.c.o f52039f;
 
         public g(TopicMediaHolder topicMediaHolder, d.b.i0.b1.c.o oVar) {
-            this.f52037e = topicMediaHolder;
-            this.f52038f = oVar;
+            this.f52038e = topicMediaHolder;
+            this.f52039f = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f52037e.f17614f.setVisibility(8);
-            TbCyberVideoView tbCyberVideoView = this.f52037e.f17611c;
+            this.f52038e.f17615f.setVisibility(8);
+            TbCyberVideoView tbCyberVideoView = this.f52038e.f17612c;
             if (tbCyberVideoView != null) {
                 tbCyberVideoView.setPlayMode("2");
             }
-            this.f52037e.f17611c.start();
-            k.this.G0(this.f52038f, this.f52037e);
+            this.f52038e.f17612c.start();
+            k.this.G0(this.f52039f, this.f52038e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements CyberPlayerManager.OnPreparedListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f52040e;
+        public final /* synthetic */ TopicMediaHolder f52041e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.o f52041f;
+        public final /* synthetic */ d.b.i0.b1.c.o f52042f;
 
         public h(TopicMediaHolder topicMediaHolder, d.b.i0.b1.c.o oVar) {
-            this.f52040e = topicMediaHolder;
-            this.f52041f = oVar;
+            this.f52041e = topicMediaHolder;
+            this.f52042f = oVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
             TopicVideoControllerView topicVideoControllerView;
-            TopicMediaHolder topicMediaHolder = this.f52040e;
-            if (topicMediaHolder == null || topicMediaHolder.f17611c == null || (topicVideoControllerView = topicMediaHolder.f17612d) == null) {
+            TopicMediaHolder topicMediaHolder = this.f52041e;
+            if (topicMediaHolder == null || topicMediaHolder.f17612c == null || (topicVideoControllerView = topicMediaHolder.f17613d) == null) {
                 return;
             }
             int curProgress = topicVideoControllerView.getCurProgress();
             if (curProgress > 0) {
-                float duration = this.f52040e.f17611c.getDuration() * 1.0f * curProgress;
-                TopicMediaHolder topicMediaHolder2 = this.f52040e;
-                TopicVideoControllerView topicVideoControllerView2 = topicMediaHolder2.f17612d;
-                topicMediaHolder2.f17611c.seekTo((int) (duration / 10000.0f));
+                float duration = this.f52041e.f17612c.getDuration() * 1.0f * curProgress;
+                TopicMediaHolder topicMediaHolder2 = this.f52041e;
+                TopicVideoControllerView topicVideoControllerView2 = topicMediaHolder2.f17613d;
+                topicMediaHolder2.f17612c.seekTo((int) (duration / 10000.0f));
             }
             Message obtainMessage = k.this.v.obtainMessage(1);
-            obtainMessage.obj = this.f52041f;
+            obtainMessage.obj = this.f52042f;
             k.this.v.sendMessage(obtainMessage);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements CyberPlayerManager.OnCompletionListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f52043e;
+        public final /* synthetic */ TopicMediaHolder f52044e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.o f52044f;
+        public final /* synthetic */ d.b.i0.b1.c.o f52045f;
 
         public i(TopicMediaHolder topicMediaHolder, d.b.i0.b1.c.o oVar) {
-            this.f52043e = topicMediaHolder;
-            this.f52044f = oVar;
+            this.f52044e = topicMediaHolder;
+            this.f52045f = oVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
-            this.f52043e.f17614f.setVisibility(0);
-            k.this.z0(this.f52044f, this.f52043e);
+            this.f52044e.f17615f.setVisibility(0);
+            k.this.z0(this.f52045f, this.f52044e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f52046e;
+        public final /* synthetic */ TopicMediaHolder f52047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.o f52047f;
+        public final /* synthetic */ d.b.i0.b1.c.o f52048f;
 
         public j(TopicMediaHolder topicMediaHolder, d.b.i0.b1.c.o oVar) {
-            this.f52046e = topicMediaHolder;
-            this.f52047f = oVar;
+            this.f52047e = topicMediaHolder;
+            this.f52048f = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!this.f52046e.f17611c.isPlaying()) {
-                k.this.v0(this.f52046e, this.f52047f);
+            if (!this.f52047e.f17612c.isPlaying()) {
+                k.this.v0(this.f52047e, this.f52048f);
                 return;
             }
-            this.f52046e.f17611c.pause();
-            this.f52046e.f17616h.setVisibility(0);
+            this.f52047e.f17612c.pause();
+            this.f52047e.f17617h.setVisibility(0);
         }
     }
 
     /* renamed from: d.b.i0.b1.a.k$k  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1126k implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1127k implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.o f52049e;
+        public final /* synthetic */ d.b.i0.b1.c.o f52050e;
 
-        public View$OnClickListenerC1126k(d.b.i0.b1.c.o oVar) {
-            this.f52049e = oVar;
+        public View$OnClickListenerC1127k(d.b.i0.b1.c.o oVar) {
+            this.f52050e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            k.this.n.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(k.this.n.getActivity()).createNormalConfig(String.valueOf(this.f52049e.f52140e), this.f52049e.f52141f, "")));
+            k.this.n.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(k.this.n.getActivity()).createNormalConfig(String.valueOf(this.f52050e.f52141e), this.f52050e.f52142f, "")));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l implements TbCyberVideoView.g {
         public l() {
         }
 
         @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.g
         public void onSurfaceDestroyed() {
-            if (k.this.p != null && k.this.p.f17611c != null) {
-                k.this.p.f17611c.stopPlayback();
+            if (k.this.p != null && k.this.p.f17612c != null) {
+                k.this.p.f17612c.stopPlayback();
             }
             k.this.D0();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m extends Handler {
         public m(Looper looper) {
             super(looper);
@@ -290,13 +290,13 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what != 1 || k.this.r || k.this.p == null || k.this.p.f17611c == null || k.this.p.f17610b == null || k.this.p.f17614f == null || k.this.p.f17616h == null) {
+            if (message.what != 1 || k.this.r || k.this.p == null || k.this.p.f17612c == null || k.this.p.f17611b == null || k.this.p.f17615f == null || k.this.p.f17617h == null) {
                 return;
             }
-            if (k.this.p.f17611c.getCurrentPosition() > 0) {
-                k.this.p.f17610b.setVisibility(8);
-                k.this.p.f17614f.setVisibility(8);
-                k.this.p.f17616h.setVisibility(8);
+            if (k.this.p.f17612c.getCurrentPosition() > 0) {
+                k.this.p.f17611b.setVisibility(8);
+                k.this.p.f17615f.setVisibility(8);
+                k.this.p.f17617h.setVisibility(8);
                 k kVar = k.this;
                 kVar.G0((d.b.i0.b1.c.o) message.obj, kVar.p);
                 k kVar2 = k.this;
@@ -309,33 +309,33 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class n implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f52053e;
+        public final /* synthetic */ TopicMediaHolder f52054e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.o f52054f;
+        public final /* synthetic */ d.b.i0.b1.c.o f52055f;
 
         public n(TopicMediaHolder topicMediaHolder, d.b.i0.b1.c.o oVar) {
-            this.f52053e = topicMediaHolder;
-            this.f52054f = oVar;
+            this.f52054e = topicMediaHolder;
+            this.f52055f = oVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             TbCyberVideoView tbCyberVideoView;
-            TopicMediaHolder topicMediaHolder = this.f52053e;
-            if (topicMediaHolder != null && (tbCyberVideoView = topicMediaHolder.f17611c) != null) {
+            TopicMediaHolder topicMediaHolder = this.f52054e;
+            if (topicMediaHolder != null && (tbCyberVideoView = topicMediaHolder.f17612c) != null) {
                 tbCyberVideoView.setPlayMode("2");
             }
-            k.this.w0(this.f52053e, this.f52054f);
+            k.this.w0(this.f52054e, this.f52055f);
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class o implements a.e {
         public o(k kVar) {
         }
@@ -346,16 +346,16 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class p implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.i0.b1.c.o f52056e;
+        public d.b.i0.b1.c.o f52057e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TopicMediaHolder f52057f;
+        public TopicMediaHolder f52058f;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements a.e {
             public a() {
             }
@@ -367,7 +367,7 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class b implements a.e {
             public b(p pVar) {
             }
@@ -379,34 +379,34 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         }
 
         public p(d.b.i0.b1.c.o oVar, TopicMediaHolder topicMediaHolder) {
-            this.f52056e = oVar;
-            this.f52057f = topicMediaHolder;
+            this.f52057e = oVar;
+            this.f52058f = topicMediaHolder;
         }
 
         public final void b() {
             TopicMediaHolder topicMediaHolder;
             TbCyberVideoView tbCyberVideoView;
-            if (this.f52056e == null || (topicMediaHolder = this.f52057f) == null || (tbCyberVideoView = topicMediaHolder.f17611c) == null) {
+            if (this.f52057e == null || (topicMediaHolder = this.f52058f) == null || (tbCyberVideoView = topicMediaHolder.f17612c) == null) {
                 return;
             }
             tbCyberVideoView.setPlayMode("2");
-            this.f52057f.f17611c.setVideoPath(this.f52056e.f52143h);
-            this.f52057f.f17611c.start();
+            this.f52058f.f17612c.setVideoPath(this.f52057e.f52144h);
+            this.f52058f.f17612c.start();
             k.this.r = false;
-            k.this.F0(this.f52057f);
+            k.this.F0(this.f52058f);
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TopicMediaHolder topicMediaHolder;
             View view2;
-            if (this.f52056e == null || (topicMediaHolder = this.f52057f) == null || (view2 = topicMediaHolder.i) == null || topicMediaHolder.f17611c == null) {
+            if (this.f52057e == null || (topicMediaHolder = this.f52058f) == null || (view2 = topicMediaHolder.i) == null || topicMediaHolder.f17612c == null) {
                 return;
             }
             if (view2.getVisibility() == 0) {
-                this.f52057f.f17611c.stopPlayback();
+                this.f52058f.f17612c.stopPlayback();
                 k.this.r = true;
-                k.this.y0(this.f52057f);
+                k.this.y0(this.f52058f);
             } else if (d.b.b.e.p.j.x()) {
                 d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(k.this.n.getPageContext().getPageActivity());
                 aVar.setMessage(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
@@ -446,15 +446,13 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
     /* renamed from: A0 */
     public TopicMediaHolder R(ViewGroup viewGroup) {
         if (this.o == null) {
-            this.o = LayoutInflater.from(this.f42357e).inflate(R.layout.topic_vedio_item, viewGroup, false);
+            this.o = LayoutInflater.from(this.f42358e).inflate(R.layout.topic_vedio_item, viewGroup, false);
             this.p = new TopicMediaHolder(this.o);
             View findViewById = this.o.findViewById(R.id.topic_layout_video_view);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
-            int k = d.b.b.e.p.l.k(this.f42357e);
+            int k = d.b.b.e.p.l.k(this.f42358e);
             if (layoutParams != null) {
-                double d2 = k;
-                Double.isNaN(d2);
-                layoutParams.height = (int) (d2 / 1.8d);
+                layoutParams.height = (int) (k / 1.8d);
                 findViewById.setLayoutParams(layoutParams);
             }
         } else {
@@ -470,75 +468,75 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         if (oVar != null && topicMediaHolder != null) {
             if (!this.q) {
                 this.q = true;
-                if (!StringUtils.isNull(oVar.f52143h) && oVar.i > 0) {
+                if (!StringUtils.isNull(oVar.f52144h) && oVar.i > 0) {
                     this.t = false;
                     topicMediaHolder.j.setVisibility(0);
                     if (this.s) {
-                        topicMediaHolder.f17612d.setVisibility(8);
-                        topicMediaHolder.f17613e.setVisibility(0);
+                        topicMediaHolder.f17613d.setVisibility(8);
+                        topicMediaHolder.f17614e.setVisibility(0);
                     } else {
-                        topicMediaHolder.f17612d.setVisibility(0);
-                        topicMediaHolder.f17613e.setVisibility(8);
+                        topicMediaHolder.f17613d.setVisibility(0);
+                        topicMediaHolder.f17614e.setVisibility(8);
                     }
                 } else {
                     this.t = true;
-                    topicMediaHolder.f17612d.setVisibility(8);
-                    topicMediaHolder.f17613e.setVisibility(8);
+                    topicMediaHolder.f17613d.setVisibility(8);
+                    topicMediaHolder.f17614e.setVisibility(8);
                     topicMediaHolder.j.setVisibility(8);
                 }
-                if (!StringUtils.isNull(oVar.f52143h) && oVar.i > 0) {
-                    topicMediaHolder.f17610b.setForegroundDrawable(R.drawable.icon_play_video);
-                    topicMediaHolder.f17610b.setOnClickListener(new p(oVar, topicMediaHolder));
+                if (!StringUtils.isNull(oVar.f52144h) && oVar.i > 0) {
+                    topicMediaHolder.f17611b.setForegroundDrawable(R.drawable.icon_play_video);
+                    topicMediaHolder.f17611b.setOnClickListener(new p(oVar, topicMediaHolder));
                 } else {
-                    topicMediaHolder.f17610b.setForegroundDrawable(0);
-                    topicMediaHolder.f17610b.setOnClickListener(null);
+                    topicMediaHolder.f17611b.setForegroundDrawable(0);
+                    topicMediaHolder.f17611b.setOnClickListener(null);
                 }
-                topicMediaHolder.f17610b.setTag(Integer.valueOf(i2));
-                topicMediaHolder.f17610b.setDefaultResource(0);
+                topicMediaHolder.f17611b.setTag(Integer.valueOf(i2));
+                topicMediaHolder.f17611b.setDefaultResource(0);
                 if (!d.b.h0.r.k.c().g()) {
-                    topicMediaHolder.f17610b.setNoImageBottomTextColor(R.color.CAM_X0108);
-                    topicMediaHolder.f17610b.setNoImageBottomTextPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32));
-                    topicMediaHolder.f17610b.setNoImageBottomTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.fontsize28));
-                    topicMediaHolder.f17610b.setSupportNoImage(true);
-                    topicMediaHolder.f17610b.setNoImageBottomText(TbadkCoreApplication.getInst().getString(R.string.click_to_play));
+                    topicMediaHolder.f17611b.setNoImageBottomTextColor(R.color.CAM_X0108);
+                    topicMediaHolder.f17611b.setNoImageBottomTextPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32));
+                    topicMediaHolder.f17611b.setNoImageBottomTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.fontsize28));
+                    topicMediaHolder.f17611b.setSupportNoImage(true);
+                    topicMediaHolder.f17611b.setNoImageBottomText(TbadkCoreApplication.getInst().getString(R.string.click_to_play));
                 } else {
-                    topicMediaHolder.f17610b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                    if (!topicMediaHolder.f17611c.isPlaying()) {
+                    topicMediaHolder.f17611b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                    if (!topicMediaHolder.f17612c.isPlaying()) {
                         z0(oVar, topicMediaHolder);
                     }
                 }
-                topicMediaHolder.f17615g.setOnClickListener(new g(topicMediaHolder, oVar));
-                topicMediaHolder.f17611c.setOnPreparedListener(new h(topicMediaHolder, oVar));
-                topicMediaHolder.f17611c.setOnCompletionListener(new i(topicMediaHolder, oVar));
-                topicMediaHolder.f17611c.setOnErrorListener(this.w);
-                topicMediaHolder.f17611c.setOnSurfaceDestroyedListener(this.u);
+                topicMediaHolder.f17616g.setOnClickListener(new g(topicMediaHolder, oVar));
+                topicMediaHolder.f17612c.setOnPreparedListener(new h(topicMediaHolder, oVar));
+                topicMediaHolder.f17612c.setOnCompletionListener(new i(topicMediaHolder, oVar));
+                topicMediaHolder.f17612c.setOnErrorListener(this.w);
+                topicMediaHolder.f17612c.setOnSurfaceDestroyedListener(this.u);
                 topicMediaHolder.j.setOnClickListener(new j(topicMediaHolder, oVar));
                 if (this.s) {
-                    topicMediaHolder.f17613e.setPlayer(topicMediaHolder.f17611c);
+                    topicMediaHolder.f17614e.setPlayer(topicMediaHolder.f17612c);
                 } else {
-                    topicMediaHolder.f17612d.setPlayer(topicMediaHolder.f17611c);
+                    topicMediaHolder.f17613d.setPlayer(topicMediaHolder.f17612c);
                 }
-                if (StringUtils.isNull(oVar.f52141f)) {
+                if (StringUtils.isNull(oVar.f52142f)) {
                     topicMediaHolder.k.setVisibility(8);
                     topicMediaHolder.l.setVisibility(8);
                 } else {
                     topicMediaHolder.k.setVisibility(0);
                     topicMediaHolder.l.setVisibility(0);
-                    topicMediaHolder.k.setText(oVar.f52141f);
-                    topicMediaHolder.k.setOnClickListener(new View$OnClickListenerC1126k(oVar));
+                    topicMediaHolder.k.setText(oVar.f52142f);
+                    topicMediaHolder.k.setOnClickListener(new View$OnClickListenerC1127k(oVar));
                 }
             }
-            if (topicMediaHolder.f17609a != this.m) {
+            if (topicMediaHolder.f17610a != this.m) {
                 SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
-                topicMediaHolder.f17612d.m(this.m);
-                SkinManager.setImageResource(topicMediaHolder.f17616h, R.drawable.icon_play_video);
-                SkinManager.setViewTextColor(topicMediaHolder.f17615g, R.color.CAM_X0101, 1);
-                topicMediaHolder.f17613e.h(this.m);
-                topicMediaHolder.f17615g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, R.drawable.topic_replay_selector), (Drawable) null, (Drawable) null);
+                topicMediaHolder.f17613d.m(this.m);
+                SkinManager.setImageResource(topicMediaHolder.f17617h, R.drawable.icon_play_video);
+                SkinManager.setViewTextColor(topicMediaHolder.f17616g, R.color.CAM_X0101, 1);
+                topicMediaHolder.f17614e.h(this.m);
+                topicMediaHolder.f17616g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, R.drawable.topic_replay_selector), (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(topicMediaHolder.k, R.color.CAM_X0105, 1);
                 SkinManager.setBackgroundColor(topicMediaHolder.l, R.color.CAM_X0204);
             }
-            topicMediaHolder.f17609a = this.m;
+            topicMediaHolder.f17610a = this.m;
         }
         return this.o;
     }
@@ -550,11 +548,11 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
     public final void D0() {
         ForeDrawableImageView foreDrawableImageView;
         TopicMediaHolder topicMediaHolder = this.p;
-        if (topicMediaHolder == null || (foreDrawableImageView = topicMediaHolder.f17610b) == null || topicMediaHolder.f17614f == null) {
+        if (topicMediaHolder == null || (foreDrawableImageView = topicMediaHolder.f17611b) == null || topicMediaHolder.f17615f == null) {
             return;
         }
         foreDrawableImageView.setVisibility(0);
-        this.p.f17614f.setVisibility(8);
+        this.p.f17615f.setVisibility(8);
         this.r = true;
         y0(this.p);
         E0(this.p);
@@ -562,17 +560,17 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
 
     public final void E0(TopicMediaHolder topicMediaHolder) {
         TopicVideoControllerView topicVideoControllerView;
-        if (topicMediaHolder == null || (topicVideoControllerView = topicMediaHolder.f17612d) == null || topicMediaHolder.f17613e == null) {
+        if (topicMediaHolder == null || (topicVideoControllerView = topicMediaHolder.f17613d) == null || topicMediaHolder.f17614e == null) {
             return;
         }
         topicVideoControllerView.o();
-        topicMediaHolder.f17613e.i();
+        topicMediaHolder.f17614e.i();
     }
 
     public final void F0(TopicMediaHolder topicMediaHolder) {
         if (topicMediaHolder != null) {
             topicMediaHolder.i.setVisibility(0);
-            topicMediaHolder.f17610b.setForegroundDrawable(0);
+            topicMediaHolder.f17611b.setForegroundDrawable(0);
         }
     }
 
@@ -581,9 +579,9 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
             return;
         }
         if (this.s) {
-            topicMediaHolder.f17613e.k();
+            topicMediaHolder.f17614e.k();
         } else {
-            topicMediaHolder.f17612d.q();
+            topicMediaHolder.f17613d.q();
         }
     }
 
@@ -600,23 +598,23 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
     }
 
     public final void w0(TopicMediaHolder topicMediaHolder, d.b.i0.b1.c.o oVar) {
-        topicMediaHolder.f17611c.start();
-        topicMediaHolder.f17616h.setVisibility(8);
-        topicMediaHolder.f17614f.setVisibility(8);
+        topicMediaHolder.f17612c.start();
+        topicMediaHolder.f17617h.setVisibility(8);
+        topicMediaHolder.f17615f.setVisibility(8);
         G0(oVar, topicMediaHolder);
     }
 
     public final void x0() {
         TbCyberVideoView tbCyberVideoView;
         TopicMediaHolder topicMediaHolder = this.p;
-        if (topicMediaHolder == null || (tbCyberVideoView = topicMediaHolder.f17611c) == null || topicMediaHolder.f17616h == null || topicMediaHolder.i == null) {
+        if (topicMediaHolder == null || (tbCyberVideoView = topicMediaHolder.f17612c) == null || topicMediaHolder.f17617h == null || topicMediaHolder.i == null) {
             return;
         }
         if (tbCyberVideoView.isPlaying()) {
-            this.p.f17611c.pause();
-            this.p.f17616h.setVisibility(0);
+            this.p.f17612c.pause();
+            this.p.f17617h.setVisibility(0);
         } else if (this.p.i.getVisibility() == 0) {
-            this.p.f17611c.stopPlayback();
+            this.p.f17612c.stopPlayback();
             this.r = true;
             y0(this.p);
         }
@@ -626,28 +624,28 @@ public class k extends d.b.b.j.e.a<d.b.i0.b1.c.o, TopicMediaHolder> {
         if (topicMediaHolder != null) {
             topicMediaHolder.i.setVisibility(8);
             if (this.t) {
-                topicMediaHolder.f17610b.setForegroundDrawable(0);
+                topicMediaHolder.f17611b.setForegroundDrawable(0);
             } else {
-                topicMediaHolder.f17610b.setForegroundDrawable(R.drawable.icon_play_video);
+                topicMediaHolder.f17611b.setForegroundDrawable(R.drawable.icon_play_video);
             }
         }
     }
 
     public final void z0(d.b.i0.b1.c.o oVar, TopicMediaHolder topicMediaHolder) {
         if (oVar != null) {
-            if (!StringUtils.isNull(oVar.f52143h) && oVar.i > 0) {
-                topicMediaHolder.f17610b.W(oVar.j, 17, false);
+            if (!StringUtils.isNull(oVar.f52144h) && oVar.i > 0) {
+                topicMediaHolder.f17611b.W(oVar.j, 17, false);
             } else {
-                topicMediaHolder.f17610b.W(oVar.f52142g, 17, false);
+                topicMediaHolder.f17611b.W(oVar.f52143g, 17, false);
             }
-            topicMediaHolder.f17610b.setNoImageBottomText("");
+            topicMediaHolder.f17611b.setNoImageBottomText("");
             if (!StringUtils.isNull(oVar.j)) {
-                topicMediaHolder.f17610b.setEvent(new a(this));
+                topicMediaHolder.f17611b.setEvent(new a(this));
             }
             if (this.s) {
-                topicMediaHolder.f17613e.g();
+                topicMediaHolder.f17614e.g();
             } else {
-                topicMediaHolder.f17612d.l(0, oVar.i * 1000);
+                topicMediaHolder.f17613d.l(0, oVar.i * 1000);
             }
         }
     }

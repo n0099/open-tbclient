@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import android.util.Base64;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMJni {
     public static String TAG = "IMJni";
 

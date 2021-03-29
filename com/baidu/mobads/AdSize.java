@@ -16,13 +16,13 @@ public enum AdSize {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8100a;
+    public int f8101a;
 
     AdSize(int i) {
-        this.f8100a = i;
+        this.f8101a = i;
     }
 
     public int getValue() {
-        return this.f8100a;
+        return this.f8101a;
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class NetworkMonitor {
     public static final String TAG = "NetworkMonitor";
     @Nullable

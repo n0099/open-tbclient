@@ -11,33 +11,33 @@ public abstract class d implements Closeable {
     public static class a extends d {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ x f65471e;
+        public final /* synthetic */ x f65472e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f65472f;
+        public final /* synthetic */ long f65473f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.c.c.a.a.e f65473g;
+        public final /* synthetic */ d.c.c.a.a.e f65474g;
 
         public a(x xVar, long j, d.c.c.a.a.e eVar) {
-            this.f65471e = xVar;
-            this.f65472f = j;
-            this.f65473g = eVar;
+            this.f65472e = xVar;
+            this.f65473f = j;
+            this.f65474g = eVar;
         }
 
         @Override // d.c.c.a.b.d
         public x n() {
-            return this.f65471e;
+            return this.f65472e;
         }
 
         @Override // d.c.c.a.b.d
         public long o() {
-            return this.f65472f;
+            return this.f65473f;
         }
 
         @Override // d.c.c.a.b.d
         public d.c.c.a.a.e r() {
-            return this.f65473g;
+            return this.f65474g;
         }
     }
 

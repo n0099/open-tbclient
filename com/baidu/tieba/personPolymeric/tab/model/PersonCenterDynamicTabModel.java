@@ -19,20 +19,20 @@ import tbclient.User;
 public class PersonCenterDynamicTabModel extends BdBaseModel {
 
     /* renamed from: g  reason: collision with root package name */
-    public b f20455g;
+    public b f20456g;
     public long i;
     public User j;
     public MetaData k;
     public final d.b.b.c.g.a m;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f20453e = 0;
+    public long f20454e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20454f = false;
+    public boolean f20455f = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<a2> f20456h = new ArrayList();
+    public final List<a2> f20457h = new ArrayList();
     public BdUniqueId l = BdUniqueId.gen();
 
     /* loaded from: classes5.dex */
@@ -64,21 +64,21 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 z = false;
             }
             if (responsedMessage.getError() != 0) {
-                if (PersonCenterDynamicTabModel.this.f20455g != null) {
-                    PersonCenterDynamicTabModel.this.f20455g.b(PersonCenterDynamicTabModel.this.f20453e == 0);
+                if (PersonCenterDynamicTabModel.this.f20456g != null) {
+                    PersonCenterDynamicTabModel.this.f20456g.b(PersonCenterDynamicTabModel.this.f20454e == 0);
                     return;
                 }
                 return;
             }
             if (!ListUtils.isEmpty(list)) {
                 PersonCenterDynamicTabModel.this.D(list);
-                PersonCenterDynamicTabModel.this.f20456h.addAll(list);
+                PersonCenterDynamicTabModel.this.f20457h.addAll(list);
             }
-            PersonCenterDynamicTabModel.this.f20454f = z;
-            if (PersonCenterDynamicTabModel.this.f20455g != null) {
-                PersonCenterDynamicTabModel.this.f20455g.a(PersonCenterDynamicTabModel.this.f20456h, PersonCenterDynamicTabModel.this.f20454f, PersonCenterDynamicTabModel.this.f20453e == 0);
+            PersonCenterDynamicTabModel.this.f20455f = z;
+            if (PersonCenterDynamicTabModel.this.f20456g != null) {
+                PersonCenterDynamicTabModel.this.f20456g.a(PersonCenterDynamicTabModel.this.f20457h, PersonCenterDynamicTabModel.this.f20455f, PersonCenterDynamicTabModel.this.f20454e == 0);
             }
-            PersonCenterDynamicTabModel.this.f20453e = j;
+            PersonCenterDynamicTabModel.this.f20454e = j;
         }
     }
 
@@ -98,7 +98,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public boolean A() {
-        return this.f20454f;
+        return this.f20455f;
     }
 
     public final void B(long j) {
@@ -108,7 +108,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void C() {
-        B(this.f20453e);
+        B(this.f20454e);
     }
 
     public final void D(List<a2> list) {
@@ -129,9 +129,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void E() {
-        this.f20453e = 0L;
-        this.f20456h.clear();
-        B(this.f20453e);
+        this.f20454e = 0L;
+        this.f20457h.clear();
+        B(this.f20454e);
     }
 
     public void F(MetaData metaData) {
@@ -139,7 +139,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void G(b bVar) {
-        this.f20455g = bVar;
+        this.f20456g = bVar;
     }
 
     public void H(User user) {
@@ -158,9 +158,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f20453e = 0L;
-        this.f20454f = false;
-        this.f20456h.clear();
+        this.f20454e = 0L;
+        this.f20455f = false;
+        this.f20457h.clear();
         if (this.m != null) {
             MessageManager.getInstance().unRegisterListener(this.m);
         }

@@ -10,22 +10,22 @@ import d.o.a.e.b.g.e;
 public class DownloadHandleService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38916a = DownloadHandleService.class.getSimpleName();
+    public static final String f38917a = DownloadHandleService.class.getSimpleName();
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38917e;
+        public final /* synthetic */ int f38918e;
 
         public a(int i) {
-            this.f38917e = i;
+            this.f38918e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.c().J(this.f38917e);
+                e.c().J(this.f38918e);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

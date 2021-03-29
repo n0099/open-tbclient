@@ -15,72 +15,72 @@ import java.util.concurrent.TimeoutException;
 public final class d {
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f26887f;
+    public static d f26888f;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f26889a;
+    public a f26890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f26890b;
+    public b f26891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebViewFactory.WebKitUnzipCallback f26891c;
+    public WebViewFactory.WebKitUnzipCallback f26892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f26892d;
+    public Handler f26893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f26886e = new Object();
+    public static final Object f26887e = new Object();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object f26888g = new Object();
+    public static final Object f26889g = new Object();
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26893a;
+        public String f26894a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f26894b;
+        public Context f26895b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26895c;
+        public String f26896c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26896d;
+        public String f26897d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f26897e;
+        public boolean f26898e;
 
         public final synchronized void a(boolean z) {
             StringBuilder sb;
             String sb2;
-            if (z != this.f26897e) {
-                this.f26897e = z;
+            if (z != this.f26898e) {
+                this.f26898e = z;
             }
-            if (this.f26897e) {
-                if (this.f26894b.getFilesDir() == null) {
+            if (this.f26898e) {
+                if (this.f26895b.getFilesDir() == null) {
                     sb2 = null;
                 } else {
-                    if (this.f26894b.getApplicationInfo().nativeLibraryDir != null) {
+                    if (this.f26895b.getApplicationInfo().nativeLibraryDir != null) {
                         sb = new StringBuilder();
-                        sb.append(this.f26894b.getApplicationInfo().nativeLibraryDir);
+                        sb.append(this.f26895b.getApplicationInfo().nativeLibraryDir);
                         sb.append("/libzeuswebviewchromium.so");
                     } else {
                         sb = new StringBuilder();
-                        sb.append(this.f26894b.getFilesDir().getParent());
+                        sb.append(this.f26895b.getFilesDir().getParent());
                         sb.append("/lib/libzeuswebviewchromium.so");
                     }
                     sb2 = sb.toString();
                 }
-                this.f26895c = sb2;
-                this.f26896d = this.f26893a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
+                this.f26896c = sb2;
+                this.f26897d = this.f26894a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
             }
         }
 
         public final synchronized boolean a() {
-            return this.f26897e;
+            return this.f26898e;
         }
     }
 
@@ -88,22 +88,22 @@ public final class d {
     public class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f26898a;
+        public boolean f26899a;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f26900c;
+        public Context f26901c;
 
         public b(Context context) {
-            this.f26900c = context;
+            this.f26901c = context;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
-            this.f26898a = true;
-            synchronized (d.f26888g) {
-                if (d.this.f26891c != null) {
-                    d.this.f26891c.unzipFinished();
-                    d.this.f26891c = null;
+            this.f26899a = true;
+            synchronized (d.f26889g) {
+                if (d.this.f26892c != null) {
+                    d.this.f26892c.unzipFinished();
+                    d.this.f26892c = null;
                 }
             }
         }
@@ -112,12 +112,12 @@ public final class d {
         public final void run() {
             try {
                 boolean z = true;
-                if (this.f26900c != null && SevenZipUtils.getInstance().prepare(this.f26900c, d.this.f26889a.f26895c, d.this.f26889a.f26896d)) {
+                if (this.f26901c != null && SevenZipUtils.getInstance().prepare(this.f26901c, d.this.f26890a.f26896c, d.this.f26890a.f26897d)) {
                     ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
                     SevenZipUtils.getInstance().hook(true);
-                    SevenZipUtils.getInstance().unzipWithMeta(d.this.f26889a.f26895c, d.this.f26889a.f26896d);
+                    SevenZipUtils.getInstance().unzipWithMeta(d.this.f26890a.f26896c, d.this.f26890a.f26897d);
                     Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
-                    this.f26898a = true;
+                    this.f26899a = true;
                     int errorCode = SevenZipUtils.getInstance().getErrorCode();
                     if (errorCode != 0) {
                         LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
@@ -131,7 +131,7 @@ public final class d {
                 }
                 LoadErrorCode loadErrorCode2 = LoadErrorCode.getInstance();
                 StringBuilder sb = new StringBuilder("502:");
-                if (this.f26900c != null) {
+                if (this.f26901c != null) {
                     z = false;
                 }
                 sb.append(z);
@@ -146,11 +146,11 @@ public final class d {
 
     public d(Context context) {
         a aVar = new a();
-        this.f26889a = aVar;
+        this.f26890a = aVar;
         try {
             Context applicationContext = context.getApplicationContext();
-            aVar.f26894b = applicationContext;
-            aVar.f26893a = applicationContext.getFilesDir().toString();
+            aVar.f26895b = applicationContext;
+            aVar.f26894a = applicationContext.getFilesDir().toString();
         } catch (Exception unused) {
         }
     }
@@ -158,39 +158,39 @@ public final class d {
     public static synchronized d a(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (f26887f == null) {
-                f26887f = new d(context);
+            if (f26888f == null) {
+                f26888f = new d(context);
             }
-            dVar = f26887f;
+            dVar = f26888f;
         }
         return dVar;
     }
 
     private void d() {
-        if (this.f26890b.isAlive() || this.f26890b.getState() == Thread.State.TERMINATED) {
+        if (this.f26891b.isAlive() || this.f26891b.getState() == Thread.State.TERMINATED) {
             return;
         }
         Log.i("BlinkUnzipManager", "[perf][startup][unzip] start task");
-        this.f26890b.start();
+        this.f26891b.start();
     }
 
     public final void a() {
-        synchronized (f26886e) {
-            if (this.f26890b != null && this.f26889a != null) {
+        synchronized (f26887e) {
+            if (this.f26891b != null && this.f26890a != null) {
                 d();
             }
         }
     }
 
     public final void b() throws Exception {
-        synchronized (f26886e) {
+        synchronized (f26887e) {
             try {
                 try {
-                    if (this.f26889a.a() && this.f26890b != null) {
+                    if (this.f26890a.a() && this.f26891b != null) {
                         d();
-                        this.f26890b.join(15000L);
-                        if (this.f26890b.f26898a) {
-                            this.f26890b = null;
+                        this.f26891b.join(15000L);
+                        if (this.f26891b.f26899a) {
+                            this.f26891b = null;
                         } else {
                             LoadErrorCode.getInstance().set(102);
                             throw new TimeoutException("unzip task not finished.");

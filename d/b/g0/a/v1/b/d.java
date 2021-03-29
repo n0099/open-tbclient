@@ -9,7 +9,7 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a0 {
     public d(j jVar) {
         super(jVar, "/swanAPI/getSetting");

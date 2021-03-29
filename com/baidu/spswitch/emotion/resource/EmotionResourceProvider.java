@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmotionResourceProvider implements IResourceProvider {
     public static final boolean DEBUG = SPConfig.isDebug();
     public static final String EMOTION_CONFIG_NAME = "emotion_info.json";
@@ -26,7 +26,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     public File mEmotionSoundFile;
     public File mResourcePath;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static final String DEFAULT_UNZIP_DIR_NAME = "emotion_unzip";
         public Context mContext;
@@ -119,7 +119,7 @@ public class EmotionResourceProvider implements IResourceProvider {
         this.mEmotionConfigInfo = "";
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0038 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0039 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0 */
     /* JADX WARN: Type inference failed for: r1v10 */
@@ -143,50 +143,50 @@ public class EmotionResourceProvider implements IResourceProvider {
                     th = th;
                     r1 = file;
                 }
+            } catch (IOException e3) {
+                fileInputStream = null;
+                e2 = e3;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, "utf-8"));
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, "utf-8"));
-                    try {
-                        for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                            sb.append(readLine);
-                        }
-                        bufferedReader.close();
-                        fileInputStream.close();
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        e2.printStackTrace();
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        this.mEmotionConfigInfo = sb.toString();
+                    for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                        sb.append(readLine);
                     }
+                    bufferedReader.close();
+                    fileInputStream.close();
                 } catch (IOException e4) {
                     e2 = e4;
-                    bufferedReader = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (r1 != 0) {
-                        try {
-                            r1.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                            throw th;
-                        }
+                    e2.printStackTrace();
+                    if (bufferedReader != null) {
+                        bufferedReader.close();
                     }
                     if (fileInputStream != null) {
                         fileInputStream.close();
                     }
-                    throw th;
+                    this.mEmotionConfigInfo = sb.toString();
                 }
-            } catch (IOException e6) {
-                fileInputStream = null;
-                e2 = e6;
+            } catch (IOException e5) {
+                e2 = e5;
                 bufferedReader = null;
             } catch (Throwable th3) {
                 th = th3;
-                fileInputStream = null;
+                if (r1 != 0) {
+                    try {
+                        r1.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                        throw th;
+                    }
+                }
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+                throw th;
             }
         } catch (IOException e7) {
             e7.printStackTrace();

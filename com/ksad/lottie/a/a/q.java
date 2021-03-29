@@ -9,34 +9,34 @@ import com.ksad.lottie.model.content.ShapeStroke;
 public class q extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.model.layer.a f31277b;
+    public final com.ksad.lottie.model.layer.a f31278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31278c;
+    public final String f31279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<Integer, Integer> f31279d;
+    public final com.ksad.lottie.a.b.a<Integer, Integer> f31280d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> f31280e;
+    public com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> f31281e;
 
     public q(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
         super(fVar, aVar, shapeStroke.g().toPaintCap(), shapeStroke.h().toPaintJoin(), shapeStroke.i(), shapeStroke.c(), shapeStroke.d(), shapeStroke.e(), shapeStroke.f());
-        this.f31277b = aVar;
-        this.f31278c = shapeStroke.a();
+        this.f31278b = aVar;
+        this.f31279c = shapeStroke.a();
         com.ksad.lottie.a.b.a<Integer, Integer> a2 = shapeStroke.b().a();
-        this.f31279d = a2;
+        this.f31280d = a2;
         a2.a(this);
-        aVar.a(this.f31279d);
+        aVar.a(this.f31280d);
     }
 
     @Override // com.ksad.lottie.a.a.a, com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.f31190a.setColor(this.f31279d.e().intValue());
-        com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> aVar = this.f31280e;
+        this.f31191a.setColor(this.f31280d.e().intValue());
+        com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> aVar = this.f31281e;
         if (aVar != null) {
-            this.f31190a.setColorFilter(aVar.e());
+            this.f31191a.setColorFilter(aVar.e());
         }
         super.a(canvas, matrix, i);
     }

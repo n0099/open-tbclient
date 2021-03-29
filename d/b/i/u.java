@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class u extends c implements q, p<a2> {
     public final RelativeLayout i;
     public final LinearLayout j;
@@ -34,7 +34,7 @@ public class u extends c implements q, p<a2> {
     public boolean r = true;
     public CustomMessageListener s = new a(2921402);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -50,7 +50,7 @@ public class u extends c implements q, p<a2> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -134,12 +134,12 @@ public class u extends c implements q, p<a2> {
         this.p = a2Var;
         this.r = a2Var.getType() != a2.x3 && (a2Var == null || a2Var.T() == null || !a2Var.T().isForumBusinessAccount() || a2Var.s());
         if (!d.b.i0.p0.b.e().g() && !d.b.i0.p0.a.h().j()) {
-            this.f51770h.o(new a.C1117a(4, Boolean.TRUE));
+            this.f51771h.o(new a.C1118a(4, Boolean.TRUE));
             this.k.setVisibility(8);
             return;
         }
         this.k.setVisibility(0);
-        this.f51770h.o(new a.C1117a(4, Boolean.FALSE));
+        this.f51771h.o(new a.C1118a(4, Boolean.FALSE));
         r();
     }
 
@@ -183,7 +183,7 @@ public class u extends c implements q, p<a2> {
     public void t(int i, l0 l0Var) {
         this.j.setWeightSum(i);
         if (this.j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f51800f, l0Var.f51798d, l0Var.f51801g, l0Var.f51799e);
+            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f51801f, l0Var.f51799d, l0Var.f51802g, l0Var.f51800e);
         }
     }
 }

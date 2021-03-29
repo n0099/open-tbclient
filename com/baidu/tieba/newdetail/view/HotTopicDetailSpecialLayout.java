@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import d.b.i0.w1.d.a;
 import d.b.i0.w1.d.b;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     public int A;
 

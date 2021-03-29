@@ -9,26 +9,26 @@ import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f implements Serializable, Comparable<f> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f27160a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f27161a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f27161b = a(new byte[0]);
+    public static final f f27162b = a(new byte[0]);
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f27162c;
+    public final byte[] f27163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f27163d;
+    public transient int f27164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient String f27164e;
+    public transient String f27165e;
 
     public f(byte[] bArr) {
-        this.f27162c = bArr;
+        this.f27163c = bArr;
     }
 
     public static f a(byte... bArr) {
@@ -39,7 +39,7 @@ public class f implements Serializable, Comparable<f> {
     }
 
     public String b() {
-        return b.a(this.f27162c);
+        return b.a(this.f27163c);
     }
 
     public f c() {
@@ -51,12 +51,12 @@ public class f implements Serializable, Comparable<f> {
     }
 
     public String e() {
-        byte[] bArr = this.f27162c;
+        byte[] bArr = this.f27163c;
         char[] cArr = new char[bArr.length * 2];
         int i = 0;
         for (byte b2 : bArr) {
             int i2 = i + 1;
-            char[] cArr2 = f27160a;
+            char[] cArr2 = f27161a;
             cArr[i] = cArr2[(b2 >> 4) & 15];
             i = i2 + 1;
             cArr[i2] = cArr2[b2 & 15];
@@ -71,7 +71,7 @@ public class f implements Serializable, Comparable<f> {
         if (obj instanceof f) {
             f fVar = (f) obj;
             int g2 = fVar.g();
-            byte[] bArr = this.f27162c;
+            byte[] bArr = this.f27163c;
             if (g2 == bArr.length && fVar.a(0, bArr, 0, bArr.length)) {
                 return true;
             }
@@ -82,7 +82,7 @@ public class f implements Serializable, Comparable<f> {
     public f f() {
         int i = 0;
         while (true) {
-            byte[] bArr = this.f27162c;
+            byte[] bArr = this.f27163c;
             if (i >= bArr.length) {
                 return this;
             }
@@ -103,41 +103,41 @@ public class f implements Serializable, Comparable<f> {
     }
 
     public int g() {
-        return this.f27162c.length;
+        return this.f27163c.length;
     }
 
     public byte[] h() {
-        return (byte[]) this.f27162c.clone();
+        return (byte[]) this.f27163c.clone();
     }
 
     public int hashCode() {
-        int i = this.f27163d;
+        int i = this.f27164d;
         if (i != 0) {
             return i;
         }
-        int hashCode = Arrays.hashCode(this.f27162c);
-        this.f27163d = hashCode;
+        int hashCode = Arrays.hashCode(this.f27163c);
+        this.f27164d = hashCode;
         return hashCode;
     }
 
     public String toString() {
         StringBuilder sb;
-        if (this.f27162c.length == 0) {
+        if (this.f27163c.length == 0) {
             return "[size=0]";
         }
         String a2 = a();
         int a3 = a(a2, 64);
         if (a3 == -1) {
-            if (this.f27162c.length <= 64) {
+            if (this.f27163c.length <= 64) {
                 return "[hex=" + e() + "]";
             }
-            return "[size=" + this.f27162c.length + " hex=" + a(0, 64).e() + "…]";
+            return "[size=" + this.f27163c.length + " hex=" + a(0, 64).e() + "…]";
         }
         String replace = a2.substring(0, a3).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
         if (a3 < a2.length()) {
             sb = new StringBuilder();
             sb.append("[size=");
-            sb.append(this.f27162c.length);
+            sb.append(this.f27163c.length);
             sb.append(" text=");
             sb.append(replace);
             sb.append("…]");
@@ -168,7 +168,7 @@ public class f implements Serializable, Comparable<f> {
 
     private f c(String str) {
         try {
-            return a(MessageDigest.getInstance(str).digest(this.f27162c));
+            return a(MessageDigest.getInstance(str).digest(this.f27163c));
         } catch (NoSuchAlgorithmException e2) {
             throw new AssertionError(e2);
         }
@@ -176,20 +176,20 @@ public class f implements Serializable, Comparable<f> {
 
     public static f a(String str) {
         if (str != null) {
-            f fVar = new f(str.getBytes(s.f65167a));
-            fVar.f27164e = str;
+            f fVar = new f(str.getBytes(s.f65168a));
+            fVar.f27165e = str;
             return fVar;
         }
         throw new IllegalArgumentException("s == null");
     }
 
     public String a() {
-        String str = this.f27164e;
+        String str = this.f27165e;
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.f27162c, s.f65167a);
-        this.f27164e = str2;
+        String str2 = new String(this.f27163c, s.f65168a);
+        this.f27165e = str2;
         return str2;
     }
 
@@ -209,9 +209,9 @@ public class f implements Serializable, Comparable<f> {
 
     public f a(int i, int i2) {
         if (i >= 0) {
-            byte[] bArr = this.f27162c;
+            byte[] bArr = this.f27163c;
             if (i2 > bArr.length) {
-                throw new IllegalArgumentException("endIndex > length(" + this.f27162c.length + SmallTailInfo.EMOTION_SUFFIX);
+                throw new IllegalArgumentException("endIndex > length(" + this.f27163c.length + SmallTailInfo.EMOTION_SUFFIX);
             }
             int i3 = i2 - i;
             if (i3 >= 0) {
@@ -219,7 +219,7 @@ public class f implements Serializable, Comparable<f> {
                     return this;
                 }
                 byte[] bArr2 = new byte[i3];
-                System.arraycopy(this.f27162c, i, bArr2, 0, i3);
+                System.arraycopy(this.f27163c, i, bArr2, 0, i3);
                 return new f(bArr2);
             }
             throw new IllegalArgumentException("endIndex < beginIndex");
@@ -248,21 +248,21 @@ public class f implements Serializable, Comparable<f> {
     }
 
     public byte a(int i) {
-        return this.f27162c[i];
+        return this.f27163c[i];
     }
 
     public void a(c cVar) {
-        byte[] bArr = this.f27162c;
+        byte[] bArr = this.f27163c;
         cVar.y(bArr, 0, bArr.length);
     }
 
     public boolean a(int i, f fVar, int i2, int i3) {
-        return fVar.a(i2, this.f27162c, i, i3);
+        return fVar.a(i2, this.f27163c, i, i3);
     }
 
     public boolean a(int i, byte[] bArr, int i2, int i3) {
         if (i >= 0) {
-            byte[] bArr2 = this.f27162c;
+            byte[] bArr2 = this.f27163c;
             if (i <= bArr2.length - i3 && i2 >= 0 && i2 <= bArr.length - i3 && s.e(bArr2, i, bArr, i2, i3)) {
                 return true;
             }

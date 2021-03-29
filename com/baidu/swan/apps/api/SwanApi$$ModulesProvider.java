@@ -15,39 +15,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanApi$$ModulesProvider {
     public static Map<String, Object> getV8ApiModules(final b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("_naAccount", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$AccountV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11925e;
-
-                public a(SwanApi$$AccountV8Module swanApi$$AccountV8Module, Throwable th) {
-                    this.f11925e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11925e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11926e;
 
-                public b(SwanApi$$AccountV8Module swanApi$$AccountV8Module, Throwable th) {
+                public a(SwanApi$$AccountV8Module swanApi$$AccountV8Module, Throwable th) {
                     this.f11926e = th;
                 }
 
@@ -57,19 +41,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11927e;
 
-                public c(SwanApi$$AccountV8Module swanApi$$AccountV8Module, Throwable th) {
+                public b(SwanApi$$AccountV8Module swanApi$$AccountV8Module, Throwable th) {
                     this.f11927e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11927e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11928e;
+
+                public c(SwanApi$$AccountV8Module swanApi$$AccountV8Module, Throwable th) {
+                    this.f11928e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11928e;
                 }
             }
 
@@ -180,24 +180,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naBasic", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$BasicV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11931e;
+                public final /* synthetic */ Throwable f11932e;
 
                 public a(SwanApi$$BasicV8Module swanApi$$BasicV8Module, Throwable th) {
-                    this.f11931e = th;
+                    this.f11932e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11931e;
+                    throw this.f11932e;
                 }
             }
 
@@ -240,34 +240,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naBookshelf", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$BookshelfV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11933e;
-
-                public a(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
-                    this.f11933e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11933e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11934e;
 
-                public b(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
+                public a(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
                     this.f11934e = th;
                 }
 
@@ -277,13 +261,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11935e;
 
-                public c(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
+                public b(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
                     this.f11935e = th;
                 }
 
@@ -293,19 +277,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11936e;
 
-                public d(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
+                public c(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
                     this.f11936e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11936e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11937e;
+
+                public d(SwanApi$$BookshelfV8Module swanApi$$BookshelfV8Module, Throwable th) {
+                    this.f11937e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11937e;
                 }
             }
 
@@ -450,24 +450,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naFavorite", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$FavoriteV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11941e;
+                public final /* synthetic */ Throwable f11942e;
 
                 public a(SwanApi$$FavoriteV8Module swanApi$$FavoriteV8Module, Throwable th) {
-                    this.f11941e = th;
+                    this.f11942e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11941e;
+                    throw this.f11942e;
                 }
             }
 
@@ -510,24 +510,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naFile", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$FileV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11943e;
+                public final /* synthetic */ Throwable f11944e;
 
                 public a(SwanApi$$FileV8Module swanApi$$FileV8Module, Throwable th) {
-                    this.f11943e = th;
+                    this.f11944e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11943e;
+                    throw this.f11944e;
                 }
             }
 
@@ -570,40 +570,40 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naGameCenter", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$GameCenterV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11945e;
-
-                public a(SwanApi$$GameCenterV8Module swanApi$$GameCenterV8Module, Throwable th) {
-                    this.f11945e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11945e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11946e;
 
-                public b(SwanApi$$GameCenterV8Module swanApi$$GameCenterV8Module, Throwable th) {
+                public a(SwanApi$$GameCenterV8Module swanApi$$GameCenterV8Module, Throwable th) {
                     this.f11946e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11946e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11947e;
+
+                public b(SwanApi$$GameCenterV8Module swanApi$$GameCenterV8Module, Throwable th) {
+                    this.f11947e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11947e;
                 }
             }
 
@@ -680,24 +680,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naImage", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$ImageV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11949e;
+                public final /* synthetic */ Throwable f11950e;
 
                 public a(SwanApi$$ImageV8Module swanApi$$ImageV8Module, Throwable th) {
-                    this.f11949e = th;
+                    this.f11950e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11949e;
+                    throw this.f11950e;
                 }
             }
 
@@ -740,34 +740,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naInteraction", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$InteractionV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11951e;
-
-                public a(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
-                    this.f11951e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11951e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11952e;
 
-                public b(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public a(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11952e = th;
                 }
 
@@ -777,13 +761,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11953e;
 
-                public c(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public b(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11953e = th;
                 }
 
@@ -793,13 +777,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11954e;
 
-                public d(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public c(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11954e = th;
                 }
 
@@ -809,13 +793,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11955e;
 
-                public e(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public d(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11955e = th;
                 }
 
@@ -825,13 +809,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11956e;
 
-                public f(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public e(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11956e = th;
                 }
 
@@ -841,13 +825,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11957e;
 
-                public g(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public f(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11957e = th;
                 }
 
@@ -857,13 +841,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class h implements Runnable {
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11958e;
 
-                public h(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public g(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11958e = th;
                 }
 
@@ -873,13 +857,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class i implements Runnable {
+            /* loaded from: classes2.dex */
+            public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11959e;
 
-                public i(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public h(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11959e = th;
                 }
 
@@ -889,13 +873,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class j implements Runnable {
+            /* loaded from: classes2.dex */
+            public class i implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11960e;
 
-                public j(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public i(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11960e = th;
                 }
 
@@ -905,13 +889,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class k implements Runnable {
+            /* loaded from: classes2.dex */
+            public class j implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11961e;
 
-                public k(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public j(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11961e = th;
                 }
 
@@ -921,13 +905,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class l implements Runnable {
+            /* loaded from: classes2.dex */
+            public class k implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11962e;
 
-                public l(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public k(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11962e = th;
                 }
 
@@ -937,13 +921,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class m implements Runnable {
+            /* loaded from: classes2.dex */
+            public class l implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11963e;
 
-                public m(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public l(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11963e = th;
                 }
 
@@ -953,13 +937,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class n implements Runnable {
+            /* loaded from: classes2.dex */
+            public class m implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11964e;
 
-                public n(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public m(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11964e = th;
                 }
 
@@ -969,13 +953,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class o implements Runnable {
+            /* loaded from: classes2.dex */
+            public class n implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11965e;
 
-                public o(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public n(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11965e = th;
                 }
 
@@ -985,13 +969,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class p implements Runnable {
+            /* loaded from: classes2.dex */
+            public class o implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11966e;
 
-                public p(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public o(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11966e = th;
                 }
 
@@ -1001,13 +985,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class q implements Runnable {
+            /* loaded from: classes2.dex */
+            public class p implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11967e;
 
-                public q(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public p(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11967e = th;
                 }
 
@@ -1017,13 +1001,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class r implements Runnable {
+            /* loaded from: classes2.dex */
+            public class q implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11968e;
 
-                public r(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public q(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11968e = th;
                 }
 
@@ -1033,19 +1017,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class s implements Runnable {
+            /* loaded from: classes2.dex */
+            public class r implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11969e;
 
-                public s(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                public r(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
                     this.f11969e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11969e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class s implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11970e;
+
+                public s(SwanApi$$InteractionV8Module swanApi$$InteractionV8Module, Throwable th) {
+                    this.f11970e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11970e;
                 }
             }
 
@@ -1700,34 +1700,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naLocationService", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$LocationServiceV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11989e;
-
-                public a(SwanApi$$LocationServiceV8Module swanApi$$LocationServiceV8Module, Throwable th) {
-                    this.f11989e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11989e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11990e;
 
-                public b(SwanApi$$LocationServiceV8Module swanApi$$LocationServiceV8Module, Throwable th) {
+                public a(SwanApi$$LocationServiceV8Module swanApi$$LocationServiceV8Module, Throwable th) {
                     this.f11990e = th;
                 }
 
@@ -1737,19 +1721,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11991e;
 
-                public c(SwanApi$$LocationServiceV8Module swanApi$$LocationServiceV8Module, Throwable th) {
+                public b(SwanApi$$LocationServiceV8Module swanApi$$LocationServiceV8Module, Throwable th) {
                     this.f11991e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11991e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11992e;
+
+                public c(SwanApi$$LocationServiceV8Module swanApi$$LocationServiceV8Module, Throwable th) {
+                    this.f11992e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11992e;
                 }
             }
 
@@ -1860,34 +1860,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naNetwork", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$NetworkV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11995e;
-
-                public a(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
-                    this.f11995e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11995e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11996e;
 
-                public b(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
+                public a(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
                     this.f11996e = th;
                 }
 
@@ -1897,13 +1881,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11997e;
 
-                public c(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
+                public b(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
                     this.f11997e = th;
                 }
 
@@ -1913,19 +1897,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11998e;
 
-                public d(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
+                public c(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
                     this.f11998e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11998e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11999e;
+
+                public d(SwanApi$$NetworkV8Module swanApi$$NetworkV8Module, Throwable th) {
+                    this.f11999e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11999e;
                 }
             }
 
@@ -2062,7 +2062,7 @@ public class SwanApi$$ModulesProvider {
                         } else {
                             JSONObject jSONObject = (JSONObject) m.second;
                             if (jSONObject == null) {
-                                a2 = d.b.g0.a.t.e.a.f46213a.a();
+                                a2 = d.b.g0.a.t.e.a.f46214a.a();
                             } else {
                                 if (DEBUG) {
                                     Log.d("Api-Base", "JsObject->JSONObject: " + jSONObject.toString());
@@ -2091,34 +2091,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naPlugin", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PluginV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12003e;
-
-                public a(SwanApi$$PluginV8Module swanApi$$PluginV8Module, Throwable th) {
-                    this.f12003e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12003e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12004e;
 
-                public b(SwanApi$$PluginV8Module swanApi$$PluginV8Module, Throwable th) {
+                public a(SwanApi$$PluginV8Module swanApi$$PluginV8Module, Throwable th) {
                     this.f12004e = th;
                 }
 
@@ -2128,19 +2112,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12005e;
 
-                public c(SwanApi$$PluginV8Module swanApi$$PluginV8Module, Throwable th) {
+                public b(SwanApi$$PluginV8Module swanApi$$PluginV8Module, Throwable th) {
                     this.f12005e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12005e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12006e;
+
+                public c(SwanApi$$PluginV8Module swanApi$$PluginV8Module, Throwable th) {
+                    this.f12006e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12006e;
                 }
             }
 
@@ -2251,34 +2251,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naRouter", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$RouterV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12019e;
-
-                public a(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
-                    this.f12019e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12019e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12020e;
 
-                public b(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
+                public a(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
                     this.f12020e = th;
                 }
 
@@ -2288,13 +2272,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12021e;
 
-                public c(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
+                public b(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
                     this.f12021e = th;
                 }
 
@@ -2304,19 +2288,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12022e;
 
-                public d(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
+                public c(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
                     this.f12022e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12022e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12023e;
+
+                public d(SwanApi$$RouterV8Module swanApi$$RouterV8Module, Throwable th) {
+                    this.f12023e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12023e;
                 }
             }
 
@@ -2461,34 +2461,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naSetting", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$SettingV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12027e;
-
-                public a(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
-                    this.f12027e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12027e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12028e;
 
-                public b(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
+                public a(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
                     this.f12028e = th;
                 }
 
@@ -2498,13 +2482,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12029e;
 
-                public c(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
+                public b(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
                     this.f12029e = th;
                 }
 
@@ -2514,13 +2498,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12030e;
 
-                public d(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
+                public c(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
                     this.f12030e = th;
                 }
 
@@ -2530,19 +2514,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12031e;
 
-                public e(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
+                public d(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
                     this.f12031e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12031e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12032e;
+
+                public e(SwanApi$$SettingV8Module swanApi$$SettingV8Module, Throwable th) {
+                    this.f12032e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12032e;
                 }
             }
 
@@ -2721,34 +2721,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naStorage", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$StorageV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12037e;
-
-                public a(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
-                    this.f12037e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12037e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12038e;
 
-                public b(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public a(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12038e = th;
                 }
 
@@ -2758,13 +2742,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12039e;
 
-                public c(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public b(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12039e = th;
                 }
 
@@ -2774,13 +2758,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12040e;
 
-                public d(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public c(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12040e = th;
                 }
 
@@ -2790,13 +2774,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12041e;
 
-                public e(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public d(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12041e = th;
                 }
 
@@ -2806,13 +2790,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12042e;
 
-                public f(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public e(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12042e = th;
                 }
 
@@ -2822,13 +2806,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12043e;
 
-                public g(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public f(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12043e = th;
                 }
 
@@ -2838,13 +2822,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class h implements Runnable {
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12044e;
 
-                public h(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public g(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12044e = th;
                 }
 
@@ -2854,19 +2838,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class i implements Runnable {
+            /* loaded from: classes2.dex */
+            public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12045e;
 
-                public i(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                public h(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
                     this.f12045e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12045e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class i implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12046e;
+
+                public i(SwanApi$$StorageV8Module swanApi$$StorageV8Module, Throwable th) {
+                    this.f12046e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12046e;
                 }
             }
 
@@ -3181,24 +3181,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naSubscription", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$SubscriptionV8Module
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12055e;
+                public final /* synthetic */ Throwable f12056e;
 
                 public a(SwanApi$$SubscriptionV8Module swanApi$$SubscriptionV8Module, Throwable th) {
-                    this.f12055e = th;
+                    this.f12056e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f12055e;
+                    throw this.f12056e;
                 }
             }
 
@@ -3241,34 +3241,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naSystem", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$SystemV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12057e;
-
-                public a(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
-                    this.f12057e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12057e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12058e;
 
-                public b(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public a(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12058e = th;
                 }
 
@@ -3278,13 +3262,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12059e;
 
-                public c(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public b(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12059e = th;
                 }
 
@@ -3294,13 +3278,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12060e;
 
-                public d(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public c(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12060e = th;
                 }
 
@@ -3310,13 +3294,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12061e;
 
-                public e(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public d(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12061e = th;
                 }
 
@@ -3326,13 +3310,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12062e;
 
-                public f(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public e(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12062e = th;
                 }
 
@@ -3342,13 +3326,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12063e;
 
-                public g(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public f(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12063e = th;
                 }
 
@@ -3358,13 +3342,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class h implements Runnable {
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12064e;
 
-                public h(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public g(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12064e = th;
                 }
 
@@ -3374,13 +3358,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class i implements Runnable {
+            /* loaded from: classes2.dex */
+            public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12065e;
 
-                public i(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public h(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12065e = th;
                 }
 
@@ -3390,13 +3374,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class j implements Runnable {
+            /* loaded from: classes2.dex */
+            public class i implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12066e;
 
-                public j(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public i(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12066e = th;
                 }
 
@@ -3406,13 +3390,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class k implements Runnable {
+            /* loaded from: classes2.dex */
+            public class j implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12067e;
 
-                public k(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public j(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12067e = th;
                 }
 
@@ -3422,19 +3406,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class l implements Runnable {
+            /* loaded from: classes2.dex */
+            public class k implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12068e;
 
-                public l(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                public k(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
                     this.f12068e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12068e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class l implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12069e;
+
+                public l(SwanApi$$SystemV8Module swanApi$$SystemV8Module, Throwable th) {
+                    this.f12069e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12069e;
                 }
             }
 
@@ -3851,34 +3851,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naUtils", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$UtilsV8Module
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12081e;
-
-                public a(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
-                    this.f12081e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12081e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12082e;
 
-                public b(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                public a(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
                     this.f12082e = th;
                 }
 
@@ -3888,13 +3872,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12083e;
 
-                public c(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                public b(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
                     this.f12083e = th;
                 }
 
@@ -3904,13 +3888,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12084e;
 
-                public d(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                public c(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
                     this.f12084e = th;
                 }
 
@@ -3920,13 +3904,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12085e;
 
-                public e(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                public d(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
                     this.f12085e = th;
                 }
 
@@ -3936,13 +3920,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12086e;
 
-                public f(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                public e(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
                     this.f12086e = th;
                 }
 
@@ -3952,19 +3936,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12087e;
 
-                public g(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                public f(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
                     this.f12087e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12087e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12088e;
+
+                public g(SwanApi$$UtilsV8Module swanApi$$UtilsV8Module, Throwable th) {
+                    this.f12088e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12088e;
                 }
             }
 
@@ -4216,34 +4216,18 @@ public class SwanApi$$ModulesProvider {
     public static Map<String, Object> getWebviewApiModules(final b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("_naAccount", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$AccountWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11928e;
-
-                public a(SwanApi$$AccountWebviewModule swanApi$$AccountWebviewModule, Throwable th) {
-                    this.f11928e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11928e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11929e;
 
-                public b(SwanApi$$AccountWebviewModule swanApi$$AccountWebviewModule, Throwable th) {
+                public a(SwanApi$$AccountWebviewModule swanApi$$AccountWebviewModule, Throwable th) {
                     this.f11929e = th;
                 }
 
@@ -4253,19 +4237,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11930e;
 
-                public c(SwanApi$$AccountWebviewModule swanApi$$AccountWebviewModule, Throwable th) {
+                public b(SwanApi$$AccountWebviewModule swanApi$$AccountWebviewModule, Throwable th) {
                     this.f11930e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11930e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11931e;
+
+                public c(SwanApi$$AccountWebviewModule swanApi$$AccountWebviewModule, Throwable th) {
+                    this.f11931e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11931e;
                 }
             }
 
@@ -4376,24 +4376,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naBasic", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$BasicWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11932e;
+                public final /* synthetic */ Throwable f11933e;
 
                 public a(SwanApi$$BasicWebviewModule swanApi$$BasicWebviewModule, Throwable th) {
-                    this.f11932e = th;
+                    this.f11933e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11932e;
+                    throw this.f11933e;
                 }
             }
 
@@ -4436,34 +4436,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naBookshelf", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$BookshelfWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11937e;
-
-                public a(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
-                    this.f11937e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11937e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11938e;
 
-                public b(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
+                public a(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
                     this.f11938e = th;
                 }
 
@@ -4473,13 +4457,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11939e;
 
-                public c(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
+                public b(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
                     this.f11939e = th;
                 }
 
@@ -4489,19 +4473,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11940e;
 
-                public d(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
+                public c(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
                     this.f11940e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11940e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11941e;
+
+                public d(SwanApi$$BookshelfWebviewModule swanApi$$BookshelfWebviewModule, Throwable th) {
+                    this.f11941e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11941e;
                 }
             }
 
@@ -4646,24 +4646,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naFavorite", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$FavoriteWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11942e;
+                public final /* synthetic */ Throwable f11943e;
 
                 public a(SwanApi$$FavoriteWebviewModule swanApi$$FavoriteWebviewModule, Throwable th) {
-                    this.f11942e = th;
+                    this.f11943e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11942e;
+                    throw this.f11943e;
                 }
             }
 
@@ -4706,24 +4706,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naFile", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$FileWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11944e;
+                public final /* synthetic */ Throwable f11945e;
 
                 public a(SwanApi$$FileWebviewModule swanApi$$FileWebviewModule, Throwable th) {
-                    this.f11944e = th;
+                    this.f11945e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11944e;
+                    throw this.f11945e;
                 }
             }
 
@@ -4766,40 +4766,40 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naGameCenter", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$GameCenterWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11947e;
-
-                public a(SwanApi$$GameCenterWebviewModule swanApi$$GameCenterWebviewModule, Throwable th) {
-                    this.f11947e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11947e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11948e;
 
-                public b(SwanApi$$GameCenterWebviewModule swanApi$$GameCenterWebviewModule, Throwable th) {
+                public a(SwanApi$$GameCenterWebviewModule swanApi$$GameCenterWebviewModule, Throwable th) {
                     this.f11948e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11948e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11949e;
+
+                public b(SwanApi$$GameCenterWebviewModule swanApi$$GameCenterWebviewModule, Throwable th) {
+                    this.f11949e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11949e;
                 }
             }
 
@@ -4876,24 +4876,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naImage", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$ImageWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11950e;
+                public final /* synthetic */ Throwable f11951e;
 
                 public a(SwanApi$$ImageWebviewModule swanApi$$ImageWebviewModule, Throwable th) {
-                    this.f11950e = th;
+                    this.f11951e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f11950e;
+                    throw this.f11951e;
                 }
             }
 
@@ -4936,34 +4936,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naInteraction", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$InteractionWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11970e;
-
-                public a(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
-                    this.f11970e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11970e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11971e;
 
-                public b(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public a(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11971e = th;
                 }
 
@@ -4973,13 +4957,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11972e;
 
-                public c(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public b(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11972e = th;
                 }
 
@@ -4989,13 +4973,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11973e;
 
-                public d(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public c(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11973e = th;
                 }
 
@@ -5005,13 +4989,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11974e;
 
-                public e(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public d(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11974e = th;
                 }
 
@@ -5021,13 +5005,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11975e;
 
-                public f(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public e(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11975e = th;
                 }
 
@@ -5037,13 +5021,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11976e;
 
-                public g(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public f(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11976e = th;
                 }
 
@@ -5053,13 +5037,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class h implements Runnable {
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11977e;
 
-                public h(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public g(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11977e = th;
                 }
 
@@ -5069,13 +5053,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class i implements Runnable {
+            /* loaded from: classes2.dex */
+            public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11978e;
 
-                public i(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public h(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11978e = th;
                 }
 
@@ -5085,13 +5069,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class j implements Runnable {
+            /* loaded from: classes2.dex */
+            public class i implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11979e;
 
-                public j(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public i(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11979e = th;
                 }
 
@@ -5101,13 +5085,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class k implements Runnable {
+            /* loaded from: classes2.dex */
+            public class j implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11980e;
 
-                public k(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public j(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11980e = th;
                 }
 
@@ -5117,13 +5101,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class l implements Runnable {
+            /* loaded from: classes2.dex */
+            public class k implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11981e;
 
-                public l(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public k(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11981e = th;
                 }
 
@@ -5133,13 +5117,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class m implements Runnable {
+            /* loaded from: classes2.dex */
+            public class l implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11982e;
 
-                public m(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public l(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11982e = th;
                 }
 
@@ -5149,13 +5133,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class n implements Runnable {
+            /* loaded from: classes2.dex */
+            public class m implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11983e;
 
-                public n(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public m(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11983e = th;
                 }
 
@@ -5165,13 +5149,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class o implements Runnable {
+            /* loaded from: classes2.dex */
+            public class n implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11984e;
 
-                public o(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public n(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11984e = th;
                 }
 
@@ -5181,13 +5165,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class p implements Runnable {
+            /* loaded from: classes2.dex */
+            public class o implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11985e;
 
-                public p(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public o(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11985e = th;
                 }
 
@@ -5197,13 +5181,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class q implements Runnable {
+            /* loaded from: classes2.dex */
+            public class p implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11986e;
 
-                public q(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public p(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11986e = th;
                 }
 
@@ -5213,13 +5197,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class r implements Runnable {
+            /* loaded from: classes2.dex */
+            public class q implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11987e;
 
-                public r(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public q(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11987e = th;
                 }
 
@@ -5229,19 +5213,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class s implements Runnable {
+            /* loaded from: classes2.dex */
+            public class r implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11988e;
 
-                public s(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                public r(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
                     this.f11988e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11988e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class s implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11989e;
+
+                public s(SwanApi$$InteractionWebviewModule swanApi$$InteractionWebviewModule, Throwable th) {
+                    this.f11989e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11989e;
                 }
             }
 
@@ -5896,34 +5896,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naLocationService", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$LocationServiceWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11992e;
-
-                public a(SwanApi$$LocationServiceWebviewModule swanApi$$LocationServiceWebviewModule, Throwable th) {
-                    this.f11992e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11992e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11993e;
 
-                public b(SwanApi$$LocationServiceWebviewModule swanApi$$LocationServiceWebviewModule, Throwable th) {
+                public a(SwanApi$$LocationServiceWebviewModule swanApi$$LocationServiceWebviewModule, Throwable th) {
                     this.f11993e = th;
                 }
 
@@ -5933,19 +5917,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f11994e;
 
-                public c(SwanApi$$LocationServiceWebviewModule swanApi$$LocationServiceWebviewModule, Throwable th) {
+                public b(SwanApi$$LocationServiceWebviewModule swanApi$$LocationServiceWebviewModule, Throwable th) {
                     this.f11994e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f11994e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f11995e;
+
+                public c(SwanApi$$LocationServiceWebviewModule swanApi$$LocationServiceWebviewModule, Throwable th) {
+                    this.f11995e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f11995e;
                 }
             }
 
@@ -6056,34 +6056,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naNetwork", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$NetworkWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f11999e;
-
-                public a(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
-                    this.f11999e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f11999e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12000e;
 
-                public b(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
+                public a(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
                     this.f12000e = th;
                 }
 
@@ -6093,13 +6077,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12001e;
 
-                public c(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
+                public b(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
                     this.f12001e = th;
                 }
 
@@ -6109,19 +6093,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12002e;
 
-                public d(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
+                public c(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
                     this.f12002e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12002e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12003e;
+
+                public d(SwanApi$$NetworkWebviewModule swanApi$$NetworkWebviewModule, Throwable th) {
+                    this.f12003e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12003e;
                 }
             }
 
@@ -6258,7 +6258,7 @@ public class SwanApi$$ModulesProvider {
                         } else {
                             JSONObject jSONObject = (JSONObject) n.second;
                             if (jSONObject == null) {
-                                a2 = d.b.g0.a.t.e.a.f46213a.a();
+                                a2 = d.b.g0.a.t.e.a.f46214a.a();
                             } else {
                                 if (DEBUG) {
                                     Log.d("Api-Base", "JsObject->JSONObject: " + jSONObject.toString());
@@ -6287,34 +6287,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naPlugin", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PluginWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12006e;
-
-                public a(SwanApi$$PluginWebviewModule swanApi$$PluginWebviewModule, Throwable th) {
-                    this.f12006e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12006e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12007e;
 
-                public b(SwanApi$$PluginWebviewModule swanApi$$PluginWebviewModule, Throwable th) {
+                public a(SwanApi$$PluginWebviewModule swanApi$$PluginWebviewModule, Throwable th) {
                     this.f12007e = th;
                 }
 
@@ -6324,19 +6308,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12008e;
 
-                public c(SwanApi$$PluginWebviewModule swanApi$$PluginWebviewModule, Throwable th) {
+                public b(SwanApi$$PluginWebviewModule swanApi$$PluginWebviewModule, Throwable th) {
                     this.f12008e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12008e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12009e;
+
+                public c(SwanApi$$PluginWebviewModule swanApi$$PluginWebviewModule, Throwable th) {
+                    this.f12009e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12009e;
                 }
             }
 
@@ -6447,34 +6447,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naRouter", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$RouterWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12023e;
-
-                public a(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
-                    this.f12023e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12023e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12024e;
 
-                public b(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
+                public a(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
                     this.f12024e = th;
                 }
 
@@ -6484,13 +6468,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12025e;
 
-                public c(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
+                public b(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
                     this.f12025e = th;
                 }
 
@@ -6500,19 +6484,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12026e;
 
-                public d(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
+                public c(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
                     this.f12026e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12026e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12027e;
+
+                public d(SwanApi$$RouterWebviewModule swanApi$$RouterWebviewModule, Throwable th) {
+                    this.f12027e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12027e;
                 }
             }
 
@@ -6657,34 +6657,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naSetting", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$SettingWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12032e;
-
-                public a(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
-                    this.f12032e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12032e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12033e;
 
-                public b(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
+                public a(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
                     this.f12033e = th;
                 }
 
@@ -6694,13 +6678,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12034e;
 
-                public c(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
+                public b(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
                     this.f12034e = th;
                 }
 
@@ -6710,13 +6694,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12035e;
 
-                public d(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
+                public c(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
                     this.f12035e = th;
                 }
 
@@ -6726,19 +6710,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12036e;
 
-                public e(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
+                public d(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
                     this.f12036e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12036e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12037e;
+
+                public e(SwanApi$$SettingWebviewModule swanApi$$SettingWebviewModule, Throwable th) {
+                    this.f12037e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12037e;
                 }
             }
 
@@ -6917,34 +6917,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naStorage", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$StorageWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12046e;
-
-                public a(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
-                    this.f12046e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12046e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12047e;
 
-                public b(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public a(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12047e = th;
                 }
 
@@ -6954,13 +6938,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12048e;
 
-                public c(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public b(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12048e = th;
                 }
 
@@ -6970,13 +6954,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12049e;
 
-                public d(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public c(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12049e = th;
                 }
 
@@ -6986,13 +6970,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12050e;
 
-                public e(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public d(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12050e = th;
                 }
 
@@ -7002,13 +6986,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12051e;
 
-                public f(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public e(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12051e = th;
                 }
 
@@ -7018,13 +7002,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12052e;
 
-                public g(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public f(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12052e = th;
                 }
 
@@ -7034,13 +7018,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class h implements Runnable {
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12053e;
 
-                public h(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public g(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12053e = th;
                 }
 
@@ -7050,19 +7034,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class i implements Runnable {
+            /* loaded from: classes2.dex */
+            public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12054e;
 
-                public i(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                public h(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
                     this.f12054e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12054e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class i implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12055e;
+
+                public i(SwanApi$$StorageWebviewModule swanApi$$StorageWebviewModule, Throwable th) {
+                    this.f12055e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12055e;
                 }
             }
 
@@ -7377,24 +7377,24 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naSubscription", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$SubscriptionWebviewModule
-            public static final boolean DEBUG = d.f45928c;
+            public static final boolean DEBUG = d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12056e;
+                public final /* synthetic */ Throwable f12057e;
 
                 public a(SwanApi$$SubscriptionWebviewModule swanApi$$SubscriptionWebviewModule, Throwable th) {
-                    this.f12056e = th;
+                    this.f12057e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f12056e;
+                    throw this.f12057e;
                 }
             }
 
@@ -7437,34 +7437,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naSystem", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$SystemWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12069e;
-
-                public a(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
-                    this.f12069e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12069e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12070e;
 
-                public b(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public a(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12070e = th;
                 }
 
@@ -7474,13 +7458,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12071e;
 
-                public c(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public b(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12071e = th;
                 }
 
@@ -7490,13 +7474,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12072e;
 
-                public d(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public c(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12072e = th;
                 }
 
@@ -7506,13 +7490,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12073e;
 
-                public e(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public d(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12073e = th;
                 }
 
@@ -7522,13 +7506,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12074e;
 
-                public f(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public e(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12074e = th;
                 }
 
@@ -7538,13 +7522,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12075e;
 
-                public g(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public f(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12075e = th;
                 }
 
@@ -7554,13 +7538,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class h implements Runnable {
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12076e;
 
-                public h(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public g(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12076e = th;
                 }
 
@@ -7570,13 +7554,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class i implements Runnable {
+            /* loaded from: classes2.dex */
+            public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12077e;
 
-                public i(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public h(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12077e = th;
                 }
 
@@ -7586,13 +7570,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class j implements Runnable {
+            /* loaded from: classes2.dex */
+            public class i implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12078e;
 
-                public j(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public i(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12078e = th;
                 }
 
@@ -7602,13 +7586,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class k implements Runnable {
+            /* loaded from: classes2.dex */
+            public class j implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12079e;
 
-                public k(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public j(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12079e = th;
                 }
 
@@ -7618,19 +7602,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class l implements Runnable {
+            /* loaded from: classes2.dex */
+            public class k implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12080e;
 
-                public l(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                public k(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
                     this.f12080e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12080e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class l implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12081e;
+
+                public l(SwanApi$$SystemWebviewModule swanApi$$SystemWebviewModule, Throwable th) {
+                    this.f12081e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12081e;
                 }
             }
 
@@ -8047,34 +8047,18 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naUtils", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$UtilsWebviewModule
-            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45928c;
+            public static final boolean DEBUG = d.b.g0.a.t.b.d.f45929c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.b.g0.a.t.b.b mSwanApiContext;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f12088e;
-
-                public a(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
-                    this.f12088e = th;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    throw this.f12088e;
-                }
-            }
-
-            /* loaded from: classes3.dex */
-            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12089e;
 
-                public b(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                public a(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
                     this.f12089e = th;
                 }
 
@@ -8084,13 +8068,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class c implements Runnable {
+            /* loaded from: classes2.dex */
+            public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12090e;
 
-                public c(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                public b(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
                     this.f12090e = th;
                 }
 
@@ -8100,13 +8084,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class d implements Runnable {
+            /* loaded from: classes2.dex */
+            public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12091e;
 
-                public d(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                public c(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
                     this.f12091e = th;
                 }
 
@@ -8116,13 +8100,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class e implements Runnable {
+            /* loaded from: classes2.dex */
+            public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12092e;
 
-                public e(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                public d(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
                     this.f12092e = th;
                 }
 
@@ -8132,13 +8116,13 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class f implements Runnable {
+            /* loaded from: classes2.dex */
+            public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12093e;
 
-                public f(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                public e(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
                     this.f12093e = th;
                 }
 
@@ -8148,19 +8132,35 @@ public class SwanApi$$ModulesProvider {
                 }
             }
 
-            /* loaded from: classes3.dex */
-            public class g implements Runnable {
+            /* loaded from: classes2.dex */
+            public class f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Throwable f12094e;
 
-                public g(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                public f(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
                     this.f12094e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     throw this.f12094e;
+                }
+            }
+
+            /* loaded from: classes2.dex */
+            public class g implements Runnable {
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ Throwable f12095e;
+
+                public g(SwanApi$$UtilsWebviewModule swanApi$$UtilsWebviewModule, Throwable th) {
+                    this.f12095e = th;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    throw this.f12095e;
                 }
             }
 

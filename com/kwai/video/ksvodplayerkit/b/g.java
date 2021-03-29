@@ -11,21 +11,21 @@ public final class g {
             return null;
         }
         f fVar = new f();
-        fVar.f37237a = jSONObject.optString("url", fVar.f37237a);
+        fVar.f37238a = jSONObject.optString("url", fVar.f37238a);
         JSONArray optJSONArray = jSONObject.optJSONArray("backupUrl");
         if (optJSONArray != null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 arrayList.add((String) optJSONArray.opt(i));
             }
-            fVar.f37238b = arrayList;
+            fVar.f37239b = arrayList;
         }
-        fVar.f37239c = jSONObject.optString("m3u8", fVar.f37239c);
-        fVar.f37240d = jSONObject.optString("baseUrl", fVar.f37240d);
-        fVar.f37241e = jSONObject.optDouble("duration", fVar.f37241e);
-        fVar.f37242f = jSONObject.optString("m3u8Slice", fVar.f37242f);
-        fVar.f37243g = jSONObject.optInt("bandwidth", fVar.f37243g);
-        fVar.f37244h = jSONObject.optString("codecs", fVar.f37244h);
+        fVar.f37240c = jSONObject.optString("m3u8", fVar.f37240c);
+        fVar.f37241d = jSONObject.optString("baseUrl", fVar.f37241d);
+        fVar.f37242e = jSONObject.optDouble("duration", fVar.f37242e);
+        fVar.f37243f = jSONObject.optString("m3u8Slice", fVar.f37243f);
+        fVar.f37244g = jSONObject.optInt("bandwidth", fVar.f37244g);
+        fVar.f37245h = jSONObject.optString("codecs", fVar.f37245h);
         fVar.i = jSONObject.optInt("width", fVar.i);
         fVar.j = jSONObject.optInt("height", fVar.j);
         fVar.k = jSONObject.optDouble("frameRate", fVar.k);
@@ -36,35 +36,35 @@ public final class g {
     public static String a(f fVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("url", fVar.f37237a);
+            jSONObject.put("url", fVar.f37238a);
         } catch (Exception unused) {
         }
         try {
-            jSONObject.put("backupUrl", new JSONArray((Collection) fVar.f37238b));
+            jSONObject.put("backupUrl", new JSONArray((Collection) fVar.f37239b));
         } catch (Exception unused2) {
         }
         try {
-            jSONObject.put("m3u8", fVar.f37239c);
+            jSONObject.put("m3u8", fVar.f37240c);
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("baseUrl", fVar.f37240d);
+            jSONObject.put("baseUrl", fVar.f37241d);
         } catch (Exception unused4) {
         }
         try {
-            jSONObject.put("duration", fVar.f37241e);
+            jSONObject.put("duration", fVar.f37242e);
         } catch (Exception unused5) {
         }
         try {
-            jSONObject.put("m3u8Slice", fVar.f37242f);
+            jSONObject.put("m3u8Slice", fVar.f37243f);
         } catch (Exception unused6) {
         }
         try {
-            jSONObject.put("bandwidth", fVar.f37243g);
+            jSONObject.put("bandwidth", fVar.f37244g);
         } catch (Exception unused7) {
         }
         try {
-            jSONObject.put("codecs", fVar.f37244h);
+            jSONObject.put("codecs", fVar.f37245h);
         } catch (Exception unused8) {
         }
         try {

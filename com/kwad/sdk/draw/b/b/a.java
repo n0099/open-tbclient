@@ -8,21 +8,21 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f34555a;
+    public AdTemplate f34556a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0396a f34556b;
+    public InterfaceC0397a f34557b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public b f34557c;
+    public b f34558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34558d = false;
+    public boolean f34559d = false;
 
     /* renamed from: com.kwad.sdk.draw.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0396a {
+    public interface InterfaceC0397a {
         void a();
     }
 
@@ -32,31 +32,31 @@ public class a {
     }
 
     public a(AdTemplate adTemplate) {
-        this.f34555a = adTemplate;
+        this.f34556a = adTemplate;
     }
 
     public void a() {
-        InterfaceC0396a interfaceC0396a;
-        if (this.f34558d) {
+        InterfaceC0397a interfaceC0397a;
+        if (this.f34559d) {
             return;
         }
-        this.f34558d = true;
-        if (com.kwad.sdk.core.response.b.c.j(this.f34555a).status == DOWNLOADSTAUS.START || com.kwad.sdk.core.response.b.c.j(this.f34555a).status == DOWNLOADSTAUS.DOWNLOADING || com.kwad.sdk.core.response.b.c.j(this.f34555a).status == DOWNLOADSTAUS.PROGRESS) {
+        this.f34559d = true;
+        if (com.kwad.sdk.core.response.b.c.j(this.f34556a).status == DOWNLOADSTAUS.START || com.kwad.sdk.core.response.b.c.j(this.f34556a).status == DOWNLOADSTAUS.DOWNLOADING || com.kwad.sdk.core.response.b.c.j(this.f34556a).status == DOWNLOADSTAUS.PROGRESS) {
             return;
         }
-        b bVar = this.f34557c;
-        if ((bVar == null || !bVar.a()) && (interfaceC0396a = this.f34556b) != null) {
-            interfaceC0396a.a();
+        b bVar = this.f34558c;
+        if ((bVar == null || !bVar.a()) && (interfaceC0397a = this.f34557b) != null) {
+            interfaceC0397a.a();
         }
     }
 
     @MainThread
-    public void a(InterfaceC0396a interfaceC0396a) {
-        this.f34556b = interfaceC0396a;
+    public void a(InterfaceC0397a interfaceC0397a) {
+        this.f34557b = interfaceC0397a;
     }
 
     @MainThread
     public void a(b bVar) {
-        this.f34557c = bVar;
+        this.f34558c = bVar;
     }
 }

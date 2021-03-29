@@ -39,28 +39,28 @@ public final class f extends Observable {
     public long z;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Boolean> f64613a = new TreeMap();
+    public final Map<Integer, Boolean> f64614a = new TreeMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f64614b = new AtomicInteger(0);
+    public AtomicInteger f64615b = new AtomicInteger(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64615c = 0;
+    public int f64616c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64616d = false;
+    public boolean f64617d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile LinkedList<d.b.s.a.c.b> f64617e = new LinkedList<>();
+    public volatile LinkedList<d.b.s.a.c.b> f64618e = new LinkedList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<Long, d.b.s.a.c.b> f64618f = new LinkedHashMap();
+    public final HashMap<Long, d.b.s.a.c.b> f64619f = new LinkedHashMap();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f64619g = new Object();
+    public final Object f64620g = new Object();
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f64620h = new Object();
+    public final Object f64621h = new Object();
     public d.b.s.a.d.b i = new d.b.s.a.d.b();
     public Map<Long, d.b.s.a.b.d.b> j = new LinkedHashMap();
     public Map<Long, d.b.s.a.b.d.b> k = new LinkedHashMap();
@@ -78,21 +78,21 @@ public final class f extends Observable {
     public class a implements a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f64621a;
+        public final /* synthetic */ String f64622a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f64622b;
+        public final /* synthetic */ String f64623b;
 
         public a(String str, String str2) {
-            this.f64621a = str;
-            this.f64622b = str2;
+            this.f64622a = str;
+            this.f64623b = str2;
         }
 
         @Override // d.b.s.a.c.a.d
         public void a(int i, String str, String str2) {
             d.b.s.a.g.d.a("SocketTransceiver", "-----try to connect ip:" + str2);
             if (TextUtils.isEmpty(str2)) {
-                str2 = this.f64621a;
+                str2 = this.f64622a;
             }
             f fVar = f.this;
             fVar.w = str2;
@@ -101,7 +101,7 @@ public final class f extends Observable {
             if (i == 0) {
                 d.b.s.a.f.a a2 = d.b.s.a.f.a.a(f.this.q);
                 f fVar2 = f.this;
-                a2.b(new e(str2, this.f64622b, Integer.valueOf(fVar2.f64614b.incrementAndGet())));
+                a2.b(new e(str2, this.f64623b, Integer.valueOf(fVar2.f64615b.incrementAndGet())));
             }
         }
     }
@@ -133,25 +133,25 @@ public final class f extends Observable {
     public static /* synthetic */ class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f64626a;
+        public static final /* synthetic */ int[] f64627a;
 
         static {
             int[] iArr = new int[BLCPRequest.SendTimeoutSecond.values().length];
-            f64626a = iArr;
+            f64627a = iArr;
             try {
                 iArr[BLCPRequest.SendTimeoutSecond.TIMEOUT_20s.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f64626a[BLCPRequest.SendTimeoutSecond.TIMEOUT_30s.ordinal()] = 2;
+                f64627a[BLCPRequest.SendTimeoutSecond.TIMEOUT_30s.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f64626a[BLCPRequest.SendTimeoutSecond.TIMEOUT_50s.ordinal()] = 3;
+                f64627a[BLCPRequest.SendTimeoutSecond.TIMEOUT_50s.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f64626a[BLCPRequest.SendTimeoutSecond.TIMEOUT_120s.ordinal()] = 4;
+                f64627a[BLCPRequest.SendTimeoutSecond.TIMEOUT_120s.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -161,13 +161,13 @@ public final class f extends Observable {
     public final class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f64627e;
+        public String f64628e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f64628f;
+        public String f64629f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Integer f64629g;
+        public Integer f64630g;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -182,9 +182,9 @@ public final class f extends Observable {
         }
 
         public e(String str, String str2, Integer num) {
-            this.f64628f = str;
-            this.f64627e = str2;
-            this.f64629g = num;
+            this.f64629f = str;
+            this.f64628e = str2;
+            this.f64630g = num;
         }
 
         @Override // java.lang.Runnable
@@ -203,48 +203,48 @@ public final class f extends Observable {
                     f.this.l.interrupt();
                     d.b.s.a.g.d.a("SocketTransceiver", "sendThread interrupt");
                 }
-                RunnableC1769f runnableC1769f = new RunnableC1769f(this.f64629g, this.f64628f);
-                f.this.u.a(this.f64628f);
-                f.this.u.postDelayed(runnableC1769f, 5000L);
+                RunnableC1770f runnableC1770f = new RunnableC1770f(this.f64630g, this.f64629f);
+                f.this.u.a(this.f64629f);
+                f.this.u.postDelayed(runnableC1770f, 5000L);
                 try {
                     d.b.s.a.a.d.w(f.this.q, "14N", "socketConnect :" + f.this.w);
-                    d.b.s.a.c.e e3 = f.this.r.e(this.f64628f, Integer.valueOf(this.f64627e).intValue());
+                    d.b.s.a.c.e e3 = f.this.r.e(this.f64629f, Integer.valueOf(this.f64628e).intValue());
                     if (f.this.J()) {
                         d.b.s.a.g.d.a("SocketTransceiver", "socketConnect after, but socket has created ok.");
                         f.this.K(e3);
                         return;
-                    } else if (!e3.f64609b.booleanValue()) {
+                    } else if (!e3.f64610b.booleanValue()) {
                         d.b.s.a.a.d.w(f.this.q, "15N", "connect env error");
-                        f.this.O(401213, "connect env error", this.f64628f);
-                        f.this.u.removeCallbacks(runnableC1769f);
-                        f.this.j0("connect env error:", this.f64628f);
+                        f.this.O(401213, "connect env error", this.f64629f);
+                        f.this.u.removeCallbacks(runnableC1770f);
+                        f.this.j0("connect env error:", this.f64629f);
                         return;
                     } else {
-                        synchronized (f.this.f64613a) {
+                        synchronized (f.this.f64614a) {
                             d.b.s.a.g.d.a("SocketTransceiver", "socketNeedCloseMap remove connectTimeoutTask");
-                            f.this.u.removeCallbacks(runnableC1769f);
-                            runnableC1769f.a();
+                            f.this.u.removeCallbacks(runnableC1770f);
+                            runnableC1770f.a();
                             if (!f.this.J()) {
-                                if (f.this.f64613a.get(this.f64629g) == null) {
+                                if (f.this.f64614a.get(this.f64630g) == null) {
                                     d.b.s.a.g.d.a("SocketTransceiver", "socketNeedCloseMap setCurrentSocketState");
                                     f.this.r.c(e3);
                                 }
                                 d.b.s.a.g.e.B(f.this.q, f.this.p.get() == 0 ? 1 : 2);
                                 d.b.s.a.g.d.d("SocketTransceiver", "create Socket ok");
-                                f.this.O(401211, "connect ok", this.f64628f);
+                                f.this.O(401211, "connect ok", this.f64629f);
                                 d.b.s.a.a.d.w(f.this.q, "16Y", "connect ok");
-                                d.b.s.a.c.a.h(f.this.q, this.f64628f);
+                                d.b.s.a.c.a.h(f.this.q, this.f64629f);
                                 f.this.g0(f.this.i.b(f.this.q, 1L));
                                 f.this.v = SystemClock.currentThreadTimeMillis();
                                 if (d.b.s.a.g.b.a(f.this.q) != 0) {
                                     d.b.s.a.f.a.a(f.this.q).b(new a());
                                 }
                                 d.b.s.a.g.d.a("SocketTransceiver", "connectImpl time:" + f.this.v);
-                                f.C.f64580a = -2;
+                                f.C.f64581a = -2;
                                 f.this.o = false;
-                                f.this.l = new j(this.f64628f);
+                                f.this.l = new j(this.f64629f);
                                 f.this.l.start();
-                                f.this.m = new i(this.f64628f);
+                                f.this.m = new i(this.f64629f);
                                 f.this.m.start();
                                 return;
                             }
@@ -257,15 +257,15 @@ public final class f extends Observable {
                     String str = "Throwable : " + th;
                     d.b.s.a.g.d.c("SocketTransceiver", str, th);
                     d.b.s.a.a.d.w(f.this.q, "16N", str);
-                    f.this.O(401215, str, this.f64628f);
-                    f.this.u.removeCallbacks(runnableC1769f);
-                    runnableC1769f.a();
-                    synchronized (f.this.f64613a) {
-                        if (f.this.f64613a.get(this.f64629g) != null) {
-                            f.this.f64613a.remove(this.f64629g);
+                    f.this.O(401215, str, this.f64629f);
+                    f.this.u.removeCallbacks(runnableC1770f);
+                    runnableC1770f.a();
+                    synchronized (f.this.f64614a) {
+                        if (f.this.f64614a.get(this.f64630g) != null) {
+                            f.this.f64614a.remove(this.f64630g);
                             return;
                         }
-                        f.this.Q("ConnectTask exception:" + str, this.f64628f);
+                        f.this.Q("ConnectTask exception:" + str, this.f64629f);
                         return;
                     }
                 }
@@ -276,35 +276,35 @@ public final class f extends Observable {
 
     /* renamed from: d.b.s.a.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC1769f implements Runnable {
+    public class RunnableC1770f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public Integer f64632e;
+        public Integer f64633e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64633f = false;
+        public boolean f64634f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f64634g;
+        public String f64635g;
 
-        public RunnableC1769f(Integer num, String str) {
-            this.f64632e = num;
-            this.f64634g = str;
+        public RunnableC1770f(Integer num, String str) {
+            this.f64633e = num;
+            this.f64635g = str;
         }
 
         public void a() {
-            this.f64633f = true;
+            this.f64634f = true;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (f.this.f64613a) {
-                if (!this.f64633f && f.C.f64580a != 0) {
-                    f.this.f64613a.put(this.f64632e, Boolean.TRUE);
+            synchronized (f.this.f64614a) {
+                if (!this.f64634f && f.C.f64581a != 0) {
+                    f.this.f64614a.put(this.f64633e, Boolean.TRUE);
                     Context context = f.this.q;
                     d.b.s.a.a.d.w(context, "14N_1", "socketConnect_timeout :" + f.this.w);
-                    f.this.O(401214, "time out", this.f64634g);
-                    f.this.Q("time out:", this.f64634g);
+                    f.this.O(401214, "time out", this.f64635g);
+                    f.this.Q("time out:", this.f64635g);
                     return;
                 }
                 d.b.s.a.g.d.b("SocketTransceiver", "ConnectTimeOutTask has stoped");
@@ -317,14 +317,14 @@ public final class f extends Observable {
     public class g extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f64636a;
+        public String f64637a;
 
         public g(Looper looper) {
             super(looper);
         }
 
         public void a(String str) {
-            this.f64636a = str;
+            this.f64637a = str;
         }
 
         @Override // android.os.Handler
@@ -334,8 +334,8 @@ public final class f extends Observable {
                 return;
             }
             long j = message.arg1;
-            synchronized (f.this.f64620h) {
-                f.this.Z(j, this.f64636a);
+            synchronized (f.this.f64621h) {
+                f.this.Z(j, this.f64637a);
             }
         }
     }
@@ -344,10 +344,10 @@ public final class f extends Observable {
     public class i extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f64640e;
+        public String f64641e;
 
         public i(String str) {
-            this.f64640e = str;
+            this.f64641e = str;
             setName("LCP-SocketTransceiver-readThread");
         }
 
@@ -366,27 +366,27 @@ public final class f extends Observable {
                                 if (c2.l) {
                                     d.b.s.a.a.d.w(f.this.q, "17N_1", "Read LoginMsg Response");
                                 }
-                                if (c2.i == 1 && c2.f64605h == 4) {
+                                if (c2.i == 1 && c2.f64606h == 4) {
                                     Context context = f.this.q;
                                     d.b.s.a.g.a.a(context, 1L, "read", c2.n + "");
                                 }
-                                if (c2.i == 50 && c2.f64605h == 2) {
+                                if (c2.i == 50 && c2.f64606h == 2) {
                                     Context context2 = f.this.q;
                                     d.b.s.a.g.a.a(context2, 50L, "read", c2.n + "");
                                 }
-                                synchronized (f.this.f64620h) {
+                                synchronized (f.this.f64621h) {
                                     d.b.s.a.g.d.a("SocketTransceiver", "ReadThread handleResponseMessage...");
-                                    bVar = (d.b.s.a.c.b) f.this.f64618f.remove(Long.valueOf(c2.n));
+                                    bVar = (d.b.s.a.c.b) f.this.f64619f.remove(Long.valueOf(c2.n));
                                 }
-                                f.this.X(c2, bVar, this.f64640e);
+                                f.this.X(c2, bVar, this.f64641e);
                             }
-                            synchronized (f.this.f64620h) {
-                                if (f.this.f64618f.size() != 0) {
+                            synchronized (f.this.f64621h) {
+                                if (f.this.f64619f.size() != 0) {
                                     d.b.s.a.g.d.a("SocketTransceiver", "ReadThread socketTimeoutRunnable ...");
                                     f.this.s.b(c2.n);
-                                    f.this.s.a(this.f64640e);
-                                    f.this.u.a(this.f64640e);
-                                    f.this.u.postDelayed(f.this.s, c2.f64599b);
+                                    f.this.s.a(this.f64641e);
+                                    f.this.u.a(this.f64641e);
+                                    f.this.u.postDelayed(f.this.s, c2.f64600b);
                                 }
                             }
                         }
@@ -395,9 +395,9 @@ public final class f extends Observable {
                             return;
                         }
                         d.b.s.a.g.d.c("SocketTransceiver", "ReadThread exception: " + e2, e2);
-                        f.this.f64616d = false;
+                        f.this.f64617d = false;
                         f fVar = f.this;
-                        fVar.Q("ReadThread exception: " + e2, this.f64640e);
+                        fVar.Q("ReadThread exception: " + e2, this.f64641e);
                         return;
                     }
                 } catch (Exception e3) {
@@ -405,9 +405,9 @@ public final class f extends Observable {
                         return;
                     }
                     d.b.s.a.g.d.c("SocketTransceiver", "onStartCommand", e3);
-                    f.this.f64616d = false;
+                    f.this.f64617d = false;
                     f fVar2 = f.this;
-                    fVar2.Q("onStartCommand:" + e3, this.f64640e);
+                    fVar2.Q("onStartCommand:" + e3, this.f64641e);
                     return;
                 }
             }
@@ -418,10 +418,10 @@ public final class f extends Observable {
     public class j extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f64642e;
+        public String f64643e;
 
         public j(String str) {
-            this.f64642e = str;
+            this.f64643e = str;
             setName("LCP-SocketTransceiver-SendThread");
         }
 
@@ -431,33 +431,33 @@ public final class f extends Observable {
                 try {
                     d.b.s.a.c.b bVar = null;
                     try {
-                        synchronized (f.this.f64617e) {
-                            if (f.this.f64617e.size() == 0) {
-                                f.this.f64617e.wait();
+                        synchronized (f.this.f64618e) {
+                            if (f.this.f64618e.size() == 0) {
+                                f.this.f64618e.wait();
                             } else {
-                                bVar = (d.b.s.a.c.b) f.this.f64617e.removeFirst();
+                                bVar = (d.b.s.a.c.b) f.this.f64618e.removeFirst();
                             }
                         }
                     } catch (InterruptedException e2) {
                         d.b.s.a.g.d.b("SocketTransceiver", "SendThread wait exception: " + e2);
                         f fVar = f.this;
-                        fVar.Q("SendThread wait exception: " + e2, this.f64642e);
+                        fVar.Q("SendThread wait exception: " + e2, this.f64643e);
                     }
                     if (bVar != null) {
                         try {
                             if (f.this.o) {
-                                f.this.Y(bVar.n, this.f64642e);
+                                f.this.Y(bVar.n, this.f64643e);
                                 return;
                             }
                             bVar.m = true;
-                            bVar.j = f.C.f64580a;
+                            bVar.j = f.C.f64581a;
                             if (bVar.o) {
-                                synchronized (f.this.f64620h) {
-                                    if (f.this.f64618f.isEmpty()) {
+                                synchronized (f.this.f64621h) {
+                                    if (f.this.f64619f.isEmpty()) {
                                         f.this.u.removeCallbacks(f.this.s);
                                         f.this.s.b(bVar.n);
-                                        f.this.s.a(this.f64642e);
-                                        f.this.u.a(this.f64642e);
+                                        f.this.s.a(this.f64643e);
+                                        f.this.u.a(this.f64643e);
                                         f.this.u.postDelayed(f.this.s, 5000L);
                                     }
                                 }
@@ -466,34 +466,34 @@ public final class f extends Observable {
                             if (bVar.l) {
                                 d.b.s.a.a.d.w(f.this.q, "17N", "Send LoginMsg request");
                             }
-                            if (bVar.i == 1 && bVar.f64605h == 4) {
+                            if (bVar.i == 1 && bVar.f64606h == 4) {
                                 Context context = f.this.q;
                                 d.b.s.a.g.a.a(context, 1L, "send", bVar.n + "");
                             }
-                            if (bVar.i == 50 && bVar.f64605h == 2) {
+                            if (bVar.i == 50 && bVar.f64606h == 2) {
                                 Context context2 = f.this.q;
                                 d.b.s.a.g.a.a(context2, 50L, "send", bVar.n + "");
                             }
-                            synchronized (f.this.f64619g) {
+                            synchronized (f.this.f64620g) {
                                 f.this.r.f(bVar);
                             }
                             if (!bVar.k && bVar.o) {
-                                synchronized (f.this.f64620h) {
-                                    f.this.f64618f.put(Long.valueOf(bVar.n), bVar);
+                                synchronized (f.this.f64621h) {
+                                    f.this.f64619f.put(Long.valueOf(bVar.n), bVar);
                                 }
                             }
                         } catch (Exception e3) {
                             d.b.s.a.g.d.c("SocketTransceiver", "SendThread sendMessage Exception:", e3);
-                            f.this.U(bVar.n, e3.toString(), this.f64642e);
+                            f.this.U(bVar.n, e3.toString(), this.f64643e);
                             f fVar2 = f.this;
-                            fVar2.Q("SendThread sendMessage Exception:" + e3, this.f64642e);
+                            fVar2.Q("SendThread sendMessage Exception:" + e3, this.f64643e);
                             return;
                         }
                     }
                 } catch (Exception e4) {
                     d.b.s.a.g.d.c("SocketTransceiver", "SendThread Exception:", e4);
                     f fVar3 = f.this;
-                    fVar3.Q("SendThread Exception:" + e4, this.f64642e);
+                    fVar3.Q("SendThread Exception:" + e4, this.f64643e);
                     return;
                 }
             }
@@ -504,26 +504,26 @@ public final class f extends Observable {
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f64644e;
+        public long f64645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f64645f;
+        public String f64646f;
 
         public k() {
         }
 
         public void a(String str) {
-            this.f64645f = str;
+            this.f64646f = str;
         }
 
         public void b(long j) {
-            this.f64644e = j;
+            this.f64645e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.this.Z(this.f64644e, this.f64645f);
-            f.this.Q("read and write thread timeout:", this.f64645f);
+            f.this.Z(this.f64645e, this.f64646f);
+            f.this.Q("read and write thread timeout:", this.f64646f);
         }
 
         public /* synthetic */ k(f fVar, a aVar) {
@@ -553,30 +553,30 @@ public final class f extends Observable {
     public synchronized void I(BLCPRequest bLCPRequest, d.b.s.a.b.d.b bVar) {
         if (d.b.s.a.g.e.m(this.q)) {
             d.b.s.a.c.b bVar2 = new d.b.s.a.c.b();
-            bVar2.f64605h = bLCPRequest.f6377a;
-            bVar2.i = bLCPRequest.f6378b;
-            bVar2.f64598a = bLCPRequest.f6379c;
-            if (bLCPRequest.f6380d < 0) {
+            bVar2.f64606h = bLCPRequest.f6378a;
+            bVar2.i = bLCPRequest.f6379b;
+            bVar2.f64599a = bLCPRequest.f6380c;
+            if (bLCPRequest.f6381d < 0) {
                 bVar2.n = System.currentTimeMillis();
             } else {
-                bVar2.n = bLCPRequest.f6380d;
+                bVar2.n = bLCPRequest.f6381d;
             }
-            int i2 = d.f64626a[bLCPRequest.f6381e.ordinal()];
+            int i2 = d.f64627a[bLCPRequest.f6382e.ordinal()];
             if (i2 == 1) {
-                bVar2.f64599b = 20000L;
+                bVar2.f64600b = 20000L;
             } else if (i2 == 2) {
-                bVar2.f64599b = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
+                bVar2.f64600b = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
             } else if (i2 != 3) {
-                bVar2.f64599b = 5000L;
+                bVar2.f64600b = 5000L;
             } else {
-                bVar2.f64599b = 50000L;
+                bVar2.f64600b = 50000L;
             }
             if (bLCPRequest instanceof d.b.s.a.b.d.a) {
-                long j2 = (bVar2.f64605h * 10000) + bVar2.i;
+                long j2 = (bVar2.f64606h * 10000) + bVar2.i;
                 bVar2.n = j2;
-                h0(bVar2.f64605h, bVar2.i, j2, true, bVar);
+                h0(bVar2.f64606h, bVar2.i, j2, true, bVar);
             } else {
-                h0(bVar2.f64605h, bVar2.i, bVar2.n, false, bVar);
+                h0(bVar2.f64606h, bVar2.i, bVar2.n, false, bVar);
                 this.i.a(bVar2, true);
                 g0(bVar2);
             }
@@ -585,28 +585,28 @@ public final class f extends Observable {
 
     public final boolean J() {
         d.b.s.a.c.d dVar = this.r;
-        return (dVar == null || dVar.a() == null || this.r.a().f64610c == null || !this.r.a().f64610c.isConnected()) ? false : true;
+        return (dVar == null || dVar.a() == null || this.r.a().f64611c == null || !this.r.a().f64611c.isConnected()) ? false : true;
     }
 
     public final void K(d.b.s.a.c.e eVar) {
-        if (eVar == null || !eVar.f64608a.booleanValue()) {
+        if (eVar == null || !eVar.f64609a.booleanValue()) {
             return;
         }
         try {
-            if (eVar.f64610c != null) {
-                if (eVar.f64610c.hashCode() == this.r.a().f64610c.hashCode()) {
+            if (eVar.f64611c != null) {
+                if (eVar.f64611c.hashCode() == this.r.a().f64611c.hashCode()) {
                     d.b.s.a.g.d.e("SocketTransceiver", "closeExistedConnection  state.socket.hashCode() is same to cur socket!!!");
                     return;
                 }
-                eVar.f64610c.close();
-                eVar.f64610c = null;
-                if (eVar.f64611d != null) {
-                    eVar.f64611d.close();
-                    eVar.f64611d = null;
+                eVar.f64611c.close();
+                eVar.f64611c = null;
+                if (eVar.f64612d != null) {
+                    eVar.f64612d.close();
+                    eVar.f64612d = null;
                 }
-                if (eVar.f64612e != null) {
-                    eVar.f64612e.close();
-                    eVar.f64612e = null;
+                if (eVar.f64613e != null) {
+                    eVar.f64613e.close();
+                    eVar.f64613e = null;
                 }
                 d.b.s.a.g.d.a("SocketTransceiver", "closeExistedConnection ok");
             }
@@ -632,7 +632,7 @@ public final class f extends Observable {
             e0();
             return;
         }
-        if (C.f64580a != 0 && C.f64580a != -2) {
+        if (C.f64581a != 0 && C.f64581a != -2) {
             d.b.s.a.a.d.w(this.q, "10N_0", "connect begin");
             this.u.removeCallbacks(this.A);
             this.u.removeCallbacks(this.B);
@@ -640,9 +640,9 @@ public final class f extends Observable {
             d0();
             return;
         }
-        d.b.s.a.g.d.d("SocketTransceiver", "connectImpl connect state:" + C.f64580a);
+        d.b.s.a.g.d.d("SocketTransceiver", "connectImpl connect state:" + C.f64581a);
         Context context = this.q;
-        d.b.s.a.a.d.w(context, "17N_2", "connectState is " + C.f64580a);
+        d.b.s.a.a.d.w(context, "17N_2", "connectState is " + C.f64581a);
     }
 
     public final void O(int i2, String str, String str2) {
@@ -669,15 +669,15 @@ public final class f extends Observable {
         if (d.b.s.a.g.e.m(this.q)) {
             d.b.s.a.g.d.d("SocketTransceiver", "destroy");
             O(401212, "connect stop, " + str, str2);
-            C.f64580a = -1;
+            C.f64581a = -1;
             setChanged();
             notifyObservers(C);
             a0();
             this.u.removeCallbacks(this.s);
             this.o = true;
             if (this.r != null) {
-                synchronized (this.f64617e) {
-                    this.f64617e.notifyAll();
+                synchronized (this.f64618e) {
+                    this.f64618e.notifyAll();
                     d.b.s.a.g.d.d("SocketTransceiver", "destroy notifyAll");
                 }
                 try {
@@ -692,10 +692,10 @@ public final class f extends Observable {
     }
 
     public final synchronized void Q(String str, String str2) {
-        d.b.s.a.g.d.d("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.f64616d + ", net :" + RequsetNetworkUtils.isConnected(this.q) + ", isSmallFlow :" + d.b.s.a.g.e.m(this.q));
+        d.b.s.a.g.d.d("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.f64617d + ", net :" + RequsetNetworkUtils.isConnected(this.q) + ", isSmallFlow :" + d.b.s.a.g.e.m(this.q));
         if (d.b.s.a.g.e.m(this.q)) {
             R(str2);
-            if (this.f64616d) {
+            if (this.f64617d) {
                 e0();
                 return;
             }
@@ -711,18 +711,18 @@ public final class f extends Observable {
     public final void R(String str) {
         try {
             d.b.s.a.g.d.a("SocketTransceiver", "fatalAllMessage begin ");
-            synchronized (this.f64617e) {
-                while (this.f64617e.size() > 0) {
-                    S(this.f64617e.removeFirst(), str);
+            synchronized (this.f64618e) {
+                while (this.f64618e.size() > 0) {
+                    S(this.f64618e.removeFirst(), str);
                 }
                 d.b.s.a.g.d.a("SocketTransceiver", "fatalAllMessage sendQueue end ");
             }
-            synchronized (this.f64620h) {
+            synchronized (this.f64621h) {
                 d.b.s.a.g.d.a("SocketTransceiver", "fatalAllMessage mSync begin");
-                for (Long l : this.f64618f.keySet()) {
-                    S(this.f64618f.get(l), str);
+                for (Long l : this.f64619f.keySet()) {
+                    S(this.f64619f.get(l), str);
                 }
-                this.f64618f.clear();
+                this.f64619f.clear();
                 d.b.s.a.g.d.a("SocketTransceiver", "fatalAllMessage mSync end");
             }
         } catch (Exception e2) {
@@ -731,25 +731,25 @@ public final class f extends Observable {
     }
 
     public final void S(d.b.s.a.c.b bVar, String str) {
-        if (bVar == null || bVar.f64605h == 1) {
+        if (bVar == null || bVar.f64606h == 1) {
             return;
         }
-        d.b.s.a.g.d.b("SocketTransceiver", "fetalAndClearAllMsgs :" + bVar.n + ", serviceId :" + bVar.f64605h + ", methodId :" + bVar.i);
+        d.b.s.a.g.d.b("SocketTransceiver", "fetalAndClearAllMsgs :" + bVar.n + ", serviceId :" + bVar.f64606h + ", methodId :" + bVar.i);
         X(new d.b.s.a.c.b(), bVar, str);
     }
 
     public final void U(long j2, String str, String str2) {
         try {
-            if (this.f64618f.size() <= 0 || !this.f64618f.containsKey(Long.valueOf(j2))) {
+            if (this.f64619f.size() <= 0 || !this.f64619f.containsKey(Long.valueOf(j2))) {
                 return;
             }
-            d.b.s.a.g.d.a("SocketTransceiver", "handle msg exception!!! " + this.f64618f.get(Long.valueOf(j2)).toString());
-            d.b.s.a.c.b remove = this.f64618f.remove(Long.valueOf(j2));
+            d.b.s.a.g.d.a("SocketTransceiver", "handle msg exception!!! " + this.f64619f.get(Long.valueOf(j2)).toString());
+            d.b.s.a.c.b remove = this.f64619f.remove(Long.valueOf(j2));
             if (remove == null) {
                 return;
             }
-            remove.f64600c = 8005;
-            remove.f64601d = "socket exception :" + str;
+            remove.f64601c = 8005;
+            remove.f64602d = "socket exception :" + str;
             X(remove, remove, str2);
         } catch (Exception e2) {
             d.b.s.a.g.d.a("SocketTransceiver", "handle msg exception!!! " + e2);
@@ -758,9 +758,9 @@ public final class f extends Observable {
 
     public final void V(d.b.s.a.c.b bVar, String str) {
         int i2;
-        int i3 = bVar.f64600c;
+        int i3 = bVar.f64601c;
         if (i3 == 0) {
-            long j2 = bVar.f64604g;
+            long j2 = bVar.f64605g;
             long j3 = j2 > 0 ? j2 : 60000L;
             long j4 = bVar.i;
             if (j4 == 1) {
@@ -771,22 +771,22 @@ public final class f extends Observable {
                 }
             } else {
                 j0("LCP logout:", str);
-                C.f64580a = bVar.j;
+                C.f64581a = bVar.j;
                 setChanged();
                 notifyObservers(C);
                 a0();
             }
-        } else if (String.valueOf(i3).startsWith("30") || (i2 = bVar.f64600c) == 1011) {
-            d.b.s.a.g.d.a("SocketTransceiver", "login error, then request token, error :" + bVar.f64600c);
-            j0("errorCode:" + String.valueOf(bVar.f64600c), str);
+        } else if (String.valueOf(i3).startsWith("30") || (i2 = bVar.f64601c) == 1011) {
+            d.b.s.a.g.d.a("SocketTransceiver", "login error, then request token, error :" + bVar.f64601c);
+            j0("errorCode:" + String.valueOf(bVar.f64601c), str);
             d.b.s.a.g.e.z(this.q, "");
             d.b.s.a.b.c.f().k();
         } else if (i2 == 1012) {
-            d.b.s.a.g.d.a("SocketTransceiver", "login error :" + bVar.f64600c);
+            d.b.s.a.g.d.a("SocketTransceiver", "login error :" + bVar.f64601c);
         } else if (i2 == 1013) {
             W(60000L, false, str);
         } else {
-            C.f64580a = -1;
+            C.f64581a = -1;
             setChanged();
             notifyObservers(C);
             a0();
@@ -797,7 +797,7 @@ public final class f extends Observable {
     public final void W(long j2, boolean z, String str) {
         try {
             this.p.set(0);
-            C.f64580a = 0;
+            C.f64581a = 0;
             setChanged();
             notifyObservers(C);
             a0();
@@ -822,14 +822,14 @@ public final class f extends Observable {
     }
 
     public final void X(d.b.s.a.c.b bVar, d.b.s.a.c.b bVar2, String str) {
-        long j2 = bVar.f64605h;
+        long j2 = bVar.f64606h;
         if (j2 == 1) {
             V(bVar, str);
         } else if (j2 != -1) {
             b0(bVar);
         } else if (bVar2 == null) {
         } else {
-            if (bVar2.f64605h == 1) {
+            if (bVar2.f64606h == 1) {
                 V(bVar2, str);
             } else {
                 b0(bVar2);
@@ -839,16 +839,16 @@ public final class f extends Observable {
 
     public final void Y(long j2, String str) {
         try {
-            if (this.f64618f.size() <= 0 || !this.f64618f.containsKey(Long.valueOf(j2))) {
+            if (this.f64619f.size() <= 0 || !this.f64619f.containsKey(Long.valueOf(j2))) {
                 return;
             }
-            d.b.s.a.g.d.a("SocketTransceiver", "handle msg socket stoped!!! " + this.f64618f.get(Long.valueOf(j2)).toString());
-            d.b.s.a.c.b remove = this.f64618f.remove(Long.valueOf(j2));
+            d.b.s.a.g.d.a("SocketTransceiver", "handle msg socket stoped!!! " + this.f64619f.get(Long.valueOf(j2)).toString());
+            d.b.s.a.c.b remove = this.f64619f.remove(Long.valueOf(j2));
             if (remove == null) {
                 return;
             }
-            remove.f64600c = 8006;
-            remove.f64601d = "socket stopped :";
+            remove.f64601c = 8006;
+            remove.f64602d = "socket stopped :";
             X(remove, remove, str);
         } catch (Exception e2) {
             d.b.s.a.g.d.a("SocketTransceiver", "handle msg socket stoped!!! " + e2);
@@ -857,16 +857,16 @@ public final class f extends Observable {
 
     public final void Z(long j2, String str) {
         try {
-            if (this.f64618f.size() <= 0 || !this.f64618f.containsKey(Long.valueOf(j2))) {
+            if (this.f64619f.size() <= 0 || !this.f64619f.containsKey(Long.valueOf(j2))) {
                 return;
             }
-            d.b.s.a.g.d.a("SocketTransceiver", "handle msg timeout!!! " + this.f64618f.get(Long.valueOf(j2)).toString());
-            d.b.s.a.c.b remove = this.f64618f.remove(Long.valueOf(j2));
+            d.b.s.a.g.d.a("SocketTransceiver", "handle msg timeout!!! " + this.f64619f.get(Long.valueOf(j2)).toString());
+            d.b.s.a.c.b remove = this.f64619f.remove(Long.valueOf(j2));
             if (remove == null) {
                 return;
             }
-            remove.f64600c = 8004;
-            remove.f64601d = "socket timeout";
+            remove.f64601c = 8004;
+            remove.f64602d = "socket timeout";
             X(remove, remove, str);
         } catch (Exception e2) {
             d.b.s.a.g.d.a("SocketTransceiver", "handle msg timeout!!! " + e2);
@@ -875,7 +875,7 @@ public final class f extends Observable {
 
     public void a0() {
         Intent intent = new Intent();
-        intent.putExtra("com.baidu.lcp.sdk.connect.state", C.f64580a);
+        intent.putExtra("com.baidu.lcp.sdk.connect.state", C.f64581a);
         intent.setAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(this.q).sendBroadcast(intent);
     }
@@ -883,7 +883,7 @@ public final class f extends Observable {
     public final synchronized void b0(d.b.s.a.c.b bVar) {
         d.b.s.a.b.d.b bVar2 = null;
         try {
-            Long valueOf = Long.valueOf(!bVar.f64602e ? bVar.n : (bVar.f64605h * 10000) + bVar.i);
+            Long valueOf = Long.valueOf(!bVar.f64603e ? bVar.n : (bVar.f64606h * 10000) + bVar.i);
             d.b.s.a.g.d.a("SocketTransceiver", "onBLCPResponse key:" + valueOf + ", msgId :" + bVar.n + ", invoke keys :" + this.j.keySet().toString() + ", notify keys :" + this.k.keySet().toString());
             if (this.k.size() > 0 && this.k.containsKey(valueOf)) {
                 bVar2 = this.k.get(valueOf);
@@ -891,10 +891,10 @@ public final class f extends Observable {
                 bVar2 = this.j.remove(valueOf);
             }
             if (bVar2 != null) {
-                d.b.s.a.g.d.a("SocketTransceiver", "onBLCPResponse methodId :" + bVar.i + ", serviceId :" + bVar.f64605h + ", error :" + bVar.f64600c + ", msgId :" + bVar.n + ", errMsg :" + bVar.f64601d + ", invoke keys :" + this.j.keySet().toString());
-                bVar2.onResponse(bVar.f64600c, bVar.f64601d, bVar.f64605h, bVar.i, bVar.n, bVar.f64603f);
-                if (bVar.f64600c == 1011) {
-                    d.b.s.a.g.d.a("SocketTransceiver", "onBLCPResponse errorCode :" + bVar.f64600c + ", and will send lcm login msg .");
+                d.b.s.a.g.d.a("SocketTransceiver", "onBLCPResponse methodId :" + bVar.i + ", serviceId :" + bVar.f64606h + ", error :" + bVar.f64601c + ", msgId :" + bVar.n + ", errMsg :" + bVar.f64602d + ", invoke keys :" + this.j.keySet().toString());
+                bVar2.onResponse(bVar.f64601c, bVar.f64602d, bVar.f64606h, bVar.i, bVar.n, bVar.f64604f);
+                if (bVar.f64601c == 1011) {
+                    d.b.s.a.g.d.a("SocketTransceiver", "onBLCPResponse errorCode :" + bVar.f64601c + ", and will send lcm login msg .");
                     g0(this.i.b(this.q, 1L));
                 }
             }
@@ -916,16 +916,16 @@ public final class f extends Observable {
             return;
         }
         d.b.s.a.a.d.w(this.q, "10N_1", "connecting");
-        d.b.s.a.g.d.f("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.f64615c);
-        String[] split = d.b.s.a.g.e.h(this.q, this.f64615c).split(":");
+        d.b.s.a.g.d.f("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.f64616c);
+        String[] split = d.b.s.a.g.e.h(this.q, this.f64616c).split(":");
         if (split.length < 3) {
             return;
         }
         String str = TextUtils.isEmpty(split[0]) ? "tcp" : split[0];
         String str2 = split[1];
         String str3 = split[2];
-        if (this.f64615c >= d.b.s.a.g.e.i(this.q)) {
-            this.f64615c = 0;
+        if (this.f64616c >= d.b.s.a.g.e.i(this.q)) {
+            this.f64616c = 0;
             d.b.s.a.a.d.w(this.q, "10N_1", "connect failed, connectip:" + str2 + ", port:" + str3 + ", protocolType:" + str);
             d.b.s.a.g.d.a("SocketTransceiver", "protocolOption failed, connectip:" + str2 + ", port:" + str3 + ", protocolType:" + str);
             this.r = new d.b.s.a.c.g(this.q, "tls");
@@ -939,7 +939,7 @@ public final class f extends Observable {
         } else if ("tcp".equals(str) || ("tls".equals(str) && !(this.r instanceof d.b.s.a.c.g))) {
             this.r = new d.b.s.a.c.g(this.q, str);
         }
-        this.f64615c++;
+        this.f64616c++;
         if (this.r != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             d.b.s.a.g.d.a("SocketTransceiver", "type :" + str + ", host :" + str2 + ", port :" + str3);
             this.x = str2;
@@ -953,7 +953,7 @@ public final class f extends Observable {
     }
 
     public final void e0() {
-        this.f64615c = 0;
+        this.f64616c = 0;
         this.p.set(0);
         d.b.s.a.c.a.j();
     }
@@ -961,7 +961,7 @@ public final class f extends Observable {
     public final void f0(boolean z) {
         try {
             this.p.incrementAndGet();
-            if (this.p.get() > 10 || C.f64580a != -1) {
+            if (this.p.get() > 10 || C.f64581a != -1) {
                 return;
             }
             long L = L(this.p.get());
@@ -986,9 +986,9 @@ public final class f extends Observable {
         } catch (Exception e2) {
             d.b.s.a.g.d.c("SocketTransceiver", "sendMessage Exception :", e2);
         }
-        synchronized (this.f64617e) {
+        synchronized (this.f64618e) {
             boolean z = false;
-            Iterator<d.b.s.a.c.b> it = this.f64617e.iterator();
+            Iterator<d.b.s.a.c.b> it = this.f64618e.iterator();
             while (it.hasNext()) {
                 d.b.s.a.c.b next = it.next();
                 d.b.s.a.g.d.a("SocketTransceiver", "sendMessage queue :" + next.n);
@@ -997,32 +997,32 @@ public final class f extends Observable {
                 }
             }
             if (bVar.l) {
-                if (!z && C.f64580a == -1) {
-                    this.f64617e.addFirst(bVar);
-                    this.f64617e.notifyAll();
+                if (!z && C.f64581a == -1) {
+                    this.f64618e.addFirst(bVar);
+                    this.f64618e.notifyAll();
                     d.b.s.a.a.d.w(this.q, "16Y_2", "send Logig msg");
                 }
-                d.b.s.a.g.d.b("SocketTransceiver", "sendMessage cur methodId :1, state :" + C.f64580a);
-            } else if (C.f64580a == -1) {
+                d.b.s.a.g.d.b("SocketTransceiver", "sendMessage cur methodId :1, state :" + C.f64581a);
+            } else if (C.f64581a == -1) {
                 if (J()) {
-                    if (this.f64617e.size() <= 0 || !z) {
-                        this.f64617e.addFirst(this.i.b(this.q, 1L));
-                        this.f64617e.notifyAll();
+                    if (this.f64618e.size() <= 0 || !z) {
+                        this.f64618e.addFirst(this.i.b(this.q, 1L));
+                        this.f64618e.notifyAll();
                         d.b.s.a.a.d.w(this.q, "16Y_3", "heart rate and send Logig msg");
                     }
                     if (!bVar.k) {
-                        this.f64617e.add(bVar);
-                        this.f64617e.notifyAll();
+                        this.f64618e.add(bVar);
+                        this.f64618e.notifyAll();
                     }
                 } else {
                     if (bVar.k) {
                         d0();
                     }
-                    this.f64617e.add(bVar);
+                    this.f64618e.add(bVar);
                 }
             } else {
-                this.f64617e.add(bVar);
-                this.f64617e.notifyAll();
+                this.f64618e.add(bVar);
+                this.f64618e.notifyAll();
             }
         }
     }
@@ -1048,7 +1048,7 @@ public final class f extends Observable {
         if (d.b.s.a.g.e.m(this.q)) {
             d.b.s.a.g.d.d("SocketTransceiver", "---socketDisconnect---");
             this.o = true;
-            this.f64616d = true;
+            this.f64617d = true;
             R(str2);
             e0();
             this.u.removeCallbacks(this.A);
@@ -1063,21 +1063,21 @@ public final class f extends Observable {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f64638e;
+        public long f64639e;
 
         public h() {
-            this.f64638e = 60000L;
+            this.f64639e = 60000L;
         }
 
         public void a(long j) {
-            this.f64638e = j;
+            this.f64639e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             f.this.u.removeCallbacks(f.this.n);
             if (d.b.s.a.g.e.m(f.this.q)) {
-                f.this.u.postDelayed(f.this.n, this.f64638e);
+                f.this.u.postDelayed(f.this.n, this.f64639e);
                 f fVar = f.this;
                 fVar.g0(fVar.i.b(f.this.q, 3L));
             }

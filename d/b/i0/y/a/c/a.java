@@ -29,18 +29,18 @@ public class a extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
 
     /* renamed from: d.b.i0.y.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1672a implements View.OnClickListener {
+    public class View$OnClickListenerC1673a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f62547e;
+        public final /* synthetic */ tinfo f62548e;
 
-        public View$OnClickListenerC1672a(tinfo tinfoVar) {
-            this.f62547e = tinfoVar;
+        public View$OnClickListenerC1673a(tinfo tinfoVar) {
+            this.f62548e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String str = this.f62547e.forum_name;
+            String str = this.f62548e.forum_name;
             if (k.isForumName(str)) {
                 TiebaStatic.eventStat(a.this.a(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
@@ -78,7 +78,7 @@ public class a extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
         } else {
             this.m.setVisibility(0);
             this.m.setText(UtilHelper.getFixedText(b().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.m.setOnClickListener(new View$OnClickListenerC1672a(tinfoVar));
+            this.m.setOnClickListener(new View$OnClickListenerC1673a(tinfoVar));
         }
         Integer num = tinfoVar.zan_num;
         if (num != null) {

@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i.k0;
 import d.b.i.u0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class n extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public d.b.b.j.e.s o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.j.e.w {
         public a(n nVar) {
         }
@@ -27,7 +27,7 @@ public class n extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                 d.b.i0.x.e0.k kVar = (d.b.i0.x.e0.k) nVar;
                 kVar.k = 1;
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 1, false);
-                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
             }
         }
     }
@@ -57,7 +57,7 @@ public class n extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder<d.b.i0.x.e0.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

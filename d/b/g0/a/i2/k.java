@@ -12,7 +12,7 @@ public class k {
         if (d2 == null || d2.size() <= 0) {
             return null;
         }
-        File file = new File(d2.get(0).f44685a, "/debug/");
+        File file = new File(d2.get(0).f44686a, "/debug/");
         if (!file.exists()) {
             file.mkdirs();
         }

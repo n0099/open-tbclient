@@ -29,29 +29,29 @@ import java.util.zip.ZipOutputStream;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f48464a = "/aigames/sandbox/";
+    public static String f48465a = "/aigames/sandbox/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f48465b;
+    public static String f48466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f48466c;
+    public static String f48467c;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f48467a;
+        public static final /* synthetic */ int[] f48468a;
 
         static {
             int[] iArr = new int[PathType.values().length];
-            f48467a = iArr;
+            f48468a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f48467a[PathType.RELATIVE.ordinal()] = 2;
+                f48468a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -205,7 +205,7 @@ public class n {
 
     public static String J(String str, String str2) {
         String w = w(AppRuntime.getAppContext());
-        return w + File.separator + str + f48464a + str2;
+        return w + File.separator + str + f48465a + str2;
     }
 
     public static String K(String str) {
@@ -358,7 +358,7 @@ public class n {
 
     public static String U(String str) {
         String y;
-        int i = a.f48467a[d.b.g0.a.a2.b.c(str).ordinal()];
+        int i = a.f48468a[d.b.g0.a.a2.b.c(str).ordinal()];
         if (i == 1) {
             y = y(str);
         } else if (i != 2) {
@@ -415,10 +415,10 @@ public class n {
             aVar.throwJSException(jSExceptionType, str2 + str);
             return;
         }
-        int i = cVar.f48340a;
+        int i = cVar.f48341a;
         if (i != 0) {
             JSExceptionType z = z(i);
-            aVar.throwJSException(z, str2 + cVar.f48341b);
+            aVar.throwJSException(z, str2 + cVar.f48342b);
         }
     }
 
@@ -434,26 +434,26 @@ public class n {
             }
         }
         str = null;
-        if (bVar2 == null || bVar == null || (map2 = bVar.f48339c) == null) {
+        if (bVar2 == null || bVar == null || (map2 = bVar.f48340c) == null) {
             return false;
         }
-        c cVar = bVar.f48337a;
+        c cVar = bVar.f48338a;
         JsFunction A = A("fail", map2);
         JsFunction A2 = A("complete", map2);
         JsFunction A3 = A("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            String str2 = bVar.f48338b + str;
+            String str2 = bVar.f48339b + str;
             bVar2.errMsg = str2;
             d(aVar, str2);
             k(A, A2, bVar2, A3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.f48338b + "unknown error";
+            bVar2.errMsg = bVar.f48339b + "unknown error";
             k(A, A2, bVar2, A3);
             return false;
         } else {
-            bVar2.errMsg = bVar.f48338b + cVar.f48341b;
-            if (cVar.f48340a != 0) {
+            bVar2.errMsg = bVar.f48339b + cVar.f48342b;
+            if (cVar.f48341a != 0) {
                 k(A, A2, bVar2, A3);
                 return false;
             }
@@ -558,7 +558,7 @@ public class n {
         if (!TextUtils.isEmpty(str)) {
             h(str);
         }
-        String str2 = w + File.separator + f48466c + f48464a;
+        String str2 = w + File.separator + f48467c + f48465a;
         if (TextUtils.isEmpty(str2)) {
             return;
         }
@@ -748,7 +748,7 @@ public class n {
         } catch (Exception e3) {
             e = e3;
             fileInputStream2 = fileInputStream;
-            if (d.b.g0.a.k.f45050a) {
+            if (d.b.g0.a.k.f45051a) {
                 e.printStackTrace();
             }
             d.b.g0.p.d.a(fileInputStream2);
@@ -933,9 +933,9 @@ public class n {
 
     public static b t(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.f48337a = cVar;
-        bVar.f48338b = str;
-        bVar.f48339c = map;
+        bVar.f48338a = cVar;
+        bVar.f48339b = str;
+        bVar.f48340c = map;
         return bVar;
     }
 
@@ -960,12 +960,12 @@ public class n {
     public static c v(String str, String str2, String str3) {
         c cVar = new c();
         if (str == null) {
-            cVar.f48341b = str3;
-            cVar.f48340a = -2;
+            cVar.f48342b = str3;
+            cVar.f48341a = -2;
             return cVar;
         } else if ("".equals(str)) {
-            cVar.f48341b = str2;
-            cVar.f48340a = -1;
+            cVar.f48342b = str2;
+            cVar.f48341a = -1;
             return cVar;
         } else {
             return null;
@@ -977,10 +977,10 @@ public class n {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(f48465b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            f48465b = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(f48466b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            f48466b = externalFilesDir.getAbsolutePath();
         }
-        return f48465b;
+        return f48466b;
     }
 
     public static long x(String str) {

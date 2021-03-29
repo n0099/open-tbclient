@@ -16,54 +16,54 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f45663a;
+    public static String f45664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45664b;
+    public static String f45665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45665c;
+    public static String f45666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f45666d = k.f45050a;
+    public static boolean f45667d = k.f45051a;
 
     public static boolean a() {
         return Build.FINGERPRINT.contains("Flyme") || Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find();
     }
 
     public static boolean b() {
-        if (f45663a == null) {
-            f45663a = g("ro.miui.ui.version.name");
+        if (f45664a == null) {
+            f45664a = g("ro.miui.ui.version.name");
         }
-        if (f45666d) {
-            Log.d("ToastUtils", "OsName = " + f45663a);
+        if (f45667d) {
+            Log.d("ToastUtils", "OsName = " + f45664a);
         }
-        return !TextUtils.isEmpty(f45663a);
+        return !TextUtils.isEmpty(f45664a);
     }
 
     public static boolean c() {
-        if (f45665c == null) {
-            f45665c = g("ro.build.version.opporom");
+        if (f45666c == null) {
+            f45666c = g("ro.build.version.opporom");
         }
-        if (f45666d) {
-            Log.d("ToastUtils", "OsName = " + f45665c);
+        if (f45667d) {
+            Log.d("ToastUtils", "OsName = " + f45666c);
         }
-        return !TextUtils.isEmpty(f45665c);
+        return !TextUtils.isEmpty(f45666c);
     }
 
     public static boolean d() {
         String[] split;
-        if (f45664b == null) {
-            f45664b = g(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+        if (f45665b == null) {
+            f45665b = g(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
         }
-        if (f45666d) {
-            Log.d("ToastUtils", "sMiuiVersion = " + f45664b);
+        if (f45667d) {
+            Log.d("ToastUtils", "sMiuiVersion = " + f45665b);
         }
-        if (!TextUtils.isEmpty(f45664b) && (split = f45664b.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(f45665b) && (split = f45665b.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (!TextUtils.isEmpty(substring)) {
                 try {

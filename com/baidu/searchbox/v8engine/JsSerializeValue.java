@@ -1,6 +1,6 @@
 package com.baidu.searchbox.v8engine;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class JsSerializeValue extends JsReleaser {
     public static final boolean DEBUG = false;
     public static final String TAG = "JsSerializeValue";

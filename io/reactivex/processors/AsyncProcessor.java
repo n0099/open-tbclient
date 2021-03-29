@@ -20,7 +20,6 @@ public final class AsyncProcessor<T> extends a<T> {
         public void cancel() {
             if (super.tryCancel()) {
                 this.parent.d(this);
-                throw null;
             }
         }
 
@@ -40,7 +39,5 @@ public final class AsyncProcessor<T> extends a<T> {
         }
     }
 
-    public void d(AsyncSubscription<T> asyncSubscription) {
-        throw null;
-    }
+    public abstract void d(AsyncSubscription<T> asyncSubscription);
 }

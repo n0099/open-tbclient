@@ -17,30 +17,30 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46698e;
+        public final /* synthetic */ CallbackHandler f46699e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46699f;
+        public final /* synthetic */ String f46700f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46700g;
+        public final /* synthetic */ Context f46701g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46701h;
+        public final /* synthetic */ d.b.g0.a.r1.e f46702h;
         public final /* synthetic */ JSONArray i;
 
         public a(CallbackHandler callbackHandler, String str, Context context, d.b.g0.a.r1.e eVar, JSONArray jSONArray) {
-            this.f46698e = callbackHandler;
-            this.f46699f = str;
-            this.f46700g = context;
-            this.f46701h = eVar;
+            this.f46699e = callbackHandler;
+            this.f46700f = str;
+            this.f46701g = context;
+            this.f46702h = eVar;
             this.i = jSONArray;
         }
 
@@ -49,66 +49,66 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                h.this.x((Activity) this.f46700g, this.f46701h, this.f46698e, this.i, this.f46699f);
+                h.this.x((Activity) this.f46701g, this.f46702h, this.f46699e, this.i, this.f46700f);
             } else {
-                d.b.g0.a.v1.c.c.o(hVar, this.f46698e, this.f46699f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f46699e, this.f46700f);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.g1.o.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46702a;
+        public final /* synthetic */ CallbackHandler f46703a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46703b;
+        public final /* synthetic */ String f46704b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46704c;
+        public final /* synthetic */ JSONArray f46705c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46705d;
+        public final /* synthetic */ d.b.g0.a.r1.e f46706d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f46706e;
+        public final /* synthetic */ Activity f46707e;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements d.b.g0.a.i2.u0.b<Boolean> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.v1.c.e f46708e;
+            public final /* synthetic */ d.b.g0.a.v1.c.e f46709e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ List f46709f;
+            public final /* synthetic */ List f46710f;
 
             /* renamed from: d.b.g0.a.v1.b.h$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class RunnableC0858a implements Runnable {
+            /* loaded from: classes2.dex */
+            public class RunnableC0859a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Boolean f46711e;
+                public final /* synthetic */ Boolean f46712e;
 
-                public RunnableC0858a(Boolean bool) {
-                    this.f46711e = bool;
+                public RunnableC0859a(Boolean bool) {
+                    this.f46712e = bool;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     a aVar = a.this;
                     h hVar = h.this;
-                    d.b.g0.a.v1.c.e eVar = aVar.f46708e;
-                    List list = aVar.f46709f;
-                    boolean booleanValue = this.f46711e.booleanValue();
+                    d.b.g0.a.v1.c.e eVar = aVar.f46709e;
+                    List list = aVar.f46710f;
+                    boolean booleanValue = this.f46712e.booleanValue();
                     b bVar = b.this;
-                    hVar.P(eVar, list, booleanValue, bVar.f46706e, bVar.f46705d, bVar.f46702a, bVar.f46703b);
+                    hVar.P(eVar, list, booleanValue, bVar.f46707e, bVar.f46706d, bVar.f46703a, bVar.f46704b);
                 }
             }
 
             public a(d.b.g0.a.v1.c.e eVar, List list) {
-                this.f46708e = eVar;
-                this.f46709f = list;
+                this.f46709e = eVar;
+                this.f46710f = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -116,38 +116,38 @@ public class h extends a0 {
             /* renamed from: a */
             public void onCallback(Boolean bool) {
                 b bVar = b.this;
-                h.this.O(bVar.f46706e, this.f46708e, bool);
-                k0.T(new RunnableC0858a(bool));
+                h.this.O(bVar.f46707e, this.f46709e, bool);
+                k0.T(new RunnableC0859a(bool));
             }
         }
 
         /* renamed from: d.b.g0.a.v1.b.h$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0859b implements d.b.g0.a.i2.u0.b<String> {
+        /* loaded from: classes2.dex */
+        public class C0860b implements d.b.g0.a.i2.u0.b<String> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.v1.c.e f46713e;
+            public final /* synthetic */ d.b.g0.a.v1.c.e f46714e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ List f46714f;
+            public final /* synthetic */ List f46715f;
 
             /* renamed from: d.b.g0.a.v1.b.h$b$b$a */
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class a implements Runnable {
                 public a() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    C0859b c0859b = C0859b.this;
+                    C0860b c0860b = C0860b.this;
                     b bVar = b.this;
-                    h.this.P(c0859b.f46713e, c0859b.f46714f, false, bVar.f46706e, bVar.f46705d, bVar.f46702a, bVar.f46703b);
+                    h.this.P(c0860b.f46714e, c0860b.f46715f, false, bVar.f46707e, bVar.f46706d, bVar.f46703a, bVar.f46704b);
                 }
             }
 
-            public C0859b(d.b.g0.a.v1.c.e eVar, List list) {
-                this.f46713e = eVar;
-                this.f46714f = list;
+            public C0860b(d.b.g0.a.v1.c.e eVar, List list) {
+                this.f46714e = eVar;
+                this.f46715f = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -155,167 +155,167 @@ public class h extends a0 {
             /* renamed from: a */
             public void onCallback(String str) {
                 b bVar = b.this;
-                h.this.N(bVar.f46706e, this.f46713e, str);
+                h.this.N(bVar.f46707e, this.f46714e, str);
                 k0.T(new a());
             }
         }
 
         public b(CallbackHandler callbackHandler, String str, JSONArray jSONArray, d.b.g0.a.r1.e eVar, Activity activity) {
-            this.f46702a = callbackHandler;
-            this.f46703b = str;
-            this.f46704c = jSONArray;
-            this.f46705d = eVar;
-            this.f46706e = activity;
+            this.f46703a = callbackHandler;
+            this.f46704b = str;
+            this.f46705c = jSONArray;
+            this.f46706d = eVar;
+            this.f46707e = activity;
         }
 
         @Override // d.b.g0.a.g1.o.b.a
         public void a() {
             List<d.b.g0.a.v1.c.e> w;
             Map<String, d.b.g0.a.v1.c.e> g2 = d.b.g0.a.g1.o.c.a.g(true);
-            d.b.g0.a.v1.c.e y = h.this.y(g2, this.f46702a, this.f46703b);
-            if (y == null || (w = h.this.w(g2, this.f46704c, this.f46702a, this.f46703b)) == null) {
+            d.b.g0.a.v1.c.e y = h.this.y(g2, this.f46703a, this.f46704b);
+            if (y == null || (w = h.this.w(g2, this.f46705c, this.f46703a, this.f46704b)) == null) {
                 return;
             }
             y.g(w);
-            if (this.f46705d.z().e(this.f46706e)) {
-                h.this.z(new C0859b(y, w));
+            if (this.f46706d.z().e(this.f46707e)) {
+                h.this.z(new C0860b(y, w));
             } else {
-                d.b.g0.a.w0.a.I().a(this.f46706e, new a(y, w));
+                d.b.g0.a.w0.a.I().a(this.f46707e, new a(y, w));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements d.b.g0.a.v1.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46717a;
+        public final /* synthetic */ CallbackHandler f46718a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46718b;
+        public final /* synthetic */ String f46719b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f46719c;
+        public final /* synthetic */ boolean f46720c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46720d;
+        public final /* synthetic */ d.b.g0.a.r1.e f46721d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f46721e;
+        public final /* synthetic */ Activity f46722e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f46722f;
+        public final /* synthetic */ List f46723f;
 
         public c(CallbackHandler callbackHandler, String str, boolean z, d.b.g0.a.r1.e eVar, Activity activity, List list) {
-            this.f46717a = callbackHandler;
-            this.f46718b = str;
-            this.f46719c = z;
-            this.f46720d = eVar;
-            this.f46721e = activity;
-            this.f46722f = list;
+            this.f46718a = callbackHandler;
+            this.f46719b = str;
+            this.f46720c = z;
+            this.f46721d = eVar;
+            this.f46722e = activity;
+            this.f46723f = list;
         }
 
         @Override // d.b.g0.a.v1.c.a
         public void onResult(boolean z) {
             d.b.g0.a.c0.c.g("MultiAuthorize", "showAuthDialog " + z);
             if (!z) {
-                d.b.g0.a.v1.c.c.m(10003, this.f46717a, this.f46718b);
+                d.b.g0.a.v1.c.c.m(10003, this.f46718a, this.f46719b);
                 return;
             }
-            boolean z2 = this.f46719c;
-            if (this.f46720d.z().e(this.f46721e)) {
-                h.this.H(this.f46722f, this.f46721e, this.f46717a, this.f46718b);
+            boolean z2 = this.f46720c;
+            if (this.f46721d.z().e(this.f46722e)) {
+                h.this.H(this.f46723f, this.f46722e, this.f46718a, this.f46719b);
             } else if (z2) {
-                h.this.K(this.f46722f, this.f46721e, this.f46717a, this.f46718b);
+                h.this.K(this.f46723f, this.f46722e, this.f46718a, this.f46719b);
             } else {
-                h.this.G(this.f46722f, this.f46721e, this.f46717a, this.f46718b, this.f46720d);
+                h.this.G(this.f46723f, this.f46722e, this.f46718a, this.f46719b, this.f46721d);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f46724a;
+        public final /* synthetic */ List f46725a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f46725b;
+        public final /* synthetic */ Activity f46726b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46726c;
+        public final /* synthetic */ CallbackHandler f46727c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f46727d;
+        public final /* synthetic */ String f46728d;
 
         public d(List list, Activity activity, CallbackHandler callbackHandler, String str) {
-            this.f46724a = list;
-            this.f46725b = activity;
-            this.f46726c = callbackHandler;
-            this.f46727d = str;
+            this.f46725a = list;
+            this.f46726b = activity;
+            this.f46727c = callbackHandler;
+            this.f46728d = str;
         }
 
         @Override // d.b.g0.a.v1.b.h.j
         public void a(boolean z, int i) {
             d.b.g0.a.c0.c.g("MultiAuthorize", "login result:" + i);
             if (z) {
-                h.this.H(this.f46724a, this.f46725b, this.f46726c, this.f46727d);
+                h.this.H(this.f46725a, this.f46726b, this.f46727c, this.f46728d);
             } else {
-                d.b.g0.a.v1.c.c.m(10004, this.f46726c, this.f46727d);
+                d.b.g0.a.v1.c.c.m(10004, this.f46727c, this.f46728d);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements d.b.g0.a.i2.u0.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f46729e;
+        public final /* synthetic */ List f46730e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f46730f;
+        public final /* synthetic */ Activity f46731f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46731g;
+        public final /* synthetic */ CallbackHandler f46732g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46732h;
+        public final /* synthetic */ String f46733h;
 
         public e(List list, Activity activity, CallbackHandler callbackHandler, String str) {
-            this.f46729e = list;
-            this.f46730f = activity;
-            this.f46731g = callbackHandler;
-            this.f46732h = str;
+            this.f46730e = list;
+            this.f46731f = activity;
+            this.f46732g = callbackHandler;
+            this.f46733h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(String str) {
-            h.this.I(TextUtils.equals(str, "1"), this.f46729e, this.f46730f, this.f46731g, this.f46732h);
+            h.this.I(TextUtils.equals(str, "1"), this.f46730e, this.f46731f, this.f46732g, this.f46733h);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f implements d.b.g0.a.i2.u0.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f46733e;
+        public final /* synthetic */ Activity f46734e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f46734f;
+        public final /* synthetic */ List f46735f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46735g;
+        public final /* synthetic */ CallbackHandler f46736g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46736h;
+        public final /* synthetic */ String f46737h;
 
         public f(Activity activity, List list, CallbackHandler callbackHandler, String str) {
-            this.f46733e = activity;
-            this.f46734f = list;
-            this.f46735g = callbackHandler;
-            this.f46736h = str;
+            this.f46734e = activity;
+            this.f46735f = list;
+            this.f46736g = callbackHandler;
+            this.f46737h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -323,33 +323,33 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(String str) {
             if (!TextUtils.isEmpty(str)) {
-                h.this.J(this.f46733e, this.f46734f, this.f46735g, this.f46736h);
+                h.this.J(this.f46734e, this.f46735f, this.f46736g, this.f46737h);
             } else {
-                d.b.g0.a.v1.c.c.m(10003, this.f46735g, this.f46736h);
+                d.b.g0.a.v1.c.c.m(10003, this.f46736g, this.f46737h);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class g implements d.b.g0.a.i2.u0.b<Integer> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f46737e;
+        public final /* synthetic */ List f46738e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f46738f;
+        public final /* synthetic */ Activity f46739f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46739g;
+        public final /* synthetic */ CallbackHandler f46740g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46740h;
+        public final /* synthetic */ String f46741h;
 
         public g(List list, Activity activity, CallbackHandler callbackHandler, String str) {
-            this.f46737e = list;
-            this.f46738f = activity;
-            this.f46739g = callbackHandler;
-            this.f46740h = str;
+            this.f46738e = list;
+            this.f46739f = activity;
+            this.f46740g = callbackHandler;
+            this.f46741h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -357,26 +357,26 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(Integer num) {
             if (num.intValue() == 0) {
-                h.this.H(this.f46737e, this.f46738f, this.f46739g, this.f46740h);
+                h.this.H(this.f46738e, this.f46739f, this.f46740g, this.f46741h);
             } else {
-                d.b.g0.a.v1.c.c.m(10003, this.f46739g, this.f46740h);
+                d.b.g0.a.v1.c.c.m(10003, this.f46740g, this.f46741h);
             }
         }
     }
 
     /* renamed from: d.b.g0.a.v1.b.h$h  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0860h implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
+    /* loaded from: classes2.dex */
+    public class C0861h implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46741e;
+        public final /* synthetic */ CallbackHandler f46742e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46742f;
+        public final /* synthetic */ String f46743f;
 
-        public C0860h(h hVar, CallbackHandler callbackHandler, String str) {
-            this.f46741e = callbackHandler;
-            this.f46742f = str;
+        public C0861h(h hVar, CallbackHandler callbackHandler, String str) {
+            this.f46742e = callbackHandler;
+            this.f46743f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -384,41 +384,41 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (hVar == null) {
-                d.b.g0.a.v1.c.c.m(10001, this.f46741e, this.f46742f);
+                d.b.g0.a.v1.c.c.m(10001, this.f46742e, this.f46743f);
                 d.b.g0.a.z1.h.q(10001, null);
                 return;
             }
             int b2 = hVar.b();
-            d.b.g0.a.c0.c.l("MultiAuthorize", "requestAuthorize " + hVar.a() + ",  code=" + b2 + ", data=" + hVar.f46807a);
+            d.b.g0.a.c0.c.l("MultiAuthorize", "requestAuthorize " + hVar.a() + ",  code=" + b2 + ", data=" + hVar.f46808a);
             if (b2 != 0) {
-                d.b.g0.a.v1.c.c.m(b2, this.f46741e, this.f46742f);
+                d.b.g0.a.v1.c.c.m(b2, this.f46742e, this.f46743f);
             } else {
-                this.f46741e.handleSchemeDispatchCallback(this.f46742f, UnitedSchemeUtility.wrapCallbackParams(0, "success").toString());
+                this.f46742e.handleSchemeDispatchCallback(this.f46743f, UnitedSchemeUtility.wrapCallbackParams(0, "success").toString());
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class i implements d.b.g0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f46743e;
+        public final /* synthetic */ j f46744e;
 
         public i(h hVar, j jVar) {
-            this.f46743e = jVar;
+            this.f46744e = jVar;
         }
 
         @Override // d.b.g0.a.m.a
         public void onResult(int i) {
             if (i != 0) {
-                this.f46743e.a(false, i);
+                this.f46744e.a(false, i);
             } else {
-                this.f46743e.a(true, i);
+                this.f46744e.a(true, i);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface j {
         void a(boolean z, int i);
     }
@@ -439,11 +439,11 @@ public class h extends a0 {
     }
 
     public final boolean B(d.b.g0.a.v1.c.e eVar) {
-        return TextUtils.equals(eVar.f46768b, "mapp_location") || TextUtils.equals(eVar.f46768b, "mapp_images") || TextUtils.equals(eVar.f46768b, PermissionProxy.SCOPE_ID_RECORD) || TextUtils.equals(eVar.f46768b, PermissionProxy.SCOPE_ID_CAMERA) || TextUtils.equals(eVar.f46768b, "ppcert") || TextUtils.equals(eVar.f46768b, "mapp_i_face_verify") || TextUtils.equals(eVar.f46768b, "snsapi_userinfo") || TextUtils.equals(eVar.f46768b, "mapp_choose_address") || TextUtils.equals(eVar.f46768b, "mobile") || TextUtils.equals(eVar.f46768b, "mapp_choose_invoice");
+        return TextUtils.equals(eVar.f46769b, "mapp_location") || TextUtils.equals(eVar.f46769b, "mapp_images") || TextUtils.equals(eVar.f46769b, PermissionProxy.SCOPE_ID_RECORD) || TextUtils.equals(eVar.f46769b, PermissionProxy.SCOPE_ID_CAMERA) || TextUtils.equals(eVar.f46769b, "ppcert") || TextUtils.equals(eVar.f46769b, "mapp_i_face_verify") || TextUtils.equals(eVar.f46769b, "snsapi_userinfo") || TextUtils.equals(eVar.f46769b, "mapp_choose_address") || TextUtils.equals(eVar.f46769b, "mobile") || TextUtils.equals(eVar.f46769b, "mapp_choose_invoice");
     }
 
     public final boolean C(d.b.g0.a.v1.c.e eVar) {
-        return TextUtils.equals(eVar.f46768b, "ppcert") || TextUtils.equals(eVar.f46768b, "mapp_i_face_verify");
+        return TextUtils.equals(eVar.f46769b, "ppcert") || TextUtils.equals(eVar.f46769b, "mapp_i_face_verify");
     }
 
     public final boolean D(List<d.b.g0.a.v1.c.e> list) {
@@ -460,7 +460,7 @@ public class h extends a0 {
     }
 
     public final boolean E(d.b.g0.a.v1.c.e eVar) {
-        return TextUtils.equals(eVar.f46768b, "mapp_location") || TextUtils.equals(eVar.f46768b, "mapp_images") || TextUtils.equals(eVar.f46768b, PermissionProxy.SCOPE_ID_RECORD) || TextUtils.equals(eVar.f46768b, PermissionProxy.SCOPE_ID_CAMERA);
+        return TextUtils.equals(eVar.f46769b, "mapp_location") || TextUtils.equals(eVar.f46769b, "mapp_images") || TextUtils.equals(eVar.f46769b, PermissionProxy.SCOPE_ID_RECORD) || TextUtils.equals(eVar.f46769b, PermissionProxy.SCOPE_ID_CAMERA);
     }
 
     public final boolean F(List<d.b.g0.a.v1.c.e> list) {
@@ -505,10 +505,10 @@ public class h extends a0 {
         int size = list.size();
         String[] strArr = new String[size];
         for (int i2 = 0; i2 < size; i2++) {
-            strArr[i2] = list.get(i2).f46768b;
+            strArr[i2] = list.get(i2).f46769b;
         }
         d.b.g0.a.v1.c.i.b e2 = d.b.g0.a.r1.d.e().o().a().a().e(activity, false, true, strArr, null, true);
-        e2.p(new C0860h(this, callbackHandler, str));
+        e2.p(new C0861h(this, callbackHandler, str));
         e2.a();
     }
 
@@ -590,7 +590,7 @@ public class h extends a0 {
                     d.b.g0.a.v1.c.c.m(10005, callbackHandler, str);
                     d.b.g0.a.z1.h.q(10005, eVar);
                     return null;
-                } else if (eVar.f46770d) {
+                } else if (eVar.f46771d) {
                     d.b.g0.a.v1.c.c.m(10005, callbackHandler, str);
                     d.b.g0.a.z1.h.q(10005, eVar);
                     return null;
@@ -627,7 +627,7 @@ public class h extends a0 {
             d.b.g0.a.v1.c.c.m(10001, callbackHandler, str);
             d.b.g0.a.z1.h.q(10001, null);
             return null;
-        } else if (eVar.f46770d) {
+        } else if (eVar.f46771d) {
             d.b.g0.a.v1.c.c.m(10005, callbackHandler, str);
             d.b.g0.a.z1.h.q(10005, eVar);
             return null;

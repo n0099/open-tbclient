@@ -3,7 +3,7 @@ package com.facebook.imageutils;
 import android.graphics.ColorSpace;
 import android.util.Pair;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class ImageMetaData {
     @Nullable
     public final ColorSpace mColorSpace;

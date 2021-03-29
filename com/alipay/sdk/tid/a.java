@@ -53,13 +53,13 @@ public final class a extends SQLiteOpenHelper {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
         if (r2.isOpen() != false) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002c, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0059, code lost:
         if (r2.isOpen() != false) goto L17;
      */
     /*
@@ -127,16 +127,16 @@ public final class a extends SQLiteOpenHelper {
         sQLiteDatabase.execSQL("drop table if exists tb_tid");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
         if (r2.isOpen() != false) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002c, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0059, code lost:
         if (r2.isOpen() != false) goto L17;
      */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0062  */
     /* JADX WARN: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

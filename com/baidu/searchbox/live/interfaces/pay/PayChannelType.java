@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.pay;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public enum PayChannelType {
     WALLET,
     NUOMI

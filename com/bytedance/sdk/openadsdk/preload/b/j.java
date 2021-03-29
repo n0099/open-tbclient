@@ -7,34 +7,34 @@ import java.util.List;
 public abstract class j<IN, OUT> extends l<IN, OUT> {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30169d;
+    public String f30170d;
 
     public abstract String a(b<OUT> bVar, IN in);
 
     public abstract String a(b<OUT> bVar, IN in, Throwable th, String str);
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0017 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0017 */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.bytedance.sdk.openadsdk.preload.b.b<OUT> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: com.bytedance.sdk.openadsdk.preload.b.b<OUT> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v8, resolved type: com.bytedance.sdk.openadsdk.preload.b.b */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public final Object a_(b<OUT> bVar, IN in) throws Throwable {
-        this.f30169d = a(new m(bVar), in);
-        l.a aVar = a().get(this.f30169d);
+        this.f30170d = a(new m(bVar), in);
+        l.a aVar = a().get(this.f30170d);
         while (aVar != null) {
-            List<h> list = aVar.f30172a;
+            List<h> list = aVar.f30173a;
             try {
-                Object a2 = c.a(list, bVar.f30165a, this).a((b) in);
+                Object a2 = c.a(list, bVar.f30166a, this).a((b) in);
                 return !a(list) ? a2 : bVar.a((b<OUT>) a2);
             } catch (i.a e2) {
-                this.f30169d = a(new m(bVar), in, e2.getCause(), this.f30169d);
-                aVar = a().get(this.f30169d);
+                this.f30170d = a(new m(bVar), in, e2.getCause(), this.f30170d);
+                aVar = a().get(this.f30170d);
             } catch (Throwable th) {
-                this.f30169d = a(new m(bVar), in, th, this.f30169d);
-                aVar = a().get(this.f30169d);
+                this.f30170d = a(new m(bVar), in, th, this.f30170d);
+                aVar = a().get(this.f30170d);
             }
         }
-        throw new IllegalArgumentException("can not found branch，branch name is：" + this.f30169d);
+        throw new IllegalArgumentException("can not found branch，branch name is：" + this.f30170d);
     }
 }

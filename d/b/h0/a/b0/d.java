@@ -31,16 +31,16 @@ import org.json.JSONObject;
 public class d implements Handler.Callback {
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f49521f;
+    public BdUniqueId f49522f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.h0.m.b<d.b.h0.a.b> f49522g;
+    public d.b.h0.m.b<d.b.h0.a.b> f49523g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.a.b0.b f49523h;
+    public d.b.h0.a.b0.b f49524h;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Queue<c> f49520e = new LinkedList();
+    public final Queue<c> f49521e = new LinkedList();
     public boolean i = false;
     public final Handler j = new Handler(this);
     public d.b.b.c.g.a k = new a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
@@ -75,15 +75,15 @@ public class d implements Handler.Callback {
             if (data == null) {
                 return;
             }
-            if (d.this.f49523h == null) {
-                d.this.f49523h = new d.b.h0.a.b0.b();
+            if (d.this.f49524h == null) {
+                d.this.f49524h = new d.b.h0.a.b0.b();
             }
-            d.this.f49523h.d(data);
-            d.this.f49523h.e();
+            d.this.f49524h.d(data);
+            d.this.f49524h.e();
             Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                d.b.h0.a.b bVar = fVar.f49531a;
+                d.b.h0.a.b bVar = fVar.f49532a;
                 if (data != null && data.x == 1) {
                     bVar.z = true;
                 }
@@ -91,13 +91,13 @@ public class d implements Handler.Callback {
                 eVar = fVar;
             } else if (obj instanceof e) {
                 e eVar2 = (e) obj;
-                d.this.s(eVar2.f49529a);
+                d.this.s(eVar2.f49530a);
                 eVar = eVar2;
             } else if (obj instanceof g) {
                 n.b().g();
             }
             if (eVar != null) {
-                d.this.f49520e.remove(eVar);
+                d.this.f49521e.remove(eVar);
             }
             d.this.u();
         }
@@ -112,12 +112,12 @@ public class d implements Handler.Callback {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof C1039d)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof C1040d)) {
                 return;
             }
-            C1039d c1039d = (C1039d) customResponsedMessage.getData();
-            d.this.k(c1039d.f49526a);
-            d.this.l(c1039d.f49527b);
+            C1040d c1040d = (C1040d) customResponsedMessage.getData();
+            d.this.k(c1040d.f49527a);
+            d.this.l(c1040d.f49528b);
         }
     }
 
@@ -127,33 +127,33 @@ public class d implements Handler.Callback {
 
     /* renamed from: d.b.h0.a.b0.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1039d {
+    public static class C1040d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<h> f49526a;
+        public List<h> f49527a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<d.b.h0.a.b> f49527b;
+        public List<d.b.h0.a.b> f49528b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<d.b.h0.a.b> f49528c;
+        public List<d.b.h0.a.b> f49529c;
 
         public void a(d.b.h0.a.b bVar) {
-            List<d.b.h0.a.b> list = this.f49527b;
+            List<d.b.h0.a.b> list = this.f49528b;
             if (list != null) {
                 list.add(bVar);
             }
         }
 
         public void b(h hVar) {
-            List<h> list = this.f49526a;
+            List<h> list = this.f49527a;
             if (list != null) {
                 list.add(hVar);
             }
         }
 
         public void c(d.b.h0.a.b bVar) {
-            List<d.b.h0.a.b> list = this.f49528c;
+            List<d.b.h0.a.b> list = this.f49529c;
             if (list != null) {
                 list.add(bVar);
             }
@@ -164,13 +164,13 @@ public class d implements Handler.Callback {
     public static class e extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49529a;
+        public String f49530a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49530b;
+        public String f49531b;
 
         public e(String str) {
-            this.f49529a = str;
+            this.f49530a = str;
         }
     }
 
@@ -178,10 +178,10 @@ public class d implements Handler.Callback {
     public static class f extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.h0.a.b f49531a;
+        public d.b.h0.a.b f49532a;
 
         public f(d.b.h0.a.b bVar) {
-            this.f49531a = bVar;
+            this.f49532a = bVar;
         }
     }
 
@@ -190,7 +190,7 @@ public class d implements Handler.Callback {
     }
 
     public d(BdUniqueId bdUniqueId) {
-        this.f49521f = bdUniqueId;
+        this.f49522f = bdUniqueId;
         p();
         q();
     }
@@ -257,8 +257,8 @@ public class d implements Handler.Callback {
             }
         }
         e eVar = new e(jSONObject.toString());
-        eVar.f49530b = jSONObject2.toString();
-        this.f49520e.add(eVar);
+        eVar.f49531b = jSONObject2.toString();
+        this.f49521e.add(eVar);
         u();
     }
 
@@ -271,26 +271,26 @@ public class d implements Handler.Callback {
                 bVar.e0(bVar.F());
                 o(bVar);
             } else {
-                this.f49520e.add(new f(bVar));
+                this.f49521e.add(new f(bVar));
             }
         }
         u();
     }
 
     public void m() {
-        d.b.h0.a.b0.b bVar = this.f49523h;
+        d.b.h0.a.b0.b bVar = this.f49524h;
         if (bVar != null) {
             bVar.a();
         }
     }
 
     public BdUniqueId n() {
-        return this.f49521f;
+        return this.f49522f;
     }
 
     public final void o(d.b.h0.a.b bVar) {
         d.b.h0.m.b<d.b.h0.a.b> bVar2;
-        if (bVar == null || (bVar2 = this.f49522g) == null) {
+        if (bVar == null || (bVar2 = this.f49523g) == null) {
             return;
         }
         bVar2.a(bVar);
@@ -321,13 +321,13 @@ public class d implements Handler.Callback {
         Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
         if (obj instanceof f) {
             f fVar = (f) obj;
-            o(fVar.f49531a);
+            o(fVar.f49532a);
             eVar = fVar;
         } else if (obj instanceof e) {
             eVar = (e) obj;
         }
         if (eVar != null) {
-            this.f49520e.remove(eVar);
+            this.f49521e.remove(eVar);
         }
         u();
     }
@@ -388,7 +388,7 @@ public class d implements Handler.Callback {
         if (j.z()) {
             this.i = true;
             CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i);
-            completeTaskReqMsg.setTag(this.f49521f);
+            completeTaskReqMsg.setTag(this.f49522f);
             completeTaskReqMsg.completeId = str;
             completeTaskReqMsg.setToken(str2);
             completeTaskReqMsg.extra = obj;
@@ -398,7 +398,7 @@ public class d implements Handler.Callback {
     }
 
     public void w(d.b.h0.m.b<d.b.h0.a.b> bVar) {
-        this.f49522g = bVar;
+        this.f49523g = bVar;
     }
 
     public final boolean x() {
@@ -407,22 +407,22 @@ public class d implements Handler.Callback {
         String str;
         d.b.h0.a.b bVar;
         try {
-            if (this.i || (peek = this.f49520e.peek()) == null) {
+            if (this.i || (peek = this.f49521e.peek()) == null) {
                 return false;
             }
             if (peek instanceof f) {
                 f fVar = (f) peek;
-                if (fVar == null || (bVar = fVar.f49531a) == null) {
+                if (fVar == null || (bVar = fVar.f49532a) == null) {
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(String.valueOf(bVar.d()), String.valueOf(bVar.q()));
                 v(jSONObject.toString(), 1, bVar.E(), fVar);
                 return true;
-            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f49529a) == null) {
+            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f49530a) == null) {
                 return false;
             } else {
-                v(str, 1, eVar.f49530b, eVar);
+                v(str, 1, eVar.f49531b, eVar);
                 return true;
             }
         } catch (Exception e2) {

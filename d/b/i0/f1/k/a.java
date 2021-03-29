@@ -18,7 +18,7 @@ import d.b.b.e.p.k;
 import d.b.h0.s.c.t;
 import d.b.h0.w.w.e;
 import d.b.i0.c3.y;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends e {
     public boolean N;
     public String O;
@@ -27,16 +27,16 @@ public class a extends e {
     public PermissionJudgePolicy R;
 
     /* renamed from: d.b.i0.f1.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1247a implements d.b.h0.w.b {
-        public C1247a() {
+    /* loaded from: classes3.dex */
+    public class C1248a implements d.b.h0.w.b {
+        public C1248a() {
         }
 
         @Override // d.b.h0.w.b
         public void onAction(d.b.h0.w.a aVar) {
-            Object obj = aVar.f51525c;
+            Object obj = aVar.f51526c;
             if (obj instanceof t) {
-                if (((t) obj).e() == EmotionGroupType.BIG_EMOTION || ((t) aVar.f51525c).e() == EmotionGroupType.USER_COLLECT) {
+                if (((t) obj).e() == EmotionGroupType.BIG_EMOTION || ((t) aVar.f51526c).e() == EmotionGroupType.USER_COLLECT) {
                     if (a.this.R == null) {
                         a.this.R = new PermissionJudgePolicy();
                     }
@@ -45,7 +45,7 @@ public class a extends e {
                     if (a.this.R.startRequestPermission(a.this.r.getPageActivity())) {
                         return;
                     }
-                    a.this.h((t) aVar.f51525c);
+                    a.this.h((t) aVar.f51526c);
                     a.this.z(false, null);
                 }
             }
@@ -54,7 +54,7 @@ public class a extends e {
 
     public a(EditorTools editorTools) {
         super(editorTools);
-        editorTools.setActionListener(24, new C1247a());
+        editorTools.setActionListener(24, new C1248a());
     }
 
     public WriteData A0() {
@@ -95,16 +95,16 @@ public class a extends e {
         if (this.l.T() == null) {
             return;
         }
-        this.l.setSpanGroupManager(this.f51578h);
+        this.l.setSpanGroupManager(this.f51579h);
         this.l.T().setIsBJHPost(this.z);
-        this.l.T().setWriteImagesInfo(this.f51576f);
+        this.l.T().setWriteImagesInfo(this.f51577f);
         boolean z = true;
-        this.l.Z(this.f51576f.size() > 0);
+        this.l.Z(this.f51577f.size() > 0);
         WriteData T = this.l.T();
         LocationModel locationModel = this.k;
         T.setHasLocationData((locationModel == null || !locationModel.v()) ? false : false);
         if (str == null) {
-            this.l.T().setContent(this.f51577g);
+            this.l.T().setContent(this.f51578g);
         }
         VoiceData$VoiceModel voiceData$VoiceModel = this.i;
         if (voiceData$VoiceModel != null) {
@@ -134,12 +134,12 @@ public class a extends e {
         if (T == null) {
             T = new WriteData(this.N ? 2 : 1);
             T.setThreadId(str);
-            T.setWriteImagesInfo(this.f51576f);
+            T.setWriteImagesInfo(this.f51577f);
         }
         if (!k.isEmpty(this.Q)) {
             T.setFromForumId(this.Q);
         }
-        T.setContent(this.f51577g);
+        T.setContent(this.f51578g);
         T.setVoiceModel(this.i);
         if (this.N) {
             T.setReplyId(this.P);
@@ -163,8 +163,8 @@ public class a extends e {
     public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
         pbEditorData.setEditorType(this.N ? 1 : 0);
-        pbEditorData.setContent(this.f51577g);
-        pbEditorData.setWriteImagesInfo(this.f51576f);
+        pbEditorData.setContent(this.f51578g);
+        pbEditorData.setWriteImagesInfo(this.f51577f);
         pbEditorData.setVoiceModel(this.i);
         PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
         ForumData forumData = this.o;

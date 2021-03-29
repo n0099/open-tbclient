@@ -17,11 +17,11 @@ public class b extends d.b.g0.g.k0.f.a.b {
             if (d.b.g0.g.k0.c.b() == null) {
                 return;
             }
-            b.this.f48245e = new UserInfoButton(d.b.g0.g.k0.c.b(), b.this);
-            b.this.f48245e.setType(b.this.type);
-            b.this.f48245e.setButtonText(b.this.text);
-            b.this.f48245e.setImageUrl(b.this.image);
-            b.this.f48245e.setApiButtonStyle(b.this.style);
+            b.this.f48246e = new UserInfoButton(d.b.g0.g.k0.c.b(), b.this);
+            b.this.f48246e.setType(b.this.type);
+            b.this.f48246e.setButtonText(b.this.text);
+            b.this.f48246e.setImageUrl(b.this.image);
+            b.this.f48246e.setApiButtonStyle(b.this.style);
             b.this.B();
             b.this.M();
         }

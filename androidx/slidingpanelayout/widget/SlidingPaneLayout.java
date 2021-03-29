@@ -220,7 +220,8 @@ public class SlidingPaneLayout extends ViewGroup {
                 paddingLeft = (SlidingPaneLayout.this.getWidth() - paddingRight) - SlidingPaneLayout.this.mSlideableView.getWidth();
             } else {
                 paddingLeft = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + SlidingPaneLayout.this.getPaddingLeft();
-                if (f2 > 0.0f || (f2 == 0.0f && SlidingPaneLayout.this.mSlideOffset > 0.5f)) {
+                int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                if (i > 0 || (i == 0 && SlidingPaneLayout.this.mSlideOffset > 0.5f)) {
                     paddingLeft += SlidingPaneLayout.this.mSlideRange;
                 }
             }

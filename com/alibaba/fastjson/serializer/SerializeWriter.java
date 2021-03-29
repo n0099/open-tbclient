@@ -41,9 +41,7 @@ public final class SerializeWriter extends Writer {
     }
 
     private int encodeToUTF8(OutputStream outputStream) throws IOException {
-        double d2 = this.count;
-        Double.isNaN(d2);
-        int i = (int) (d2 * 3.0d);
+        int i = (int) (this.count * 3.0d);
         byte[] bArr = bytesBufLocal.get();
         if (bArr == null) {
             bArr = new byte[8192];
@@ -58,9 +56,7 @@ public final class SerializeWriter extends Writer {
     }
 
     private byte[] encodeToUTF8Bytes() {
-        double d2 = this.count;
-        Double.isNaN(d2);
-        int i = (int) (d2 * 3.0d);
+        int i = (int) (this.count * 3.0d);
         byte[] bArr = bytesBufLocal.get();
         if (bArr == null) {
             bArr = new byte[8192];
@@ -240,12 +236,12 @@ public final class SerializeWriter extends Writer {
             int mask = this.features | serializerFeature.getMask();
             this.features = mask;
             if (serializerFeature == SerializerFeature.WriteEnumUsingToString) {
-                this.features = (SerializerFeature.WriteEnumUsingName.getMask() ^ (-1)) & mask;
+                this.features = (~SerializerFeature.WriteEnumUsingName.getMask()) & mask;
             } else if (serializerFeature == SerializerFeature.WriteEnumUsingName) {
-                this.features = (SerializerFeature.WriteEnumUsingToString.getMask() ^ (-1)) & mask;
+                this.features = (~SerializerFeature.WriteEnumUsingToString.getMask()) & mask;
             }
         } else {
-            this.features = (serializerFeature.getMask() ^ (-1)) & this.features;
+            this.features = (~serializerFeature.getMask()) & this.features;
         }
         computeFeatures();
     }

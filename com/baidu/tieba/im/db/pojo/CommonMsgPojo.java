@@ -15,7 +15,7 @@ import d.b.b.e.p.k;
 import d.b.i0.d1.s.a;
 import d.b.i0.d1.w.c;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
     public static final int DELETEED = 1;
     public static final int READED = 0;

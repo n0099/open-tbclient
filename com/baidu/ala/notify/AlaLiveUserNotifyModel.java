@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaLiveUserNotifyModel {
     public AlaLiveNotifyCallBack mCallBack;
     public BdUniqueId mCurTag;
@@ -37,7 +37,7 @@ public class AlaLiveUserNotifyModel {
     public boolean mIsNeedShowDialog;
     public TbPageContext mTbPageContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface AlaLiveNotifyCallBack {
         void onCallBack(AlaLiveUserNotifyData alaLiveUserNotifyData);
     }

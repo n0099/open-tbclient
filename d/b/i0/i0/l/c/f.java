@@ -54,7 +54,7 @@ public class f extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     f.this.q.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

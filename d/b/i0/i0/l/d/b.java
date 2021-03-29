@@ -7,26 +7,26 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public c f55712g;
+    public c f55713g;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55708c = true;
+    public boolean f55709c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55709d = true;
+    public boolean f55710d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55710e = 0;
+    public int f55711e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55711f = 0;
+    public int f55712f = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55713h = true;
+    public boolean f55714h = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f55707b = new ArrayList<>();
+    public ArrayList<n> f55708b = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public o1 f55706a = new o1();
+    public o1 f55707a = new o1();
 }

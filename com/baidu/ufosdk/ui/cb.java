@@ -6,16 +6,16 @@ import android.view.View;
 public final class cb implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23109a;
+    public final /* synthetic */ FeedbackInputActivity f23110a;
 
     public cb(FeedbackInputActivity feedbackInputActivity) {
-        this.f23109a = feedbackInputActivity;
+        this.f23110a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        Intent intent = new Intent(this.f23109a, FeedbackListActivity.class);
+        Intent intent = new Intent(this.f23110a, FeedbackListActivity.class);
         intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-        this.f23109a.startActivity(intent);
+        this.f23110a.startActivity(intent);
     }
 }

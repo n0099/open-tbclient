@@ -5,7 +5,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class LruBitmapPool implements BitmapPool {
     public int mCurrentSize;
     public int mMaxBitmapSize;
@@ -39,9 +39,7 @@ public class LruBitmapPool implements BitmapPool {
 
     @Override // com.facebook.common.memory.MemoryTrimmable
     public void trim(MemoryTrimType memoryTrimType) {
-        double d2 = this.mMaxPoolSize;
-        Double.isNaN(d2);
-        trimTo((int) (d2 * (1.0d - memoryTrimType.getSuggestedTrimRatio())));
+        trimTo((int) (this.mMaxPoolSize * (1.0d - memoryTrimType.getSuggestedTrimRatio())));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

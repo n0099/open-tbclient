@@ -3,10 +3,10 @@ package com.kuaishou.aegon;
 public final /* synthetic */ class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SignalStrengthListener f31618a;
+    public final SignalStrengthListener f31619a;
 
     public f(SignalStrengthListener signalStrengthListener) {
-        this.f31618a = signalStrengthListener;
+        this.f31619a = signalStrengthListener;
     }
 
     public static Runnable a(SignalStrengthListener signalStrengthListener) {
@@ -15,6 +15,6 @@ public final /* synthetic */ class f implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f31618a.nativeOnSignalStrengthChanged();
+        this.f31619a.nativeOnSignalStrengthChanged();
     }
 }

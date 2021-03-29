@@ -7,13 +7,13 @@ import org.json.JSONObject;
 public class a implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f41610a;
+    public Object f41611a;
 
     public a(Object obj) {
         if (obj == null || !obj.getClass().isArray()) {
             return;
         }
-        this.f41610a = obj;
+        this.f41611a = obj;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -35,50 +35,50 @@ public class a implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41610a;
+        return this.f41611a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41610a;
+        return this.f41611a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object e(d.b.b.e.b.b.a.e.c cVar) {
-        Object obj = this.f41610a;
+        Object obj = this.f41611a;
         if (obj != null) {
             Class<?> componentType = obj.getClass().getComponentType();
             if (componentType == Boolean.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Byte.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Character.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Double.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Float.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Integer.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Long.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == Short.TYPE) {
-                return this.f41610a;
+                return this.f41611a;
             }
             if (componentType == String.class) {
-                return this.f41610a;
+                return this.f41611a;
             }
-            int length = Array.getLength(this.f41610a);
+            int length = Array.getLength(this.f41611a);
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < length; i++) {
-                Object f2 = d.b.b.e.b.b.a.e.f.a(Array.get(this.f41610a, i)).f(new d.b.b.e.b.b.a.e.c(componentType));
+                Object f2 = d.b.b.e.b.b.a.e.f.a(Array.get(this.f41611a, i)).f(new d.b.b.e.b.b.a.e.c(componentType));
                 if (f2 != null) {
                     jSONArray.put(f2);
                 }
@@ -90,23 +90,23 @@ public class a implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
-        Object obj = this.f41610a;
+        Object obj = this.f41611a;
         if (obj != null) {
             Class<?> componentType = obj.getClass().getComponentType();
             if (componentType == Character.TYPE) {
-                return String.valueOf((char[]) this.f41610a);
+                return String.valueOf((char[]) this.f41611a);
             }
             if (componentType == Byte.TYPE) {
                 try {
-                    d.b.b.e.p.c.k((byte[]) this.f41610a, 0);
+                    d.b.b.e.p.c.k((byte[]) this.f41611a, 0);
                 } catch (Exception unused) {
                     return null;
                 }
             } else {
-                int length = Array.getLength(this.f41610a);
+                int length = Array.getLength(this.f41611a);
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < length; i++) {
-                    Object f2 = d.b.b.e.b.b.a.e.f.a(Array.get(this.f41610a, i)).f(new d.b.b.e.b.b.a.e.c(componentType));
+                    Object f2 = d.b.b.e.b.b.a.e.f.a(Array.get(this.f41611a, i)).f(new d.b.b.e.b.b.a.e.c(componentType));
                     if (f2 != null) {
                         jSONArray.put(f2);
                     }

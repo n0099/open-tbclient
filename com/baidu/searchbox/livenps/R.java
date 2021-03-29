@@ -1,8 +1,8 @@
 package com.baidu.searchbox.livenps;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int app_name = 0x7f0f02af;
         public static final int livesdk_not_support_msg_type = 0x7f0f0b23;

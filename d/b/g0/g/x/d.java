@@ -7,19 +7,19 @@ import com.baidu.searchbox.v8engine.JsObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f48670a;
+    public c f48671a;
 
     public d(@NonNull d.b.g0.g.i.a aVar) {
-        this.f48670a = new c(aVar);
+        this.f48671a = new c(aVar);
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        this.f48670a.removeUserCloudStorage(jsObject);
+        this.f48671a.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        this.f48670a.setUserCloudStorage(jsObject);
+        this.f48671a.setUserCloudStorage(jsObject);
     }
 }

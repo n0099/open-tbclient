@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface ISchemeIoc {
     public static final ISchemeIoc EMPTY = new ISchemeIoc() { // from class: com.baidu.searchbox.unitedscheme.security.ISchemeIoc.1
         @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc

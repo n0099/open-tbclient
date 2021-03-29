@@ -1,32 +1,32 @@
 package d.b.i0.d1.o;
 
 import d.b.b.c.j.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f53954b;
+    public static b f53955b;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f53955a;
+    public e f53956a;
 
     public b() {
-        this.f53955a = null;
-        this.f53955a = new e(1000, 1000, 1000);
+        this.f53956a = null;
+        this.f53956a = new e(1000, 1000, 1000);
     }
 
     public static b a() {
-        if (f53954b == null) {
+        if (f53955b == null) {
             synchronized (b.class) {
-                if (f53954b == null) {
-                    f53954b = new b();
+                if (f53955b == null) {
+                    f53955b = new b();
                 }
             }
         }
-        return f53954b;
+        return f53955b;
     }
 
     public e b() {
-        return this.f53955a;
+        return this.f53956a;
     }
 }

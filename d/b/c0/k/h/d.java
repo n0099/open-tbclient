@@ -16,25 +16,25 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42622a;
+    public static String f42623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42623b;
+    public static String f42624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42624c;
+    public static String f42625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42625d;
+    public static String f42626d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f42626e;
+    public static String f42627e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static List<d.b.c0.k.h.b> f42627f;
+    public static List<d.b.c0.k.h.b> f42628f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Object f42628g = new Object();
+    public static Object f42629g = new Object();
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
@@ -48,14 +48,14 @@ public class d {
     public static class b extends d.b.c0.k.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.a.c f42629a;
+        public final /* synthetic */ d.b.c0.k.a.c f42630a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.a.b f42630b;
+        public final /* synthetic */ d.b.c0.k.a.b f42631b;
 
         public b(d.b.c0.k.a.c cVar, d.b.c0.k.a.b bVar) {
-            this.f42629a = cVar;
-            this.f42630b = bVar;
+            this.f42630a = cVar;
+            this.f42631b = bVar;
         }
 
         @Override // d.b.c0.k.a.a
@@ -64,7 +64,7 @@ public class d {
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
-            d.f(this.f42629a.c(), this.f42630b.c());
+            d.f(this.f42630a.c(), this.f42631b.c());
         }
     }
 
@@ -72,14 +72,14 @@ public class d {
     public static class c extends d.b.c0.k.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f42631a;
+        public final /* synthetic */ JSONArray f42632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f42632b;
+        public final /* synthetic */ JSONObject f42633b;
 
         public c(JSONArray jSONArray, JSONObject jSONObject) {
-            this.f42631a = jSONArray;
-            this.f42632b = jSONObject;
+            this.f42632a = jSONArray;
+            this.f42633b = jSONObject;
         }
 
         @Override // d.b.c0.k.a.a
@@ -88,25 +88,25 @@ public class d {
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
-            this.f42631a.put(this.f42632b);
+            this.f42632a.put(this.f42633b);
         }
     }
 
     public static void a() {
-        f42622a = null;
-        f42623b = null;
-        f42624c = null;
-        f42625d = null;
-        f42626e = null;
+        f42623a = null;
+        f42624b = null;
+        f42625c = null;
+        f42626d = null;
+        f42627e = null;
     }
 
     public static void b(d.b.c0.k.h.b bVar) {
-        if (f42627f == null) {
-            f42627f = new ArrayList();
+        if (f42628f == null) {
+            f42628f = new ArrayList();
         }
         if (bVar != null) {
-            synchronized (f42628g) {
-                f42627f.add(bVar);
+            synchronized (f42629g) {
+                f42628f.add(bVar);
             }
         }
     }
@@ -155,7 +155,7 @@ public class d {
     }
 
     public static void h() {
-        List<d.b.c0.k.h.b> list = f42627f;
+        List<d.b.c0.k.h.b> list = f42628f;
         if (list != null) {
             list.clear();
         }
@@ -163,12 +163,12 @@ public class d {
 
     public static synchronized void i() {
         synchronized (d.class) {
-            List<d.b.c0.k.h.b> list = f42627f;
+            List<d.b.c0.k.h.b> list = f42628f;
             if (list != null && !list.isEmpty()) {
                 d.b.c0.k.a.b m = m();
-                synchronized (f42628g) {
+                synchronized (f42629g) {
                     JSONArray jSONArray = new JSONArray();
-                    for (d.b.c0.k.h.b bVar : f42627f) {
+                    for (d.b.c0.k.h.b bVar : f42628f) {
                         JSONObject a2 = bVar.a();
                         if (a2 != null) {
                             jSONArray.put(a2);
@@ -195,8 +195,8 @@ public class d {
 
     public static d.b.c0.k.a.c k() {
         d.b.c0.k.a.c cVar = new d.b.c0.k.a.c();
-        if (!TextUtils.isEmpty(f42622a)) {
-            cVar.e("Cookie", "BDUSS=" + f42622a);
+        if (!TextUtils.isEmpty(f42623a)) {
+            cVar.e("Cookie", "BDUSS=" + f42623a);
         }
         return cVar;
     }
@@ -223,17 +223,17 @@ public class d {
         bVar.e("dm", "cashier");
         bVar.e(IXAdRequestInfo.OS, "android");
         bVar.e("v", "2.7.5");
-        if (!TextUtils.isEmpty(f42626e)) {
-            bVar.e("n", f42626e);
+        if (!TextUtils.isEmpty(f42627e)) {
+            bVar.e("n", f42627e);
         }
-        if (!TextUtils.isEmpty(f42623b)) {
-            bVar.e("d", f42623b);
+        if (!TextUtils.isEmpty(f42624b)) {
+            bVar.e("d", f42624b);
         }
-        if (!TextUtils.isEmpty(f42624c)) {
-            bVar.e("dt", f42624c);
+        if (!TextUtils.isEmpty(f42625c)) {
+            bVar.e("dt", f42625c);
         }
-        if (!TextUtils.isEmpty(f42625d)) {
-            bVar.e("dp", f42625d);
+        if (!TextUtils.isEmpty(f42626d)) {
+            bVar.e("dp", f42626d);
         }
         return bVar;
     }

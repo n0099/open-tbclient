@@ -10,18 +10,18 @@ public class IntHashMap {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31069a;
+        public int f31070a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f31070b;
+        public Object f31071b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f31071c;
+        public a f31072c;
 
         public a(int i, int i2, Object obj, a aVar) {
-            this.f31069a = i;
-            this.f31070b = obj;
-            this.f31071c = aVar;
+            this.f31070a = i;
+            this.f31071b = obj;
+            this.f31072c = aVar;
         }
     }
 
@@ -43,29 +43,30 @@ public class IntHashMap {
     }
 
     public boolean contains(Object obj) {
-        if (obj == null) {
-            throw null;
-        }
-        a[] aVarArr = this.table;
-        int length = aVarArr.length;
-        while (true) {
-            int i = length - 1;
-            if (length <= 0) {
-                return false;
-            }
-            for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.f31071c) {
-                if (aVar.f31070b.equals(obj)) {
-                    return true;
+        if (obj != null) {
+            a[] aVarArr = this.table;
+            int length = aVarArr.length;
+            while (true) {
+                int i = length - 1;
+                if (length <= 0) {
+                    return false;
                 }
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.f31072c) {
+                    if (aVar.f31071b.equals(obj)) {
+                        return true;
+                    }
+                }
+                length = i;
             }
-            length = i;
+        } else {
+            throw null;
         }
     }
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.f31071c) {
-            if (aVar.f31069a == i) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.f31072c) {
+            if (aVar.f31070a == i) {
                 return true;
             }
         }
@@ -78,9 +79,9 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.f31071c) {
-            if (aVar.f31069a == i) {
-                return aVar.f31070b;
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.f31072c) {
+            if (aVar.f31070a == i) {
+                return aVar.f31071b;
             }
         }
         return null;
@@ -94,10 +95,10 @@ public class IntHashMap {
         a[] aVarArr = this.table;
         int i2 = Integer.MAX_VALUE & i;
         int length = i2 % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.f31071c) {
-            if (aVar.f31069a == i) {
-                Object obj2 = aVar.f31070b;
-                aVar.f31070b = obj;
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.f31072c) {
+            if (aVar.f31070a == i) {
+                Object obj2 = aVar.f31071b;
+                aVar.f31071b = obj;
                 return obj2;
             }
         }
@@ -125,9 +126,9 @@ public class IntHashMap {
             }
             a aVar = aVarArr[i2];
             while (aVar != null) {
-                a aVar2 = aVar.f31071c;
-                int i3 = (aVar.f31069a & Integer.MAX_VALUE) % i;
-                aVar.f31071c = aVarArr2[i3];
+                a aVar2 = aVar.f31072c;
+                int i3 = (aVar.f31070a & Integer.MAX_VALUE) % i;
+                aVar.f31072c = aVarArr2[i3];
                 aVarArr2[i3] = aVar;
                 aVar = aVar2;
             }
@@ -139,16 +140,16 @@ public class IntHashMap {
         a[] aVarArr = this.table;
         int length = (Integer.MAX_VALUE & i) % aVarArr.length;
         a aVar = null;
-        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.f31071c) {
-            if (aVar2.f31069a == i) {
+        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.f31072c) {
+            if (aVar2.f31070a == i) {
                 if (aVar != null) {
-                    aVar.f31071c = aVar2.f31071c;
+                    aVar.f31072c = aVar2.f31072c;
                 } else {
-                    aVarArr[length] = aVar2.f31071c;
+                    aVarArr[length] = aVar2.f31072c;
                 }
                 this.count--;
-                Object obj = aVar2.f31070b;
-                aVar2.f31070b = null;
+                Object obj = aVar2.f31071b;
+                aVar2.f31071b = null;
                 return obj;
             }
             aVar = aVar2;

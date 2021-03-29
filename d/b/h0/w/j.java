@@ -8,11 +8,11 @@ import com.baidu.tieba.R;
 public class j extends m {
     public j(Context context) {
         super(context, null, 2, 0);
-        this.f51530b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.f51532d = R.drawable.icon_pure_post_more24;
-        this.f51533e = R.drawable.icon_mask_post_more24_selection;
-        this.f51535g = false;
-        this.f51536h = true;
+        this.f51531b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.f51533d = R.drawable.icon_pure_post_more24;
+        this.f51534e = R.drawable.icon_mask_post_more24_selection;
+        this.f51536g = false;
+        this.f51537h = true;
         this.k = new MoreDeskView(context);
         this.m = true;
         this.l = 6;
@@ -21,11 +21,11 @@ public class j extends m {
 
     public j(Context context, boolean z) {
         super(context, null, 2, 0);
-        this.f51530b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.f51532d = R.drawable.icon_pure_post_more24;
-        this.f51533e = R.drawable.icon_mask_post_more24_selection;
-        this.f51535g = false;
-        this.f51536h = true;
+        this.f51531b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.f51533d = R.drawable.icon_pure_post_more24;
+        this.f51534e = R.drawable.icon_mask_post_more24_selection;
+        this.f51536g = false;
+        this.f51537h = true;
         this.k = new MoreDeskView(context, !z);
         this.m = true;
         this.l = 6;

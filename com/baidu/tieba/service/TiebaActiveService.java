@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class TiebaActiveService extends BdBaseService {
     public static final int ACTIVE_FAIL = 1;
     public static final int ACTIVE_SUCC = 2;
@@ -40,16 +40,16 @@ public class TiebaActiveService extends BdBaseService {
     public class b extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20931a;
+        public NetWork f20932a;
 
         public b() {
-            this.f20931a = null;
+            this.f20932a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            NetWork netWork = this.f20931a;
+            NetWork netWork = this.f20932a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -61,15 +61,15 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
-                this.f20931a = netWork;
+                this.f20932a = netWork;
                 netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.f20931a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.f20931a.addPostData("model", Build.MODEL);
-                this.f20931a.addPostData("edition", TbConfig.getVersion());
-                this.f20931a.addPostData("system", Build.VERSION.SDK);
-                this.f20931a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                String postNetData = this.f20931a.postNetData();
-                if (this.f20931a.isNetSuccess()) {
+                this.f20932a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.f20932a.addPostData("model", Build.MODEL);
+                this.f20932a.addPostData("edition", TbConfig.getVersion());
+                this.f20932a.addPostData("system", Build.VERSION.SDK);
+                this.f20932a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
+                String postNetData = this.f20932a.postNetData();
+                if (this.f20932a.isNetSuccess()) {
                     return postNetData;
                 }
                 return null;

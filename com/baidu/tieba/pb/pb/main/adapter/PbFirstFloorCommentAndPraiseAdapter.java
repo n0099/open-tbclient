@@ -29,28 +29,28 @@ public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommen
     public static class PbFirstFloorCommentAndPraiseViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public PbThreadCommentAndPraiseInfoLayout f19775a;
+        public PbThreadCommentAndPraiseInfoLayout f19776a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f19776b;
+        public View f19777b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f19777c;
+        public int f19778c;
 
         public PbFirstFloorCommentAndPraiseViewHolder(View view) {
             super(view);
             if (view == null) {
                 return;
             }
-            this.f19775a = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+            this.f19776a = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
             e eVar = new e();
-            eVar.f50762b = 4;
-            eVar.f50768h = 7;
-            eVar.f50763c = this.f19777c;
-            eVar.f50766f = PbFirstFloorCommentAndPraiseAdapter.w;
-            this.f19775a.setAgreeStatisticData(eVar);
+            eVar.f50763b = 4;
+            eVar.f50769h = 7;
+            eVar.f50764c = this.f19778c;
+            eVar.f50767f = PbFirstFloorCommentAndPraiseAdapter.w;
+            this.f19776a.setAgreeStatisticData(eVar);
             View findViewById = view.findViewById(R.id.bottom_divider_line);
-            this.f19776b = findViewById;
+            this.f19777b = findViewById;
             findViewById.setVisibility(0);
         }
 
@@ -60,24 +60,24 @@ public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommen
                 if (f2.L() != null) {
                     f2.L().postId = f2.f0();
                 }
-                this.f19775a.W(f2, pVar.e());
-                this.f19776b.setVisibility(pVar.j() ? 0 : 8);
+                this.f19776a.W(f2, pVar.e());
+                this.f19777b.setVisibility(pVar.j() ? 0 : 8);
                 if (f2.y2() && f2.u1() != null) {
-                    this.f19777c = 2;
+                    this.f19778c = 2;
                 } else {
-                    this.f19777c = 1;
+                    this.f19778c = 1;
                 }
-                if (pVar.f52458f) {
+                if (pVar.f52459f) {
                     a().setPadding(0, 0, 0, l.g(a().getContext(), R.dimen.tbds32));
                 }
-                this.f19775a.showOperationMaskView(pVar.k());
+                this.f19776a.showOperationMaskView(pVar.k());
             }
             c();
         }
 
         public void c() {
-            SkinManager.setBackgroundColor(this.f19776b, R.color.CAM_X0203);
-            this.f19775a.onChangeSkinType();
+            SkinManager.setBackgroundColor(this.f19777b, R.color.CAM_X0203);
+            this.f19776a.onChangeSkinType();
         }
     }
 
@@ -103,7 +103,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommen
             Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.u.iterator();
             while (it.hasNext()) {
                 PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-                if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19775a) != null) {
+                if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19776a) != null) {
                     pbThreadCommentAndPraiseInfoLayout.S(str);
                 }
             }
@@ -141,7 +141,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommen
     @Override // d.b.b.j.e.a
     /* renamed from: p0 */
     public PbFirstFloorCommentAndPraiseViewHolder R(ViewGroup viewGroup) {
-        PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
+        PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
         this.u.add(pbFirstFloorCommentAndPraiseViewHolder);
         return pbFirstFloorCommentAndPraiseViewHolder;
     }
@@ -151,7 +151,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommen
         Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.u.iterator();
         while (it.hasNext()) {
             PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-            if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19775a) != null) {
+            if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19776a) != null) {
                 pbThreadCommentAndPraiseInfoLayout.onDestroy();
             }
         }
@@ -160,9 +160,9 @@ public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommen
     public View r0(int i, View view, ViewGroup viewGroup, p pVar, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
         super.X(i, view, viewGroup, pVar, pbFirstFloorCommentAndPraiseViewHolder);
         if (pVar != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-            pbFirstFloorCommentAndPraiseViewHolder.f19775a.setOnClickOutListener(this.s);
-            pbFirstFloorCommentAndPraiseViewHolder.f19775a.setPostId(o0());
-            pbFirstFloorCommentAndPraiseViewHolder.f19775a.setForumId(m0());
+            pbFirstFloorCommentAndPraiseViewHolder.f19776a.setOnClickOutListener(this.s);
+            pbFirstFloorCommentAndPraiseViewHolder.f19776a.setPostId(o0());
+            pbFirstFloorCommentAndPraiseViewHolder.f19776a.setForumId(m0());
             pVar.n(this.v);
             pbFirstFloorCommentAndPraiseViewHolder.b(pVar);
         }

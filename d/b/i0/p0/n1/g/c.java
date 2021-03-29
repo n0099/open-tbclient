@@ -111,17 +111,17 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
 
     /* renamed from: d.b.i0.p0.n1.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1409c implements d.b.h0.b1.j.d {
+    public class C1410c implements d.b.h0.b1.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f58101a;
+        public final /* synthetic */ LinkedList f58102a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a2 f58102b;
+        public final /* synthetic */ a2 f58103b;
 
-        public C1409c(LinkedList linkedList, a2 a2Var) {
-            this.f58101a = linkedList;
-            this.f58102b = a2Var;
+        public C1410c(LinkedList linkedList, a2 a2Var) {
+            this.f58102a = linkedList;
+            this.f58103b = a2Var;
         }
 
         @Override // d.b.h0.b1.j.d
@@ -130,15 +130,15 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
             if (!z) {
                 if (i2 != null) {
                     view.setTag("1");
-                    i2.f62183a = Boolean.FALSE;
+                    i2.f62184a = Boolean.FALSE;
                     i2.a(view, c.this.z);
                 }
-                c.this.R(view, this.f58101a, i, this.f58102b);
+                c.this.R(view, this.f58102a, i, this.f58103b);
                 return;
             }
             if (i2 != null) {
                 view.setTag("1");
-                i2.f62183a = Boolean.TRUE;
+                i2.f62184a = Boolean.TRUE;
                 i2.a(view, c.this.z);
             }
             c.this.B(false);
@@ -149,16 +149,16 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f58104e;
+        public final /* synthetic */ a2 f58105e;
 
         public d(a2 a2Var) {
-            this.f58104e = a2Var;
+            this.f58105e = a2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (c.this.A != null) {
-                c.this.f62180f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(c.this.f62180f.getContext(), "", this.f58104e.u1, true)));
+                c.this.f62181f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(c.this.f62181f.getContext(), "", this.f58105e.u1, true)));
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
         }
@@ -168,15 +168,15 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f58106e;
+        public final /* synthetic */ ThemeCardInUserData f58107e;
 
         public e(ThemeCardInUserData themeCardInUserData) {
-            this.f58106e = themeCardInUserData;
+            this.f58107e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(c.this.A.getPageActivity(), this.f58106e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(c.this.A.getPageActivity(), this.f58107e.getCardId())));
         }
     }
 
@@ -290,13 +290,13 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.card_home_page_source_read_share_layout);
         this.p = threadSourceShareAndPraiseLayout;
         if (threadSourceShareAndPraiseLayout != null) {
-            threadSourceShareAndPraiseLayout.f13535f.setOnClickListener(this.L);
+            threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this.L);
             this.p.setFrom(2);
             this.p.setShareReportFrom(1);
             this.p.setSourceFromForPb(3);
             this.p.setStType("frs_page");
             this.p.setHideBarName(true);
-            this.p.f13535f.setNeedAddReplyIcon(true);
+            this.p.f13536f.setNeedAddReplyIcon(true);
         }
         RelativeLayout relativeLayout = (RelativeLayout) m.findViewById(R.id.card_home_page_normal_thread_root);
         this.s = relativeLayout;
@@ -326,9 +326,7 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
         return false;
     }
 
-    public void B(boolean z) {
-        throw null;
-    }
+    public abstract void B(boolean z);
 
     public void E(a2 a2Var) {
         if (a2Var == null) {
@@ -402,7 +400,7 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
             if (ListUtils.getCount(linkedList) > 0) {
                 this.D.setVisibility(0);
                 this.D.setFromCDN(this.E);
-                this.D.setImageClickListener(new C1409c(linkedList, a2Var));
+                this.D.setImageClickListener(new C1410c(linkedList, a2Var));
                 this.D.setImageMediaList(linkedList);
             } else {
                 this.D.setVisibility(8);
@@ -616,15 +614,15 @@ public class c extends d.b.i0.x.b<a2> implements z, Object {
 
     public final void S() {
         TextView textView = this.B;
-        if (textView == null || this.n == null || this.D == null || this.f62181g == null || textView.getVisibility() != 8) {
+        if (textView == null || this.n == null || this.D == null || this.f62182g == null || textView.getVisibility() != 8) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
-        layoutParams.topMargin = this.f62181g.getResources().getDimensionPixelSize(R.dimen.tbds20);
+        layoutParams.topMargin = this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds20);
         this.n.setLayoutParams(layoutParams);
         if (this.n.getVisibility() == 8) {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.D.getLayoutParams();
-            layoutParams2.topMargin = this.f62181g.getResources().getDimensionPixelSize(R.dimen.tbds28);
+            layoutParams2.topMargin = this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds28);
             this.D.setLayoutParams(layoutParams2);
         }
     }

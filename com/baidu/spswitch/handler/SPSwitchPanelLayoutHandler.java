@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.spswitch.IPanelConflictLayout;
 import com.baidu.spswitch.utils.SPConfig;
 import com.baidu.spswitch.utils.ViewUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
     public boolean mIsHide = false;
     public boolean mIsSoftInputShowing = false;

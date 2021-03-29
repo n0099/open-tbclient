@@ -14,87 +14,87 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopicselect.HotTopicSelectActivity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends BaseExpandableListAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicSelectActivity> f52295e;
+    public TbPageContext<HotTopicSelectActivity> f52296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LayoutInflater f52296f;
+    public LayoutInflater f52297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ExpandableListView f52297g;
+    public ExpandableListView f52298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<c> f52298h = new ArrayList();
+    public final List<c> f52299h = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52299a = 3;
+        public int f52300a = 3;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52300b = null;
+        public TextView f52301b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f52301c = null;
+        public TextView f52302c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f52302d = null;
+        public View f52303d = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f52303e = null;
+        public View f52304e = null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52304a = 3;
+        public int f52305a = 3;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52305b;
+        public TextView f52306b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f52306c;
+        public View f52307c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f52307d;
+        public View f52308d;
     }
 
     public e(TbPageContext tbPageContext) {
-        this.f52295e = tbPageContext;
-        this.f52296f = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.f52296e = tbPageContext;
+        this.f52297f = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
     public final void a(a aVar, View view, int i) {
-        if (aVar == null || aVar.f52299a == i) {
+        if (aVar == null || aVar.f52300a == i) {
             return;
         }
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-        SkinManager.setBackgroundResource(aVar.f52301c, R.drawable.hot_select_tag_bg);
-        SkinManager.setBackgroundColor(aVar.f52302d, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(aVar.f52303e, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(aVar.f52301c, R.color.CAM_X0302, 1);
-        SkinManager.setViewTextColor(aVar.f52300b, R.color.CAM_X0105, 1);
-        aVar.f52299a = i;
+        SkinManager.setBackgroundResource(aVar.f52302c, R.drawable.hot_select_tag_bg);
+        SkinManager.setBackgroundColor(aVar.f52303d, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(aVar.f52304e, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(aVar.f52302c, R.color.CAM_X0302, 1);
+        SkinManager.setViewTextColor(aVar.f52301b, R.color.CAM_X0105, 1);
+        aVar.f52300a = i;
     }
 
     public final void b(b bVar, View view, int i) {
-        if (bVar == null || bVar.f52304a == i) {
+        if (bVar == null || bVar.f52305a == i) {
             return;
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(bVar.f52306c, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(bVar.f52307d, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(bVar.f52305b, R.color.CAM_X0109, 1);
-        bVar.f52304a = i;
+        SkinManager.setBackgroundColor(bVar.f52307c, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(bVar.f52308d, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(bVar.f52306b, R.color.CAM_X0109, 1);
+        bVar.f52305a = i;
     }
 
     public void c() {
-        this.f52298h.clear();
+        this.f52299h.clear();
         notifyDataSetChanged();
     }
 
@@ -112,15 +112,15 @@ public class e extends BaseExpandableListAdapter {
     @Override // android.widget.ExpandableListAdapter
     /* renamed from: e */
     public c getGroup(int i) {
-        return this.f52298h.get(i);
+        return this.f52299h.get(i);
     }
 
     public List<c> f() {
-        return this.f52298h;
+        return this.f52299h;
     }
 
     public void g(c cVar) {
-        this.f52298h.add(cVar);
+        this.f52299h.add(cVar);
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -142,7 +142,7 @@ public class e extends BaseExpandableListAdapter {
 
     @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
     public int getChildTypeCount() {
-        return this.f52298h.size();
+        return this.f52299h.size();
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -152,19 +152,19 @@ public class e extends BaseExpandableListAdapter {
         if (view != null && (view.getTag() instanceof a)) {
             aVar = (a) view.getTag();
         } else {
-            view = this.f52296f.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
+            view = this.f52297f.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
             aVar = new a();
-            aVar.f52300b = (TextView) view.findViewById(R.id.hot_topic_title);
-            aVar.f52301c = (TextView) view.findViewById(R.id.hot_topic_tag);
-            aVar.f52302d = view.findViewById(R.id.divider_line_top);
-            aVar.f52303e = view.findViewById(R.id.divider_line_bottom);
+            aVar.f52301b = (TextView) view.findViewById(R.id.hot_topic_title);
+            aVar.f52302c = (TextView) view.findViewById(R.id.hot_topic_tag);
+            aVar.f52303d = view.findViewById(R.id.divider_line_top);
+            aVar.f52304e = view.findViewById(R.id.divider_line_bottom);
             view.setTag(aVar);
         }
         if (child == null) {
             return view;
         }
-        aVar.f52300b.setText(d.b.h0.p0.b.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
-        h(aVar.f52301c, child.a().intValue());
+        aVar.f52301b.setText(d.b.h0.p0.b.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+        h(aVar.f52302c, child.a().intValue());
         a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
@@ -179,7 +179,7 @@ public class e extends BaseExpandableListAdapter {
 
     @Override // android.widget.ExpandableListAdapter
     public int getGroupCount() {
-        return this.f52298h.size();
+        return this.f52299h.size();
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -193,11 +193,11 @@ public class e extends BaseExpandableListAdapter {
         if (view != null && (view.getTag() instanceof b)) {
             bVar = (b) view.getTag();
         } else {
-            view = this.f52296f.inflate(R.layout.hot_group_item, (ViewGroup) null);
+            view = this.f52297f.inflate(R.layout.hot_group_item, (ViewGroup) null);
             bVar = new b();
-            bVar.f52305b = (TextView) view.findViewById(R.id.header_text);
-            bVar.f52306c = view.findViewById(R.id.divider_line);
-            bVar.f52307d = view.findViewById(R.id.group_divider);
+            bVar.f52306b = (TextView) view.findViewById(R.id.header_text);
+            bVar.f52307c = view.findViewById(R.id.divider_line);
+            bVar.f52308d = view.findViewById(R.id.group_divider);
             view.setTag(bVar);
             view.setClickable(false);
         }
@@ -205,13 +205,13 @@ public class e extends BaseExpandableListAdapter {
         if (group == null) {
             return view;
         }
-        bVar.f52305b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
+        bVar.f52306b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
         if (i == 0) {
-            bVar.f52306c.setVisibility(0);
-            bVar.f52307d.setVisibility(8);
+            bVar.f52307c.setVisibility(0);
+            bVar.f52308d.setVisibility(8);
         } else {
-            bVar.f52306c.setVisibility(8);
-            bVar.f52307d.setVisibility(0);
+            bVar.f52307c.setVisibility(8);
+            bVar.f52308d.setVisibility(0);
         }
         b(bVar, view, TbadkCoreApplication.getInst().getSkinType());
         return view;
@@ -223,10 +223,10 @@ public class e extends BaseExpandableListAdapter {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(this.f52295e.getString(R.string.topic_tag_offical));
+            textView.setText(this.f52296e.getString(R.string.topic_tag_offical));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(this.f52295e.getString(R.string.topic_tag_bar));
+            textView.setText(this.f52296e.getString(R.string.topic_tag_bar));
         } else {
             textView.setVisibility(8);
         }
@@ -244,13 +244,13 @@ public class e extends BaseExpandableListAdapter {
 
     @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
     public void onGroupCollapsed(int i) {
-        if (this.f52297g == null) {
+        if (this.f52298g == null) {
             return;
         }
         int groupCount = getGroupCount();
         for (int i2 = 0; i2 < groupCount; i2++) {
             if (i2 != i) {
-                this.f52297g.collapseGroup(i);
+                this.f52298g.collapseGroup(i);
             }
         }
     }

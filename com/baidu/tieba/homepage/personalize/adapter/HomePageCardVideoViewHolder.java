@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.i0.i2.e;
 import d.b.i0.x.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> implements e {
     @Override // d.b.i0.i2.e
     public boolean D() {
@@ -15,12 +15,12 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
     @Override // com.baidu.tieba.card.holder.CardViewHolder
     /* renamed from: c */
     public T b() {
-        return (T) this.f15282e;
+        return (T) this.f15283e;
     }
 
     @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t == 0) {
             return 0;
         }
@@ -29,7 +29,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
 
     @Override // d.b.i0.i2.e
     public String getPlayUrl() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t == 0) {
             return null;
         }
@@ -38,7 +38,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
 
     @Override // d.b.i0.i2.e
     public View getVideoContainer() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t == 0) {
             return null;
         }
@@ -47,7 +47,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
 
     @Override // d.b.i0.i2.e
     public boolean isPlayStarted() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t == 0) {
             return false;
         }
@@ -56,7 +56,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
 
     @Override // d.b.i0.i2.e
     public boolean isPlaying() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t == 0) {
             return false;
         }
@@ -65,7 +65,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
 
     @Override // d.b.i0.i2.e
     public void startPlay() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t != 0) {
             ((l) t).startPlay();
         }
@@ -73,7 +73,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
 
     @Override // d.b.i0.i2.e
     public void stopPlay() {
-        T t = this.f15282e;
+        T t = this.f15283e;
         if (t != 0) {
             ((l) t).stopPlay();
         }

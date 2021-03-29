@@ -20,20 +20,20 @@ import java.util.UUID;
 public class b implements com.bytedance.sdk.openadsdk.m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29782a;
+    public final Context f29783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f29783b;
+    public final f f29784b;
 
     @SuppressLint({"StaticFieldLeak"})
     /* loaded from: classes6.dex */
     public class a extends com.bytedance.sdk.openadsdk.l.g {
 
         /* renamed from: b  reason: collision with root package name */
-        public final e f29789b;
+        public final e f29790b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f29790c;
+        public final String f29791c;
 
         private String c(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -43,8 +43,8 @@ public class b implements com.bytedance.sdk.openadsdk.m.a {
                 long currentTimeMillis = System.currentTimeMillis();
                 str = str.replace("{TS}", String.valueOf(currentTimeMillis)).replace("__TS__", String.valueOf(currentTimeMillis));
             }
-            if ((str.contains("{UID}") || str.contains("__UID__")) && !TextUtils.isEmpty(this.f29790c)) {
-                str = str.replace("{UID}", this.f29790c).replace("__UID__", this.f29790c);
+            if ((str.contains("{UID}") || str.contains("__UID__")) && !TextUtils.isEmpty(this.f29791c)) {
+                str = str.replace("{UID}", this.f29791c).replace("__UID__", this.f29791c);
             }
             String a2 = y.a();
             return ((str.contains("{OAID}") || str.contains("__OAID__")) && !TextUtils.isEmpty(a2)) ? str.replace("{OAID}", a2).replace("__OAID__", a2) : str;
@@ -68,23 +68,23 @@ public class b implements com.bytedance.sdk.openadsdk.m.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (com.bytedance.sdk.openadsdk.core.h.g.a() && a(this.f29789b.b())) {
-                if (this.f29789b.d() == 0) {
-                    b.this.f29783b.c(this.f29789b);
+            if (com.bytedance.sdk.openadsdk.core.h.g.a() && a(this.f29790b.b())) {
+                if (this.f29790b.d() == 0) {
+                    b.this.f29784b.c(this.f29790b);
                     return;
                 }
-                while (this.f29789b.d() > 0) {
+                while (this.f29790b.d() > 0) {
                     try {
-                        if (this.f29789b.d() == 5) {
-                            b.this.f29783b.a(this.f29789b);
+                        if (this.f29790b.d() == 5) {
+                            b.this.f29784b.a(this.f29790b);
                         }
                     } catch (Throwable unused) {
                     }
                     if (!x.a(b.this.b())) {
                         return;
                     }
-                    String c2 = c(this.f29789b.b());
-                    if (this.f29789b.c()) {
+                    String c2 = c(this.f29790b.b());
+                    if (this.f29790b.c()) {
                         c2 = b(c2);
                     }
                     i c3 = i.c();
@@ -98,40 +98,40 @@ public class b implements com.bytedance.sdk.openadsdk.m.a {
                     } catch (Throwable unused2) {
                     }
                     if (oVar != null && oVar.f()) {
-                        b.this.f29783b.c(this.f29789b);
+                        b.this.f29784b.c(this.f29790b);
                         if (u.c()) {
-                            u.c("trackurl", "track success : " + this.f29789b.b());
+                            u.c("trackurl", "track success : " + this.f29790b.b());
                             return;
                         }
                         return;
                     }
                     if (u.c()) {
-                        u.c("trackurl", "track fail : " + this.f29789b.b());
+                        u.c("trackurl", "track fail : " + this.f29790b.b());
                     }
-                    this.f29789b.a(this.f29789b.d() - 1);
-                    if (this.f29789b.d() == 0) {
-                        b.this.f29783b.c(this.f29789b);
+                    this.f29790b.a(this.f29790b.d() - 1);
+                    if (this.f29790b.d() == 0) {
+                        b.this.f29784b.c(this.f29790b);
                         if (u.c()) {
-                            u.c("trackurl", "track fail and delete : " + this.f29789b.b());
+                            u.c("trackurl", "track fail and delete : " + this.f29790b.b());
                             return;
                         }
                         return;
                     }
-                    b.this.f29783b.b(this.f29789b);
+                    b.this.f29784b.b(this.f29790b);
                 }
             }
         }
 
         public a(e eVar, String str) {
             super("AdsStats");
-            this.f29789b = eVar;
-            this.f29790c = str;
+            this.f29790b = eVar;
+            this.f29791c = str;
         }
     }
 
     public b(Context context, f fVar) {
-        this.f29782a = context;
-        this.f29783b = fVar;
+        this.f29783a = context;
+        this.f29784b = fVar;
     }
 
     public static com.bytedance.sdk.openadsdk.m.a c() {
@@ -143,7 +143,7 @@ public class b implements com.bytedance.sdk.openadsdk.m.a {
     }
 
     public Context b() {
-        Context context = this.f29782a;
+        Context context = this.f29783a;
         return context == null ? p.a() : context;
     }
 
@@ -162,7 +162,7 @@ public class b implements com.bytedance.sdk.openadsdk.m.a {
             com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("trackFailedUrls") { // from class: com.bytedance.sdk.openadsdk.m.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    final List<e> a2 = b.this.f29783b.a();
+                    final List<e> a2 = b.this.f29784b.a();
                     new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.m.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {

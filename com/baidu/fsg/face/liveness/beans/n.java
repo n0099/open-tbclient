@@ -23,35 +23,35 @@ import org.json.JSONObject;
 public class n extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5927b;
+    public String f5928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5928c;
+    public String f5929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5929d;
+    public String f5930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5930e;
+    public String f5931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LivenessRecogDTO f5931f;
+    public LivenessRecogDTO f5932f;
 
     public n(Context context) {
         super(context);
         String zid2 = RimGlobalUtils.getZid2();
-        this.f5929d = zid2;
+        this.f5930d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f5928c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f5929c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(LivenessRecogDTO livenessRecogDTO) {
-        this.f5931f = livenessRecogDTO;
+        this.f5932f = livenessRecogDTO;
     }
 
     public void b(String str) {
-        this.f5930e = str;
+        this.f5931e = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -62,50 +62,50 @@ public class n extends l {
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        LivenessRecogDTO livenessRecogDTO = this.f5931f;
+        LivenessRecogDTO livenessRecogDTO = this.f5932f;
         if (livenessRecogDTO != null) {
             setSpParameter(livenessRecogDTO.spParams);
-            arrayList.add(new RestNameValuePair("processid", this.f5931f.processid));
-            LivenessRecogType livenessRecogType = this.f5931f.livenessType;
+            arrayList.add(new RestNameValuePair("processid", this.f5932f.processid));
+            LivenessRecogType livenessRecogType = this.f5932f.livenessType;
             if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                 arrayList.add(new RestNameValuePair("type", "bduss"));
                 arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
             } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                 arrayList.add(new RestNameValuePair("type", "certinfo"));
-                arrayList.add(new RestNameValuePair("exuid", this.f5931f.exUid));
+                arrayList.add(new RestNameValuePair("exuid", this.f5932f.exUid));
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("name", this.f5931f.realName);
-                    jSONObject.put("cert", this.f5931f.idCardNum);
-                    jSONObject.put("bankmobile", this.f5931f.phoneNum);
+                    jSONObject.put("name", this.f5932f.realName);
+                    jSONObject.put("cert", this.f5932f.idCardNum);
+                    jSONObject.put("bankmobile", this.f5932f.phoneNum);
                     arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                 arrayList.add(new RestNameValuePair("type", "authtoken"));
-                arrayList.add(new RestNameValuePair("authtoken", this.f5931f.authToken));
+                arrayList.add(new RestNameValuePair("authtoken", this.f5932f.authToken));
             } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                 arrayList.add(new RestNameValuePair("type", "outer"));
-                arrayList.add(new RestNameValuePair("exuid", this.f5931f.exUid));
+                arrayList.add(new RestNameValuePair("exuid", this.f5932f.exUid));
             }
-            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5931f.serviceType));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5932f.serviceType));
         }
         String randomString = RandomUtils.getRandomString(4096);
         arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5919a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5920a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e3) {
             e3.printStackTrace();
         }
-        arrayList.add(new RestNameValuePair("imgdigests", this.f5927b));
-        if (!TextUtils.isEmpty(this.f5929d)) {
-            arrayList.add(new RestNameValuePair("zid2", this.f5929d));
-        } else if (!TextUtils.isEmpty(this.f5928c)) {
-            arrayList.add(new RestNameValuePair("zid", this.f5928c));
+        arrayList.add(new RestNameValuePair("imgdigests", this.f5928b));
+        if (!TextUtils.isEmpty(this.f5930d)) {
+            arrayList.add(new RestNameValuePair("zid2", this.f5930d));
+        } else if (!TextUtils.isEmpty(this.f5929c)) {
+            arrayList.add(new RestNameValuePair("zid", this.f5929c));
         }
-        if (!TextUtils.isEmpty(this.f5930e)) {
-            arrayList.add(new RestNameValuePair("reqTimes", this.f5930e));
+        if (!TextUtils.isEmpty(this.f5931e)) {
+            arrayList.add(new RestNameValuePair("reqTimes", this.f5931e));
         }
         return arrayList;
     }
@@ -131,14 +131,14 @@ public class n extends l {
     }
 
     public void a(String str) {
-        this.f5927b = str;
+        this.f5928b = str;
     }
 
     private String a() {
         StringBuilder sb = new StringBuilder();
-        if (this.f5931f != null) {
-            sb.append("bduss=" + this.f5931f.bduss);
-            sb.append(";stoken=" + this.f5931f.stoken);
+        if (this.f5932f != null) {
+            sb.append("bduss=" + this.f5932f.bduss);
+            sb.append(";stoken=" + this.f5932f.stoken);
         }
         return PayUtils.encrypt("phone_number", sb.toString());
     }

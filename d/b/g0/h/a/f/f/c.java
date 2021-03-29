@@ -22,31 +22,27 @@ public class c {
         if (bVar == null) {
             return null;
         }
-        d.b.g0.a.a1.c.h.d dVar = bVar.f48757a;
-        if (dVar != null && dVar.n != null && dVar.f43193f != null) {
+        d.b.g0.a.a1.c.h.d dVar = bVar.f48758a;
+        if (dVar != null && dVar.n != null && dVar.f43194f != null) {
             Paint paint = new Paint();
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(dVar.n.f43199f);
-            paint.setTextSize(dVar.n.f43200g);
+            paint.setColor(dVar.n.f43200f);
+            paint.setTextSize(dVar.n.f43201g);
             d.c cVar2 = dVar.n;
             float f2 = cVar2.i;
             float f3 = cVar2.n;
             Paint paint2 = new Paint();
             paint2.setAntiAlias(true);
             paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(dVar.n.f43201h);
-            String str = dVar.n.f43198e;
+            paint2.setColor(dVar.n.f43202h);
+            String str = dVar.n.f43199e;
             float f4 = f2 * 2.0f;
             float measureText = paint.measureText(str) + f4;
             float f5 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f4;
             if (f5 > 0.0f && measureText > 0.0f) {
                 float f6 = dVar.n.l;
-                double d2 = measureText + f6;
-                Double.isNaN(d2);
-                double d3 = f5 + f6;
-                Double.isNaN(d3);
-                Bitmap createBitmap = Bitmap.createBitmap((int) (d2 + 0.5d), (int) (d3 + 0.5d), Bitmap.Config.ARGB_8888);
+                Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f6 + 0.5d), (int) (f5 + f6 + 0.5d), Bitmap.Config.ARGB_8888);
                 createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
                 Canvas canvas = new Canvas(createBitmap);
                 canvas.drawColor(0, PorterDuff.Mode.CLEAR);
@@ -71,8 +67,8 @@ public class c {
                 imageView.setImageBitmap(createBitmap);
                 BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
                 MarkerOptions markerOptions = new MarkerOptions();
-                d.b.g0.a.a1.c.h.c cVar4 = dVar.f43193f;
-                MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f43190e, cVar4.f43191f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                d.b.g0.a.a1.c.h.c cVar4 = dVar.f43194f;
+                MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f43191e, cVar4.f43192f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
                 d.b.g0.a.c0.c.g("map", "createLabel end");
                 return zIndex;
             }

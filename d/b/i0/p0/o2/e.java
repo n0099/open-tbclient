@@ -51,14 +51,14 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
             if (view == null || gVar == null) {
                 return;
             }
-            String str = gVar.f57619f;
+            String str = gVar.f57620f;
             if (str == null) {
                 str = null;
             }
             a2 a2Var = new a2();
             a2Var.D3(str);
             a2Var.l4(str);
-            a2Var.t3(d.b.b.e.m.b.f(gVar.f57618e, 0L));
+            a2Var.t3(d.b.b.e.m.b.f(gVar.f57619e, 0L));
             a2Var.q3(gVar.A);
             a2Var.k4(40);
             if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof d.b.i0.p0.o2.a)) {
@@ -75,7 +75,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
             }
             if (view.getId() == R.id.title) {
                 StatisticItem statisticItem = new StatisticItem("c12411");
-                statisticItem.param("fid", gVar.f57618e);
+                statisticItem.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -90,7 +90,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
                 d.b.i0.b3.c.g().c(e.this.n, d2);
             } else if (view.getId() == R.id.agree_view_container) {
                 StatisticItem statisticItem2 = new StatisticItem("c12414");
-                statisticItem2.param("fid", gVar.f57618e);
+                statisticItem2.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -99,7 +99,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
                 if (view.getId() != R.id.user_icon && view.getId() != R.id.user_name) {
                     if (view.getId() == R.id.attention) {
                         StatisticItem statisticItem3 = new StatisticItem("c12413");
-                        statisticItem3.param("fid", gVar.f57618e);
+                        statisticItem3.param("fid", gVar.f57619e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -107,7 +107,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
                         return;
                     } else if (view.getId() == R.id.mobile_network_play) {
                         StatisticItem statisticItem4 = new StatisticItem("c12416");
-                        statisticItem4.param("fid", gVar.f57618e);
+                        statisticItem4.param("fid", gVar.f57619e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -118,7 +118,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
                     }
                 }
                 StatisticItem statisticItem5 = new StatisticItem("c12412");
-                statisticItem5.param("fid", gVar.f57618e);
+                statisticItem5.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -130,7 +130,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
                 d.b.i0.b3.c.g().c(e.this.n, d3);
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c12415");
-                statisticItem6.param("fid", gVar.f57618e);
+                statisticItem6.param("fid", gVar.f57619e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -258,12 +258,12 @@ public class e extends d.b.b.j.e.a<d.b.i0.p0.i1.g, CardViewHolder<d.b.i0.p0.o2.a
         if (cardViewHolder.b() instanceof d.b.i0.i1.o.l.h) {
             cardViewHolder.b().setCurrentPlayCallBack(this.z);
         }
-        String c2 = d.b.i0.b3.a.c(gVar.f57619f, "", "", gVar.A);
+        String c2 = d.b.i0.b3.a.c(gVar.f57620f, "", "", gVar.A);
         a2 a2Var = new a2();
-        a2Var.D3(gVar.f57619f);
-        a2Var.l4(gVar.f57619f);
+        a2Var.D3(gVar.f57620f);
+        a2Var.l4(gVar.f57620f);
         a2Var.q3(gVar.A);
-        a2Var.t3(d.b.b.e.m.b.f(gVar.f57618e, 0L));
+        a2Var.t3(d.b.b.e.m.b.f(gVar.f57619e, 0L));
         a2Var.k4(40);
         d.b.i0.b3.c.g().d(this.n, c2, d.b.i0.b3.a.f(a2Var, "a023", "common_exp", i + 1, false, null, null));
         return cardViewHolder.a();

@@ -16,14 +16,14 @@ import java.io.IOException;
 public class G0 implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39669a;
+    public final /* synthetic */ String f39670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ I0 f39670b;
+    public final /* synthetic */ I0 f39671b;
 
     public G0(I0 i0, String str) {
-        this.f39670b = i0;
-        this.f39669a = str;
+        this.f39671b = i0;
+        this.f39670a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:42:0x00d1, code lost:
@@ -42,27 +42,27 @@ public class G0 implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
-        if (this.f39669a.startsWith(WebGLImageLoader.DATA_URL)) {
-            boolean contains = this.f39669a.contains("image/gif");
+        if (this.f39670a.startsWith(WebGLImageLoader.DATA_URL)) {
+            boolean contains = this.f39670a.contains("image/gif");
             String str = EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
             if (contains) {
                 str = ".gif";
-            } else if (this.f39669a.contains("image/jpeg") || this.f39669a.contains("image/pjpeg")) {
+            } else if (this.f39670a.contains("image/jpeg") || this.f39670a.contains("image/pjpeg")) {
                 str = ".jpg";
-            } else if (!this.f39669a.contains("image/png")) {
-                if (this.f39669a.contains("image/tiff")) {
+            } else if (!this.f39670a.contains("image/png")) {
+                if (this.f39670a.contains("image/tiff")) {
                     str = ".tif";
-                } else if (this.f39669a.contains("image/svg+xml")) {
+                } else if (this.f39670a.contains("image/svg+xml")) {
                     str = ".svg";
                 }
             }
-            boolean contains2 = this.f39669a.contains("base64");
+            boolean contains2 = this.f39670a.contains("base64");
             File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), System.currentTimeMillis() + str);
             try {
                 fileOutputStream = new FileOutputStream(file);
                 try {
                     if (file.canWrite()) {
-                        fileOutputStream.write(!contains2 ? G.f(this.f39669a.substring(this.f39669a.lastIndexOf(",") + 1, this.f39669a.length())) : Base64.decode(this.f39669a.substring(this.f39669a.lastIndexOf(",") + 1, this.f39669a.length()), 0));
+                        fileOutputStream.write(!contains2 ? G.f(this.f39670a.substring(this.f39670a.lastIndexOf(",") + 1, this.f39670a.length())) : Base64.decode(this.f39670a.substring(this.f39670a.lastIndexOf(",") + 1, this.f39670a.length()), 0));
                     }
                 } catch (FileNotFoundException unused) {
                 } catch (IOException unused2) {
@@ -92,15 +92,15 @@ public class G0 implements DialogInterface.OnClickListener {
             } catch (IOException | IllegalStateException unused8) {
             }
         } else {
-            DownloadManager downloadManager = (DownloadManager) this.f39670b.f39678a.getContext().getSystemService("download");
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f39669a));
-            if (this.f39670b.f39678a.getContext().getPackageManager().checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.f39670b.f39678a.getContext().getPackageName()) == 0) {
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, this.f39669a.split("/")[this.f39669a.split("/").length - 1]);
+            DownloadManager downloadManager = (DownloadManager) this.f39671b.f39679a.getContext().getSystemService("download");
+            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f39670a));
+            if (this.f39671b.f39679a.getContext().getPackageManager().checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.f39671b.f39679a.getContext().getPackageName()) == 0) {
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, this.f39670a.split("/")[this.f39670a.split("/").length - 1]);
                 request.allowScanningByMediaScanner();
                 request.setNotificationVisibility(1);
                 downloadManager.enqueue(request);
             }
         }
-        ((A0) this.f39670b.f39678a.getDispatcher()).a((String) null);
+        ((A0) this.f39671b.f39679a.getDispatcher()).a((String) null);
     }
 }

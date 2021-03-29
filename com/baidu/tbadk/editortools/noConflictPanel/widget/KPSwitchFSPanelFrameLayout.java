@@ -10,7 +10,7 @@ import d.b.h0.w.v.d.d;
 public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13876e;
+    public a f13877e;
 
     public KPSwitchFSPanelFrameLayout(Context context) {
         super(context);
@@ -19,11 +19,11 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
 
     @Override // d.b.h0.w.v.b
     public void a(boolean z) {
-        this.f13876e.a(z);
+        this.f13877e.a(z);
     }
 
     public final void b() {
-        this.f13876e = new a(this);
+        this.f13877e = new a(this);
     }
 
     @Override // d.b.h0.w.v.b

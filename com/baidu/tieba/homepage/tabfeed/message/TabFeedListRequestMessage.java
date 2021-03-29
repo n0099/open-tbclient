@@ -8,7 +8,7 @@ import d.b.h0.r.k;
 import d.b.h0.z0.w;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static final int LOAD_RN = 20;
     public static final int LOAD_TYPE_LOADMORE = 2;

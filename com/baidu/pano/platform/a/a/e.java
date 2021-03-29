@@ -21,43 +21,43 @@ import java.util.Map;
 public class e implements com.baidu.pano.platform.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f9324a;
+    public final Map<String, a> f9325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9325b;
+    public long f9326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f9326c;
+    public final File f9327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f9327d;
+    public final int f9328d;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f9328a;
+        public long f9329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9329b;
+        public String f9330b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9330c;
+        public String f9331c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f9331d;
+        public long f9332d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f9332e;
+        public long f9333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f9333f;
+        public long f9334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f9334g;
+        public long f9335g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f9335h;
+        public Map<String, String> f9336h;
 
         public a() {
         }
@@ -65,55 +65,55 @@ public class e implements com.baidu.pano.platform.a.b {
         public static a a(InputStream inputStream) throws IOException {
             a aVar = new a();
             if (e.a(inputStream) == 538247942) {
-                aVar.f9329b = e.c(inputStream);
+                aVar.f9330b = e.c(inputStream);
                 String c2 = e.c(inputStream);
-                aVar.f9330c = c2;
+                aVar.f9331c = c2;
                 if (c2.equals("")) {
-                    aVar.f9330c = null;
+                    aVar.f9331c = null;
                 }
-                aVar.f9331d = e.b(inputStream);
-                aVar.f9332e = e.b(inputStream);
-                aVar.f9333f = e.b(inputStream);
-                aVar.f9334g = e.b(inputStream);
-                aVar.f9335h = e.d(inputStream);
+                aVar.f9332d = e.b(inputStream);
+                aVar.f9333e = e.b(inputStream);
+                aVar.f9334f = e.b(inputStream);
+                aVar.f9335g = e.b(inputStream);
+                aVar.f9336h = e.d(inputStream);
                 return aVar;
             }
             throw new IOException();
         }
 
         public a(String str, b.a aVar) {
-            this.f9329b = str;
-            this.f9328a = aVar.f9346a.length;
-            this.f9330c = aVar.f9347b;
-            this.f9331d = aVar.f9348c;
-            this.f9332e = aVar.f9349d;
-            this.f9333f = aVar.f9350e;
-            this.f9334g = aVar.f9351f;
-            this.f9335h = aVar.f9352g;
+            this.f9330b = str;
+            this.f9329a = aVar.f9347a.length;
+            this.f9331c = aVar.f9348b;
+            this.f9332d = aVar.f9349c;
+            this.f9333e = aVar.f9350d;
+            this.f9334f = aVar.f9351e;
+            this.f9335g = aVar.f9352f;
+            this.f9336h = aVar.f9353g;
         }
 
         public b.a a(byte[] bArr) {
             b.a aVar = new b.a();
-            aVar.f9346a = bArr;
-            aVar.f9347b = this.f9330c;
-            aVar.f9348c = this.f9331d;
-            aVar.f9349d = this.f9332e;
-            aVar.f9350e = this.f9333f;
-            aVar.f9351f = this.f9334g;
-            aVar.f9352g = this.f9335h;
+            aVar.f9347a = bArr;
+            aVar.f9348b = this.f9331c;
+            aVar.f9349c = this.f9332d;
+            aVar.f9350d = this.f9333e;
+            aVar.f9351e = this.f9334f;
+            aVar.f9352f = this.f9335g;
+            aVar.f9353g = this.f9336h;
             return aVar;
         }
 
         public boolean a(OutputStream outputStream) {
             try {
                 e.a(outputStream, 538247942);
-                e.a(outputStream, this.f9329b);
-                e.a(outputStream, this.f9330c == null ? "" : this.f9330c);
-                e.a(outputStream, this.f9331d);
-                e.a(outputStream, this.f9332e);
-                e.a(outputStream, this.f9333f);
-                e.a(outputStream, this.f9334g);
-                e.a(this.f9335h, outputStream);
+                e.a(outputStream, this.f9330b);
+                e.a(outputStream, this.f9331c == null ? "" : this.f9331c);
+                e.a(outputStream, this.f9332d);
+                e.a(outputStream, this.f9333e);
+                e.a(outputStream, this.f9334f);
+                e.a(outputStream, this.f9335g);
+                e.a(this.f9336h, outputStream);
                 outputStream.flush();
                 return true;
             } catch (IOException e2) {
@@ -127,37 +127,37 @@ public class e implements com.baidu.pano.platform.a.b {
     public static class b extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9336a;
+        public int f9337a;
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read() throws IOException {
             int read = super.read();
             if (read != -1) {
-                this.f9336a++;
+                this.f9337a++;
             }
             return read;
         }
 
         public b(InputStream inputStream) {
             super(inputStream);
-            this.f9336a = 0;
+            this.f9337a = 0;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read(byte[] bArr, int i, int i2) throws IOException {
             int read = super.read(bArr, i, i2);
             if (read != -1) {
-                this.f9336a += read;
+                this.f9337a += read;
             }
             return read;
         }
     }
 
     public e(File file, int i) {
-        this.f9324a = new LinkedHashMap(16, 0.75f, true);
-        this.f9325b = 0L;
-        this.f9326c = file;
-        this.f9327d = i;
+        this.f9325a = new LinkedHashMap(16, 0.75f, true);
+        this.f9326b = 0L;
+        this.f9327c = file;
+        this.f9328d = i;
     }
 
     private String d(String str) {
@@ -167,10 +167,10 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     private void e(String str) {
-        a aVar = this.f9324a.get(str);
+        a aVar = this.f9325a.get(str);
         if (aVar != null) {
-            this.f9325b -= aVar.f9328a;
-            this.f9324a.remove(str);
+            this.f9326b -= aVar.f9329a;
+            this.f9325a.remove(str);
         }
     }
 
@@ -181,7 +181,7 @@ public class e implements com.baidu.pano.platform.a.b {
     */
     public synchronized b.a a(String str) {
         b bVar;
-        a aVar = this.f9324a.get(str);
+        a aVar = this.f9325a.get(str);
         FilterInputStream filterInputStream = null;
         if (aVar == null) {
             return null;
@@ -215,7 +215,7 @@ public class e implements com.baidu.pano.platform.a.b {
         }
         try {
             a.a(bVar);
-            b.a a2 = aVar.a(a(bVar, (int) (c2.length() - bVar.f9336a)));
+            b.a a2 = aVar.a(a(bVar, (int) (c2.length() - bVar.f9337a)));
             try {
                 bVar.close();
                 return a2;
@@ -258,7 +258,7 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     public File c(String str) {
-        return new File(this.f9326c, d(str));
+        return new File(this.f9327c, d(str));
     }
 
     public static String c(InputStream inputStream) throws IOException {
@@ -293,13 +293,13 @@ public class e implements com.baidu.pano.platform.a.b {
     @Override // com.baidu.pano.platform.a.b
     public synchronized void a() {
         BufferedInputStream bufferedInputStream;
-        if (!this.f9326c.exists()) {
-            if (!this.f9326c.mkdirs()) {
-                w.c("Unable to create cache dir %s", this.f9326c.getAbsolutePath());
+        if (!this.f9327c.exists()) {
+            if (!this.f9327c.mkdirs()) {
+                w.c("Unable to create cache dir %s", this.f9327c.getAbsolutePath());
             }
             return;
         }
-        File[] listFiles = this.f9326c.listFiles();
+        File[] listFiles = this.f9327c.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -315,8 +315,8 @@ public class e implements com.baidu.pano.platform.a.b {
             }
             try {
                 a a2 = a.a(bufferedInputStream);
-                a2.f9328a = file.length();
-                a(a2.f9329b, a2);
+                a2.f9329a = file.length();
+                a(a2.f9330b, a2);
                 try {
                     bufferedInputStream.close();
                 } catch (IOException unused2) {
@@ -345,13 +345,13 @@ public class e implements com.baidu.pano.platform.a.b {
 
     @Override // com.baidu.pano.platform.a.b
     public synchronized void a(String str, b.a aVar) {
-        a(aVar.f9346a.length);
+        a(aVar.f9347a.length);
         File c2 = c(str);
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(c2);
             a aVar2 = new a(str, aVar);
             if (aVar2.a(fileOutputStream)) {
-                fileOutputStream.write(aVar.f9346a);
+                fileOutputStream.write(aVar.f9347a);
                 fileOutputStream.close();
                 a(str, aVar2);
             } else {
@@ -370,45 +370,45 @@ public class e implements com.baidu.pano.platform.a.b {
     private void a(int i) {
         long j;
         long j2 = i;
-        if (this.f9325b + j2 < this.f9327d) {
+        if (this.f9326b + j2 < this.f9328d) {
             return;
         }
-        if (w.f9414b) {
+        if (w.f9415b) {
             w.a("Pruning old cache entries.", new Object[0]);
         }
-        long j3 = this.f9325b;
+        long j3 = this.f9326b;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Iterator<Map.Entry<String, a>> it = this.f9324a.entrySet().iterator();
+        Iterator<Map.Entry<String, a>> it = this.f9325a.entrySet().iterator();
         int i2 = 0;
         while (it.hasNext()) {
             a value = it.next().getValue();
-            if (c(value.f9329b).delete()) {
+            if (c(value.f9330b).delete()) {
                 j = j2;
-                this.f9325b -= value.f9328a;
+                this.f9326b -= value.f9329a;
             } else {
                 j = j2;
-                String str = value.f9329b;
+                String str = value.f9330b;
                 w.b("Could not delete cache entry for key=%s, filename=%s", str, d(str));
             }
             it.remove();
             i2++;
-            if (((float) (this.f9325b + j)) < this.f9327d * 0.9f) {
+            if (((float) (this.f9326b + j)) < this.f9328d * 0.9f) {
                 break;
             }
             j2 = j;
         }
-        if (w.f9414b) {
-            w.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f9325b - j3), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
+        if (w.f9415b) {
+            w.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f9326b - j3), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
         }
     }
 
     private void a(String str, a aVar) {
-        if (!this.f9324a.containsKey(str)) {
-            this.f9325b += aVar.f9328a;
+        if (!this.f9325a.containsKey(str)) {
+            this.f9326b += aVar.f9329a;
         } else {
-            this.f9325b += aVar.f9328a - this.f9324a.get(str).f9328a;
+            this.f9326b += aVar.f9329a - this.f9325a.get(str).f9329a;
         }
-        this.f9324a.put(str, aVar);
+        this.f9325a.put(str, aVar);
     }
 
     public static byte[] a(InputStream inputStream, int i) throws IOException {

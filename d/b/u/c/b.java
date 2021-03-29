@@ -15,16 +15,16 @@ public class b {
     public static final String A = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.u.b.g.c f64726b;
+    public d.b.u.b.g.c f64727b;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64729e;
+    public long f64730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64730f;
+    public long f64731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64731g;
+    public long f64732g;
     public d.b.u.c.g.d k;
     public boolean l;
     public Context m;
@@ -33,16 +33,16 @@ public class b {
     public d.b.u.a.a.a q;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64725a = 120000;
+    public int f64726a = 120000;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64727c = -1;
+    public int f64728c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64728d = false;
+    public boolean f64729d = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64732h = false;
+    public boolean f64733h = false;
     public int r = 0;
     public int s = 0;
     public byte[] t = ByteBuffer.allocate(3840).putShort(ShortCompanionObject.MIN_VALUE).array();
@@ -73,16 +73,16 @@ public class b {
         @Override // d.b.u.c.e
         public void b(boolean z, String str) {
             String str2 = b.A;
-            Log.i(str2, "on RecorderComplete record time :" + b.this.f64731g);
+            Log.i(str2, "on RecorderComplete record time :" + b.this.f64732g);
             if (b.this.o != null) {
-                b.this.o.w((int) b.this.f64731g, str);
+                b.this.o.w((int) b.this.f64732g, str);
             }
         }
 
         @Override // d.b.u.c.e
         public void c(long j) {
-            b.this.f64731g = j;
-            if (j <= b.this.f64725a || !b.this.l) {
+            b.this.f64732g = j;
+            if (j <= b.this.f64726a || !b.this.l) {
                 return;
             }
             b.this.I();
@@ -99,8 +99,8 @@ public class b {
 
     /* renamed from: d.b.u.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1771b extends TimerTask {
-        public C1771b() {
+    public class C1772b extends TimerTask {
+        public C1772b() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -121,34 +121,34 @@ public class b {
     public static class c implements d.b.u.a.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<b> f64735a;
+        public WeakReference<b> f64736a;
 
         public c(b bVar) {
-            this.f64735a = new WeakReference<>(bVar);
+            this.f64736a = new WeakReference<>(bVar);
             String str = b.A;
-            Log.i(str, "gameRecorderRef is:" + this.f64735a.get());
+            Log.i(str, "gameRecorderRef is:" + this.f64736a.get());
         }
 
         @Override // d.b.u.a.a.a
         public void a(ByteBuffer byteBuffer, int i, long j) {
-            if (this.f64735a.get() != null) {
-                this.f64735a.get().y = false;
-                this.f64735a.get().K(byteBuffer, i, j);
+            if (this.f64736a.get() != null) {
+                this.f64736a.get().y = false;
+                this.f64736a.get().K(byteBuffer, i, j);
             }
         }
 
         @Override // d.b.u.a.a.a
         public void b(boolean z) {
             Log.i(b.A, "onAudioStop");
-            if (this.f64735a.get() != null) {
-                this.f64735a.get().H();
+            if (this.f64736a.get() != null) {
+                this.f64736a.get().H();
             }
         }
 
         @Override // d.b.u.a.a.a
         public void c(boolean z, AudioParams audioParams) {
-            if (this.f64735a.get() != null) {
-                this.f64735a.get().G(z, audioParams);
+            if (this.f64736a.get() != null) {
+                this.f64736a.get().G(z, audioParams);
                 Log.i(b.A, "onAudioStart");
             }
         }
@@ -203,12 +203,12 @@ public class b {
         this.k.v(i2);
         this.k.x(this.r);
         this.k.w(this.s);
-        this.f64729e = 0L;
-        this.f64731g = 0L;
+        this.f64730e = 0L;
+        this.f64732g = 0L;
         if (i > 0 && i < 120) {
-            this.f64725a = i2;
+            this.f64726a = i2;
         } else {
-            this.f64725a = 120000;
+            this.f64726a = 120000;
         }
         E(null);
     }
@@ -223,9 +223,9 @@ public class b {
         this.l = true;
         H();
         this.v = new Timer();
-        C1771b c1771b = new C1771b();
-        this.w = c1771b;
-        this.v.schedule(c1771b, 300L, 20L);
+        C1772b c1772b = new C1772b();
+        this.w = c1772b;
+        this.v.schedule(c1772b, 300L, 20L);
     }
 
     public final synchronized void H() {
@@ -267,10 +267,10 @@ public class b {
                 this.n = 1;
             } else if (i2 != 1) {
                 if (i2 == 2) {
-                    this.f64726b.k().h(i);
+                    this.f64727b.k().h(i);
                     d dVar2 = this.i;
                     if (dVar2 != null) {
-                        dVar2.W(this.f64726b);
+                        dVar2.W(this.f64727b);
                     }
                     this.n = 1;
                 } else {
@@ -279,23 +279,23 @@ public class b {
             }
         }
         d dVar3 = this.i;
-        if (dVar3 == null || this.f64728d) {
+        if (dVar3 == null || this.f64729d) {
             return;
         }
-        dVar3.H(j - this.f64729e);
+        dVar3.H(j - this.f64730e);
     }
 
     public final void K(ByteBuffer byteBuffer, int i, long j) {
         d dVar = this.i;
-        if (dVar == null || !this.l || byteBuffer == null || i <= 0 || this.f64728d) {
+        if (dVar == null || !this.l || byteBuffer == null || i <= 0 || this.f64729d) {
             return;
         }
-        dVar.F(byteBuffer, i, j - this.f64729e);
+        dVar.F(byteBuffer, i, j - this.f64730e);
     }
 
     public final void p() {
         d.b.u.c.g.d dVar = this.k;
-        if (dVar == null || this.f64726b == null) {
+        if (dVar == null || this.f64727b == null) {
             return;
         }
         int l = dVar.l();
@@ -324,14 +324,14 @@ public class b {
     }
 
     public final void r() {
-        if (this.f64728d) {
-            this.f64729e += System.nanoTime() - this.f64730f;
-            this.f64728d = false;
+        if (this.f64729d) {
+            this.f64730e += System.nanoTime() - this.f64731f;
+            this.f64729d = false;
         }
     }
 
     public long s() {
-        return this.f64731g;
+        return this.f64732g;
     }
 
     public void t(boolean z, EGLContext eGLContext, int i, int i2, Context context) {
@@ -341,16 +341,16 @@ public class b {
         this.m = context;
         String str = A;
         Log.i(str, "onContextChanged:" + eGLContext + "; w:" + i + "; h:" + i2 + "; isFlip:" + z);
-        d.b.u.b.g.c cVar = this.f64726b;
+        d.b.u.b.g.c cVar = this.f64727b;
         if (cVar == null) {
-            this.f64726b = new d.b.u.b.g.c(eGLContext, 0, true);
+            this.f64727b = new d.b.u.b.g.c(eGLContext, 0, true);
         } else {
             cVar.o(eGLContext);
         }
-        this.f64726b.j().f(i);
-        this.f64726b.j().e(i2);
+        this.f64727b.j().f(i);
+        this.f64727b.j().e(i2);
         if (z) {
-            this.f64726b.d().k(MirrorType.VERTICALLY);
+            this.f64727b.d().k(MirrorType.VERTICALLY);
         }
         this.r = i;
         this.s = i2;
@@ -359,37 +359,37 @@ public class b {
     }
 
     public void u(int i) {
-        if (this.f64726b == null) {
+        if (this.f64727b == null) {
             return;
         }
-        if (this.f64727c != i) {
+        if (this.f64728c != i) {
             d.b.u.b.f.d dVar = new d.b.u.b.f.d();
             dVar.h(i);
-            this.f64726b.r(dVar);
+            this.f64727b.r(dVar);
             d dVar2 = this.i;
             if (dVar2 != null) {
-                dVar2.s(this.f64726b);
+                dVar2.s(this.f64727b);
             }
-            this.f64727c = i;
+            this.f64728c = i;
         }
-        J(this.f64727c, System.nanoTime());
+        J(this.f64728c, System.nanoTime());
     }
 
     public void v() {
-        if (this.f64728d) {
+        if (this.f64729d) {
             Log.i(A, "pauseRecord cmd has executed, please run resumeRecord!");
         } else if (this.l) {
-            this.f64728d = true;
+            this.f64729d = true;
             Log.i(A, "pauseRecord");
-            this.f64730f = System.nanoTime();
-            this.f64729e = 0L;
+            this.f64731f = System.nanoTime();
+            this.f64730e = 0L;
             d dVar = this.i;
             if (dVar != null) {
                 dVar.I();
-                long y = (this.f64730f - (this.f64731g * 1000000)) - this.i.y();
-                this.f64729e = y;
+                long y = (this.f64731f - (this.f64732g * 1000000)) - this.i.y();
+                this.f64730e = y;
                 if (y < 0) {
-                    this.f64729e = 0L;
+                    this.f64730e = 0L;
                 }
             }
             d.b.u.c.c cVar = this.o;
@@ -401,12 +401,12 @@ public class b {
     }
 
     public void w() {
-        if (!this.f64728d) {
-            this.f64732h = true;
+        if (!this.f64729d) {
+            this.f64733h = true;
             v();
             return;
         }
-        this.f64732h = false;
+        this.f64733h = false;
     }
 
     public void x() {
@@ -421,9 +421,9 @@ public class b {
     }
 
     public void y() {
-        if (this.f64728d) {
-            this.f64729e += System.nanoTime() - this.f64730f;
-            this.f64728d = false;
+        if (this.f64729d) {
+            this.f64730e += System.nanoTime() - this.f64731f;
+            this.f64729d = false;
             E(null);
             d.b.u.c.c cVar = this.o;
             if (cVar != null) {
@@ -433,9 +433,9 @@ public class b {
     }
 
     public void z() {
-        if (this.f64728d && this.f64732h) {
+        if (this.f64729d && this.f64733h) {
             y();
         }
-        this.f64732h = false;
+        this.f64733h = false;
     }
 }

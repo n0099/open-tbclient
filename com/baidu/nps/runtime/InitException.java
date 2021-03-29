@@ -1,5 +1,5 @@
 package com.baidu.nps.runtime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class InitException extends RuntimeException {
     public int mErrorCode;
     public String mErrorMsg;

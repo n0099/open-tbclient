@@ -52,13 +52,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
         if (c2 == null) {
             return;
         }
-        if (c2.a() == l.f51192h) {
+        if (c2.a() == l.f51193h) {
             if (!TextUtils.isEmpty(this.mFinalData.b())) {
                 final c cVar = new c();
-                cVar.f50160g = this.mFinalData.b();
-                cVar.f50158e = 21;
+                cVar.f50161g = this.mFinalData.b();
+                cVar.f50159e = 21;
                 if (!TextUtils.isEmpty(this.mFinalData.c())) {
-                    cVar.f50156c = this.mFinalData.c();
+                    cVar.f50157c = this.mFinalData.c();
                 }
                 e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.4
                     @Override // java.lang.Runnable
@@ -67,13 +67,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
                     }
                 }, 2000L);
             }
-            TbSingleton.getInstance().getChannelConfigModel().d(l.f51192h);
-        } else if (this.mFinalData.a() == l.f51191g) {
+            TbSingleton.getInstance().getChannelConfigModel().d(l.f51193h);
+        } else if (this.mFinalData.a() == l.f51192g) {
             MessageRedDotView messageRedDotView = this.tipView;
             if (messageRedDotView != null) {
                 messageRedDotView.setVisibility(0);
             }
-            TbSingleton.getInstance().getChannelConfigModel().d(l.f51191g);
+            TbSingleton.getInstance().getChannelConfigModel().d(l.f51192g);
         } else {
             MessageRedDotView messageRedDotView2 = this.tipView;
             if (messageRedDotView2 != null) {
@@ -113,8 +113,8 @@ public class FlutterNewCategoryDelegateStatic extends b {
         newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_NEWCATEGORY);
         newEngineFragmentBuilder.isTabHost(true);
         FlutterFragment build = newEngineFragmentBuilder.build();
-        cVar.f50154a = build;
-        cVar.f50158e = 21;
+        cVar.f50155a = build;
+        cVar.f50159e = 21;
         ((TbFlutterFragment) build).setOnPrimaryListener(new TbFlutterFragmentLifeCircleInterface() { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.3
             @Override // com.baidu.tieba.flutter.view.TbFlutterFragmentLifeCircleInterface
             public void onPrimary() {
@@ -122,9 +122,9 @@ public class FlutterNewCategoryDelegateStatic extends b {
             }
         });
         Resources b2 = h.a().b();
-        cVar.f50155b = b2.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
-        cVar.f50159f = b2.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.f50161h = c.k;
+        cVar.f50156b = b2.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
+        cVar.f50160f = b2.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
+        cVar.f50162h = c.k;
         return cVar;
     }
 
@@ -133,14 +133,14 @@ public class FlutterNewCategoryDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13960f = this.mIndicator;
-        aVar.f13957c = d.b.b.e.p.l.e(context, 10.0f);
-        aVar.f13955a = this.tipView;
+        aVar.f13961f = this.mIndicator;
+        aVar.f13958c = d.b.b.e.p.l.e(context, 10.0f);
+        aVar.f13956a = this.tipView;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
         this.tipView.f(0);
         l lVar = this.mFinalData;
         if (lVar != null) {
-            if (lVar.a() == l.f51191g) {
+            if (lVar.a() == l.f51192g) {
                 this.tipView.setVisibility(0);
             } else {
                 this.tipView.setVisibility(8);

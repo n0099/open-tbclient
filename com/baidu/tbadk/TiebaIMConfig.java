@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import d.b.b.e.p.c;
 import d.b.b.e.p.l;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TiebaIMConfig {
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
     public static final int MAX_IMAGES_IN_GROUP_GALLARY = 1000;

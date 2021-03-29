@@ -6,9 +6,9 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
 import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 import d.b.g0.a.b2.f.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i extends l {
-    public static final boolean o = d.b.g0.a.k.f45050a;
+    public static final boolean o = d.b.g0.a.k.f45051a;
 
     public i(d.b.g0.a.i2.u0.b<Exception> bVar) {
         super(bVar);
@@ -44,9 +44,9 @@ public class i extends l {
             return aVar;
         }
         d.b.g0.a.l0.h.a aVar2 = new d.b.g0.a.l0.h.a();
-        aVar2.f45153a = bVar.j;
-        aVar2.f45154b = bVar.f48916a;
-        aVar2.f45155c = bVar.m;
+        aVar2.f45154a = bVar.j;
+        aVar2.f45155b = bVar.f48917a;
+        aVar2.f45156c = bVar.m;
         if (d.b.g0.a.l0.b.a(0, aVar2) == null) {
             if (o) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
@@ -87,9 +87,9 @@ public class i extends l {
             aVar.c("小程序Core包 Framework null");
             return aVar;
         }
-        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48916a, dVar.m, 0);
+        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48917a, dVar.m, 0);
         d.b.g0.a.c0.c.h("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c2);
-        d.b.g0.p.d.g(dVar.f48916a);
+        d.b.g0.p.d.g(dVar.f48917a);
         if (c2.c()) {
             long d2 = d.b.g0.a.b2.f.a.d(0);
             if (d2 > 0) {

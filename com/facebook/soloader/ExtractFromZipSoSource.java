@@ -40,7 +40,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class ZipUnpacker extends UnpackingSoSource.Unpacker {
         @Nullable
         public ZipDso[] mDsos;

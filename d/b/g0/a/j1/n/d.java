@@ -1,7 +1,7 @@
 package d.b.g0.a.j1.n;
 
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.g0.a.i2.u0.b

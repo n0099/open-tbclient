@@ -103,10 +103,11 @@ public class k {
         for (int i2 = 0; i2 < 3; i2++) {
             j += parseVersion2[i2] << (24 - (i2 * 8));
         }
-        if (j2 > j) {
+        int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+        if (i3 > 0) {
             return 1;
         }
-        return j2 == j ? 0 : -1;
+        return i3 == 0 ? 0 : -1;
     }
 
     public static String cutString(String str, int i) {

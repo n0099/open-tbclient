@@ -28,8 +28,8 @@ public class d extends d.b.i0.p.a<f, PersonInfoUserPicsHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
     public PersonInfoUserPicsHolder R(ViewGroup viewGroup) {
-        PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
-        personInfoUserPicsHolder.f20231e.d(this.m);
+        PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
+        personInfoUserPicsHolder.f20232e.d(this.m);
         return personInfoUserPicsHolder;
     }
 

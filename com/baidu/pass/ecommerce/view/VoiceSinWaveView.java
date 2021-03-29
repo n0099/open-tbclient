@@ -194,14 +194,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     }
 
     private float getY(int i, float f2, float f3, float f4, float f5, float f6, float f7) {
-        double d2 = i / f2;
-        Double.isNaN(d2);
-        double d3 = f6;
-        Double.isNaN(d3);
-        double d4 = d2 * 6.283185307179586d * d3;
-        double d5 = f7;
-        Double.isNaN(d5);
-        return ((1.0f - ((float) Math.pow(((i * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(d4 + d5))) + (f3 * 0.5f);
+        return ((1.0f - ((float) Math.pow(((i * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(((i / f2) * 6.283185307179586d * f6) + f7))) + (f3 * 0.5f);
     }
 
     private void initialize() {

@@ -11,13 +11,13 @@ import java.io.FileReader;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30376a;
+    public static String f30377a;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x004c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0071 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x007c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x007c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r7v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r7v2 */
     /* JADX WARN: Type inference failed for: r7v3 */
@@ -132,10 +132,10 @@ public class aj {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f30376a)) {
-            f30376a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
+        if (TextUtils.isEmpty(f30377a)) {
+            f30377a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
         }
-        return f30376a;
+        return f30377a;
     }
 
     public static boolean a() {

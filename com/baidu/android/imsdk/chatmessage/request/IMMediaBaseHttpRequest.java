@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public static final String TAG = "IMMediaBaseHttpRequest";
 

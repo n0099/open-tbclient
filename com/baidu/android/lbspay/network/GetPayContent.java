@@ -11,7 +11,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GetPayContent implements IBeanResponse, Serializable {
     public static final long serialVersionUID = 1;
     public int authorize_err_no;

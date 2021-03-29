@@ -11,14 +11,14 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43073b = a();
+    public static String f43074b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f43072a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    public static Pattern f43073a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     public static String a() {
         try {
@@ -58,7 +58,7 @@ public final class e {
     }
 
     public static boolean e(String str) {
-        return f43072a.matcher(str).matches();
+        return f43073a.matcher(str).matches();
     }
 
     public static String f(String str, byte[] bArr) {
@@ -106,11 +106,11 @@ public final class e {
     }
 
     public static String k(String str) {
-        return b(f43073b, str.getBytes());
+        return b(f43074b, str.getBytes());
     }
 
     public static String l(String str) {
-        return f(f43073b, Base64.decode(str, 0));
+        return f(f43074b, Base64.decode(str, 0));
     }
 
     public static Key m(String str) {

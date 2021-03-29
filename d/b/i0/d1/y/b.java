@@ -11,28 +11,28 @@ import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
 import d.b.i0.d1.h.l;
 import d.b.i0.d1.h.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
 
         /* renamed from: d.b.i0.d1.y.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1215a extends f0<Integer> {
+        /* loaded from: classes3.dex */
+        public class C1216a extends f0<Integer> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f54095a;
+            public final /* synthetic */ boolean f54096a;
 
-            public C1215a(a aVar, boolean z) {
-                this.f54095a = z;
+            public C1216a(a aVar, boolean z) {
+                this.f54096a = z;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.b.h0.z0.f0
             public Integer doInBackground() {
-                if (!this.f54095a) {
+                if (!this.f54096a) {
                     d.b.i0.d1.h.b.a().b();
                 }
                 return 0;
@@ -40,9 +40,9 @@ public class b {
         }
 
         /* renamed from: d.b.i0.d1.y.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1216b implements n<Integer> {
-            public C1216b(a aVar) {
+        /* loaded from: classes3.dex */
+        public class C1217b implements n<Integer> {
+            public C1217b(a aVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b {
                 m.t().p();
                 l.t().p();
             }
-            h0.c(new C1215a(this, isNull), new C1216b(this));
+            h0.c(new C1216a(this, isNull), new C1217b(this));
         }
     }
 

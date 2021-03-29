@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 public class EmotionLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15315e;
+    public View f15316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15316f;
+    public boolean f15317f;
 
     public EmotionLinearLayout(Context context) {
         super(context);
@@ -21,10 +21,10 @@ public class EmotionLinearLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.f15316f) {
+        if (this.f15317f) {
             canvas.save();
-            canvas.translate(this.f15315e.getLeft(), this.f15315e.getTop());
-            this.f15315e.draw(canvas);
+            canvas.translate(this.f15316e.getLeft(), this.f15316e.getTop());
+            this.f15316e.draw(canvas);
             canvas.restore();
         }
     }
@@ -33,29 +33,29 @@ public class EmotionLinearLayout extends LinearLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.f15315e == null || childAt == null) {
+        if (this.f15316e == null || childAt == null) {
             return;
         }
-        int measuredWidth = childAt.getMeasuredWidth() - this.f15315e.getMeasuredWidth();
-        View view = this.f15315e;
-        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f15315e.getMeasuredHeight());
+        int measuredWidth = childAt.getMeasuredWidth() - this.f15316e.getMeasuredWidth();
+        View view = this.f15316e;
+        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f15316e.getMeasuredHeight());
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        View view = this.f15315e;
+        View view = this.f15316e;
         if (view != null) {
-            this.f15315e.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.f15315e.getLayoutParams().height));
+            this.f15316e.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.f15316e.getLayoutParams().height));
         }
     }
 
     public void setNewView(View view) {
-        this.f15315e = view;
+        this.f15316e = view;
     }
 
     public void setNewViewVisible(boolean z) {
-        this.f15316f = z;
+        this.f15317f = z;
         invalidate();
     }
 

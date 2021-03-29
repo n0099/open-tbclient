@@ -17,19 +17,19 @@ import com.kwad.sdk.utils.ar;
 public class b extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f33905a;
+    public g f33906a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f33906b;
+    public com.kwad.sdk.core.webview.a f33907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NestedScrollWebView f33907c;
+    public NestedScrollWebView f33908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f33908d;
+    public AdTemplate f33909d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k.b f33909e = new k.b() { // from class: com.kwad.sdk.core.page.a.b.1
+    public k.b f33910e = new k.b() { // from class: com.kwad.sdk.core.page.a.b.1
         @Override // com.kwad.sdk.core.webview.jshandler.k.b
         public void a(int i) {
         }
@@ -37,56 +37,56 @@ public class b extends Presenter {
 
     private void a(g gVar) {
         gVar.a(new d());
-        gVar.a(new e(this.f33906b));
-        gVar.a(new f(this.f33906b));
-        gVar.a(new k(this.f33909e));
-        gVar.a(new j(this.f33906b));
+        gVar.a(new e(this.f33907b));
+        gVar.a(new f(this.f33907b));
+        gVar.a(new k(this.f33910e));
+        gVar.a(new j(this.f33907b));
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void e() {
         f();
-        ar.a(this.f33907c);
-        g gVar = new g(this.f33907c);
-        this.f33905a = gVar;
+        ar.a(this.f33908c);
+        g gVar = new g(this.f33908c);
+        this.f33906a = gVar;
         a(gVar);
-        this.f33907c.addJavascriptInterface(this.f33905a, "KwaiAd");
+        this.f33908c.addJavascriptInterface(this.f33906a, "KwaiAd");
     }
 
     private void f() {
-        g gVar = this.f33905a;
+        g gVar = this.f33906a;
         if (gVar != null) {
             gVar.a();
-            this.f33905a = null;
+            this.f33906a = null;
         }
     }
 
     private void g() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f33906b = aVar;
-        aVar.f34285b = this.f33908d;
-        aVar.f34284a = 0;
-        aVar.f34289f = this.f33907c;
+        this.f33907b = aVar;
+        aVar.f34286b = this.f33909d;
+        aVar.f34285a = 0;
+        aVar.f34290f = this.f33908c;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f33908d = ((com.kwad.sdk.core.page.recycle.e) n()).f33941c;
+        this.f33909d = ((com.kwad.sdk.core.page.recycle.e) n()).f33942c;
         NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) l().findViewById(R.id.ksad_video_webView);
-        this.f33907c = nestedScrollWebView;
-        nestedScrollWebView.setTemplateData(this.f33908d);
-        this.f33907c.setNestedScrollingEnabled(true);
+        this.f33908c = nestedScrollWebView;
+        nestedScrollWebView.setTemplateData(this.f33909d);
+        this.f33908c.setNestedScrollingEnabled(true);
         g();
         e();
-        this.f33907c.loadUrl(com.kwad.sdk.core.response.b.a.B(c.j(this.f33908d)));
-        this.f33907c.d();
+        this.f33908c.loadUrl(com.kwad.sdk.core.response.b.a.B(c.j(this.f33909d)));
+        this.f33908c.d();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
         f();
-        this.f33907c.e();
+        this.f33908c.e();
     }
 }

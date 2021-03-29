@@ -12,13 +12,13 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64452a;
+    public Context f64453a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1752a f64453b;
+    public C1753a f64454b;
 
     public a(Context context) {
-        this.f64452a = context;
+        this.f64453a = context;
         c().mkdirs();
     }
 
@@ -112,41 +112,41 @@ public class a {
     }
 
     public File b() {
-        return new File(this.f64452a.getApplicationInfo().dataDir);
+        return new File(this.f64453a.getApplicationInfo().dataDir);
     }
 
     public final File c() {
         return new File(b(), ".helios");
     }
 
-    public synchronized C1752a d() {
-        if (this.f64453b == null) {
-            this.f64453b = new C1752a(".helios", null);
+    public synchronized C1753a d() {
+        if (this.f64454b == null) {
+            this.f64454b = new C1753a(".helios", null);
         }
-        return this.f64453b;
+        return this.f64454b;
     }
 
     /* renamed from: d.b.q.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public final class C1752a {
+    public final class C1753a {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f64454a;
+        public File f64455a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f64455b;
+        public String f64456b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C1752a f64456c;
+        public C1753a f64457c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f64457d;
+        public boolean f64458d;
 
-        public C1752a(String str, C1752a c1752a) {
-            this.f64457d = false;
-            this.f64455b = str;
-            this.f64456c = c1752a;
-            this.f64457d = false;
+        public C1753a(String str, C1753a c1753a) {
+            this.f64458d = false;
+            this.f64456b = str;
+            this.f64457c = c1753a;
+            this.f64458d = false;
         }
 
         public void a() {
@@ -155,53 +155,53 @@ public class a {
 
         public File b() {
             File file;
-            File file2 = this.f64454a;
+            File file2 = this.f64455a;
             if (file2 != null) {
                 return file2;
             }
-            if (this.f64456c == null) {
-                file = new File(a.this.b(), this.f64455b);
+            if (this.f64457c == null) {
+                file = new File(a.this.b(), this.f64456b);
             } else {
-                file = new File(this.f64456c.b(), this.f64455b);
+                file = new File(this.f64457c.b(), this.f64456b);
             }
-            this.f64454a = file;
+            this.f64455a = file;
             return file;
         }
 
         public String c() {
-            return this.f64455b;
+            return this.f64456b;
         }
 
         public File d(String str) {
-            return new File(this.f64454a, str);
+            return new File(this.f64455a, str);
         }
 
-        public C1752a e() {
-            return this.f64456c;
+        public C1753a e() {
+            return this.f64457c;
         }
 
-        public C1752a f(String str) {
-            return new C1752a(str, this);
+        public C1753a f(String str) {
+            return new C1753a(str, this);
         }
 
         public String g(String str, boolean z) {
             return a.e(b(), str, "UTF-8", z);
         }
 
-        public C1752a h(File file) {
-            if (!this.f64457d) {
+        public C1753a h(File file) {
+            if (!this.f64458d) {
                 ArrayList arrayList = new ArrayList();
-                C1752a c1752a = this;
+                C1753a c1753a = this;
                 do {
-                    arrayList.add(c1752a.c());
-                    c1752a = c1752a.e();
-                } while (c1752a != null);
+                    arrayList.add(c1753a.c());
+                    c1753a = c1753a.e();
+                } while (c1753a != null);
                 int size = arrayList.size() - 1;
                 while (size >= 0) {
                     size--;
                     file = new File(file, (String) arrayList.get(size));
                 }
-                return new C1752a(file);
+                return new C1753a(file);
             }
             throw new IllegalStateException("isolate session is not support");
         }
@@ -210,11 +210,11 @@ public class a {
             return a.f(b(), str, str2, "UTF-8", z);
         }
 
-        public C1752a(File file) {
-            this.f64457d = false;
-            this.f64457d = true;
-            this.f64454a = file;
-            this.f64455b = file.getName();
+        public C1753a(File file) {
+            this.f64458d = false;
+            this.f64458d = true;
+            this.f64455a = file;
+            this.f64456b = file.getName();
         }
     }
 }

@@ -6,15 +6,15 @@ import android.text.TextUtils;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44719a;
+    public static String f44720a;
 
     public static String a() {
-        if (TextUtils.isEmpty(f44719a)) {
+        if (TextUtils.isEmpty(f44720a)) {
             synchronized (l.class) {
-                f44719a = b();
+                f44720a = b();
             }
         }
-        return f44719a;
+        return f44720a;
     }
 
     public static String b() {

@@ -2,7 +2,7 @@ package d.b.i0.z0.f.h;
 
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(String str, String str2, String str3) {
         StatisticItem statisticItem = new StatisticItem(str);

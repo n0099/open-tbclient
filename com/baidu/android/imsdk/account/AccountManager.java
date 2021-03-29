@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AccountManager extends BaseManager {
     public static boolean clearToken(Context context, String str) {
         if (BaseManager.isNullContext(context)) {

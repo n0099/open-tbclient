@@ -16,13 +16,13 @@ import java.util.WeakHashMap;
 public class a extends d.c.c.b.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29435b;
+    public static String f29436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f29436c = new WeakHashMap<>();
+    public WeakHashMap<String, String> f29437c = new WeakHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.b.a f29437d = new com.bytedance.sdk.openadsdk.b.d();
+    public final com.bytedance.sdk.openadsdk.b.a f29438d = new com.bytedance.sdk.openadsdk.b.d();
 
     public static a a() {
         return new a();
@@ -97,7 +97,7 @@ public class a extends d.c.c.b.b.a {
                     if (file2.exists() && file2.length() > 0) {
                         file2.renameTo(file);
                     }
-                    this.f29437d.a(file);
+                    this.f29438d.a(file);
                     fileOutputStream2.close();
                 } catch (Throwable th) {
                     th = th;
@@ -127,12 +127,12 @@ public class a extends d.c.c.b.b.a {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f29435b)) {
+        if (TextUtils.isEmpty(f29436b)) {
             File file = new File(d.c.c.b.a.h(p.a()), "diskImage");
             file.mkdirs();
-            f29435b = file.getAbsolutePath();
+            f29436b = file.getAbsolutePath();
         }
-        return f29435b;
+        return f29436b;
     }
 
     @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
@@ -140,10 +140,10 @@ public class a extends d.c.c.b.b.a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String str2 = this.f29436c.get(str);
+        String str2 = this.f29437c.get(str);
         if (TextUtils.isEmpty(str2)) {
             String a2 = j.a(str);
-            this.f29436c.put(str, a2);
+            this.f29437c.put(str, a2);
             return a2;
         }
         return str2;

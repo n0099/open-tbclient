@@ -6,11 +6,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f45889b;
+    public AudioManager f45890b;
 
     @Override // d.b.g0.a.s0.a
     @NonNull
@@ -42,7 +42,7 @@ public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
                 }
                 f(doubleValue, aVar.getContext());
             } catch (Exception unused) {
-                if (d.b.g0.a.s0.a.f45782a) {
+                if (d.b.g0.a.s0.a.f45783a) {
                     Log.e(b(), "setVolume param type error");
                 }
             }
@@ -50,18 +50,16 @@ public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
     }
 
     public final void f(double d2, Context context) {
-        if (this.f45889b == null) {
-            this.f45889b = (AudioManager) context.getSystemService("audio");
+        if (this.f45890b == null) {
+            this.f45890b = (AudioManager) context.getSystemService("audio");
         }
-        AudioManager audioManager = this.f45889b;
+        AudioManager audioManager = this.f45890b;
         if (audioManager == null) {
             return;
         }
-        double streamMaxVolume = audioManager.getStreamMaxVolume(3);
-        Double.isNaN(streamMaxVolume);
-        int round = (int) Math.round(streamMaxVolume * d2);
-        if (round == this.f45889b.getStreamVolume(3)) {
-            if (d.b.g0.a.s0.a.f45782a) {
+        int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d2);
+        if (round == this.f45890b.getStreamVolume(3)) {
+            if (d.b.g0.a.s0.a.f45783a) {
                 Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
                 return;
             }
@@ -70,9 +68,9 @@ public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
         if (d2 > 0.0d && round == 0) {
             round = 1;
         }
-        if (d.b.g0.a.s0.a.f45782a) {
+        if (d.b.g0.a.s0.a.f45783a) {
             Log.d("【InlineCommand】", "setVolumeInt" + round);
         }
-        this.f45889b.setStreamVolume(3, round, 0);
+        this.f45890b.setStreamVolume(3, round, 0);
     }
 }

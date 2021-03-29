@@ -9,16 +9,16 @@ import javax.crypto.Cipher;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30692a = "i";
+    public static final String f30693a = "i";
 
     /* renamed from: d  reason: collision with root package name */
-    public static i f30693d;
+    public static i f30694d;
 
     /* renamed from: b  reason: collision with root package name */
-    public PublicKey f30694b = null;
+    public PublicKey f30695b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public PublicKey f30695c = null;
+    public PublicKey f30696c = null;
 
     public i() {
         if (0 == 0) {
@@ -29,34 +29,34 @@ public class i {
                 return;
             }
         }
-        if (this.f30695c == null) {
+        if (this.f30696c == null) {
             c();
         }
     }
 
     public static i a() {
-        if (f30693d == null) {
-            f30693d = new i();
+        if (f30694d == null) {
+            f30694d = new i();
         }
-        return f30693d;
+        return f30694d;
     }
 
     private void c() {
         try {
-            this.f30695c = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
+            this.f30696c = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
         } catch (NullPointerException unused) {
             throw new Exception("公钥输入流为空");
         }
     }
 
     public String b(byte[] bArr) {
-        if (this.f30694b == null) {
-            c.a(f30692a, "mServerPublicKey == null");
+        if (this.f30695b == null) {
+            c.a(f30693a, "mServerPublicKey == null");
             return null;
         }
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.f30695c);
+            cipher.init(1, this.f30696c);
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -65,13 +65,13 @@ public class i {
     }
 
     public String a(byte[] bArr) {
-        if (this.f30694b == null) {
-            c.a(f30692a, "mServerPublicKey == null");
+        if (this.f30695b == null) {
+            c.a(f30693a, "mServerPublicKey == null");
             return "";
         }
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.f30694b);
+            cipher.init(1, this.f30695b);
             return s.a(cipher.doFinal(bArr));
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -81,7 +81,7 @@ public class i {
 
     private void b() {
         try {
-            this.f30694b = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
+            this.f30695b = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
         } catch (NullPointerException e2) {
             e2.printStackTrace();
         }

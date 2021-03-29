@@ -6,21 +6,21 @@ import java.util.List;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f36131a;
+    public final e f36132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f36132b;
+    public final boolean f36133b;
 
     public ah(e eVar) {
-        this.f36131a = eVar;
-        this.f36132b = !(eVar instanceof f);
+        this.f36132a = eVar;
+        this.f36133b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f36131a.a("tEXt", str));
-        arrayList.addAll(this.f36131a.a("zTXt", str));
-        arrayList.addAll(this.f36131a.a("iTXt", str));
+        arrayList.addAll(this.f36132a.a("tEXt", str));
+        arrayList.addAll(this.f36132a.a("zTXt", str));
+        arrayList.addAll(this.f36132a.a("iTXt", str));
         return arrayList;
     }
 

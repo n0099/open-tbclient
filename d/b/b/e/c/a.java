@@ -24,21 +24,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class a implements Executor {
     public static a o;
-    public static final ThreadFactory p = new ThreadFactoryC0533a();
+    public static final ThreadFactory p = new ThreadFactoryC0534a();
     public static final BlockingQueue<Runnable> q = new SynchronousQueue();
     public static final Executor r = new ThreadPoolExecutor(7, 256, 30, TimeUnit.SECONDS, q, p, new ThreadPoolExecutor.DiscardPolicy());
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f41659e = 0;
+    public volatile int f41660e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f41660f = 0;
+    public volatile int f41661f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f41661g = 0;
+    public volatile int f41662g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f41662h = 0;
+    public volatile int f41663h = 0;
     public final SparseIntArray i = new SparseIntArray();
     public final LinkedList<d> j = new LinkedList<>();
     public final LinkedList<d> k = new LinkedList<>();
@@ -48,14 +48,14 @@ public class a implements Executor {
 
     /* renamed from: d.b.b.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ThreadFactoryC0533a implements ThreadFactory {
+    public static class ThreadFactoryC0534a implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f41663e = new AtomicInteger(1);
+        public final AtomicInteger f41664e = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            String str = "BdAsyncTask #" + String.valueOf(this.f41663e.getAndIncrement());
+            String str = "BdAsyncTask #" + String.valueOf(this.f41664e.getAndIncrement());
             BdLog.i(str);
             return new Thread(runnable, str);
         }
@@ -120,80 +120,80 @@ public class a implements Executor {
     public static abstract class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.b.e.c.b<?> f41666e;
+        public d.b.b.e.c.b<?> f41667e;
 
         public d(d.b.b.e.c.b<?> bVar) {
-            this.f41666e = null;
+            this.f41667e = null;
             if (bVar != null && bVar.b() != null) {
-                this.f41666e = bVar;
+                this.f41667e = bVar;
                 return;
             }
             throw new InvalidParameterException("parameter is null");
         }
 
         public boolean a() {
-            return this.f41666e.b().isTimeout();
+            return this.f41667e.b().isTimeout();
         }
 
         public void b() {
-            this.f41666e.a();
+            this.f41667e.a();
         }
 
         public int c() {
-            if (this.f41666e.b().getParallel() != null) {
-                return this.f41666e.b().getParallel().a();
+            if (this.f41667e.b().getParallel() != null) {
+                return this.f41667e.b().getParallel().a();
             }
             return 1;
         }
 
         public String d() {
-            return this.f41666e.b().getKey();
+            return this.f41667e.b().getKey();
         }
 
         public int e() {
-            if (this.f41666e.b().getParallel() != null) {
-                return this.f41666e.b().getParallel().b();
+            if (this.f41667e.b().getParallel() != null) {
+                return this.f41667e.b().getParallel().b();
             }
             return 0;
         }
 
         public BdAsyncTaskParallel.BdAsyncTaskParallelType f() {
-            if (this.f41666e.b().getParallel() != null) {
-                return this.f41666e.b().getParallel().c();
+            if (this.f41667e.b().getParallel() != null) {
+                return this.f41667e.b().getParallel().c();
             }
             return BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
         }
 
         public int g() {
-            return this.f41666e.b().getPriority();
+            return this.f41667e.b().getPriority();
         }
 
         public int h() {
-            return this.f41666e.b().getTag();
+            return this.f41667e.b().getTag();
         }
 
         public BdAsyncTask<?, ?, ?> i() {
-            return this.f41666e.b();
+            return this.f41667e.b();
         }
 
         public boolean j() {
-            return this.f41666e.isCancelled();
+            return this.f41667e.isCancelled();
         }
 
         public boolean k() {
-            return this.f41666e.b().isSelfExecute();
+            return this.f41667e.b().isSelfExecute();
         }
 
         public void l() {
             try {
-                this.f41666e.run();
+                this.f41667e.run();
             } catch (OutOfMemoryError unused) {
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
 
         public void m(boolean z) {
-            this.f41666e.b().setTimeout(z);
+            this.f41667e.b().setTimeout(z);
         }
     }
 
@@ -254,15 +254,15 @@ public class a implements Executor {
         this.n.sendMessageDelayed(this.n.obtainMessage(1, dVar), 180000L);
         int g2 = dVar.g();
         if (g2 == 1) {
-            this.f41662h++;
+            this.f41663h++;
         } else if (g2 == 2) {
-            this.f41661g++;
+            this.f41662g++;
         } else if (g2 == 3) {
-            this.f41660f++;
+            this.f41661f++;
         } else if (g2 == 4) {
-            this.f41659e++;
-            if (this.f41659e >= 7) {
-                BdLog.e("SuperHight Task too much num = " + this.f41659e);
+            this.f41660e++;
+            if (this.f41660e >= 7) {
+                BdLog.e("SuperHight Task too much num = " + this.f41660e);
             }
         }
         int e2 = dVar.e();
@@ -350,13 +350,13 @@ public class a implements Executor {
             this.n.removeMessages(1, dVar);
             int g2 = dVar.g();
             if (g2 == 1) {
-                this.f41662h--;
+                this.f41663h--;
             } else if (g2 == 2) {
-                this.f41661g--;
+                this.f41662g--;
             } else if (g2 == 3) {
-                this.f41660f--;
+                this.f41661f--;
             } else if (g2 == 4) {
-                this.f41659e--;
+                this.f41660e--;
             }
             int e2 = dVar.e();
             if (e2 != 0) {
@@ -425,13 +425,13 @@ public class a implements Executor {
                                 d(dVar2);
                                 return;
                             }
-                        } else if (this.f41660f + this.f41661g + this.f41662h >= 7) {
+                        } else if (this.f41661f + this.f41662g + this.f41663h >= 7) {
                             return;
                         }
-                    } else if (this.f41660f + this.f41661g + this.f41662h >= 6) {
+                    } else if (this.f41661f + this.f41662g + this.f41663h >= 6) {
                         return;
                     }
-                } else if (this.f41660f + this.f41661g + this.f41662h >= 5) {
+                } else if (this.f41661f + this.f41662g + this.f41663h >= 5) {
                     return;
                 }
                 if (c(this.i.get(e2), dVar2)) {

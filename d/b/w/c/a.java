@@ -15,11 +15,11 @@ import java.util.Map;
 public class a extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public DuMediaExtractor f64824a;
+    public DuMediaExtractor f64825a;
 
     public a() {
         try {
-            this.f64824a = new DuMediaExtractor();
+            this.f64825a = new DuMediaExtractor();
             b();
         } catch (Throwable th) {
             th.printStackTrace();
@@ -41,7 +41,7 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        DuMediaExtractor duMediaExtractor = this.f64824a;
+        DuMediaExtractor duMediaExtractor = this.f64825a;
         if (duMediaExtractor != null) {
             try {
                 return duMediaExtractor.h();
@@ -55,7 +55,7 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
-        DuMediaExtractor duMediaExtractor = this.f64824a;
+        DuMediaExtractor duMediaExtractor = this.f64825a;
         if (duMediaExtractor != null) {
             try {
                 try {
@@ -64,14 +64,14 @@ public class a extends ExtractorProvider {
                     e2.printStackTrace();
                 }
             } finally {
-                this.f64824a = null;
+                this.f64825a = null;
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri) {
-        DuMediaExtractor duMediaExtractor = this.f64824a;
+        DuMediaExtractor duMediaExtractor = this.f64825a;
         if (duMediaExtractor != null) {
             try {
                 duMediaExtractor.e(context, uri, null);
@@ -83,7 +83,7 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        DuMediaExtractor duMediaExtractor = this.f64824a;
+        DuMediaExtractor duMediaExtractor = this.f64825a;
         if (duMediaExtractor != null) {
             try {
                 duMediaExtractor.e(context, uri, map);
@@ -99,7 +99,7 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(String str) {
-        DuMediaExtractor duMediaExtractor = this.f64824a;
+        DuMediaExtractor duMediaExtractor = this.f64825a;
         if (duMediaExtractor != null) {
             try {
                 duMediaExtractor.f(str);
@@ -112,7 +112,7 @@ public class a extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
         CyberLog.i("CyberExtractorImpl", "setOption: " + str + "," + j);
-        DuMediaExtractor duMediaExtractor = this.f64824a;
+        DuMediaExtractor duMediaExtractor = this.f64825a;
         if (duMediaExtractor != null) {
             try {
                 duMediaExtractor.c(i, str, j);

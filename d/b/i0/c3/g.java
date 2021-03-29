@@ -8,16 +8,16 @@ import java.util.List;
 public class g extends BaseCardInfo implements d.b.b.j.e.n {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f53351g = BdUniqueId.gen();
+    public static final BdUniqueId f53352g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a2> f53352e;
+    public List<a2> f53353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53353f = -1;
+    public int f53354f = -1;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f53351g;
+        return f53352g;
     }
 }

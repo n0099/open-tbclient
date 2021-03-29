@@ -1331,17 +1331,13 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i2 = i11;
             charAt = charAt6;
         }
-        if (!z3 && i4 < 20) {
-            double d2 = j2;
-            double d3 = j;
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            parseDouble = d2 / d3;
+        if (z3 || i4 >= 20) {
+            parseDouble = Double.parseDouble(subString(i3, i4));
+        } else {
+            parseDouble = j2 / j;
             if (z2) {
                 parseDouble = -parseDouble;
             }
-        } else {
-            parseDouble = Double.parseDouble(subString(i3, i4));
         }
         if (charAt == c2) {
             int i13 = this.bp + i2;
@@ -2065,17 +2061,13 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             i = i12;
             charAt = charAt6;
         }
-        if (!z5 && i2 < 20) {
-            double d2 = j;
-            double d3 = j3;
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            parseDouble = d2 / d3;
+        if (z5 || i2 >= 20) {
+            parseDouble = Double.parseDouble(subString(length, i2));
+        } else {
+            parseDouble = j / j3;
             if (z3) {
                 parseDouble = -parseDouble;
             }
-        } else {
-            parseDouble = Double.parseDouble(subString(length, i2));
         }
         if (charAt == ',') {
             int i14 = this.bp + i;
@@ -3068,86 +3060,86 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         throw new JSONException("unclosed str");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00ef, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00ee, code lost:
         if (r13.size() != 0) goto L75;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00f1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00f0, code lost:
         r12 = charAt(r11.bp + r1);
         r1 = r1 + 1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00fb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00fa, code lost:
         if (r12 != ',') goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00fd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00fc, code lost:
         r12 = r11.bp + r1;
         r11.bp = r12;
         r11.ch = charAt(r12);
         r11.matchStat = 3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x010a, code lost:
         return r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x010e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x010d, code lost:
         if (r12 != '}') goto L54;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0110, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x010f, code lost:
         r6 = r1 + 1;
         r12 = charAt(r11.bp + r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0119, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0118, code lost:
         if (r12 != ',') goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x011b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x011a, code lost:
         r11.token = 16;
         r12 = r11.bp + r6;
         r11.bp = r12;
         r11.ch = charAt(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x012b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x012a, code lost:
         if (r12 != ']') goto L47;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x012d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x012c, code lost:
         r11.token = 15;
         r12 = r11.bp + r6;
         r11.bp = r12;
         r11.ch = charAt(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x013d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x013c, code lost:
         if (r12 != '}') goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x013f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x013e, code lost:
         r11.token = 13;
         r12 = r11.bp + r6;
         r11.bp = r12;
         r11.ch = charAt(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0151, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0150, code lost:
         if (r12 != 26) goto L52;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0153, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0152, code lost:
         r11.bp += r6 - 1;
         r11.token = 20;
         r11.ch = com.alibaba.fastjson.parser.JSONLexer.EOI;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0160, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x015f, code lost:
         r11.matchStat = 4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x0163, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x0162, code lost:
         return r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x0164, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0163, code lost:
         r11.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0166, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0165, code lost:
         return null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0167, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0166, code lost:
         r11.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x0169, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x0168, code lost:
         return null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x0172, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0170, code lost:
         throw new com.alibaba.fastjson.JSONException("illega str");
      */
     /*
@@ -3389,9 +3381,8 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                         }
                         j2 = (j2 << 4) | i10;
                     }
-                    int i22 = 19;
                     long j3 = 0;
-                    while (i22 < 23) {
+                    for (int i22 = 19; i22 < 23; i22++) {
                         char charAt6 = charAt(length2 + i22);
                         if (charAt6 < '0' || charAt6 > '9') {
                             if (charAt6 >= 'a' && charAt6 <= 'f') {
@@ -3406,7 +3397,6 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                         } else {
                             i8 = charAt6 - '0';
                         }
-                        i22++;
                         j3 = (j3 << 4) | i8;
                     }
                     int i23 = 24;

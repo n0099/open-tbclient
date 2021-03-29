@@ -13,21 +13,21 @@ public class l implements Application.ActivityLifecycleCallbacks {
     public static final SimpleDateFormat j = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f67428e = 0;
+    public Integer f67433e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f67429f = new Object();
+    public final Object f67434f = new Object();
 
     /* renamed from: g  reason: collision with root package name */
-    public final DxmSdkSensorsDataAPI f67430g;
+    public final DxmSdkSensorsDataAPI f67435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f67431h;
+    public final g f67436h;
     public final f i;
 
     public l(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI, g gVar, f fVar) {
-        this.f67430g = dxmSdkSensorsDataAPI;
-        this.f67431h = gVar;
+        this.f67435g = dxmSdkSensorsDataAPI;
+        this.f67436h = gVar;
         this.i = fVar;
     }
 
@@ -54,20 +54,20 @@ public class l implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
         try {
-            synchronized (this.f67429f) {
-                if (this.f67428e.intValue() == 0) {
+            synchronized (this.f67434f) {
+                if (this.f67433e.intValue() == 0) {
                     if (this.i.b() == null) {
                         this.i.a(j.format(Long.valueOf(System.currentTimeMillis())));
                     }
-                    this.f67431h.b().booleanValue();
+                    this.f67436h.b().booleanValue();
                     try {
-                        this.f67430g.i();
+                        this.f67435g.i();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    this.f67430g.F();
+                    this.f67435g.F();
                 }
-                this.f67428e = Integer.valueOf(this.f67428e.intValue() + 1);
+                this.f67433e = Integer.valueOf(this.f67433e.intValue() + 1);
             }
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -77,18 +77,18 @@ public class l implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
         try {
-            synchronized (this.f67429f) {
-                Integer valueOf = Integer.valueOf(this.f67428e.intValue() - 1);
-                this.f67428e = valueOf;
+            synchronized (this.f67434f) {
+                Integer valueOf = Integer.valueOf(this.f67433e.intValue() - 1);
+                this.f67433e = valueOf;
                 if (valueOf.intValue() == 0) {
                     try {
-                        this.f67430g.K();
-                        this.f67430g.j();
+                        this.f67435g.K();
+                        this.f67435g.j();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                     try {
-                        this.f67430g.p();
+                        this.f67435g.p();
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }

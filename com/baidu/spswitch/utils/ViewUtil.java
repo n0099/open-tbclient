@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.spswitch.view.SPSwitchRootLinearLayout;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ViewUtil {
     public static final boolean DEBUG = SPConfig.isDebug();
     public static final String TAG = "ViewUtil";

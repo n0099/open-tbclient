@@ -11,7 +11,7 @@ import com.baidu.android.pushservice.j.m;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     public int mLayoutIconDrawable;
     public int mLayoutIconId;

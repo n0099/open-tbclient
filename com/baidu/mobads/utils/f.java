@@ -13,7 +13,7 @@ import java.util.List;
 public class f implements IXAdActivityUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f8528a;
+    public static Boolean f8529a;
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdActivityUtils
     public Boolean isFullScreen(Activity activity) {
@@ -42,15 +42,15 @@ public class f implements IXAdActivityUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdActivityUtils
     public boolean webviewMultiProcess(Activity activity) {
         List<ResolveInfo> queryIntentActivities;
-        if (f8528a == null && activity != null && (queryIntentActivities = activity.getPackageManager().queryIntentActivities(new Intent(activity, AppActivity.getActivityClass()), 0)) != null && queryIntentActivities.size() > 0) {
+        if (f8529a == null && activity != null && (queryIntentActivities = activity.getPackageManager().queryIntentActivities(new Intent(activity, AppActivity.getActivityClass()), 0)) != null && queryIntentActivities.size() > 0) {
             String str = queryIntentActivities.get(0).activityInfo.processName;
             if (!TextUtils.isEmpty(str) && (str.contains(":") || str.endsWith("webview"))) {
-                f8528a = Boolean.TRUE;
+                f8529a = Boolean.TRUE;
             } else {
-                f8528a = Boolean.FALSE;
+                f8529a = Boolean.FALSE;
             }
         }
-        Boolean bool = f8528a;
+        Boolean bool = f8529a;
         if (bool != null) {
             return bool.booleanValue();
         }

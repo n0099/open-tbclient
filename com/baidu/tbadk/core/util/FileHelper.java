@@ -39,7 +39,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class FileHelper {
     public static final String DIR_ANIMATION = "animation";
     public static final String DIR_DOWNLOAD = "download";
@@ -57,7 +57,7 @@ public class FileHelper {
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     public static final File CACHE_DIR = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class DataDir {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
         public static final String PACKAGE_VERSION_CUR_DIR = "/package.cur";
@@ -68,11 +68,11 @@ public class FileHelper {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(File file, File file2) {
-                long lastModified = file.lastModified() - file2.lastModified();
-                if (lastModified > 0) {
+                int i = ((file.lastModified() - file2.lastModified()) > 0L ? 1 : ((file.lastModified() - file2.lastModified()) == 0L ? 0 : -1));
+                if (i > 0) {
                     return 1;
                 }
-                return lastModified == 0 ? 0 : -1;
+                return i == 0 ? 0 : -1;
             }
         }
 
@@ -258,9 +258,9 @@ public class FileHelper {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:59:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:69:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1235,8 +1235,8 @@ public class FileHelper {
         return EXTERNAL_STORAGE_DIRECTORY + "/tieba/" + FILE_CACHE_VIDEO;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0122 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x00dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0122 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

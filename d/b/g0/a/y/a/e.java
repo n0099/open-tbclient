@@ -12,7 +12,7 @@ import d.b.g0.a.i2.h0;
 import d.b.g0.a.t1.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends a {
     public e(j jVar) {
         super(jVar, "/swanAPI/canvas/measureTextSync");

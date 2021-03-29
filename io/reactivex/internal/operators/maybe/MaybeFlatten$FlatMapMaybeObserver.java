@@ -12,7 +12,7 @@ public final class MaybeFlatten$FlatMapMaybeObserver<T, R> extends AtomicReferen
     public final i<? super R> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68042d;
+    public b f68047d;
     public final h<? super T, ? extends j<? extends R>> mapper;
 
     /* loaded from: classes7.dex */
@@ -49,7 +49,7 @@ public final class MaybeFlatten$FlatMapMaybeObserver<T, R> extends AtomicReferen
     @Override // f.a.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
-        this.f68042d.dispose();
+        this.f68047d.dispose();
     }
 
     @Override // f.a.t.b
@@ -69,8 +69,8 @@ public final class MaybeFlatten$FlatMapMaybeObserver<T, R> extends AtomicReferen
 
     @Override // f.a.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68042d, bVar)) {
-            this.f68042d = bVar;
+        if (DisposableHelper.validate(this.f68047d, bVar)) {
+            this.f68047d = bVar;
             this.actual.onSubscribe(this);
         }
     }

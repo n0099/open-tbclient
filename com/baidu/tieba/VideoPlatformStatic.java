@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class VideoPlatformStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f14455a = new a(2007015);
+    public static CustomMessageListener f14456a = new a(2007015);
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -54,7 +54,7 @@ public class VideoPlatformStatic {
 
     static {
         f();
-        MessageManager.getInstance().registerListener(f14455a);
+        MessageManager.getInstance().registerListener(f14456a);
         e();
     }
 
@@ -100,7 +100,7 @@ public class VideoPlatformStatic {
     }
 
     public static String d() {
-        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3873b : (j.v() || j.z()) ? "4G" : "NONE";
+        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3874b : (j.v() || j.z()) ? "4G" : "NONE";
     }
 
     public static void e() {

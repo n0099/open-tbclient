@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message.chat;
 
 import protobuf.CommitGroupMsg.CommitGroupMsgReqIdl;
 import protobuf.CommitGroupMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SystemMessage extends CommonGroupChatMessage {
     public SystemMessage() {
         super(202001);

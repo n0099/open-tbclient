@@ -38,7 +38,7 @@ public enum k {
     
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9242f;
+    public int f9243f;
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private int c() {
@@ -112,11 +112,11 @@ public enum k {
 
     @Override // java.lang.Enum
     public String toString() {
-        return String.valueOf(this.f9242f);
+        return String.valueOf(this.f9243f);
     }
 
     k(int i) {
-        this.f9242f = i;
+        this.f9243f = i;
     }
 
     public synchronized boolean b(int i) {

@@ -24,7 +24,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AuthActivity extends BaseActivity {
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -40,7 +40,7 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements SapiWebView.OnBackCallback {
         public a() {
         }
@@ -51,7 +51,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public b() {
         }
@@ -62,7 +62,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public c() {
         }
@@ -88,7 +88,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public d() {
         }

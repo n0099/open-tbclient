@@ -23,61 +23,61 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f66509b;
+    public static volatile c f66510b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f66510a = null;
+    public Handler f66511a = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f66511e;
+        public final /* synthetic */ String f66512e;
 
         public a(c cVar, String str) {
-            this.f66511e = str;
+            this.f66512e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             n.n().a(3, n.a(), null, "下载失败，请重试！", null, 0);
-            d.o.a.d.f.i a2 = d.o.a.d.k.b().a(this.f66511e);
+            d.o.a.d.f.i a2 = d.o.a.d.k.b().a(this.f66512e);
             if (a2 != null) {
                 a2.z();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f66512a;
+        public long f66513a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66513b;
+        public long f66514b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f66514c;
+        public long f66515c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66515d;
+        public String f66516d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66516e;
+        public String f66517e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f66517f;
+        public String f66518f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f66518g;
+        public String f66519g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f66519h;
+        public volatile long f66520h;
 
         public b() {
         }
@@ -88,14 +88,14 @@ public class c {
             }
             b bVar = new b();
             try {
-                bVar.f66512a = d.o.a.d.n.k.g(jSONObject, "mDownloadId");
-                bVar.f66513b = d.o.a.d.n.k.g(jSONObject, "mAdId");
-                bVar.f66514c = d.o.a.d.n.k.g(jSONObject, "mExtValue");
-                bVar.f66515d = jSONObject.optString("mPackageName");
-                bVar.f66516e = jSONObject.optString("mAppName");
-                bVar.f66517f = jSONObject.optString("mLogExtra");
-                bVar.f66518g = jSONObject.optString("mFileName");
-                bVar.f66519h = d.o.a.d.n.k.g(jSONObject, "mTimeStamp");
+                bVar.f66513a = d.o.a.d.n.k.g(jSONObject, "mDownloadId");
+                bVar.f66514b = d.o.a.d.n.k.g(jSONObject, "mAdId");
+                bVar.f66515c = d.o.a.d.n.k.g(jSONObject, "mExtValue");
+                bVar.f66516d = jSONObject.optString("mPackageName");
+                bVar.f66517e = jSONObject.optString("mAppName");
+                bVar.f66518f = jSONObject.optString("mLogExtra");
+                bVar.f66519g = jSONObject.optString("mFileName");
+                bVar.f66520h = d.o.a.d.n.k.g(jSONObject, "mTimeStamp");
                 return bVar;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -106,14 +106,14 @@ public class c {
         public JSONObject b() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mDownloadId", this.f66512a);
-                jSONObject.put("mAdId", this.f66513b);
-                jSONObject.put("mExtValue", this.f66514c);
-                jSONObject.put("mPackageName", this.f66515d);
-                jSONObject.put("mAppName", this.f66516e);
-                jSONObject.put("mLogExtra", this.f66517f);
-                jSONObject.put("mFileName", this.f66518g);
-                jSONObject.put("mTimeStamp", this.f66519h);
+                jSONObject.put("mDownloadId", this.f66513a);
+                jSONObject.put("mAdId", this.f66514b);
+                jSONObject.put("mExtValue", this.f66515c);
+                jSONObject.put("mPackageName", this.f66516d);
+                jSONObject.put("mAppName", this.f66517e);
+                jSONObject.put("mLogExtra", this.f66518f);
+                jSONObject.put("mFileName", this.f66519g);
+                jSONObject.put("mTimeStamp", this.f66520h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -121,141 +121,141 @@ public class c {
         }
 
         public b(long j, long j2, long j3, String str, String str2, String str3, String str4) {
-            this.f66512a = j;
-            this.f66513b = j2;
-            this.f66514c = j3;
-            this.f66515d = str;
-            this.f66516e = str2;
-            this.f66517f = str3;
-            this.f66518g = str4;
+            this.f66513a = j;
+            this.f66514b = j2;
+            this.f66515c = j3;
+            this.f66516d = str;
+            this.f66517e = str2;
+            this.f66518f = str3;
+            this.f66519g = str4;
         }
     }
 
     /* renamed from: d.o.a.d.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1823c {
+    /* loaded from: classes7.dex */
+    public class C1824c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f66520a;
+        public long f66521a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66521b;
+        public long f66522b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66522c;
+        public String f66523c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66523d;
+        public String f66524d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66524e;
+        public String f66525e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f66525f;
+        public String f66526f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final List<Pair<String, String>> f66526g = new ArrayList();
+        public final List<Pair<String, String>> f66527g = new ArrayList();
 
         /* renamed from: h  reason: collision with root package name */
-        public String f66527h;
+        public String f66528h;
 
         public static long b(long j, long j2) {
             return j > 0 ? j : j2;
         }
 
         public long a() {
-            return b(this.f66520a, this.f66521b);
+            return b(this.f66521a, this.f66522b);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d {
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f66528c = 0;
+        public static int f66529c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f66529d = 1;
+        public static int f66530d = 1;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f66530e = 2;
+        public static int f66531e = 2;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66531a = f66528c;
+        public int f66532a = f66529c;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66532b = 0;
+        public int f66533b = 0;
 
         public d a(int i) {
-            this.f66531a = i;
+            this.f66532a = i;
             return this;
         }
 
         public boolean b() {
-            return this.f66531a == f66529d;
+            return this.f66532a == f66530d;
         }
 
         public int c() {
-            return this.f66532b;
+            return this.f66533b;
         }
 
         public d d(int i) {
-            this.f66532b = i;
+            this.f66533b = i;
             return this;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e {
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile e f66533b;
+        public static volatile e f66534b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String[] f66534c = {"com", "android", "ss"};
+        public static final String[] f66535c = {"com", "android", "ss"};
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int[] f66535d = {3101, 3102, 3103, 3201, 3202, 3203};
+        public static final int[] f66536d = {3101, 3102, 3103, 3201, 3202, 3203};
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedList<b> f66536a = new LinkedList<>();
+        public final LinkedList<b> f66537a = new LinkedList<>();
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f66537a;
+            public final String f66538a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final int f66538b;
+            public final int f66539b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final String f66539c;
+            public final String f66540c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final String f66540d;
+            public final String f66541d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final long f66541e;
+            public final long f66542e;
 
             public b(String str, int i, String str2, String str3, long j) {
-                this.f66537a = str;
-                this.f66538b = i;
-                this.f66539c = str2 != null ? str2.toLowerCase() : null;
-                this.f66540d = str3 != null ? str3.toLowerCase() : null;
-                this.f66541e = j;
+                this.f66538a = str;
+                this.f66539b = i;
+                this.f66540c = str2 != null ? str2.toLowerCase() : null;
+                this.f66541d = str3 != null ? str3.toLowerCase() : null;
+                this.f66542e = j;
             }
         }
 
         public static e b() {
-            if (f66533b == null) {
+            if (f66534b == null) {
                 synchronized (e.class) {
-                    if (f66533b == null) {
-                        f66533b = new e();
+                    if (f66534b == null) {
+                        f66534b = new e();
                     }
                 }
             }
-            return f66533b;
+            return f66534b;
         }
 
         public static boolean d(String str, String str2) {
@@ -272,7 +272,7 @@ public class c {
                 int i = 0;
                 int i2 = 0;
                 for (String str3 : split) {
-                    String[] strArr = f66534c;
+                    String[] strArr = f66535c;
                     int length = strArr.length;
                     int i3 = 0;
                     while (true) {
@@ -319,11 +319,11 @@ public class c {
                 return null;
             }
             f();
-            synchronized (this.f66536a) {
-                Iterator<b> it = this.f66536a.iterator();
+            synchronized (this.f66537a) {
+                Iterator<b> it = this.f66537a.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
-                    if (next.f66541e > bVar.x()) {
+                    if (next.f66542e > bVar.x()) {
                         return next;
                     }
                 }
@@ -337,8 +337,8 @@ public class c {
             if (TextUtils.isEmpty(str) || (h2 = h(str)) == null) {
                 return;
             }
-            synchronized (this.f66536a) {
-                this.f66536a.add(h2);
+            synchronized (this.f66537a) {
+                this.f66537a.add(h2);
             }
         }
 
@@ -359,24 +359,24 @@ public class c {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (this.f66536a.isEmpty()) {
+            if (this.f66537a.isEmpty()) {
                 return null;
             }
             String I = bVar.I();
             String e2 = bVar.e();
             String E = bVar.E();
             int D = bVar.D();
-            int length = f66535d.length;
+            int length = f66536d.length;
             b[] bVarArr = new b[length];
-            synchronized (this.f66536a) {
-                Iterator<b> it = this.f66536a.iterator();
+            synchronized (this.f66537a) {
+                Iterator<b> it = this.f66537a.iterator();
                 PackageInfo packageInfo = null;
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     next = it.next();
-                    if (next.f66541e >= bVar.x()) {
+                    if (next.f66542e >= bVar.x()) {
                         if (TextUtils.isEmpty(I)) {
                             if (packageInfo == null) {
                                 packageInfo = d.o.a.d.n.k.h(bVar);
@@ -388,12 +388,12 @@ public class c {
                                 }
                             }
                         }
-                        if (!TextUtils.isEmpty(I) && !TextUtils.isEmpty(next.f66540d)) {
+                        if (!TextUtils.isEmpty(I) && !TextUtils.isEmpty(next.f66541d)) {
                             I = I.toLowerCase();
-                            if (I.equals(next.f66540d)) {
+                            if (I.equals(next.f66541d)) {
                                 bVarArr[0] = next;
                                 break;
-                            } else if (I.contains(next.f66540d) || next.f66540d.contains(I)) {
+                            } else if (I.contains(next.f66541d) || next.f66541d.contains(I)) {
                                 break;
                             }
                         }
@@ -405,12 +405,12 @@ public class c {
                                 e2 = packageInfo.packageName;
                             }
                         }
-                        if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.f66537a)) {
+                        if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.f66538a)) {
                             e2 = e2.toLowerCase();
-                            if (e2.contains(next.f66537a) || next.f66537a.contains(e2)) {
+                            if (e2.contains(next.f66538a) || next.f66538a.contains(e2)) {
                                 break;
                             } else if (bVarArr[3] == null) {
-                                if (d(e2, next.f66537a)) {
+                                if (d(e2, next.f66538a)) {
                                     bVarArr[3] = next;
                                 }
                             }
@@ -424,9 +424,9 @@ public class c {
                                     E = packageInfo.versionName;
                                 }
                             }
-                            if (!TextUtils.isEmpty(E) && !TextUtils.isEmpty(next.f66539c)) {
+                            if (!TextUtils.isEmpty(E) && !TextUtils.isEmpty(next.f66540c)) {
                                 E = E.toLowerCase();
-                                if (E.equals(next.f66539c)) {
+                                if (E.equals(next.f66540c)) {
                                     bVarArr[4] = next;
                                 }
                             }
@@ -439,7 +439,7 @@ public class c {
                                         D = packageInfo.versionCode;
                                     }
                                 }
-                                if (D == next.f66538b) {
+                                if (D == next.f66539b) {
                                     bVarArr[5] = next;
                                 }
                             }
@@ -450,7 +450,7 @@ public class c {
             }
             for (i = 0; i < length; i++) {
                 if (bVarArr[i] != null) {
-                    return new Pair<>(bVarArr[i], Integer.valueOf(f66535d[i]));
+                    return new Pair<>(bVarArr[i], Integer.valueOf(f66536d[i]));
                 }
             }
             return null;
@@ -458,9 +458,9 @@ public class c {
 
         public final void f() {
             long currentTimeMillis = System.currentTimeMillis();
-            synchronized (this.f66536a) {
-                Iterator<b> it = this.f66536a.iterator();
-                while (it.hasNext() && currentTimeMillis - it.next().f66541e > 1800000) {
+            synchronized (this.f66537a) {
+                Iterator<b> it = this.f66537a.iterator();
+                while (it.hasNext() && currentTimeMillis - it.next().f66542e > 1800000) {
                     it.remove();
                 }
             }
@@ -471,10 +471,10 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            synchronized (this.f66536a) {
-                Iterator<b> it = this.f66536a.iterator();
+            synchronized (this.f66537a) {
+                Iterator<b> it = this.f66537a.iterator();
                 while (it.hasNext()) {
-                    if (str.equals(it.next().f66537a)) {
+                    if (str.equals(it.next().f66538a)) {
                         it.remove();
                         return;
                     }
@@ -497,118 +497,118 @@ public class c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements d.o.a.b.a.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f66542a;
+        public long f66543a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.o.a.a.a.c.d f66543b;
+        public d.o.a.a.a.c.d f66544b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.o.a.a.a.c.c f66544c;
+        public d.o.a.a.a.c.c f66545c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.o.a.a.a.c.b f66545d;
+        public d.o.a.a.a.c.b f66546d;
 
         public f() {
         }
 
         @Override // d.o.a.b.a.c.a
         public String a() {
-            return this.f66543b.a();
+            return this.f66544b.a();
         }
 
         @Override // d.o.a.b.a.c.a
         public long b() {
-            return this.f66543b.d();
+            return this.f66544b.d();
         }
 
         @Override // d.o.a.b.a.c.a
         public boolean c() {
-            return this.f66543b.t();
+            return this.f66544b.t();
         }
 
         @Override // d.o.a.b.a.c.a
         public String d() {
-            return this.f66543b.u();
+            return this.f66544b.u();
         }
 
         @Override // d.o.a.b.a.c.a
         public String e() {
-            return this.f66543b.v();
+            return this.f66544b.v();
         }
 
         @Override // d.o.a.b.a.c.a
         public String f() {
-            if (this.f66543b.x() != null) {
-                return this.f66543b.x().d();
+            if (this.f66544b.x() != null) {
+                return this.f66544b.x().d();
             }
             return null;
         }
 
         @Override // d.o.a.b.a.c.a
         public JSONObject g() {
-            return this.f66543b.z();
+            return this.f66544b.z();
         }
 
         @Override // d.o.a.b.a.c.a
         public int h() {
-            if (this.f66545d.b() == 2) {
+            if (this.f66546d.b() == 2) {
                 return 2;
             }
-            return this.f66543b.G();
+            return this.f66544b.G();
         }
 
         @Override // d.o.a.b.a.c.a
         public String i() {
-            return this.f66544c.a();
+            return this.f66545c.a();
         }
 
         @Override // d.o.a.b.a.c.a
         public String j() {
-            return this.f66544c.b();
+            return this.f66545c.b();
         }
 
         @Override // d.o.a.b.a.c.a
         public JSONObject k() {
-            return this.f66544c.o();
+            return this.f66545c.o();
         }
 
         @Override // d.o.a.b.a.c.a
         public long l() {
-            return this.f66543b.g();
+            return this.f66544b.g();
         }
 
         @Override // d.o.a.b.a.c.a
         public boolean m() {
-            return this.f66544c.m();
+            return this.f66545c.m();
         }
 
         @Override // d.o.a.b.a.c.a
         public List<String> n() {
-            return this.f66543b.y();
+            return this.f66544b.y();
         }
 
         @Override // d.o.a.b.a.c.a
         public Object o() {
-            return this.f66544c.j();
+            return this.f66545c.j();
         }
 
         @Override // d.o.a.b.a.c.a
         public JSONObject p() {
-            return this.f66544c.n();
+            return this.f66545c.n();
         }
 
         @Override // d.o.a.b.a.c.a
         public boolean q() {
-            return this.f66545d.g();
+            return this.f66546d.g();
         }
 
         @Override // d.o.a.b.a.c.a
         public JSONObject r() {
-            return this.f66543b.p();
+            return this.f66544b.p();
         }
 
         @Override // d.o.a.b.a.c.a
@@ -618,77 +618,77 @@ public class c {
 
         @Override // d.o.a.b.a.c.a
         public d.o.a.a.a.c.d t() {
-            return this.f66543b;
+            return this.f66544b;
         }
 
         @Override // d.o.a.b.a.c.a
         public d.o.a.a.a.c.c u() {
-            return this.f66544c;
+            return this.f66545c;
         }
 
         @Override // d.o.a.b.a.c.a
         public d.o.a.a.a.c.b v() {
-            return this.f66545d;
+            return this.f66546d;
         }
 
         public boolean w() {
-            return this.f66542a <= 0 || this.f66543b == null || this.f66544c == null || this.f66545d == null;
+            return this.f66543a <= 0 || this.f66544b == null || this.f66545c == null || this.f66546d == null;
         }
 
         public boolean x() {
-            return this.f66542a > 0 && (this.f66543b instanceof d.o.a.b.a.a.c) && (this.f66544c instanceof d.o.a.b.a.a.b) && (this.f66545d instanceof d.o.a.b.a.a.a);
+            return this.f66543a > 0 && (this.f66544b instanceof d.o.a.b.a.a.c) && (this.f66545c instanceof d.o.a.b.a.a.b) && (this.f66546d instanceof d.o.a.b.a.a.a);
         }
 
         public f(long j, d.o.a.a.a.c.d dVar, d.o.a.a.a.c.c cVar, d.o.a.a.a.c.b bVar) {
-            this.f66542a = j;
-            this.f66543b = dVar;
-            this.f66544c = cVar;
-            this.f66545d = bVar;
+            this.f66543a = j;
+            this.f66544b = dVar;
+            this.f66545c = cVar;
+            this.f66546d = bVar;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f66546a;
+        public volatile boolean f66547a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ConcurrentHashMap<Long, d.o.a.a.a.c.d> f66547b;
+        public final ConcurrentHashMap<Long, d.o.a.a.a.c.d> f66548b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ConcurrentHashMap<Long, d.o.a.a.a.c.c> f66548c;
+        public final ConcurrentHashMap<Long, d.o.a.a.a.c.c> f66549c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ConcurrentHashMap<Long, d.o.a.a.a.c.b> f66549d;
+        public final ConcurrentHashMap<Long, d.o.a.a.a.c.b> f66550d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentHashMap<Long, d.o.a.b.a.c.b> f66550e;
+        public final ConcurrentHashMap<Long, d.o.a.b.a.c.b> f66551e;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
             public a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (g.this.f66546a) {
+                if (g.this.f66547a) {
                     return;
                 }
                 synchronized (g.class) {
-                    if (!g.this.f66546a) {
-                        g.this.f66550e.putAll(j.b().f());
-                        g.this.f66546a = true;
+                    if (!g.this.f66547a) {
+                        g.this.f66551e.putAll(j.b().f());
+                        g.this.f66547a = true;
                     }
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public static g f66552a = new g(null);
+            public static g f66553a = new g(null);
         }
 
         public /* synthetic */ g(a aVar) {
@@ -696,15 +696,15 @@ public class c {
         }
 
         public static g e() {
-            return b.f66552a;
+            return b.f66553a;
         }
 
         public d.o.a.a.a.c.d a(long j) {
-            return this.f66547b.get(Long.valueOf(j));
+            return this.f66548b.get(Long.valueOf(j));
         }
 
         public d.o.a.b.a.c.b b(int i) {
-            for (d.o.a.b.a.c.b bVar : this.f66550e.values()) {
+            for (d.o.a.b.a.c.b bVar : this.f66551e.values()) {
                 if (bVar != null && bVar.s() == i) {
                     return bVar;
                 }
@@ -720,7 +720,7 @@ public class c {
                 try {
                     long g2 = d.o.a.d.n.k.g(new JSONObject(downloadInfo.R()), "extra");
                     if (g2 > 0) {
-                        for (d.o.a.b.a.c.b bVar : this.f66550e.values()) {
+                        for (d.o.a.b.a.c.b bVar : this.f66551e.values()) {
                             if (bVar != null && bVar.b() == g2) {
                                 return bVar;
                             }
@@ -730,12 +730,12 @@ public class c {
                     e2.printStackTrace();
                 }
             }
-            for (d.o.a.b.a.c.b bVar2 : this.f66550e.values()) {
+            for (d.o.a.b.a.c.b bVar2 : this.f66551e.values()) {
                 if (bVar2 != null && bVar2.s() == downloadInfo.c0()) {
                     return bVar2;
                 }
             }
-            for (d.o.a.b.a.c.b bVar3 : this.f66550e.values()) {
+            for (d.o.a.b.a.c.b bVar3 : this.f66551e.values()) {
                 if (bVar3 != null && TextUtils.equals(bVar3.a(), downloadInfo.T0())) {
                     return bVar3;
                 }
@@ -747,7 +747,7 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (d.o.a.b.a.c.b bVar : this.f66550e.values()) {
+            for (d.o.a.b.a.c.b bVar : this.f66551e.values()) {
                 if (bVar != null && str.equals(bVar.e())) {
                     return bVar;
                 }
@@ -759,7 +759,7 @@ public class c {
         public Map<Long, d.o.a.b.a.c.b> f(String str, String str2) {
             HashMap hashMap = new HashMap();
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                for (d.o.a.b.a.c.b bVar : this.f66550e.values()) {
+                for (d.o.a.b.a.c.b bVar : this.f66551e.values()) {
                     if (bVar != null && TextUtils.equals(bVar.a(), str)) {
                         bVar.l0(str2);
                         hashMap.put(Long.valueOf(bVar.b()), bVar);
@@ -771,19 +771,19 @@ public class c {
 
         public void g(long j, d.o.a.a.a.c.b bVar) {
             if (bVar != null) {
-                this.f66549d.put(Long.valueOf(j), bVar);
+                this.f66550d.put(Long.valueOf(j), bVar);
             }
         }
 
         public void h(long j, d.o.a.a.a.c.c cVar) {
             if (cVar != null) {
-                this.f66548c.put(Long.valueOf(j), cVar);
+                this.f66549c.put(Long.valueOf(j), cVar);
             }
         }
 
         public void i(d.o.a.a.a.c.d dVar) {
             if (dVar != null) {
-                this.f66547b.put(Long.valueOf(dVar.d()), dVar);
+                this.f66548b.put(Long.valueOf(dVar.d()), dVar);
                 if (dVar.x() != null) {
                     dVar.x().b(dVar.d());
                     dVar.x().g(dVar.v());
@@ -795,7 +795,7 @@ public class c {
             if (bVar == null) {
                 return;
             }
-            this.f66550e.put(Long.valueOf(bVar.b()), bVar);
+            this.f66551e.put(Long.valueOf(bVar.b()), bVar);
             j.b().c(bVar);
         }
 
@@ -804,20 +804,20 @@ public class c {
             for (Long l : list) {
                 long longValue = l.longValue();
                 arrayList.add(String.valueOf(longValue));
-                this.f66550e.remove(Long.valueOf(longValue));
+                this.f66551e.remove(Long.valueOf(longValue));
             }
             j.b().e(arrayList);
         }
 
         public d.o.a.a.a.c.c n(long j) {
-            return this.f66548c.get(Long.valueOf(j));
+            return this.f66549c.get(Long.valueOf(j));
         }
 
         public d.o.a.b.a.c.b o(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (d.o.a.b.a.c.b bVar : this.f66550e.values()) {
+            for (d.o.a.b.a.c.b bVar : this.f66551e.values()) {
                 if (bVar != null && str.equals(bVar.a())) {
                     return bVar;
                 }
@@ -833,7 +833,7 @@ public class c {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            for (d.o.a.a.a.c.d dVar : this.f66547b.values()) {
+            for (d.o.a.a.a.c.d dVar : this.f66548b.values()) {
                 if ((dVar instanceof d.o.a.b.a.a.c) && TextUtils.equals(dVar.a(), str)) {
                     ((d.o.a.b.a.a.c) dVar).d(str2);
                 }
@@ -841,76 +841,76 @@ public class c {
         }
 
         public d.o.a.a.a.c.b s(long j) {
-            return this.f66549d.get(Long.valueOf(j));
+            return this.f66550d.get(Long.valueOf(j));
         }
 
         public ConcurrentHashMap<Long, d.o.a.b.a.c.b> t() {
-            return this.f66550e;
+            return this.f66551e;
         }
 
         public d.o.a.b.a.c.b u(long j) {
-            return this.f66550e.get(Long.valueOf(j));
+            return this.f66551e.get(Long.valueOf(j));
         }
 
         @NonNull
         public f v(long j) {
             f fVar = new f();
-            fVar.f66542a = j;
-            fVar.f66543b = a(j);
+            fVar.f66543a = j;
+            fVar.f66544b = a(j);
             d.o.a.a.a.c.c n = n(j);
-            fVar.f66544c = n;
+            fVar.f66545c = n;
             if (n == null) {
-                fVar.f66544c = new d.o.a.a.a.c.h();
+                fVar.f66545c = new d.o.a.a.a.c.h();
             }
             d.o.a.a.a.c.b s = s(j);
-            fVar.f66545d = s;
+            fVar.f66546d = s;
             if (s == null) {
-                fVar.f66545d = new d.o.a.a.a.c.g();
+                fVar.f66546d = new d.o.a.a.a.c.g();
             }
             return fVar;
         }
 
         public void w(long j) {
-            this.f66547b.remove(Long.valueOf(j));
-            this.f66548c.remove(Long.valueOf(j));
-            this.f66549d.remove(Long.valueOf(j));
+            this.f66548b.remove(Long.valueOf(j));
+            this.f66549c.remove(Long.valueOf(j));
+            this.f66550d.remove(Long.valueOf(j));
         }
 
         public g() {
-            this.f66546a = false;
-            this.f66547b = new ConcurrentHashMap<>();
-            this.f66548c = new ConcurrentHashMap<>();
-            this.f66549d = new ConcurrentHashMap<>();
-            this.f66550e = new ConcurrentHashMap<>();
+            this.f66547a = false;
+            this.f66548b = new ConcurrentHashMap<>();
+            this.f66549c = new ConcurrentHashMap<>();
+            this.f66550d = new ConcurrentHashMap<>();
+            this.f66551e = new ConcurrentHashMap<>();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66553a;
+        public int f66554a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66554b;
+        public int f66555b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66555c;
+        public String f66556c;
 
         public h(int i) {
             this(i, 0, null);
         }
 
         public int a() {
-            return this.f66553a;
+            return this.f66554a;
         }
 
         public int b() {
-            return this.f66554b;
+            return this.f66555b;
         }
 
         public String c() {
-            return this.f66555c;
+            return this.f66556c;
         }
 
         public h(int i, int i2) {
@@ -922,27 +922,27 @@ public class c {
         }
 
         public h(int i, int i2, String str) {
-            this.f66553a = i;
-            this.f66554b = i2;
-            this.f66555c = str;
+            this.f66554a = i;
+            this.f66555b = i2;
+            this.f66556c = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile i f66556a;
+        public static volatile i f66557a;
 
         public static i a() {
-            if (f66556a == null) {
+            if (f66557a == null) {
                 synchronized (e.class) {
-                    if (f66556a == null) {
-                        f66556a = new i();
+                    if (f66557a == null) {
+                        f66557a = new i();
                     }
                 }
             }
-            return f66556a;
+            return f66557a;
         }
 
         public void b(int i, int i2, d.o.a.b.a.c.b bVar) {
@@ -969,23 +969,23 @@ public class c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class j {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Collection f66557e;
+            public final /* synthetic */ Collection f66558e;
 
             public a(Collection collection) {
-                this.f66557e = collection;
+                this.f66558e = collection;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 SharedPreferences.Editor edit = j.this.g().edit();
-                for (d.o.a.b.a.c.b bVar : this.f66557e) {
+                for (d.o.a.b.a.c.b bVar : this.f66558e) {
                     if (bVar != null && bVar.b() != 0) {
                         edit.putString(String.valueOf(bVar.b()), bVar.e0().toString());
                     }
@@ -994,20 +994,20 @@ public class c {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f66559e;
+            public final /* synthetic */ List f66560e;
 
             public b(List list) {
-                this.f66559e = list;
+                this.f66560e = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 SharedPreferences.Editor edit = j.this.g().edit();
-                for (String str : this.f66559e) {
+                for (String str : this.f66560e) {
                     edit.remove(str);
                 }
                 edit.apply();
@@ -1015,11 +1015,11 @@ public class c {
         }
 
         /* renamed from: d.o.a.d.f.c$j$c  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C1824c {
+        /* loaded from: classes7.dex */
+        public static class C1825c {
 
             /* renamed from: a  reason: collision with root package name */
-            public static j f66561a = new j(null);
+            public static j f66562a = new j(null);
         }
 
         public /* synthetic */ j(a aVar) {
@@ -1027,7 +1027,7 @@ public class c {
         }
 
         public static j b() {
-            return C1824c.f66561a;
+            return C1825c.f66562a;
         }
 
         public void c(d.o.a.b.a.c.b bVar) {
@@ -1083,14 +1083,14 @@ public class c {
     }
 
     public static c a() {
-        if (f66509b == null) {
+        if (f66510b == null) {
             synchronized (c.class) {
-                if (f66509b == null) {
-                    f66509b = new c();
+                if (f66510b == null) {
+                    f66510b = new c();
                 }
             }
         }
-        return f66509b;
+        return f66510b;
     }
 
     public void b(Context context, DownloadInfo downloadInfo) {
@@ -1103,12 +1103,12 @@ public class c {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (this.f66510a == null) {
-                this.f66510a = new Handler(Looper.getMainLooper());
+            if (this.f66511a == null) {
+                this.f66511a = new Handler(Looper.getMainLooper());
             }
             String T0 = downloadInfo.T0();
             d.o.a.e.b.g.a.l(context).d(downloadInfo.c0());
-            this.f66510a.post(new a(this, T0));
+            this.f66511a.post(new a(this, T0));
         }
     }
 

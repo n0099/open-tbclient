@@ -21,35 +21,35 @@ public class a implements d.b.b.e.i.b {
     public static a k;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f56830a;
+    public Context f56831a;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56834e;
+    public b f56835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LocationClient f56835f;
+    public LocationClient f56836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocationClientOption f56836g;
+    public LocationClientOption f56837g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f56837h;
+    public Address f56838h;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56831b = true;
+    public boolean f56832b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56832c = "";
+    public String f56833c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public a.d f56833d = null;
+    public a.d f56834d = null;
     public long i = 0;
     public boolean j = false;
 
     /* renamed from: d.b.i0.m1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1341a extends CustomMessageListener {
-        public C1341a(int i) {
+    public static class C1342a extends CustomMessageListener {
+        public C1342a(int i) {
             super(i);
         }
 
@@ -80,12 +80,12 @@ public class a implements d.b.b.e.i.b {
                 return;
             }
             a.this.c();
-            a.this.f56837h = new Address(Locale.getDefault());
-            a.this.f56837h.setLatitude(bDLocation.getLatitude());
-            a.this.f56837h.setLongitude(bDLocation.getLongitude());
+            a.this.f56838h = new Address(Locale.getDefault());
+            a.this.f56838h.setLatitude(bDLocation.getLatitude());
+            a.this.f56838h.setLongitude(bDLocation.getLongitude());
             d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
             i.w("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
-            a.this.f56837h.setLocality(bDLocation.getCity());
+            a.this.f56838h.setLocality(bDLocation.getCity());
             Bundle bundle = new Bundle();
             bundle.putFloat("radius", bDLocation.getRadius());
             bundle.putDouble("altitude", bDLocation.getAltitude());
@@ -94,7 +94,7 @@ public class a implements d.b.b.e.i.b {
             bundle.putString("street", bDLocation.getStreet());
             bundle.putString("streetNumber", bDLocation.getStreetNumber());
             bundle.putString("province", bDLocation.getProvince());
-            a.this.f56837h.setExtras(bundle);
+            a.this.f56838h.setExtras(bundle);
             a.this.i = System.currentTimeMillis();
             StringBuffer stringBuffer = new StringBuffer();
             if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
@@ -103,23 +103,23 @@ public class a implements d.b.b.e.i.b {
             stringBuffer.append(bDLocation.getDistrict());
             stringBuffer.append(bDLocation.getStreet());
             if (bDLocation.getAddrStr() != null) {
-                a.this.f56837h.setAddressLine(0, stringBuffer.toString());
+                a.this.f56838h.setAddressLine(0, stringBuffer.toString());
             }
-            if (a.this.f56833d != null) {
-                a.this.f56833d.a(0, "", a.this.f56837h, a.this.i, a.this.j);
-                d.b.i0.r2.a0.a.e().i(String.valueOf(a.this.f56837h.getLatitude()));
-                d.b.i0.r2.a0.a.e().j(String.valueOf(a.this.f56837h.getLongitude()));
+            if (a.this.f56834d != null) {
+                a.this.f56834d.a(0, "", a.this.f56838h, a.this.i, a.this.j);
+                d.b.i0.r2.a0.a.e().i(String.valueOf(a.this.f56838h.getLatitude()));
+                d.b.i0.r2.a0.a.e().j(String.valueOf(a.this.f56838h.getLongitude()));
                 d.b.i0.r2.a0.a.e().k(System.currentTimeMillis());
             }
         }
 
-        public /* synthetic */ b(a aVar, C1341a c1341a) {
+        public /* synthetic */ b(a aVar, C1342a c1342a) {
             this();
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(new C1341a(2001330));
+        MessageManager.getInstance().registerListener(new C1342a(2001330));
     }
 
     public static a j() {
@@ -136,22 +136,22 @@ public class a implements d.b.b.e.i.b {
     @Override // d.b.b.e.i.b
     public void a(a.d dVar) {
         Context context = TbadkCoreApplication.getInst().getContext();
-        this.f56830a = context;
-        this.f56833d = dVar;
-        this.f56832c = "baidu";
-        if (this.f56831b) {
+        this.f56831a = context;
+        this.f56834d = dVar;
+        this.f56833c = "baidu";
+        if (this.f56832b) {
             try {
-                this.f56835f = new LocationClient(context);
+                this.f56836f = new LocationClient(context);
                 LocationClientOption locationClientOption = new LocationClientOption();
-                this.f56836g = locationClientOption;
+                this.f56837g = locationClientOption;
                 locationClientOption.setOpenGps(true);
-                this.f56836g.setIgnoreKillProcess(true);
-                this.f56836g.setProdName(this.f56832c);
-                this.f56836g.setAddrType("all");
-                this.f56836g.setCoorType("bd09ll");
+                this.f56837g.setIgnoreKillProcess(true);
+                this.f56837g.setProdName(this.f56833c);
+                this.f56837g.setAddrType("all");
+                this.f56837g.setCoorType("bd09ll");
                 b bVar = new b(this, null);
-                this.f56834e = bVar;
-                this.f56835f.registerLocationListener(bVar);
+                this.f56835e = bVar;
+                this.f56836f.registerLocationListener(bVar);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -160,23 +160,23 @@ public class a implements d.b.b.e.i.b {
 
     @Override // d.b.b.e.i.b
     public void b(boolean z) {
-        if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f56831b && this.f56835f != null) {
+        if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f56832b && this.f56836f != null) {
             try {
                 this.j = z;
                 if (z) {
-                    this.f56836g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    this.f56837g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
                 }
-                this.f56835f.setLocOption(this.f56836g);
-                if (!this.f56835f.isStarted()) {
-                    this.f56835f.start();
+                this.f56836f.setLocOption(this.f56837g);
+                if (!this.f56836f.isStarted()) {
+                    this.f56836f.start();
                 }
-                this.f56835f.requestLocation();
+                this.f56836f.requestLocation();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 c();
-                a.d dVar = this.f56833d;
+                a.d dVar = this.f56834d;
                 if (dVar != null) {
-                    dVar.a(5, "", this.f56837h, this.i, this.j);
+                    dVar.a(5, "", this.f56838h, this.i, this.j);
                 }
             }
         }
@@ -184,12 +184,12 @@ public class a implements d.b.b.e.i.b {
 
     @Override // d.b.b.e.i.b
     public void c() {
-        LocationClient locationClient = this.f56835f;
+        LocationClient locationClient = this.f56836f;
         if (locationClient == null || !locationClient.isStarted()) {
             return;
         }
         try {
-            this.f56835f.stop();
+            this.f56836f.stop();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

@@ -24,36 +24,36 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f58609a;
+    public TbPageContext f58610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.p0.u1.b.a f58610b;
+    public d.b.i0.p0.u1.b.a f58611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f58611c;
+    public View f58612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f58612d;
+    public FrameLayout f58613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f58613e;
+    public NavigationBar f58614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f58614f;
+    public BdTypeListView f58615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f58615g;
+    public NoNetworkView f58616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbListView f58616h;
+    public PbListView f58617h;
     public g i;
     public String j;
     public String k;
 
     /* renamed from: d.b.i0.p0.u1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1441a implements View.OnClickListener {
-        public View$OnClickListenerC1441a() {
+    public class View$OnClickListenerC1442a implements View.OnClickListener {
+        public View$OnClickListenerC1442a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -63,72 +63,72 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, String str, String str2) {
-        this.f58609a = tbPageContext;
+        this.f58610a = tbPageContext;
         this.j = str;
         this.k = str2;
         h();
     }
 
     public void b() {
-        this.f58614f.z();
+        this.f58615f.z();
     }
 
     public void c() {
-        if (this.f58614f == null || !j.z()) {
+        if (this.f58615f == null || !j.z()) {
             return;
         }
-        this.f58614f.F();
+        this.f58615f.F();
     }
 
     public FrameLayout d() {
-        return this.f58612d;
+        return this.f58613d;
     }
 
     public NavigationBar e() {
-        return this.f58613e;
+        return this.f58614e;
     }
 
     public View f() {
-        return this.f58611c;
+        return this.f58612c;
     }
 
     public final void g() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-        customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f58609a.getUniqueId()));
+        customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f58610a.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 
     public final void h() {
-        View inflate = LayoutInflater.from(this.f58609a.getPageActivity()).inflate(R.layout.frs_game_recommend_layout, (ViewGroup) null);
-        this.f58611c = inflate;
-        this.f58615g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.f58612d = (FrameLayout) this.f58611c.findViewById(R.id.game_recom_container);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.f58611c.findViewById(R.id.game_recom_listview);
-        this.f58614f = bdTypeListView;
+        View inflate = LayoutInflater.from(this.f58610a.getPageActivity()).inflate(R.layout.frs_game_recommend_layout, (ViewGroup) null);
+        this.f58612c = inflate;
+        this.f58616g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.f58613d = (FrameLayout) this.f58612c.findViewById(R.id.game_recom_container);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.f58612c.findViewById(R.id.game_recom_listview);
+        this.f58615f = bdTypeListView;
         bdTypeListView.setDivider(null);
-        g gVar = new g(this.f58609a);
+        g gVar = new g(this.f58610a);
         this.i = gVar;
-        gVar.Z(this.f58609a.getUniqueId());
-        this.f58614f.setPullRefresh(this.i);
-        NavigationBar navigationBar = (NavigationBar) this.f58611c.findViewById(R.id.view_navigation_bar);
-        this.f58613e = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1441a());
-        this.f58613e.showBottomLine();
-        PbListView pbListView = new PbListView(this.f58609a.getPageActivity());
-        this.f58616h = pbListView;
+        gVar.Z(this.f58610a.getUniqueId());
+        this.f58615f.setPullRefresh(this.i);
+        NavigationBar navigationBar = (NavigationBar) this.f58612c.findViewById(R.id.view_navigation_bar);
+        this.f58614e = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1442a());
+        this.f58614e.showBottomLine();
+        PbListView pbListView = new PbListView(this.f58610a.getPageActivity());
+        this.f58617h = pbListView;
         pbListView.a();
-        this.f58610b = new d.b.i0.p0.u1.b.a(this.f58609a, this.f58614f, this.j, this.k);
+        this.f58611b = new d.b.i0.p0.u1.b.a(this.f58610a, this.f58615f, this.j, this.k);
         i(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void i(int i) {
-        NoNetworkView noNetworkView = this.f58615g;
+        NoNetworkView noNetworkView = this.f58616g;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f58609a, i);
+            noNetworkView.c(this.f58610a, i);
         }
-        NavigationBar navigationBar = this.f58613e;
+        NavigationBar navigationBar = this.f58614e;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f58609a, i);
+            navigationBar.onChangeSkinType(this.f58610a, i);
         }
     }
 
@@ -141,7 +141,7 @@ public class a {
         } else {
             p();
         }
-        this.f58610b.c(list);
+        this.f58611b.c(list);
     }
 
     public void l(f.g gVar) {
@@ -149,32 +149,32 @@ public class a {
     }
 
     public void m() {
-        this.f58614f.setNextPage(null);
+        this.f58615f.setNextPage(null);
     }
 
     public void n(BdListView.p pVar) {
-        this.f58614f.setOnSrollToBottomListener(pVar);
+        this.f58615f.setOnSrollToBottomListener(pVar);
     }
 
     public final void o() {
-        PbListView pbListView = this.f58616h;
+        PbListView pbListView = this.f58617h;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f58614f.setNextPage(this.f58616h);
+                this.f58615f.setNextPage(this.f58617h);
             }
-            this.f58616h.M();
-            this.f58616h.O();
+            this.f58617h.M();
+            this.f58617h.O();
         }
     }
 
     public final void p() {
-        PbListView pbListView = this.f58616h;
+        PbListView pbListView = this.f58617h;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f58614f.setNextPage(this.f58616h);
+                this.f58615f.setNextPage(this.f58617h);
             }
-            this.f58616h.A(this.f58609a.getPageActivity().getResources().getString(R.string.list_no_more));
-            this.f58616h.f();
+            this.f58617h.A(this.f58610a.getPageActivity().getResources().getString(R.string.list_no_more));
+            this.f58617h.f();
         }
     }
 }

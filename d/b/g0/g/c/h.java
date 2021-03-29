@@ -7,7 +7,7 @@ import d.b.g0.a.k;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47960a = k.f45050a;
+    public static final boolean f47961a = k.f45051a;
 
     public h(JsObject jsObject) {
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
@@ -22,7 +22,7 @@ public class h {
         try {
             boolean n = F.n("mixWithOther", false);
             y.H().h("key_audio_is_mix_with_other", Boolean.valueOf(n));
-            if (f47960a) {
+            if (f47961a) {
                 Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + n);
             }
             a(F, true, "setInnerAudioOption:ok");

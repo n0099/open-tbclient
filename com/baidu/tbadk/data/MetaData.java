@@ -356,7 +356,7 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isForumBusinessAccount() {
         c cVar = this.businessAccountData;
-        return cVar != null && cVar.f51456b;
+        return cVar != null && cVar.f51457b;
     }
 
     @Override // d.b.h0.r.f0.q.a
@@ -375,7 +375,7 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isOfficial() {
         c cVar = this.businessAccountData;
-        return cVar != null && cVar.f51455a;
+        return cVar != null && cVar.f51456a;
     }
 
     public boolean isVideoGod() {

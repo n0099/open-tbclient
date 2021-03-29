@@ -8,12 +8,12 @@ import com.baidu.android.imsdk.CmdQueueMsg;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBManager extends DBBase {
     public static final String TAG = "DBManager";
     public static volatile DBManager mInstance;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class CmdQueueMsgParse implements CursorParse {
         public CmdQueueMsg msg = null;
 

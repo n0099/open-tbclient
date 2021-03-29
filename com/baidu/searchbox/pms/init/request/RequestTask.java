@@ -13,7 +13,7 @@ import com.baidu.searchbox.pms.utils.DebugUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RequestTask implements Runnable {
     public static final String TAG = "pmsRequestTask";
     public RequestParams requestParams;

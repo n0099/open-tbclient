@@ -23,50 +23,50 @@ public class d extends g {
     public class a implements d.b.h0.w.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f51573e;
+        public final /* synthetic */ e f51574e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f51574f;
+        public final /* synthetic */ EditorTools f51575f;
 
         public a(e eVar, EditorTools editorTools) {
-            this.f51573e = eVar;
-            this.f51574f = editorTools;
+            this.f51574e = eVar;
+            this.f51575f = editorTools;
         }
 
         @Override // d.b.h0.w.b
         public void onAction(d.b.h0.w.a aVar) {
             int size;
-            e eVar = this.f51573e;
+            e eVar = this.f51574e;
             if (eVar == null || eVar.a() == null || aVar == null) {
                 return;
             }
-            int i = aVar.f51523a;
+            int i = aVar.f51524a;
             if (i == 4) {
-                this.f51573e.m0(aVar.f51525c.toString());
+                this.f51574e.m0(aVar.f51526c.toString());
             } else if (i == 5) {
-                if (this.f51574f.u()) {
+                if (this.f51575f.u()) {
                     return;
                 }
-                TiebaStatic.eventStat(this.f51574f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f51575f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i == 7) {
-                this.f51573e.r().showToast(R.string.over_limit_tip);
+                this.f51574e.r().showToast(R.string.over_limit_tip);
             } else if (i == 8) {
-                if (d.this.j(this.f51573e.r(), 11001)) {
-                    this.f51573e.L(null, null);
+                if (d.this.j(this.f51574e.r(), 11001)) {
+                    this.f51574e.L(null, null);
                 }
             } else if (i != 14) {
                 if (i != 15) {
                     return;
                 }
-                int intValue = ((Integer) aVar.f51525c).intValue();
-                if (this.f51573e.y() != null && this.f51573e.y().getChosedFiles() != null && (size = this.f51573e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f51573e.r().getPageActivity(), 12012, this.f51573e.y(), intValue)));
+                int intValue = ((Integer) aVar.f51526c).intValue();
+                if (this.f51574e.y() != null && this.f51574e.y().getChosedFiles() != null && (size = this.f51574e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f51574e.r().getPageActivity(), 12012, this.f51574e.y(), intValue)));
                 }
             } else {
-                if (this.f51573e.y() != null) {
-                    this.f51573e.y().setMaxImagesAllowed(1);
+                if (this.f51574e.y() != null) {
+                    this.f51574e.y().setMaxImagesAllowed(1);
                 }
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f51573e.r().getPageActivity(), this.f51573e.y().toJsonString(), true, true);
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f51574e.r().getPageActivity(), this.f51574e.y().toJsonString(), true, true);
                 if (!StringUtils.isNull(d.this.l(), true)) {
                     albumActivityConfig.getIntent().putExtra("from", d.this.l());
                 }
@@ -74,7 +74,7 @@ public class d extends g {
                     albumActivityConfig.getIntent().putExtra("forum_id", d.this.k().getId());
                 }
                 albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
-                l.w(this.f51573e.r().getPageActivity(), this.f51573e.r().getPageActivity().getCurrentFocus());
+                l.w(this.f51574e.r().getPageActivity(), this.f51574e.r().getPageActivity().getCurrentFocus());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         }

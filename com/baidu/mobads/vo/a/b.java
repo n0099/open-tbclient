@@ -14,7 +14,7 @@ public class b extends a {
     public HashMap<String, String> p;
 
     public b(String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        super(new a.C0109a(iXAdInstanceInfo, iXAdProdInfo));
+        super(new a.C0110a(iXAdInstanceInfo, iXAdProdInfo));
         this.o = "";
         this.p = null;
         this.o = str;

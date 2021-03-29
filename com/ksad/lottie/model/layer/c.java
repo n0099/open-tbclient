@@ -13,28 +13,28 @@ import androidx.annotation.Nullable;
 public class c extends a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f31584e;
+    public final Paint f31585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f31585f;
+    public final Rect f31586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f31586g;
+    public final Rect f31587g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> f31587h;
+    public com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> f31588h;
 
     public c(com.ksad.lottie.f fVar, Layer layer) {
         super(fVar, layer);
-        this.f31584e = new Paint(3);
-        this.f31585f = new Rect();
-        this.f31586g = new Rect();
+        this.f31585e = new Paint(3);
+        this.f31586f = new Rect();
+        this.f31587g = new Rect();
     }
 
     @Nullable
     private Bitmap e() {
-        return this.f31568b.b(this.f31569c.g());
+        return this.f31569b.b(this.f31570c.g());
     }
 
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
@@ -43,7 +43,7 @@ public class c extends a {
         Bitmap e2 = e();
         if (e2 != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, e2.getWidth()), Math.min(rectF.bottom, e2.getHeight()));
-            this.f31567a.mapRect(rectF);
+            this.f31568a.mapRect(rectF);
         }
     }
 
@@ -54,16 +54,16 @@ public class c extends a {
             return;
         }
         float a2 = com.ksad.lottie.d.f.a();
-        this.f31584e.setAlpha(i);
-        com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> aVar = this.f31587h;
+        this.f31585e.setAlpha(i);
+        com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> aVar = this.f31588h;
         if (aVar != null) {
-            this.f31584e.setColorFilter(aVar.e());
+            this.f31585e.setColorFilter(aVar.e());
         }
         canvas.save();
         canvas.concat(matrix);
-        this.f31585f.set(0, 0, e2.getWidth(), e2.getHeight());
-        this.f31586g.set(0, 0, (int) (e2.getWidth() * a2), (int) (e2.getHeight() * a2));
-        canvas.drawBitmap(e2, this.f31585f, this.f31586g, this.f31584e);
+        this.f31586f.set(0, 0, e2.getWidth(), e2.getHeight());
+        this.f31587g.set(0, 0, (int) (e2.getWidth() * a2), (int) (e2.getHeight() * a2));
+        canvas.drawBitmap(e2, this.f31586f, this.f31587g, this.f31585e);
         canvas.restore();
     }
 }

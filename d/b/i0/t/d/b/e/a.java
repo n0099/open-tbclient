@@ -35,42 +35,42 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60296a;
+    public TbPageContext f60297a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f60297b;
+    public BdTypeListView f60298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f60298c;
+    public g f60299c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f60299d;
+    public FrameLayout f60300d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f60300e;
+    public LinearLayout f60301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f60301f;
+    public NoNetworkView f60302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f60302g;
+    public PbListView f60303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f60303h;
+    public b f60304h;
     public int i;
-    public d.b.i0.t.d.g.d.g j = new C1541a();
+    public d.b.i0.t.d.g.d.g j = new C1542a();
 
     /* renamed from: d.b.i0.t.d.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1541a implements d.b.i0.t.d.g.d.g {
-        public C1541a() {
+    public class C1542a implements d.b.i0.t.d.g.d.g {
+        public C1542a() {
         }
 
         @Override // d.b.i0.t.d.g.d.g
         public void a(int i, String str, a2 a2Var) {
             TiebaStatic.log(d.b.i0.t.d.d.a.c().e(a.this.i, "c12118", i, str, a2Var));
             a aVar = a.this;
-            aVar.h(aVar.f60296a, a2Var, str);
+            aVar.h(aVar.f60297a, a2Var, str);
         }
 
         @Override // d.b.i0.t.d.g.d.g
@@ -79,49 +79,49 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, int i) {
-        this.f60296a = tbPageContext;
+        this.f60297a = tbPageContext;
         LinearLayout linearLayout = new LinearLayout(tbPageContext.getPageActivity());
-        this.f60300e = linearLayout;
+        this.f60301e = linearLayout;
         linearLayout.setOrientation(1);
-        this.f60301f = new NoNetworkView(tbPageContext.getPageActivity());
+        this.f60302f = new NoNetworkView(tbPageContext.getPageActivity());
         if (j.z()) {
-            this.f60301f.setVisibility(8);
+            this.f60302f.setVisibility(8);
         }
-        this.f60300e.addView(this.f60301f);
+        this.f60301e.addView(this.f60302f);
         FrameLayout frameLayout = new FrameLayout(tbPageContext.getPageActivity());
-        this.f60299d = frameLayout;
-        this.f60300e.addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-        this.f60300e.setPadding(0, 0, 0, 0);
-        BdTypeListView bdTypeListView = new BdTypeListView(this.f60296a.getPageActivity());
-        this.f60297b = bdTypeListView;
+        this.f60300d = frameLayout;
+        this.f60301e.addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
+        this.f60301e.setPadding(0, 0, 0, 0);
+        BdTypeListView bdTypeListView = new BdTypeListView(this.f60297a.getPageActivity());
+        this.f60298b = bdTypeListView;
         bdTypeListView.setDivider(null);
-        this.f60299d.addView(this.f60297b, new FrameLayout.LayoutParams(-1, -1));
-        g gVar = new g(this.f60296a);
-        this.f60298c = gVar;
+        this.f60300d.addView(this.f60298b, new FrameLayout.LayoutParams(-1, -1));
+        g gVar = new g(this.f60297a);
+        this.f60299c = gVar;
         gVar.Z(bdUniqueId);
-        this.f60297b.setPullRefresh(this.f60298c);
+        this.f60298b.setPullRefresh(this.f60299c);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f60302g = pbListView;
+        this.f60303g = pbListView;
         pbListView.a();
-        b bVar = new b(tbPageContext, this.f60297b);
-        this.f60303h = bVar;
+        b bVar = new b(tbPageContext, this.f60298b);
+        this.f60304h = bVar;
         bVar.c(this.j);
     }
 
     public void d() {
-        this.f60297b.z();
+        this.f60298b.z();
     }
 
     public FrameLayout e() {
-        return this.f60299d;
+        return this.f60300d;
     }
 
     public BdTypeListView f() {
-        return this.f60297b;
+        return this.f60298b;
     }
 
     public View g() {
-        return this.f60300e;
+        return this.f60301e;
     }
 
     public final void h(TbPageContext<?> tbPageContext, a2 a2Var, String str) {
@@ -150,12 +150,12 @@ public class a {
     }
 
     public void i(int i) {
-        this.f60302g.o(R.color.CAM_X0204);
-        this.f60302g.d(i);
-        this.f60298c.I(i);
-        this.f60303h.b();
-        SkinManager.setBackgroundColor(this.f60300e, R.color.CAM_X0201);
-        this.f60301f.c(this.f60296a, i);
+        this.f60303g.o(R.color.CAM_X0204);
+        this.f60303g.d(i);
+        this.f60299c.I(i);
+        this.f60304h.b();
+        SkinManager.setBackgroundColor(this.f60301e, R.color.CAM_X0201);
+        this.f60302f.c(this.f60297a, i);
     }
 
     public void j(List<n> list, boolean z, int i) {
@@ -163,8 +163,8 @@ public class a {
             list = new LinkedList<>();
         }
         this.i = i;
-        this.f60303h.d(list);
-        this.f60303h.e(i);
+        this.f60304h.d(list);
+        this.f60304h.e(i);
         if (z) {
             p();
         } else {
@@ -173,44 +173,44 @@ public class a {
     }
 
     public void k(f.g gVar) {
-        this.f60298c.b(gVar);
+        this.f60299c.b(gVar);
     }
 
     public void l(AbsListView.OnScrollListener onScrollListener) {
-        this.f60297b.setOnScrollListener(onScrollListener);
+        this.f60298b.setOnScrollListener(onScrollListener);
     }
 
     public void m(BdListView.o oVar, int i) {
-        this.f60297b.setOnScrollStopDelayedListener(oVar, i);
+        this.f60298b.setOnScrollStopDelayedListener(oVar, i);
     }
 
     public void n(BdListView.p pVar) {
-        this.f60297b.setOnSrollToBottomListener(pVar);
+        this.f60298b.setOnSrollToBottomListener(pVar);
     }
 
     public void o(IAlaSquareTabController iAlaSquareTabController) {
-        this.f60303h.f(iAlaSquareTabController);
+        this.f60304h.f(iAlaSquareTabController);
     }
 
     public void p() {
-        PbListView pbListView = this.f60302g;
+        PbListView pbListView = this.f60303g;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f60297b.setNextPage(this.f60302g);
+                this.f60298b.setNextPage(this.f60303g);
             }
-            this.f60302g.M();
-            this.f60302g.O();
+            this.f60303g.M();
+            this.f60303g.O();
         }
     }
 
     public void q() {
-        PbListView pbListView = this.f60302g;
+        PbListView pbListView = this.f60303g;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f60297b.setNextPage(this.f60302g);
+                this.f60298b.setNextPage(this.f60303g);
             }
-            this.f60302g.A(this.f60296a.getResources().getString(R.string.list_no_more));
-            this.f60302g.f();
+            this.f60303g.A(this.f60297a.getResources().getString(R.string.list_no_more));
+            this.f60303g.f();
         }
     }
 }

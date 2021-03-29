@@ -12,20 +12,20 @@ public abstract class i {
     public static class a extends i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Method f66106a;
+        public final /* synthetic */ Method f66107a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f66107b;
+        public final /* synthetic */ Object f66108b;
 
         public a(Method method, Object obj) {
-            this.f66106a = method;
-            this.f66107b = obj;
+            this.f66107a = method;
+            this.f66108b = obj;
         }
 
         @Override // d.g.c.b.i
         public <T> T c(Class<T> cls) throws Exception {
             i.a(cls);
-            return (T) this.f66106a.invoke(this.f66107b, cls);
+            return (T) this.f66107a.invoke(this.f66108b, cls);
         }
     }
 
@@ -33,20 +33,20 @@ public abstract class i {
     public static class b extends i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Method f66108a;
+        public final /* synthetic */ Method f66109a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f66109b;
+        public final /* synthetic */ int f66110b;
 
         public b(Method method, int i) {
-            this.f66108a = method;
-            this.f66109b = i;
+            this.f66109a = method;
+            this.f66110b = i;
         }
 
         @Override // d.g.c.b.i
         public <T> T c(Class<T> cls) throws Exception {
             i.a(cls);
-            return (T) this.f66108a.invoke(null, cls, Integer.valueOf(this.f66109b));
+            return (T) this.f66109a.invoke(null, cls, Integer.valueOf(this.f66110b));
         }
     }
 
@@ -54,16 +54,16 @@ public abstract class i {
     public static class c extends i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Method f66110a;
+        public final /* synthetic */ Method f66111a;
 
         public c(Method method) {
-            this.f66110a = method;
+            this.f66111a = method;
         }
 
         @Override // d.g.c.b.i
         public <T> T c(Class<T> cls) throws Exception {
             i.a(cls);
-            return (T) this.f66110a.invoke(null, cls, Object.class);
+            return (T) this.f66111a.invoke(null, cls, Object.class);
         }
     }
 

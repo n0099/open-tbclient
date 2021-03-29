@@ -19,7 +19,7 @@ import d.b.i0.c2.i.c;
 public abstract class AbsFloorImageTextView extends RelativeLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f13719h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+    public static final int f13720h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
     public static final int i = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
     public static final int j = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
     public static final int k = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
@@ -27,13 +27,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static final int m = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageUrlData f13720e;
+    public ImageUrlData f13721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a f13721f;
+    public c.a f13722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f13722g;
+    public c f13723g;
 
     /* loaded from: classes3.dex */
     public class a implements c.a {
@@ -77,8 +77,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
         a aVar = new a();
-        this.f13721f = aVar;
-        this.f13722g = new b(aVar);
+        this.f13722f = aVar;
+        this.f13723g = new b(aVar);
     }
 
     public void a(int i2) {
@@ -99,16 +99,16 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     public void c() {
-        ImageUrlData imageUrlData = this.f13720e;
+        ImageUrlData imageUrlData = this.f13721e;
         if (imageUrlData == null) {
             return;
         }
         String valueOf = String.valueOf(imageUrlData.threadId);
-        String valueOf2 = String.valueOf(this.f13720e.postId);
+        String valueOf2 = String.valueOf(this.f13721e.postId);
         PbActivityConfig pbActivityConfig = new PbActivityConfig(getContext());
-        ImageUrlData imageUrlData2 = this.f13720e;
+        ImageUrlData imageUrlData2 = this.f13721e;
         PbActivityConfig createHistoryCfg = pbActivityConfig.createHistoryCfg(valueOf, valueOf2, imageUrlData2.mIsSeeHost, imageUrlData2.mIsReserver, null);
-        if (this.f13720e.isFirstPost) {
+        if (this.f13721e.isFirstPost) {
             createHistoryCfg.setJumpToTopArea(true);
         } else {
             createHistoryCfg.setJumpToCommentArea(true);

@@ -16,7 +16,7 @@ import d.b.h0.r.q.n1;
 import d.b.h0.r.q.o1;
 import d.b.i.e0;
 import d.b.i.k0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m extends d.b.i0.w1.d.c.a<o1, ThreadCardViewHolder<o1>> implements d.b.i0.m.f {
     public BdUniqueId n;
     public TbPageContext<?> o;
@@ -27,7 +27,7 @@ public class m extends d.b.i0.w1.d.c.a<o1, ThreadCardViewHolder<o1>> implements 
     public PullLeftRefreshLayout.f t;
     public d.b.h0.m.f u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -38,7 +38,7 @@ public class m extends d.b.i0.w1.d.c.a<o1, ThreadCardViewHolder<o1>> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements PullLeftRefreshLayout.f {
         public b() {
         }
@@ -49,7 +49,7 @@ public class m extends d.b.i0.w1.d.c.a<o1, ThreadCardViewHolder<o1>> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.h0.m.f<n1> {
         public c() {
         }

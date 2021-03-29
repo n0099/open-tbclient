@@ -2,7 +2,7 @@ package com.baidu.android.util.io;
 
 import java.text.DecimalFormat;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ByteUnitConverter {
     public static final int GB = 1073741824;
     public static final int KB = 1024;
@@ -11,7 +11,7 @@ public class ByteUnitConverter {
     public String convertStr;
 
     /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
 
@@ -37,7 +37,7 @@ public class ByteUnitConverter {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum UNITS {
         B,
         KB,

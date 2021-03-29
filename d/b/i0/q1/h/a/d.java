@@ -10,17 +10,17 @@ import tbclient.GetTails.TailInfo;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<TailData> f59484a = new ArrayList();
+    public List<TailData> f59485a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f59485b = new ArrayList();
+    public List<String> f59486b = new ArrayList();
 
     public List<String> a() {
-        return this.f59485b;
+        return this.f59486b;
     }
 
     public List<TailData> b() {
-        return this.f59484a;
+        return this.f59485a;
     }
 
     public void c(ResData resData) {

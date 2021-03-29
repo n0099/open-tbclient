@@ -15,30 +15,30 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a implements b, ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f33851a = new AtomicBoolean(false);
+    public final AtomicBoolean f33852a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public final ap f33852b = new ap(this);
+    public final ap f33853b = new ap(this);
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<c> f33853c;
+    public Set<c> f33854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsFragment f33854d;
+    public KsFragment f33855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f33855e;
+    public View f33856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33856f;
+    public int f33857f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f33857g;
+    public String f33858g;
 
     public a(@NonNull KsFragment ksFragment, @NonNull View view, int i) {
-        this.f33854d = ksFragment;
-        this.f33855e = view;
-        this.f33856f = i;
+        this.f33855d = ksFragment;
+        this.f33856e = view;
+        this.f33857f = i;
     }
 
     private boolean a(@NonNull KsFragment ksFragment) {
@@ -46,7 +46,7 @@ public class a implements b, ap.a {
     }
 
     private void c(boolean z) {
-        Set<c> set = this.f33853c;
+        Set<c> set = this.f33854c;
         if (set == null) {
             return;
         }
@@ -62,47 +62,47 @@ public class a implements b, ap.a {
     }
 
     private boolean g() {
-        return ao.a(this.f33855e, this.f33856f, false);
+        return ao.a(this.f33856e, this.f33857f, false);
     }
 
     private void h() {
-        if (this.f33851a.getAndSet(true)) {
+        if (this.f33852a.getAndSet(true)) {
             return;
         }
-        com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageVisible by " + this.f33857g);
+        com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageVisible by " + this.f33858g);
         c(true);
     }
 
     private void i() {
-        if (this.f33851a.getAndSet(false)) {
-            com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageInVisible by " + this.f33857g);
+        if (this.f33852a.getAndSet(false)) {
+            com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageInVisible by " + this.f33858g);
             c(false);
         }
     }
 
     public void a() {
-        this.f33852b.sendEmptyMessage(666);
+        this.f33853b.sendEmptyMessage(666);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 666) {
-            KsFragment ksFragment = this.f33854d;
+            KsFragment ksFragment = this.f33855d;
             if (ksFragment == null) {
                 com.kwad.sdk.core.d.a.c("FragmentPageVisibleHelper", "mFragment is null");
                 return;
             }
             if (a(ksFragment)) {
-                this.f33857g = "message fragment";
+                this.f33858g = "message fragment";
             } else {
-                this.f33857g = "message view";
+                this.f33858g = "message view";
                 if (g()) {
                     h();
-                    this.f33852b.sendEmptyMessageDelayed(666, 500L);
+                    this.f33853b.sendEmptyMessageDelayed(666, 500L);
                 }
             }
             i();
-            this.f33852b.sendEmptyMessageDelayed(666, 500L);
+            this.f33853b.sendEmptyMessageDelayed(666, 500L);
         }
     }
 
@@ -113,22 +113,22 @@ public class a implements b, ap.a {
         if (cVar == null) {
             return;
         }
-        if (this.f33853c == null) {
-            this.f33853c = new HashSet();
+        if (this.f33854c == null) {
+            this.f33854c = new HashSet();
         }
-        if (this.f33851a.get()) {
+        if (this.f33852a.get()) {
             cVar.c_();
         } else {
             cVar.b();
         }
-        this.f33853c.add(cVar);
+        this.f33854c.add(cVar);
     }
 
     public void a(boolean z) {
     }
 
     public void b() {
-        this.f33852b.removeCallbacksAndMessages(null);
+        this.f33853b.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.core.i.b
@@ -136,7 +136,7 @@ public class a implements b, ap.a {
     public void b(c cVar) {
         Set<c> set;
         w.a();
-        if (cVar == null || (set = this.f33853c) == null) {
+        if (cVar == null || (set = this.f33854c) == null) {
             return;
         }
         set.remove(cVar);
@@ -150,21 +150,21 @@ public class a implements b, ap.a {
 
     public void d() {
         com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "onFragmentPause");
-        this.f33857g = "onFragmentPause";
+        this.f33858g = "onFragmentPause";
         i();
     }
 
     @MainThread
     public boolean e() {
-        return this.f33851a.get();
+        return this.f33852a.get();
     }
 
     public void f() {
         b();
-        Set<c> set = this.f33853c;
+        Set<c> set = this.f33854c;
         if (set != null) {
             set.clear();
         }
-        this.f33854d = null;
+        this.f33855d = null;
     }
 }

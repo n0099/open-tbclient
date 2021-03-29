@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class RealBufferedSource implements BufferedSource {
     public final Buffer buffer = new Buffer();
     public boolean closed;
@@ -205,14 +205,15 @@ public final class RealBufferedSource implements BufferedSource {
             while (true) {
                 Buffer buffer = this.buffer;
                 long j = buffer.size;
-                if (j <= 0) {
+                if (j > 0) {
+                    int read = buffer.read(bArr, i, (int) j);
+                    if (read == -1) {
+                        throw new AssertionError();
+                    }
+                    i += read;
+                } else {
                     throw e2;
                 }
-                int read = buffer.read(bArr, i, (int) j);
-                if (read == -1) {
-                    throw new AssertionError();
-                }
-                i += read;
             }
         }
     }

@@ -8,11 +8,11 @@ import android.widget.ImageView;
 public class PbImageIcon extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19697e;
+    public Context f19698e;
 
     public PbImageIcon(Context context) {
         super(context);
-        this.f19697e = context;
+        this.f19698e = context;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -29,6 +29,6 @@ public class PbImageIcon extends ImageView {
 
     public PbImageIcon(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19697e = context;
+        this.f19698e = context;
     }
 }

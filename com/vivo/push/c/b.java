@@ -8,23 +8,23 @@ public final class b extends com.vivo.push.v {
     @Override // com.vivo.push.v
     public final void a(com.vivo.push.y yVar) {
         boolean b2;
-        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39588a);
+        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39589a);
         try {
             if (((com.vivo.push.b.d) yVar).d()) {
-                b2 = f.a(this.f39588a);
+                b2 = f.a(this.f39589a);
             } else {
-                b2 = f.b(this.f39588a);
+                b2 = f.b(this.f39589a);
             }
             if (b2) {
-                com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f39588a);
+                com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f39589a);
                 if (a2 == null || a3 == null || a3.a() == null || !a3.a().equals(a2.a())) {
                     if (a2 != null && a2.a() != null) {
-                        com.vivo.push.a.a.a(this.f39588a, a2.a(), new com.vivo.push.b.ac(a2.a()));
+                        com.vivo.push.a.a.a(this.f39589a, a2.a(), new com.vivo.push.b.ac(a2.a()));
                     }
                     if (a3 == null || a3.a() == null) {
                         return;
                     }
-                    com.vivo.push.a.a.a(this.f39588a, a3.a(), new com.vivo.push.b.f());
+                    com.vivo.push.a.a.a(this.f39589a, a3.a(), new com.vivo.push.b.f());
                 }
             }
         } catch (Exception e2) {

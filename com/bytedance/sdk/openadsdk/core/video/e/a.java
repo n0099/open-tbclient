@@ -7,20 +7,10 @@ import com.baidu.webkit.sdk.VideoCloudSetting;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f28699a = Build.VERSION.SDK_INT;
+    public static final int f28700a = Build.VERSION.SDK_INT;
 
     public static int a(long j, long j2) {
-        int i;
-        if (j2 > 0) {
-            double d2 = j;
-            Double.isNaN(d2);
-            double d3 = j2;
-            Double.isNaN(d3);
-            i = (int) (((d2 * 1.0d) / d3) * 100.0d);
-        } else {
-            i = 0;
-        }
-        return Math.min(Math.max(0, i), 100);
+        return Math.min(Math.max(0, j2 > 0 ? (int) (((j * 1.0d) / j2) * 100.0d) : 0), 100);
     }
 
     public static String a(long j) {
@@ -57,7 +47,7 @@ public class a {
             view.setSystemUiVisibility(0);
             return;
         }
-        int i = f28699a;
+        int i = f28700a;
         if (i >= 19) {
             view.setSystemUiVisibility(3846);
         } else if (i >= 16) {

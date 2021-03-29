@@ -26,19 +26,19 @@ import d.b.h0.s.c.t;
 import d.b.i0.c2.k.e.y0.b;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionView.c {
+public class c implements QueryMatchEmotionModel.b, b.InterfaceC1159b, EmotionView.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f52942e;
+    public f f52943e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f52943f;
+    public List<String> f52944f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HListView f52944g;
+    public HListView f52945g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.c2.k.e.y0.b f52945h;
+    public d.b.i0.c2.k.e.y0.b f52946h;
     public QueryMatchEmotionModel i;
     public String j;
     public ViewGroup l;
@@ -56,7 +56,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
         @Override // java.lang.Runnable
         public void run() {
             c.this.j = "";
-            c.this.f52944g.setVisibility(8);
+            c.this.f52945g.setVisibility(8);
         }
     }
 
@@ -83,22 +83,22 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
 
     /* renamed from: d.b.i0.c2.k.e.y0.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1159c implements GetEmotionPidModel.b {
+    public class C1160c implements GetEmotionPidModel.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f52948a;
+        public final /* synthetic */ EmotionImageData f52949a;
 
-        public C1159c(EmotionImageData emotionImageData) {
-            this.f52948a = emotionImageData;
+        public C1160c(EmotionImageData emotionImageData) {
+            this.f52949a = emotionImageData;
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
         public void a(d.b.h0.b0.c cVar) {
-            if (cVar == null || TextUtils.isEmpty(cVar.f49773a)) {
+            if (cVar == null || TextUtils.isEmpty(cVar.f49774a)) {
                 return;
             }
-            this.f52948a.setPicId(cVar.f49773a);
-            c.this.n(this.f52948a);
+            this.f52949a.setPicId(cVar.f49774a);
+            c.this.n(this.f52949a);
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
@@ -107,7 +107,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
     }
 
     public c(f fVar, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        this.f52942e = fVar;
+        this.f52943e = fVar;
         this.l = viewGroup;
         this.m = layoutParams;
     }
@@ -130,31 +130,31 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
                 list = list.subList(0, 10);
             }
             TiebaStatic.log("c12488");
-            HListView hListView = this.f52944g;
+            HListView hListView = this.f52945g;
             if (hListView == null || hListView.getParent() == null) {
-                HListView hListView2 = new HListView(this.f52942e.getContext());
-                this.f52944g = hListView2;
+                HListView hListView2 = new HListView(this.f52943e.getContext());
+                this.f52945g = hListView2;
                 SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
-                this.f52944g.setDividerWidth(l.g(this.f52942e.getPageActivity(), R.dimen.ds7));
-                this.f52944g.setClipToPadding(false);
-                int g2 = l.g(this.f52942e.getPageActivity(), R.dimen.ds10);
-                this.f52944g.setPadding(g2, g2, g2, g2);
-                this.f52944g.setSelector(R.drawable.list_selector_transparent);
-                this.m.height = l.g(this.f52942e.getPageActivity(), R.dimen.ds136);
-                this.l.addView(this.f52944g, this.m);
-                if (this.f52945h == null) {
+                this.f52945g.setDividerWidth(l.g(this.f52943e.getPageActivity(), R.dimen.ds7));
+                this.f52945g.setClipToPadding(false);
+                int g2 = l.g(this.f52943e.getPageActivity(), R.dimen.ds10);
+                this.f52945g.setPadding(g2, g2, g2, g2);
+                this.f52945g.setSelector(R.drawable.list_selector_transparent);
+                this.m.height = l.g(this.f52943e.getPageActivity(), R.dimen.ds136);
+                this.l.addView(this.f52945g, this.m);
+                if (this.f52946h == null) {
                     d.b.i0.c2.k.e.y0.b bVar = new d.b.i0.c2.k.e.y0.b();
-                    this.f52945h = bVar;
+                    this.f52946h = bVar;
                     bVar.d(this);
-                    this.f52945h.c(this);
-                    this.f52944g.setAdapter((ListAdapter) this.f52945h);
-                    this.f52944g.setOnScrollListener(new b());
+                    this.f52946h.c(this);
+                    this.f52945g.setAdapter((ListAdapter) this.f52946h);
+                    this.f52945g.setOnScrollListener(new b());
                 }
             }
-            this.f52944g.setVisibility(0);
-            this.f52945h.b(list);
-            this.f52945h.notifyDataSetChanged();
-            this.f52944g.setSelection(0);
+            this.f52945g.setVisibility(0);
+            this.f52946h.b(list);
+            this.f52946h.notifyDataSetChanged();
+            this.f52945g.setSelection(0);
             this.k.removeCallbacks(this.p);
             this.k.postDelayed(this.p, 5000L);
         }
@@ -171,7 +171,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
         return true;
     }
 
-    @Override // d.b.i0.c2.k.e.y0.b.InterfaceC1158b
+    @Override // d.b.i0.c2.k.e.y0.b.InterfaceC1159b
     public void e(EmotionImageData emotionImageData) {
         this.k.removeCallbacks(this.p);
         this.k.postDelayed(this.p, 5000L);
@@ -185,7 +185,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
         if (this.o == null) {
             this.o = new GetEmotionPidModel();
         }
-        this.o.t(emotionImageData.getPicUrl(), new C1159c(emotionImageData));
+        this.o.t(emotionImageData.getPicUrl(), new C1160c(emotionImageData));
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.c
@@ -201,7 +201,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
     }
 
     public void m() {
-        HListView hListView = this.f52944g;
+        HListView hListView = this.f52945g;
         if (hListView != null) {
             hListView.setVisibility(8);
         }
@@ -234,7 +234,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
         }
         this.j = str;
         if (this.i == null) {
-            this.i = new QueryMatchEmotionModel(this.f52942e);
+            this.i = new QueryMatchEmotionModel(this.f52943e);
         }
         this.i.v(str, this);
     }
@@ -244,14 +244,14 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1158b, EmotionVi
     }
 
     public void p(String str) {
-        if (TextUtils.isEmpty(str) || ListUtils.isEmpty(this.f52943f) || !this.f52943f.contains(str)) {
+        if (TextUtils.isEmpty(str) || ListUtils.isEmpty(this.f52944f) || !this.f52944f.contains(str)) {
             return;
         }
         o(str);
     }
 
     public void q(List<String> list) {
-        this.f52943f = list;
+        this.f52944f = list;
     }
 
     public void r(EditorTools editorTools) {

@@ -17,17 +17,17 @@ public class a extends d {
 
     /* renamed from: d.b.g0.b.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0899a extends d.b.g0.a.t.b.c {
+    public class C0900a extends d.b.g0.a.t.b.c {
 
         /* renamed from: d.b.g0.b.k.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0900a implements d.b.g0.a.i2.u0.b<h<b.e>> {
+        public class C0901a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f47311e;
+            public final /* synthetic */ c.b f47312e;
 
-            public C0900a(c.b bVar) {
-                this.f47311e = bVar;
+            public C0901a(c.b bVar) {
+                this.f47312e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -35,19 +35,19 @@ public class a extends d {
             /* renamed from: a */
             public void onCallback(h<b.e> hVar) {
                 if (d.b.g0.a.v1.c.c.h(hVar)) {
-                    this.f47311e.a(a.this.s());
+                    this.f47312e.a(a.this.s());
                     return;
                 }
                 int b2 = hVar.b();
                 String f2 = d.b.g0.a.v1.c.c.f(b2);
-                if (d.f45928c) {
+                if (d.f45929c) {
                     Log.e("Api-Base-getBduss", "getBduss failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                this.f47311e.a(new d.b.g0.a.t.e.b(b2, f2));
+                this.f47312e.a(new d.b.g0.a.t.e.b(b2, f2));
             }
         }
 
-        public C0899a(String str) {
+        public C0900a(String str) {
             super(str);
         }
 
@@ -56,12 +56,12 @@ public class a extends d {
         public d.b.g0.a.t.e.b d(@NonNull JSONObject jSONObject, @NonNull c.b bVar) {
             e O = e.O();
             if (O == null) {
-                if (d.f45928c) {
+                if (d.f45929c) {
                     Log.e("Api-Base-getBduss", "getBduss failed: null swan runtime");
                 }
                 return new d.b.g0.a.t.e.b(1001, "null swan runtime");
             }
-            O.R().g(d.b.g0.a.r1.d.e(), "mapp_i_get_bduss", new C0900a(bVar));
+            O.R().g(d.b.g0.a.r1.d.e(), "mapp_i_get_bduss", new C0901a(bVar));
             return new d.b.g0.a.t.e.b(0);
         }
 
@@ -83,7 +83,7 @@ public class a extends d {
 
     @SuppressLint({"SwanBindApiNote"})
     public d.b.g0.a.t.e.b r(String str) {
-        return j(str, new C0899a("getBDUSS"));
+        return j(str, new C0900a("getBDUSS"));
     }
 
     @NonNull
@@ -92,12 +92,12 @@ public class a extends d {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", i);
-            if (d.f45928c) {
+            if (d.f45929c) {
                 Log.d("Api-Base-getBduss", "getBduss success: " + jSONObject.toString());
             }
             return new d.b.g0.a.t.e.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.f45928c) {
+            if (d.f45929c) {
                 Log.e("Api-Base-getBduss", "getBduss failed: JsonException");
                 e2.printStackTrace();
             }

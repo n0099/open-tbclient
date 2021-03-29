@@ -14,41 +14,41 @@ import d.b.h0.r.q.e1;
 public class n0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f52732a;
+    public TbPageContext f52733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52733b;
+    public boolean f52734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e1 f52734c;
+    public e1 f52735c;
 
     public n0(TbPageContext tbPageContext) {
         Uri uri;
-        this.f52733b = false;
-        this.f52732a = tbPageContext;
-        if (tbPageContext.getPageActivity() == null || this.f52732a.getPageActivity().getIntent() == null || (uri = (Uri) this.f52732a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+        this.f52734b = false;
+        this.f52733a = tbPageContext;
+        if (tbPageContext.getPageActivity() == null || this.f52733a.getPageActivity().getIntent() == null || (uri = (Uri) this.f52733a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
             return;
         }
         String queryParameter = uri.getQueryParameter("tid");
         uri.getQueryParameter("eqid");
         e1 e1Var = new e1();
-        this.f52734c = e1Var;
-        e1Var.f50770a = uri.getQueryParameter("tid");
-        this.f52734c.f50771b = uri.getQueryParameter("eqid");
+        this.f52735c = e1Var;
+        e1Var.f50771a = uri.getQueryParameter("tid");
+        this.f52735c.f50772b = uri.getQueryParameter("eqid");
         if (TextUtils.isEmpty(queryParameter) || d.b.b.a.b.f().g() > 3) {
             return;
         }
-        this.f52733b = true;
+        this.f52734b = true;
     }
 
     public void a(PbModel pbModel) {
-        if (!this.f52733b || this.f52734c == null || pbModel == null || pbModel.y0() == null || pbModel.y0().l() == null) {
+        if (!this.f52734b || this.f52735c == null || pbModel == null || pbModel.y0() == null || pbModel.y0().l() == null) {
             return;
         }
         ForumData l = pbModel.y0().l();
-        this.f52734c.f50772c = l.getFirst_class();
-        this.f52734c.f50773d = l.getSecond_class();
-        TbSingleton.getInstance().setPbToHomeUpdateData(this.f52734c);
+        this.f52735c.f50773c = l.getFirst_class();
+        this.f52735c.f50774d = l.getSecond_class();
+        TbSingleton.getInstance().setPbToHomeUpdateData(this.f52735c);
         if (d.b.b.a.b.f().h("MainTabActivity")) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
         } else {

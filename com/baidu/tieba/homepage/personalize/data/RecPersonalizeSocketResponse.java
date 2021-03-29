@@ -8,7 +8,7 @@ import tbclient.Error;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
     public DataRes resultData;
 
@@ -37,10 +37,10 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f63194a = false;
+        i.f63195a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f63194a = true;
+            i.f63195a = true;
             i.a();
             return;
         }

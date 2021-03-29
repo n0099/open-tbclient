@@ -109,7 +109,7 @@ public class NetInfoUtil {
             e2.printStackTrace();
         }
         int networkClassByType = getNetworkClassByType(i);
-        return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3873b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+        return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3874b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
     }
 
     public static boolean is2GNetwork(Context context) {

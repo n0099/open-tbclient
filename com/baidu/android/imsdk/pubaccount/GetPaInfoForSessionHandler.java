@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandler {
     public GetChatObjectInfoForRecordHandler mChatObjectHandler;
     public int mNextTask;

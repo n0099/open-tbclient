@@ -21,16 +21,16 @@ public class a implements b, h {
     public static final Wire i = new Wire(new Class[0]);
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f57899e = new ArrayList<>();
+    public ArrayList<n> f57900e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, MetaData> f57900f = new HashMap<>();
+    public HashMap<String, MetaData> f57901f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57901g;
+    public boolean f57902g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57902h;
+    public int f57903h;
 
     public StarTrendsResIdl b(byte[] bArr) {
         if (bArr == null) {
@@ -59,7 +59,7 @@ public class a implements b, h {
                     metaData.parserProtobuf(user);
                     String userId = metaData.getUserId();
                     if (userId != null && !"0".equals(userId)) {
-                        this.f57900f.put(userId, metaData);
+                        this.f57901f.put(userId, metaData);
                     }
                 }
             }
@@ -68,18 +68,18 @@ public class a implements b, h {
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 if (threadInfo != null) {
                     a2 a2Var = new a2();
-                    a2Var.p4(this.f57900f);
+                    a2Var.p4(this.f57901f);
                     a2Var.Q2(threadInfo);
                     a2Var.U2();
                     a2Var.J1();
                     if (a2Var.getType() == a2.H2 || a2Var.getType() == a2.d3 || a2Var.getType() == a2.j3 || a2Var.getType() == a2.e3 || a2Var.getType() == a2.n3 || a2Var.getType() == a2.o3) {
-                        this.f57899e.add(a2Var);
+                        this.f57900e.add(a2Var);
                     }
                 }
             }
         }
-        d.b.h0.b.f.a.d(this.f57899e);
-        this.f57901g = dataRes.has_more.intValue() == 1;
+        d.b.h0.b.f.a.d(this.f57900e);
+        this.f57902g = dataRes.has_more.intValue() == 1;
     }
 
     @Override // d.b.h0.g0.b.c

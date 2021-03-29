@@ -58,7 +58,7 @@ public class g extends d.b.i0.p0.k<h, FrsMemberHeaderViewHolder> {
                         }
                     } else if (view.getId() == R.id.user_level_name) {
                         String a3 = hVar.a();
-                        g.this.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(g.this.f42357e, hVar.e(), a3)));
+                        g.this.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(g.this.f42358e, hVar.e(), a3)));
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class g extends d.b.i0.p0.k<h, FrsMemberHeaderViewHolder> {
         if (this.w == null) {
             B0();
         }
-        return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.z);
+        return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.z);
     }
 
     public View D0(int i, View view, ViewGroup viewGroup, h hVar, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
@@ -126,15 +126,15 @@ public class g extends d.b.i0.p0.k<h, FrsMemberHeaderViewHolder> {
             w f2 = hVar.f();
             if (TbadkCoreApplication.isLogin()) {
                 if (f2.l() == 1) {
-                    frsMemberHeaderViewHolder.f15920a.setVisibility(8);
-                    frsMemberHeaderViewHolder.f15921b.setVisibility(0);
-                    frsMemberHeaderViewHolder.f15921b.setText(R.string.mydegree);
-                    SkinManager.setImageResource(frsMemberHeaderViewHolder.f15922c, BitmapHelper.getSmallGradeResourceIdNew(f2.k()));
+                    frsMemberHeaderViewHolder.f15921a.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15922b.setVisibility(0);
+                    frsMemberHeaderViewHolder.f15922b.setText(R.string.mydegree);
+                    SkinManager.setImageResource(frsMemberHeaderViewHolder.f15923c, BitmapHelper.getSmallGradeResourceIdNew(f2.k()));
                     if (StringUtils.isNull(f2.h())) {
-                        frsMemberHeaderViewHolder.f15923d.setVisibility(8);
+                        frsMemberHeaderViewHolder.f15924d.setVisibility(8);
                     } else {
-                        frsMemberHeaderViewHolder.f15923d.setText(f2.h());
-                        frsMemberHeaderViewHolder.f15923d.setVisibility(0);
+                        frsMemberHeaderViewHolder.f15924d.setText(f2.h());
+                        frsMemberHeaderViewHolder.f15924d.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     SpannableString spannableString = new SpannableString(f2.c() + "");
@@ -143,38 +143,38 @@ public class g extends d.b.i0.p0.k<h, FrsMemberHeaderViewHolder> {
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
-                    frsMemberHeaderViewHolder.f15926g.setText(spannableStringBuilder);
-                    frsMemberHeaderViewHolder.f15926g.setVisibility(0);
+                    frsMemberHeaderViewHolder.f15927g.setText(spannableStringBuilder);
+                    frsMemberHeaderViewHolder.f15927g.setVisibility(0);
                     frsMemberHeaderViewHolder.k.setVisibility(0);
                     frsMemberHeaderViewHolder.l.setVisibility(0);
                 } else {
-                    frsMemberHeaderViewHolder.f15920a.setVisibility(0);
-                    frsMemberHeaderViewHolder.f15921b.setVisibility(8);
-                    frsMemberHeaderViewHolder.f15922c.setVisibility(8);
-                    frsMemberHeaderViewHolder.f15923d.setVisibility(8);
-                    frsMemberHeaderViewHolder.f15926g.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15921a.setVisibility(0);
+                    frsMemberHeaderViewHolder.f15922b.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15923c.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15924d.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15927g.setVisibility(8);
                     frsMemberHeaderViewHolder.k.setVisibility(8);
                     frsMemberHeaderViewHolder.l.setVisibility(8);
                 }
             } else {
-                frsMemberHeaderViewHolder.f15920a.setVisibility(8);
-                frsMemberHeaderViewHolder.f15921b.setVisibility(8);
-                frsMemberHeaderViewHolder.f15922c.setVisibility(8);
-                frsMemberHeaderViewHolder.f15923d.setVisibility(8);
-                frsMemberHeaderViewHolder.f15926g.setVisibility(8);
+                frsMemberHeaderViewHolder.f15921a.setVisibility(8);
+                frsMemberHeaderViewHolder.f15922b.setVisibility(8);
+                frsMemberHeaderViewHolder.f15923c.setVisibility(8);
+                frsMemberHeaderViewHolder.f15924d.setVisibility(8);
+                frsMemberHeaderViewHolder.f15927g.setVisibility(8);
                 frsMemberHeaderViewHolder.k.setVisibility(8);
                 frsMemberHeaderViewHolder.l.setVisibility(8);
             }
-            frsMemberHeaderViewHolder.f15920a.setTag(Integer.valueOf(i));
-            frsMemberHeaderViewHolder.f15923d.setTag(Integer.valueOf(i));
-            frsMemberHeaderViewHolder.f15923d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15927h, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15924e, R.color.CAM_X0204);
+            frsMemberHeaderViewHolder.f15921a.setTag(Integer.valueOf(i));
+            frsMemberHeaderViewHolder.f15924d.setTag(Integer.valueOf(i));
+            frsMemberHeaderViewHolder.f15924d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15928h, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15925e, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.i, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.f15920a, R.drawable.frs_btn_like);
-            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15920a, R.color.white_alpha100, 1);
-            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15921b, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15923d, R.color.CAM_X0109, 1);
+            SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.f15921a, R.drawable.frs_btn_like);
+            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15921a, R.color.white_alpha100, 1);
+            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15922b, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15924d, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.forum_member_exp_progress);
             SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);

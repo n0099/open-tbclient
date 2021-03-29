@@ -6,17 +6,17 @@ import android.os.Looper;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f62670a;
+    public static Handler f62671a;
 
     public static Handler a() {
-        if (f62670a == null) {
+        if (f62671a == null) {
             synchronized (f.class) {
-                if (f62670a == null) {
-                    f62670a = new Handler(Looper.getMainLooper());
+                if (f62671a == null) {
+                    f62671a = new Handler(Looper.getMainLooper());
                 }
             }
         }
-        return f62670a;
+        return f62671a;
     }
 
     public static void b(Runnable runnable) {

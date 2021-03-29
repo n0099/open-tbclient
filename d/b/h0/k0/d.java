@@ -6,25 +6,25 @@ import java.util.List;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f50239b;
+    public List<String> f50240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50240c;
+    public String f50241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f50241d;
+    public long f50242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f50242e;
+    public long f50243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50243f;
+    public String f50244f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50244g;
+    public long f50245g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f50245h;
+    public long f50246h;
     public String i;
     public String j;
     public String k;
@@ -37,7 +37,7 @@ public class d {
     public d.b.h0.i0.c s;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50238a = false;
+    public boolean f50239a = false;
     public int r = 0;
 
     public String a() {
@@ -49,15 +49,15 @@ public class d {
     }
 
     public String c() {
-        return this.f50240c;
+        return this.f50241c;
     }
 
     public long d() {
-        return this.f50241d;
+        return this.f50242d;
     }
 
     public String e() {
-        return this.f50243f;
+        return this.f50244f;
     }
 
     public String f() {
@@ -65,15 +65,15 @@ public class d {
     }
 
     public long g() {
-        return this.f50244g;
+        return this.f50245g;
     }
 
     public List<String> h() {
-        return this.f50239b;
+        return this.f50240b;
     }
 
     public long i() {
-        return this.f50245h;
+        return this.f50246h;
     }
 
     public String j() {
@@ -85,11 +85,11 @@ public class d {
     }
 
     public long l() {
-        return this.f50242e;
+        return this.f50243e;
     }
 
     public boolean m() {
-        return StringUtils.isNull(this.f50240c);
+        return StringUtils.isNull(this.f50241c);
     }
 
     public void n(String str) {
@@ -101,15 +101,15 @@ public class d {
     }
 
     public void p(String str) {
-        this.f50240c = str;
+        this.f50241c = str;
     }
 
     public void q(long j) {
-        this.f50241d = j;
+        this.f50242d = j;
     }
 
     public void r(String str) {
-        this.f50243f = str;
+        this.f50244f = str;
     }
 
     public void s(String str) {
@@ -117,15 +117,15 @@ public class d {
     }
 
     public void t(long j) {
-        this.f50244g = j;
+        this.f50245g = j;
     }
 
     public void u(List<String> list) {
-        this.f50239b = list;
+        this.f50240b = list;
     }
 
     public void v(long j) {
-        this.f50245h = j;
+        this.f50246h = j;
     }
 
     public void w(String str) {
@@ -137,6 +137,6 @@ public class d {
     }
 
     public void y(long j) {
-        this.f50242e = j;
+        this.f50243e = j;
     }
 }

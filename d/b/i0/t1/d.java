@@ -7,23 +7,23 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class d {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f61095a;
+        public long f61096a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f61096b;
+        public long f61097b;
     }
 
     public static long a(RandomAccessFile randomAccessFile, a aVar) throws IOException {
         CRC32 crc32 = new CRC32();
-        long j = aVar.f61096b;
-        randomAccessFile.seek(aVar.f61095a);
+        long j = aVar.f61097b;
+        randomAccessFile.seek(aVar.f61096a);
         int min = (int) Math.min(16384L, j);
         byte[] bArr = new byte[16384];
         while (true) {
@@ -55,8 +55,8 @@ public final class d {
                     randomAccessFile.skipBytes(2);
                     randomAccessFile.skipBytes(2);
                     a aVar = new a();
-                    aVar.f61096b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                    aVar.f61095a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                    aVar.f61097b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                    aVar.f61096a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                     return aVar;
                 }
                 length--;
@@ -67,7 +67,7 @@ public final class d {
     }
 
     public static long c(File file) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7663a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7664a);
         try {
             return a(randomAccessFile, b(randomAccessFile));
         } finally {

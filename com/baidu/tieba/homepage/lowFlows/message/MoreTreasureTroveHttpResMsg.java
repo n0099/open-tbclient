@@ -9,7 +9,7 @@ import d.b.i0.z0.f.h.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements a {
     public List<n> mMoreTreasureTroveDataList;
 

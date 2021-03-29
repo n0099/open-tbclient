@@ -7,7 +7,7 @@ import tbclient.Error;
 import tbclient.RedNotify.DataRes;
 import tbclient.RedNotify.RedNotify;
 import tbclient.RedNotify.RedNotifyResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
     public boolean isShowRedNotify;
 

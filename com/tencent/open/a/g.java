@@ -9,32 +9,32 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentLinkedQueue<String> f39215a;
+    public ConcurrentLinkedQueue<String> f39216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f39216b;
+    public AtomicInteger f39217b;
 
     public g() {
-        this.f39215a = null;
-        this.f39216b = null;
-        this.f39215a = new ConcurrentLinkedQueue<>();
-        this.f39216b = new AtomicInteger(0);
+        this.f39216a = null;
+        this.f39217b = null;
+        this.f39216a = new ConcurrentLinkedQueue<>();
+        this.f39217b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f39215a.add(str);
-        return this.f39216b.addAndGet(length);
+        this.f39216a.add(str);
+        return this.f39217b.addAndGet(length);
     }
 
     public void b() {
-        this.f39215a.clear();
-        this.f39216b.set(0);
+        this.f39216a.clear();
+        this.f39217b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f39215a.iterator();
+        return this.f39216a.iterator();
     }
 
     public void a(Writer writer, char[] cArr) throws IOException {
@@ -73,6 +73,6 @@ public class g implements Iterable<String> {
     }
 
     public int a() {
-        return this.f39216b.get();
+        return this.f39217b.get();
     }
 }

@@ -21,43 +21,43 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class y extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46567e;
+        public final /* synthetic */ CallbackHandler f46568e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46568f;
+        public final /* synthetic */ String f46569f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46569g;
+        public final /* synthetic */ Context f46570g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f46570h;
+        public final /* synthetic */ File f46571h;
         public final /* synthetic */ UnitedSchemeEntity i;
 
         /* renamed from: d.b.g0.a.t1.k.y$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0847a implements Runnable {
-            public RunnableC0847a() {
+        /* loaded from: classes2.dex */
+        public class RunnableC0848a implements Runnable {
+            public RunnableC0848a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a aVar = a.this;
-                y.this.p(aVar.f46569g, aVar.f46570h, aVar.i, aVar.f46567e, aVar.f46568f);
+                y.this.p(aVar.f46570g, aVar.f46571h, aVar.i, aVar.f46568e, aVar.f46569f);
             }
         }
 
         public a(CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f46567e = callbackHandler;
-            this.f46568f = str;
-            this.f46569g = context;
-            this.f46570h = file;
+            this.f46568e = callbackHandler;
+            this.f46569f = str;
+            this.f46570g = context;
+            this.f46571h = file;
             this.i = unitedSchemeEntity;
         }
 
@@ -67,57 +67,57 @@ public class y extends a0 {
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
                 d.b.g0.a.c0.c.g("SaveImage", "Permission denied");
-                d.b.g0.a.v1.c.c.o(hVar, this.f46567e, this.f46568f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f46568e, this.f46569f);
                 return;
             }
-            d.b.g0.a.i2.p.k(new RunnableC0847a(), "SaveImageAction");
+            d.b.g0.a.i2.p.k(new RunnableC0848a(), "SaveImageAction");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f46572a;
+        public final /* synthetic */ Context f46573a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f46573b;
+        public final /* synthetic */ File f46574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46574c;
+        public final /* synthetic */ CallbackHandler f46575c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f46575d;
+        public final /* synthetic */ String f46576d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46576e;
+        public final /* synthetic */ UnitedSchemeEntity f46577e;
 
         public b(Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f46572a = context;
-            this.f46573b = file;
-            this.f46574c = callbackHandler;
-            this.f46575d = str;
-            this.f46576e = unitedSchemeEntity;
+            this.f46573a = context;
+            this.f46574b = file;
+            this.f46575c = callbackHandler;
+            this.f46576d = str;
+            this.f46577e = unitedSchemeEntity;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
             String str2;
-            boolean q = d.b.g0.a.i2.c.a() ? y.this.q(this.f46572a, this.f46573b) : y.this.r(this.f46572a, this.f46573b);
+            boolean q = d.b.g0.a.i2.c.a() ? y.this.q(this.f46573a, this.f46574b) : y.this.r(this.f46573a, this.f46574b);
             int i = q ? 0 : 1001;
             if (q) {
                 str2 = "save success";
             } else {
-                str2 = "can not save to album : " + this.f46573b;
+                str2 = "can not save to album : " + this.f46574b;
             }
             d.b.g0.a.c0.c.g("SaveImage", str2);
-            this.f46574c.handleSchemeDispatchCallback(this.f46575d, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString());
+            this.f46575c.handleSchemeDispatchCallback(this.f46576d, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString());
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
             d.b.g0.a.c0.c.g("SaveImage", str + "");
-            UnitedSchemeUtility.safeCallback(this.f46574c, this.f46576e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f46575d);
+            UnitedSchemeUtility.safeCallback(this.f46575c, this.f46577e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f46576d);
         }
     }
 
@@ -125,8 +125,8 @@ public class y extends a0 {
         super(jVar, "/swanAPI/saveImageToPhotosAlbum");
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0024 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0007 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0007 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:7:0x0022 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v0, types: [android.net.Uri] */
@@ -170,7 +170,7 @@ public class y extends a0 {
             } catch (SQLException e3) {
                 e = e3;
                 uri = uri;
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     e.printStackTrace();
                     uri = uri;
                 }
@@ -213,7 +213,7 @@ public class y extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + n);
             return false;
         } catch (Exception e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
             d.b.g0.a.c0.c.b("SaveImage", "Illegal file_path");
@@ -256,7 +256,7 @@ public class y extends a0 {
         try {
             str = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
         } catch (FileNotFoundException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
             str = null;
@@ -267,7 +267,7 @@ public class y extends a0 {
                 s(context, new File(o));
             }
         }
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("SaveImageAction", "saveToAlbum : file = " + file);
             Log.i("SaveImageAction", "saveToAlbum : image = " + str);
         }

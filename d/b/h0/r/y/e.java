@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f51077a = new b();
+    public static final c f51078a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f51078b = new d();
+    public static final c f51079b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f51079c;
+    public static final boolean f51080c;
 
     /* loaded from: classes3.dex */
     public static final class b implements c {
@@ -53,12 +53,12 @@ public class e {
     }
 
     static {
-        f51079c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        f51080c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 
     public static void a(String str) {
-        if (f51079c) {
-            f51077a.a(null, null, str);
+        if (f51080c) {
+            f51078a.a(null, null, str);
         }
     }
 
@@ -67,9 +67,9 @@ public class e {
     }
 
     public static void c(String str, String str2, String str3) {
-        if (f51079c) {
-            f51077a.a(str, str2, str3);
+        if (f51080c) {
+            f51078a.a(str, str2, str3);
         }
-        f51078b.a(str, str2, str3);
+        f51079b.a(str, str2, str3);
     }
 }

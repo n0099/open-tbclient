@@ -16,7 +16,7 @@ import d.b.d0.a.b.b;
 import d.b.d0.a.b.c;
 import d.b.d0.a.b.d;
 import d.f.b.a.j.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LooperRuntime {
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT = new ILooperUIContext() { // from class: com.baidu.searchbox.looper.impl.LooperRuntime.1
         @Override // com.baidu.searchbox.looper.ioc.ILooperUIContext

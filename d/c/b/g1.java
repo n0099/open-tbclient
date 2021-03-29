@@ -8,10 +8,10 @@ public interface g1 {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f64995a;
+        public String f64996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f64996b;
+        public boolean f64997b;
     }
 
     boolean a(Context context);

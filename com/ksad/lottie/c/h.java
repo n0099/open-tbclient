@@ -7,7 +7,7 @@ import com.baidu.mobstat.Config;
 public class h implements aj<com.ksad.lottie.model.b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f31337a = new h();
+    public static final h f31338a = new h();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

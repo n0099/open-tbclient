@@ -24,19 +24,19 @@ import java.io.Serializable;
 public class PayTypeItemView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f26418a;
+    public NetImageView f26419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26419b;
+    public TextView f26420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f26420c;
+    public BorderTipTextView f26421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26421d;
+    public TextView f26422d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f26422e;
+    public ImageView f26423e;
     public Context mContext;
     public PayTypeItemViewData mData;
     public ProgressBar mProgress;
@@ -110,11 +110,11 @@ public class PayTypeItemView extends RelativeLayout {
         ProgressBar progressBar = (ProgressBar) inflate.findViewById(ResUtils.id(getContext(), "ebpay_mini_progress_bar"));
         this.mProgress = progressBar;
         progressBar.setVisibility(8);
-        this.f26422e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
-        this.f26418a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
-        this.f26419b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
+        this.f26423e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
+        this.f26419a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
+        this.f26420b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
         if (!TextUtils.isEmpty(payTypeItemViewData.name)) {
-            this.f26419b.setText(payTypeItemViewData.name);
+            this.f26420b.setText(payTypeItemViewData.name);
         }
         TextView textView = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_free_amount"));
         if (ItemViewType.BANKCARD == payTypeItemViewData.type) {
@@ -128,64 +128,64 @@ public class PayTypeItemView extends RelativeLayout {
             z = false;
         }
         inflate.findViewById(ResUtils.id(getContext(), "paytype_recommended")).setVisibility(payTypeItemViewData.isRecommended ? 0 : 4);
-        this.f26420c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
+        this.f26421c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
         if (!TextUtils.isEmpty(payTypeItemViewData.tips) && (!z || !payTypeItemViewData.tips.equals(textView.getText()))) {
-            this.f26420c.setVisibility(0);
+            this.f26421c.setVisibility(0);
             if (payTypeItemViewData.isNeedToColored()) {
                 a(payTypeItemViewData, onClickListener);
             } else {
-                this.f26420c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
+                this.f26421c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
             }
         } else {
-            this.f26420c.setVisibility(8);
+            this.f26421c.setVisibility(8);
         }
-        this.f26421d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
+        this.f26422d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
         if (!TextUtils.isEmpty(payTypeItemViewData.hintMsg)) {
-            this.f26421d.setVisibility(0);
-            this.f26421d.setText(payTypeItemViewData.hintMsg);
-            LinearLayout linearLayout = (LinearLayout) this.f26421d.getParent();
+            this.f26422d.setVisibility(0);
+            this.f26422d.setText(payTypeItemViewData.hintMsg);
+            LinearLayout linearLayout = (LinearLayout) this.f26422d.getParent();
             linearLayout.setPadding(linearLayout.getPaddingLeft(), linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), 0);
             if (onClickListener2 != null) {
-                this.f26421d.setOnClickListener(onClickListener2);
+                this.f26422d.setOnClickListener(onClickListener2);
             }
         } else {
-            this.f26421d.setVisibility(8);
+            this.f26422d.setVisibility(8);
         }
         ItemViewType itemViewType = payTypeItemViewData.type;
         if (itemViewType == ItemViewType.ADD_NEWCARD) {
-            this.f26422e.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_item_right_arrow"));
-            this.f26422e.setVisibility(0);
-            this.f26418a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
-            this.f26420c.setVisibility(8);
+            this.f26423e.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_item_right_arrow"));
+            this.f26423e.setVisibility(0);
+            this.f26419a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
+            this.f26421c.setVisibility(8);
         } else if (itemViewType == ItemViewType.BALANCE) {
-            this.f26418a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_balance"));
+            this.f26419a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_balance"));
         } else if (itemViewType == ItemViewType.CREDIT) {
-            this.f26418a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_credit"));
+            this.f26419a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_credit"));
         } else if (itemViewType == ItemViewType.BANKCARD && !TextUtils.isEmpty(payTypeItemViewData.logoUrl)) {
-            this.f26418a.setImageUrl(payTypeItemViewData.logoUrl);
+            this.f26419a.setImageUrl(payTypeItemViewData.logoUrl);
         }
         if (payTypeItemViewData.isAvaible) {
             ViewHelper.setAlpha(inflate, 1.0f);
             if (payTypeItemViewData.type == ItemViewType.ADD_NEWCARD) {
-                this.f26422e.setVisibility(0);
+                this.f26423e.setVisibility(0);
                 return;
             } else if (payTypeItemViewData.isChecked) {
-                this.f26422e.setVisibility(0);
-                this.f26422e.setSelected(true);
+                this.f26423e.setVisibility(0);
+                this.f26423e.setSelected(true);
                 return;
             } else {
-                this.f26422e.setSelected(false);
-                this.f26422e.setVisibility(4);
+                this.f26423e.setSelected(false);
+                this.f26423e.setVisibility(4);
                 return;
             }
         }
-        ViewHelper.setAlphaPartly(inflate, 0.4f, this.f26420c);
+        ViewHelper.setAlphaPartly(inflate, 0.4f, this.f26421c);
         if (payTypeItemViewData.isNeedToColored()) {
             inflate.setEnabled(false);
         } else {
             inflate.setEnabled(true);
         }
-        this.f26422e.setVisibility(8);
+        this.f26423e.setVisibility(8);
     }
 
     public static PayTypeItemView generateItemView(Context context, PayTypeItemViewData payTypeItemViewData, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
@@ -198,7 +198,7 @@ public class PayTypeItemView extends RelativeLayout {
     }
 
     public void setItemState(boolean z) {
-        this.f26422e.setVisibility(8);
+        this.f26423e.setVisibility(8);
         if (z) {
             this.mProgress.setVisibility(0);
         } else {
@@ -228,13 +228,13 @@ public class PayTypeItemView extends RelativeLayout {
         }, startIndex, i, 18);
         spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.mContext, "wallet_base_mainColor")), startIndex, i, 18);
         if (!TextUtils.isEmpty(payTypeItemViewData.jump_url)) {
-            this.f26420c.setClickable(true);
-            this.f26420c.setEnabled(true);
+            this.f26421c.setClickable(true);
+            this.f26421c.setEnabled(true);
         } else {
-            this.f26420c.setClickable(false);
-            this.f26420c.setEnabled(false);
+            this.f26421c.setClickable(false);
+            this.f26421c.setEnabled(false);
         }
-        this.f26420c.setMovementMethod(new LinkNoScrollMovementMethod());
-        this.f26420c.setText(spannableString);
+        this.f26421c.setMovementMethod(new LinkNoScrollMovementMethod());
+        this.f26421c.setText(spannableString);
     }
 }

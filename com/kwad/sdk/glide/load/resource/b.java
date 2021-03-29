@@ -9,11 +9,11 @@ import java.security.MessageDigest;
 public final class b<T> implements h<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h<?> f35631b = new b();
+    public static final h<?> f35632b = new b();
 
     @NonNull
     public static <T> b<T> a() {
-        return (b) f35631b;
+        return (b) f35632b;
     }
 
     @Override // com.kwad.sdk.glide.load.h

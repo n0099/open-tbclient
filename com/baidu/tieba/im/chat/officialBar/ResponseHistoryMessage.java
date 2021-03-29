@@ -10,25 +10,25 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public List<a> msg;
     public int msgCount;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17881a;
+        public String f17882a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17882b;
+        public int f17883b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17883c;
+        public String f17884c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17884d;
+        public int f17885d;
     }
 
     public ResponseHistoryMessage() {
@@ -59,10 +59,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aVar.f17881a = k.getDateStringMouth(date);
-                    aVar.f17882b = msgInfo.type.intValue();
-                    aVar.f17883c = msgInfo.content;
-                    aVar.f17884d = msgInfo.id.intValue();
+                    aVar.f17882a = k.getDateStringMouth(date);
+                    aVar.f17883b = msgInfo.type.intValue();
+                    aVar.f17884c = msgInfo.content;
+                    aVar.f17885d = msgInfo.id.intValue();
                     this.msg.add(aVar);
                 }
             }

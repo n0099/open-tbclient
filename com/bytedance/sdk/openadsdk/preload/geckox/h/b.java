@@ -3,18 +3,18 @@ package com.bytedance.sdk.openadsdk.preload.geckox.h;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30294a = false;
+    public static boolean f30295a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f30295b = new a();
+    public static c f30296b = new a();
 
     public static void a() {
-        f30294a = true;
+        f30295a = true;
     }
 
     public static void b(String str, String str2, Throwable th) {
         c cVar;
-        if (!f30294a || (cVar = f30295b) == null) {
+        if (!f30295a || (cVar = f30296b) == null) {
             return;
         }
         cVar.b(str, str2, th);
@@ -22,7 +22,7 @@ public class b {
 
     public static void a(String str, Object... objArr) {
         c cVar;
-        if (!f30294a || (cVar = f30295b) == null) {
+        if (!f30295a || (cVar = f30296b) == null) {
             return;
         }
         cVar.a(str, objArr);
@@ -30,7 +30,7 @@ public class b {
 
     public static void a(String str, String str2, Throwable th) {
         c cVar;
-        if (!f30294a || (cVar = f30295b) == null) {
+        if (!f30295a || (cVar = f30296b) == null) {
             return;
         }
         cVar.a(str, str2, th);

@@ -3,11 +3,7 @@ package d.a.a;
 import android.graphics.Typeface;
 /* loaded from: classes.dex */
 public class a {
-    public Typeface a(String str) {
-        throw null;
-    }
+    public abstract Typeface a(String str);
 
-    public String b(String str) {
-        throw null;
-    }
+    public abstract String b(String str);
 }

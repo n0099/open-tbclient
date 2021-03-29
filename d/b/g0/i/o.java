@@ -6,68 +6,68 @@ import android.graphics.drawable.Drawable;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48861a;
+    public int f48862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48862b;
+    public int f48863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48863c;
+    public int f48864c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48864d;
+    public String f48865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f48865e;
+    public Drawable f48866e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48867g;
+    public boolean f48868g;
     public e l;
     public d.b.g0.i.r.b m;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48866f = true;
+    public boolean f48867f = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48868h = 0;
+    public int f48869h = 0;
     public int i = -1;
     public int j = 0;
     public long k = 0;
 
     public o(int i, int i2, int i3, boolean z) {
-        this.f48862b = -1;
-        this.f48863c = -1;
-        this.f48867g = true;
-        this.f48861a = i;
-        this.f48862b = i2;
-        this.f48863c = i3;
-        this.f48867g = z;
+        this.f48863b = -1;
+        this.f48864c = -1;
+        this.f48868g = true;
+        this.f48862a = i;
+        this.f48863b = i2;
+        this.f48864c = i3;
+        this.f48868g = z;
     }
 
     public static o l(o oVar) {
         if (oVar == null) {
             return null;
         }
-        return new o(oVar.f48861a, oVar.f48862b, oVar.f48863c, oVar.f48867g);
+        return new o(oVar.f48862a, oVar.f48863b, oVar.f48864c, oVar.f48868g);
     }
 
     public Drawable a(Context context) {
-        Drawable drawable = this.f48865e;
+        Drawable drawable = this.f48866e;
         if (drawable != null) {
             return drawable;
         }
-        if (this.f48863c <= 0) {
+        if (this.f48864c <= 0) {
             return null;
         }
-        return context.getResources().getDrawable(this.f48863c);
+        return context.getResources().getDrawable(this.f48864c);
     }
 
     public int b() {
-        return this.f48868h;
+        return this.f48869h;
     }
 
     public int c() {
-        return this.f48861a;
+        return this.f48862a;
     }
 
     public d.b.g0.i.r.b d() {
@@ -87,14 +87,14 @@ public class o {
     }
 
     public String h(Context context) {
-        String str = this.f48864d;
+        String str = this.f48865d;
         if (str != null) {
             return str;
         }
-        if (this.f48862b <= 0) {
+        if (this.f48863b <= 0) {
             return null;
         }
-        return context.getResources().getString(this.f48862b);
+        return context.getResources().getString(this.f48863b);
     }
 
     public int i() {
@@ -103,15 +103,15 @@ public class o {
     }
 
     public boolean j() {
-        return this.f48867g;
+        return this.f48868g;
     }
 
     public boolean k() {
-        return this.f48866f;
+        return this.f48867f;
     }
 
     public void m(int i) {
-        this.f48863c = i;
+        this.f48864c = i;
     }
 
     public void n(long j) {
@@ -127,6 +127,6 @@ public class o {
     }
 
     public void q(int i) {
-        this.f48862b = i;
+        this.f48863b = i;
     }
 }

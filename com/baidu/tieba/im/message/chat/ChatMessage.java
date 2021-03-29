@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class ChatMessage extends TbSocketMessage implements a, n {
     public long bornTime;
     public transient MsgCacheData cacheData;

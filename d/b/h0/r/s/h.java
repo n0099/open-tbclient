@@ -16,28 +16,28 @@ public class h implements k {
     public static final int r = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds231);
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51001a;
+    public int f51002a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f51002b;
+    public l f51003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f51003c;
+    public View f51004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f51004d;
+    public EMTextView f51005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f51005e;
+    public View f51006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f51006f;
+    public ImageView f51007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f51007g;
+    public Drawable f51008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51008h;
+    public String f51009h;
     public int i;
     public int j;
     public int k;
@@ -57,10 +57,10 @@ public class h implements k {
             if (h.this.l != null) {
                 h.this.l.onClick();
             }
-            if (h.this.f51002b == null || h.this.f51002b.e() == null) {
+            if (h.this.f51003b == null || h.this.f51003b.e() == null) {
                 return;
             }
-            h.this.f51002b.e().onItemClick(h.this.f51002b, h.this.f51001a, h.this.f51004d);
+            h.this.f51003b.e().onItemClick(h.this.f51003b, h.this.f51002a, h.this.f51005d);
         }
     }
 
@@ -70,10 +70,10 @@ public class h implements k {
 
     @Override // d.b.h0.r.s.k
     public void a() {
-        SkinManager.setBackgroundResource(this.f51004d, this.j);
-        SkinManager.setViewTextColorSelector(this.f51004d, this.i);
-        SkinManager.setBackgroundColor(this.f51005e, R.color.CAM_X0204);
-        MaskView.b(this.f51004d, this.n);
+        SkinManager.setBackgroundResource(this.f51005d, this.j);
+        SkinManager.setViewTextColorSelector(this.f51005d, this.i);
+        SkinManager.setBackgroundColor(this.f51006e, R.color.CAM_X0204);
+        MaskView.b(this.f51005d, this.n);
     }
 
     public void e() {
@@ -81,62 +81,62 @@ public class h implements k {
     }
 
     public int f() {
-        return this.f51001a;
+        return this.f51002a;
     }
 
     public String g() {
-        return this.f51008h;
+        return this.f51009h;
     }
 
     @Override // d.b.h0.r.s.k
     public View getView() {
-        return this.f51003c;
+        return this.f51004c;
     }
 
     public final void h() {
-        l lVar = this.f51002b;
+        l lVar = this.f51003b;
         if (lVar == null || lVar.d() == null) {
             return;
         }
-        View inflate = LayoutInflater.from(this.f51002b.d()).inflate(R.layout.popup_dialog_view_horizal_item, this.f51002b.g(), false);
-        this.f51003c = inflate;
+        View inflate = LayoutInflater.from(this.f51003b.d()).inflate(R.layout.popup_dialog_view_horizal_item, this.f51003b.g(), false);
+        this.f51004c = inflate;
         inflate.getLayoutParams().width = this.o ? r : q;
-        Object tag = this.f51004d.getTag();
-        EMTextView eMTextView = (EMTextView) this.f51003c.findViewById(R.id.item_view);
-        this.f51004d = eMTextView;
-        eMTextView.setText(this.f51008h);
-        this.f51004d.setGravity(this.k);
-        this.f51004d.setTag(tag);
-        View findViewById = this.f51003c.findViewById(R.id.divider_line);
-        this.f51005e = findViewById;
+        Object tag = this.f51005d.getTag();
+        EMTextView eMTextView = (EMTextView) this.f51004c.findViewById(R.id.item_view);
+        this.f51005d = eMTextView;
+        eMTextView.setText(this.f51009h);
+        this.f51005d.setGravity(this.k);
+        this.f51005d.setTag(tag);
+        View findViewById = this.f51004c.findViewById(R.id.divider_line);
+        this.f51006e = findViewById;
         findViewById.setVisibility(8);
-        ImageView imageView = (ImageView) this.f51003c.findViewById(R.id.item_image);
-        this.f51006f = imageView;
-        imageView.setImageDrawable(this.f51007g);
+        ImageView imageView = (ImageView) this.f51004c.findViewById(R.id.item_image);
+        this.f51007f = imageView;
+        imageView.setImageDrawable(this.f51008g);
         a();
-        this.f51003c.setOnClickListener(this.p);
+        this.f51004c.setOnClickListener(this.p);
     }
 
     public final void i() {
-        EMTextView eMTextView = this.f51004d;
+        EMTextView eMTextView = this.f51005d;
         if (eMTextView != null) {
             eMTextView.setOnClickListener(this.p);
         }
     }
 
     public final void j() {
-        l lVar = this.f51002b;
+        l lVar = this.f51003b;
         if (lVar == null || lVar.d() == null) {
             return;
         }
-        View inflate = LayoutInflater.from(this.f51002b.d()).inflate(R.layout.popup_dialog_view_item, this.f51002b.g(), false);
-        this.f51003c = inflate;
+        View inflate = LayoutInflater.from(this.f51003b.d()).inflate(R.layout.popup_dialog_view_item, this.f51003b.g(), false);
+        this.f51004c = inflate;
         EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.item_view);
-        this.f51004d = eMTextView;
-        eMTextView.setText(this.f51008h);
-        this.f51004d.setGravity(this.k);
-        View findViewById = this.f51003c.findViewById(R.id.divider_line);
-        this.f51005e = findViewById;
+        this.f51005d = eMTextView;
+        eMTextView.setText(this.f51009h);
+        this.f51005d.setGravity(this.k);
+        View findViewById = this.f51004c.findViewById(R.id.divider_line);
+        this.f51006e = findViewById;
         if (this.m) {
             findViewById.setVisibility(0);
         } else {
@@ -150,7 +150,7 @@ public class h implements k {
     }
 
     public void l(Drawable drawable) {
-        this.f51007g = drawable;
+        this.f51008g = drawable;
     }
 
     public void m(l.d dVar) {
@@ -159,18 +159,18 @@ public class h implements k {
     }
 
     public void n(String str) {
-        this.f51008h = str;
-        this.f51004d.setText(str);
+        this.f51009h = str;
+        this.f51005d.setText(str);
     }
 
     public void o(int i) {
         this.i = i;
-        SkinManager.setViewTextColor(this.f51004d, i);
+        SkinManager.setViewTextColor(this.f51005d, i);
     }
 
     public void p(boolean z) {
         this.n = z;
-        MaskView.b(this.f51004d, z);
+        MaskView.b(this.f51005d, z);
     }
 
     public h(String str, l lVar) {
@@ -181,9 +181,9 @@ public class h implements k {
         this.n = false;
         this.o = false;
         this.p = new a();
-        this.f51008h = str;
-        this.f51002b = lVar;
-        this.f51001a = hashCode();
+        this.f51009h = str;
+        this.f51003b = lVar;
+        this.f51002a = hashCode();
         j();
         i();
     }
@@ -196,9 +196,9 @@ public class h implements k {
         this.n = false;
         this.o = false;
         this.p = new a();
-        this.f51001a = i;
-        this.f51008h = str;
-        this.f51002b = lVar;
+        this.f51002a = i;
+        this.f51009h = str;
+        this.f51003b = lVar;
         j();
         i();
     }

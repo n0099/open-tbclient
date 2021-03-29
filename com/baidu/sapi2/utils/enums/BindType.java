@@ -7,30 +7,30 @@ public enum BindType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11463a;
+    public String f11464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11464b;
+    public String f11465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11465c;
+    public String f11466c;
 
     BindType(String str, String str2, String str3) {
-        this.f11463a = "";
-        this.f11463a = str;
-        this.f11464b = str2;
-        this.f11465c = str3;
+        this.f11464a = "";
+        this.f11464a = str;
+        this.f11465b = str2;
+        this.f11466c = str3;
     }
 
     public String getCallbackPage() {
-        return this.f11464b;
+        return this.f11465b;
     }
 
     public String getFinishBindPage() {
-        return this.f11465c;
+        return this.f11466c;
     }
 
     public String getName() {
-        return this.f11463a;
+        return this.f11464a;
     }
 }

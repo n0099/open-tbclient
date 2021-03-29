@@ -13,30 +13,30 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f42732f = new b();
+    public static b f42733f = new b();
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f42733e;
+    public MethodChannel f42734e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b implements VoiceManager.i {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f42734e;
+        public String f42735e;
 
         /* renamed from: f  reason: collision with root package name */
-        public VoiceManager f42735f;
+        public VoiceManager f42736f;
 
         /* renamed from: g  reason: collision with root package name */
-        public VoiceData$VoiceModel f42736g;
+        public VoiceData$VoiceModel f42737g;
 
         public b() {
-            this.f42734e = "";
-            this.f42735f = VoiceManager.instance();
+            this.f42735e = "";
+            this.f42736f = VoiceManager.instance();
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
@@ -44,7 +44,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         }
 
         public boolean b(VoiceData$VoiceModel voiceData$VoiceModel) {
-            return this.f42735f.isPlaying(voiceData$VoiceModel);
+            return this.f42736f.isPlaying(voiceData$VoiceModel);
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
@@ -52,7 +52,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         }
 
         public boolean d(String str) {
-            String str2 = this.f42734e;
+            String str2 = this.f42735e;
             return str2 != null && str2.equals(str);
         }
 
@@ -64,15 +64,15 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             if (d(str)) {
                 return false;
             }
-            this.f42734e = str;
-            this.f42735f.onCreate(tbPageContext);
+            this.f42735e = str;
+            this.f42736f.onCreate(tbPageContext);
             return true;
         }
 
         public void g(TbPageContext tbPageContext, String str) {
             if (d(str)) {
-                this.f42735f.onDestory(tbPageContext);
-                this.f42734e = null;
+                this.f42736f.onDestory(tbPageContext);
+                this.f42735e = null;
             }
         }
 
@@ -83,15 +83,15 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
         public VoiceData$VoiceModel getVoiceModel() {
-            return this.f42736g;
+            return this.f42737g;
         }
 
         public void h(VoiceData$VoiceModel voiceData$VoiceModel) {
-            this.f42736g = voiceData$VoiceModel;
+            this.f42737g = voiceData$VoiceModel;
         }
 
         public void i() {
-            this.f42735f.startPlay(this);
+            this.f42736f.startPlay(this);
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
@@ -102,13 +102,13 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "audioplayplugin");
-        this.f42733e = methodChannel;
+        this.f42734e = methodChannel;
         methodChannel.setMethodCallHandler(this);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        this.f42733e.setMethodCallHandler(null);
+        this.f42734e.setMethodCallHandler(null);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -159,13 +159,13 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         if (c2 == 0) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
-                f42732f.f(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("page_name"));
+                f42733f.f(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("page_name"));
             }
             result.success(Boolean.TRUE);
         } else if (c2 == 1) {
             Activity currentActivity2 = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity2 instanceof TbPageContextSupport) {
-                f42732f.g(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("page_name"));
+                f42733f.g(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("page_name"));
             }
             result.success(Boolean.TRUE);
         } else if (c2 == 2) {
@@ -175,15 +175,15 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 result.notImplemented();
                 return;
             }
-            f42732f.f42735f.stopPlay();
+            f42733f.f42736f.stopPlay();
             result.success(Boolean.TRUE);
         } else {
             VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
             voiceData$VoiceModel.voiceId = (String) methodCall.argument("url");
             voiceData$VoiceModel.duration = Integer.valueOf((String) methodCall.argument("duration")).intValue();
-            if (!f42732f.b(voiceData$VoiceModel)) {
-                f42732f.h(voiceData$VoiceModel);
-                f42732f.i();
+            if (!f42733f.b(voiceData$VoiceModel)) {
+                f42733f.h(voiceData$VoiceModel);
+                f42733f.i();
             }
             result.success(Boolean.TRUE);
         }

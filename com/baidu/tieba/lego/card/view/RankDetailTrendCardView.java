@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
 import d.b.b.e.p.l;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public final int A;
     public LinearLayout r;
@@ -29,39 +29,39 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public HeadImageView y;
     public final int z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18675e;
+        public final /* synthetic */ RankDetailTrendCard f18676e;
 
         public a(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18675e = rankDetailTrendCard;
+            this.f18676e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
                 d.b.i0.i1.m.b a2 = d.b.i0.i1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f18675e;
+                RankDetailTrendCard rankDetailTrendCard = this.f18676e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18677e;
+        public final /* synthetic */ RankDetailTrendCard f18678e;
 
         public b(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18677e = rankDetailTrendCard;
+            this.f18678e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankDetailTrendCardView.this.q(this.f18677e);
+            RankDetailTrendCardView.this.q(this.f18678e);
         }
     }
 

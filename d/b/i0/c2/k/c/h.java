@@ -54,27 +54,27 @@ public class h extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1115a {
+    public class b implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f52523a;
+        public final /* synthetic */ s0 f52524a;
 
         public b(s0 s0Var) {
-            this.f52523a = s0Var;
+            this.f52524a = s0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f52523a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f52524a.getVideoContainer());
             if (!(aVar instanceof l)) {
-                ThreadCardUtils.jumpToPB(aVar, h.this.f42357e, 0, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, h.this.f42358e, 0, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, h.this.f42357e, 0, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, h.this.f42358e, 0, false, computeViewArea);
         }
     }
 
@@ -93,7 +93,7 @@ public class h extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
                     h.this.q.a(threadCardViewHolder.a(), lVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) lVar, view.getContext(), 0, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -107,20 +107,20 @@ public class h extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public final o m0(l lVar) {
         if (lVar != null) {
             o oVar = new o();
-            oVar.f56163a = "6";
-            oVar.f56165c = lVar.l;
+            oVar.f56164a = "6";
+            oVar.f56166c = lVar.l;
             if (lVar.n() != null) {
-                oVar.f56166d = String.valueOf(lVar.n().c0());
+                oVar.f56167d = String.valueOf(lVar.n().c0());
                 if (lVar.n().u1() != null) {
                     oVar.m = lVar.n().u1().video_md5;
                     oVar.p = String.valueOf(lVar.n().u1().is_vertical);
                 }
             }
             oVar.k = lVar.B();
-            oVar.f56168f = lVar.F();
+            oVar.f56169f = lVar.F();
             oVar.l = lVar.z();
-            oVar.f56170h = lVar.O();
-            oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f56171h = lVar.O();
+            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
             oVar.q = String.valueOf(lVar.E());
             return oVar;
         }

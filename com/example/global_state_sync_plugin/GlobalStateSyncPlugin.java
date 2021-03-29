@@ -138,11 +138,11 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     }
 
     public static String getExperimentID() {
-        e b2 = d.b(s.f49743c);
-        if (b2 == null || k.isEmpty(b2.f49694a)) {
+        e b2 = d.b(s.f49744c);
+        if (b2 == null || k.isEmpty(b2.f49695a)) {
             return "";
         }
-        String str = b2.f49694a;
+        String str = b2.f49695a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1688589) {

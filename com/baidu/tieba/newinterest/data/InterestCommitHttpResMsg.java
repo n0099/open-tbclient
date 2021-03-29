@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class InterestCommitHttpResMsg extends JsonHttpResponsedMessage {
     public int errno;
 

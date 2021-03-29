@@ -34,7 +34,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static b o;
     public static Date p;
@@ -45,30 +45,30 @@ public class b {
     public String n;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51251b = 0;
+    public int f51252b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51252c = 0;
+    public int f51253c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51253d = 0;
+    public int f51254d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51254e = 0;
+    public int f51255e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51255f = 0;
+    public int f51256f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51256g = 0;
+    public int f51257g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51257h = 0;
+    public int f51258h = 0;
     public d.b.h0.s.e.f i = new d.b.h0.s.e.f();
     public boolean k = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f51250a = TbadkCoreApplication.getInst().getApp();
+    public final Context f51251a = TbadkCoreApplication.getInst().getApp();
 
     /* loaded from: classes3.dex */
     public static class a extends Handler {
@@ -125,7 +125,7 @@ public class b {
     }
 
     public int A() {
-        return this.f51252c;
+        return this.f51253c;
     }
 
     public d.b.h0.s.e.f B() {
@@ -168,7 +168,7 @@ public class b {
     }
 
     public int E() {
-        return this.f51251b + this.f51252c + this.f51253d + this.f51254e + this.f51256g + this.f51257h;
+        return this.f51252b + this.f51253c + this.f51254d + this.f51255e + this.f51257g + this.f51258h;
     }
 
     public d.b.h0.s.e.f F() {
@@ -188,16 +188,16 @@ public class b {
                 str = keySet.iterator().next();
                 Intent intent = new Intent();
                 if (!UtilHelper.isFlyMeOs()) {
-                    intent.setClass(this.f51250a, DealIntentActivity.class);
+                    intent.setClass(this.f51251a, DealIntentActivity.class);
                 } else {
-                    intent.setClass(this.f51250a, DealIntentService.class);
+                    intent.setClass(this.f51251a, DealIntentService.class);
                 }
                 intent.putExtra(DealIntentService.KEY_CLASS, 5);
                 intent.putExtra("KeyOfNotiId", i);
-                intent.putExtra("agree_me", this.f51251b);
-                intent.putExtra("at_me", this.f51253d);
-                intent.putExtra("reply_me", this.f51252c);
-                intent.putExtra("fans", this.f51256g);
+                intent.putExtra("agree_me", this.f51252b);
+                intent.putExtra("at_me", this.f51254d);
+                intent.putExtra("reply_me", this.f51253c);
+                intent.putExtra("fans", this.f51257g);
                 intent.putExtra("chat", x());
                 intent.putExtra("group_msg", this.i.j() - this.i.l());
                 intent.putExtra("group_msg_validate", this.i.q());
@@ -213,10 +213,10 @@ public class b {
         }
         intent2.putExtra(DealIntentService.KEY_CLASS, 5);
         intent2.putExtra("KeyOfNotiId", i);
-        intent2.putExtra("agree_me", this.f51251b);
-        intent2.putExtra("at_me", this.f51253d);
-        intent2.putExtra("reply_me", this.f51252c);
-        intent2.putExtra("fans", this.f51256g);
+        intent2.putExtra("agree_me", this.f51252b);
+        intent2.putExtra("at_me", this.f51254d);
+        intent2.putExtra("reply_me", this.f51253c);
+        intent2.putExtra("fans", this.f51257g);
         intent2.putExtra("chat", x());
         intent2.putExtra("group_msg", this.i.j() - this.i.l());
         intent2.putExtra("group_msg_validate", this.i.q());
@@ -232,9 +232,9 @@ public class b {
         }
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f51250a, DealIntentActivity.class);
+            intent.setClass(this.f51251a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f51250a, DealIntentService.class);
+            intent.setClass(this.f51251a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 36);
         intent.putExtra("tab_id", 1);
@@ -244,13 +244,13 @@ public class b {
     public Intent I(int i) {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f51250a, DealIntentActivity.class);
+            intent.setClass(this.f51251a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f51250a, DealIntentService.class);
+            intent.setClass(this.f51251a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 24);
         intent.putExtra("KeyOfNotiId", i);
-        intent.putExtra("gift_num", this.f51257h);
+        intent.putExtra("gift_num", this.f51258h);
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
@@ -266,23 +266,23 @@ public class b {
         }
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f51250a, DealIntentActivity.class);
+            intent.setClass(this.f51251a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f51250a, DealIntentService.class);
+            intent.setClass(this.f51251a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 27);
-        intent.putExtra("uid", aVar.f51331a);
-        intent.putExtra("uname", aVar.f51335e);
-        intent.putExtra("user_type", aVar.f51336f);
+        intent.putExtra("uid", aVar.f51332a);
+        intent.putExtra("uname", aVar.f51336e);
+        intent.putExtra("user_type", aVar.f51337f);
         return intent;
     }
 
     public Intent K(int i) {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f51250a, DealIntentActivity.class);
+            intent.setClass(this.f51251a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f51250a, DealIntentService.class);
+            intent.setClass(this.f51251a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 35);
         intent.putExtra("KeyOfNotiId", i);
@@ -298,9 +298,9 @@ public class b {
     public Intent L() {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f51250a, DealIntentActivity.class);
+            intent.setClass(this.f51251a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f51250a, DealIntentService.class);
+            intent.setClass(this.f51251a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 14);
         intent.putExtra("group_msg_updates", this.i.o());
@@ -316,7 +316,7 @@ public class b {
         Intent S = S(aVar);
         if (S != null && S.getDataString() != null && S.getDataString().contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
             S.setFlags(276824064);
-            NotificationHelper.showNotification(this.f51250a, i, aVar.f51332b, aVar.f51333c, aVar.f51334d, PendingIntent.getActivity(this.f51250a, i, S, 134217728), false);
+            NotificationHelper.showNotification(this.f51251a, i, aVar.f51333b, aVar.f51334c, aVar.f51335d, PendingIntent.getActivity(this.f51251a, i, S, 134217728), false);
             return;
         }
         if (S == null) {
@@ -329,12 +329,12 @@ public class b {
             return;
         }
         if (UtilHelper.isFlyMeOs()) {
-            service = PendingIntent.getActivity(this.f51250a, i, S, 134217728);
+            service = PendingIntent.getActivity(this.f51251a, i, S, 134217728);
         } else {
-            service = PendingIntent.getService(this.f51250a, i, S, 134217728);
+            service = PendingIntent.getService(this.f51251a, i, S, 134217728);
         }
         j(C(i), i);
-        NotificationHelper.showNotification(this.f51250a, i, aVar.f51332b, aVar.f51333c, aVar.f51334d, service, false);
+        NotificationHelper.showNotification(this.f51251a, i, aVar.f51333b, aVar.f51334c, aVar.f51335d, service, false);
     }
 
     public final void P(int i, String str, String str2, String str3) {
@@ -345,9 +345,9 @@ public class b {
         Intent G;
         PendingIntent service;
         if (this.k) {
-            if (i == 23 && this.f51257h > 0) {
+            if (i == 23 && this.f51258h > 0) {
                 G = I(i);
-            } else if (i == 26 && this.f51256g > 0) {
+            } else if (i == 26 && this.f51257g > 0) {
                 G = K(i);
             } else if (i == 18) {
                 G = L();
@@ -365,18 +365,18 @@ public class b {
             }
             G.setFlags(268435456);
             if (UtilHelper.isFlyMeOs()) {
-                service = PendingIntent.getActivity(this.f51250a, i, G, 134217728);
+                service = PendingIntent.getActivity(this.f51251a, i, G, 134217728);
             } else {
-                service = PendingIntent.getService(this.f51250a, i, G, 134217728);
+                service = PendingIntent.getService(this.f51251a, i, G, 134217728);
             }
             j(C(i), i);
-            NotificationHelper.showNotification(this.f51250a, i, str, str2, str3, service, false);
+            NotificationHelper.showNotification(this.f51251a, i, str, str2, str3, service, false);
         }
     }
 
     public Intent S(f.a aVar) {
         ImMessageCenterPojo i;
-        if (aVar != null && (i = d.b.i0.d1.k.b.o().i(aVar.f51331a, aVar.f51336f)) != null && i.getLast_content() != null) {
+        if (aVar != null && (i = d.b.i0.d1.k.b.o().i(aVar.f51332a, aVar.f51337f)) != null && i.getLast_content() != null) {
             try {
                 String lastTaskId = i.getLastTaskId();
                 String lastServiceId = i.getLastServiceId();
@@ -394,15 +394,15 @@ public class b {
                     if (!StringUtils.isNull(group)) {
                         Intent intent = new Intent();
                         if (UtilHelper.isFlyMeOs()) {
-                            intent.setClass(this.f51250a, DealIntentActivity.class);
+                            intent.setClass(this.f51251a, DealIntentActivity.class);
                         } else {
-                            intent.setClass(this.f51250a, DealIntentService.class);
+                            intent.setClass(this.f51251a, DealIntentService.class);
                         }
                         intent.putExtra(DealIntentService.KEY_CLASS, 1);
                         intent.putExtra("id", group);
                         intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
                         intent.putExtra("key_start_from", 7);
-                        intent.putExtra("gid", aVar.f51331a);
+                        intent.putExtra("gid", aVar.f51332a);
                         intent.putExtra("task_id", lastTaskId);
                         intent.putExtra("service_id", lastServiceId);
                         return intent;
@@ -412,9 +412,9 @@ public class b {
                         if (optString.contains("open_wb_view=1")) {
                             Intent intent2 = new Intent();
                             if (UtilHelper.isFlyMeOs()) {
-                                intent2.setClass(this.f51250a, DealIntentActivity.class);
+                                intent2.setClass(this.f51251a, DealIntentActivity.class);
                             } else {
-                                intent2.setClass(this.f51250a, DealIntentService.class);
+                                intent2.setClass(this.f51251a, DealIntentService.class);
                             }
                             intent2.putExtra(DealIntentService.KEY_CLASS, 0);
                             intent2.putExtra("url", optString.trim());
@@ -427,9 +427,9 @@ public class b {
                             if (optString.contains(UrlSchemaHelper.SCHEMA_TYPE_SUB_PB)) {
                                 Intent intent3 = new Intent();
                                 if (UtilHelper.isFlyMeOs()) {
-                                    intent3.setClass(this.f51250a, DealIntentActivity.class);
+                                    intent3.setClass(this.f51251a, DealIntentActivity.class);
                                 } else {
-                                    intent3.setClass(this.f51250a, DealIntentService.class);
+                                    intent3.setClass(this.f51251a, DealIntentService.class);
                                 }
                                 intent3.putExtra(DealIntentService.KEY_CLASS, 39);
                                 String paramStr = UrlManager.getParamStr(optString);
@@ -450,9 +450,9 @@ public class b {
                     }
                     Intent intent4 = new Intent();
                     if (UtilHelper.isFlyMeOs()) {
-                        intent4.setClass(this.f51250a, DealIntentActivity.class);
+                        intent4.setClass(this.f51251a, DealIntentActivity.class);
                     } else {
-                        intent4.setClass(this.f51250a, DealIntentService.class);
+                        intent4.setClass(this.f51251a, DealIntentService.class);
                     }
                     intent4.putExtra(DealIntentService.KEY_CLASS, 30);
                     intent4.putExtra("jump_url", optString);
@@ -476,37 +476,37 @@ public class b {
         int i10;
         int i11;
         int i12;
-        if (i == this.f51251b && i2 == this.f51252c && i3 == this.f51253d && i4 == this.f51254e && i5 == this.f51256g && i6 == this.f51255f && i7 == this.f51257h) {
+        if (i == this.f51252b && i2 == this.f51253c && i3 == this.f51254d && i4 == this.f51255e && i5 == this.f51257g && i6 == this.f51256f && i7 == this.f51258h) {
             return;
         }
-        int i13 = this.f51251b;
+        int i13 = this.f51252b;
         int i14 = 2;
-        int i15 = (i > i13 || i2 > (i11 = this.f51252c) || i3 > (i12 = this.f51253d) || i4 > this.f51254e || i5 > this.f51256g || i6 > this.f51255f || i7 > this.f51257h) ? 1 : (i < i13 || i2 < i11 || i3 < i12) ? 2 : 0;
-        if (i <= this.f51251b || !d.d().w()) {
-            i8 = i < this.f51251b ? 2 : 0;
+        int i15 = (i > i13 || i2 > (i11 = this.f51253c) || i3 > (i12 = this.f51254d) || i4 > this.f51255e || i5 > this.f51257g || i6 > this.f51256f || i7 > this.f51258h) ? 1 : (i < i13 || i2 < i11 || i3 < i12) ? 2 : 0;
+        if (i <= this.f51252b || !d.d().w()) {
+            i8 = i < this.f51252b ? 2 : 0;
         } else {
             i8 = 1;
         }
-        if (i2 <= this.f51252c || !d.d().t()) {
-            i9 = i2 < this.f51252c ? 2 : 0;
+        if (i2 <= this.f51253c || !d.d().t()) {
+            i9 = i2 < this.f51253c ? 2 : 0;
         } else {
             i9 = 1;
         }
-        if (i3 <= this.f51253d || !d.d().o()) {
-            i10 = i3 < this.f51253d ? 2 : 0;
+        if (i3 <= this.f51254d || !d.d().o()) {
+            i10 = i3 < this.f51254d ? 2 : 0;
         } else {
             i10 = 1;
         }
-        int i16 = i4 > this.f51254e ? 1 : 0;
-        int i17 = i5 > this.f51256g ? 1 : 0;
-        int i18 = i7 > this.f51257h ? 1 : 0;
-        this.f51251b = i;
-        this.f51252c = i2;
-        this.f51253d = i3;
-        this.f51254e = i4;
-        this.f51256g = i5;
-        this.f51255f = i6;
-        this.f51257h = i7;
+        int i16 = i4 > this.f51255e ? 1 : 0;
+        int i17 = i5 > this.f51257g ? 1 : 0;
+        int i18 = i7 > this.f51258h ? 1 : 0;
+        this.f51252b = i;
+        this.f51253c = i2;
+        this.f51254d = i3;
+        this.f51255e = i4;
+        this.f51257g = i5;
+        this.f51256f = i6;
+        this.f51258h = i7;
         if (E() <= 0) {
             i15 = 2;
             i17 = 2;
@@ -535,7 +535,7 @@ public class b {
             return;
         }
         this.i = fVar;
-        this.f51254e = (fVar.j() - fVar.l()) + fVar.w() + fVar.t() + fVar.s();
+        this.f51255e = (fVar.j() - fVar.l()) + fVar.w() + fVar.t() + fVar.s();
         b(fVar);
         int i = 0;
         if (fVar.z()) {
@@ -567,15 +567,15 @@ public class b {
     }
 
     public void W(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (i == this.f51251b && i2 == this.f51252c && i3 == this.f51253d && i4 == this.f51254e && i5 == this.f51256g && this.f51257h == i6) {
+        if (i == this.f51252b && i2 == this.f51253c && i3 == this.f51254d && i4 == this.f51255e && i5 == this.f51257g && this.f51258h == i6) {
             return;
         }
-        this.f51251b = i;
-        this.f51252c = i2;
-        this.f51253d = i3;
-        this.f51254e = i4;
-        this.f51256g = i5;
-        this.f51257h = i6;
+        this.f51252b = i;
+        this.f51253c = i2;
+        this.f51254d = i3;
+        this.f51255e = i4;
+        this.f51257g = i5;
+        this.f51258h = i6;
         a();
         if (E() <= 0) {
             h0(2, 16);
@@ -588,23 +588,23 @@ public class b {
             U(0, 0, 0, 0, 0, 0, 0);
             return;
         }
-        this.f51251b = 0;
-        this.f51252c = 0;
-        this.f51253d = 0;
-        this.f51254e = 0;
-        this.f51256g = 0;
-        this.f51255f = 0;
+        this.f51252b = 0;
+        this.f51253c = 0;
+        this.f51254d = 0;
+        this.f51255e = 0;
+        this.f51257g = 0;
+        this.f51256f = 0;
     }
 
     public void Y(int i) {
         if (i >= 0) {
-            U(i, this.f51252c, this.f51253d, this.f51254e, this.f51256g, this.f51255f, this.f51257h);
+            U(i, this.f51253c, this.f51254d, this.f51255e, this.f51257g, this.f51256f, this.f51258h);
         }
     }
 
     public void Z(int i) {
         if (i >= 0) {
-            U(this.f51251b, this.f51252c, i, this.f51254e, this.f51256g, this.f51255f, this.f51257h);
+            U(this.f51252b, this.f51253c, i, this.f51255e, this.f51257g, this.f51256f, this.f51258h);
         }
     }
 
@@ -626,7 +626,7 @@ public class b {
 
     public void a0(int i) {
         if (i >= 0) {
-            U(this.f51251b, this.f51252c, this.f51253d, this.f51254e, this.f51256g, i, this.f51257h);
+            U(this.f51252b, this.f51253c, this.f51254d, this.f51255e, this.f51257g, i, this.f51258h);
         }
     }
 
@@ -651,17 +651,17 @@ public class b {
 
     public void b0(int i) {
         if (i >= 0) {
-            U(this.f51251b, this.f51252c, this.f51253d, i, this.f51256g, this.f51255f, this.f51257h);
+            U(this.f51252b, this.f51253c, this.f51254d, i, this.f51257g, this.f51256f, this.f51258h);
         }
     }
 
     public void c() {
-        NotificationHelper.cancelNotification(this.f51250a, 16);
+        NotificationHelper.cancelNotification(this.f51251a, 16);
     }
 
     public void c0(int i) {
         if (i >= 0) {
-            U(this.f51251b, this.f51252c, this.f51253d, this.f51254e, i, this.f51255f, this.f51257h);
+            U(this.f51252b, this.f51253c, this.f51254d, this.f51255e, i, this.f51256f, this.f51258h);
         }
     }
 
@@ -688,17 +688,17 @@ public class b {
 
     public void d0(int i) {
         if (i >= 0) {
-            this.f51257h = i;
+            this.f51258h = i;
         }
     }
 
     public void e() {
-        NotificationHelper.cancelNotification(this.f51250a, 17);
+        NotificationHelper.cancelNotification(this.f51251a, 17);
     }
 
     public void e0(int i) {
         if (i >= 0) {
-            U(this.f51251b, i, this.f51253d, this.f51254e, this.f51256g, this.f51255f, this.f51257h);
+            U(this.f51252b, i, this.f51254d, this.f51255e, this.f51257g, this.f51256f, this.f51258h);
         }
     }
 
@@ -721,77 +721,77 @@ public class b {
     }
 
     public void g() {
-        NotificationHelper.cancelNotification(this.f51250a, 18);
+        NotificationHelper.cancelNotification(this.f51251a, 18);
     }
 
     public void h() {
-        NotificationHelper.cancelNotification(this.f51250a, 23);
-        NotificationHelper.cancelNotification(this.f51250a, 24);
-        NotificationHelper.cancelNotification(this.f51250a, 25);
-        NotificationHelper.cancelNotification(this.f51250a, 29);
-        NotificationHelper.cancelNotification(this.f51250a, 26);
-        NotificationHelper.cancelNotification(this.f51250a, 17);
-        NotificationHelper.cancelNotification(this.f51250a, 15);
-        NotificationHelper.cancelNotification(this.f51250a, 13);
-        NotificationHelper.cancelNotification(this.f51250a, 12);
+        NotificationHelper.cancelNotification(this.f51251a, 23);
+        NotificationHelper.cancelNotification(this.f51251a, 24);
+        NotificationHelper.cancelNotification(this.f51251a, 25);
+        NotificationHelper.cancelNotification(this.f51251a, 29);
+        NotificationHelper.cancelNotification(this.f51251a, 26);
+        NotificationHelper.cancelNotification(this.f51251a, 17);
+        NotificationHelper.cancelNotification(this.f51251a, 15);
+        NotificationHelper.cancelNotification(this.f51251a, 13);
+        NotificationHelper.cancelNotification(this.f51251a, 12);
     }
 
     public final void h0(int i, int i2) {
         try {
             if (i != 1) {
                 if (i == 2) {
-                    NotificationHelper.cancelNotification(this.f51250a, 16);
-                    NotificationHelper.cancelNotification(this.f51250a, 17);
+                    NotificationHelper.cancelNotification(this.f51251a, 16);
+                    NotificationHelper.cancelNotification(this.f51251a, 17);
                 }
             } else if (i2 == 23) {
-                if (this.f51257h > 0) {
-                    String format = String.format(this.f51250a.getString(R.string.notify_gift), String.valueOf(this.f51257h));
+                if (this.f51258h > 0) {
+                    String format = String.format(this.f51251a.getString(R.string.notify_gift), String.valueOf(this.f51258h));
                     P(23, null, format, format);
                 }
             } else if (i2 == 29) {
-                if (this.f51251b > 0) {
+                if (this.f51252b > 0) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(String.format(this.f51250a.getString(R.string.notify_agree), Integer.valueOf(this.f51251b)));
+                    sb.append(String.format(this.f51251a.getString(R.string.notify_agree), Integer.valueOf(this.f51252b)));
                     P(29, null, sb.toString(), sb.toString());
                 }
             } else if (i2 == 24) {
-                if (this.f51252c > 0) {
+                if (this.f51253c > 0) {
                     StringBuilder sb2 = new StringBuilder();
-                    if (this.f51252c > 1) {
+                    if (this.f51253c > 1) {
                         sb2.append("[");
-                        sb2.append(String.valueOf(this.f51252c));
-                        sb2.append(this.f51250a.getString(R.string.notify_unit));
+                        sb2.append(String.valueOf(this.f51253c));
+                        sb2.append(this.f51251a.getString(R.string.notify_unit));
                         sb2.append("]");
                     }
                     if (this.m != null) {
                         sb2.append(this.m);
                     } else {
-                        sb2.append(this.f51250a.getString(R.string.notify_reply));
+                        sb2.append(this.f51251a.getString(R.string.notify_reply));
                     }
                     P(24, null, sb2.toString(), sb2.toString());
                 }
             } else if (i2 != 25) {
                 if (i2 == 26) {
-                    if (this.f51256g > 0) {
+                    if (this.f51257g > 0) {
                         StringBuilder sb3 = new StringBuilder();
-                        sb3.append(String.format(this.f51250a.getString(R.string.notify_fans), Integer.valueOf(this.f51256g)));
+                        sb3.append(String.format(this.f51251a.getString(R.string.notify_fans), Integer.valueOf(this.f51257g)));
                         P(26, null, sb3.toString(), sb3.toString());
                     }
                 } else if (i2 != 16 && d.d().n()) {
                     d.d().e();
                 }
-            } else if (this.f51253d > 0) {
+            } else if (this.f51254d > 0) {
                 StringBuilder sb4 = new StringBuilder();
-                if (this.f51253d > 1) {
+                if (this.f51254d > 1) {
                     sb4.append("[");
-                    sb4.append(String.valueOf(this.f51253d));
-                    sb4.append(this.f51250a.getString(R.string.notify_unit));
+                    sb4.append(String.valueOf(this.f51254d));
+                    sb4.append(this.f51251a.getString(R.string.notify_unit));
                     sb4.append("]");
                 }
                 if (this.n != null) {
                     sb4.append(this.n);
                 } else {
-                    sb4.append(this.f51250a.getString(R.string.notify_at));
+                    sb4.append(this.f51251a.getString(R.string.notify_at));
                 }
                 P(25, null, sb4.toString(), sb4.toString());
             }
@@ -801,13 +801,13 @@ public class b {
     }
 
     public void i() {
-        NotificationHelper.cancelNotification(this.f51250a, 29);
+        NotificationHelper.cancelNotification(this.f51251a, 29);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:137:0x02eb A[Catch: Exception -> 0x034d, TryCatch #0 {Exception -> 0x034d, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:79:0x01da, B:81:0x01e4, B:84:0x020f, B:86:0x0215, B:88:0x0233, B:92:0x023c, B:83:0x0205, B:96:0x0249, B:98:0x024f, B:101:0x0256, B:102:0x025a, B:104:0x0260, B:106:0x0268, B:108:0x0270, B:111:0x0279, B:113:0x027f, B:115:0x0283, B:117:0x0288, B:119:0x0292, B:121:0x029c, B:123:0x02a7, B:125:0x02ad, B:127:0x02b3, B:129:0x02c1, B:135:0x02e5, B:137:0x02eb, B:140:0x02f3, B:144:0x032e, B:146:0x033b, B:141:0x030f, B:130:0x02da, B:151:0x0352), top: B:155:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x032e A[Catch: Exception -> 0x034d, TryCatch #0 {Exception -> 0x034d, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:79:0x01da, B:81:0x01e4, B:84:0x020f, B:86:0x0215, B:88:0x0233, B:92:0x023c, B:83:0x0205, B:96:0x0249, B:98:0x024f, B:101:0x0256, B:102:0x025a, B:104:0x0260, B:106:0x0268, B:108:0x0270, B:111:0x0279, B:113:0x027f, B:115:0x0283, B:117:0x0288, B:119:0x0292, B:121:0x029c, B:123:0x02a7, B:125:0x02ad, B:127:0x02b3, B:129:0x02c1, B:135:0x02e5, B:137:0x02eb, B:140:0x02f3, B:144:0x032e, B:146:0x033b, B:141:0x030f, B:130:0x02da, B:151:0x0352), top: B:155:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x033b A[Catch: Exception -> 0x034d, TryCatch #0 {Exception -> 0x034d, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:79:0x01da, B:81:0x01e4, B:84:0x020f, B:86:0x0215, B:88:0x0233, B:92:0x023c, B:83:0x0205, B:96:0x0249, B:98:0x024f, B:101:0x0256, B:102:0x025a, B:104:0x0260, B:106:0x0268, B:108:0x0270, B:111:0x0279, B:113:0x027f, B:115:0x0283, B:117:0x0288, B:119:0x0292, B:121:0x029c, B:123:0x02a7, B:125:0x02ad, B:127:0x02b3, B:129:0x02c1, B:135:0x02e5, B:137:0x02eb, B:140:0x02f3, B:144:0x032e, B:146:0x033b, B:141:0x030f, B:130:0x02da, B:151:0x0352), top: B:155:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:186:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x02e8 A[Catch: Exception -> 0x034a, TryCatch #0 {Exception -> 0x034a, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:78:0x01d8, B:80:0x01e2, B:83:0x020c, B:85:0x0212, B:87:0x0230, B:91:0x0239, B:82:0x0202, B:95:0x0246, B:97:0x024c, B:100:0x0253, B:101:0x0257, B:103:0x025d, B:105:0x0265, B:107:0x026d, B:110:0x0276, B:112:0x027c, B:114:0x0280, B:116:0x0285, B:118:0x028f, B:120:0x0299, B:122:0x02a4, B:124:0x02aa, B:126:0x02b0, B:128:0x02be, B:134:0x02e2, B:136:0x02e8, B:139:0x02f0, B:143:0x032b, B:145:0x0338, B:140:0x030c, B:129:0x02d7, B:150:0x034f), top: B:154:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x032b A[Catch: Exception -> 0x034a, TryCatch #0 {Exception -> 0x034a, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:78:0x01d8, B:80:0x01e2, B:83:0x020c, B:85:0x0212, B:87:0x0230, B:91:0x0239, B:82:0x0202, B:95:0x0246, B:97:0x024c, B:100:0x0253, B:101:0x0257, B:103:0x025d, B:105:0x0265, B:107:0x026d, B:110:0x0276, B:112:0x027c, B:114:0x0280, B:116:0x0285, B:118:0x028f, B:120:0x0299, B:122:0x02a4, B:124:0x02aa, B:126:0x02b0, B:128:0x02be, B:134:0x02e2, B:136:0x02e8, B:139:0x02f0, B:143:0x032b, B:145:0x0338, B:140:0x030c, B:129:0x02d7, B:150:0x034f), top: B:154:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:145:0x0338 A[Catch: Exception -> 0x034a, TryCatch #0 {Exception -> 0x034a, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:78:0x01d8, B:80:0x01e2, B:83:0x020c, B:85:0x0212, B:87:0x0230, B:91:0x0239, B:82:0x0202, B:95:0x0246, B:97:0x024c, B:100:0x0253, B:101:0x0257, B:103:0x025d, B:105:0x0265, B:107:0x026d, B:110:0x0276, B:112:0x027c, B:114:0x0280, B:116:0x0285, B:118:0x028f, B:120:0x0299, B:122:0x02a4, B:124:0x02aa, B:126:0x02b0, B:128:0x02be, B:134:0x02e2, B:136:0x02e8, B:139:0x02f0, B:143:0x032b, B:145:0x0338, B:140:0x030c, B:129:0x02d7, B:150:0x034f), top: B:154:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:185:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -825,73 +825,73 @@ public class b {
         try {
             if (i != 1) {
                 if (i == 2) {
-                    NotificationHelper.cancelNotification(this.f51250a, 16);
-                    NotificationHelper.cancelNotification(this.f51250a, 17);
+                    NotificationHelper.cancelNotification(this.f51251a, 16);
+                    NotificationHelper.cancelNotification(this.f51251a, 17);
                     return;
                 }
                 return;
             }
             StringBuffer stringBuffer = new StringBuffer();
             if (i2 == 23) {
-                if (this.f51257h > 0) {
-                    String format = String.format(this.f51250a.getString(R.string.notify_gift), String.valueOf(this.f51257h));
+                if (this.f51258h > 0) {
+                    String format = String.format(this.f51251a.getString(R.string.notify_gift), String.valueOf(this.f51258h));
                     P(23, null, format, format);
                 }
             } else if (i2 == 29) {
-                if (this.f51251b > 0) {
+                if (this.f51252b > 0) {
                     StringBuilder sb = new StringBuilder();
-                    if (this.f51251b > 1) {
+                    if (this.f51252b > 1) {
                         sb.append("[");
-                        sb.append(String.valueOf(this.f51251b));
-                        sb.append(this.f51250a.getString(R.string.notify_unit));
+                        sb.append(String.valueOf(this.f51252b));
+                        sb.append(this.f51251a.getString(R.string.notify_unit));
                         sb.append("]");
                     }
                     if (this.l != null) {
                         sb.append(this.l);
                     } else {
-                        sb.append(this.f51250a.getString(R.string.notify_agree));
+                        sb.append(this.f51251a.getString(R.string.notify_agree));
                     }
                     P(29, null, sb.toString(), sb.toString());
                 }
             } else if (i2 == 24) {
-                if (this.f51252c > 0) {
+                if (this.f51253c > 0) {
                     StringBuilder sb2 = new StringBuilder();
-                    if (this.f51252c > 1) {
+                    if (this.f51253c > 1) {
                         sb2.append("[");
-                        sb2.append(String.valueOf(this.f51252c));
-                        sb2.append(this.f51250a.getString(R.string.notify_unit));
+                        sb2.append(String.valueOf(this.f51253c));
+                        sb2.append(this.f51251a.getString(R.string.notify_unit));
                         sb2.append("]");
                     }
                     if (this.m != null) {
                         sb2.append(this.m);
                     } else {
-                        sb2.append(this.f51250a.getString(R.string.notify_reply));
+                        sb2.append(this.f51251a.getString(R.string.notify_reply));
                     }
                     P(24, null, sb2.toString(), sb2.toString());
                 }
             } else if (i2 == 25) {
-                if (this.f51253d > 0) {
+                if (this.f51254d > 0) {
                     StringBuilder sb3 = new StringBuilder();
-                    if (this.f51253d > 1) {
+                    if (this.f51254d > 1) {
                         sb3.append("[");
-                        sb3.append(String.valueOf(this.f51253d));
-                        sb3.append(this.f51250a.getString(R.string.notify_unit));
+                        sb3.append(String.valueOf(this.f51254d));
+                        sb3.append(this.f51251a.getString(R.string.notify_unit));
                         sb3.append("]");
                     }
                     if (this.n != null) {
                         sb3.append(this.n);
                     } else {
-                        sb3.append(this.f51250a.getString(R.string.notify_at));
+                        sb3.append(this.f51251a.getString(R.string.notify_at));
                     }
                     P(25, null, sb3.toString(), sb3.toString());
                 }
             } else if (i2 == 26) {
-                if (this.f51256g > 0) {
+                if (this.f51257g > 0) {
                     StringBuilder sb4 = new StringBuilder();
-                    if (this.f51256g > 1) {
-                        sb4.append(String.format(this.f51250a.getString(R.string.notify_fans_unit), Integer.valueOf(this.f51256g)));
+                    if (this.f51257g > 1) {
+                        sb4.append(String.format(this.f51251a.getString(R.string.notify_fans_unit), Integer.valueOf(this.f51257g)));
                     }
-                    sb4.append(this.f51250a.getString(R.string.notify_fans));
+                    sb4.append(this.f51251a.getString(R.string.notify_fans));
                     P(26, null, sb4.toString(), sb4.toString());
                 }
             } else if (i2 == 16) {
@@ -899,17 +899,18 @@ public class b {
                 long w = (!d.d().p() || d.d().e() <= 0) ? 0L : fVar.w();
                 boolean z4 = w > 0;
                 long j2 = j + w;
-                if (j2 > 1) {
-                    stringBuffer.append(String.format(this.f51250a.getString(R.string.notify_chat), Long.valueOf(j2)));
+                int i3 = (j2 > 1L ? 1 : (j2 == 1L ? 0 : -1));
+                if (i3 > 0) {
+                    stringBuffer.append(String.format(this.f51251a.getString(R.string.notify_chat), Long.valueOf(j2)));
                     Q(16, null, stringBuffer.toString(), stringBuffer.toString(), z4);
-                } else if (j2 == 1) {
+                } else if (i3 == 0) {
                     fVar.i();
                     fVar.f();
                     if (w == 1) {
-                        String i3 = fVar.i();
+                        String i4 = fVar.i();
                         e2 = fVar.f();
-                        str2 = i3 + "：" + e2;
-                        str = i3;
+                        str2 = i4 + "：" + e2;
+                        str = i4;
                     } else if (j != 1) {
                         return;
                     } else {
@@ -919,7 +920,7 @@ public class b {
                         str2 = e2;
                     }
                     if (TextUtils.isEmpty(e2)) {
-                        stringBuffer.append(String.format(this.f51250a.getString(R.string.notify_chat), Long.valueOf(j2)));
+                        stringBuffer.append(String.format(this.f51251a.getString(R.string.notify_chat), Long.valueOf(j2)));
                         str3 = stringBuffer.toString();
                     } else {
                         str3 = e2;
@@ -930,7 +931,7 @@ public class b {
                 List<f.a> g2 = fVar.g();
                 if (g2 != null && g2.size() != 0) {
                     for (f.a aVar : g2) {
-                        if (aVar != null && !StringUtils.isNull(aVar.f51333c) && !k.isEmpty(aVar.f51331a) && aVar.f51337g > aVar.f51338h && aVar.i == null) {
+                        if (aVar != null && !StringUtils.isNull(aVar.f51334c) && !k.isEmpty(aVar.f51332a) && aVar.f51338g > aVar.f51339h && aVar.i == null) {
                             O(aVar, 19);
                         }
                     }
@@ -951,15 +952,15 @@ public class b {
                             }
                         }
                     } else {
-                        stringBuffer.append(String.format(this.f51250a.getString(R.string.notify_updates), Long.valueOf(n)));
+                        stringBuffer.append(String.format(this.f51251a.getString(R.string.notify_updates), Long.valueOf(n)));
                         z = true;
                         z2 = false;
                         if (fVar.q() > 0 || l0()) {
                             z3 = z;
                         } else if (!z) {
-                            stringBuffer.append(String.format(this.f51250a.getString(R.string.notify_validate), Integer.valueOf(fVar.q())));
+                            stringBuffer.append(String.format(this.f51251a.getString(R.string.notify_validate), Integer.valueOf(fVar.q())));
                         } else {
-                            stringBuffer.append(String.format(this.f51250a.getString(R.string.notify_validate_1), Integer.valueOf(fVar.q())));
+                            stringBuffer.append(String.format(this.f51251a.getString(R.string.notify_validate_1), Integer.valueOf(fVar.q())));
                         }
                         if (z3) {
                             P(17, null, stringBuffer.toString(), stringBuffer.toString());
@@ -988,22 +989,22 @@ public class b {
 
     public void j(long j, int i) {
         if (1 == j) {
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 16, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 17, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 16, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 17, i);
         } else if (2 == j) {
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 12, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 13, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 15, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 18, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 19, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 28, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 2000, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 12, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 13, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 15, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 18, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 19, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 28, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 2000, i);
         } else if (3 == j) {
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 29, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 23, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 24, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 25, i);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f51250a, 26, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 29, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 23, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 24, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 25, i);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f51251a, 26, i);
         }
     }
 
@@ -1031,7 +1032,7 @@ public class b {
     }
 
     public void k() {
-        NotificationHelper.cancelNotification(this.f51250a, 25);
+        NotificationHelper.cancelNotification(this.f51251a, 25);
     }
 
     public final boolean k0() {
@@ -1039,11 +1040,11 @@ public class b {
     }
 
     public void l() {
-        NotificationHelper.cancelNotification(this.f51250a, 17);
-        NotificationHelper.cancelNotification(this.f51250a, 19);
-        NotificationHelper.cancelNotification(this.f51250a, 16);
-        NotificationHelper.cancelNotification(this.f51250a, 18);
-        NotificationHelper.cancelNotification(this.f51250a, 30);
+        NotificationHelper.cancelNotification(this.f51251a, 17);
+        NotificationHelper.cancelNotification(this.f51251a, 19);
+        NotificationHelper.cancelNotification(this.f51251a, 16);
+        NotificationHelper.cancelNotification(this.f51251a, 18);
+        NotificationHelper.cancelNotification(this.f51251a, 30);
     }
 
     public final boolean l0() {
@@ -1051,33 +1052,33 @@ public class b {
     }
 
     public void m() {
-        NotificationHelper.cancelNotification(this.f51250a, 26);
+        NotificationHelper.cancelNotification(this.f51251a, 26);
     }
 
     public void n() {
-        NotificationHelper.cancelNotification(this.f51250a, 23);
+        NotificationHelper.cancelNotification(this.f51251a, 23);
     }
 
     public void o() {
-        NotificationHelper.cancelNotification(this.f51250a, 26);
-        NotificationHelper.cancelNotification(this.f51250a, 25);
-        NotificationHelper.cancelNotification(this.f51250a, 24);
-        NotificationHelper.cancelNotification(this.f51250a, 23);
-        NotificationHelper.cancelNotification(this.f51250a, 16);
-        NotificationHelper.cancelNotification(this.f51250a, 17);
-        NotificationHelper.cancelNotification(this.f51250a, 29);
+        NotificationHelper.cancelNotification(this.f51251a, 26);
+        NotificationHelper.cancelNotification(this.f51251a, 25);
+        NotificationHelper.cancelNotification(this.f51251a, 24);
+        NotificationHelper.cancelNotification(this.f51251a, 23);
+        NotificationHelper.cancelNotification(this.f51251a, 16);
+        NotificationHelper.cancelNotification(this.f51251a, 17);
+        NotificationHelper.cancelNotification(this.f51251a, 29);
     }
 
     public void p() {
-        NotificationHelper.cancelNotification(this.f51250a, 24);
+        NotificationHelper.cancelNotification(this.f51251a, 24);
     }
 
     public void q() {
-        NotificationHelper.cancelNotification(this.f51250a, 19);
+        NotificationHelper.cancelNotification(this.f51251a, 19);
     }
 
     public void r(int i) {
-        NotificationHelper.cancelNotification(this.f51250a, i);
+        NotificationHelper.cancelNotification(this.f51251a, i);
     }
 
     public void s(String str) {
@@ -1106,26 +1107,26 @@ public class b {
     }
 
     public int u() {
-        return this.f51251b;
+        return this.f51252b;
     }
 
     public int v() {
-        return this.f51253d;
+        return this.f51254d;
     }
 
     public int w() {
-        return this.f51255f;
+        return this.f51256f;
     }
 
     public int x() {
-        return this.f51254e;
+        return this.f51255e;
     }
 
     public int y() {
-        return this.f51256g;
+        return this.f51257g;
     }
 
     public int z() {
-        return this.f51257h;
+        return this.f51258h;
     }
 }

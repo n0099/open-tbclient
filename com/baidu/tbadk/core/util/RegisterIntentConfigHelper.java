@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RegisterIntentConfigHelper {
     public static final RegisterIntentConfigHelper inst = new RegisterIntentConfigHelper();
     public final HashMap<Class<?>, Class<?>> mActicyConfig = new HashMap<>();

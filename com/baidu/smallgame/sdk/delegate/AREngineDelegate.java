@@ -10,7 +10,7 @@ import d.b.e0.a.d.c;
 import d.b.u.c.a;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 

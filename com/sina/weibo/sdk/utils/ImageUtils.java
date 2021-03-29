@@ -17,7 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ImageUtils {
     public static void delete(File file) {
         if (file == null || !file.exists() || file.delete()) {
@@ -184,9 +184,7 @@ public class ImageUtils {
                                 break;
                             } catch (OutOfMemoryError unused) {
                                 System.gc();
-                                double d2 = width;
-                                Double.isNaN(d2);
-                                width = (float) (d2 * 0.8d);
+                                width = (float) (width * 0.8d);
                             }
                         }
                         if (createBitmap == null) {

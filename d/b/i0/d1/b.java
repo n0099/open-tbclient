@@ -16,10 +16,10 @@ import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
 import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 import d.b.b.c.f.j;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends j {
         public a(int i) {
             super(i);

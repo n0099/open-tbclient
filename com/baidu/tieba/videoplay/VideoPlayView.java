@@ -27,13 +27,13 @@ import java.util.List;
 public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f21992e;
+    public View f21993e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VerticalViewPager f21993f;
+    public VerticalViewPager f21994f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoPlayFragmentAdapter f21994g;
+    public VideoPlayFragmentAdapter f21995g;
     public int i;
     public List<VideoItemData> j;
     public g k;
@@ -46,7 +46,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public float t;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21995h = 0;
+    public int f21996h = 0;
     public int u = UtilHelper.getDimenPixelSize(R.dimen.tbds35);
     public int v = 2049;
     public boolean q = true;
@@ -70,7 +70,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
         @Override // d.b.h0.b1.p.a.b
         public void k() {
-            VideoPlayFragment i = VideoPlayView.this.f21994g.i(VideoPlayView.this.f21993f.getCurrentItem());
+            VideoPlayFragment i = VideoPlayView.this.f21995g.i(VideoPlayView.this.f21994f.getCurrentItem());
             if (i != null) {
                 i.k();
             }
@@ -78,7 +78,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
         @Override // d.b.h0.b1.p.a.b
         public void l() {
-            VideoPlayFragment i = VideoPlayView.this.f21994g.i(VideoPlayView.this.f21993f.getCurrentItem());
+            VideoPlayFragment i = VideoPlayView.this.f21995g.i(VideoPlayView.this.f21994f.getCurrentItem());
             if (i != null) {
                 i.l();
             }
@@ -86,7 +86,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
         @Override // d.b.h0.b1.p.a.b
         public void r0(float f2, float f3) {
-            VideoPlayFragment i = VideoPlayView.this.f21994g.i(VideoPlayView.this.f21993f.getCurrentItem());
+            VideoPlayFragment i = VideoPlayView.this.f21995g.i(VideoPlayView.this.f21994f.getCurrentItem());
             if (i != null) {
                 i.r0(f2, f3);
             }
@@ -124,7 +124,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 VideoPlayView.this.t = motionEvent.getY();
                 VideoPlayView.this.s = false;
             }
-            VideoPlayFragment i = VideoPlayView.this.f21994g.i(VideoPlayView.this.f21993f.getCurrentItem());
+            VideoPlayFragment i = VideoPlayView.this.f21995g.i(VideoPlayView.this.f21994f.getCurrentItem());
             if (i != null) {
                 return i.I1();
             }
@@ -190,25 +190,25 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.o = str;
         this.n = v(str);
         u(videoPlayActivity);
-        this.f21992e = videoPlayActivity.findViewById(R.id.root_layout);
-        this.f21993f = (VerticalViewPager) videoPlayActivity.findViewById(R.id.video_play_viewpager);
+        this.f21993e = videoPlayActivity.findViewById(R.id.root_layout);
+        this.f21994f = (VerticalViewPager) videoPlayActivity.findViewById(R.id.video_play_viewpager);
         VideoPlayFragmentAdapter videoPlayFragmentAdapter = new VideoPlayFragmentAdapter(videoPlayActivity.getSupportFragmentManager());
-        this.f21994g = videoPlayFragmentAdapter;
+        this.f21995g = videoPlayFragmentAdapter;
         videoPlayFragmentAdapter.n(new a());
         O();
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter2 = this.f21994g;
-        videoPlayFragmentAdapter2.f21983e = this.o;
-        this.f21993f.setAdapter(videoPlayFragmentAdapter2);
-        this.f21993f.setOffscreenPageLimit(1);
-        this.f21993f.setEventListener(new b());
-        this.f21993f.setOnPageChangeListener(this);
-        this.f21993f.setOnTouchListener(new c());
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter2 = this.f21995g;
+        videoPlayFragmentAdapter2.f21984e = this.o;
+        this.f21994f.setAdapter(videoPlayFragmentAdapter2);
+        this.f21994f.setOffscreenPageLimit(1);
+        this.f21994f.setEventListener(new b());
+        this.f21994f.setOnPageChangeListener(this);
+        this.f21994f.setOnTouchListener(new c());
     }
 
     public void A() {
         s();
         F();
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21994g;
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21995g;
         if (videoPlayFragmentAdapter != null) {
             videoPlayFragmentAdapter.k();
         }
@@ -220,7 +220,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     public final void E() {
-        if (this.f21995h == this.i && this.q) {
+        if (this.f21996h == this.i && this.q) {
             Q(false);
         }
     }
@@ -248,7 +248,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     public final void I() {
-        this.f21993f.scrollTo(0, 0);
+        this.f21994f.scrollTo(0, 0);
     }
 
     public final void J() {
@@ -260,9 +260,9 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     public void K(String str) {
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21994g;
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21995g;
         if (videoPlayFragmentAdapter != null) {
-            videoPlayFragmentAdapter.f21985g = str;
+            videoPlayFragmentAdapter.f21986g = str;
         }
     }
 
@@ -271,22 +271,22 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     public void M(String str) {
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21994g;
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21995g;
         if (videoPlayFragmentAdapter != null) {
-            videoPlayFragmentAdapter.f21982d = str;
+            videoPlayFragmentAdapter.f21983d = str;
         }
     }
 
     public final void O() {
-        this.f21994g.m(new f());
+        this.f21995g.m(new f());
     }
 
     public void P(List<VideoItemData> list, int i, Rect rect) {
         this.j = list;
         this.i = i;
-        this.f21994g.l(list, rect);
-        this.f21994g.notifyDataSetChanged();
-        this.f21993f.setCurrentItem(i);
+        this.f21995g.l(list, rect);
+        this.f21995g.notifyDataSetChanged();
+        this.f21994f.setCurrentItem(i);
     }
 
     public final boolean Q(boolean z) {
@@ -303,42 +303,36 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     public final void o(float f2) {
         int i;
+        int i2;
         double d2;
-        double d3;
-        double d4;
-        double d5 = f2;
-        if (d5 <= 0.17d) {
+        double d3 = f2;
+        if (d3 <= 0.17d) {
             i = (int) (this.p * f2 * 6.0f);
-        } else if (d5 <= 0.25d) {
-            i = this.f21993f.getScrollY();
+        } else if (d3 <= 0.25d) {
+            i = this.f21994f.getScrollY();
         } else {
-            if (d5 <= 0.42d) {
-                d2 = this.p;
-                Double.isNaN(d5);
-                d3 = 0.42d - d5;
-                Double.isNaN(d2);
-            } else if (d5 <= 0.5d) {
-                i = this.f21993f.getScrollY();
-            } else if (d5 <= 0.67d) {
-                double d6 = this.p;
-                Double.isNaN(d5);
-                Double.isNaN(d6);
-                d4 = d6 * (d5 - 0.5d);
-                i = (int) (d4 * 6.0d);
-            } else if (d5 <= 0.75d) {
-                i = this.f21993f.getScrollY();
-            } else if (d5 <= 0.92d) {
-                d2 = this.p;
-                Double.isNaN(d5);
-                d3 = 0.92d - d5;
-                Double.isNaN(d2);
+            double d4 = 0.42d;
+            if (d3 <= 0.42d) {
+                i2 = this.p;
+            } else if (d3 <= 0.5d) {
+                i = this.f21994f.getScrollY();
+            } else if (d3 <= 0.67d) {
+                d2 = this.p * (d3 - 0.5d);
+                i = (int) (d2 * 6.0d);
+            } else if (d3 <= 0.75d) {
+                i = this.f21994f.getScrollY();
             } else {
-                i = 0;
+                d4 = 0.92d;
+                if (d3 <= 0.92d) {
+                    i2 = this.p;
+                } else {
+                    i = 0;
+                }
             }
-            d4 = d2 * d3;
-            i = (int) (d4 * 6.0d);
+            d2 = i2 * (d4 - d3);
+            i = (int) (d2 * 6.0d);
         }
-        this.f21993f.scrollTo(0, i);
+        this.f21994f.scrollTo(0, i);
     }
 
     @Override // android.view.View.OnClickListener
@@ -352,16 +346,16 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void onPageScrollStateChanged(int i) {
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         VerticalViewPager verticalViewPager;
-        if (i != 0 || (videoPlayFragmentAdapter = this.f21994g) == null || (verticalViewPager = this.f21993f) == null) {
+        if (i != 0 || (videoPlayFragmentAdapter = this.f21995g) == null || (verticalViewPager = this.f21994f) == null) {
             return;
         }
         videoPlayFragmentAdapter.j(verticalViewPager.getCurrentItem());
         if (w()) {
-            this.f21993f.setNeedHanleTouch(true);
-            this.f21993f.setSelected(true);
-            VerticalViewPager verticalViewPager2 = this.f21993f;
+            this.f21994f.setNeedHanleTouch(true);
+            this.f21994f.setSelected(true);
+            VerticalViewPager verticalViewPager2 = this.f21994f;
             verticalViewPager2.setCurrentItem(verticalViewPager2.getCurrentItem(), true);
-            this.f21993f.setNeedHanleTouch(false);
+            this.f21994f.setNeedHanleTouch(false);
             this.s = false;
         }
     }
@@ -372,16 +366,16 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             this.s = true;
         }
         if (w()) {
-            this.f21993f.setNeedHanleTouch(true);
+            this.f21994f.setNeedHanleTouch(true);
         } else {
-            this.f21993f.setNeedHanleTouch(false);
+            this.f21994f.setNeedHanleTouch(false);
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         g gVar;
-        this.f21995h = i;
+        this.f21996h = i;
         if (this.i != i && this.q) {
             this.q = false;
         }
@@ -389,7 +383,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             gVar.a();
         }
         if (w()) {
-            this.f21993f.computeScroll();
+            this.f21994f.computeScroll();
         }
     }
 
@@ -400,8 +394,8 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void q(int i, int i2, Intent intent) {
         VerticalViewPager verticalViewPager;
         VideoPlayFragment i3;
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21994g;
-        if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f21993f) == null || (i3 = videoPlayFragmentAdapter.i(verticalViewPager.getCurrentItem())) == null) {
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21995g;
+        if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f21994f) == null || (i3 = videoPlayFragmentAdapter.i(verticalViewPager.getCurrentItem())) == null) {
             return;
         }
         i3.H1(i, i2, intent);
@@ -413,8 +407,8 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         if (x()) {
             return true;
         }
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21994g;
-        if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f21993f) == null || (i = videoPlayFragmentAdapter.i(verticalViewPager.getCurrentItem())) == null) {
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21995g;
+        if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f21994f) == null || (i = videoPlayFragmentAdapter.i(verticalViewPager.getCurrentItem())) == null) {
             return false;
         }
         return i.I1();
@@ -461,14 +455,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     public void y() {
-        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21994g;
+        VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.f21995g;
         if (videoPlayFragmentAdapter != null) {
             videoPlayFragmentAdapter.notifyDataSetChanged();
         }
     }
 
     public void z(int i) {
-        SkinManager.setBackgroundColor(this.f21992e, R.color.CAM_X0201, i);
+        SkinManager.setBackgroundColor(this.f21993e, R.color.CAM_X0201, i);
         if (UtilHelper.isFlyMeOs()) {
             return;
         }

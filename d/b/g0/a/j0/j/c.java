@@ -20,13 +20,13 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.C0707b f44868e;
+    public final b.C0708b f44869e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -37,8 +37,8 @@ public final class c implements b {
         }
     }
 
-    public c(b.C0707b c0707b) {
-        this.f44868e = c0707b == null ? new b.C0707b() : c0707b;
+    public c(b.C0708b c0708b) {
+        this.f44869e = c0708b == null ? new b.C0708b() : c0708b;
     }
 
     public static boolean d(b.a aVar) {
@@ -49,30 +49,30 @@ public final class c implements b {
         return l(null);
     }
 
-    public static c l(b.C0707b c0707b) {
-        return new c(c0707b);
+    public static c l(b.C0708b c0708b) {
+        return new c(c0708b);
     }
 
     public c b(@Nullable String str) {
-        if (e() && !TextUtils.isEmpty(str) && !d(this.f44868e.f44864a.get(str))) {
+        if (e() && !TextUtils.isEmpty(str) && !d(this.f44869e.f44865a.get(str))) {
             d.b.g0.a.j0.j.a c2 = d.b.g0.a.j0.j.a.c(str);
             if (d(c2)) {
-                this.f44868e.f44864a.put(c2.a(), c2);
+                this.f44869e.f44865a.put(c2.a(), c2);
             }
         }
         return this;
     }
 
     public int c() {
-        b.C0707b c0707b = this.f44868e;
-        int i = c0707b.f44867d;
-        return i == 0 ? c0707b.f44866c : i;
+        b.C0708b c0708b = this.f44869e;
+        int i = c0708b.f44868d;
+        return i == 0 ? c0708b.f44867c : i;
     }
 
     public boolean e() {
         boolean z;
-        synchronized (this.f44868e) {
-            z = this.f44868e.f44865b;
+        synchronized (this.f44869e) {
+            z = this.f44869e.f44866b;
         }
         return z;
     }
@@ -80,16 +80,16 @@ public final class c implements b {
     public final void f() {
         String str;
         b.a value;
-        synchronized (this.f44868e) {
+        synchronized (this.f44869e) {
             if (e()) {
-                this.f44868e.f44865b = false;
+                this.f44869e.f44866b = false;
                 e eVar = new e();
-                eVar.f47250a = "swan";
-                eVar.f47252c = "NA";
+                eVar.f47251a = "swan";
+                eVar.f47253c = "NA";
                 int c2 = c();
-                eVar.f47251b = String.valueOf(c2);
+                eVar.f47252b = String.valueOf(c2);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.f44868e.f44864a.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.f44869e.f44865a.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.b());
                     }
@@ -162,30 +162,30 @@ public final class c implements b {
     }
 
     public c h(int i) {
-        b.C0707b c0707b;
+        b.C0708b c0708b;
         int i2;
-        if (e() && i != (i2 = (c0707b = this.f44868e).f44867d) && (i2 == 0 || i2 == c0707b.f44866c)) {
-            this.f44868e.f44867d = i;
+        if (e() && i != (i2 = (c0708b = this.f44869e).f44868d) && (i2 == 0 || i2 == c0708b.f44867c)) {
+            this.f44869e.f44868d = i;
         }
         return this;
     }
 
     public void i() {
         if (b.G0) {
-            Log.i("PurgerStatistic", "performReport: " + this.f44868e);
+            Log.i("PurgerStatistic", "performReport: " + this.f44869e);
         }
         if (e()) {
             ExecutorUtilsExt.postOnElastic(new a(), "PurgerStatistic", 3);
         }
     }
 
-    public b.C0707b j() {
-        return this.f44868e;
+    public b.C0708b j() {
+        return this.f44869e;
     }
 
     public c m(int i) {
         if (e()) {
-            this.f44868e.f44866c = i;
+            this.f44869e.f44867c = i;
         }
         return this;
     }

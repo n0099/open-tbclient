@@ -9,21 +9,21 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46686e;
+        public final /* synthetic */ CallbackHandler f46687e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46687f;
+        public final /* synthetic */ String f46688f;
 
         public a(c cVar, CallbackHandler callbackHandler, String str) {
-            this.f46686e = callbackHandler;
-            this.f46687f = str;
+            this.f46687e = callbackHandler;
+            this.f46688f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -32,9 +32,9 @@ public class c extends a0 {
         public void onCallback(d.b.g0.a.v1.d.a aVar) {
             d.b.g0.a.c0.c.a("OpenData", "onOpenDataCallback:: ", aVar);
             if (!aVar.x()) {
-                d.b.g0.a.v1.c.c.l(aVar, this.f46686e, this.f46687f);
+                d.b.g0.a.v1.c.c.l(aVar, this.f46687e, this.f46688f);
             } else {
-                this.f46686e.handleSchemeDispatchCallback(this.f46687f, UnitedSchemeUtility.wrapCallbackParams(aVar.f46838g, 0).toString());
+                this.f46687e.handleSchemeDispatchCallback(this.f46688f, UnitedSchemeUtility.wrapCallbackParams(aVar.f46839g, 0).toString());
             }
         }
     }

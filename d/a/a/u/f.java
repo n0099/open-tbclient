@@ -8,7 +8,7 @@ import java.io.IOException;
 public class f implements j0<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f41427a = new f();
+    public static final f f41428a = new f();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.a.u.j0

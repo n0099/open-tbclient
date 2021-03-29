@@ -9,7 +9,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.util.io.ActionJsonData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     public static void a(Context context) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);

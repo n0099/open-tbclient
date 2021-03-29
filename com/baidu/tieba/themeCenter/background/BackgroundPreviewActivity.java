@@ -67,7 +67,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50238a = true;
+            pageStayDurationItem.f50239a = true;
             pageStayDurationItem.i = String.valueOf(this.mPropId);
         }
         return pageStayDurationItem;

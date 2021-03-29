@@ -6,14 +6,14 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IOAdEvent f8215a;
+    public final /* synthetic */ IOAdEvent f8216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f8216b;
+    public final /* synthetic */ e f8217b;
 
     public f(e eVar, IOAdEvent iOAdEvent) {
-        this.f8216b = eVar;
-        this.f8215a = iOAdEvent;
+        this.f8217b = eVar;
+        this.f8216a = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -21,20 +21,20 @@ public class f implements Runnable {
         BaiduHybridAdViewListener baiduHybridAdViewListener;
         BaiduHybridAdViewListener baiduHybridAdViewListener2;
         com.baidu.mobads.production.c.a aVar;
-        if (IXAdEvent.AD_LOADED.equals(this.f8215a.getType())) {
-            aVar = this.f8216b.f8214a.f8116c;
+        if (IXAdEvent.AD_LOADED.equals(this.f8216a.getType())) {
+            aVar = this.f8217b.f8215a.f8117c;
             aVar.start();
-        } else if (IXAdEvent.AD_STARTED.equals(this.f8215a.getType())) {
-            baiduHybridAdViewListener2 = this.f8216b.f8214a.f8115b;
+        } else if (IXAdEvent.AD_STARTED.equals(this.f8216a.getType())) {
+            baiduHybridAdViewListener2 = this.f8217b.f8215a.f8116b;
             baiduHybridAdViewListener2.onAdShow(0, null);
-        } else if (IXAdEvent.AD_ERROR.equals(this.f8215a.getType())) {
+        } else if (IXAdEvent.AD_ERROR.equals(this.f8216a.getType())) {
         } else {
-            if ("AdUserClick".equals(this.f8215a.getType())) {
-                baiduHybridAdViewListener = this.f8216b.f8214a.f8115b;
+            if ("AdUserClick".equals(this.f8216a.getType())) {
+                baiduHybridAdViewListener = this.f8217b.f8215a.f8116b;
                 baiduHybridAdViewListener.onAdClick(0, null);
                 return;
             }
-            IXAdEvent.AD_USER_CLOSE.equals(this.f8215a.getType());
+            IXAdEvent.AD_USER_CLOSE.equals(this.f8216a.getType());
         }
     }
 }

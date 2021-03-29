@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class PaBaseHttpRequest extends BaseHttpRequest {
     public int mOsType = 1;
 

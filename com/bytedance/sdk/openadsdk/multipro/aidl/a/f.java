@@ -11,20 +11,20 @@ import java.util.Map;
 public class f extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f29818a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f29819a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f29819b;
+    public static volatile f f29820b;
 
     public static f a() {
-        if (f29819b == null) {
+        if (f29820b == null) {
             synchronized (f.class) {
-                if (f29819b == null) {
-                    f29819b = new f();
+                if (f29820b == null) {
+                    f29820b = new f();
                 }
             }
         }
-        return f29819b;
+        return f29820b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -36,17 +36,17 @@ public class f extends a {
     public synchronized void registerRewardVideoListener(String str, IRewardAdInteractionListener iRewardAdInteractionListener) throws RemoteException {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iRewardAdInteractionListener);
-        f29818a.put(str, remoteCallbackList);
+        f29819a.put(str, remoteCallbackList);
     }
 
     private synchronized void a(String str, String str2, boolean z, int i, String str3, int i2, String str4) {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList;
         try {
-            if (f29818a != null) {
+            if (f29819a != null) {
                 if ("recycleRes".equals(str2)) {
-                    remoteCallbackList = f29818a.remove(str);
+                    remoteCallbackList = f29819a.remove(str);
                 } else {
-                    remoteCallbackList = f29818a.get(str);
+                    remoteCallbackList = f29819a.get(str);
                 }
                 RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList2 = remoteCallbackList;
                 if (remoteCallbackList2 != null) {

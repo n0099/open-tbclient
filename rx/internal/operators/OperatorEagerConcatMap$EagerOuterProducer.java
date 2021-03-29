@@ -15,13 +15,12 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
 
     @Override // h.f
     public void request(long j) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalStateException("n >= 0 required but it was " + j);
-        } else if (j <= 0) {
-        } else {
+        } else if (i > 0) {
             a.b(this, j);
             this.parent.b();
-            throw null;
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.down.statistic;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MultiSrcStatData {
     public int cstatus = -1;
     public long ccost = -1;

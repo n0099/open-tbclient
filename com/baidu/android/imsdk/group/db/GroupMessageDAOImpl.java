@@ -20,13 +20,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GroupMessageDAOImpl {
     public static final String TAG = "GroupMessageDAOImpl";
     public static ChatMsgParse sGroupChatMsgParse = new ChatMsgParse();
 
     /* renamed from: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN;
 
@@ -44,7 +44,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ChatMsgParse implements IResultParse<ChatMsg> {
         public Context mContext;
 
@@ -66,7 +66,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class GroupChatMsgParse implements IResultParse<ChatMsg> {
         public Context mContext;
 
@@ -85,7 +85,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class LocalChatMsgParse implements IResultParse<ChatMsg> {
         public Context mContext;
 
@@ -104,13 +104,13 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum MSGTYPEEXPLAN {
         EQUAL,
         UNEQUAL
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum MessageType {
         DRAFT2SENDING,
         SENDING2FAIL,
@@ -331,25 +331,26 @@ public class GroupMessageDAOImpl {
     public static ArrayList<ChatMsg> fetchChatMsgInteranl(Context context, String str, int i, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {
         String str2;
         String str3;
-        String str4;
-        if (j2 < 0) {
-            str3 = " < ? ";
-            str2 = "msgid DESC , _id DESC";
+        String str4 = "msgid ASC , _id ASC";
+        int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i2 < 0) {
+            str2 = " < ? ";
+            str4 = "msgid DESC , _id DESC";
         } else {
-            str2 = "msgid ASC , _id ASC";
-            str3 = 0 == j2 ? " = ? " : " > ? ";
+            str2 = 0 == j2 ? " = ? " : " > ? ";
         }
-        String str5 = "msgid" + str3;
+        String str5 = str4;
+        String str6 = "msgid" + str2;
         String[] strArr = {String.valueOf(j)};
         if (jArr == null || jArr.length <= 0) {
-            str4 = str5;
+            str3 = str6;
         } else {
-            String str6 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN[msgtypeexplan.ordinal()] != 1 ? " in " : " not in ";
-            String str7 = " ( " + jArr[0];
-            for (int i2 = 1; i2 < jArr.length; i2++) {
-                str7 = str7 + "," + jArr[i2];
+            String str7 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN[msgtypeexplan.ordinal()] != 1 ? " in " : " not in ";
+            String str8 = " ( " + jArr[0];
+            for (int i3 = 1; i3 < jArr.length; i3++) {
+                str8 = str8 + "," + jArr[i3];
             }
-            str4 = str5 + " AND type" + str6 + (str7 + " )");
+            str3 = str6 + " AND type" + str7 + (str8 + " )");
         }
         sGroupChatMsgParse.setContext(context);
         DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -359,13 +360,13 @@ public class GroupMessageDAOImpl {
             if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
                 return null;
             }
-            arrayList = newDb.query(sGroupChatMsgParse, "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where groupid = " + str + " AND status != 3 )", null, str4, strArr, null, null, str2, String.valueOf(Math.abs(j2)));
+            arrayList = newDb.query(sGroupChatMsgParse, "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where groupid = " + str + " AND status != 3 )", null, str3, strArr, null, null, str5, String.valueOf(Math.abs(j2)));
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<ChatMsg> it = arrayList.iterator();
                 while (it.hasNext()) {
                     LogUtils.e(TAG, it.next().toString());
                 }
-                if ((z && j2 < 0) || (!z && j2 > 0)) {
+                if ((z && i2 < 0) || (!z && i2 > 0)) {
                     Collections.reverse(arrayList);
                 }
             }

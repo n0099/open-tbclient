@@ -17,20 +17,20 @@ import com.kwai.video.player.PlayerPostEvent;
 import d.b.b.e.p.l;
 import d.b.h0.w.m;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.h0.w.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f63346a;
+    public boolean f63347a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.h0.w.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.z0.j.a.e.a f63347e;
+        public final /* synthetic */ d.b.i0.z0.j.a.e.a f63348e;
 
         public a(d.b.i0.z0.j.a.e.a aVar) {
-            this.f63347e = aVar;
+            this.f63348e = aVar;
         }
 
         @Override // d.b.h0.w.b
@@ -39,38 +39,38 @@ public class b extends d.b.h0.w.c {
             if (aVar == null) {
                 return;
             }
-            int i = aVar.f51523a;
+            int i = aVar.f51524a;
             if (i == 4 || i == 6) {
-                this.f63347e.H((String) aVar.f51525c);
-                b.this.f63346a = false;
+                this.f63348e.H((String) aVar.f51526c);
+                b.this.f63347a = false;
             } else if (i == 7) {
-                this.f63347e.m().showToast(R.string.over_limit_tip);
-                b.this.f63346a = true;
+                this.f63348e.m().showToast(R.string.over_limit_tip);
+                b.this.f63347a = true;
             } else if (i == 8) {
-                if (b.this.g(this.f63347e.m(), 11001)) {
-                    this.f63347e.y();
-                    TiebaStatic.log(new StatisticItem("c13363").param("topic_id", String.valueOf(this.f63347e.s())));
+                if (b.this.g(this.f63348e.m(), 11001)) {
+                    this.f63348e.y();
+                    TiebaStatic.log(new StatisticItem("c13363").param("topic_id", String.valueOf(this.f63348e.s())));
                 }
             } else if (i != 14) {
                 if (i != 15) {
                     return;
                 }
-                int intValue = ((Integer) aVar.f51525c).intValue();
-                if (this.f63347e.r() != null && this.f63347e.r().getChosedFiles() != null && (size = this.f63347e.r().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f63347e.m().getPageActivity(), 12012, this.f63347e.r(), intValue)));
+                int intValue = ((Integer) aVar.f51526c).intValue();
+                if (this.f63348e.r() != null && this.f63348e.r().getChosedFiles() != null && (size = this.f63348e.r().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f63348e.m().getPageActivity(), 12012, this.f63348e.r(), intValue)));
                 }
             } else {
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f63347e.m().getPageActivity(), this.f63347e.r().toJsonString(), true, true);
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f63348e.m().getPageActivity(), this.f63348e.r().toJsonString(), true, true);
                 albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
                 if (d.b.h0.w.w.a.a().b() == 1) {
                     albumActivityConfig.setRequestFrom(4);
-                    if (this.f63347e.r() != null) {
-                        this.f63347e.r().setMaxImagesAllowed(1);
+                    if (this.f63348e.r() != null) {
+                        this.f63348e.r().setMaxImagesAllowed(1);
                     }
-                } else if (this.f63347e.r() != null) {
-                    this.f63347e.r().setMaxImagesAllowed(10);
+                } else if (this.f63348e.r() != null) {
+                    this.f63348e.r().setMaxImagesAllowed(10);
                 }
-                l.w(this.f63347e.m().getPageActivity(), this.f63347e.m().getPageActivity().getCurrentFocus());
+                l.w(this.f63348e.m().getPageActivity(), this.f63348e.m().getPageActivity().getCurrentFocus());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         }

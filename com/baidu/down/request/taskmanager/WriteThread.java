@@ -15,7 +15,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WriteThread implements Runnable {
     public static final boolean DEBUG = false;
     public static final int MAX_DOWNLOAD_QUENE_COUNT = 1000;
@@ -115,9 +115,9 @@ public class WriteThread implements Runnable {
         r0.put(com.baidu.down.request.db.DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
         com.baidu.down.request.taskmanager.TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(r0, "_id=?", new java.lang.String[]{java.lang.String.valueOf(r5.mDownloadId)});
      */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x033e A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x02a8 A[Catch: all -> 0x033b, TryCatch #5 {all -> 0x033b, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:100:0x020b }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x02fc A[Catch: all -> 0x033b, TRY_LEAVE, TryCatch #5 {all -> 0x033b, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:100:0x020b }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x033d A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x02a8 A[Catch: all -> 0x033a, TryCatch #4 {all -> 0x033a, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:99:0x020b }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x02fc A[Catch: all -> 0x033a, TRY_LEAVE, TryCatch #4 {all -> 0x033a, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:99:0x020b }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.

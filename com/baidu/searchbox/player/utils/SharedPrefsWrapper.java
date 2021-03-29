@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static final boolean DEBUG = BDPlayerConfig.isDebug();
     public SharedPreferences mSp;

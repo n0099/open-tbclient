@@ -11,7 +11,7 @@ import d.b.g0.a.k;
 import java.io.File;
 import java.io.FileOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f extends a {
     public int o;
     public int p;
@@ -37,7 +37,7 @@ public class f extends a {
             this.u = jSONObject.optString("fileType");
             this.v = (float) jSONObject.optDouble("quality");
         } catch (Exception e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
         }
@@ -290,11 +290,11 @@ public class f extends a {
                 d.b.g0.p.d.a(fileOutputStream2222222);
                 return true;
             } catch (Exception e2) {
-                if (k.f45050a) {
+                if (k.f45051a) {
                     e2.printStackTrace();
                 }
             } catch (OutOfMemoryError e3) {
-                if (k.f45050a) {
+                if (k.f45051a) {
                     e3.printStackTrace();
                 }
             }

@@ -34,7 +34,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements g<T
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.f68022b;
+        return this.onError != Functions.f68027b;
     }
 
     @Override // f.a.t.b

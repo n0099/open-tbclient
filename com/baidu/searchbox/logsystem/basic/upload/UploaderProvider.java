@@ -4,7 +4,7 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.uploadfile.BOSAttachFileUploader_Factory;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UploaderProvider {
     public static final BaseContentUploader DEFAULT_CONTENT_UPLOADER = new DefaultContentUploader();
     public static final BaseAttachFileUploader DEFAULT_FILE_UPLOADER = new DefaultAttachFileUploader();

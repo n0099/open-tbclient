@@ -26,26 +26,26 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f51677f = false;
+    public static boolean f51678f = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<WeakReference<Activity>> f51678a;
+    public ArrayList<WeakReference<Activity>> f51679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<WeakReference<Activity>> f51679b;
+    public ArrayList<WeakReference<Activity>> f51680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51680c;
+    public int f51681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final CustomMessageListener f51681d;
+    public final CustomMessageListener f51682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.h0.m.g f51682e;
+    public final d.b.h0.m.g f51683e;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -57,11 +57,11 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int skinType;
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || e.this.f51680c == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || e.this.f51681c == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 return;
             }
-            e.this.f51680c = skinType;
-            if (e.f51677f) {
+            e.this.f51681c = skinType;
+            if (e.f51678f) {
                 e.this.s();
             }
         }
@@ -74,16 +74,16 @@ public class e {
 
         @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
-            e.this.f51679b.add(new WeakReference(activity));
+            e.this.f51680b.add(new WeakReference(activity));
         }
 
         @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            Iterator it = e.this.f51679b.iterator();
+            Iterator it = e.this.f51680b.iterator();
             while (it.hasNext()) {
                 WeakReference weakReference = (WeakReference) it.next();
                 if (weakReference.get() != null && weakReference.get() == activity) {
-                    e.this.f51679b.remove(weakReference);
+                    e.this.f51680b.remove(weakReference);
                     return;
                 }
             }
@@ -91,24 +91,24 @@ public class e {
 
         @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            if (e.f51677f) {
+            if (e.f51678f) {
                 e eVar = e.this;
                 if (eVar.j(eVar.l(activity))) {
-                    e.this.f51678a.add(new WeakReference(activity));
+                    e.this.f51679a.add(new WeakReference(activity));
                 }
             }
         }
 
         @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(Activity activity) {
-            if (e.f51677f) {
+            if (e.f51678f) {
                 e eVar = e.this;
                 if (eVar.u(eVar.l(activity))) {
-                    Iterator it = e.this.f51678a.iterator();
+                    Iterator it = e.this.f51679a.iterator();
                     while (it.hasNext()) {
                         WeakReference weakReference = (WeakReference) it.next();
                         if (activity != null && activity == weakReference.get()) {
-                            e.this.f51678a.remove(weakReference);
+                            e.this.f51679a.remove(weakReference);
                             return;
                         }
                     }
@@ -134,7 +134,7 @@ public class e {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f51686a = new e(null);
+        public static final e f51687a = new e(null);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -142,7 +142,7 @@ public class e {
     }
 
     public static final e m() {
-        return d.f51686a;
+        return d.f51687a;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -185,7 +185,7 @@ public class e {
 
     public void k() {
         BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
-        backBaiduBoxViewEvent.isShow = f51677f;
+        backBaiduBoxViewEvent.isShow = f51678f;
         d.b.h0.f0.g.g(backBaiduBoxViewEvent);
     }
 
@@ -207,7 +207,7 @@ public class e {
 
     public void n(boolean z) {
         FrameLayout l;
-        if (f51677f && (l = l(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+        if (f51678f && (l = l(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
             try {
                 Object tag = l.getTag(R.id.tag_scheme_baidu_box_app_back_view);
                 if (tag instanceof ViewGroup) {
@@ -281,7 +281,7 @@ public class e {
 
     public final void s() {
         FrameLayout l;
-        Iterator<WeakReference<Activity>> it = this.f51678a.iterator();
+        Iterator<WeakReference<Activity>> it = this.f51679a.iterator();
         while (it.hasNext()) {
             WeakReference<Activity> next = it.next();
             if (next != null && next.get() != null && !next.get().isFinishing() && (l = l(next.get())) != null) {
@@ -298,7 +298,7 @@ public class e {
             return;
         }
         try {
-            application.registerActivityLifecycleCallbacks(this.f51682e);
+            application.registerActivityLifecycleCallbacks(this.f51683e);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -322,29 +322,29 @@ public class e {
     }
 
     public void v(boolean z) {
-        if (f51677f != z) {
-            f51677f = z;
+        if (f51678f != z) {
+            f51678f = z;
             if (z) {
-                Iterator<WeakReference<Activity>> it = this.f51679b.iterator();
+                Iterator<WeakReference<Activity>> it = this.f51680b.iterator();
                 while (it.hasNext()) {
                     WeakReference<Activity> next = it.next();
                     if (next.get() != null && !next.get().isFinishing()) {
                         Activity activity = next.get();
                         if (j(l(activity))) {
-                            this.f51678a.add(new WeakReference<>(activity));
+                            this.f51679a.add(new WeakReference<>(activity));
                         }
                     }
                 }
                 return;
             }
-            Iterator<WeakReference<Activity>> it2 = this.f51679b.iterator();
+            Iterator<WeakReference<Activity>> it2 = this.f51680b.iterator();
             while (it2.hasNext()) {
                 WeakReference<Activity> next2 = it2.next();
                 if (next2.get() != null && !next2.get().isFinishing()) {
                     u(l(next2.get()));
                 }
             }
-            this.f51678a.clear();
+            this.f51679a.clear();
         }
     }
 
@@ -353,11 +353,11 @@ public class e {
     }
 
     public e() {
-        this.f51678a = new ArrayList<>();
-        this.f51679b = new ArrayList<>();
-        this.f51680c = TbadkCoreApplication.getInst().getSkinType();
-        this.f51681d = new a(2001304);
-        this.f51682e = new b();
-        MessageManager.getInstance().registerListener(this.f51681d);
+        this.f51679a = new ArrayList<>();
+        this.f51680b = new ArrayList<>();
+        this.f51681c = TbadkCoreApplication.getInst().getSkinType();
+        this.f51682d = new a(2001304);
+        this.f51683e = new b();
+        MessageManager.getInstance().registerListener(this.f51682d);
     }
 }

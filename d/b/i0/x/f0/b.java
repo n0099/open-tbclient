@@ -8,16 +8,16 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class b extends BaseCardInfo {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f62228g = BdUniqueId.gen();
+    public static final BdUniqueId f62229g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62229e = R.color.CAM_X0204;
+    public int f62230e = R.color.CAM_X0204;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62230f = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+    public int f62231f = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f62228g;
+        return f62229g;
     }
 }

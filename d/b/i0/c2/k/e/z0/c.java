@@ -25,10 +25,10 @@ import java.util.ArrayList;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f53016a;
+    public TbPageContext f53017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f53017b = new a();
+    public b f53018b = new a();
 
     /* loaded from: classes4.dex */
     public class a implements b {
@@ -40,13 +40,13 @@ public class c {
             String e2;
             String w1;
             String str;
-            if ((eVar == null && a2Var == null) || postData == null || c.this.f53016a == null) {
+            if ((eVar == null && a2Var == null) || postData == null || c.this.f53017a == null) {
                 return;
             }
             if (eVar == null) {
                 e2 = c.this.e(a2Var);
             } else {
-                String str2 = eVar.K(c.this.f53016a.getPageActivity(), false)[0];
+                String str2 = eVar.K(c.this.f53017a.getPageActivity(), false)[0];
                 if (!StringUtils.isNull(str2) && str2.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                     str2 = str2.substring(37);
                 }
@@ -89,15 +89,15 @@ public class c {
             bundle.putString("pid", postData.D());
             bundle.putInt("source", 1);
             shareItem.i(bundle);
-            PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(c.this.f53016a.getPageActivity(), shareItem, true, mVar);
+            PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(c.this.f53017a.getPageActivity(), shareItem, true, mVar);
             pbPostShareDialogConfig.setIsCopyLink(false);
             pbPostShareDialogConfig.setHideMode(pbPostShareDialogConfig.hideMode | 32);
-            c.this.f53016a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
+            c.this.f53017a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
             statisticItem.param("tid", w1);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             if (a2Var.h0() != null) {
-                statisticItem.param("fid", a2Var.h0().f50915a);
+                statisticItem.param("fid", a2Var.h0().f50916a);
             }
             if (a2Var.z1() != null) {
                 statisticItem.param("post_id", postData.D());
@@ -113,7 +113,7 @@ public class c {
     }
 
     public c(TbPageContext tbPageContext) {
-        this.f53016a = tbPageContext;
+        this.f53017a = tbPageContext;
     }
 
     public final Bitmap d(String str) {

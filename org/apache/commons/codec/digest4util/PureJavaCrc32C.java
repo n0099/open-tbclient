@@ -22,7 +22,7 @@ public class PureJavaCrc32C implements Checksum {
 
     @Override // java.util.zip.Checksum
     public long getValue() {
-        return (this.crc ^ (-1)) & 4294967295L;
+        return (~this.crc) & 4294967295L;
     }
 
     @Override // java.util.zip.Checksum

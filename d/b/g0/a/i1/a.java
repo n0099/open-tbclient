@@ -11,26 +11,26 @@ import d.b.g0.a.h;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44616e = k.f45050a;
+    public static final boolean f44617e = k.f45051a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f44617f;
+    public static volatile a f44618f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44618a;
+    public String f44619a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44619b;
+    public String f44620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44620c;
+    public String f44621c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b0.e.a f44621d;
+    public d.b.b0.e.a f44622d;
 
     public static int a(int i) {
         if (i != -2) {
@@ -40,14 +40,14 @@ public class a {
     }
 
     public static a b() {
-        if (f44617f == null) {
+        if (f44618f == null) {
             synchronized (a.class) {
-                if (f44617f == null) {
-                    f44617f = new a();
+                if (f44618f == null) {
+                    f44618f = new a();
                 }
             }
         }
-        return f44617f;
+        return f44618f;
     }
 
     public static String d(UnitedSchemeEntity unitedSchemeEntity, String str) {
@@ -58,7 +58,7 @@ public class a {
         try {
             return new JSONObject(str2).optString(UserAccountActionItem.KEY_SRC);
         } catch (JSONException e2) {
-            if (f44616e) {
+            if (f44617e) {
                 e2.printStackTrace();
             }
             return null;

@@ -16,28 +16,28 @@ import d.b.h0.r.s.a;
 public class i extends d.b.h0.r.s.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f61388a;
+    public LinearLayout f61389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EditText f61389b;
+    public EditText f61390b;
 
     /* loaded from: classes5.dex */
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f61390e;
+        public final /* synthetic */ Activity f61391e;
 
         public a(Activity activity) {
-            this.f61390e = activity;
+            this.f61391e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            if (!k.isEmpty(i.this.f61389b.getText().toString())) {
+            if (!k.isEmpty(i.this.f61390b.getText().toString())) {
                 TbSingleton.getInstance().setVisitPreviewServer(true);
-                String obj = i.this.f61389b.getText().toString();
+                String obj = i.this.f61390b.getText().toString();
                 TbSingleton.getInstance().setPubEnvValue(obj);
-                l.K(this.f61390e, R.string.change_success);
+                l.K(this.f61391e, R.string.change_success);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
             }
             i.this.dismiss();
@@ -58,9 +58,9 @@ public class i extends d.b.h0.r.s.a {
     public i(Activity activity) {
         super(activity);
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_visit_preview_server, (ViewGroup) null);
-        this.f61388a = linearLayout;
+        this.f61389a = linearLayout;
         setContentView(linearLayout);
-        this.f61389b = (EditText) this.f61388a.findViewById(R.id.et_visit_preview_server_dialog_pub_env_value);
+        this.f61390b = (EditText) this.f61389a.findViewById(R.id.et_visit_preview_server_dialog_pub_env_value);
         setPositiveButton(R.string.confirm, new a(activity));
         setNegativeButton(R.string.cancel, new b());
     }

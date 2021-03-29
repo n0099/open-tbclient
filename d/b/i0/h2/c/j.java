@@ -12,7 +12,7 @@ public class j extends d.b.b.j.e.a<d.b.i0.h2.e.j, CardViewHolder<d.b.i0.h2.j.h>>
     public d.b.i0.h2.d.c n;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), d.b.i0.h2.e.j.f55296f, bdUniqueId);
+        super(tbPageContext.getPageActivity(), d.b.i0.h2.e.j.f55297f, bdUniqueId);
         this.m = tbPageContext;
     }
 

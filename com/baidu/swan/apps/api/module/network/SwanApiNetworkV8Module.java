@@ -8,7 +8,7 @@ import com.baidu.searchbox.v8engine.JsObject;
 import d.b.g0.a.t.b.d;
 import d.b.g0.a.t.c.h.b;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanApiNetworkV8Module {
     public static final String MODULE_NAME = "_naV8Network";
     public b requestApi;
@@ -19,7 +19,7 @@ public class SwanApiNetworkV8Module {
 
     @JavascriptInterface
     public String request(JsObject jsObject) {
-        if (d.f45928c) {
+        if (d.f45929c) {
             Log.d("Api-Request", "request: jsObject");
         }
         d.b.g0.a.t.e.b J = this.requestApi.J(jsObject);

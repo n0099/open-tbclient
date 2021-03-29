@@ -24,83 +24,121 @@ public final class ParallelRunOn$RunOnSubscriber<T> extends ParallelRunOn$BaseRu
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0064, code lost:
+        if (r13 != 0) goto L50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0068, code lost:
+        if (r18.cancelled == false) goto L35;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x006a, code lost:
+        r2.clear();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x006d, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0070, code lost:
+        if (r18.done == false) goto L50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0072, code lost:
+        r13 = r18.error;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0074, code lost:
+        if (r13 == null) goto L39;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0076, code lost:
+        r2.clear();
+        r3.onError(r13);
+        r18.worker.dispose();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0081, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0086, code lost:
+        if (r2.isEmpty() == false) goto L50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0088, code lost:
+        r3.onComplete();
+        r18.worker.dispose();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0090, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0093, code lost:
+        if (r11 == 0) goto L55;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x009c, code lost:
+        if (r7 == Long.MAX_VALUE) goto L55;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x009e, code lost:
+        r18.requested.addAndGet(-r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00a4, code lost:
+        r7 = get();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a8, code lost:
+        if (r7 != r6) goto L57;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00aa, code lost:
+        r18.consumed = r1;
+        r6 = addAndGet(-r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00b1, code lost:
+        if (r6 != 0) goto L66;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00b3, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x00b4, code lost:
+        r6 = r7;
+     */
     @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void run() {
-        int i;
         Throwable th;
-        int i2 = this.consumed;
+        int i = this.consumed;
         SpscArrayQueue<T> spscArrayQueue = this.queue;
         c<? super T> cVar = this.actual;
-        int i3 = this.limit;
-        int i4 = 1;
+        int i2 = this.limit;
+        int i3 = 1;
         while (true) {
             long j = this.requested.get();
             long j2 = 0;
-            while (j2 != j) {
-                if (this.cancelled) {
-                    spscArrayQueue.clear();
-                    return;
-                }
-                boolean z = this.done;
-                if (z && (th = this.error) != null) {
-                    spscArrayQueue.clear();
-                    cVar.onError(th);
-                    this.worker.dispose();
-                    return;
-                }
-                T poll = spscArrayQueue.poll();
-                boolean z2 = poll == null;
-                if (z && z2) {
-                    cVar.onComplete();
-                    this.worker.dispose();
-                    return;
-                } else if (z2) {
+            while (true) {
+                int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i4 == 0) {
                     break;
-                } else {
-                    cVar.onNext(poll);
-                    j2++;
-                    i2++;
-                    if (i2 == i3) {
-                        i = i4;
-                        this.s.request(i2);
-                        i2 = 0;
-                    } else {
-                        i = i4;
-                    }
-                    i4 = i;
-                }
-            }
-            int i5 = i4;
-            if (j2 == j) {
-                if (this.cancelled) {
+                } else if (this.cancelled) {
                     spscArrayQueue.clear();
                     return;
-                } else if (this.done) {
-                    Throwable th2 = this.error;
-                    if (th2 != null) {
+                } else {
+                    boolean z = this.done;
+                    if (z && (th = this.error) != null) {
                         spscArrayQueue.clear();
-                        cVar.onError(th2);
+                        cVar.onError(th);
                         this.worker.dispose();
                         return;
-                    } else if (spscArrayQueue.isEmpty()) {
+                    }
+                    T poll = spscArrayQueue.poll();
+                    boolean z2 = poll == null;
+                    if (z && z2) {
                         cVar.onComplete();
                         this.worker.dispose();
                         return;
+                    } else if (z2) {
+                        break;
+                    } else {
+                        cVar.onNext(poll);
+                        j2++;
+                        i++;
+                        if (i == i2) {
+                            this.s.request(i);
+                            i = 0;
+                        }
                     }
                 }
             }
-            if (j2 != 0 && j != Long.MAX_VALUE) {
-                this.requested.addAndGet(-j2);
-            }
-            int i6 = get();
-            if (i6 == i5) {
-                this.consumed = i2;
-                i6 = addAndGet(-i5);
-                if (i6 == 0) {
-                    return;
-                }
-            }
-            i4 = i6;
         }
     }
 }

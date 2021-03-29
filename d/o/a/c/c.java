@@ -3,29 +3,29 @@ package d.o.a.c;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f66447a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f66448a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66448a;
+        public int f66449a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66449b;
+        public int f66450b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66450c;
+        public int f66451c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f66451d;
+        public long f66452d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66452e;
+        public String f66453e;
 
         public b() {
         }
@@ -43,22 +43,22 @@ public class c {
                     try {
                         b b2 = b(str);
                         if (b2 != null) {
-                            if (b2.f66448a > 1) {
+                            if (b2.f66449a > 1) {
                                 return 3;
                             }
-                            i = b2.f66450c;
-                            j = b2.f66451d;
+                            i = b2.f66451c;
+                            j = b2.f66452d;
                         }
                         b bVar = null;
                         String k = k(file, i, j);
                         if (k != null && k.length() != 0) {
-                            if (b2 != null && (b2.f66448a != 1 || b2.f66449b != 1)) {
-                                if (b2.f66452e != null) {
+                            if (b2 != null && (b2.f66449a != 1 || b2.f66450b != 1)) {
+                                if (b2.f66453e != null) {
                                     try {
                                         bVar = b(k);
                                     } catch (Throwable unused) {
                                     }
-                                    if (bVar != null && b2.f66450c == bVar.f66450c && b2.f66451d == bVar.f66451d && b2.f66452e.equals(bVar.f66452e)) {
+                                    if (bVar != null && b2.f66451c == bVar.f66451c && b2.f66452d == bVar.f66452d && b2.f66453e.equals(bVar.f66453e)) {
                                         return 0;
                                     }
                                 }
@@ -83,15 +83,15 @@ public class c {
             String[] split = str.split(";");
             String[] split2 = split[0].split(":");
             b bVar = new b();
-            bVar.f66448a = Integer.parseInt(split2[1]);
-            if (bVar.f66448a > 1) {
+            bVar.f66449a = Integer.parseInt(split2[1]);
+            if (bVar.f66449a > 1) {
                 return bVar;
             }
-            bVar.f66449b = Integer.parseInt(split2[2]);
+            bVar.f66450b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            bVar.f66450c = (int) j(split3[0]);
-            bVar.f66451d = j(split3[1]);
-            bVar.f66452e = split[1];
+            bVar.f66451c = (int) j(split3[0]);
+            bVar.f66452d = j(split3[1]);
+            bVar.f66453e = split[1];
             return bVar;
         }
         return null;
@@ -105,9 +105,10 @@ public class c {
         return Long.toHexString((j << 4) + 31);
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     /* JADX WARN: Can't wrap try/catch for region: R(13:5|6|(6:13|14|(3:16|(1:18)|19)|(1:21)|22|(4:31|32|33|34)(3:26|27|28))|38|14|(0)|(0)|22|(1:24)|31|32|33|34) */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0040 A[Catch: all -> 0x009c, TryCatch #2 {all -> 0x009c, blocks: (B:6:0x000d, B:10:0x001a, B:15:0x002e, B:17:0x0040, B:19:0x004d, B:21:0x0064, B:22:0x006e, B:28:0x0080), top: B:43:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0064 A[Catch: all -> 0x009c, TryCatch #2 {all -> 0x009c, blocks: (B:6:0x000d, B:10:0x001a, B:15:0x002e, B:17:0x0040, B:19:0x004d, B:21:0x0064, B:22:0x006e, B:28:0x0080), top: B:43:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0040 A[Catch: all -> 0x009c, TryCatch #2 {all -> 0x009c, blocks: (B:6:0x000d, B:10:0x001a, B:15:0x002e, B:17:0x0040, B:19:0x004d, B:21:0x0064, B:22:0x006e, B:28:0x0080), top: B:41:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0064 A[Catch: all -> 0x009c, TryCatch #2 {all -> 0x009c, blocks: (B:6:0x000d, B:10:0x001a, B:15:0x002e, B:17:0x0040, B:19:0x004d, B:21:0x0064, B:22:0x006e, B:28:0x0080), top: B:41:0x000d }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,16 +142,12 @@ public class c {
                     i(bVar, messageDigest, bArr, a2 - j2, j2);
                 }
                 h2 = h(messageDigest.digest());
-                if (i2 != 1 && j2 == a2) {
-                    try {
-                        bVar.b();
-                    } catch (Throwable unused) {
-                    }
-                    return h2;
+                if (i2 == 1 || j2 != a2) {
+                    String str = c(i2, j2) + ";" + h2;
+                    bVar.b();
+                    return str;
                 }
-                String str = c(i2, j2) + ";" + h2;
-                bVar.b();
-                return str;
+                return h2;
             }
             j2 = a2;
             i2 = 1;
@@ -162,17 +159,16 @@ public class c {
             if (i2 > 1) {
             }
             h2 = h(messageDigest.digest());
-            if (i2 != 1) {
+            if (i2 == 1) {
             }
             String str2 = c(i2, j2) + ";" + h2;
             bVar.b();
             return str2;
-        } catch (Throwable th) {
+        } finally {
             try {
                 bVar.b();
-            } catch (Throwable unused2) {
+            } catch (Throwable unused) {
             }
-            throw th;
         }
     }
 
@@ -203,7 +199,7 @@ public class c {
             for (int i3 = 0; i3 < length; i3++) {
                 int i4 = bArr[i3 + 0] & 255;
                 int i5 = i2 + 1;
-                char[] cArr2 = f66447a;
+                char[] cArr2 = f66448a;
                 cArr[i2] = cArr2[i4 >> 4];
                 i2 = i5 + 1;
                 cArr[i5] = cArr2[i4 & 15];

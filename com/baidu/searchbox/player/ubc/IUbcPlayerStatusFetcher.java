@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.ubc;
 
 import androidx.annotation.Nullable;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IUbcPlayerStatusFetcher {
     int getCurrentPosition();
 

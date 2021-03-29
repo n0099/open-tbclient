@@ -30,7 +30,7 @@ import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static final String TAG = "BDVideoPlayer";
     public static boolean sGlobalMute = false;
@@ -53,7 +53,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public VideoSession mVideoSession;
     public VideoTask mVideoTask;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public AudioFocusChangedListener() {
         }

@@ -20,28 +20,28 @@ public class d extends AbstractExecutorService {
     public static final RuntimePermission o = new RuntimePermission("modifyThread");
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f8228a;
+    public final AtomicInteger f8229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f8229b;
+    public final BlockingQueue<Runnable> f8230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ReentrantLock f8230c;
+    public final ReentrantLock f8231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashSet<b> f8231d;
+    public final HashSet<b> f8232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Condition f8232e;
+    public final Condition f8233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8233f;
+    public int f8234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8234g;
+    public long f8235g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile ThreadFactory f8235h;
+    public volatile ThreadFactory f8236h;
     public volatile com.baidu.mobads.f.b i;
     public volatile long j;
     public volatile boolean k;
@@ -60,18 +60,18 @@ public class d extends AbstractExecutorService {
     public final class b extends AbstractQueuedSynchronizer implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Thread f8236a;
+        public final Thread f8237a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f8237b;
+        public Runnable f8238b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile long f8238c;
+        public volatile long f8239c;
 
         public b(Runnable runnable) {
             setState(-1);
-            this.f8237b = runnable;
-            this.f8236a = d.this.c().newThread(this);
+            this.f8238b = runnable;
+            this.f8237a = d.this.c().newThread(this);
         }
 
         public void a() {
@@ -92,7 +92,7 @@ public class d extends AbstractExecutorService {
 
         public void e() {
             Thread thread;
-            if (getState() < 0 || (thread = this.f8236a) == null || thread.isInterrupted()) {
+            if (getState() < 0 || (thread = this.f8237a) == null || thread.isInterrupted()) {
                 return;
             }
             try {
@@ -145,11 +145,11 @@ public class d extends AbstractExecutorService {
     }
 
     private void b(b bVar) {
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         if (bVar != null) {
             try {
-                this.f8231d.remove(bVar);
+                this.f8232d.remove(bVar);
             } finally {
                 reentrantLock.unlock();
             }
@@ -171,28 +171,28 @@ public class d extends AbstractExecutorService {
     }
 
     private boolean d(int i) {
-        return this.f8228a.compareAndSet(i, i + 1);
+        return this.f8229a.compareAndSet(i, i + 1);
     }
 
     private boolean e(int i) {
-        return this.f8228a.compareAndSet(i, i - 1);
+        return this.f8229a.compareAndSet(i, i - 1);
     }
 
     private void f() {
         do {
-        } while (!e(this.f8228a.get()));
+        } while (!e(this.f8229a.get()));
     }
 
     private void g() {
         SecurityManager securityManager = System.getSecurityManager();
         if (securityManager != null) {
             securityManager.checkPermission(o);
-            ReentrantLock reentrantLock = this.f8230c;
+            ReentrantLock reentrantLock = this.f8231c;
             reentrantLock.lock();
             try {
-                Iterator<b> it = this.f8231d.iterator();
+                Iterator<b> it = this.f8232d.iterator();
                 while (it.hasNext()) {
-                    securityManager.checkAccess(it.next().f8236a);
+                    securityManager.checkAccess(it.next().f8237a);
                 }
             } finally {
                 reentrantLock.unlock();
@@ -201,10 +201,10 @@ public class d extends AbstractExecutorService {
     }
 
     private void h() {
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         try {
-            Iterator<b> it = this.f8231d.iterator();
+            Iterator<b> it = this.f8232d.iterator();
             while (it.hasNext()) {
                 it.next().e();
             }
@@ -219,7 +219,7 @@ public class d extends AbstractExecutorService {
 
     private List<Runnable> j() {
         Runnable[] runnableArr;
-        BlockingQueue<Runnable> blockingQueue = this.f8229b;
+        BlockingQueue<Runnable> blockingQueue = this.f8230b;
         ArrayList arrayList = new ArrayList();
         blockingQueue.drainTo(arrayList);
         if (!blockingQueue.isEmpty()) {
@@ -239,7 +239,7 @@ public class d extends AbstractExecutorService {
         return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0045, code lost:
-        r1 = r8.f8229b.poll(r8.j, java.util.concurrent.TimeUnit.NANOSECONDS);
+        r1 = r8.f8230b.poll(r8.j, java.util.concurrent.TimeUnit.NANOSECONDS);
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:?, code lost:
         continue;
@@ -251,13 +251,13 @@ public class d extends AbstractExecutorService {
         loop0: while (true) {
             boolean z = false;
             while (true) {
-                int i = this.f8228a.get();
+                int i = this.f8229a.get();
                 int a2 = a(i);
-                if (a2 < 0 || (a2 < 536870912 && !this.f8229b.isEmpty())) {
+                if (a2 < 0 || (a2 < 536870912 && !this.f8230b.isEmpty())) {
                     int b2 = b(i);
                     boolean z2 = this.k || b2 > this.l;
-                    if ((b2 <= this.m && (!z2 || !z)) || (b2 <= 1 && !this.f8229b.isEmpty())) {
-                        Runnable poll = this.f8229b.take();
+                    if ((b2 <= this.m && (!z2 || !z)) || (b2 <= 1 && !this.f8230b.isEmpty())) {
+                        Runnable poll = this.f8230b.take();
                         if (poll != null) {
                             return poll;
                         }
@@ -272,24 +272,24 @@ public class d extends AbstractExecutorService {
 
     public final void a() {
         while (true) {
-            int i = this.f8228a.get();
+            int i = this.f8229a.get();
             if (c(i) || c(i, 1073741824)) {
                 return;
             }
-            if (a(i) == 0 && !this.f8229b.isEmpty()) {
+            if (a(i) == 0 && !this.f8230b.isEmpty()) {
                 return;
             }
             if (b(i) != 0) {
                 a(true);
                 return;
             }
-            ReentrantLock reentrantLock = this.f8230c;
+            ReentrantLock reentrantLock = this.f8231c;
             reentrantLock.lock();
             try {
-                if (this.f8228a.compareAndSet(i, a(1073741824, 0))) {
+                if (this.f8229a.compareAndSet(i, a(1073741824, 0))) {
                     e();
-                    this.f8228a.set(a(1610612736, 0));
-                    this.f8232e.signalAll();
+                    this.f8229a.set(a(1610612736, 0));
+                    this.f8233e.signalAll();
                     return;
                 }
             } finally {
@@ -308,18 +308,18 @@ public class d extends AbstractExecutorService {
     public boolean awaitTermination(long j, TimeUnit timeUnit) {
         boolean z;
         long nanos = timeUnit.toNanos(j);
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         while (true) {
             try {
-                if (c(this.f8228a.get(), 1610612736)) {
+                if (c(this.f8229a.get(), 1610612736)) {
                     z = true;
                     break;
                 } else if (nanos <= 0) {
                     z = false;
                     break;
                 } else {
-                    nanos = this.f8232e.awaitNanos(nanos);
+                    nanos = this.f8233e.awaitNanos(nanos);
                 }
             } finally {
                 reentrantLock.unlock();
@@ -332,7 +332,7 @@ public class d extends AbstractExecutorService {
     }
 
     public ThreadFactory c() {
-        return this.f8235h;
+        return this.f8236h;
     }
 
     public void e() {
@@ -341,7 +341,7 @@ public class d extends AbstractExecutorService {
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
         if (runnable != null) {
-            int b2 = b(this.f8228a.get());
+            int b2 = b(this.f8229a.get());
             if (b2 - d() > 0) {
                 b(runnable);
                 return;
@@ -361,17 +361,17 @@ public class d extends AbstractExecutorService {
 
     @Override // java.util.concurrent.ExecutorService
     public boolean isShutdown() {
-        return !c(this.f8228a.get());
+        return !c(this.f8229a.get());
     }
 
     @Override // java.util.concurrent.ExecutorService
     public boolean isTerminated() {
-        return c(this.f8228a.get(), 1610612736);
+        return c(this.f8229a.get(), 1610612736);
     }
 
     @Override // java.util.concurrent.ExecutorService
     public void shutdown() {
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         try {
             g();
@@ -388,7 +388,7 @@ public class d extends AbstractExecutorService {
 
     @Override // java.util.concurrent.ExecutorService
     public List<Runnable> shutdownNow() {
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         try {
             g();
@@ -406,28 +406,28 @@ public class d extends AbstractExecutorService {
 
     public String toString() {
         String str;
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         try {
-            long j = this.f8234g;
-            int size = this.f8231d.size();
-            Iterator<b> it = this.f8231d.iterator();
+            long j = this.f8235g;
+            int size = this.f8232d.size();
+            Iterator<b> it = this.f8232d.iterator();
             int i = 0;
             while (it.hasNext()) {
                 b next = it.next();
-                j += next.f8238c;
+                j += next.f8239c;
                 if (next.d()) {
                     i++;
                 }
             }
             reentrantLock.unlock();
-            int i2 = this.f8228a.get();
+            int i2 = this.f8229a.get();
             if (b(i2, 0)) {
                 str = "Running";
             } else {
                 str = c(i2, 1610612736) ? "Terminated" : "Shutting down";
             }
-            return super.toString() + "[" + str + ", pool size = " + size + ", active threads = " + i + ", queued tasks = " + this.f8229b.size() + ", completed tasks = " + j + "]";
+            return super.toString() + "[" + str + ", pool size = " + size + ", active threads = " + i + ", queued tasks = " + this.f8230b.size() + ", completed tasks = " + j + "]";
         } catch (Throwable th) {
             reentrantLock.unlock();
             throw th;
@@ -435,19 +435,19 @@ public class d extends AbstractExecutorService {
     }
 
     public d(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory, com.baidu.mobads.f.b bVar) {
-        this.f8228a = new AtomicInteger(a(-536870912, 0));
-        this.f8230c = new ReentrantLock();
-        this.f8231d = new HashSet<>();
-        this.f8232e = this.f8230c.newCondition();
+        this.f8229a = new AtomicInteger(a(-536870912, 0));
+        this.f8231c = new ReentrantLock();
+        this.f8232d = new HashSet<>();
+        this.f8233e = this.f8231c.newCondition();
         if (i < 0 || i2 <= 0 || i2 < i || j < 0) {
             throw new IllegalArgumentException();
         }
         if (blockingQueue != null && threadFactory != null && bVar != null) {
             this.l = i;
             this.m = i2;
-            this.f8229b = blockingQueue;
+            this.f8230b = blockingQueue;
             this.j = timeUnit.toNanos(j);
-            this.f8235h = threadFactory;
+            this.f8236h = threadFactory;
             this.i = bVar;
             return;
         }
@@ -457,19 +457,19 @@ public class d extends AbstractExecutorService {
     private void f(int i) {
         int i2;
         do {
-            i2 = this.f8228a.get();
+            i2 = this.f8229a.get();
             if (c(i2, i)) {
                 return;
             }
-        } while (!this.f8228a.compareAndSet(i2, a(i, b(i2))));
+        } while (!this.f8229a.compareAndSet(i2, a(i, b(i2))));
     }
 
     public int d() {
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         int i = 0;
         try {
-            Iterator<b> it = this.f8231d.iterator();
+            Iterator<b> it = this.f8232d.iterator();
             while (it.hasNext()) {
                 if (it.next().d()) {
                     i++;
@@ -482,10 +482,10 @@ public class d extends AbstractExecutorService {
     }
 
     private void b(Runnable runnable) {
-        int i = this.f8228a.get();
+        int i = this.f8229a.get();
         if (!c(i)) {
             a(runnable);
-        } else if (this.f8229b.offer(runnable)) {
+        } else if (this.f8230b.offer(runnable)) {
             if (b(i) == 0) {
                 a((Runnable) null, false);
             }
@@ -496,13 +496,13 @@ public class d extends AbstractExecutorService {
     }
 
     private void a(boolean z) {
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         try {
-            Iterator<b> it = this.f8231d.iterator();
+            Iterator<b> it = this.f8232d.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                Thread thread = next.f8236a;
+                Thread thread = next.f8237a;
                 if (!thread.isInterrupted() && next.b()) {
                     try {
                         thread.interrupt();
@@ -538,10 +538,10 @@ public class d extends AbstractExecutorService {
         b bVar;
         boolean z2;
         loop0: while (true) {
-            int i = this.f8228a.get();
+            int i = this.f8229a.get();
             int a2 = a(i);
             boolean z3 = false;
-            if (a2 < 0 || (a2 == 0 && runnable == null && !this.f8229b.isEmpty())) {
+            if (a2 < 0 || (a2 == 0 && runnable == null && !this.f8230b.isEmpty())) {
                 do {
                     int b2 = b(i);
                     if (b2 >= 536870911) {
@@ -557,11 +557,11 @@ public class d extends AbstractExecutorService {
                             th = th;
                         }
                         try {
-                            Thread thread = bVar.f8236a;
+                            Thread thread = bVar.f8237a;
                             if (thread != null) {
-                                ReentrantLock reentrantLock = this.f8230c;
+                                ReentrantLock reentrantLock = this.f8231c;
                                 reentrantLock.lock();
-                                int a3 = a(this.f8228a.get());
+                                int a3 = a(this.f8229a.get());
                                 if (a3 >= 0 && (a3 != 0 || runnable != null)) {
                                     z2 = false;
                                     reentrantLock.unlock();
@@ -571,10 +571,10 @@ public class d extends AbstractExecutorService {
                                     }
                                 }
                                 if (!thread.isAlive()) {
-                                    this.f8231d.add(bVar);
-                                    int size = this.f8231d.size();
-                                    if (size > this.f8233f) {
-                                        this.f8233f = size;
+                                    this.f8232d.add(bVar);
+                                    int size = this.f8232d.size();
+                                    if (size > this.f8234f) {
+                                        this.f8234f = size;
                                     }
                                     z2 = true;
                                     reentrantLock.unlock();
@@ -595,7 +595,7 @@ public class d extends AbstractExecutorService {
                             throw th;
                         }
                     } else {
-                        i = this.f8228a.get();
+                        i = this.f8229a.get();
                     }
                 } while (a(i) == a2);
             }
@@ -607,18 +607,18 @@ public class d extends AbstractExecutorService {
         if (z) {
             f();
         }
-        ReentrantLock reentrantLock = this.f8230c;
+        ReentrantLock reentrantLock = this.f8231c;
         reentrantLock.lock();
         try {
-            this.f8234g += bVar.f8238c;
-            this.f8231d.remove(bVar);
+            this.f8235g += bVar.f8239c;
+            this.f8232d.remove(bVar);
             reentrantLock.unlock();
             a();
-            int i = this.f8228a.get();
+            int i = this.f8229a.get();
             if (b(i, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH)) {
                 if (!z) {
                     int i2 = this.k ? 0 : this.l;
-                    if (i2 == 0 && !this.f8229b.isEmpty()) {
+                    if (i2 == 0 && !this.f8230b.isEmpty()) {
                         i2 = 1;
                     }
                     if (b(i) >= i2) {
@@ -635,8 +635,8 @@ public class d extends AbstractExecutorService {
 
     public final void a(b bVar) {
         Thread currentThread = Thread.currentThread();
-        Runnable runnable = bVar.f8237b;
-        bVar.f8237b = null;
+        Runnable runnable = bVar.f8238b;
+        bVar.f8238b = null;
         bVar.c();
         while (true) {
             if (runnable == null) {
@@ -652,7 +652,7 @@ public class d extends AbstractExecutorService {
                 }
             }
             bVar.a();
-            if ((c(this.f8228a.get(), NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) || (Thread.interrupted() && c(this.f8228a.get(), NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH))) && !currentThread.isInterrupted()) {
+            if ((c(this.f8229a.get(), NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) || (Thread.interrupted() && c(this.f8229a.get(), NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH))) && !currentThread.isInterrupted()) {
                 currentThread.interrupt();
             }
             a(currentThread, runnable);
@@ -661,7 +661,7 @@ public class d extends AbstractExecutorService {
                     try {
                         runnable.run();
                         a(runnable, (Throwable) null);
-                        bVar.f8238c++;
+                        bVar.f8239c++;
                         bVar.c();
                         runnable = null;
                     } catch (RuntimeException e2) {

@@ -3,9 +3,9 @@ package d.b.h0.b;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49694a;
+    public String f49695a;
 
     public e(String str) {
-        this.f49694a = str;
+        this.f49695a = str;
     }
 }

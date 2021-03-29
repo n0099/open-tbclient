@@ -10,10 +10,10 @@ import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AddMsgRecordStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);

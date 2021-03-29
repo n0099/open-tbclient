@@ -9,7 +9,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.f.c.c, RecommendActivityView.ViewH
     public TbPageContext m;
 
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.c.f60533f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.c.f60534f);
         this.m = tbPageContext;
     }
 
@@ -27,7 +27,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.f.c.c, RecommendActivityView.ViewH
         if (viewHolder == null || cVar == null) {
             return null;
         }
-        viewHolder.f14926a.n(cVar);
+        viewHolder.f14927a.n(cVar);
         return viewHolder.a();
     }
 }

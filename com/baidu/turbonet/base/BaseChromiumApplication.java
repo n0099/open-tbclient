@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BaseChromiumApplication extends Application {
     public static final String TAG = "cr.base";
     public static final String TOOLBAR_CALLBACK_INTERNAL_WRAPPER_CLASS = "androidx.appcompat.internal.app.ToolbarActionBar$ToolbarCallbackWrapper";
@@ -18,7 +18,7 @@ public class BaseChromiumApplication extends Application {
     public final boolean mShouldInitializeApplicationStatusTracking;
     public d.b.j0.a.b<c> mWindowFocusListeners;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
         public a() {
         }
@@ -57,21 +57,21 @@ public class BaseChromiumApplication extends Application {
     public class b implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Window.Callback f22638e;
+        public final Window.Callback f22639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Activity f22639f;
+        public final Activity f22640f;
 
         public b(Activity activity, Window.Callback callback) {
-            this.f22638e = callback;
-            this.f22639f = activity;
+            this.f22639e = callback;
+            this.f22640f = activity;
         }
 
         public void a(boolean z) {
-            this.f22638e.onWindowFocusChanged(z);
+            this.f22639e.onWindowFocusChanged(z);
             Iterator it = BaseChromiumApplication.this.mWindowFocusListeners.iterator();
             while (it.hasNext()) {
-                ((c) it.next()).a(this.f22639f, z);
+                ((c) it.next()).a(this.f22640f, z);
             }
         }
 
@@ -82,7 +82,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.f22638e, objArr);
+                return method.invoke(this.f22639e, objArr);
             } catch (InvocationTargetException e2) {
                 if (e2.getCause() instanceof AbstractMethodError) {
                     throw e2.getCause();
@@ -92,7 +92,7 @@ public class BaseChromiumApplication extends Application {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(Activity activity, boolean z);
     }

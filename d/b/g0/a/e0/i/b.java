@@ -7,11 +7,11 @@ import com.baidu.webkit.sdk.WebSettings;
 import d.b.g0.a.e0.i.a;
 import d.b.g0.a.k;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43913a = k.f45050a;
+    public static final boolean f43914a = k.f45051a;
 
     @NonNull
     public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
@@ -24,11 +24,11 @@ public final class b {
             codeCacheSetting.maxCount = 5;
             codeCacheSetting.sizeLimit = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
         } else {
-            a.C0648a b2 = a.b.b();
-            codeCacheSetting.maxCount = b2.f43906a;
-            codeCacheSetting.sizeLimit = b2.f43907b;
+            a.C0649a b2 = a.b.b();
+            codeCacheSetting.maxCount = b2.f43907a;
+            codeCacheSetting.sizeLimit = b2.f43908b;
         }
-        if (f43913a) {
+        if (f43914a) {
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);

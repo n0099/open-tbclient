@@ -23,37 +23,37 @@ import java.util.Set;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f8446a;
+    public Set<String> f8447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f8447b;
+    public Set<String> f8448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f8448c;
+    public Set<String> f8449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CookieManager f8449d;
+    public CookieManager f8450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IXAdSystemUtils f8450e;
+    public IXAdSystemUtils f8451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IXAdCommonUtils f8451f;
+    public IXAdCommonUtils f8452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f8452g;
+    public Context f8453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f8453h;
+    public int f8454h;
     public String i;
     public String j;
     public String k;
 
     public d(Context context, int i, String str) {
-        this.f8450e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        this.f8451f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        this.f8452g = context;
-        this.f8453h = i;
+        this.f8451e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
+        this.f8452f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+        this.f8453g = context;
+        this.f8454h = i;
         this.i = str;
         this.j = null;
         b();
@@ -62,12 +62,12 @@ public class d {
 
     private void b() {
         try {
-            CookieSyncManager.createInstance(this.f8452g);
+            CookieSyncManager.createInstance(this.f8453g);
         } catch (Throwable unused) {
         }
         try {
             CookieManager cookieManager = CookieManager.getInstance();
-            this.f8449d = cookieManager;
+            this.f8450d = cookieManager;
             cookieManager.setAcceptCookie(true);
         } catch (Throwable unused2) {
         }
@@ -75,35 +75,35 @@ public class d {
 
     private void c() {
         HashSet hashSet = new HashSet();
-        this.f8446a = hashSet;
+        this.f8447a = hashSet;
         hashSet.add("46000");
-        this.f8446a.add("46002");
-        this.f8446a.add("46007");
+        this.f8447a.add("46002");
+        this.f8447a.add("46007");
         HashSet hashSet2 = new HashSet();
-        this.f8447b = hashSet2;
+        this.f8448b = hashSet2;
         hashSet2.add("46001");
-        this.f8447b.add("46006");
+        this.f8448b.add("46006");
         HashSet hashSet3 = new HashSet();
-        this.f8448c = hashSet3;
+        this.f8449c = hashSet3;
         hashSet3.add("46003");
-        this.f8448c.add("46005");
+        this.f8449c.add("46005");
     }
 
     private void d() {
-        Rect screenRect = this.f8451f.getScreenRect(this.f8452g);
+        Rect screenRect = this.f8452f.getScreenRect(this.f8453g);
         int height = screenRect.height();
         int width = screenRect.width();
         boolean e2 = e();
         String b2 = e2 ? b(h()) : null;
         int f2 = e2 ? f() : 0;
         String g2 = e2 ? g() : null;
-        String cuid = this.f8450e.getCUID(this.f8452g);
+        String cuid = this.f8451e.getCUID(this.f8453g);
         a("v", i());
-        a("im", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.f8450e.getIMEI(this.f8452g)));
-        a("aid", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.f8450e.getAndroidId(this.f8452g)));
-        a("m", b(this.f8450e.getMacAddress(this.f8452g)));
+        a("im", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.f8451e.getIMEI(this.f8453g)));
+        a("aid", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.f8451e.getAndroidId(this.f8453g)));
+        a("m", b(this.f8451e.getMacAddress(this.f8453g)));
         a("cuid", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", cuid));
-        a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(b.a(this.f8452g)));
+        a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(b.a(this.f8453g)));
         a("oi", Integer.valueOf(j()));
         a(UserAccountActionItem.KEY_SRC, 1);
         a("h", Integer.valueOf(height));
@@ -112,7 +112,7 @@ public class d {
         a("rssi", Integer.valueOf(f2));
         a("apn", g2);
         a("isc", Integer.valueOf(e2 ? 1 : 0));
-        a("sdk_version", "android_" + g.b(this.f8452g));
+        a("sdk_version", "android_" + g.b(this.f8453g));
         if (TextUtils.isEmpty(this.k)) {
             return;
         }
@@ -121,7 +121,7 @@ public class d {
 
     private boolean e() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f8452g.getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f8453g.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 return activeNetworkInfo.getType() == 1;
             }
@@ -133,7 +133,7 @@ public class d {
 
     private int f() {
         try {
-            WifiInfo connectionInfo = ((WifiManager) this.f8452g.getSystemService("wifi")).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) this.f8453g.getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo == null) {
                 return 0;
             }
@@ -153,7 +153,7 @@ public class d {
 
     private String i() {
         try {
-            PackageInfo packageInfo = this.f8452g.getPackageManager().getPackageInfo(this.f8452g.getPackageName(), 0);
+            PackageInfo packageInfo = this.f8453g.getPackageManager().getPackageInfo(this.f8453g.getPackageName(), 0);
             String str = packageInfo == null ? null : packageInfo.versionName;
             if (str != null) {
                 return str.replace(".", "-");
@@ -165,17 +165,17 @@ public class d {
     }
 
     private int j() {
-        String networkOperator = this.f8450e.getNetworkOperator(this.f8452g);
+        String networkOperator = this.f8451e.getNetworkOperator(this.f8453g);
         if (networkOperator == null) {
             return 0;
         }
-        if (this.f8446a.contains(networkOperator)) {
+        if (this.f8447a.contains(networkOperator)) {
             return 1;
         }
-        if (this.f8448c.contains(networkOperator)) {
+        if (this.f8449c.contains(networkOperator)) {
             return 2;
         }
-        return this.f8447b.contains(networkOperator) ? 3 : 99;
+        return this.f8448b.contains(networkOperator) ? 3 : 99;
     }
 
     public void a(String str) {
@@ -187,7 +187,7 @@ public class d {
         if (this.j != null) {
             return "https://cpu.baidu.com/block/app/" + this.i + "/" + this.j;
         }
-        return "https://cpu.baidu.com/" + this.f8453h + "/" + this.i;
+        return "https://cpu.baidu.com/" + this.f8454h + "/" + this.i;
     }
 
     private String b(String str) {
@@ -204,18 +204,18 @@ public class d {
         stringBuffer.append(obj);
         stringBuffer.append(";");
         try {
-            this.f8449d.setCookie("https://cpu.baidu.com/", stringBuffer.toString());
+            this.f8450d.setCookie("https://cpu.baidu.com/", stringBuffer.toString());
         } catch (Throwable unused) {
         }
     }
 
     public d(Context context, String str, String str2) {
-        this.f8450e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        this.f8451f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        this.f8452g = context;
+        this.f8451e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
+        this.f8452f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+        this.f8453g = context;
         this.j = str;
         this.i = str2;
-        this.f8453h = -1;
+        this.f8454h = -1;
         b();
         c();
     }

@@ -14,33 +14,33 @@ public class b extends a {
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ksad.lottie.a.b.a<Float, Float> f31579e;
+    public com.ksad.lottie.a.b.a<Float, Float> f31580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<a> f31580f;
+    public final List<a> f31581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f31581g;
+    public final RectF f31582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f31582h;
+    public final RectF f31583h;
 
     /* renamed from: com.ksad.lottie.model.layer.b$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31583a;
+        public static final /* synthetic */ int[] f31584a;
 
         static {
             int[] iArr = new int[Layer.MatteType.values().length];
-            f31583a = iArr;
+            f31584a = iArr;
             try {
                 iArr[Layer.MatteType.Add.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31583a[Layer.MatteType.Invert.ordinal()] = 2;
+                f31584a[Layer.MatteType.Invert.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -50,17 +50,17 @@ public class b extends a {
         super(fVar, layer);
         int i;
         a aVar;
-        this.f31580f = new ArrayList();
-        this.f31581g = new RectF();
-        this.f31582h = new RectF();
+        this.f31581f = new ArrayList();
+        this.f31582g = new RectF();
+        this.f31583h = new RectF();
         com.ksad.lottie.model.a.b u = layer.u();
         if (u != null) {
             com.ksad.lottie.a.b.a<Float, Float> a2 = u.a();
-            this.f31579e = a2;
+            this.f31580e = a2;
             a(a2);
-            this.f31579e.a(this);
+            this.f31580e.a(this);
         } else {
-            this.f31579e = null;
+            this.f31580e = null;
         }
         LongSparseArray longSparseArray = new LongSparseArray(dVar.g().size());
         int size = list.size() - 1;
@@ -77,8 +77,8 @@ public class b extends a {
                     aVar2.a(a3);
                     aVar2 = null;
                 } else {
-                    this.f31580f.add(0, a3);
-                    int i2 = AnonymousClass1.f31583a[layer2.l().ordinal()];
+                    this.f31581f.add(0, a3);
+                    int i2 = AnonymousClass1.f31584a[layer2.l().ordinal()];
                     if (i2 == 1 || i2 == 2) {
                         aVar2 = a3;
                     }
@@ -97,28 +97,28 @@ public class b extends a {
     @Override // com.ksad.lottie.model.layer.a
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
         super.a(f2);
-        if (this.f31579e != null) {
-            f2 = (this.f31579e.e().floatValue() * 1000.0f) / this.f31568b.r().c();
+        if (this.f31580e != null) {
+            f2 = (this.f31580e.e().floatValue() * 1000.0f) / this.f31569b.r().c();
         }
-        if (this.f31569c.b() != 0.0f) {
-            f2 /= this.f31569c.b();
+        if (this.f31570c.b() != 0.0f) {
+            f2 /= this.f31570c.b();
         }
-        float c2 = f2 - this.f31569c.c();
-        for (int size = this.f31580f.size() - 1; size >= 0; size--) {
-            this.f31580f.get(size).a(c2);
+        float c2 = f2 - this.f31570c.c();
+        for (int size = this.f31581f.size() - 1; size >= 0; size--) {
+            this.f31581f.get(size).a(c2);
         }
     }
 
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.f31581g.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.f31580f.size() - 1; size >= 0; size--) {
-            this.f31580f.get(size).a(this.f31581g, this.f31567a);
+        this.f31582g.set(0.0f, 0.0f, 0.0f, 0.0f);
+        for (int size = this.f31581f.size() - 1; size >= 0; size--) {
+            this.f31581f.get(size).a(this.f31582g, this.f31568a);
             if (rectF.isEmpty()) {
-                rectF.set(this.f31581g);
+                rectF.set(this.f31582g);
             } else {
-                rectF.set(Math.min(rectF.left, this.f31581g.left), Math.min(rectF.top, this.f31581g.top), Math.max(rectF.right, this.f31581g.right), Math.max(rectF.bottom, this.f31581g.bottom));
+                rectF.set(Math.min(rectF.left, this.f31582g.left), Math.min(rectF.top, this.f31582g.top), Math.max(rectF.right, this.f31582g.right), Math.max(rectF.bottom, this.f31582g.bottom));
             }
         }
     }
@@ -127,11 +127,11 @@ public class b extends a {
     public void b(Canvas canvas, Matrix matrix, int i) {
         com.ksad.lottie.c.c("CompositionLayer#draw");
         canvas.save();
-        this.f31582h.set(0.0f, 0.0f, this.f31569c.h(), this.f31569c.i());
-        matrix.mapRect(this.f31582h);
-        for (int size = this.f31580f.size() - 1; size >= 0; size--) {
-            if (!this.f31582h.isEmpty() ? canvas.clipRect(this.f31582h) : true) {
-                this.f31580f.get(size).a(canvas, matrix, i);
+        this.f31583h.set(0.0f, 0.0f, this.f31570c.h(), this.f31570c.i());
+        matrix.mapRect(this.f31583h);
+        for (int size = this.f31581f.size() - 1; size >= 0; size--) {
+            if (!this.f31583h.isEmpty() ? canvas.clipRect(this.f31583h) : true) {
+                this.f31581f.get(size).a(canvas, matrix, i);
             }
         }
         canvas.restore();

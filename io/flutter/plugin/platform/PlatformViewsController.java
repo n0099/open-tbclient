@@ -231,9 +231,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
 
     /* JADX INFO: Access modifiers changed from: private */
     public int toPhysicalPixels(double d2) {
-        double d3 = this.context.getResources().getDisplayMetrics().density;
-        Double.isNaN(d3);
-        return (int) Math.round(d2 * d3);
+        return (int) Math.round(d2 * this.context.getResources().getDisplayMetrics().density);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

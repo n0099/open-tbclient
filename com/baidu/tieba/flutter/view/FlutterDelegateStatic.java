@@ -54,13 +54,13 @@ public class FlutterDelegateStatic extends b {
         FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
         newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_MYTAB);
         newEngineFragmentBuilder.isTabHost(true);
-        cVar.f50154a = newEngineFragmentBuilder.build();
+        cVar.f50155a = newEngineFragmentBuilder.build();
         isInited = false;
-        cVar.f50158e = 8;
+        cVar.f50159e = 8;
         Resources b2 = h.a().b();
-        cVar.f50155b = b2.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-        cVar.f50159f = b2.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.f50161h = c.l;
+        cVar.f50156b = b2.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+        cVar.f50160f = b2.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+        cVar.f50162h = c.l;
         return cVar;
     }
 
@@ -69,9 +69,9 @@ public class FlutterDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13960f = this.mIndicator;
-        aVar.f13957c = l.e(context, 10.0f);
-        aVar.f13955a = this.tipView;
+        aVar.f13961f = this.mIndicator;
+        aVar.f13958c = l.e(context, 10.0f);
+        aVar.f13956a = this.tipView;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
         boolean g2 = d.b.h0.r.d0.b.i().g("key_feedback_tip_tab_show", false);
         if (!this.isNew.booleanValue() && !g2) {
@@ -97,7 +97,7 @@ public class FlutterDelegateStatic extends b {
                 if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007014 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof a)) {
                     return;
                 }
-                FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f50153a);
+                FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f50154a);
                 if (FlutterDelegateStatic.this.isNew.booleanValue()) {
                     FlutterDelegateStatic.this.tipView.f(0);
                     FlutterDelegateStatic.this.tipView.setVisibility(0);

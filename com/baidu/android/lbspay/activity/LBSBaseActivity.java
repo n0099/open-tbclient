@@ -14,7 +14,7 @@ import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBeanResponseCallback, NoProguard {
     public TitleBar titleBar;
     public Handler mHandler = null;

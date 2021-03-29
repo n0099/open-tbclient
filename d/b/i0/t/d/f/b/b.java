@@ -9,7 +9,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.d.f.c.f, ConcernTabLiveItemView.View
     public TbPageContext m;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.f.f60539h);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.f.f60540h);
         this.m = tbPageContext;
     }
 
@@ -29,7 +29,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.d.f.c.f, ConcernTabLiveItemView.View
         if (viewHolder == null || fVar == null) {
             return null;
         }
-        viewHolder.f14913a.n(fVar);
+        viewHolder.f14914a.n(fVar);
         return viewHolder.a();
     }
 }

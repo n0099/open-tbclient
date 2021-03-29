@@ -6,7 +6,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BCResult {
     public boolean bFlag;
     public int[] nBlankFlagArr;

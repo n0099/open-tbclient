@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class ConnectPointData extends Message {
     public static final List<DnsIpData> DEFAULT_DNS_IP_CONNECT_RATE = Collections.emptyList();
     public static final List<DnsIpData> DEFAULT_DNS_IP_SPEED_DATA = Collections.emptyList();

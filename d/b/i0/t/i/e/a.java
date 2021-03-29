@@ -48,28 +48,28 @@ public class a extends d.b.i0.x.b<g> implements z {
 
     /* renamed from: d.b.i0.t.i.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1565a implements SwipeBackLayout.c {
-        public C1565a() {
+    public class C1566a implements SwipeBackLayout.c {
+        public C1566a() {
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void disableSwipeBack() {
-            if (a.this.w == null || ListUtils.isEmpty(a.this.w.f53352e) || a.this.w.f53352e.size() <= 1) {
+            if (a.this.w == null || ListUtils.isEmpty(a.this.w.f53353e) || a.this.w.f53353e.size() <= 1) {
                 return;
             }
-            if (a.this.f62180f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) a.this.f62180f.getOrignalPage()).setSwipeBackEnabled(false);
-            } else if (a.this.f62180f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) a.this.f62180f.getOrignalPage()).setSwipeBackEnabled(false);
+            if (a.this.f62181f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) a.this.f62181f.getOrignalPage()).setSwipeBackEnabled(false);
+            } else if (a.this.f62181f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) a.this.f62181f.getOrignalPage()).setSwipeBackEnabled(false);
             }
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void enableSwipeBack() {
-            if (a.this.f62180f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) a.this.f62180f.getOrignalPage()).setSwipeBackEnabled(a.this.v);
-            } else if (a.this.f62180f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) a.this.f62180f.getOrignalPage()).setSwipeBackEnabled(a.this.v);
+            if (a.this.f62181f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) a.this.f62181f.getOrignalPage()).setSwipeBackEnabled(a.this.v);
+            } else if (a.this.f62181f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) a.this.f62181f.getOrignalPage()).setSwipeBackEnabled(a.this.v);
             }
         }
     }
@@ -84,7 +84,7 @@ public class a extends d.b.i0.x.b<g> implements z {
             a2 item = a.this.u.getItem(i);
             a.this.x(item);
             a aVar = a.this;
-            aVar.z(aVar.f62180f, item);
+            aVar.z(aVar.f62181f, item);
         }
     }
 
@@ -100,7 +100,7 @@ public class a extends d.b.i0.x.b<g> implements z {
         this.t = (ParentDisallowInterceptHListView) m().findViewById(R.id.frs_insert_live_listview);
         this.q = (LinearLayout) m().findViewById(R.id.frs_card_content_layout);
         this.r = m().findViewById(R.id.divider_line);
-        this.t.setDividerWidth(this.f62181g.getResources().getDimensionPixelSize(R.dimen.ds12));
+        this.t.setDividerWidth(this.f62182g.getResources().getDimensionPixelSize(R.dimen.ds12));
         this.t.setBackgroundResource(R.drawable.transparent_bg);
         this.t.setOnItemClickListener(this.y);
         this.t.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
@@ -108,12 +108,12 @@ public class a extends d.b.i0.x.b<g> implements z {
         this.u = bVar;
         this.t.setAdapter((ListAdapter) bVar);
         this.o.setOnClickListener(this);
-        if (this.f62180f.getOrignalPage() instanceof BaseActivity) {
-            this.v = ((BaseActivity) this.f62180f.getOrignalPage()).isSwipeBackEnabled();
-        } else if (this.f62180f.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.v = ((BaseFragmentActivity) this.f62180f.getOrignalPage()).isSwipeBackEnabled();
+        if (this.f62181f.getOrignalPage() instanceof BaseActivity) {
+            this.v = ((BaseActivity) this.f62181f.getOrignalPage()).isSwipeBackEnabled();
+        } else if (this.f62181f.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.v = ((BaseFragmentActivity) this.f62181f.getOrignalPage()).isSwipeBackEnabled();
         }
-        this.s.setSwipeControlInterface(new C1565a());
+        this.s.setSwipeControlInterface(new C1566a());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -125,7 +125,7 @@ public class a extends d.b.i0.x.b<g> implements z {
         }
         this.w = gVar;
         y();
-        this.u.b(gVar.f53352e);
+        this.u.b(gVar.f53353e);
         o(l(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -148,12 +148,12 @@ public class a extends d.b.i0.x.b<g> implements z {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(this.s, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
-            this.f62179e = i;
+            this.f62180e = i;
         }
     }
 
@@ -162,7 +162,7 @@ public class a extends d.b.i0.x.b<g> implements z {
         if (view == this.o) {
             TiebaStatic.log(new StatisticItem("c12637"));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001627, 10001);
-            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f62180f.getUniqueId()));
+            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f62181f.getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
@@ -182,11 +182,11 @@ public class a extends d.b.i0.x.b<g> implements z {
     }
 
     public final void y() {
-        if (ListUtils.isEmpty(this.w.f53352e)) {
+        if (ListUtils.isEmpty(this.w.f53353e)) {
             return;
         }
         CustomMessage customMessage = new CustomMessage(2921017);
-        customMessage.setData(this.w.f53352e.get(0));
+        customMessage.setData(this.w.f53353e.get(0));
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
@@ -213,8 +213,8 @@ public class a extends d.b.i0.x.b<g> implements z {
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
         g gVar = this.w;
-        if (gVar != null && !ListUtils.isEmpty(gVar.f53352e)) {
-            for (a2 a2Var2 : this.w.f53352e) {
+        if (gVar != null && !ListUtils.isEmpty(gVar.f53353e)) {
+            for (a2 a2Var2 : this.w.f53353e) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(B(a2Var2));
             }
         }

@@ -10,25 +10,25 @@ import java.util.LinkedList;
 public abstract class c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.b.a.k.b f41669a;
+    public final d.b.b.a.k.b f41670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41670b;
+    public String f41671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e.b f41671c;
+    public e.b f41672c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e.a f41672d;
+    public e.a f41673d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41673e;
+    public int f41674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<String> f41674f = new LinkedList<>();
+    public LinkedList<String> f41675f = new LinkedList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f41675g = new Object();
+    public Object f41676g = new Object();
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -42,15 +42,15 @@ public abstract class c<T> {
     }
 
     public c(d.b.b.a.k.b bVar) {
-        this.f41669a = bVar;
+        this.f41670a = bVar;
     }
 
     public synchronized void a(String str, boolean z) {
-        synchronized (this.f41675g) {
-            if (this.f41674f.contains(str)) {
+        synchronized (this.f41676g) {
+            if (this.f41675f.contains(str)) {
                 return;
             }
-            this.f41674f.addLast(str);
+            this.f41675f.addLast(str);
             if (z) {
                 j();
             }
@@ -60,30 +60,30 @@ public abstract class c<T> {
     public void b(g<T> gVar) {
         String a2;
         try {
-            synchronized (this.f41675g) {
-                this.f41674f.remove(gVar.f41683a);
+            synchronized (this.f41676g) {
+                this.f41675f.remove(gVar.f41684a);
             }
             ContentValues p = p(gVar);
-            SQLiteDatabase f2 = this.f41669a.f();
-            if (f2.update(this.f41670b, p, "m_key = ?", new String[]{gVar.f41683a}) == 0) {
-                f2.insert(this.f41670b, null, p);
-                if (this.f41672d != null) {
+            SQLiteDatabase f2 = this.f41670a.f();
+            if (f2.update(this.f41671b, p, "m_key = ?", new String[]{gVar.f41684a}) == 0) {
+                f2.insert(this.f41671b, null, p);
+                if (this.f41673d != null) {
                     j();
                 }
             }
-            if (this.f41671c == null || (a2 = this.f41671c.a(gVar)) == null) {
+            if (this.f41672c == null || (a2 = this.f41672c.a(gVar)) == null) {
                 return;
             }
             e(a2);
         } catch (Throwable th) {
-            this.f41669a.i(th, "addOrUpdateTextCacheItem");
+            this.f41670a.i(th, "addOrUpdateTextCacheItem");
         }
     }
 
     public void c(String str) {
-        this.f41673e = 0;
-        synchronized (this.f41675g) {
-            this.f41674f.clear();
+        this.f41674e = 0;
+        synchronized (this.f41676g) {
+            this.f41675f.clear();
         }
         if (d(str)) {
             BdCacheService.l().g().b(str);
@@ -94,18 +94,18 @@ public abstract class c<T> {
 
     public int e(String str) {
         try {
-            return this.f41669a.f().delete(this.f41670b, "m_key = ?", new String[]{str});
+            return this.f41670a.f().delete(this.f41671b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.f41669a.i(th, "deleteCacheItem");
+            this.f41670a.i(th, "deleteCacheItem");
             return 0;
         }
     }
 
     public g<T> f(String str) {
         try {
-            return i(this.f41669a.f(), str);
+            return i(this.f41670a.f(), str);
         } catch (Throwable th) {
-            this.f41669a.i(th, "get");
+            this.f41670a.i(th, "get");
             return null;
         }
     }
@@ -113,19 +113,17 @@ public abstract class c<T> {
     public abstract int g();
 
     public d.b.b.a.k.b h() {
-        return this.f41669a;
+        return this.f41670a;
     }
 
     public abstract g<T> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable;
 
     public void j() {
-        e.a aVar = this.f41672d;
-        if (aVar != null) {
-            this.f41673e++;
-            double maxSize = aVar.getMaxSize();
-            Double.isNaN(maxSize);
-            if (this.f41673e >= ((int) Math.min(maxSize * 0.2d, 5.0d))) {
-                this.f41673e = 0;
+        e.a aVar;
+        if (this.f41673d != null) {
+            this.f41674e++;
+            if (this.f41674e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
+                this.f41674e = 0;
                 d.b.b.e.m.h.a().b(new a());
             }
         }
@@ -137,20 +135,20 @@ public abstract class c<T> {
 
     public void m() {
         String removeFirst;
-        if (this.f41674f.isEmpty()) {
+        if (this.f41675f.isEmpty()) {
             return;
         }
-        SQLiteDatabase f2 = this.f41669a.f();
+        SQLiteDatabase f2 = this.f41670a.f();
         f2.beginTransaction();
         while (true) {
             try {
-                synchronized (this.f41675g) {
-                    if (this.f41674f.isEmpty()) {
+                synchronized (this.f41676g) {
+                    if (this.f41675f.isEmpty()) {
                         break;
                     }
-                    removeFirst = this.f41674f.removeFirst();
+                    removeFirst = this.f41675f.removeFirst();
                 }
-                f2.delete(this.f41670b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                f2.delete(this.f41671b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
             } finally {
                 try {
                 } finally {
@@ -158,25 +156,25 @@ public abstract class c<T> {
             }
         }
         f2.setTransactionSuccessful();
-        this.f41673e = 0;
+        this.f41674e = 0;
     }
 
     public void n(String str) {
-        e.a aVar = this.f41672d;
+        e.a aVar = this.f41673d;
         if (aVar == null) {
             return;
         }
         Cursor cursor = null;
         try {
             aVar.g();
-            cursor = q(this.f41669a.f(), str);
+            cursor = q(this.f41670a.f(), str);
             while (cursor.moveToNext()) {
                 g<?> gVar = new g<>();
-                gVar.f41683a = cursor.getString(cursor.getColumnIndex("m_key"));
-                gVar.f41686d = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                gVar.f41687e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                gVar.f41688f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                String h2 = this.f41672d.h(gVar);
+                gVar.f41684a = cursor.getString(cursor.getColumnIndex("m_key"));
+                gVar.f41687d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                gVar.f41688e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                gVar.f41689f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String h2 = this.f41673d.h(gVar);
                 if (h2 != null) {
                     a(h2, false);
                 }
@@ -190,21 +188,21 @@ public abstract class c<T> {
     }
 
     public void o(String str) {
-        e.b bVar = this.f41671c;
+        e.b bVar = this.f41672c;
         if (bVar == null) {
             return;
         }
         Cursor cursor = null;
         try {
             bVar.d();
-            cursor = q(this.f41669a.f(), str);
+            cursor = q(this.f41670a.f(), str);
             while (cursor.moveToNext()) {
                 g<?> gVar = new g<>();
-                gVar.f41683a = cursor.getString(cursor.getColumnIndex("m_key"));
-                gVar.f41686d = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                gVar.f41687e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                gVar.f41688f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                String f2 = this.f41671c.f(gVar);
+                gVar.f41684a = cursor.getString(cursor.getColumnIndex("m_key"));
+                gVar.f41687d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                gVar.f41688e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                gVar.f41689f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String f2 = this.f41672c.f(gVar);
                 if (f2 != null) {
                     a(f2, false);
                 }
@@ -222,12 +220,12 @@ public abstract class c<T> {
     public abstract Cursor q(SQLiteDatabase sQLiteDatabase, String str);
 
     public void r(e eVar, String str) {
-        this.f41670b = str;
+        this.f41671b = str;
         if (eVar instanceof e.b) {
-            this.f41671c = (e.b) eVar;
+            this.f41672c = (e.b) eVar;
         }
         if (eVar instanceof e.a) {
-            this.f41672d = (e.a) eVar;
+            this.f41673d = (e.a) eVar;
         }
     }
 }

@@ -24,28 +24,28 @@ import tbclient.PermissionList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f56944a;
+    public TbPageContext f56945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f56945b;
+    public BdUniqueId f56946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.h0.r.f0.a f56946c;
+    public d.b.h0.r.f0.a f56947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.h0.r.s.f f56947d;
+    public d.b.h0.r.s.f f56948d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f56948e;
+    public ArrayList<n> f56949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f56949f;
+    public long f56950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UserBlockSetModel f56950g;
+    public UserBlockSetModel f56951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public UserBlockInfoModel f56951h;
+    public UserBlockInfoModel f56952h;
     public AdapterView.OnItemClickListener i = new c();
     public View.OnClickListener j = new d();
     public View.OnClickListener k = new e();
@@ -60,26 +60,26 @@ public class b {
         /* renamed from: b */
         public void onSuccess(String str) {
             b.this.k();
-            d.b.i0.m3.a.f((ViewGroup) b.this.f56944a.getPageActivity().findViewById(16908290), str, true);
+            d.b.i0.m3.a.f((ViewGroup) b.this.f56945a.getPageActivity().findViewById(16908290), str, true);
         }
 
         @Override // d.b.h0.m.a
         public void onError(int i, String str) {
             b.this.k();
-            d.b.i0.m3.a.f((ViewGroup) b.this.f56944a.getPageActivity().findViewById(16908290), str, false);
+            d.b.i0.m3.a.f((ViewGroup) b.this.f56945a.getPageActivity().findViewById(16908290), str, false);
         }
     }
 
     /* renamed from: d.b.i0.m3.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1348b implements d.b.h0.m.a {
-        public C1348b() {
+    public class C1349b implements d.b.h0.m.a {
+        public C1349b() {
         }
 
         @Override // d.b.h0.m.a
         public void onError(int i, String str) {
-            if (b.this.f56944a != null) {
-                b.this.f56944a.showToast(str);
+            if (b.this.f56945a != null) {
+                b.this.f56945a.showToast(str);
             }
         }
 
@@ -97,8 +97,8 @@ public class b {
             }
             if (permissionList != null) {
                 b.this.m(i, permissionList);
-            } else if (b.this.f56944a != null) {
-                b.this.f56944a.showToast(R.string.error_unkown_try_again);
+            } else if (b.this.f56945a != null) {
+                b.this.f56945a.showToast(R.string.error_unkown_try_again);
             }
         }
     }
@@ -110,10 +110,10 @@ public class b {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (((n) ListUtils.getItem(b.this.f56948e, i)) != null) {
-                b.this.f56947d.r(true);
+            if (((n) ListUtils.getItem(b.this.f56949e, i)) != null) {
+                b.this.f56948d.r(true);
             }
-            b.this.f56947d.h(i);
+            b.this.f56948d.h(i);
         }
     }
 
@@ -124,7 +124,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.f56947d.d();
+            b.this.f56948d.d();
         }
     }
 
@@ -135,11 +135,11 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.f56947d.d();
-            if (b.this.f56948e == null || !j.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            b.this.f56948d.d();
+            if (b.this.f56949e == null || !j.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 return;
             }
-            Iterator it = b.this.f56948e.iterator();
+            Iterator it = b.this.f56949e.iterator();
             int i = 0;
             int i2 = 0;
             int i3 = 0;
@@ -154,7 +154,7 @@ public class b {
                 }
             }
             b.this.o();
-            b.this.f56950g.y(b.this.f56949f, i, i2, i3);
+            b.this.f56951g.y(b.this.f56950f, i, i2, i3);
         }
     }
 
@@ -165,19 +165,19 @@ public class b {
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, b.this.f56945b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, b.this.f56946b);
         }
     }
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.f56944a = tbPageContext;
-        this.f56945b = bdUniqueId;
+        this.f56945a = tbPageContext;
+        this.f56946b = bdUniqueId;
         UserBlockSetModel userBlockSetModel = new UserBlockSetModel(tbPageContext, bdUniqueId);
-        this.f56950g = userBlockSetModel;
+        this.f56951g = userBlockSetModel;
         userBlockSetModel.z(new a());
         UserBlockInfoModel userBlockInfoModel = new UserBlockInfoModel(tbPageContext, bdUniqueId);
-        this.f56951h = userBlockInfoModel;
-        userBlockInfoModel.z(new C1348b());
+        this.f56952h = userBlockInfoModel;
+        userBlockInfoModel.z(new C1349b());
     }
 
     public final String j(int i) {
@@ -185,32 +185,32 @@ public class b {
     }
 
     public final void k() {
-        d.b.h0.r.f0.a aVar = this.f56946c;
+        d.b.h0.r.f0.a aVar = this.f56947c;
         if (aVar != null) {
             aVar.h(false);
         }
     }
 
     public void l() {
-        this.f56949f = -1L;
-        d.b.h0.r.f0.a aVar = this.f56946c;
+        this.f56950f = -1L;
+        d.b.h0.r.f0.a aVar = this.f56947c;
         if (aVar != null) {
             aVar.h(false);
         }
-        d.b.h0.r.s.f fVar = this.f56947d;
+        d.b.h0.r.s.f fVar = this.f56948d;
         if (fVar != null) {
             fVar.d();
         }
-        UserBlockInfoModel userBlockInfoModel = this.f56951h;
+        UserBlockInfoModel userBlockInfoModel = this.f56952h;
         if (userBlockInfoModel != null) {
             userBlockInfoModel.onDestroy();
         }
-        UserBlockSetModel userBlockSetModel = this.f56950g;
+        UserBlockSetModel userBlockSetModel = this.f56951g;
         if (userBlockSetModel != null) {
             userBlockSetModel.onDestroy();
         }
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.f56945b);
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.f56945b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.f56946b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.f56946b);
     }
 
     public final void m(int i, PermissionList permissionList) {
@@ -221,37 +221,37 @@ public class b {
             z = true;
         }
         ArrayList<n> arrayList = new ArrayList<>();
-        this.f56948e = arrayList;
+        this.f56949e = arrayList;
         if (i == 1) {
             arrayList.add(new n(j(R.string.block_follow), z2, "1"));
-            this.f56948e.add(new n(j(R.string.block_action), z3, "2"));
-            this.f56948e.add(new n(j(R.string.block_message), z, "3"));
+            this.f56949e.add(new n(j(R.string.block_action), z3, "2"));
+            this.f56949e.add(new n(j(R.string.block_message), z, "3"));
         } else {
             arrayList.add(new n(j(R.string.block_commit), z3, "2"));
-            this.f56948e.add(new n(j(R.string.block_message), z, "3"));
+            this.f56949e.add(new n(j(R.string.block_message), z, "3"));
         }
-        d.b.h0.r.s.f fVar = new d.b.h0.r.s.f(this.f56944a);
-        this.f56947d = fVar;
+        d.b.h0.r.s.f fVar = new d.b.h0.r.s.f(this.f56945a);
+        this.f56948d = fVar;
         fVar.l(R.string.block_user_title);
-        this.f56947d.k(this.f56948e, this.i);
-        this.f56947d.q(R.string.done, this.k);
-        this.f56947d.p(R.string.cancel, this.j);
-        d.b.h0.r.s.f fVar2 = this.f56947d;
+        this.f56948d.k(this.f56949e, this.i);
+        this.f56948d.q(R.string.done, this.k);
+        this.f56948d.p(R.string.cancel, this.j);
+        d.b.h0.r.s.f fVar2 = this.f56948d;
         fVar2.c();
         fVar2.n();
     }
 
     public void n(long j) {
-        this.f56949f = j;
-        this.f56951h.y(j);
+        this.f56950f = j;
+        this.f56952h.y(j);
     }
 
     public final void o() {
-        if (this.f56946c == null) {
-            d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(this.f56944a);
-            this.f56946c = aVar;
+        if (this.f56947c == null) {
+            d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(this.f56945a);
+            this.f56947c = aVar;
             aVar.e(new f());
         }
-        this.f56946c.h(true);
+        this.f56947c.h(true);
     }
 }

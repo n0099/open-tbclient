@@ -11,24 +11,24 @@ import d.b.b.e.p.k;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f52327a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    public static final String f52328a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* loaded from: classes4.dex */
     public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52328a;
+        public String f52329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52329b;
+        public String f52330b;
 
         /* renamed from: c  reason: collision with root package name */
-        public InterfaceC1140b f52330c;
+        public InterfaceC1141b f52331c;
 
-        public a(String str, String str2, InterfaceC1140b interfaceC1140b) {
-            this.f52328a = str;
-            this.f52329b = str2;
-            this.f52330c = interfaceC1140b;
+        public a(String str, String str2, InterfaceC1141b interfaceC1141b) {
+            this.f52329a = str;
+            this.f52330b = str2;
+            this.f52331c = interfaceC1141b;
             setPriority(3);
         }
 
@@ -36,9 +36,9 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public ForbidTplData doInBackground(String... strArr) {
-            NetWork netWork = new NetWork(b.f52327a);
-            netWork.addPostData("forum_id", this.f52328a);
-            netWork.addPostData("user_id", this.f52329b);
+            NetWork netWork = new NetWork(b.f52328a);
+            netWork.addPostData("forum_id", this.f52329a);
+            netWork.addPostData("user_id", this.f52330b);
             String postNetData = netWork.postNetData();
             if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                 try {
@@ -61,12 +61,12 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.f52330c != null) {
+            if (this.f52331c != null) {
                 ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
                 if (errorInfo.errno == 0 && k.isEmpty(errorInfo.errMsg)) {
-                    this.f52330c.a(forbidTplData);
+                    this.f52331c.a(forbidTplData);
                 } else {
-                    this.f52330c.b(forbidTplData);
+                    this.f52331c.b(forbidTplData);
                 }
             }
         }
@@ -74,13 +74,13 @@ public class b {
 
     /* renamed from: d.b.i0.c2.f.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1140b {
+    public interface InterfaceC1141b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void b(String str, String str2, InterfaceC1140b interfaceC1140b) {
-        new a(str, str2, interfaceC1140b).execute(new String[0]);
+    public static void b(String str, String str2, InterfaceC1141b interfaceC1141b) {
+        new a(str, str2, interfaceC1141b).execute(new String[0]);
     }
 }

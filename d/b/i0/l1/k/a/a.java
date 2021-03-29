@@ -14,18 +14,18 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f56730a;
+    public TbPageContext f56731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f56731b = new ArrayList<>();
+    public ArrayList<TransmitForumData> f56732b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f56732c = new C1335a(2016563);
+    public final CustomMessageListener f56733c = new C1336a(2016563);
 
     /* renamed from: d.b.i0.l1.k.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1335a extends CustomMessageListener {
-        public C1335a(int i) {
+    public class C1336a extends CustomMessageListener {
+        public C1336a(int i) {
             super(i);
         }
 
@@ -35,18 +35,18 @@ public class a {
             if (customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof ArrayList)) {
                 return;
             }
-            a.this.f56731b.clear();
-            a.this.f56731b.addAll((ArrayList) customResponsedMessage.getData());
+            a.this.f56732b.clear();
+            a.this.f56732b.addAll((ArrayList) customResponsedMessage.getData());
         }
     }
 
     public a(TbPageContext tbPageContext) {
-        this.f56730a = tbPageContext;
-        MessageManager.getInstance().registerListener(this.f56732c);
+        this.f56731a = tbPageContext;
+        MessageManager.getInstance().registerListener(this.f56733c);
     }
 
     public List<TransmitForumData> b() {
-        return this.f56731b;
+        return this.f56732b;
     }
 
     public void c() {
@@ -54,17 +54,17 @@ public class a {
     }
 
     public void d() {
-        MessageManager.getInstance().unRegisterListener(this.f56732c);
+        MessageManager.getInstance().unRegisterListener(this.f56733c);
     }
 
     public void e(long j) {
         if (j <= 0) {
             return;
         }
-        SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.f56730a.getPageActivity(), 25018);
+        SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.f56731a.getPageActivity(), 25018);
         CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
         selectForumActivityConfig.setFrom(1);
-        selectForumActivityConfig.setForumList(this.f56731b);
+        selectForumActivityConfig.setForumList(this.f56732b);
         selectForumActivityConfig.setLiveId(j);
         MessageManager.getInstance().sendMessage(customMessage);
     }

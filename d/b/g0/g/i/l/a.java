@@ -8,25 +8,25 @@ import com.baidu.searchbox.v8engine.V8Engine;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public V8Engine f48188a;
+    public V8Engine f48189a;
 
     public a(V8Engine v8Engine) {
-        this.f48188a = v8Engine;
+        this.f48189a = v8Engine;
     }
 
     public void a(@NonNull Object obj, @NonNull String str) {
-        this.f48188a.addJavascriptInterface(obj, str);
+        this.f48189a.addJavascriptInterface(obj, str);
     }
 
     public void b(String str, ValueCallback<String> valueCallback) {
-        this.f48188a.evaluateJavascript(str, valueCallback, "mainContextEvaluate");
+        this.f48189a.evaluateJavascript(str, valueCallback, "mainContextEvaluate");
     }
 
     public void c(String str, String str2) {
-        this.f48188a.requireJSFile(str, str2);
+        this.f48189a.requireJSFile(str, str2);
     }
 
     public void d(JSExceptionType jSExceptionType, String str) {
-        this.f48188a.throwJSException(jSExceptionType, str);
+        this.f48189a.throwJSException(jSExceptionType, str);
     }
 }

@@ -6,13 +6,13 @@ public class f extends com.kwai.filedownloader.event.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f37005a = new f();
+        public static final f f37006a = new f();
     }
 
     public f() {
     }
 
     public static f a() {
-        return a.f37005a;
+        return a.f37006a;
     }
 }

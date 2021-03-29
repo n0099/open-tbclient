@@ -148,7 +148,7 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i = 6;
         }
-        if (d.m() && a.f49751c != a.d()) {
+        if (d.m() && a.f49752c != a.d()) {
             frsRequestData.D(k.d(a.d()));
         }
         frsRequestData.setSortType(k.d(i));

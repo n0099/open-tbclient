@@ -10,16 +10,16 @@ public class b extends BaseCardInfo {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f57242e;
+    public long f57243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57243f;
+    public String f57244f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57244g;
+    public String f57245g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57245h;
+    public String f57246h;
     public String i;
     public String j;
     public List<FrsTabInfo> k;
@@ -29,7 +29,7 @@ public class b extends BaseCardInfo {
     }
 
     public String g() {
-        return this.f57244g;
+        return this.f57245g;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
@@ -42,11 +42,11 @@ public class b extends BaseCardInfo {
     }
 
     public long n() {
-        return this.f57242e;
+        return this.f57243e;
     }
 
     public String o() {
-        return this.f57243f;
+        return this.f57244f;
     }
 
     public List<FrsTabInfo> s() {
@@ -54,7 +54,7 @@ public class b extends BaseCardInfo {
     }
 
     public String t() {
-        return this.f57245h;
+        return this.f57246h;
     }
 
     public String u() {
@@ -65,10 +65,10 @@ public class b extends BaseCardInfo {
         if (searchForum == null) {
             return;
         }
-        this.f57242e = searchForum.forum_id.longValue();
-        this.f57243f = searchForum.forum_name;
-        this.f57244g = searchForum.avatar;
-        this.f57245h = searchForum.post_num;
+        this.f57243e = searchForum.forum_id.longValue();
+        this.f57244f = searchForum.forum_name;
+        this.f57245g = searchForum.avatar;
+        this.f57246h = searchForum.post_num;
         this.i = searchForum.concern_num;
         String str = searchForum.slogan;
         String str2 = searchForum.intro;

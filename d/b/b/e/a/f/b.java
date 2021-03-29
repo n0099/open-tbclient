@@ -11,16 +11,16 @@ import java.io.ByteArrayInputStream;
 public class b extends c {
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f41596f;
+    public Rect f41597f;
 
     public b(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.f41596f = null;
-        this.f41596f = new Rect();
+        this.f41597f = null;
+        this.f41597f = new Rect();
     }
 
     public Rect e() {
-        return this.f41596f;
+        return this.f41597f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:30:0x0077 A[RETURN] */
@@ -31,15 +31,15 @@ public class b extends c {
     */
     public boolean formatData(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.f41599c.b(bArr)) {
-            long j = this.f41599c.f41605b;
+        if (bArr != null && this.f41600c.b(bArr)) {
+            long j = this.f41600c.f41606b;
             if (j == 0 || j >= System.currentTimeMillis()) {
-                if (this.f41598b == null) {
+                if (this.f41599b == null) {
                     BitmapFactory.Options options = new BitmapFactory.Options();
-                    this.f41598b = options;
+                    this.f41599b = options;
                     options.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    BitmapFactory.Options options2 = this.f41598b;
+                    BitmapFactory.Options options2 = this.f41599b;
                     options2.inScreenDensity = i;
                     options2.inTargetDensity = i;
                     options2.inDensity = i;
@@ -56,14 +56,14 @@ public class b extends c {
                     e = e2;
                 }
                 try {
-                    this.f41597a = BitmapFactory.decodeStream(byteArrayInputStream, this.f41596f, this.f41598b);
+                    this.f41598a = BitmapFactory.decodeStream(byteArrayInputStream, this.f41597f, this.f41599b);
                     d.b.b.e.m.a.c(byteArrayInputStream);
                 } catch (Error e3) {
                     e = e3;
                     byteArrayInputStream2 = byteArrayInputStream;
                     BdLog.e(e.getMessage());
                     d.b.b.e.m.a.c(byteArrayInputStream2);
-                    if (this.f41597a == null) {
+                    if (this.f41598a == null) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -71,7 +71,7 @@ public class b extends c {
                     d.b.b.e.m.a.c(byteArrayInputStream2);
                     throw th;
                 }
-                return this.f41597a == null;
+                return this.f41598a == null;
             }
         }
         return false;

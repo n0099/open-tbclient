@@ -9,26 +9,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f2887a = new Object();
+    public static final Object f2888a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2888b = "PushTrackDatabase";
+    public static String f2889b = "PushTrackDatabase";
 
     /* renamed from: c  reason: collision with root package name */
-    public static C0033e f2889c;
+    public static C0034e f2890c;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f2890d;
+    public static e f2891d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f2891e;
+    public Context f2892e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum a {
         ackId,
         type,
@@ -38,7 +38,7 @@ public class e {
         aliasId
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum b {
         connectionId,
         startTime,
@@ -50,7 +50,7 @@ public class e {
         aliasId
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum c {
         crashId,
         exception,
@@ -59,7 +59,7 @@ public class e {
         aliasId
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum d {
         dbId,
         tableName,
@@ -74,26 +74,26 @@ public class e {
     }
 
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0033e extends SQLiteOpenHelper {
+    /* loaded from: classes.dex */
+    public static class C0034e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f2921a = "CREATE TABLE crash (" + c.crashId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.exception.name() + " TEXT, " + c.timestamp.name() + " LONG, " + c.ext.name() + " TEXT, " + c.aliasId.name() + " LONG NOT NULL );";
+        public static final String f2922a = "CREATE TABLE crash (" + c.crashId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.exception.name() + " TEXT, " + c.timestamp.name() + " LONG, " + c.ext.name() + " TEXT, " + c.aliasId.name() + " LONG NOT NULL );";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f2922b = "CREATE TABLE db (" + d.dbId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.tableName.name() + " TEXT, " + d.className.name() + " TEXT, " + d.method.name() + " TEXT, " + d.action.name() + " TEXT, " + d.startTime.name() + " LONG, " + d.endTime.name() + " LONG, " + d.duration.name() + " LONG, " + d.ext.name() + " TEXT, " + d.aliasId.name() + " LONG NOT NULL );";
+        public static final String f2923b = "CREATE TABLE db (" + d.dbId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.tableName.name() + " TEXT, " + d.className.name() + " TEXT, " + d.method.name() + " TEXT, " + d.action.name() + " TEXT, " + d.startTime.name() + " LONG, " + d.endTime.name() + " LONG, " + d.duration.name() + " LONG, " + d.ext.name() + " TEXT, " + d.aliasId.name() + " LONG NOT NULL );";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f2923c;
+        public static final String f2924c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f2924d;
+        public static final String f2925d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f2925e;
+        public static final String f2926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f2926f;
+        public Context f2927f;
 
         static {
             StringBuilder sb = new StringBuilder();
@@ -114,8 +114,8 @@ public class e {
             sb.append(" TEXT, ");
             sb.append(b.aliasId.name());
             sb.append(" LONG NOT NULL );");
-            f2923c = sb.toString();
-            f2924d = "CREATE TABLE request (" + f.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.method.name() + " TEXT, " + f.requestId.name() + " TEXT, " + f.timestamp.name() + " LONG, " + f.responseTime.name() + " LONG, " + f.errorCode.name() + " LONG, " + f.ext.name() + " TEXT, " + f.aliasId.name() + " LONG NOT NULL);";
+            f2924c = sb.toString();
+            f2925d = "CREATE TABLE request (" + f.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.method.name() + " TEXT, " + f.requestId.name() + " TEXT, " + f.timestamp.name() + " LONG, " + f.responseTime.name() + " LONG, " + f.errorCode.name() + " LONG, " + f.ext.name() + " TEXT, " + f.aliasId.name() + " LONG NOT NULL);";
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE ack (");
             sb2.append(a.ackId.name());
@@ -130,12 +130,12 @@ public class e {
             sb2.append(" TEXT, ");
             sb2.append(a.aliasId.name());
             sb2.append(" LONG NOT NULL);");
-            f2925e = sb2.toString();
+            f2926e = sb2.toString();
         }
 
-        public C0033e(Context context, String str, int i) {
+        public C0034e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-            this.f2926f = context;
+            this.f2927f = context;
         }
 
         private void a(SQLiteDatabase sQLiteDatabase) {
@@ -152,11 +152,11 @@ public class e {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f2921a);
-                sQLiteDatabase.execSQL(f2922b);
-                sQLiteDatabase.execSQL(f2923c);
-                sQLiteDatabase.execSQL(f2924d);
-                sQLiteDatabase.execSQL(f2925e);
+                sQLiteDatabase.execSQL(f2922a);
+                sQLiteDatabase.execSQL(f2923b);
+                sQLiteDatabase.execSQL(f2924c);
+                sQLiteDatabase.execSQL(f2925d);
+                sQLiteDatabase.execSQL(f2926e);
             } catch (Exception unused) {
             }
         }
@@ -168,7 +168,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum f {
         id,
         method,
@@ -181,27 +181,27 @@ public class e {
     }
 
     public e(Context context) {
-        this.f2891e = context;
-        f2889c = new C0033e(context, "push_track.db", 1);
+        this.f2892e = context;
+        f2890c = new C0034e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
-        if (f2890d == null) {
-            synchronized (f2887a) {
-                if (f2890d == null) {
-                    f2890d = new e(context.getApplicationContext());
+        if (f2891d == null) {
+            synchronized (f2888a) {
+                if (f2891d == null) {
+                    f2891d = new e(context.getApplicationContext());
                 }
             }
         }
-        return f2890d;
+        return f2891d;
     }
 
     public static SQLiteDatabase b(Context context) {
-        if (f2889c == null) {
-            f2889c = new C0033e(context, "push_track.db", 1);
+        if (f2890c == null) {
+            f2890c = new C0034e(context, "push_track.db", 1);
         }
         try {
-            return f2889c.getWritableDatabase();
+            return f2890c.getWritableDatabase();
         } catch (Throwable unused) {
             return null;
         }
@@ -209,8 +209,8 @@ public class e {
 
     public List<com.baidu.android.pushservice.c.a.c> a() {
         Cursor cursor;
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             Cursor cursor2 = null;
             if (b2 == null) {
                 return null;
@@ -224,10 +224,10 @@ public class e {
                             break;
                         }
                         com.baidu.android.pushservice.c.a.c cVar = new com.baidu.android.pushservice.c.a.c();
-                        cVar.f2768a = rawQuery.getString(rawQuery.getColumnIndex(c.exception.name()));
-                        cVar.f2769b = rawQuery.getLong(rawQuery.getColumnIndex(c.timestamp.name()));
-                        cVar.f2770c = rawQuery.getString(rawQuery.getColumnIndex(c.ext.name()));
-                        cVar.f2771d = rawQuery.getLong(rawQuery.getColumnIndex(c.aliasId.name()));
+                        cVar.f2769a = rawQuery.getString(rawQuery.getColumnIndex(c.exception.name()));
+                        cVar.f2770b = rawQuery.getLong(rawQuery.getColumnIndex(c.timestamp.name()));
+                        cVar.f2771c = rawQuery.getString(rawQuery.getColumnIndex(c.ext.name()));
+                        cVar.f2772d = rawQuery.getLong(rawQuery.getColumnIndex(c.aliasId.name()));
                         arrayList.add(cVar);
                     } catch (Exception unused) {
                         cursor = null;
@@ -301,18 +301,18 @@ public class e {
     }
 
     public void a(com.baidu.android.pushservice.c.a.a aVar) {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             if (b2 == null) {
                 return;
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(a.type.name(), aVar.f2740a);
-                contentValues.put(a.value.name(), aVar.f2741b);
-                contentValues.put(a.timestamp.name(), Long.valueOf(aVar.f2742c));
-                contentValues.put(a.ext.name(), aVar.f2743d);
-                contentValues.put(a.aliasId.name(), Long.valueOf(aVar.f2744e));
+                contentValues.put(a.type.name(), aVar.f2741a);
+                contentValues.put(a.value.name(), aVar.f2742b);
+                contentValues.put(a.timestamp.name(), Long.valueOf(aVar.f2743c));
+                contentValues.put(a.ext.name(), aVar.f2744d);
+                contentValues.put(a.aliasId.name(), Long.valueOf(aVar.f2745e));
                 b2.insert(IMTrackDatabase.AckEnum.TABLE_NAME, null, contentValues);
             } catch (Exception unused) {
             }
@@ -321,20 +321,20 @@ public class e {
     }
 
     public void a(com.baidu.android.pushservice.c.a.b bVar) {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             if (b2 == null) {
                 return;
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(b.startTime.name(), Long.valueOf(bVar.f2753a));
-                contentValues.put(b.stopTime.name(), Long.valueOf(bVar.f2754b));
-                contentValues.put(b.reason.name(), bVar.f2755c);
-                contentValues.put(b.retryTime.name(), Long.valueOf(bVar.f2756d));
-                contentValues.put(b.retryCount.name(), Long.valueOf(bVar.f2757e));
-                contentValues.put(b.ext.name(), bVar.f2758f);
-                contentValues.put(b.aliasId.name(), Long.valueOf(bVar.f2759g));
+                contentValues.put(b.startTime.name(), Long.valueOf(bVar.f2754a));
+                contentValues.put(b.stopTime.name(), Long.valueOf(bVar.f2755b));
+                contentValues.put(b.reason.name(), bVar.f2756c);
+                contentValues.put(b.retryTime.name(), Long.valueOf(bVar.f2757d));
+                contentValues.put(b.retryCount.name(), Long.valueOf(bVar.f2758e));
+                contentValues.put(b.ext.name(), bVar.f2759f);
+                contentValues.put(b.aliasId.name(), Long.valueOf(bVar.f2760g));
                 b2.insert("connection", null, contentValues);
             } catch (Exception unused) {
             }
@@ -343,17 +343,17 @@ public class e {
     }
 
     public void a(com.baidu.android.pushservice.c.a.c cVar) {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             if (b2 == null) {
                 return;
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(c.exception.name(), cVar.f2768a);
-                contentValues.put(c.timestamp.name(), Long.valueOf(cVar.f2769b));
-                contentValues.put(c.ext.name(), cVar.f2770c);
-                contentValues.put(c.aliasId.name(), Long.valueOf(cVar.f2771d));
+                contentValues.put(c.exception.name(), cVar.f2769a);
+                contentValues.put(c.timestamp.name(), Long.valueOf(cVar.f2770b));
+                contentValues.put(c.ext.name(), cVar.f2771c);
+                contentValues.put(c.aliasId.name(), Long.valueOf(cVar.f2772d));
                 b2.insert("crash", null, contentValues);
             } catch (Exception unused) {
             } catch (Throwable th) {
@@ -365,21 +365,21 @@ public class e {
     }
 
     public void a(com.baidu.android.pushservice.c.a.d dVar) {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             if (b2 == null) {
                 return;
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(d.tableName.name(), dVar.f2780a);
-                contentValues.put(d.className.name(), dVar.f2781b);
-                contentValues.put(d.method.name(), dVar.f2782c);
-                contentValues.put(d.action.name(), dVar.f2783d);
-                contentValues.put(d.startTime.name(), Long.valueOf(dVar.f2784e));
-                contentValues.put(d.endTime.name(), Long.valueOf(dVar.f2785f));
-                contentValues.put(d.duration.name(), Long.valueOf(dVar.f2786g));
-                contentValues.put(d.ext.name(), dVar.f2787h);
+                contentValues.put(d.tableName.name(), dVar.f2781a);
+                contentValues.put(d.className.name(), dVar.f2782b);
+                contentValues.put(d.method.name(), dVar.f2783c);
+                contentValues.put(d.action.name(), dVar.f2784d);
+                contentValues.put(d.startTime.name(), Long.valueOf(dVar.f2785e));
+                contentValues.put(d.endTime.name(), Long.valueOf(dVar.f2786f));
+                contentValues.put(d.duration.name(), Long.valueOf(dVar.f2787g));
+                contentValues.put(d.ext.name(), dVar.f2788h);
                 contentValues.put(d.aliasId.name(), Long.valueOf(dVar.i));
                 b2.insert(IMTrackDatabase.DbEnum.TABLE_NAME, null, contentValues);
             } catch (Exception unused) {
@@ -392,20 +392,20 @@ public class e {
     }
 
     public void a(com.baidu.android.pushservice.c.a.e eVar) {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             if (b2 == null) {
                 return;
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(f.method.name(), eVar.f2788a);
-                contentValues.put(f.requestId.name(), eVar.f2789b);
-                contentValues.put(f.timestamp.name(), Long.valueOf(eVar.f2790c));
-                contentValues.put(f.responseTime.name(), Long.valueOf(eVar.f2791d));
-                contentValues.put(f.errorCode.name(), Long.valueOf(eVar.f2792e));
-                contentValues.put(f.ext.name(), eVar.f2793f);
-                contentValues.put(f.aliasId.name(), Long.valueOf(eVar.f2794g));
+                contentValues.put(f.method.name(), eVar.f2789a);
+                contentValues.put(f.requestId.name(), eVar.f2790b);
+                contentValues.put(f.timestamp.name(), Long.valueOf(eVar.f2791c));
+                contentValues.put(f.responseTime.name(), Long.valueOf(eVar.f2792d));
+                contentValues.put(f.errorCode.name(), Long.valueOf(eVar.f2793e));
+                contentValues.put(f.ext.name(), eVar.f2794f);
+                contentValues.put(f.aliasId.name(), Long.valueOf(eVar.f2795g));
                 b2.insert("request", null, contentValues);
             } catch (Exception unused) {
             }
@@ -414,8 +414,8 @@ public class e {
     }
 
     public List<com.baidu.android.pushservice.c.a.d> b() {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             Cursor cursor = null;
             if (b2 == null) {
                 return null;
@@ -428,14 +428,14 @@ public class e {
                         break;
                     }
                     com.baidu.android.pushservice.c.a.d dVar = new com.baidu.android.pushservice.c.a.d();
-                    dVar.f2780a = cursor.getString(cursor.getColumnIndex(d.tableName.name()));
-                    dVar.f2781b = cursor.getString(cursor.getColumnIndex(d.className.name()));
-                    dVar.f2782c = cursor.getString(cursor.getColumnIndex(d.method.name()));
-                    dVar.f2783d = cursor.getString(cursor.getColumnIndex(d.action.name()));
-                    dVar.f2784e = cursor.getLong(cursor.getColumnIndex(d.startTime.name()));
-                    dVar.f2785f = cursor.getLong(cursor.getColumnIndex(d.endTime.name()));
-                    dVar.f2786g = cursor.getLong(cursor.getColumnIndex(d.duration.name()));
-                    dVar.f2787h = cursor.getString(cursor.getColumnIndex(d.ext.name()));
+                    dVar.f2781a = cursor.getString(cursor.getColumnIndex(d.tableName.name()));
+                    dVar.f2782b = cursor.getString(cursor.getColumnIndex(d.className.name()));
+                    dVar.f2783c = cursor.getString(cursor.getColumnIndex(d.method.name()));
+                    dVar.f2784d = cursor.getString(cursor.getColumnIndex(d.action.name()));
+                    dVar.f2785e = cursor.getLong(cursor.getColumnIndex(d.startTime.name()));
+                    dVar.f2786f = cursor.getLong(cursor.getColumnIndex(d.endTime.name()));
+                    dVar.f2787g = cursor.getLong(cursor.getColumnIndex(d.duration.name()));
+                    dVar.f2788h = cursor.getString(cursor.getColumnIndex(d.ext.name()));
                     dVar.i = cursor.getLong(cursor.getColumnIndex(d.aliasId.name()));
                     arrayList.add(dVar);
                 }
@@ -459,8 +459,8 @@ public class e {
     }
 
     public List<com.baidu.android.pushservice.c.a.b> c() {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             Cursor cursor = null;
             if (b2 == null) {
                 return null;
@@ -473,13 +473,13 @@ public class e {
                         break;
                     }
                     com.baidu.android.pushservice.c.a.b bVar = new com.baidu.android.pushservice.c.a.b();
-                    bVar.f2753a = cursor.getLong(cursor.getColumnIndex(b.startTime.name()));
-                    bVar.f2754b = cursor.getLong(cursor.getColumnIndex(b.stopTime.name()));
-                    bVar.f2755c = cursor.getString(cursor.getColumnIndex(b.reason.name()));
-                    bVar.f2756d = cursor.getLong(cursor.getColumnIndex(b.retryTime.name()));
-                    bVar.f2757e = cursor.getLong(cursor.getColumnIndex(b.retryCount.name()));
-                    bVar.f2758f = cursor.getString(cursor.getColumnIndex(b.ext.name()));
-                    bVar.f2759g = cursor.getLong(cursor.getColumnIndex(b.aliasId.name()));
+                    bVar.f2754a = cursor.getLong(cursor.getColumnIndex(b.startTime.name()));
+                    bVar.f2755b = cursor.getLong(cursor.getColumnIndex(b.stopTime.name()));
+                    bVar.f2756c = cursor.getString(cursor.getColumnIndex(b.reason.name()));
+                    bVar.f2757d = cursor.getLong(cursor.getColumnIndex(b.retryTime.name()));
+                    bVar.f2758e = cursor.getLong(cursor.getColumnIndex(b.retryCount.name()));
+                    bVar.f2759f = cursor.getString(cursor.getColumnIndex(b.ext.name()));
+                    bVar.f2760g = cursor.getLong(cursor.getColumnIndex(b.aliasId.name()));
                     arrayList.add(bVar);
                 }
                 if (cursor != null) {
@@ -502,8 +502,8 @@ public class e {
     }
 
     public List<com.baidu.android.pushservice.c.a.e> d() {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             Cursor cursor = null;
             if (b2 == null) {
                 return null;
@@ -516,13 +516,13 @@ public class e {
                         break;
                     }
                     com.baidu.android.pushservice.c.a.e eVar = new com.baidu.android.pushservice.c.a.e();
-                    eVar.f2788a = cursor.getString(cursor.getColumnIndex(f.method.name()));
-                    eVar.f2789b = cursor.getString(cursor.getColumnIndex(f.requestId.name()));
-                    eVar.f2790c = cursor.getLong(cursor.getColumnIndex(f.timestamp.name()));
-                    eVar.f2791d = cursor.getLong(cursor.getColumnIndex(f.responseTime.name()));
-                    eVar.f2792e = cursor.getLong(cursor.getColumnIndex(f.errorCode.name()));
-                    eVar.f2793f = cursor.getString(cursor.getColumnIndex(f.ext.name()));
-                    eVar.f2794g = cursor.getLong(cursor.getColumnIndex(f.aliasId.name()));
+                    eVar.f2789a = cursor.getString(cursor.getColumnIndex(f.method.name()));
+                    eVar.f2790b = cursor.getString(cursor.getColumnIndex(f.requestId.name()));
+                    eVar.f2791c = cursor.getLong(cursor.getColumnIndex(f.timestamp.name()));
+                    eVar.f2792d = cursor.getLong(cursor.getColumnIndex(f.responseTime.name()));
+                    eVar.f2793e = cursor.getLong(cursor.getColumnIndex(f.errorCode.name()));
+                    eVar.f2794f = cursor.getString(cursor.getColumnIndex(f.ext.name()));
+                    eVar.f2795g = cursor.getLong(cursor.getColumnIndex(f.aliasId.name()));
                     arrayList.add(eVar);
                 }
                 if (cursor != null) {
@@ -545,8 +545,8 @@ public class e {
     }
 
     public List<com.baidu.android.pushservice.c.a.a> e() {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             Cursor cursor = null;
             if (b2 == null) {
                 return null;
@@ -559,11 +559,11 @@ public class e {
                         break;
                     }
                     com.baidu.android.pushservice.c.a.a aVar = new com.baidu.android.pushservice.c.a.a();
-                    aVar.f2740a = cursor.getString(cursor.getColumnIndex(a.type.name()));
-                    aVar.f2741b = cursor.getString(cursor.getColumnIndex(a.value.name()));
-                    aVar.f2742c = cursor.getLong(cursor.getColumnIndex(a.timestamp.name()));
-                    aVar.f2743d = cursor.getString(cursor.getColumnIndex(a.ext.name()));
-                    aVar.f2744e = cursor.getLong(cursor.getColumnIndex(a.aliasId.name()));
+                    aVar.f2741a = cursor.getString(cursor.getColumnIndex(a.type.name()));
+                    aVar.f2742b = cursor.getString(cursor.getColumnIndex(a.value.name()));
+                    aVar.f2743c = cursor.getLong(cursor.getColumnIndex(a.timestamp.name()));
+                    aVar.f2744d = cursor.getString(cursor.getColumnIndex(a.ext.name()));
+                    aVar.f2745e = cursor.getLong(cursor.getColumnIndex(a.aliasId.name()));
                     arrayList.add(aVar);
                 }
                 if (cursor != null) {
@@ -586,8 +586,8 @@ public class e {
     }
 
     public void f() {
-        synchronized (f2887a) {
-            SQLiteDatabase b2 = b(this.f2891e);
+        synchronized (f2888a) {
+            SQLiteDatabase b2 = b(this.f2892e);
             if (b2 == null) {
                 return;
             }

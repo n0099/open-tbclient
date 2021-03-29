@@ -50,16 +50,16 @@ public class NewWriteModel extends BdBaseModel {
     public static int MAX_IMG_NUM = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f21429e;
+    public h f21430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f21430f;
+    public d f21431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WriteData f21431g;
+    public WriteData f21432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21432h;
+    public String f21433h;
     public String i;
     public byte[] j;
     public e k;
@@ -76,15 +76,15 @@ public class NewWriteModel extends BdBaseModel {
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f21433e;
+        public final /* synthetic */ d.b.h0.r.s.a f21434e;
 
         public a(d.b.h0.r.s.a aVar) {
-            this.f21433e = aVar;
+            this.f21434e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f21433e.dismiss();
+            this.f21434e.dismiss();
             NewWriteModel.this.R();
         }
     }
@@ -93,15 +93,15 @@ public class NewWriteModel extends BdBaseModel {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f21435e;
+        public final /* synthetic */ d.b.h0.r.s.a f21436e;
 
         public b(d.b.h0.r.s.a aVar) {
-            this.f21435e = aVar;
+            this.f21436e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f21435e.dismiss();
+            this.f21436e.dismiss();
             NewWriteModel.this.cancel();
         }
     }
@@ -113,50 +113,50 @@ public class NewWriteModel extends BdBaseModel {
 
         @Override // d.b.i0.c3.n0.f.c
         public void a(String str) {
-            if (NewWriteModel.this.f21431g == null || TextUtils.isEmpty(str)) {
+            if (NewWriteModel.this.f21432g == null || TextUtils.isEmpty(str)) {
                 if (NewWriteModel.this.m != null) {
-                    NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                    NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21432g, null);
                     return;
                 }
                 return;
             }
-            NewWriteModel.this.f21429e = null;
-            NewWriteModel.this.f21431g.setAuthSid(str);
+            NewWriteModel.this.f21430e = null;
+            NewWriteModel.this.f21432g.setAuthSid(str);
             NewWriteModel.this.i0();
         }
 
         @Override // d.b.i0.c3.n0.f.c
         public void c(String str) {
-            if (NewWriteModel.this.f21431g == null || TextUtils.isEmpty(str)) {
+            if (NewWriteModel.this.f21432g == null || TextUtils.isEmpty(str)) {
                 if (NewWriteModel.this.m != null) {
-                    NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                    NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21432g, null);
                     return;
                 }
                 return;
             }
-            NewWriteModel.this.f21429e = null;
-            NewWriteModel.this.f21431g.setAuthSid(str);
+            NewWriteModel.this.f21430e = null;
+            NewWriteModel.this.f21432g.setAuthSid(str);
             NewWriteModel.this.i0();
         }
 
         @Override // d.b.i0.c3.n0.f.c
         public void d() {
-            if (NewWriteModel.this.f21431g != null) {
-                NewWriteModel.this.f21431g.setAuthSid(null);
+            if (NewWriteModel.this.f21432g != null) {
+                NewWriteModel.this.f21432g.setAuthSid(null);
             }
             if (NewWriteModel.this.m != null) {
-                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21432g, null);
             }
         }
 
         @Override // d.b.i0.c3.n0.f.c
         public void e() {
-            if (NewWriteModel.this.f21431g != null) {
-                NewWriteModel.this.f21429e = null;
-                NewWriteModel.this.f21431g.setAuthSid(null);
+            if (NewWriteModel.this.f21432g != null) {
+                NewWriteModel.this.f21430e = null;
+                NewWriteModel.this.f21432g.setAuthSid(null);
                 NewWriteModel.this.i0();
             } else if (NewWriteModel.this.m != null) {
-                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21432g, null);
             }
         }
     }
@@ -165,13 +165,13 @@ public class NewWriteModel extends BdBaseModel {
     public class d extends BdAsyncTask<Void, Void, ImageUploadResult> {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f21438a = false;
+        public boolean f21439a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.i0.c3.i0.a f21439b = new d.b.i0.c3.i0.a();
+        public d.b.i0.c3.i0.a f21440b = new d.b.i0.c3.i0.a();
 
         /* renamed from: c  reason: collision with root package name */
-        public Bitmap f21440c = null;
+        public Bitmap f21441c = null;
 
         public d() {
             setPriority(3);
@@ -182,7 +182,7 @@ public class NewWriteModel extends BdBaseModel {
         /* renamed from: b */
         public ImageUploadResult doInBackground(Void... voidArr) {
             boolean isLocalImagePath = FileHelper.isLocalImagePath(NewWriteModel.this.i);
-            if (this.f21438a) {
+            if (this.f21439a) {
                 return null;
             }
             if (NewWriteModel.this.j == null || NewWriteModel.this.j.length <= 0) {
@@ -190,28 +190,28 @@ public class NewWriteModel extends BdBaseModel {
                     return null;
                 }
                 Uri parse = Uri.parse(NewWriteModel.this.i);
-                NewWriteModel.this.f21432h = FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), parse);
-                if (TextUtils.isEmpty(NewWriteModel.this.f21432h)) {
+                NewWriteModel.this.f21433h = FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), parse);
+                if (TextUtils.isEmpty(NewWriteModel.this.f21433h)) {
                     return null;
                 }
                 NewWriteModel newWriteModel = NewWriteModel.this;
-                return newWriteModel.S(newWriteModel.f21432h, this.f21439b);
+                return newWriteModel.S(newWriteModel.f21433h, this.f21440b);
             }
             Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(NewWriteModel.this.j);
-            this.f21440c = Bytes2Bitmap;
+            this.f21441c = Bytes2Bitmap;
             if (Bytes2Bitmap == null) {
                 return null;
             }
-            NewWriteModel.this.f21432h = FileHelper.saveFileToSDOrMemory(TbConfig.IMAGE_RESIZED_FILE, Bytes2Bitmap, 85);
-            if (TextUtils.isEmpty(NewWriteModel.this.f21432h)) {
-                Bitmap bitmap = this.f21440c;
+            NewWriteModel.this.f21433h = FileHelper.saveFileToSDOrMemory(TbConfig.IMAGE_RESIZED_FILE, Bytes2Bitmap, 85);
+            if (TextUtils.isEmpty(NewWriteModel.this.f21433h)) {
+                Bitmap bitmap = this.f21441c;
                 if (bitmap != null && !bitmap.isRecycled()) {
-                    this.f21440c.recycle();
+                    this.f21441c.recycle();
                 }
                 return null;
             }
             NewWriteModel newWriteModel2 = NewWriteModel.this;
-            return newWriteModel2.S(newWriteModel2.f21432h, this.f21439b);
+            return newWriteModel2.S(newWriteModel2.f21433h, this.f21440b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -219,35 +219,35 @@ public class NewWriteModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.f21438a) {
+            if (this.f21439a) {
                 return;
             }
             if (NewWriteModel.this.k != null) {
                 NewWriteModel.this.k.a(imageUploadResult, false);
             }
-            Bitmap bitmap = this.f21440c;
+            Bitmap bitmap = this.f21441c;
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
-            this.f21440c.recycle();
+            this.f21441c.recycle();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.f21438a = true;
-            d.b.i0.c3.i0.a aVar = this.f21439b;
+            this.f21439a = true;
+            d.b.i0.c3.i0.a aVar = this.f21440b;
             if (aVar != null) {
                 aVar.b();
             }
             if (NewWriteModel.this.k != null) {
                 NewWriteModel.this.k.a(null, true);
             }
-            Bitmap bitmap = this.f21440c;
+            Bitmap bitmap = this.f21441c;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f21440c.recycle();
+                this.f21441c.recycle();
             }
             super.cancel();
-            NewWriteModel.this.f21430f = null;
+            NewWriteModel.this.f21431f = null;
         }
     }
 
@@ -270,44 +270,44 @@ public class NewWriteModel extends BdBaseModel {
     public class h extends BdAsyncTask<Integer, Integer, d.b.i0.c3.q0.f> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.c3.i0.a f21442a = null;
+        public d.b.i0.c3.i0.a f21443a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21443b = null;
+        public String f21444b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f21444c = false;
+        public boolean f21445c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public k f21445d;
+        public k f21446d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.i0.s1.g f21446e;
+        public d.b.i0.s1.g f21447e;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f21448e;
+            public final /* synthetic */ CustomDialogData f21449e;
 
             public a(CustomDialogData customDialogData) {
-                this.f21448e = customDialogData;
+                this.f21449e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.i0.c2.j.c.a((TbPageContext) NewWriteModel.this.o, this.f21448e).show();
+                d.b.i0.c2.j.c.a((TbPageContext) NewWriteModel.this.o, this.f21449e).show();
             }
         }
 
         public h() {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
             if (runTask != null) {
-                this.f21445d = (k) runTask.getData();
+                this.f21446d = (k) runTask.getData();
             }
-            k kVar = this.f21445d;
+            k kVar = this.f21446d;
             if (kVar != null) {
-                this.f21446e = kVar.get();
+                this.f21447e = kVar.get();
             }
             setPriority(3);
             d.b.i0.c3.q0.b.a("发帖：任务创建：PostThreadTask");
@@ -335,38 +335,38 @@ public class NewWriteModel extends BdBaseModel {
             String str8;
             CustomDialogData customDialogData;
             VideoEasterEggData videoEasterEggData;
-            if (this.f21444c) {
+            if (this.f21445c) {
                 return null;
             }
-            d.b.h0.a0.d.c(NewWriteModel.this.f21431g.getContent());
+            d.b.h0.a0.d.c(NewWriteModel.this.f21432g.getContent());
             d.b.i0.c3.q0.b.a("doInBackground() start");
             d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground");
             d.b.i0.c3.i0.a aVar = new d.b.i0.c3.i0.a();
-            this.f21442a = aVar;
+            this.f21443a = aVar;
             aVar.j(NewWriteModel.this.q);
-            this.f21442a.k(NewWriteModel.this.r);
-            this.f21442a.l(this.f21446e);
-            this.f21442a.i(NewWriteModel.this.p);
-            this.f21443b = this.f21442a.h(NewWriteModel.this.f21431g, NewWriteModel.this.n);
+            this.f21443a.k(NewWriteModel.this.r);
+            this.f21443a.l(this.f21447e);
+            this.f21443a.i(NewWriteModel.this.p);
+            this.f21444b = this.f21443a.h(NewWriteModel.this.f21432g, NewWriteModel.this.n);
             d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 结束");
-            ErrorData d2 = this.f21442a.d();
-            if (this.f21442a.e() && this.f21443b != null) {
+            ErrorData d2 = this.f21443a.d();
+            if (this.f21443a.e() && this.f21444b != null) {
                 d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 成功");
-                AntiData c2 = this.f21442a.c();
+                AntiData c2 = this.f21443a.c();
                 String error_msg = d2.getError_msg();
                 if (d.b.b.e.p.k.isEmpty(error_msg)) {
                     error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_success);
                 }
                 fVar = new d.b.i0.c3.q0.f(d2.getError_code(), error_msg, c2);
-                if (NewWriteModel.this.f21431g != null && NewWriteModel.this.f21431g.isHasImages() && !fVar.r()) {
-                    NewWriteModel.this.f21431g.deleteUploadedTempImages();
+                if (NewWriteModel.this.f21432g != null && NewWriteModel.this.f21432g.isHasImages() && !fVar.r()) {
+                    NewWriteModel.this.f21432g.deleteUploadedTempImages();
                 }
                 d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
             } else if (d2 != null && d2.error_code == 220015) {
                 fVar = new d.b.i0.c3.q0.f(d2.getError_code(), d2.getError_msg(), null);
-                if (this.f21443b != null) {
+                if (this.f21444b != null) {
                     try {
-                        JSONObject optJSONObject = new JSONObject(this.f21443b).optJSONObject("info");
+                        JSONObject optJSONObject = new JSONObject(this.f21444b).optJSONObject("info");
                         if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("confilter_hitwords")) != null && jSONArray.length() > 0) {
                             int length = jSONArray.length();
                             ArrayList<String> arrayList = new ArrayList<>();
@@ -382,14 +382,14 @@ public class NewWriteModel extends BdBaseModel {
                 d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 失败 1");
             } else if (d2 != null && d2.error_code == 238010) {
                 fVar = new d.b.i0.c3.q0.f(d2.getError_code(), d2.getError_msg(), null);
-                if (this.f21443b != null) {
+                if (this.f21444b != null) {
                     try {
-                        JSONObject optJSONObject2 = new JSONObject(this.f21443b).optJSONObject("info");
+                        JSONObject optJSONObject2 = new JSONObject(this.f21444b).optJSONObject("info");
                         if (optJSONObject2 != null) {
                             t1 t1Var = new t1();
-                            t1Var.f50887a = optJSONObject2.optString("block_content");
-                            t1Var.f50888b = optJSONObject2.optString("block_cancel");
-                            t1Var.f50889c = optJSONObject2.optString("block_confirm");
+                            t1Var.f50888a = optJSONObject2.optString("block_content");
+                            t1Var.f50889b = optJSONObject2.optString("block_cancel");
+                            t1Var.f50890c = optJSONObject2.optString("block_confirm");
                             fVar.H(t1Var);
                         }
                     } catch (JSONException e3) {
@@ -406,7 +406,7 @@ public class NewWriteModel extends BdBaseModel {
                         error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
                     }
                 }
-                fVar = new d.b.i0.c3.q0.f(d2.getError_code(), error_msg2, this.f21442a.c());
+                fVar = new d.b.i0.c3.q0.f(d2.getError_code(), error_msg2, this.f21443a.c());
                 d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 失败 3");
             } else {
                 fVar = new d.b.i0.c3.q0.f(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.neterror), null);
@@ -415,8 +415,8 @@ public class NewWriteModel extends BdBaseModel {
             if (!fVar.r()) {
                 ContriInfo contriInfo = new ContriInfo();
                 try {
-                    if (this.f21443b != null) {
-                        JSONObject jSONObject = new JSONObject(this.f21443b);
+                    if (this.f21444b != null) {
+                        JSONObject jSONObject = new JSONObject(this.f21444b);
                         String optString = jSONObject.optString("msg");
                         try {
                             str4 = jSONObject.optString("pre_msg");
@@ -783,7 +783,7 @@ public class NewWriteModel extends BdBaseModel {
         }
 
         public final void c(d.b.i0.c3.q0.f fVar) {
-            if (d.b.i0.c3.n0.f.a(fVar.e(), AuthTokenData.parse(this.f21443b), NewWriteModel.this.s)) {
+            if (d.b.i0.c3.n0.f.a(fVar.e(), AuthTokenData.parse(this.f21444b), NewWriteModel.this.s)) {
                 return;
             }
             if (fVar.t()) {
@@ -796,19 +796,19 @@ public class NewWriteModel extends BdBaseModel {
                 NewWriteModel.this.X(fVar);
             } else if (fVar.u()) {
                 f0 f0Var = new f0();
-                f0Var.e(this.f21443b);
-                if (f0Var.c() == null || NewWriteModel.this.f21431g == null) {
+                f0Var.e(this.f21444b);
+                if (f0Var.c() == null || NewWriteModel.this.f21432g == null) {
                     return;
                 }
-                NewWriteModel.this.f21431g.setVcodeMD5(f0Var.b());
-                NewWriteModel.this.f21431g.setVcodeUrl(f0Var.c());
+                NewWriteModel.this.f21432g.setVcodeMD5(f0Var.b());
+                NewWriteModel.this.f21432g.setVcodeUrl(f0Var.c());
                 NewWriteModel newWriteModel = NewWriteModel.this;
-                newWriteModel.Y(fVar, null, f0Var, newWriteModel.f21431g);
+                newWriteModel.Y(fVar, null, f0Var, newWriteModel.f21432g);
             } else if (fVar.s()) {
                 AccessState accessState = new AccessState();
-                accessState.parserJson(this.f21443b);
+                accessState.parserJson(this.f21444b);
                 NewWriteModel newWriteModel2 = NewWriteModel.this;
-                newWriteModel2.Y(fVar, accessState, null, newWriteModel2.f21431g);
+                newWriteModel2.Y(fVar, accessState, null, newWriteModel2.f21432g);
             } else if (fVar.v()) {
                 NewWriteModel.this.X(fVar);
             } else {
@@ -818,18 +818,18 @@ public class NewWriteModel extends BdBaseModel {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.f21444c = true;
-            d.b.i0.c3.i0.a aVar = this.f21442a;
+            this.f21445c = true;
+            d.b.i0.c3.i0.a aVar = this.f21443a;
             if (aVar != null) {
                 aVar.b();
             }
             if (NewWriteModel.this.m != null) {
-                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21432g, null);
             } else if (NewWriteModel.this.l != null) {
                 NewWriteModel.this.l.a(false, null, null, null, null);
             }
             super.cancel(true);
-            NewWriteModel.this.f21429e = null;
+            NewWriteModel.this.f21430e = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -847,17 +847,17 @@ public class NewWriteModel extends BdBaseModel {
             super.onPostExecute(fVar);
             d.b.i0.c3.q0.b.a("onPostExecute start");
             d.b.i0.c3.q0.b.a("发帖： onPostExecute");
-            NewWriteModel.this.f21429e = null;
+            NewWriteModel.this.f21430e = null;
             if (fVar != null && fVar.e() != 0) {
                 d.b.h0.r.z.a.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", fVar.e(), fVar.f(), "tid", fVar.o(), "pid", fVar.k());
             }
-            if (!this.f21444c && fVar != null) {
+            if (!this.f21445c && fVar != null) {
                 if (fVar.r()) {
                     d.b.i0.c3.q0.b.a("onPostExecute error");
                     c(fVar);
-                    d.b.i0.s1.g gVar = this.f21446e;
+                    d.b.i0.s1.g gVar = this.f21447e;
                     if (gVar != null) {
-                        gVar.f(fVar.f53596a, fVar.f());
+                        gVar.f(fVar.f53597a, fVar.f());
                     }
                 } else {
                     d.b.i0.c3.q0.b.a("onPostExecute success");
@@ -884,20 +884,20 @@ public class NewWriteModel extends BdBaseModel {
                         postWriteCallBackData.setActivityDialog(fVar.a());
                         postWriteCallBackData.setVideoid(fVar.q());
                         postWriteCallBackData.setContriInfo(fVar.d());
-                        if (NewWriteModel.this.f21431g != null) {
-                            postWriteCallBackData.setProZone(NewWriteModel.this.f21431g.getProZone());
-                            postWriteCallBackData.setGeneralTabId(NewWriteModel.this.f21431g.getTabId());
+                        if (NewWriteModel.this.f21432g != null) {
+                            postWriteCallBackData.setProZone(NewWriteModel.this.f21432g.getProZone());
+                            postWriteCallBackData.setGeneralTabId(NewWriteModel.this.f21432g.getTabId());
                         }
                         postWriteCallBackData.setVideoEasterEggData(fVar.p());
                         postWriteCallBackData.setIconStampData(fVar.i());
                         f0 f0Var = new f0();
-                        f0Var.e(this.f21443b);
-                        NewWriteModel.this.m.callback(true, postWriteCallBackData, f0Var, NewWriteModel.this.f21431g, fVar.b());
-                        if (NewWriteModel.this.f21431g != null && d.b.i0.c3.q0.a.f().e() != null) {
-                            d.b.i0.c3.q0.a.f().q(NewWriteModel.this.f21431g.getForumId());
-                            d.b.i0.c3.q0.a.f().r(NewWriteModel.this.f21431g.getForumName());
-                            if (NewWriteModel.this.f21431g.getVideoInfo() != null) {
-                                postWriteCallBackData.writeDataForVideo = NewWriteModel.this.f21431g;
+                        f0Var.e(this.f21444b);
+                        NewWriteModel.this.m.callback(true, postWriteCallBackData, f0Var, NewWriteModel.this.f21432g, fVar.b());
+                        if (NewWriteModel.this.f21432g != null && d.b.i0.c3.q0.a.f().e() != null) {
+                            d.b.i0.c3.q0.a.f().q(NewWriteModel.this.f21432g.getForumId());
+                            d.b.i0.c3.q0.a.f().r(NewWriteModel.this.f21432g.getForumName());
+                            if (NewWriteModel.this.f21432g.getVideoInfo() != null) {
+                                postWriteCallBackData.writeDataForVideo = NewWriteModel.this.f21432g;
                             }
                             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
                             customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, d.b.i0.c3.q0.a.f().e()));
@@ -906,8 +906,8 @@ public class NewWriteModel extends BdBaseModel {
                         }
                         CustomDialogData activityDialog = postWriteCallBackData.getActivityDialog();
                         if (activityDialog != null && fVar.i() == null) {
-                            if (NewWriteModel.this.f21431g != null) {
-                                int type = NewWriteModel.this.f21431g.getType();
+                            if (NewWriteModel.this.f21432g != null) {
+                                int type = NewWriteModel.this.f21432g.getType();
                                 if (type != 0) {
                                     if (type == 1 || type == 2) {
                                         activityDialog.type = 1;
@@ -924,7 +924,7 @@ public class NewWriteModel extends BdBaseModel {
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001375, Boolean.valueOf(fVar.i() == null)));
-                    d.b.i0.s1.g gVar2 = this.f21446e;
+                    d.b.i0.s1.g gVar2 = this.f21447e;
                     if (gVar2 != null) {
                         gVar2.g();
                     }
@@ -938,10 +938,10 @@ public class NewWriteModel extends BdBaseModel {
 
     public NewWriteModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.f21429e = null;
-        this.f21430f = null;
-        this.f21431g = null;
-        this.f21432h = null;
+        this.f21430e = null;
+        this.f21431f = null;
+        this.f21432g = null;
+        this.f21433h = null;
         this.i = null;
         this.j = null;
         this.l = null;
@@ -957,31 +957,31 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public void P() {
-        d dVar = this.f21430f;
+        d dVar = this.f21431f;
         if (dVar == null || dVar.isCancelled()) {
             return;
         }
-        this.f21430f.cancel();
+        this.f21431f.cancel();
     }
 
     public boolean Q() {
-        WriteData writeData = this.f21431g;
+        WriteData writeData = this.f21432g;
         if (writeData == null) {
             return true;
         }
-        return (writeData.getWriteImagesInfo() != null ? this.f21431g.getWriteImagesInfo().size() + 0 : 0) <= MAX_IMG_NUM;
+        return (writeData.getWriteImagesInfo() != null ? this.f21432g.getWriteImagesInfo().size() + 0 : 0) <= MAX_IMG_NUM;
     }
 
     public final void R() {
-        if (this.f21429e == null) {
+        if (this.f21430e == null) {
             if (d.b.i0.c3.q0.a.f().e() != null) {
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, T());
                 customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, d.b.i0.c3.q0.a.f().e()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
-            this.f21429e = new h();
+            this.f21430e = new h();
             d.b.i0.c3.q0.b.a("dealPost()");
-            this.f21429e.execute(new Integer[0]);
+            this.f21430e.execute(new Integer[0]);
         }
     }
 
@@ -997,7 +997,7 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public WriteData T() {
-        return this.f21431g;
+        return this.f21432g;
     }
 
     public void U() {
@@ -1026,7 +1026,7 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public final void X(d.b.i0.c3.q0.f fVar) {
-        Y(fVar, null, null, this.f21431g);
+        Y(fVar, null, null, this.f21432g);
     }
 
     public final void Y(d.b.i0.c3.q0.f fVar, AccessState accessState, f0 f0Var, WriteData writeData) {
@@ -1065,14 +1065,14 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public final void cancel() {
-        h hVar = this.f21429e;
+        h hVar = this.f21430e;
         if (hVar != null && !hVar.isCancelled()) {
-            this.f21429e.cancel();
+            this.f21430e.cancel();
             return;
         }
         g gVar = this.m;
         if (gVar != null) {
-            gVar.callback(false, null, null, this.f21431g, null);
+            gVar.callback(false, null, null, this.f21432g, null);
             return;
         }
         f fVar = this.l;
@@ -1083,11 +1083,11 @@ public class NewWriteModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        h hVar = this.f21429e;
+        h hVar = this.f21430e;
         if (hVar == null || hVar.isCancelled()) {
             return false;
         }
-        this.f21429e.cancel();
+        this.f21430e.cancel();
         return false;
     }
 
@@ -1106,33 +1106,33 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public void f0(WriteData writeData) {
-        this.f21431g = writeData;
+        this.f21432g = writeData;
     }
 
     public boolean g0() {
-        if (this.f21431g == null) {
+        if (this.f21432g == null) {
             return false;
         }
         d.b.i0.c3.q0.b.a("发帖：开始上传");
-        this.f21431g.startPublish();
-        i1.g(this.f21431g, 0).e(true);
+        this.f21432g.startPublish();
+        i1.g(this.f21432g, 0).e(true);
         R();
         return true;
     }
 
     public void h0() {
-        if (this.f21430f == null) {
+        if (this.f21431f == null) {
             d dVar = new d();
-            this.f21430f = dVar;
+            this.f21431f = dVar;
             dVar.execute(new Void[0]);
         }
     }
 
     public boolean i0() {
-        if (this.f21431g == null) {
+        if (this.f21432g == null) {
             return false;
         }
-        if (j.z() && !j.H() && this.f21431g.getWriteImagesInfo() != null && this.f21431g.getWriteImagesInfo().size() != 0 && this.f21431g.getWriteImagesInfo().isOriginalImg() && !d.b.h0.r.d0.b.i().g("original_img_up_tip", false)) {
+        if (j.z() && !j.H() && this.f21432g.getWriteImagesInfo() != null && this.f21432g.getWriteImagesInfo().size() != 0 && this.f21432g.getWriteImagesInfo().isOriginalImg() && !d.b.h0.r.d0.b.i().g("original_img_up_tip", false)) {
             d.b.h0.r.d0.b.i().s("original_img_up_tip", true);
             d.b.b.a.f<?> fVar = this.o;
             if (fVar == null) {
@@ -1157,10 +1157,10 @@ public class NewWriteModel extends BdBaseModel {
 
     public NewWriteModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.f21429e = null;
-        this.f21430f = null;
-        this.f21431g = null;
-        this.f21432h = null;
+        this.f21430e = null;
+        this.f21431f = null;
+        this.f21432g = null;
+        this.f21433h = null;
         this.i = null;
         this.j = null;
         this.l = null;
@@ -1172,10 +1172,10 @@ public class NewWriteModel extends BdBaseModel {
 
     public NewWriteModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f21429e = null;
-        this.f21430f = null;
-        this.f21431g = null;
-        this.f21432h = null;
+        this.f21430e = null;
+        this.f21431f = null;
+        this.f21432g = null;
+        this.f21433h = null;
         this.i = null;
         this.j = null;
         this.l = null;
@@ -1186,10 +1186,10 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     public NewWriteModel() {
-        this.f21429e = null;
-        this.f21430f = null;
-        this.f21431g = null;
-        this.f21432h = null;
+        this.f21430e = null;
+        this.f21431f = null;
+        this.f21432g = null;
+        this.f21433h = null;
         this.i = null;
         this.j = null;
         this.l = null;

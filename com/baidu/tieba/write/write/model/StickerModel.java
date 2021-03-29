@@ -14,10 +14,10 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.u3.v.l.a f22566e;
+    public d.b.i0.u3.v.l.a f22567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.c.g.a f22567f;
+    public d.b.b.c.g.a f22568f;
 
     /* loaded from: classes5.dex */
     public class a extends d.b.b.c.g.a {
@@ -38,8 +38,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (StickerModel.this.f22566e != null) {
-                    StickerModel.this.f22566e.d(list);
+                if (StickerModel.this.f22567e != null) {
+                    StickerModel.this.f22567e.d(list);
                 }
             }
         }
@@ -48,7 +48,7 @@ public class StickerModel extends BdBaseModel {
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         a aVar = new a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f22567f = aVar;
+        this.f22568f = aVar;
         registerListener(aVar);
     }
 
@@ -76,6 +76,6 @@ public class StickerModel extends BdBaseModel {
     }
 
     public void t(d.b.i0.u3.v.l.a aVar) {
-        this.f22566e = aVar;
+        this.f22567e = aVar;
     }
 }

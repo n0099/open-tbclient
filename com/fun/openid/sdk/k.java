@@ -18,7 +18,7 @@ public class k implements f {
         if (r1.versionCode >= 1) goto L11;
      */
     /* JADX WARN: Code restructure failed: missing block: B:48:0x00a1, code lost:
-        if (r0.f30831a == null) goto L42;
+        if (r0.f30832a == null) goto L42;
      */
     /* JADX WARN: Removed duplicated region for block: B:20:0x003d  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0051  */
@@ -30,7 +30,7 @@ public class k implements f {
         boolean z;
         String a2;
         PackageInfo packageInfo;
-        c cVar = c.b.f30837a;
+        c cVar = c.b.f30838a;
         Context applicationContext = context.getApplicationContext();
         cVar.getClass();
         try {
@@ -41,27 +41,27 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f30830b = z;
-                b.f30829a = true;
-                if (!b.f30830b) {
+                b.f30831b = z;
+                b.f30830a = true;
+                if (!b.f30831b) {
                     if (FunOpenIDSdk.isLogEnabled()) {
                         Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
                     }
                     ((e.a) aVar).a(false, null);
                     return;
-                } else if (b.f30829a) {
-                    c cVar2 = c.b.f30837a;
+                } else if (b.f30830a) {
+                    c cVar2 = c.b.f30838a;
                     Context applicationContext2 = context.getApplicationContext();
                     synchronized (cVar2) {
                         if (Looper.myLooper() != Looper.getMainLooper()) {
-                            if (cVar2.f30831a == null) {
+                            if (cVar2.f30832a == null) {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f30835e, 1)) {
-                                    synchronized (cVar2.f30834d) {
+                                if (applicationContext2.bindService(intent, cVar2.f30836e, 1)) {
+                                    synchronized (cVar2.f30835d) {
                                         try {
-                                            cVar2.f30834d.wait(3000L);
+                                            cVar2.f30835d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -87,17 +87,17 @@ public class k implements f {
                 }
             }
             z = false;
-            b.f30830b = z;
-            b.f30829a = true;
-            if (!b.f30830b) {
+            b.f30831b = z;
+            b.f30830a = true;
+            if (!b.f30831b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f30830b = z;
-            b.f30829a = true;
-            if (!b.f30830b) {
+            b.f30831b = z;
+            b.f30830a = true;
+            if (!b.f30831b) {
             }
         }
     }

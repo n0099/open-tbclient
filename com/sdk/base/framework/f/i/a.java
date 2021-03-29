@@ -10,13 +10,13 @@ import javax.crypto.spec.SecretKeySpec;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38559a = "com.sdk.base.framework.f.i.a";
+    public static final String f38560a = "com.sdk.base.framework.f.i.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38560b = f.f38519b;
+    public static boolean f38561b = f.f38520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38561c = "a6Hy5Hb8IfX46D1f";
+    public static String f38562c = "a6Hy5Hb8IfX46D1f";
 
     public static String a(int i) {
         Random random = new Random();
@@ -34,17 +34,17 @@ public class a extends com.sdk.base.framework.f.a {
     }
 
     public static String a(Context context) {
-        String b2 = com.sdk.base.framework.f.b.a.b(context, f.f38518a);
+        String b2 = com.sdk.base.framework.f.b.a.b(context, f.f38519a);
         if (com.sdk.base.framework.a.a.c.a(b2).booleanValue()) {
             String a2 = a(16);
-            com.sdk.base.framework.f.b.a.b(context, f.f38518a, a2);
+            com.sdk.base.framework.f.b.a.b(context, f.f38519a, a2);
             return a2;
         }
         return b2;
     }
 
     public static String a(String str, String str2) {
-        return b(str, str2, f38561c);
+        return b(str, str2, f38562c);
     }
 
     public static String a(String str, String str2, String str3) {
@@ -52,13 +52,13 @@ public class a extends com.sdk.base.framework.f.a {
             try {
                 if (str.length() != 0 && str.trim().length() != 0) {
                     if (str2 == null) {
-                        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "encrypt key is null", f38560b);
+                        com.sdk.base.framework.f.a.a(f38560a, "EncryptCbcIv", "encrypt key is null", f38561b);
                         return null;
                     } else if (str2.length() != 16) {
-                        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "encrypt key length error", f38560b);
+                        com.sdk.base.framework.f.a.a(f38560a, "EncryptCbcIv", "encrypt key length error", f38561b);
                         return null;
                     } else if (str3.length() != 16) {
-                        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "ivStr length error", f38560b);
+                        com.sdk.base.framework.f.a.a(f38560a, "EncryptCbcIv", "ivStr length error", f38561b);
                         return null;
                     } else {
                         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -67,11 +67,11 @@ public class a extends com.sdk.base.framework.f.a {
                     }
                 }
             } catch (Exception e2) {
-                com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", e2.getMessage(), f38560b);
+                com.sdk.base.framework.f.a.a(f38560a, "EncryptCbcIv", e2.getMessage(), f38561b);
                 return null;
             }
         }
-        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "encrypt content is null", f38560b);
+        com.sdk.base.framework.f.a.a(f38560a, "EncryptCbcIv", "encrypt content is null", f38561b);
         return null;
     }
 

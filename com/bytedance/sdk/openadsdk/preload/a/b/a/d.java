@@ -7,10 +7,10 @@ import com.bytedance.sdk.openadsdk.preload.a.w;
 public final class d implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29912a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29913a;
 
     public d(com.bytedance.sdk.openadsdk.preload.a.b.c cVar) {
-        this.f29912a = cVar;
+        this.f29913a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -19,7 +19,7 @@ public final class d implements w {
         if (bVar == null) {
             return null;
         }
-        return (v<T>) a(this.f29912a, fVar, aVar, bVar);
+        return (v<T>) a(this.f29913a, fVar, aVar, bVar);
     }
 
     public v<?> a(com.bytedance.sdk.openadsdk.preload.a.b.c cVar, com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar, com.bytedance.sdk.openadsdk.preload.a.a.b bVar) {

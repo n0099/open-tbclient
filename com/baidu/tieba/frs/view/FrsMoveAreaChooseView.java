@@ -22,16 +22,16 @@ import tbclient.FrsTabInfo;
 public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f16737e;
+    public TbPageContext f16738e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f16738f;
+    public RelativeLayout f16739f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f16739g;
+    public EMTextView f16740g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f16740h;
+    public EMTextView f16741h;
     public RecyclerView i;
     public FrsMoveAreaChooseAdapter j;
     public EMTextView k;
@@ -39,7 +39,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
 
     public FrsMoveAreaChooseView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f16737e = tbPageContext;
+        this.f16738e = tbPageContext;
         a();
     }
 
@@ -47,9 +47,9 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         setOrientation(1);
         setGravity(80);
         LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_choose_layout, this);
-        this.f16738f = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
-        this.f16739g = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
-        this.f16740h = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
+        this.f16739f = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
+        this.f16740g = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
+        this.f16741h = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
         this.k = (EMTextView) findViewById(R.id.frs_move_area_choose_cancel);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.frs_move_area_choose_list);
         this.i = recyclerView;
@@ -58,27 +58,27 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter = new FrsMoveAreaChooseAdapter(this);
         this.j = frsMoveAreaChooseAdapter;
         this.i.setAdapter(frsMoveAreaChooseAdapter);
-        this.f16738f.setOnClickListener(this);
-        this.f16740h.setOnClickListener(this);
+        this.f16739f.setOnClickListener(this);
+        this.f16741h.setOnClickListener(this);
         this.k.setOnClickListener(this);
         c();
     }
 
     public final void b() {
         if (this.j.n() >= 0) {
-            this.f16740h.setAlpha(1.0f);
+            this.f16741h.setAlpha(1.0f);
         } else {
-            this.f16740h.setAlpha(0.5f);
+            this.f16741h.setAlpha(0.5f);
         }
     }
 
     public void c() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-        c a2 = c.a(this.f16738f);
+        c a2 = c.a(this.f16739f);
         a2.h(R.string.J_X14);
         a2.c(R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f16739g, R.color.CAM_X0108);
-        SkinManager.setViewTextColor(this.f16740h, R.color.CAM_X0304);
+        SkinManager.setViewTextColor(this.f16740g, R.color.CAM_X0108);
+        SkinManager.setViewTextColor(this.f16741h, R.color.CAM_X0304);
         b();
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
         SkinManager.setViewTextColorSelector(this.k, R.color.CAM_X0107);
@@ -88,8 +88,8 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     public void onClick(View view) {
         if (view.getTag() instanceof Integer) {
             b();
-        } else if (view == this.f16740h) {
-            if (this.f16737e == null || getParent() == null || this.j.n() < 0) {
+        } else if (view == this.f16741h) {
+            if (this.f16738e == null || getParent() == null || this.j.n() < 0) {
                 return;
             }
             boolean g2 = b.i().g("key_frs_move_area_tip", true);
@@ -100,7 +100,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 return;
             }
             if (g2) {
-                new d.b.i0.p0.q2.c().h(this.f16737e, frsTabInfo, frsTabInfo2);
+                new d.b.i0.p0.q2.c().h(this.f16738e, frsTabInfo, frsTabInfo2);
             } else {
                 a.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
             }

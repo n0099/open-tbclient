@@ -1,7 +1,7 @@
 package com.baidu.fsg.base;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class EnvConfig {
     public static String DEFAULT_ENVIRONMENT = "ONLINE";
     public static final String ENVIRONMENT_ONLINE = "ONLINE";
@@ -10,30 +10,30 @@ public class EnvConfig {
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5100a = "https://jrws.baidu.com";
+    public static final String f5101a = "https://jrws.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5101b = "https://jrws.baidu.com";
+    public static String f5102b = "https://jrws.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5102c = "https://jrws.baidu.com";
+    public static final String f5103c = "https://jrws.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static EnvConfig f5103d;
+    public static EnvConfig f5104d;
 
     public static synchronized EnvConfig a() {
         EnvConfig envConfig;
         synchronized (EnvConfig.class) {
-            if (f5103d == null && f5103d == null) {
-                f5103d = new EnvConfig();
+            if (f5104d == null && f5104d == null) {
+                f5104d = new EnvConfig();
             }
-            envConfig = f5103d;
+            envConfig = f5104d;
         }
         return envConfig;
     }
 
     private void b() {
-        f5101b = "https://jrws.baidu.com";
+        f5102b = "https://jrws.baidu.com";
         DEFAULT_ENVIRONMENT = "ONLINE";
     }
 
@@ -50,7 +50,7 @@ public class EnvConfig {
     }
 
     public String getRimHttpsHost() {
-        return f5101b;
+        return f5102b;
     }
 
     public void initEnv() {

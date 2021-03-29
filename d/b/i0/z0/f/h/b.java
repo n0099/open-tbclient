@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static Drawable[] a(String str) {
         if (StringUtils.isNull(str)) {

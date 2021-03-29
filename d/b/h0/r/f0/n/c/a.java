@@ -16,25 +16,25 @@ import d.b.i0.c3.w;
 public class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f50519e;
+    public TbPageContext f50520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LikeModel f50520f;
+    public LikeModel f50521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.h0.r.f0.n.b f50521g;
+    public d.b.h0.r.f0.n.b f50522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.r.f0.n.c.b f50522h;
+    public d.b.h0.r.f0.n.c.b f50523h;
     public View.OnClickListener i;
-    public CustomMessageListener j = new C1075a(2001437);
+    public CustomMessageListener j = new C1076a(2001437);
     public CustomMessageListener k = new b(2001438);
     public e l = new c();
 
     /* renamed from: d.b.h0.r.f0.n.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1075a extends CustomMessageListener {
-        public C1075a(int i) {
+    public class C1076a extends CustomMessageListener {
+        public C1076a(int i) {
             super(i);
         }
 
@@ -45,11 +45,11 @@ public class a implements View.OnClickListener {
                 return;
             }
             d.b.i0.c3.q0.e eVar = (d.b.i0.c3.q0.e) customResponsedMessage.getData();
-            String l = Long.toString(eVar.f53593a);
-            if (a.this.f50522h != null && l.equals(a.this.f50522h.h()) && eVar.f53594b) {
-                a.this.f50522h.setIsLike(true);
-                a.this.f50522h.j(true);
-                a.this.f50521g.e(true);
+            String l = Long.toString(eVar.f53594a);
+            if (a.this.f50523h != null && l.equals(a.this.f50523h.h()) && eVar.f53595b) {
+                a.this.f50523h.setIsLike(true);
+                a.this.f50523h.j(true);
+                a.this.f50522g.e(true);
             }
         }
     }
@@ -67,11 +67,11 @@ public class a implements View.OnClickListener {
                 return;
             }
             d.b.i0.c3.q0.e eVar = (d.b.i0.c3.q0.e) customResponsedMessage.getData();
-            String l = Long.toString(eVar.f53593a);
-            if (a.this.f50522h != null && l.equals(a.this.f50522h.h()) && eVar.f53594b) {
-                a.this.f50522h.setIsLike(false);
-                a.this.f50522h.j(false);
-                a.this.f50521g.e(false);
+            String l = Long.toString(eVar.f53594a);
+            if (a.this.f50523h != null && l.equals(a.this.f50523h.h()) && eVar.f53595b) {
+                a.this.f50523h.setIsLike(false);
+                a.this.f50523h.j(false);
+                a.this.f50522g.e(false);
             }
         }
     }
@@ -84,21 +84,21 @@ public class a implements View.OnClickListener {
         @Override // d.b.b.a.e
         public void c(Object obj) {
             if ((obj instanceof w) && ((w) obj).d() != 0) {
-                if (AntiHelper.m(a.this.f50520f.getErrorCode(), a.this.f50520f.getErrorString())) {
-                    AntiHelper.u(a.this.f50519e.getPageActivity(), a.this.f50520f.getErrorString());
+                if (AntiHelper.m(a.this.f50521f.getErrorCode(), a.this.f50521f.getErrorString())) {
+                    AntiHelper.u(a.this.f50520e.getPageActivity(), a.this.f50521f.getErrorString());
                 } else {
-                    a.this.f50519e.showToast(a.this.f50520f.getErrorString());
+                    a.this.f50520e.showToast(a.this.f50521f.getErrorString());
                 }
             }
         }
     }
 
     public a(TbPageContext tbPageContext, d.b.h0.r.f0.n.b bVar) {
-        this.f50519e = tbPageContext;
+        this.f50520e = tbPageContext;
         LikeModel likeModel = new LikeModel(tbPageContext);
-        this.f50520f = likeModel;
+        this.f50521f = likeModel;
         likeModel.setLoadDataCallBack(this.l);
-        this.f50521g = bVar;
+        this.f50522g = bVar;
         bVar.c(this);
         tbPageContext.registerListener(this.j);
         tbPageContext.registerListener(this.k);
@@ -112,8 +112,8 @@ public class a implements View.OnClickListener {
         if (bVar == null) {
             return;
         }
-        this.f50522h = bVar;
-        this.f50521g.e(bVar.getIsLike());
+        this.f50523h = bVar;
+        this.f50522g.e(bVar.getIsLike());
     }
 
     public void g(BdUniqueId bdUniqueId) {
@@ -123,20 +123,20 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.h0.r.f0.n.b bVar = this.f50521g;
+        d.b.h0.r.f0.n.b bVar = this.f50522g;
         if (bVar != null) {
             bVar.b(view);
         }
         if (!j.z()) {
-            this.f50519e.showToast(R.string.neterror);
+            this.f50520e.showToast(R.string.neterror);
             return;
         }
-        if (ViewHelper.checkUpIsLogin(this.f50519e.getPageActivity())) {
-            d.b.h0.r.f0.n.c.b bVar2 = this.f50522h;
+        if (ViewHelper.checkUpIsLogin(this.f50520e.getPageActivity())) {
+            d.b.h0.r.f0.n.c.b bVar2 = this.f50523h;
             if (bVar2 == null) {
                 return;
             }
-            this.f50520f.H(bVar2.i(), this.f50522h.h());
+            this.f50521f.H(bVar2.i(), this.f50523h.h());
         }
         View.OnClickListener onClickListener = this.i;
         if (onClickListener != null) {

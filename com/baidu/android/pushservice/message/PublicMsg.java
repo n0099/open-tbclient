@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PublicMsg implements Parcelable {
     public static final Parcelable.Creator<PublicMsg> CREATOR = new Parcelable.Creator<PublicMsg>() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
         /* JADX DEBUG: Method merged with bridge method */
@@ -200,7 +200,7 @@ public class PublicMsg implements Parcelable {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00cb  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00ca  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -11,7 +11,7 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k {
     public static JSONArray a(String str, int i, int i2) {
         JSONArray jSONArray = new JSONArray();

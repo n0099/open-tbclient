@@ -33,13 +33,13 @@ import tbclient.Profile.NicknameInfo;
 public class g extends e implements d.b.i0.h2.h.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public final BaseFragmentActivity f55223f;
+    public final BaseFragmentActivity f55224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragment f55224g;
+    public BaseFragment f55225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f55225h;
+    public TbPageContext f55226h;
     public final View i;
     public final BdUniqueId j;
     public long k;
@@ -107,33 +107,33 @@ public class g extends e implements d.b.i0.h2.h.b {
         this.v = false;
         this.w = new a();
         this.x = new b(2921424);
-        this.f55224g = baseFragment;
+        this.f55225g = baseFragment;
         BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
-        this.f55223f = baseFragmentActivity;
+        this.f55224f = baseFragmentActivity;
         this.i = view;
         this.j = bdUniqueId;
         this.k = j;
         this.l = str;
-        this.f55225h = baseFragmentActivity.getPageContext();
+        this.f55226h = baseFragmentActivity.getPageContext();
         MessageManager.getInstance().registerListener(this.x);
-        this.o = new d(this.f55224g.getPageContext(), bdUniqueId);
-        f fVar = new f(this.f55224g.getPageContext(), view, z);
+        this.o = new d(this.f55225g.getPageContext(), bdUniqueId);
+        f fVar = new f(this.f55225g.getPageContext(), view, z);
         this.m = fVar;
         fVar.u(this.w);
-        this.s = new PersonPolymericEventController(this.f55225h, this);
-        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f55223f, bdUniqueId, z);
+        this.s = new PersonPolymericEventController(this.f55226h, this);
+        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f55224f, bdUniqueId, z);
         this.n = personPolymericModel;
         personPolymericModel.J(new p(z));
         this.n.H(this);
         this.n.I(this.o);
-        this.p = new BlackListModel(this.f55223f.getPageContext(), bdUniqueId);
+        this.p = new BlackListModel(this.f55224f.getPageContext(), bdUniqueId);
         if (StringUtils.isNull(this.l)) {
-            k kVar = new k(this.f55224g, this, this.j, this.k, z);
+            k kVar = new k(this.f55225g, this, this.j, this.k, z);
             this.q = kVar;
             kVar.k(TbadkCoreApplication.getInst().getSkinType());
             this.q.j(this.s);
         }
-        this.t = new h(this.f55225h, this.o, this.p, bdUniqueId);
+        this.t = new h(this.f55226h, this.o, this.p, bdUniqueId);
         loadData();
     }
 
@@ -143,7 +143,7 @@ public class g extends e implements d.b.i0.h2.h.b {
         if (aVar != null && aVar.j() != null && !StringUtils.isNull(this.l)) {
             this.k = aVar.j().getUserIdLong();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.k)));
-            this.f55213e = this.k == d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            this.f55214e = this.k == d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
         }
         this.m.n();
         h hVar = this.t;
@@ -157,7 +157,7 @@ public class g extends e implements d.b.i0.h2.h.b {
         if (kVar != null) {
             kVar.o(aVar);
         } else {
-            k kVar2 = new k(this.f55224g, this, this.j, this.k, this.f55213e);
+            k kVar2 = new k(this.f55225g, this, this.j, this.k, this.f55214e);
             this.q = kVar2;
             kVar2.k(TbadkCoreApplication.getInst().getSkinType());
             this.q.j(this.s);
@@ -173,16 +173,16 @@ public class g extends e implements d.b.i0.h2.h.b {
     }
 
     public void h() {
-        if (!TbadkCoreApplication.isLogin() && this.f55213e) {
+        if (!TbadkCoreApplication.isLogin() && this.f55214e) {
             this.m.B();
         } else if (d.b.b.e.p.j.A()) {
             this.n.E(this.k, this.l);
         } else {
             this.m.n();
-            l.L(this.f55225h.getContext(), this.f55225h.getString(R.string.data_load_error));
+            l.L(this.f55226h.getContext(), this.f55226h.getString(R.string.data_load_error));
             ArrayList arrayList = new ArrayList();
             d.b.i0.h2.e.i iVar = new d.b.i0.h2.e.i();
-            iVar.f55294e = this.f55213e;
+            iVar.f55295e = this.f55214e;
             arrayList.add(iVar);
             this.m.m();
             this.m.w(arrayList);
@@ -199,7 +199,7 @@ public class g extends e implements d.b.i0.h2.h.b {
             return false;
         }
         if (d.b.h0.r.d0.b.i().g(d.b.h0.r.d0.b.m(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f55223f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f55224f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
@@ -210,7 +210,7 @@ public class g extends e implements d.b.i0.h2.h.b {
     }
 
     public void loadData() {
-        if (!TbadkCoreApplication.isLogin() && this.f55213e) {
+        if (!TbadkCoreApplication.isLogin() && this.f55214e) {
             this.m.B();
         } else if (d.b.b.e.p.j.A()) {
             d.b.i0.h2.b.d().m(System.currentTimeMillis());
@@ -221,7 +221,7 @@ public class g extends e implements d.b.i0.h2.h.b {
         } else {
             this.m.n();
             this.m.s(8);
-            this.m.y(this.f55224g.getString(R.string.neterror), true);
+            this.m.y(this.f55225g.getString(R.string.neterror), true);
         }
     }
 
@@ -297,7 +297,7 @@ public class g extends e implements d.b.i0.h2.h.b {
 
     public void x(PostWriteCallBackData postWriteCallBackData) {
         if (this.r == null) {
-            this.r = new d.b.i0.b0.h(this.f55223f.getPageContext(), (NavigationBarCoverTip) this.f55223f.findViewById(R.id.navigation_cover_tip));
+            this.r = new d.b.i0.b0.h(this.f55224f.getPageContext(), (NavigationBarCoverTip) this.f55224f.findViewById(R.id.navigation_cover_tip));
         }
         this.r.m(postWriteCallBackData);
     }

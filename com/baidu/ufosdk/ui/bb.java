@@ -3,14 +3,14 @@ package com.baidu.ufosdk.ui;
 public final class bb implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23077a;
+    public final /* synthetic */ FeedbackHotActivity f23078a;
 
     public bb(FeedbackHotActivity feedbackHotActivity) {
-        this.f23077a = feedbackHotActivity;
+        this.f23078a = feedbackHotActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.a(this.f23077a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f23078a.getApplicationContext());
     }
 }

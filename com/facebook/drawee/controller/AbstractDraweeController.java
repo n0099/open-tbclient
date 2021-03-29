@@ -21,7 +21,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractDraweeController<T, INFO> implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
     public static final Class<?> TAG = AbstractDraweeController.class;
     public Object mCallerContext;

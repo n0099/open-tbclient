@@ -7,55 +7,55 @@ import tbclient.PbContent;
 public class TbRichTextVoiceInfo extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14331e;
+    public String f14332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14332f;
+    public int f14333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14333g;
+    public int f14334g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f14334h;
+    public Object f14335h;
 
     public TbRichTextVoiceInfo() {
     }
 
     public int getDuration() {
-        return this.f14332f;
+        return this.f14333f;
     }
 
     public int s() {
-        return this.f14333g;
+        return this.f14334g;
     }
 
     public String t() {
-        return this.f14331e;
+        return this.f14332e;
     }
 
     public Object u() {
-        return this.f14334h;
+        return this.f14335h;
     }
 
     public void v(Object obj) {
-        this.f14334h = obj;
+        this.f14335h = obj;
     }
 
     public TbRichTextVoiceInfo(PbContent pbContent) {
         if (pbContent == null) {
             return;
         }
-        this.f14331e = pbContent.voice_md5;
-        this.f14332f = pbContent.during_time.intValue() / 1000;
-        this.f14333g = pbContent.is_sub.intValue();
+        this.f14332e = pbContent.voice_md5;
+        this.f14333f = pbContent.during_time.intValue() / 1000;
+        this.f14334g = pbContent.is_sub.intValue();
     }
 
     public TbRichTextVoiceInfo(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f14331e = jSONObject.optString("voice_md5");
-        this.f14332f = jSONObject.optInt("during_time") / 1000;
-        this.f14333g = jSONObject.optInt("is_sub");
+        this.f14332e = jSONObject.optString("voice_md5");
+        this.f14333f = jSONObject.optInt("during_time") / 1000;
+        this.f14334g = jSONObject.optInt("is_sub");
     }
 }

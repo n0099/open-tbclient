@@ -5,5 +5,5 @@ import com.baidu.searchbox.config.AppConfig;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f63963a = AppConfig.isDebug();
+    public static final boolean f63964a = AppConfig.isDebug();
 }

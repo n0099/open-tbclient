@@ -9,28 +9,28 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63980a;
+    public String f63981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63981b;
+    public int f63982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63982c;
+    public String f63983c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f63983d;
+    public JSONObject f63984d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63984e;
+    public long f63985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f63985f;
+    public long f63986f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63986g;
+    public int f63987g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f63987h;
+    public String f63988h;
     public String i;
     public String j;
     public JSONArray k;
@@ -40,7 +40,7 @@ public class p {
     }
 
     public long a() {
-        return this.f63984e;
+        return this.f63985e;
     }
 
     public String b() {
@@ -48,11 +48,11 @@ public class p {
     }
 
     public String c() {
-        return this.f63982c;
+        return this.f63983c;
     }
 
     public long d() {
-        return this.f63985f;
+        return this.f63986f;
     }
 
     public String e() {
@@ -60,19 +60,19 @@ public class p {
     }
 
     public int f() {
-        return this.f63981b;
+        return this.f63982b;
     }
 
     public String g() {
-        return this.f63980a;
+        return this.f63981a;
     }
 
     public JSONObject h() {
-        return this.f63983d;
+        return this.f63984d;
     }
 
     public int i() {
-        return this.f63986g;
+        return this.f63987g;
     }
 
     public JSONArray j() {
@@ -80,7 +80,7 @@ public class p {
     }
 
     public String k() {
-        return this.f63987h;
+        return this.f63988h;
     }
 
     public boolean l() {
@@ -88,7 +88,7 @@ public class p {
     }
 
     public void m(long j) {
-        this.f63984e = j;
+        this.f63985e = j;
     }
 
     public void n(String str) {
@@ -96,7 +96,7 @@ public class p {
     }
 
     public void o(String str) {
-        this.f63982c = str;
+        this.f63983c = str;
     }
 
     public void p(boolean z) {
@@ -104,11 +104,11 @@ public class p {
     }
 
     public void q(long j) {
-        this.f63985f = j;
+        this.f63986f = j;
     }
 
     public void r() {
-        if (g.m().a(this.f63980a)) {
+        if (g.m().a(this.f63981a)) {
             this.i = UBC.getUBCContext().i();
         }
     }
@@ -118,11 +118,11 @@ public class p {
     }
 
     public void t(int i) {
-        this.f63981b = i;
+        this.f63982b = i;
     }
 
     public void u(String str) {
-        this.f63980a = str;
+        this.f63981a = str;
     }
 
     public void v(String str) {
@@ -137,20 +137,20 @@ public class p {
     }
 
     public void w(String str) {
-        this.f63987h = str;
+        this.f63988h = str;
     }
 
     public p(String str, int i, String str2, int i2) {
-        this.f63980a = str;
-        this.f63981b = i;
-        this.f63982c = str2;
-        this.f63986g = i2;
+        this.f63981a = str;
+        this.f63982b = i;
+        this.f63983c = str2;
+        this.f63987g = i2;
     }
 
     public p(String str, int i, JSONObject jSONObject, int i2) {
-        this.f63980a = str;
-        this.f63981b = i;
-        this.f63983d = jSONObject;
-        this.f63986g = i2;
+        this.f63981a = str;
+        this.f63982b = i;
+        this.f63984d = jSONObject;
+        this.f63987g = i2;
     }
 }

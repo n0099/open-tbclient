@@ -571,8 +571,8 @@ public class IconCompat extends CustomVersionedParcelable {
     /* JADX WARN: Code restructure failed: missing block: B:15:0x002b, code lost:
         if (r1 != 5) goto L16;
      */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x009f  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00af  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x009e  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00ae  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

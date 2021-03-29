@@ -28,16 +28,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62150b;
+    public String f62151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f62151c;
+    public View f62152c;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62155g;
+    public String f62156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62156h;
+    public String f62157h;
     public String i;
     public String j;
     public c k;
@@ -50,34 +50,34 @@ public class a {
     public final ViewGroup r;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62149a = -1;
+    public int f62150a = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62152d = -1;
+    public int f62153d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62153e = R.drawable.btn_blue_bg;
+    public int f62154e = R.drawable.btn_blue_bg;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62154f = R.color.CAM_X0111;
+    public int f62155f = R.color.CAM_X0111;
     public boolean s = false;
     public boolean t = true;
 
     /* renamed from: d.b.i0.w2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1649a implements ViewHelper.ViewCallback {
+    public class C1650a implements ViewHelper.ViewCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f62157a;
+        public final /* synthetic */ AtomicBoolean f62158a;
 
-        public C1649a(a aVar, AtomicBoolean atomicBoolean) {
-            this.f62157a = atomicBoolean;
+        public C1650a(a aVar, AtomicBoolean atomicBoolean) {
+            this.f62158a = atomicBoolean;
         }
 
         @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
         public boolean onViewFound(View view) {
             if (view instanceof EditText) {
-                this.f62157a.set(true);
+                this.f62158a.set(true);
                 return true;
             }
             return false;
@@ -88,21 +88,21 @@ public class a {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f62158e;
+        public final a f62159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c f62159f;
+        public final c f62160f;
 
         public b(a aVar, a aVar2, c cVar) {
-            this.f62158e = aVar2;
-            this.f62159f = cVar;
+            this.f62159e = aVar2;
+            this.f62160f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c cVar = this.f62159f;
+            c cVar = this.f62160f;
             if (cVar != null) {
-                cVar.a(this.f62158e);
+                cVar.a(this.f62159e);
             }
         }
     }
@@ -140,33 +140,33 @@ public class a {
         ImageView imageView = (ImageView) this.r.findViewById(R.id.bdalert_icon);
         TextView textView2 = (TextView) this.r.findViewById(R.id.message);
         Button button = (Button) this.r.findViewById(R.id.yes);
-        SkinManager.setBackgroundResource(button, this.f62153e);
-        SkinManager.setViewTextColor(button, this.f62154f, 3);
+        SkinManager.setBackgroundResource(button, this.f62154e);
+        SkinManager.setViewTextColor(button, this.f62155f, 3);
         Button button2 = (Button) this.r.findViewById(R.id.no);
         Button button3 = (Button) this.r.findViewById(R.id.cancel);
-        if (!TextUtils.isEmpty(this.f62150b)) {
-            textView.setText(this.f62150b);
+        if (!TextUtils.isEmpty(this.f62151b)) {
+            textView.setText(this.f62151b);
         } else {
             textView.setVisibility(8);
         }
-        if (this.f62151c != null) {
+        if (this.f62152c != null) {
             linearLayout.removeAllViews();
-            linearLayout.addView(this.f62151c);
+            linearLayout.addView(this.f62152c);
         }
-        int i = this.f62152d;
+        int i = this.f62153d;
         if (i != -1) {
             SkinManager.setImageResource(imageView, i);
             imageView.setVisibility(0);
         } else {
             imageView.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(this.f62155g)) {
-            textView2.setText(this.f62155g);
+        if (!TextUtils.isEmpty(this.f62156g)) {
+            textView2.setText(this.f62156g);
         }
-        if (TextUtils.isEmpty(this.f62156h)) {
+        if (TextUtils.isEmpty(this.f62157h)) {
             z = false;
         } else {
-            button.setText(this.f62156h);
+            button.setText(this.f62157h);
             c cVar = this.k;
             if (cVar != null) {
                 button.setOnClickListener(new b(this, this, cVar));
@@ -253,14 +253,14 @@ public class a {
     }
 
     public a h(int i) {
-        this.f62152d = i;
+        this.f62153d = i;
         return this;
     }
 
     public a i(int i) {
         Activity activity = this.q;
         if (activity != null) {
-            this.f62155g = activity.getResources().getString(i);
+            this.f62156g = activity.getResources().getString(i);
         }
         return this;
     }
@@ -282,19 +282,19 @@ public class a {
     public a l(int i, c cVar) {
         Activity activity = this.q;
         if (activity != null) {
-            this.f62156h = activity.getResources().getString(i);
+            this.f62157h = activity.getResources().getString(i);
             this.k = cVar;
         }
         return this;
     }
 
     public a m(int i) {
-        this.f62153e = i;
+        this.f62154e = i;
         return this;
     }
 
     public a n(int i) {
-        this.f62154f = i;
+        this.f62155f = i;
         return this;
     }
 
@@ -331,10 +331,10 @@ public class a {
                 this.p.show();
             }
             Window window = this.p.getWindow();
-            if (this.f62149a == -1) {
-                this.f62149a = 17;
+            if (this.f62150a == -1) {
+                this.f62150a = 17;
             }
-            window.setGravity(this.f62149a);
+            window.setGravity(this.f62150a);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.5f;
             window.setAttributes(attributes);
@@ -342,7 +342,7 @@ public class a {
             window.setLayout(-2, -2);
             window.setContentView(this.r);
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.r, false, new C1649a(this, atomicBoolean));
+            ViewHelper.processAllViewsIn(this.r, false, new C1650a(this, atomicBoolean));
             if (atomicBoolean.get()) {
                 window.clearFlags(131080);
             }

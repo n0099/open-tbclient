@@ -14,23 +14,23 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f42651a;
+    public Activity f42652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.c0.o.a.c f42652b;
+    public d.b.c0.o.a.c f42653b;
 
     /* loaded from: classes2.dex */
     public class a extends d.b.c0.k.a.a<Map<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f42653a;
+        public final /* synthetic */ m f42654a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f42654b;
+        public final /* synthetic */ String f42655b;
 
         public a(m mVar, String str) {
-            this.f42653a = mVar;
-            this.f42654b = str;
+            this.f42654a = mVar;
+            this.f42655b = str;
         }
 
         @Override // d.b.c0.k.a.a
@@ -41,7 +41,7 @@ public class b {
             } else {
                 message = th != null ? th.getMessage() : null;
             }
-            m mVar = this.f42653a;
+            m mVar = this.f42654a;
             mVar.m("pay_platform error msg is " + message, null);
             d.b.c0.k.h.b bVar = new d.b.c0.k.h.b("1");
             bVar.c(new com.baidu.poly.a.i.a("pay_platform error --> " + str, th).U());
@@ -53,36 +53,36 @@ public class b {
         /* renamed from: c */
         public void a(Map<String, String> map) {
             d.b.c0.k.h.a.g("8");
-            this.f42653a.J();
-            b.this.c(map, this.f42654b, this.f42653a);
+            this.f42654a.J();
+            b.this.c(map, this.f42655b, this.f42654a);
         }
     }
 
     /* renamed from: d.b.c0.k.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0567b implements d.b.c0.o.a.a {
+    public class C0568b implements d.b.c0.o.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f42656a;
+        public final /* synthetic */ String f42657a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f42657b;
+        public final /* synthetic */ m f42658b;
 
-        public C0567b(b bVar, String str, m mVar) {
-            this.f42656a = str;
-            this.f42657b = mVar;
+        public C0568b(b bVar, String str, m mVar) {
+            this.f42657a = str;
+            this.f42658b = mVar;
         }
 
         @Override // d.b.c0.o.a.a
         public void onResult(int i, String str) {
             d.b.c0.n.d.e("WalletChannel->thirdPay onResult statusCode = " + i + " msg = " + str);
-            this.f42657b.g(i, d.b.c0.n.b.a(i, this.f42656a, str));
+            this.f42658b.g(i, d.b.c0.n.b.a(i, this.f42657a, str));
         }
     }
 
     public b(Activity activity, d.b.c0.o.a.c cVar) {
-        this.f42651a = activity;
-        this.f42652b = cVar;
+        this.f42652a = activity;
+        this.f42653b = cVar;
     }
 
     public void a(Bundle bundle, String str, m mVar) {
@@ -101,13 +101,13 @@ public class b {
 
     public void c(Map<String, String> map, String str, m mVar) {
         d.b.c0.o.a.b bVar = new d.b.c0.o.a.b();
-        bVar.f42682b = d(map);
-        bVar.f42681a = str;
+        bVar.f42683b = d(map);
+        bVar.f42682a = str;
         String str2 = map.get("payOrderNo");
-        d.f42625d = str2;
-        if (this.f42652b != null) {
+        d.f42626d = str2;
+        if (this.f42653b != null) {
             d.b.c0.k.h.a.a();
-            this.f42652b.a(this.f42651a, bVar, new C0567b(this, str2, mVar));
+            this.f42653b.a(this.f42652a, bVar, new C0568b(this, str2, mVar));
             d.b.c0.n.d.e("WalletChannel->thirdPay setIsPreparePaying()");
             mVar.setIsPreparePaying(false);
         }

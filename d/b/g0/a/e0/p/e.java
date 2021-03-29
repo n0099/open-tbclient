@@ -5,9 +5,9 @@ import android.util.Log;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends f {
-    public static final boolean G = d.b.g0.a.k.f45050a;
+    public static final boolean G = d.b.g0.a.k.f45051a;
 
     public e(String str) {
         super(str);
@@ -20,7 +20,7 @@ public class e extends f {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + aVar.toString());
         }
         F0("checkForUpdate", false);
-        k0(aVar.f48913a);
+        k0(aVar.f48914a);
         if (d.b.g0.a.e0.p.p.a.m(aVar)) {
             d.b.g0.a.e0.p.p.a.c(this.r);
         }

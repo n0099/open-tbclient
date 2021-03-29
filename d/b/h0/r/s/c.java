@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 public class c extends AlertDialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50979e;
+    public String f50980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50980f;
+    public TextView f50981f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50981g;
+    public TextView f50982g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CircleView1080 f50982h;
+    public CircleView1080 f50983h;
     public int i;
 
     public c(Context context) {
@@ -30,8 +30,8 @@ public class c extends AlertDialog {
     }
 
     public void a(String str) {
-        this.f50979e = str;
-        TextView textView = this.f50981g;
+        this.f50980e = str;
+        TextView textView = this.f50982g;
         if (textView != null) {
             textView.setText(str);
         }
@@ -42,11 +42,11 @@ public class c extends AlertDialog {
             return;
         }
         this.i = i;
-        TextView textView = this.f50980f;
+        TextView textView = this.f50981f;
         if (textView != null) {
             textView.setText(i + "%");
         }
-        CircleView1080 circleView1080 = this.f50982h;
+        CircleView1080 circleView1080 = this.f50983h;
         if (circleView1080 != null) {
             circleView1080.setProgress(i);
         }
@@ -65,17 +65,17 @@ public class c extends AlertDialog {
                 findViewById.setLayoutParams(layoutParams);
             }
             TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-            this.f50981g = textView;
+            this.f50982g = textView;
             if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f50981g.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f50982g.getLayoutParams();
                 layoutParams2.topMargin = d.b.b.e.p.l.g(getContext(), R.dimen.tbds35);
-                this.f50981g.setLayoutParams(layoutParams2);
+                this.f50982g.setLayoutParams(layoutParams2);
             }
-            if (!StringUtils.isNull(this.f50979e)) {
-                this.f50981g.setText(this.f50979e);
+            if (!StringUtils.isNull(this.f50980e)) {
+                this.f50982g.setText(this.f50980e);
             }
-            this.f50980f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.f50982h = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
+            this.f50981f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+            this.f50983h = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 }

@@ -6,46 +6,46 @@ import org.json.JSONObject;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30614a;
+    public String f30615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30615b;
+    public String f30616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30616c;
+    public String f30617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30617d;
+    public String f30618d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30618e;
+    public String f30619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30619f;
+    public String f30620f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30620g;
+    public String f30621g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30621h;
+    public String f30622h;
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30619f;
+        return this.f30620f;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f30614a);
-            jSONObject.put("apptype", this.f30615b);
-            jSONObject.put("phone_ID", this.f30616c);
-            jSONObject.put("certflag", this.f30617d);
-            jSONObject.put("sdkversion", this.f30618e);
-            jSONObject.put("appid", this.f30619f);
-            jSONObject.put("expandparams", this.f30620g);
-            jSONObject.put("sign", this.f30621h);
+            jSONObject.put("version", this.f30615a);
+            jSONObject.put("apptype", this.f30616b);
+            jSONObject.put("phone_ID", this.f30617c);
+            jSONObject.put("certflag", this.f30618d);
+            jSONObject.put("sdkversion", this.f30619e);
+            jSONObject.put("appid", this.f30620f);
+            jSONObject.put("expandparams", this.f30621g);
+            jSONObject.put("sign", this.f30622h);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -53,34 +53,34 @@ public class b extends g {
     }
 
     public void c(String str) {
-        this.f30616c = str;
+        this.f30617c = str;
     }
 
     public void d(String str) {
-        this.f30617d = str;
+        this.f30618d = str;
     }
 
     public void e(String str) {
-        this.f30618e = str;
+        this.f30619e = str;
     }
 
     public void f(String str) {
-        this.f30619f = str;
+        this.f30620f = str;
     }
 
     public void g(String str) {
-        this.f30621h = str;
+        this.f30622h = str;
     }
 
     public void a(String str) {
-        this.f30614a = str;
+        this.f30615a = str;
     }
 
     public String c() {
-        return n(this.f30614a + this.f30618e + this.f30619f + "iYm0HAnkxQtpvN44").toLowerCase();
+        return n(this.f30615a + this.f30619e + this.f30620f + "iYm0HAnkxQtpvN44").toLowerCase();
     }
 
     public void b(String str) {
-        this.f30615b = str;
+        this.f30616b = str;
     }
 }

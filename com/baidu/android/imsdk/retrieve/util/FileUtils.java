@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.retrieve.util;
 
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FileUtils {
     public static boolean deleteFile(File file) {
         if (file == null) {

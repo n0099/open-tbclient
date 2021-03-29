@@ -19,163 +19,163 @@ import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends d.b.g0.a.q1.b.b.c {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f45573g = k.f45050a;
+    public static final boolean f45574g = k.f45051a;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f45574f;
+    public a f45575f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f45575a;
+        public final b f45576a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final g f45576b;
+        public final g f45577b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f45577c;
+        public Context f45578c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f45578d = false;
+        public boolean f45579d = false;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45579e;
+        public int f45580e;
 
         /* renamed from: d.b.g0.a.q1.b.b.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0762a implements View.OnClickListener {
+        /* loaded from: classes2.dex */
+        public class View$OnClickListenerC0763a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45580e;
+            public final /* synthetic */ DialogInterface.OnClickListener f45581e;
 
-            public View$OnClickListenerC0762a(DialogInterface.OnClickListener onClickListener) {
-                this.f45580e = onClickListener;
+            public View$OnClickListenerC0763a(DialogInterface.OnClickListener onClickListener) {
+                this.f45581e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.f45576b.e(-1);
-                a.this.f45576b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f45580e;
+                a.this.f45577b.e(-1);
+                a.this.f45577b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f45581e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(a.this.f45576b, -1);
+                    onClickListener.onClick(a.this.f45577b, -1);
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class b implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f45582e;
+            public final /* synthetic */ int f45583e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45583f;
+            public final /* synthetic */ DialogInterface.OnClickListener f45584f;
 
             public b(int i, DialogInterface.OnClickListener onClickListener) {
-                this.f45582e = i;
-                this.f45583f = onClickListener;
+                this.f45583e = i;
+                this.f45584f = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.f45576b.e(this.f45582e);
-                a.this.f45576b.dismiss();
-                this.f45583f.onClick(a.this.f45576b, this.f45582e);
+                a.this.f45577b.e(this.f45583e);
+                a.this.f45577b.dismiss();
+                this.f45584f.onClick(a.this.f45577b, this.f45583e);
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class c implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45585e;
+            public final /* synthetic */ DialogInterface.OnClickListener f45586e;
 
             public c(DialogInterface.OnClickListener onClickListener) {
-                this.f45585e = onClickListener;
+                this.f45586e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.f45576b.e(-2);
-                a.this.f45576b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f45585e;
+                a.this.f45577b.e(-2);
+                a.this.f45577b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f45586e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(a.this.f45576b, -2);
+                    onClickListener.onClick(a.this.f45577b, -2);
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class d implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45587e;
+            public final /* synthetic */ DialogInterface.OnClickListener f45588e;
 
             public d(DialogInterface.OnClickListener onClickListener) {
-                this.f45587e = onClickListener;
+                this.f45588e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.f45576b.e(-3);
-                a.this.f45576b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f45587e;
+                a.this.f45577b.e(-3);
+                a.this.f45577b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f45588e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(a.this.f45576b, -3);
+                    onClickListener.onClick(a.this.f45577b, -3);
                 }
             }
         }
 
         public a(Context context) {
             g h2 = h(context);
-            this.f45576b = h2;
+            this.f45577b = h2;
             h2.f(this);
-            this.f45575a = new b((ViewGroup) this.f45576b.getWindow().getDecorView());
-            this.f45577c = context;
-            this.f45579e = context.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_btns_height);
+            this.f45576a = new b((ViewGroup) this.f45577b.getWindow().getDecorView());
+            this.f45578c = context;
+            this.f45580e = context.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_btns_height);
         }
 
         public a A(int i) {
-            this.f45575a.a(i);
+            this.f45576a.a(i);
             return this;
         }
 
         public final void B() {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f45579e);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f45580e);
             layoutParams.addRule(3, d.b.g0.a.f.dialog_message_content);
-            this.f45575a.u.setLayoutParams(layoutParams);
+            this.f45576a.u.setLayoutParams(layoutParams);
         }
 
         public a C(int i, DialogInterface.OnClickListener onClickListener) {
-            D(this.f45577c.getText(i), onClickListener);
+            D(this.f45578c.getText(i), onClickListener);
             return this;
         }
 
         public a D(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.f45575a.f45594f.setVisibility(8);
-                if (this.f45575a.f45593e.getVisibility() == 0) {
-                    this.f45575a.i.setVisibility(8);
+                this.f45576a.f45595f.setVisibility(8);
+                if (this.f45576a.f45594e.getVisibility() == 0) {
+                    this.f45576a.i.setVisibility(8);
                 }
                 return this;
             }
-            this.f45575a.f45594f.setVisibility(0);
-            if (this.f45575a.f45593e.getVisibility() == 0) {
-                this.f45575a.i.setVisibility(0);
+            this.f45576a.f45595f.setVisibility(0);
+            if (this.f45576a.f45594e.getVisibility() == 0) {
+                this.f45576a.i.setVisibility(0);
             }
-            this.f45575a.f45594f.setText(charSequence);
-            this.f45575a.f45594f.setOnClickListener(new c(onClickListener));
+            this.f45576a.f45595f.setText(charSequence);
+            this.f45576a.f45595f.setOnClickListener(new c(onClickListener));
             return this;
         }
 
         public a E(int i) {
-            H(this.f45577c.getResources().getColor(i));
+            H(this.f45578c.getResources().getColor(i));
             return this;
         }
 
@@ -185,7 +185,7 @@ public class g extends d.b.g0.a.q1.b.b.c {
                     H(Color.parseColor(str));
                     return this;
                 } catch (IllegalArgumentException e2) {
-                    if (g.f45573g) {
+                    if (g.f45574g) {
                         e2.printStackTrace();
                     }
                 }
@@ -197,69 +197,69 @@ public class g extends d.b.g0.a.q1.b.b.c {
         }
 
         public a G(int i) {
-            this.f45575a.z = i;
+            this.f45576a.z = i;
             return this;
         }
 
         public a H(int i) {
-            this.f45575a.y = i;
+            this.f45576a.y = i;
             return this;
         }
 
         public a I(int i, DialogInterface.OnClickListener onClickListener) {
-            J(this.f45577c.getText(i), onClickListener);
+            J(this.f45578c.getText(i), onClickListener);
             return this;
         }
 
         public a J(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.f45575a.f45595g.setVisibility(0);
-            if (this.f45575a.f45593e.getVisibility() == 0) {
-                this.f45575a.j.setVisibility(0);
+            this.f45576a.f45596g.setVisibility(0);
+            if (this.f45576a.f45594e.getVisibility() == 0) {
+                this.f45576a.j.setVisibility(0);
             }
-            this.f45575a.f45595g.setText(charSequence);
-            this.f45575a.f45595g.setOnClickListener(new d(onClickListener));
+            this.f45576a.f45596g.setText(charSequence);
+            this.f45576a.f45596g.setOnClickListener(new d(onClickListener));
             return this;
         }
 
         public a K(boolean z) {
-            this.f45575a.D.setVisibility(z ? 0 : 8);
+            this.f45576a.D.setVisibility(z ? 0 : 8);
             return this;
         }
 
         public a L(DialogInterface.OnCancelListener onCancelListener) {
-            this.f45575a.l = onCancelListener;
+            this.f45576a.l = onCancelListener;
             return this;
         }
 
         public a M(DialogInterface.OnDismissListener onDismissListener) {
-            this.f45575a.m = onDismissListener;
+            this.f45576a.m = onDismissListener;
             return this;
         }
 
         public a N(DialogInterface.OnShowListener onShowListener) {
-            this.f45575a.n = onShowListener;
+            this.f45576a.n = onShowListener;
             return this;
         }
 
         public a O(int i, DialogInterface.OnClickListener onClickListener) {
-            P(this.f45577c.getText(i), onClickListener);
+            P(this.f45578c.getText(i), onClickListener);
             return this;
         }
 
         public a P(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.f45575a.f45593e.setVisibility(8);
-                if (this.f45575a.f45594f.getVisibility() == 0) {
-                    this.f45575a.i.setVisibility(8);
+                this.f45576a.f45594e.setVisibility(8);
+                if (this.f45576a.f45595f.getVisibility() == 0) {
+                    this.f45576a.i.setVisibility(8);
                 }
                 return this;
             }
-            this.f45575a.f45593e.setVisibility(0);
-            if (this.f45575a.f45594f.getVisibility() == 0) {
-                this.f45575a.i.setVisibility(0);
+            this.f45576a.f45594e.setVisibility(0);
+            if (this.f45576a.f45595f.getVisibility() == 0) {
+                this.f45576a.i.setVisibility(0);
             }
-            this.f45575a.f45593e.setText(charSequence);
-            this.f45575a.f45593e.setOnClickListener(new View$OnClickListenerC0762a(onClickListener));
+            this.f45576a.f45594e.setText(charSequence);
+            this.f45576a.f45594e.setOnClickListener(new View$OnClickListenerC0763a(onClickListener));
             return this;
         }
 
@@ -274,7 +274,7 @@ public class g extends d.b.g0.a.q1.b.b.c {
                     S(Color.parseColor(str));
                     return this;
                 } catch (IllegalArgumentException e2) {
-                    if (g.f45573g) {
+                    if (g.f45574g) {
                         e2.printStackTrace();
                     }
                 }
@@ -286,25 +286,25 @@ public class g extends d.b.g0.a.q1.b.b.c {
         }
 
         public a S(int i) {
-            b bVar = this.f45575a;
+            b bVar = this.f45576a;
             bVar.x = i;
-            bVar.f45593e.setTextColor(i);
+            bVar.f45594e.setTextColor(i);
             return this;
         }
 
         public a T(boolean z) {
-            this.f45575a.G = z;
+            this.f45576a.G = z;
             return this;
         }
 
         public a U(int i) {
-            this.f45575a.f45590b.setText(this.f45577c.getText(i));
+            this.f45576a.f45591b.setText(this.f45578c.getText(i));
             return this;
         }
 
         public a V(CharSequence charSequence) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.f45575a.f45590b.setText(charSequence);
+                this.f45576a.f45591b.setText(charSequence);
             } else {
                 f(true);
             }
@@ -312,23 +312,23 @@ public class g extends d.b.g0.a.q1.b.b.c {
         }
 
         public a W(View view) {
-            this.f45575a.p.removeAllViews();
-            this.f45575a.p.addView(view);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f45579e);
+            this.f45576a.p.removeAllViews();
+            this.f45576a.p.addView(view);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f45580e);
             layoutParams.addRule(3, d.b.g0.a.f.dialog_customPanel);
-            this.f45575a.u.setLayoutParams(layoutParams);
+            this.f45576a.u.setLayoutParams(layoutParams);
             return this;
         }
 
         public g X() {
             g c2 = c();
-            if (this.f45578d) {
+            if (this.f45579d) {
                 c2.getWindow().setType(2003);
             }
             try {
                 c2.show();
             } catch (WindowManager.BadTokenException e2) {
-                if (g.f45573g) {
+                if (g.f45574g) {
                     e2.printStackTrace();
                 }
             }
@@ -347,116 +347,116 @@ public class g extends d.b.g0.a.q1.b.b.c {
             int color3 = d().getColor(d.b.g0.a.c.aiapps_dialog_btn_text_color);
             int color4 = d().getColor(d.b.g0.a.c.aiapps_box_dialog_message_text_color);
             int color5 = d().getColor(d.b.g0.a.c.aiapps_dialog_gray);
-            RelativeLayout relativeLayout = this.f45575a.s;
+            RelativeLayout relativeLayout = this.f45576a.s;
             Resources d2 = d();
-            int i = this.f45575a.E;
+            int i = this.f45576a.E;
             if (i == -1) {
                 i = d.b.g0.a.e.aiapps_dialog_bg_white;
             }
             relativeLayout.setBackground(d2.getDrawable(i));
-            this.f45575a.f45590b.setTextColor(color);
-            this.f45575a.f45591c.setTextColor(color4);
-            b bVar = this.f45575a;
-            TextView textView = bVar.f45593e;
+            this.f45576a.f45591b.setTextColor(color);
+            this.f45576a.f45592c.setTextColor(color4);
+            b bVar = this.f45576a;
+            TextView textView = bVar.f45594e;
             int i2 = bVar.x;
             if (i2 != color3) {
                 color3 = i2;
             }
             textView.setTextColor(color3);
-            b bVar2 = this.f45575a;
+            b bVar2 = this.f45576a;
             int i3 = bVar2.y;
             if (i3 != color2) {
-                bVar2.f45594f.setTextColor(i3);
+                bVar2.f45595f.setTextColor(i3);
             } else if (bVar2.z != -1) {
-                bVar2.f45594f.setTextColor(d().getColorStateList(this.f45575a.z));
+                bVar2.f45595f.setTextColor(d().getColorStateList(this.f45576a.z));
             } else {
-                bVar2.f45594f.setTextColor(color2);
+                bVar2.f45595f.setTextColor(color2);
             }
-            this.f45575a.f45595g.setTextColor(color2);
-            if (this.f45575a.F != -1) {
-                color5 = d().getColor(this.f45575a.F);
+            this.f45576a.f45596g.setTextColor(color2);
+            if (this.f45576a.F != -1) {
+                color5 = d().getColor(this.f45576a.F);
             }
-            this.f45575a.f45596h.setBackgroundColor(color5);
-            this.f45575a.i.setBackgroundColor(color5);
-            this.f45575a.j.setBackgroundColor(color5);
-            this.f45575a.f45593e.setBackground(d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
-            this.f45575a.f45594f.setBackground(d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
-            this.f45575a.f45595g.setBackground(d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
+            this.f45576a.f45597h.setBackgroundColor(color5);
+            this.f45576a.i.setBackgroundColor(color5);
+            this.f45576a.j.setBackgroundColor(color5);
+            this.f45576a.f45594e.setBackground(d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
+            this.f45576a.f45595f.setBackground(d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
+            this.f45576a.f45596g.setBackground(d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
             TextView g2 = g();
             if (g2 != null) {
-                g2.setBackground(this.f45575a.G ? d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
+                g2.setBackground(this.f45576a.G ? d().getDrawable(d.b.g0.a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
             }
         }
 
         public a a() {
             if (h0.C()) {
-                r(this.f45577c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_landscape_default_width));
-                A(this.f45577c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_landscape_content_default_height));
+                r(this.f45578c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_landscape_default_width));
+                A(this.f45578c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_landscape_content_default_height));
                 return this;
             }
             return this;
         }
 
         public a b() {
-            ((ViewGroup.MarginLayoutParams) this.f45575a.o.getLayoutParams()).setMargins(0, 0, 0, 0);
+            ((ViewGroup.MarginLayoutParams) this.f45576a.o.getLayoutParams()).setMargins(0, 0, 0, 0);
             return this;
         }
 
         public g c() {
-            this.f45576b.setCancelable(this.f45575a.k.booleanValue());
-            if (this.f45575a.k.booleanValue()) {
-                this.f45576b.setCanceledOnTouchOutside(false);
+            this.f45577b.setCancelable(this.f45576a.k.booleanValue());
+            if (this.f45576a.k.booleanValue()) {
+                this.f45577b.setCanceledOnTouchOutside(false);
             }
-            this.f45576b.setOnCancelListener(this.f45575a.l);
-            this.f45576b.setOnDismissListener(this.f45575a.m);
-            this.f45576b.setOnShowListener(this.f45575a.n);
-            DialogInterface.OnKeyListener onKeyListener = this.f45575a.q;
+            this.f45577b.setOnCancelListener(this.f45576a.l);
+            this.f45577b.setOnDismissListener(this.f45576a.m);
+            this.f45577b.setOnShowListener(this.f45576a.n);
+            DialogInterface.OnKeyListener onKeyListener = this.f45576a.q;
             if (onKeyListener != null) {
-                this.f45576b.setOnKeyListener(onKeyListener);
+                this.f45577b.setOnKeyListener(onKeyListener);
             }
             Z();
-            b bVar = this.f45575a;
+            b bVar = this.f45576a;
             c cVar = bVar.A;
             if (cVar != null) {
-                cVar.a(this.f45576b, bVar);
+                cVar.a(this.f45577b, bVar);
             }
-            this.f45576b.f(this);
-            return this.f45576b;
+            this.f45577b.f(this);
+            return this.f45577b;
         }
 
         public Resources d() {
-            return this.f45577c.getResources();
+            return this.f45578c.getResources();
         }
 
         public ViewGroup e() {
-            return this.f45575a.p;
+            return this.f45576a.p;
         }
 
         public a f(boolean z) {
-            this.f45575a.f45589a.setVisibility(z ? 8 : 0);
+            this.f45576a.f45590a.setVisibility(z ? 8 : 0);
             return this;
         }
 
         public TextView g() {
             int i;
             TextView textView;
-            TextView textView2 = this.f45575a.f45593e;
+            TextView textView2 = this.f45576a.f45594e;
             if (textView2 == null || textView2.getVisibility() != 0) {
                 i = 0;
                 textView = null;
             } else {
-                textView = this.f45575a.f45593e;
+                textView = this.f45576a.f45594e;
                 i = 1;
             }
-            TextView textView3 = this.f45575a.f45594f;
+            TextView textView3 = this.f45576a.f45595f;
             if (textView3 != null && textView3.getVisibility() == 0) {
                 i++;
-                textView = this.f45575a.f45594f;
+                textView = this.f45576a.f45595f;
             }
-            TextView textView4 = this.f45575a.f45595g;
+            TextView textView4 = this.f45576a.f45596g;
             if (textView4 != null && textView4.getVisibility() == 0) {
                 i++;
-                textView = this.f45575a.f45595g;
+                textView = this.f45576a.f45596g;
             }
             if (i != 1) {
                 return null;
@@ -469,20 +469,20 @@ public class g extends d.b.g0.a.q1.b.b.c {
         }
 
         public a i(boolean z) {
-            ViewGroup.LayoutParams layoutParams = this.f45575a.v.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f45576a.v.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, z ? 0 : this.f45577c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_content_margin_top), 0, 0);
+                ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, z ? 0 : this.f45578c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_content_margin_top), 0, 0);
             }
             return this;
         }
 
         public a j() {
-            this.f45575a.B.setPadding(0, 0, 0, 0);
+            this.f45576a.B.setPadding(0, 0, 0, 0);
             return this;
         }
 
         public a k(boolean z) {
-            this.f45575a.u.setVisibility(z ? 0 : 8);
+            this.f45576a.u.setVisibility(z ? 0 : 8);
             return this;
         }
 
@@ -494,102 +494,102 @@ public class g extends d.b.g0.a.q1.b.b.c {
         }
 
         public a m(boolean z) {
-            this.f45575a.k = Boolean.valueOf(z);
+            this.f45576a.k = Boolean.valueOf(z);
             return this;
         }
 
         public a n(c cVar) {
-            this.f45575a.A = cVar;
+            this.f45576a.A = cVar;
             return this;
         }
 
         public a o(int i) {
-            this.f45575a.F = i;
+            this.f45576a.F = i;
             return this;
         }
 
         public a p(int i) {
-            b bVar = this.f45575a;
+            b bVar = this.f45576a;
             bVar.E = i;
             bVar.s.setBackgroundResource(i);
             return this;
         }
 
         public void q(int i) {
-            this.f45575a.s.getLayoutParams().height = i;
-            this.f45575a.s.requestLayout();
+            this.f45576a.s.getLayoutParams().height = i;
+            this.f45576a.s.requestLayout();
         }
 
         public void r(int i) {
-            this.f45575a.s.getLayoutParams().width = i;
-            this.f45575a.s.requestLayout();
+            this.f45576a.s.getLayoutParams().width = i;
+            this.f45576a.s.requestLayout();
         }
 
         public a s(int i, int i2, int i3, int i4) {
-            this.f45575a.C.setPadding(i, i2, i3, i4);
+            this.f45576a.C.setPadding(i, i2, i3, i4);
             return this;
         }
 
         public a t(int i) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, i);
             layoutParams.addRule(2, d.b.g0.a.f.btn_panel);
-            this.f45575a.f45596h.setLayoutParams(layoutParams);
+            this.f45576a.f45597h.setLayoutParams(layoutParams);
             return this;
         }
 
         public a u(boolean z) {
             if (z) {
-                this.f45575a.f45596h.setVisibility(0);
+                this.f45576a.f45597h.setVisibility(0);
             } else {
-                this.f45575a.f45596h.setVisibility(8);
+                this.f45576a.f45597h.setVisibility(8);
             }
             return this;
         }
 
         public a v(int i) {
-            this.f45575a.r.setImageResource(i);
+            this.f45576a.r.setImageResource(i);
             return this;
         }
 
         public a w(int i) {
-            if (this.f45575a.f45592d.getVisibility() != 0) {
-                this.f45575a.f45592d.setVisibility(0);
+            if (this.f45576a.f45593d.getVisibility() != 0) {
+                this.f45576a.f45593d.setVisibility(0);
             }
-            this.f45575a.f45591c.setText(this.f45577c.getText(i));
+            this.f45576a.f45592c.setText(this.f45578c.getText(i));
             B();
             return this;
         }
 
         public a x(Spanned spanned) {
-            if (this.f45575a.f45592d.getVisibility() != 0) {
-                this.f45575a.f45592d.setVisibility(0);
+            if (this.f45576a.f45593d.getVisibility() != 0) {
+                this.f45576a.f45593d.setVisibility(0);
             }
             if (spanned != null) {
-                this.f45575a.f45591c.setMovementMethod(LinkMovementMethod.getInstance());
-                this.f45575a.f45591c.setText(spanned);
+                this.f45576a.f45592c.setMovementMethod(LinkMovementMethod.getInstance());
+                this.f45576a.f45592c.setText(spanned);
                 B();
             }
             return this;
         }
 
         public a y(String str) {
-            if (this.f45575a.f45592d.getVisibility() != 0) {
-                this.f45575a.f45592d.setVisibility(0);
+            if (this.f45576a.f45593d.getVisibility() != 0) {
+                this.f45576a.f45593d.setVisibility(0);
             }
             if (str != null) {
-                this.f45575a.f45591c.setText(str);
+                this.f45576a.f45592c.setText(str);
                 B();
             }
             return this;
         }
 
         public a z() {
-            this.f45575a.f45591c.setGravity(3);
+            this.f45576a.f45592c.setGravity(3);
             return this;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public c A;
         public FrameLayout B;
@@ -597,28 +597,28 @@ public class g extends d.b.g0.a.q1.b.b.c {
         public View D;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f45589a;
+        public LinearLayout f45590a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f45590b;
+        public TextView f45591b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f45591c;
+        public TextView f45592c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LinearLayout f45592d;
+        public LinearLayout f45593d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f45593e;
+        public TextView f45594e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f45594f;
+        public TextView f45595f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f45595g;
+        public TextView f45596g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f45596h;
+        public View f45597h;
         public View i;
         public View j;
         public DialogInterface.OnCancelListener l;
@@ -644,28 +644,28 @@ public class g extends d.b.g0.a.q1.b.b.c {
         public b(ViewGroup viewGroup) {
             this.w = viewGroup;
             this.C = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_root);
-            this.f45589a = (LinearLayout) viewGroup.findViewById(d.b.g0.a.f.title_panel);
-            this.f45590b = (TextView) viewGroup.findViewById(d.b.g0.a.f.dialog_title);
-            this.f45591c = (TextView) viewGroup.findViewById(d.b.g0.a.f.dialog_message);
-            this.f45592d = (LinearLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_message_content);
-            this.f45593e = (TextView) viewGroup.findViewById(d.b.g0.a.f.positive_button);
-            this.f45594f = (TextView) viewGroup.findViewById(d.b.g0.a.f.negative_button);
-            this.f45595g = (TextView) viewGroup.findViewById(d.b.g0.a.f.neutral_button);
+            this.f45590a = (LinearLayout) viewGroup.findViewById(d.b.g0.a.f.title_panel);
+            this.f45591b = (TextView) viewGroup.findViewById(d.b.g0.a.f.dialog_title);
+            this.f45592c = (TextView) viewGroup.findViewById(d.b.g0.a.f.dialog_message);
+            this.f45593d = (LinearLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_message_content);
+            this.f45594e = (TextView) viewGroup.findViewById(d.b.g0.a.f.positive_button);
+            this.f45595f = (TextView) viewGroup.findViewById(d.b.g0.a.f.negative_button);
+            this.f45596g = (TextView) viewGroup.findViewById(d.b.g0.a.f.neutral_button);
             this.i = viewGroup.findViewById(d.b.g0.a.f.divider3);
             this.j = viewGroup.findViewById(d.b.g0.a.f.divider4);
             this.o = viewGroup.findViewById(d.b.g0.a.f.dialog_customPanel);
             this.p = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_custom_content);
             this.r = (ImageView) viewGroup.findViewById(d.b.g0.a.f.dialog_icon);
             this.s = (RelativeLayout) viewGroup.findViewById(d.b.g0.a.f.searchbox_alert_dialog);
-            this.f45596h = viewGroup.findViewById(d.b.g0.a.f.divider2);
+            this.f45597h = viewGroup.findViewById(d.b.g0.a.f.divider2);
             this.t = (SwanAppScrollView) viewGroup.findViewById(d.b.g0.a.f.message_scrollview);
             this.u = (LinearLayout) viewGroup.findViewById(d.b.g0.a.f.btn_panel);
             this.v = viewGroup.findViewById(d.b.g0.a.f.dialog_customPanel);
             this.B = (FrameLayout) viewGroup.findViewById(d.b.g0.a.f.dialog_root);
             this.D = viewGroup.findViewById(d.b.g0.a.f.nightmode_mask);
             if (d.b.g0.a.i2.c.k() || d.b.g0.a.i2.c.l()) {
-                int dimensionPixelSize = this.f45591c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_text_padding);
-                this.f45591c.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+                int dimensionPixelSize = this.f45592c.getResources().getDimensionPixelSize(d.b.g0.a.d.aiapps_dialog_text_padding);
+                this.f45592c.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
             int color = this.w.getResources().getColor(d.b.g0.a.c.aiapps_dialog_btn_text_color);
             this.x = color;
@@ -677,7 +677,7 @@ public class g extends d.b.g0.a.q1.b.b.c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(g gVar, b bVar);
     }
@@ -688,7 +688,7 @@ public class g extends d.b.g0.a.q1.b.b.c {
     }
 
     public a c() {
-        return this.f45574f;
+        return this.f45575f;
     }
 
     public void d() {
@@ -706,6 +706,6 @@ public class g extends d.b.g0.a.q1.b.b.c {
     }
 
     public void f(a aVar) {
-        this.f45574f = aVar;
+        this.f45575f = aVar;
     }
 }

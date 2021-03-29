@@ -21,7 +21,7 @@ import java.util.Locale;
 public final class DateTypeAdapter extends TypeAdapter<Date> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f30947b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
+    public static final TypeAdapterFactory f30948b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
             if (aVar.c() == Date.class) {
@@ -32,22 +32,22 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<DateFormat> f30948a;
+    public final List<DateFormat> f30949a;
 
     public DateTypeAdapter() {
         ArrayList arrayList = new ArrayList();
-        this.f30948a = arrayList;
+        this.f30949a = arrayList;
         arrayList.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.f30948a.add(DateFormat.getDateTimeInstance(2, 2));
+            this.f30949a.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (c.e()) {
-            this.f30948a.add(f.e(2, 2));
+            this.f30949a.add(f.e(2, 2));
         }
     }
 
     public final synchronized Date deserializeToDate(String str) {
-        for (DateFormat dateFormat : this.f30948a) {
+        for (DateFormat dateFormat : this.f30949a) {
             try {
                 return dateFormat.parse(str);
             } catch (ParseException unused) {
@@ -76,7 +76,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         if (date == null) {
             bVar.B();
         } else {
-            bVar.O(this.f30948a.get(0).format(date));
+            bVar.O(this.f30949a.get(0).format(date));
         }
     }
 }

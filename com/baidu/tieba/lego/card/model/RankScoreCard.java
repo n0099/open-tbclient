@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import d.b.i0.i1.o.k.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RankScoreCard extends BaseCardInfo {
     public final String btnDone;
     public final String btnText;

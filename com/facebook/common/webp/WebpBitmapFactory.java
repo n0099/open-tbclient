@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import java.io.FileDescriptor;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public interface WebpBitmapFactory {
 
     /* loaded from: classes6.dex */

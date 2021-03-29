@@ -8,20 +8,20 @@ import com.baidu.platform.base.SearchType;
 public class a extends com.baidu.platform.base.a implements d {
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetGeoCoderResultListener f10407b = null;
+    public OnGetGeoCoderResultListener f10408b = null;
 
     @Override // com.baidu.platform.core.b.d
     public void a() {
-        this.f9807a.lock();
-        this.f10407b = null;
-        this.f9807a.unlock();
+        this.f9808a.lock();
+        this.f10408b = null;
+        this.f9808a.unlock();
     }
 
     @Override // com.baidu.platform.core.b.d
     public void a(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
-        this.f9807a.lock();
-        this.f10407b = onGetGeoCoderResultListener;
-        this.f9807a.unlock();
+        this.f9808a.lock();
+        this.f10408b = onGetGeoCoderResultListener;
+        this.f9808a.unlock();
     }
 
     @Override // com.baidu.platform.core.b.d
@@ -32,7 +32,7 @@ public class a extends com.baidu.platform.base.a implements d {
         if (geoCodeOption != null) {
             bVar.b(geoCodeOption.getAddress());
         }
-        return a(cVar, this.f10407b, bVar);
+        return a(cVar, this.f10408b, bVar);
     }
 
     @Override // com.baidu.platform.core.b.d
@@ -40,6 +40,6 @@ public class a extends com.baidu.platform.base.a implements d {
         e eVar = new e();
         f fVar = new f(reverseGeoCodeOption);
         eVar.a(SearchType.REVERSE_GEO_CODER);
-        return a(fVar, this.f10407b, eVar);
+        return a(fVar, this.f10408b, eVar);
     }
 }

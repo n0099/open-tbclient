@@ -7,14 +7,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class m extends b<c.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f27587a = new AtomicBoolean(false);
+    public AtomicBoolean f27588a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27588b;
+    public boolean f27589b;
 
     public m(boolean z) {
-        this.f27588b = true;
-        this.f27588b = z;
+        this.f27589b = true;
+        this.f27589b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.b
@@ -23,20 +23,20 @@ public class m extends b<c.a> {
 
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a() {
-        if (this.f27587a.getAndSet(true)) {
+        if (this.f27588a.getAndSet(true)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.multipro.c.a.a(this.f27588b);
+        com.bytedance.sdk.openadsdk.multipro.c.a.a(this.f27589b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a(@NonNull c.a aVar) {
-        if (!this.f27587a.get()) {
+        if (!this.f27588a.get()) {
             a();
         }
-        if (this.f27587a.get()) {
-            com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a(), this.f27588b);
+        if (this.f27588a.get()) {
+            com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a(), this.f27589b);
         }
     }
 }

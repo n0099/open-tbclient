@@ -19,16 +19,16 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     public static final Excluder k = new Excluder();
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30909h;
+    public boolean f30910h;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f30906e = -1.0d;
+    public double f30907e = -1.0d;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30907f = 136;
+    public int f30908f = 136;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30908g = true;
+    public boolean f30909g = true;
     public List<ExclusionStrategy> i = Collections.emptyList();
     public List<ExclusionStrategy> j = Collections.emptyList();
 
@@ -44,7 +44,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     public Excluder c() {
         Excluder clone = clone();
-        clone.f30908g = false;
+        clone.f30909g = false;
         return clone;
     }
 
@@ -58,15 +58,15 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
             return new TypeAdapter<T>() { // from class: com.google.gson.internal.Excluder.1
 
                 /* renamed from: a  reason: collision with root package name */
-                public TypeAdapter<T> f30910a;
+                public TypeAdapter<T> f30911a;
 
                 public final TypeAdapter<T> a() {
-                    TypeAdapter<T> typeAdapter = this.f30910a;
+                    TypeAdapter<T> typeAdapter = this.f30911a;
                     if (typeAdapter != 0) {
                         return typeAdapter;
                     }
                     TypeAdapter<T> delegateAdapter = gson.getDelegateAdapter(Excluder.this, aVar);
-                    this.f30910a = delegateAdapter;
+                    this.f30911a = delegateAdapter;
                     return delegateAdapter;
                 }
 
@@ -98,8 +98,8 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public final boolean e(Class<?> cls) {
-        if (this.f30906e == -1.0d || n((d) cls.getAnnotation(d.class), (e) cls.getAnnotation(e.class))) {
-            return (!this.f30908g && j(cls)) || i(cls);
+        if (this.f30907e == -1.0d || n((d) cls.getAnnotation(d.class), (e) cls.getAnnotation(e.class))) {
+            return (!this.f30909g && j(cls)) || i(cls);
         }
         return true;
     }
@@ -115,12 +115,12 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     public boolean g(Field field, boolean z) {
         d.g.c.a.a aVar;
-        if ((this.f30907f & field.getModifiers()) != 0) {
+        if ((this.f30908f & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.f30906e == -1.0d || n((d) field.getAnnotation(d.class), (e) field.getAnnotation(e.class))) && !field.isSynthetic()) {
-            if (!this.f30909h || ((aVar = (d.g.c.a.a) field.getAnnotation(d.g.c.a.a.class)) != null && (!z ? !aVar.deserialize() : !aVar.serialize()))) {
-                if ((this.f30908g || !j(field.getType())) && !i(field.getType())) {
+        if ((this.f30907e == -1.0d || n((d) field.getAnnotation(d.class), (e) field.getAnnotation(e.class))) && !field.isSynthetic()) {
+            if (!this.f30910h || ((aVar = (d.g.c.a.a) field.getAnnotation(d.g.c.a.a.class)) != null && (!z ? !aVar.deserialize() : !aVar.serialize()))) {
+                if ((this.f30909g || !j(field.getType())) && !i(field.getType())) {
                     List<ExclusionStrategy> list = z ? this.i : this.j;
                     if (list.isEmpty()) {
                         return false;
@@ -142,7 +142,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     public Excluder h() {
         Excluder clone = clone();
-        clone.f30909h = true;
+        clone.f30910h = true;
         return clone;
     }
 
@@ -159,11 +159,11 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public final boolean l(d dVar) {
-        return dVar == null || dVar.value() <= this.f30906e;
+        return dVar == null || dVar.value() <= this.f30907e;
     }
 
     public final boolean m(e eVar) {
-        return eVar == null || eVar.value() > this.f30906e;
+        return eVar == null || eVar.value() > this.f30907e;
     }
 
     public final boolean n(d dVar, e eVar) {
@@ -187,16 +187,16 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     public Excluder p(int... iArr) {
         Excluder clone = clone();
-        clone.f30907f = 0;
+        clone.f30908f = 0;
         for (int i : iArr) {
-            clone.f30907f = i | clone.f30907f;
+            clone.f30908f = i | clone.f30908f;
         }
         return clone;
     }
 
     public Excluder q(double d2) {
         Excluder clone = clone();
-        clone.f30906e = d2;
+        clone.f30907e = d2;
         return clone;
     }
 }

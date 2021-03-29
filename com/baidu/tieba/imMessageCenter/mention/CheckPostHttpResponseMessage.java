@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CheckPost.CheckPostResIdl;
 import tbclient.CheckPost.ResData;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CheckPostHttpResponseMessage extends TbHttpResponsedMessage {
     public long forumId;
     public String forumName;

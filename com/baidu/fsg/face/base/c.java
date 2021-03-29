@@ -6,23 +6,23 @@ import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5591a = "1.3.7";
+    public static final String f5592a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5592b = 32;
+    public static final int f5593b = 32;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f5593c;
+    public static c f5594c;
 
     public static c a() {
-        if (f5593c == null) {
+        if (f5594c == null) {
             synchronized (c.class) {
-                if (f5593c == null) {
-                    f5593c = new c();
+                if (f5594c == null) {
+                    f5594c = new c();
                 }
             }
         }
-        return f5593c;
+        return f5594c;
     }
 
     private b c() {

@@ -16,28 +16,28 @@ public abstract class a {
     public static final PorterDuffColorFilter p = new PorterDuffColorFilter(1409286144, PorterDuff.Mode.SRC_ATOP);
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0543a f42143a;
+    public InterfaceC0544a f42144a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f42144b = new Paint(6);
+    public Paint f42145b = new Paint(6);
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f42145c = new Paint();
+    public Paint f42146c = new Paint();
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f42146d = new Paint();
+    public Paint f42147d = new Paint();
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f42147e = new Matrix();
+    public Matrix f42148e = new Matrix();
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f42148f = new RectF();
+    public RectF f42149f = new RectF();
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f42149g = new RectF();
+    public RectF f42150g = new RectF();
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f42150h = new RectF();
+    public RectF f42151h = new RectF();
     public RectF i = new RectF();
     public RectF j = new RectF();
     public e k = new e();
@@ -47,16 +47,16 @@ public abstract class a {
 
     /* renamed from: d.b.b.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0543a {
+    public interface InterfaceC0544a {
         boolean a(Canvas canvas, Drawable drawable);
     }
 
     public a() {
-        this.f42145c.setStyle(Paint.Style.STROKE);
-        this.f42145c.setAntiAlias(true);
-        this.f42144b.setAntiAlias(true);
-        this.f42146d.setAntiAlias(true);
-        this.f42146d.setStyle(Paint.Style.FILL);
+        this.f42146c.setStyle(Paint.Style.STROKE);
+        this.f42146c.setAntiAlias(true);
+        this.f42145b.setAntiAlias(true);
+        this.f42147d.setAntiAlias(true);
+        this.f42147d.setStyle(Paint.Style.FILL);
     }
 
     public static Matrix.ScaleToFit m(ImageView.ScaleType scaleType) {
@@ -96,18 +96,18 @@ public abstract class a {
         int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
         int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
         if (scaleType == ImageView.ScaleType.MATRIX) {
-            this.f42148f.set(0.0f, 0.0f, b2, a2);
+            this.f42149f.set(0.0f, 0.0f, b2, a2);
             a(dVar, imageView);
             return;
         }
         boolean z = (b2 <= 0 || width == b2) && (a2 <= 0 || height == a2);
-        this.f42147e.reset();
+        this.f42148e.reset();
         if (ImageView.ScaleType.FIT_XY != scaleType && !z) {
             float f5 = b2;
             float f6 = a2;
-            this.f42148f.set(0.0f, 0.0f, f5, f6);
+            this.f42149f.set(0.0f, 0.0f, f5, f6);
             if (ImageView.ScaleType.CENTER == scaleType) {
-                this.f42147e.setTranslate((width - b2) * 0.5f, (height - a2) * 0.5f);
+                this.f42148e.setTranslate((width - b2) * 0.5f, (height - a2) * 0.5f);
             } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
                 if (b2 * height > a2 * width) {
                     f2 = height / f6;
@@ -118,25 +118,25 @@ public abstract class a {
                     f3 = (height - (f6 * f2)) * 0.5f;
                     f4 = 0.0f;
                 }
-                this.f42147e.setScale(f2, f2);
-                this.f42147e.postTranslate(f4, f3);
+                this.f42148e.setScale(f2, f2);
+                this.f42148e.postTranslate(f4, f3);
             } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
                 float min = (b2 > width || a2 > height) ? Math.min(width / f5, height / f6) : 1.0f;
-                this.f42147e.setScale(min, min);
-                this.f42147e.postTranslate((width - (f5 * min)) * 0.5f, (height - (f6 * min)) * 0.5f);
+                this.f42148e.setScale(min, min);
+                this.f42148e.postTranslate((width - (f5 * min)) * 0.5f, (height - (f6 * min)) * 0.5f);
             } else {
-                this.f42150h.set(0.0f, 0.0f, f5, f6);
+                this.f42151h.set(0.0f, 0.0f, f5, f6);
                 this.i.set(0.0f, 0.0f, width, height);
-                this.f42147e.setRectToRect(this.f42150h, this.i, m(scaleType));
+                this.f42148e.setRectToRect(this.f42151h, this.i, m(scaleType));
             }
         } else {
-            this.f42148f.set(0.0f, 0.0f, width, height);
+            this.f42149f.set(0.0f, 0.0f, width, height);
         }
-        int length = this.k.f42157a.length;
+        int length = this.k.f42158a.length;
         for (int i = 0; i < length; i++) {
-            float[] fArr = this.k.f42157a;
+            float[] fArr = this.k.f42158a;
             if (fArr[i] > 0.0f && fArr[i] < 1.0f) {
-                fArr[i] = fArr[i] * this.f42148f.height();
+                fArr[i] = fArr[i] * this.f42149f.height();
             }
         }
         a(dVar, imageView);
@@ -158,8 +158,8 @@ public abstract class a {
     }
 
     public void e(Canvas canvas, Drawable drawable) {
-        InterfaceC0543a interfaceC0543a = this.f42143a;
-        if (interfaceC0543a == null || !interfaceC0543a.a(canvas, drawable)) {
+        InterfaceC0544a interfaceC0544a = this.f42144a;
+        if (interfaceC0544a == null || !interfaceC0544a.a(canvas, drawable)) {
             drawable.draw(canvas);
         }
     }
@@ -183,13 +183,13 @@ public abstract class a {
         if (matrix2 != null) {
             canvas.concat(matrix2);
         }
-        d.b.b.j.d.a aVar = dVar.f42155b;
+        d.b.b.j.d.a aVar = dVar.f42156b;
         if (aVar != null && aVar.v()) {
-            if ((dVar.f42155b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f42155b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f42147e) != null) {
+            if ((dVar.f42156b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f42156b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f42148e) != null) {
                 canvas.concat(matrix);
             }
             this.j.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.f42155b.i(canvas, this.j);
+            dVar.f42156b.i(canvas, this.j);
         } else {
             h(canvas, dVar, imageView);
         }
@@ -208,11 +208,11 @@ public abstract class a {
     public abstract void i(Canvas canvas, ImageView imageView);
 
     public RectF j() {
-        return this.f42148f;
+        return this.f42149f;
     }
 
     public Matrix k() {
-        return this.f42147e;
+        return this.f42148e;
     }
 
     public Path l(RectF rectF, float[] fArr) {
@@ -222,11 +222,11 @@ public abstract class a {
     }
 
     public void n(Matrix matrix) {
-        this.f42147e = matrix;
+        this.f42148e = matrix;
     }
 
-    public void o(InterfaceC0543a interfaceC0543a) {
-        this.f42143a = interfaceC0543a;
+    public void o(InterfaceC0544a interfaceC0544a) {
+        this.f42144a = interfaceC0544a;
     }
 
     public void p(e eVar) {
@@ -234,13 +234,13 @@ public abstract class a {
     }
 
     public void q() {
-        this.f42144b.setAlpha((int) (this.k.k * 255.0f));
-        if (this.k.f42162f) {
-            this.f42144b.setColorFilter(p);
+        this.f42145b.setAlpha((int) (this.k.k * 255.0f));
+        if (this.k.f42163f) {
+            this.f42145b.setColorFilter(p);
         } else {
-            this.f42144b.setColorFilter(null);
+            this.f42145b.setColorFilter(null);
         }
-        this.f42145c.setColor(this.k.f42161e);
-        this.f42145c.setStrokeWidth(this.k.f42160d);
+        this.f42146c.setColor(this.k.f42162e);
+        this.f42146c.setStrokeWidth(this.k.f42161d);
     }
 }

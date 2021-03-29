@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Dlna {
     public static int DLNA_ERROR_CREATE_CTRL_POINT_TIMER_THREAD_FAIL = -1011;
     public static int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = -1017;
@@ -25,36 +25,36 @@ public class Dlna {
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = -1018;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4916a = "com.baidu.media.dlna.DlnaProviderImpl";
+    public static String f4917a = "com.baidu.media.dlna.DlnaProviderImpl";
 
     /* renamed from: b  reason: collision with root package name */
-    public static DlnaProvider f4917b;
+    public static DlnaProvider f4918b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Dlna f4918a = new Dlna();
+        public static final Dlna f4919a = new Dlna();
     }
 
     public Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.f4918a;
+        return a.f4919a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            f4917b = (DlnaProvider) Class.forName(f4916a, true, classLoader).newInstance();
+            f4918b = (DlnaProvider) Class.forName(f4917a, true, classLoader).newInstance();
         } catch (Exception e2) {
             e2.printStackTrace();
-            f4917b = null;
+            f4918b = null;
         }
     }
 
     public PnPController getCtrlPoint(String str) {
-        DlnaProvider dlnaProvider = f4917b;
+        DlnaProvider dlnaProvider = f4918b;
         if (dlnaProvider == null || str == null) {
             return null;
         }
@@ -62,15 +62,15 @@ public class Dlna {
     }
 
     public void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        DlnaProvider dlnaProvider = f4917b;
+        DlnaProvider dlnaProvider = f4918b;
         if (dlnaProvider != null) {
             dlnaProvider.stop();
-            f4917b.search(dlnaSearchListener);
+            f4918b.search(dlnaSearchListener);
         }
     }
 
     public void stop() {
-        DlnaProvider dlnaProvider = f4917b;
+        DlnaProvider dlnaProvider = f4918b;
         if (dlnaProvider != null) {
             dlnaProvider.stop();
         }

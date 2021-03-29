@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelListView extends LinearLayout {
     public List<NewCashierContent.CashierChannel> iBaseChannels;
     public List<NewCashierContent.CashierChannel> iOfficialChannels;

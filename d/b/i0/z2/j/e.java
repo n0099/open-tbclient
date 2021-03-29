@@ -34,16 +34,16 @@ import java.util.ArrayList;
 public class e extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<Object> f63546e;
+    public TbPageContext<Object> f63547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Activity f63547f;
+    public Activity f63548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.z2.j.f f63548g;
+    public d.b.i0.z2.j.f f63549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<x1> f63549h;
+    public ArrayList<x1> f63550h;
     public ArrayList<f.b> i;
     public ArrayList<f.a> j;
     public d.b.i0.z2.k.a k;
@@ -55,7 +55,7 @@ public class e extends BaseAdapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(e.this.f63546e.getPageActivity(), "square_bottom_find_more", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            TiebaStatic.eventStat(e.this.f63547e.getPageActivity(), "square_bottom_find_more", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             e.this.g();
         }
     }
@@ -64,16 +64,16 @@ public class e extends BaseAdapter {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f.b f63551e;
+        public final /* synthetic */ f.b f63552e;
 
         public b(f.b bVar) {
-            this.f63551e = bVar;
+            this.f63552e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(e.this.f63547f, "square_category_more", PrefetchEvent.STATE_CLICK, 1, "loc", Integer.valueOf(this.f63551e.m));
-            UrlManager.getInstance().dealOneLink(e.this.f63546e, new String[]{this.f63551e.l});
+            TiebaStatic.eventStat(e.this.f63548f, "square_category_more", PrefetchEvent.STATE_CLICK, 1, "loc", Integer.valueOf(this.f63552e.m));
+            UrlManager.getInstance().dealOneLink(e.this.f63547e, new String[]{this.f63552e.l});
         }
     }
 
@@ -81,16 +81,16 @@ public class e extends BaseAdapter {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f.b f63553e;
+        public final /* synthetic */ f.b f63554e;
 
         public c(f.b bVar) {
-            this.f63553e = bVar;
+            this.f63554e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(e.this.f63547f, "square_module_menu", PrefetchEvent.STATE_CLICK, 1, "loc", Integer.valueOf(this.f63553e.n));
-            UrlManager.getInstance().dealOneLink(e.this.f63546e, new String[]{this.f63553e.l});
+            TiebaStatic.eventStat(e.this.f63548f, "square_module_menu", PrefetchEvent.STATE_CLICK, 1, "loc", Integer.valueOf(this.f63554e.n));
+            UrlManager.getInstance().dealOneLink(e.this.f63547e, new String[]{this.f63554e.l});
         }
     }
 
@@ -98,33 +98,33 @@ public class e extends BaseAdapter {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f.b f63555e;
+        public final /* synthetic */ f.b f63556e;
 
         public d(f.b bVar) {
-            this.f63555e = bVar;
+            this.f63556e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(e.this.f63547f, "square_module_entry", PrefetchEvent.STATE_CLICK, 1, "moduleloc", Integer.valueOf(this.f63555e.m), "loc", Integer.valueOf(this.f63555e.n));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(e.this.f63546e.getPageActivity()).createNormalCfg(this.f63555e.f63584e, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+            TiebaStatic.eventStat(e.this.f63548f, "square_module_entry", PrefetchEvent.STATE_CLICK, 1, "moduleloc", Integer.valueOf(this.f63556e.m), "loc", Integer.valueOf(this.f63556e.n));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(e.this.f63547e.getPageActivity()).createNormalCfg(this.f63556e.f63585e, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
         }
     }
 
     /* renamed from: d.b.i0.z2.j.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1722e implements View.OnClickListener {
+    public class View$OnClickListenerC1723e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f63557e;
+        public final /* synthetic */ h f63558e;
 
-        public View$OnClickListenerC1722e(e eVar, h hVar) {
-            this.f63557e = hVar;
+        public View$OnClickListenerC1723e(e eVar, h hVar) {
+            this.f63558e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f63557e.m.performClick();
+            this.f63558e.m.performClick();
         }
     }
 
@@ -132,22 +132,22 @@ public class e extends BaseAdapter {
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f.b f63558e;
+        public final /* synthetic */ f.b f63559e;
 
         public f(f.b bVar) {
-            this.f63558e = bVar;
+            this.f63559e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(e.this.f63547f, "square_module_content", PrefetchEvent.STATE_CLICK, 1, "moduleloc", Integer.valueOf(this.f63558e.m), "loc", Integer.valueOf(this.f63558e.n));
+            TiebaStatic.eventStat(e.this.f63548f, "square_module_content", PrefetchEvent.STATE_CLICK, 1, "moduleloc", Integer.valueOf(this.f63559e.m), "loc", Integer.valueOf(this.f63559e.n));
             if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class)) {
                 MessageManager messageManager = MessageManager.getInstance();
-                Activity pageActivity = e.this.f63546e.getPageActivity();
-                messageManager.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(pageActivity, this.f63558e.f63583d + "", ForumDetailActivityConfig.FromType.BAR_SQUARE)));
+                Activity pageActivity = e.this.f63547e.getPageActivity();
+                messageManager.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(pageActivity, this.f63559e.f63584d + "", ForumDetailActivityConfig.FromType.BAR_SQUARE)));
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(e.this.f63546e.getPageActivity()).createNormalCfg(this.f63558e.f63584e, FrsActivityConfig.FRS_FROM_SQUARE)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(e.this.f63547e.getPageActivity()).createNormalCfg(this.f63559e.f63585e, FrsActivityConfig.FRS_FROM_SQUARE)));
         }
     }
 
@@ -155,22 +155,22 @@ public class e extends BaseAdapter {
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f.a f63560e;
+        public final /* synthetic */ f.a f63561e;
 
         public g(f.a aVar) {
-            this.f63560e = aVar;
+            this.f63561e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f63560e.f63579d) {
+            if (this.f63561e.f63580d) {
                 e.this.g();
             } else {
-                UrlManager.getInstance().dealOneLink(e.this.f63546e, new String[]{this.f63560e.f63577b});
+                UrlManager.getInstance().dealOneLink(e.this.f63547e, new String[]{this.f63561e.f63578b});
             }
             if (view.getTag() instanceof Integer) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                Activity activity = e.this.f63547f;
+                Activity activity = e.this.f63548f;
                 TiebaStatic.eventStat(activity, "square_entry_content", PrefetchEvent.STATE_CLICK, 1, "loc", "" + intValue);
             }
         }
@@ -180,28 +180,28 @@ public class e extends BaseAdapter {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f63562a;
+        public BarImageView f63563a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f63563b;
+        public TextView f63564b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f63564c;
+        public TextView f63565c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f63565d;
+        public TextView f63566d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f63566e;
+        public TextView f63567e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f63567f;
+        public TextView f63568f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f63568g;
+        public TextView f63569g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f63569h;
+        public View f63570h;
         public RelativeLayout i;
         public TextView j;
         public TextView k;
@@ -221,8 +221,8 @@ public class e extends BaseAdapter {
         if (tbPageContext == null || tbPageContext.getOrignalPage() == null) {
             return;
         }
-        this.f63546e = tbPageContext;
-        this.f63547f = tbPageContext.getPageActivity();
+        this.f63547e = tbPageContext;
+        this.f63548f = tbPageContext.getPageActivity();
         d.b.i0.z2.k.a aVar = new d.b.i0.z2.k.a(tbPageContext);
         this.k = aVar;
         CoverFlowView<d.b.i0.z2.j.g> d2 = aVar.d();
@@ -237,10 +237,10 @@ public class e extends BaseAdapter {
     public final View d(int i, ViewGroup viewGroup, int i2) {
         View inflate;
         if (i2 == 1) {
-            return LayoutInflater.from(this.f63546e.getPageActivity()).inflate(R.layout.square_list_entry_view, (ViewGroup) null);
+            return LayoutInflater.from(this.f63547e.getPageActivity()).inflate(R.layout.square_list_entry_view, (ViewGroup) null);
         }
         if (i2 == 2) {
-            inflate = LayoutInflater.from(this.f63546e.getPageActivity()).inflate(R.layout.square_list_title_view, (ViewGroup) null);
+            inflate = LayoutInflater.from(this.f63547e.getPageActivity()).inflate(R.layout.square_list_title_view, (ViewGroup) null);
             h hVar = new h(null);
             hVar.i = (RelativeLayout) inflate.findViewById(R.id.title_layout);
             hVar.j = (TextView) inflate.findViewById(R.id.title_text);
@@ -248,22 +248,22 @@ public class e extends BaseAdapter {
             inflate.setTag(hVar);
         } else if (i2 != 3) {
             if (i2 == 4) {
-                View inflate2 = LayoutInflater.from(this.f63546e.getPageActivity()).inflate(R.layout.square_list_more_view, (ViewGroup) null);
+                View inflate2 = LayoutInflater.from(this.f63547e.getPageActivity()).inflate(R.layout.square_list_more_view, (ViewGroup) null);
                 inflate2.setOnClickListener(new a());
                 return inflate2;
             }
             return null;
         } else {
-            inflate = LayoutInflater.from(this.f63546e.getPageActivity()).inflate(R.layout.square_forum_item_view, (ViewGroup) null);
+            inflate = LayoutInflater.from(this.f63547e.getPageActivity()).inflate(R.layout.square_forum_item_view, (ViewGroup) null);
             h hVar2 = new h(null);
-            hVar2.f63563b = (TextView) inflate.findViewById(R.id.forum_name);
-            hVar2.f63562a = (BarImageView) inflate.findViewById(R.id.forum_image);
-            hVar2.f63564c = (TextView) inflate.findViewById(R.id.forum_rank);
-            hVar2.f63565d = (TextView) inflate.findViewById(R.id.forum_intro);
-            hVar2.f63566e = (TextView) inflate.findViewById(R.id.like_num_tv);
-            hVar2.f63567f = (TextView) inflate.findViewById(R.id.thread_num_tv);
-            hVar2.f63568g = (TextView) inflate.findViewById(R.id.category_name_tv);
-            hVar2.f63569h = inflate.findViewById(R.id.vertical_line_view);
+            hVar2.f63564b = (TextView) inflate.findViewById(R.id.forum_name);
+            hVar2.f63563a = (BarImageView) inflate.findViewById(R.id.forum_image);
+            hVar2.f63565c = (TextView) inflate.findViewById(R.id.forum_rank);
+            hVar2.f63566d = (TextView) inflate.findViewById(R.id.forum_intro);
+            hVar2.f63567e = (TextView) inflate.findViewById(R.id.like_num_tv);
+            hVar2.f63568f = (TextView) inflate.findViewById(R.id.thread_num_tv);
+            hVar2.f63569g = (TextView) inflate.findViewById(R.id.category_name_tv);
+            hVar2.f63570h = inflate.findViewById(R.id.vertical_line_view);
             hVar2.m = (TextView) inflate.findViewById(R.id.enter_forum);
             hVar2.l = (LinearLayout) inflate.findViewById(R.id.enter_forum_ll);
             inflate.setTag(hVar2);
@@ -299,11 +299,11 @@ public class e extends BaseAdapter {
                                 tbImageView.setTag(Integer.valueOf(i));
                                 tbImageView.setDrawerType(1);
                                 tbImageView.setIsRound(true);
-                                tbImageView.W(aVar.f63578c, 10, false);
+                                tbImageView.W(aVar.f63579c, 10, false);
                             }
                             View childAt2 = linearLayout.getChildAt(1);
                             if (childAt2 instanceof TextView) {
-                                ((TextView) childAt2).setText(UtilHelper.getFixedText(aVar.f63576a, 5, false));
+                                ((TextView) childAt2).setText(UtilHelper.getFixedText(aVar.f63577a, 5, false));
                             }
                             linearLayout.setOnClickListener(new g(aVar));
                         }
@@ -333,12 +333,12 @@ public class e extends BaseAdapter {
                 f.b bVar = (f.b) item;
                 h hVar = (h) view.getTag();
                 if (bVar.m == 0) {
-                    hVar.i.setPadding(this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds30), this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds26), this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds20), this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds10));
+                    hVar.i.setPadding(this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds30), this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds26), this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds20), this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds10));
                 } else {
-                    hVar.i.setPadding(this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds30), this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds6), this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds20), this.f63546e.getResources().getDimensionPixelSize(R.dimen.ds10));
+                    hVar.i.setPadding(this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds30), this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds6), this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds20), this.f63547e.getResources().getDimensionPixelSize(R.dimen.ds10));
                 }
-                hVar.j.setText(bVar.f63581b);
-                if (bVar.f63582c) {
+                hVar.j.setText(bVar.f63582b);
+                if (bVar.f63583c) {
                     hVar.k.setVisibility(8);
                     return;
                 }
@@ -353,36 +353,36 @@ public class e extends BaseAdapter {
                 if (hVar2 == null) {
                     return;
                 }
-                hVar2.f63562a.W(bVar2.f63585f, 10, false);
-                hVar2.f63563b.setText(bVar2.f63584e);
-                hVar2.f63564c.setText(bVar2.f63587h);
-                hVar2.f63565d.setText(bVar2.i);
+                hVar2.f63563a.W(bVar2.f63586f, 10, false);
+                hVar2.f63564b.setText(bVar2.f63585e);
+                hVar2.f63565c.setText(bVar2.f63588h);
+                hVar2.f63566d.setText(bVar2.i);
                 long j = bVar2.j;
                 if (j < 0) {
                     j = 0;
                 }
                 long j2 = bVar2.k;
                 long j3 = j2 >= 0 ? j2 : 0L;
-                hVar2.f63566e.setText(this.f63546e.getString(R.string.attention) + StringHelper.numFormatOver10000wan(j));
-                hVar2.f63567f.setText(this.f63546e.getString(R.string.text_post) + StringHelper.numFormatOver10000wan(j3));
-                if (bVar2.f63582c && !StringUtils.isNull(bVar2.f63586g)) {
-                    hVar2.f63568g.setText(UtilHelper.getFixedText(bVar2.f63586g, 5));
-                    hVar2.f63568g.setVisibility(0);
-                    hVar2.f63569h.setVisibility(0);
+                hVar2.f63567e.setText(this.f63547e.getString(R.string.attention) + StringHelper.numFormatOver10000wan(j));
+                hVar2.f63568f.setText(this.f63547e.getString(R.string.text_post) + StringHelper.numFormatOver10000wan(j3));
+                if (bVar2.f63583c && !StringUtils.isNull(bVar2.f63587g)) {
+                    hVar2.f63569g.setText(UtilHelper.getFixedText(bVar2.f63587g, 5));
+                    hVar2.f63569g.setVisibility(0);
+                    hVar2.f63570h.setVisibility(0);
                 } else {
-                    hVar2.f63568g.setVisibility(8);
-                    hVar2.f63569h.setVisibility(8);
+                    hVar2.f63569g.setVisibility(8);
+                    hVar2.f63570h.setVisibility(8);
                 }
-                hVar2.f63568g.setOnClickListener(new c(bVar2));
+                hVar2.f63569g.setOnClickListener(new c(bVar2));
                 hVar2.m.setOnClickListener(new d(bVar2));
-                hVar2.l.setOnClickListener(new View$OnClickListenerC1722e(this, hVar2));
+                hVar2.l.setOnClickListener(new View$OnClickListenerC1723e(this, hVar2));
                 view.setOnClickListener(new f(bVar2));
             }
         }
     }
 
     public final void g() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902026, new BarFolderFirstDirActivityConfig(this.f63546e.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", "all"))));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902026, new BarFolderFirstDirActivityConfig(this.f63547e.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", "all"))));
     }
 
     @Override // android.widget.Adapter
@@ -392,7 +392,7 @@ public class e extends BaseAdapter {
         if (arrayList != null && arrayList.size() != 0) {
             i = 0 + this.i.size();
         }
-        ArrayList<x1> arrayList2 = this.f63549h;
+        ArrayList<x1> arrayList2 = this.f63550h;
         if (arrayList2 != null && arrayList2.size() != 0) {
             i++;
         }
@@ -408,7 +408,7 @@ public class e extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (itemViewType != -1 && itemViewType != 4) {
             if (itemViewType == 0) {
-                return this.f63549h;
+                return this.f63550h;
             }
             int i2 = 1;
             if (itemViewType == 1) {
@@ -417,7 +417,7 @@ public class e extends BaseAdapter {
             if (itemViewType != 2 && itemViewType != 3) {
                 return null;
             }
-            ArrayList<x1> arrayList = this.f63549h;
+            ArrayList<x1> arrayList = this.f63550h;
             i2 = (arrayList == null || arrayList.size() == 0) ? 0 : 0;
             ArrayList<f.a> arrayList2 = this.j;
             if (arrayList2 != null && arrayList2.size() != 0) {
@@ -443,7 +443,7 @@ public class e extends BaseAdapter {
         ArrayList<f.a> arrayList2;
         int i2 = 0;
         if (i == 0) {
-            ArrayList<x1> arrayList3 = this.f63549h;
+            ArrayList<x1> arrayList3 = this.f63550h;
             if (arrayList3 != null && arrayList3.size() != 0) {
                 return 0;
             }
@@ -452,11 +452,11 @@ public class e extends BaseAdapter {
                 return 1;
             }
         }
-        if (i != 1 || (arrayList = this.f63549h) == null || arrayList.size() == 0 || (arrayList2 = this.j) == null || arrayList2.size() == 0) {
+        if (i != 1 || (arrayList = this.f63550h) == null || arrayList.size() == 0 || (arrayList2 = this.j) == null || arrayList2.size() == 0) {
             if (i == getCount() - 1) {
                 return 4;
             }
-            ArrayList<x1> arrayList5 = this.f63549h;
+            ArrayList<x1> arrayList5 = this.f63550h;
             if (arrayList5 != null && arrayList5.size() != 0) {
                 i2 = 1;
             }
@@ -468,7 +468,7 @@ public class e extends BaseAdapter {
             if (i3 < 0 || i3 >= this.i.size() || (bVar = this.i.get(i3)) == null) {
                 return -1;
             }
-            return bVar.f63580a ? 2 : 3;
+            return bVar.f63581a ? 2 : 3;
         }
         return 1;
     }
@@ -483,8 +483,8 @@ public class e extends BaseAdapter {
             view = d(i, viewGroup, itemViewType);
         }
         f(view, i);
-        this.f63546e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.f63546e.getLayoutMode().j(view);
+        this.f63547e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.f63547e.getLayoutMode().j(view);
         return view;
     }
 
@@ -505,10 +505,10 @@ public class e extends BaseAdapter {
         if (fVar == null) {
             return;
         }
-        this.f63548g = fVar;
-        this.f63549h = fVar.e();
-        this.i = this.f63548g.b();
-        this.j = this.f63548g.a();
-        this.k.f(this.f63549h);
+        this.f63549g = fVar;
+        this.f63550h = fVar.e();
+        this.i = this.f63549g.b();
+        this.j = this.f63549g.a();
+        this.k.f(this.f63550h);
     }
 }

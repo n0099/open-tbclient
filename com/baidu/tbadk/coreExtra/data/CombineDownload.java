@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CombineDownload implements Serializable {
     public static final int SHOW_COMBINE_DOWNLOAD = 1;
     public static final long serialVersionUID = -8311384562580282599L;

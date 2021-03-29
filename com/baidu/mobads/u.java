@@ -12,14 +12,14 @@ import java.util.Map;
 public class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IOAdEvent f8514a;
+    public final /* synthetic */ IOAdEvent f8515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f8515b;
+    public final /* synthetic */ t f8516b;
 
     public u(t tVar, IOAdEvent iOAdEvent) {
-        this.f8515b = tVar;
-        this.f8514a = iOAdEvent;
+        this.f8516b = tVar;
+        this.f8515a = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -45,12 +45,12 @@ public class u implements Runnable {
         SplashAdListener splashAdListener12;
         SplashAdListener splashAdListener13;
         SplashAdListener splashAdListener14;
-        splashAdListener = this.f8515b.f8513a.k;
+        splashAdListener = this.f8516b.f8514a.k;
         if (splashAdListener == null) {
             return;
         }
-        if (IXAdEvent.AD_LOADED.equals(this.f8514a.getType())) {
-            Map<String, Object> data = this.f8514a.getData();
+        if (IXAdEvent.AD_LOADED.equals(this.f8515a.getType())) {
+            Map<String, Object> data = this.f8515a.getData();
             RsplashType rsplashType = RsplashType.IMAGE;
             int i = 0;
             if (data != null) {
@@ -65,62 +65,62 @@ public class u implements Runnable {
                     }
                 }
             }
-            splashAdListener13 = this.f8515b.f8513a.k;
+            splashAdListener13 = this.f8516b.f8514a.k;
             if (splashAdListener13 != null) {
-                splashAdListener14 = this.f8515b.f8513a.k;
+                splashAdListener14 = this.f8516b.f8514a.k;
                 splashAdListener14.onADLoaded(rsplashType, i);
             }
             j.a().a(1005);
-        } else if (IXAdEvent.AD_STARTED.equals(this.f8514a.getType())) {
+        } else if (IXAdEvent.AD_STARTED.equals(this.f8515a.getType())) {
             j.a().a(1006);
-            splashAdListener11 = this.f8515b.f8513a.k;
+            splashAdListener11 = this.f8516b.f8514a.k;
             if (splashAdListener11 != null) {
-                splashAdListener12 = this.f8515b.f8513a.k;
+                splashAdListener12 = this.f8516b.f8514a.k;
                 splashAdListener12.onAdPresent();
             }
             j.a().b();
-        } else if ("AdUserClick".equals(this.f8514a.getType())) {
-            splashAdListener8 = this.f8515b.f8513a.k;
+        } else if ("AdUserClick".equals(this.f8515a.getType())) {
+            splashAdListener8 = this.f8516b.f8514a.k;
             if (splashAdListener8 != null) {
-                splashAdListener10 = this.f8515b.f8513a.k;
+                splashAdListener10 = this.f8516b.f8514a.k;
                 splashAdListener10.onAdClick();
             }
-            Map<String, Object> data2 = this.f8514a.getData();
+            Map<String, Object> data2 = this.f8515a.getData();
             Integer num = data2 != null ? (Integer) data2.get(LightInvokerImpl.VOICE_ACTIONTYPE) : null;
-            splashAdListener9 = this.f8515b.f8513a.k;
+            splashAdListener9 = this.f8516b.f8514a.k;
             if ((splashAdListener9 instanceof SplashLpCloseListener) && num != null && num.intValue() == 1) {
-                context3 = this.f8515b.f8513a.f8154e;
+                context3 = this.f8516b.f8514a.f8155e;
                 com.baidu.mobads.command.b.a.a(context3).b();
-                context4 = this.f8515b.f8513a.f8154e;
+                context4 = this.f8516b.f8514a.f8155e;
                 com.baidu.mobads.command.b.a a2 = com.baidu.mobads.command.b.a.a(context4);
-                iOAdEventListener = this.f8515b.f8513a.l;
+                iOAdEventListener = this.f8516b.f8514a.l;
                 a2.addEventListener("AdLpClosed", iOAdEventListener);
             }
-        } else if (IXAdEvent.AD_STOPPED.equals(this.f8514a.getType())) {
-            aVar2 = this.f8515b.f8513a.f8150a;
+        } else if (IXAdEvent.AD_STOPPED.equals(this.f8515a.getType())) {
+            aVar2 = this.f8516b.f8514a.f8151a;
             aVar2.removeAllListeners();
-            splashAdListener6 = this.f8515b.f8513a.k;
+            splashAdListener6 = this.f8516b.f8514a.k;
             if (splashAdListener6 != null) {
-                splashAdListener7 = this.f8515b.f8513a.k;
+                splashAdListener7 = this.f8516b.f8514a.k;
                 splashAdListener7.onAdDismissed();
             }
-        } else if (IXAdEvent.AD_ERROR.equals(this.f8514a.getType())) {
-            aVar = this.f8515b.f8513a.f8150a;
+        } else if (IXAdEvent.AD_ERROR.equals(this.f8515a.getType())) {
+            aVar = this.f8516b.f8514a.f8151a;
             aVar.removeAllListeners();
-            String message = XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f8514a.getData());
-            splashAdListener4 = this.f8515b.f8513a.k;
+            String message = XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f8515a.getData());
+            splashAdListener4 = this.f8516b.f8514a.k;
             if (splashAdListener4 != null) {
-                splashAdListener5 = this.f8515b.f8513a.k;
+                splashAdListener5 = this.f8516b.f8514a.k;
                 splashAdListener5.onAdFailed(message);
             }
-        } else if ("AdLpClosed".equals(this.f8514a.getType())) {
-            splashAdListener2 = this.f8515b.f8513a.k;
+        } else if ("AdLpClosed".equals(this.f8515a.getType())) {
+            splashAdListener2 = this.f8516b.f8514a.k;
             if (splashAdListener2 instanceof SplashLpCloseListener) {
-                context = this.f8515b.f8513a.f8154e;
+                context = this.f8516b.f8514a.f8155e;
                 com.baidu.mobads.command.b.a.a(context).removeEventListeners("AdLpClosed");
-                context2 = this.f8515b.f8513a.f8154e;
+                context2 = this.f8516b.f8514a.f8155e;
                 com.baidu.mobads.command.b.a.a(context2).c();
-                splashAdListener3 = this.f8515b.f8513a.k;
+                splashAdListener3 = this.f8516b.f8514a.k;
                 ((SplashLpCloseListener) splashAdListener3).onLpClosed();
             }
         }

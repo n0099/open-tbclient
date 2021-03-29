@@ -12,38 +12,38 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43861a = k.f45050a;
+    public static final boolean f43862a = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43862e;
+        public final /* synthetic */ String f43863e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f43863f;
+        public final /* synthetic */ File f43864f;
 
         public a(String str, File file) {
-            this.f43862e = str;
-            this.f43863f = file;
+            this.f43863e = str;
+            this.f43864f = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             synchronized (b.class) {
-                d.b.g0.p.d.D(this.f43862e, this.f43863f, true);
+                d.b.g0.p.d.D(this.f43863e, this.f43864f, true);
             }
             b.c();
         }
     }
 
     /* renamed from: d.b.g0.a.e0.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0644b implements Comparator<Long> {
+    /* loaded from: classes2.dex */
+    public static class C0645b implements Comparator<Long> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -102,7 +102,7 @@ public class b {
         if (g2 == null) {
             return null;
         }
-        TreeMap treeMap = new TreeMap(new C0644b());
+        TreeMap treeMap = new TreeMap(new C0645b());
         long i = i(System.currentTimeMillis());
         for (File file : g2) {
             try {
@@ -162,7 +162,7 @@ public class b {
     public static void h(long j, String str) {
         long i = i(j);
         if (i == -1) {
-            if (f43861a) {
+            if (f43862a) {
                 Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
                 return;
             }
@@ -184,7 +184,7 @@ public class b {
             }
             return parse.getTime();
         } catch (ParseException e2) {
-            if (k.f45050a) {
+            if (k.f45051a) {
                 e2.printStackTrace();
             }
             return -1L;

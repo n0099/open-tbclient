@@ -30,8 +30,8 @@ public class h {
         if (t instanceof d.b.g0.l.k.e) {
             d.b.g0.l.k.e eVar = (d.b.g0.l.k.e) t;
             return a(cVar, t, eVar.l, eVar.n);
-        } else if (t instanceof a.C1019a) {
-            d.b.g0.l.k.f fVar = ((a.C1019a) t).f48979d;
+        } else if (t instanceof a.C1020a) {
+            d.b.g0.l.k.f fVar = ((a.C1020a) t).f48980d;
             return a(cVar, t, fVar.l, fVar.n);
         } else {
             return false;
@@ -52,13 +52,13 @@ public class h {
         return null;
     }
 
-    public static List<f<a.C1019a>> e(List<a.C1019a> list, d.b.g0.l.h.g gVar) {
+    public static List<f<a.C1020a>> e(List<a.C1020a> list, d.b.g0.l.h.g gVar) {
         ArrayList arrayList = new ArrayList();
         if (gVar != null && list != null && list.size() > 0) {
-            for (a.C1019a c1019a : list) {
-                d.b.g0.l.k.f fVar = c1019a.f48979d;
-                if (fVar != null && b(c1019a, gVar.v())) {
-                    arrayList.add(new f(new e(fVar), c1019a, new c(gVar.v())));
+            for (a.C1020a c1020a : list) {
+                d.b.g0.l.k.f fVar = c1020a.f48980d;
+                if (fVar != null && b(c1020a, gVar.v())) {
+                    arrayList.add(new f(new e(fVar), c1020a, new c(gVar.v())));
                 }
             }
         }

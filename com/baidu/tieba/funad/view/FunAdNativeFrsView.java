@@ -71,7 +71,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             nVar.f(agreeData);
         }
         AgreeData a2 = nVar.a();
-        this.x.setText(this.f16810e);
+        this.x.setText(this.f16811e);
         this.y.setAgreeAlone(true);
         this.y.setData(a2);
         if (StringUtils.isNull(funNativeAd.getIconUrl())) {
@@ -95,15 +95,15 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         this.A = (TextView) findViewById(R.id.share_num);
         this.D = (ViewGroup) findViewById(R.id.layout_card_top);
         this.E = (ImageView) findViewById(R.id.fun_ad_feedback);
-        this.f16842g.setVisibility(8);
+        this.f16843g.setVisibility(8);
         l();
-        RelativeLayout relativeLayout = this.f16841f;
-        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16841f.getPaddingTop(), this.f16841f.getPaddingRight(), 0);
+        RelativeLayout relativeLayout = this.f16842f;
+        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16842f.getPaddingTop(), this.f16842f.getPaddingRight(), 0);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public List<View> getClickViews() {
-        return Arrays.asList(this, this.f16841f, this.i, this.o, this.s, this.q, this.D);
+        return Arrays.asList(this, this.f16842f, this.i, this.o, this.s, this.q, this.D);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView

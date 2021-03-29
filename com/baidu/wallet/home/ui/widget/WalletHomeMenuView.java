@@ -15,24 +15,24 @@ import com.baidu.wallet.home.ui.widget.WalletMenuLayout;
 public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24612a = WalletHomeMenuView.class.getSimpleName();
+    public static final String f24613a = WalletHomeMenuView.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeCfgResponse.TitleItemData[] f24613b;
+    public HomeCfgResponse.TitleItemData[] f24614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24614c;
+    public boolean f24615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WalletMenuLayout f24615d;
+    public WalletMenuLayout f24616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WalletMenuLayout.a f24616e;
+    public WalletMenuLayout.a f24617e;
 
     @SuppressLint({"NewApi"})
     public WalletHomeMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f24614c = false;
+        this.f24615c = false;
         a();
     }
 
@@ -49,21 +49,21 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
     }
 
     public void layoutMenu(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr) {
-        if (this.f24614c) {
+        if (this.f24615c) {
             return;
         }
-        Log.d(f24612a, "layout menu view");
-        this.f24613b = titleItemDataArr;
-        this.f24615d.setData(getContext(), str, titleItemDataArr, new WalletMenuLayout.a() { // from class: com.baidu.wallet.home.ui.widget.WalletHomeMenuView.1
+        Log.d(f24613a, "layout menu view");
+        this.f24614b = titleItemDataArr;
+        this.f24616d.setData(getContext(), str, titleItemDataArr, new WalletMenuLayout.a() { // from class: com.baidu.wallet.home.ui.widget.WalletHomeMenuView.1
             @Override // com.baidu.wallet.home.ui.widget.WalletMenuLayout.a
             public void a(HomeCfgResponse.TitleItemData titleItemData) {
-                if (WalletHomeMenuView.this.f24616e == null || WalletHomeMenuView.this.f24613b == null) {
+                if (WalletHomeMenuView.this.f24617e == null || WalletHomeMenuView.this.f24614b == null) {
                     return;
                 }
-                WalletHomeMenuView.this.f24616e.a(titleItemData);
+                WalletHomeMenuView.this.f24617e.a(titleItemData);
             }
         });
-        this.f24614c = true;
+        this.f24615c = true;
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
@@ -72,30 +72,30 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuSetChanged() {
-        this.f24614c = false;
+        this.f24615c = false;
     }
 
     public void setMenuSelectListener(WalletMenuLayout.a aVar) {
-        this.f24616e = aVar;
+        this.f24617e = aVar;
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_menu_view"), this);
         WalletMenuLayout walletMenuLayout = (WalletMenuLayout) findViewById(ResUtils.id(getContext(), "listview"));
-        this.f24615d = walletMenuLayout;
+        this.f24616d = walletMenuLayout;
         walletMenuLayout.setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
         setFocusableInTouchMode(true);
     }
 
     public WalletHomeMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24614c = false;
+        this.f24615c = false;
         a();
     }
 
     public WalletHomeMenuView(Context context) {
         super(context);
-        this.f24614c = false;
+        this.f24615c = false;
         a();
     }
 }

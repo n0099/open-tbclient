@@ -11,8 +11,8 @@ public class b extends c<byte[]> {
 
     @Override // d.b.b.e.d.c
     public boolean d(String str) {
-        d.b.b.a.k.b bVar = this.f41669a;
-        bVar.d("DROP TABLE IF EXISTS " + this.f41670b);
+        d.b.b.a.k.b bVar = this.f41670a;
+        bVar.d("DROP TABLE IF EXISTS " + this.f41671b);
         return true;
     }
 
@@ -21,23 +21,23 @@ public class b extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r0v10, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r0v10, types: [T, byte[]] */
     @Override // d.b.b.e.d.c
     public g<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f41670b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f41671b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     d.b.b.e.m.a.a(rawQuery);
                     return null;
                 }
                 g<byte[]> gVar = new g<>();
-                gVar.f41683a = rawQuery.getString(0);
-                gVar.f41686d = rawQuery.getLong(1);
-                gVar.f41687e = rawQuery.getLong(2);
-                gVar.f41688f = rawQuery.getLong(3);
-                gVar.f41684b = rawQuery.getBlob(4);
+                gVar.f41684a = rawQuery.getString(0);
+                gVar.f41687d = rawQuery.getLong(1);
+                gVar.f41688e = rawQuery.getLong(2);
+                gVar.f41689f = rawQuery.getLong(3);
+                gVar.f41685b = rawQuery.getBlob(4);
                 d.b.b.e.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -62,23 +62,23 @@ public class b extends c<byte[]> {
             hashCode *= -1;
         }
         String str2 = "cache_kv_b" + hashCode;
-        this.f41669a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.f41670a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
     @Override // d.b.b.e.d.c
     public ContentValues p(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.f41683a);
-        contentValues.put("m_value", gVar.f41684b);
-        contentValues.put("saveTime", Long.valueOf(gVar.f41686d));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.f41687e));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.f41688f));
+        contentValues.put("m_key", gVar.f41684a);
+        contentValues.put("m_value", gVar.f41685b);
+        contentValues.put("saveTime", Long.valueOf(gVar.f41687d));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.f41688e));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.f41689f));
         return contentValues;
     }
 
     @Override // d.b.b.e.d.c
     public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.f41670b, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.f41671b, new String[0]);
     }
 }

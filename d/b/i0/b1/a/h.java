@@ -18,7 +18,7 @@ import d.b.h0.r.q.b2;
 import d.b.i0.b1.c.n;
 import d.b.i0.x.b0;
 import d.b.i0.x.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h extends d.b.b.j.e.a<d.b.i0.x.e0.k, CardViewHolder<v>> {
     public TbPageContext<HotTopicActivity> m;
     public BdUniqueId n;
@@ -26,7 +26,7 @@ public class h extends d.b.b.j.e.a<d.b.i0.x.e0.k, CardViewHolder<v>> {
     public v p;
     public b0<b2> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<b2> {
         public a() {
         }
@@ -37,7 +37,7 @@ public class h extends d.b.b.j.e.a<d.b.i0.x.e0.k, CardViewHolder<v>> {
         public void a(View view, b2 b2Var) {
             a2 a2Var;
             d.b.i0.x.e0.k kVar = h.this.o;
-            if (kVar == null || (a2Var = kVar.f62196e) == null || StringUtils.isNull(a2Var.w1())) {
+            if (kVar == null || (a2Var = kVar.f62197e) == null || StringUtils.isNull(a2Var.w1())) {
                 return;
             }
             int i = 1;

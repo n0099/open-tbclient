@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import d.b.h0.g0.b.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements e {
     public long n;
     public int o;
     public boolean p;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62036e = "";
+    public String f62037e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62037f = "";
+    public String f62038f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62038g = "";
+    public String f62039g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public long f62039h = System.currentTimeMillis();
+    public long f62040h = System.currentTimeMillis();
     public String i = "";
     public boolean j = false;
     public boolean k = false;
@@ -37,7 +37,7 @@ public class a implements e {
     }
 
     public void B(String str) {
-        this.f62038g = str;
+        this.f62039g = str;
     }
 
     public void C(boolean z) {
@@ -69,11 +69,11 @@ public class a implements e {
     }
 
     public void J(String str) {
-        this.f62036e = str;
+        this.f62037e = str;
     }
 
     public void K(String str) {
-        this.f62037f = str;
+        this.f62038f = str;
     }
 
     public void L(int i) {
@@ -87,10 +87,10 @@ public class a implements e {
     public JSONObject N() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("forum_name", this.f62038g);
-            jSONObject.put("thread_id", this.f62036e);
-            jSONObject.put("thread_time", this.f62039h);
-            jSONObject.put("thread_name", this.f62037f);
+            jSONObject.put("forum_name", this.f62039g);
+            jSONObject.put("thread_id", this.f62037e);
+            jSONObject.put("thread_time", this.f62040h);
+            jSONObject.put("thread_name", this.f62038f);
             jSONObject.put("post_id", this.i);
             jSONObject.put("host_only", this.j);
             jSONObject.put("squence", this.k);
@@ -143,8 +143,8 @@ public class a implements e {
                     return true;
                 }
             } else {
-                String str4 = this.f62036e;
-                if (str4 != null && (str = aVar.f62036e) != null && str4.equals(str)) {
+                String str4 = this.f62037e;
+                if (str4 != null && (str = aVar.f62037e) != null && str4.equals(str)) {
                     return true;
                 }
             }
@@ -153,7 +153,7 @@ public class a implements e {
     }
 
     public String f() {
-        return this.f62038g;
+        return this.f62039g;
     }
 
     public String g() {
@@ -165,7 +165,7 @@ public class a implements e {
         if (this.l == 49) {
             return this.q + "_ala";
         }
-        return this.f62036e;
+        return this.f62037e;
     }
 
     public String h() {
@@ -173,20 +173,20 @@ public class a implements e {
     }
 
     public int hashCode() {
-        int hashCode = TextUtils.isEmpty(this.f62036e) ? 120 : 119 + this.f62036e.hashCode();
-        int hashCode2 = TextUtils.isEmpty(this.f62037f) ? (hashCode * 7) + 1 : (hashCode * 7) + this.f62037f.hashCode();
-        int hashCode3 = ((TextUtils.isEmpty(this.f62038g) ? (hashCode2 * 7) + 1 : (hashCode2 * 7) + this.f62038g.hashCode()) * 7) + ((int) this.f62039h);
+        int hashCode = TextUtils.isEmpty(this.f62037e) ? 120 : 119 + this.f62037e.hashCode();
+        int hashCode2 = TextUtils.isEmpty(this.f62038f) ? (hashCode * 7) + 1 : (hashCode * 7) + this.f62038f.hashCode();
+        int hashCode3 = ((TextUtils.isEmpty(this.f62039g) ? (hashCode2 * 7) + 1 : (hashCode2 * 7) + this.f62039g.hashCode()) * 7) + ((int) this.f62040h);
         int hashCode4 = TextUtils.isEmpty(this.i) ? (hashCode3 * 7) + 1 : (hashCode3 * 7) + this.i.hashCode();
         int hashCode5 = TextUtils.isEmpty(this.q) ? (hashCode4 * 7) + 1 : (hashCode4 * 7) + this.q.hashCode();
         return ((((TextUtils.isEmpty(this.s) ? (hashCode5 * 7) + 1 : (hashCode5 * 7) + this.s.hashCode()) * 7) + (this.j ? 1 : 0)) * 7) + (this.k ? 1 : 0);
     }
 
     public String i() {
-        return this.f62036e;
+        return this.f62037e;
     }
 
     public String j() {
-        return this.f62037f;
+        return this.f62038f;
     }
 
     @Override // d.b.h0.g0.b.e
@@ -199,7 +199,7 @@ public class a implements e {
     }
 
     public long n() {
-        return this.f62039h;
+        return this.f62040h;
     }
 
     public String o() {
@@ -239,16 +239,16 @@ public class a implements e {
         this.o = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
         this.p = jSONObject.optBoolean("is_share_thread", false);
         if (!TextUtils.isEmpty(optString)) {
-            this.f62038g = optString;
+            this.f62039g = optString;
         }
         if (!TextUtils.isEmpty(optString2)) {
-            this.f62036e = optString2;
+            this.f62037e = optString2;
         }
         if (!TextUtils.isEmpty(optString3)) {
-            this.f62037f = optString3;
+            this.f62038f = optString3;
         }
         if (optLong > 2000) {
-            this.f62039h = optLong;
+            this.f62040h = optLong;
         }
         this.l = jSONObject.optInt("thread_type");
         this.q = jSONObject.optString("live_id", "");

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f51158a;
+    public ArrayList<Integer> f51159a;
 
     public static int a() {
         return d.b.h0.r.d0.b.i().j("pref_key_fun_ad_frs_density", 5);
@@ -38,11 +38,11 @@ public class e {
             String optString = jSONObject.optString("first_ floor", null);
             if (optString != null) {
                 jSONObject.optInt("density", 6);
-                this.f51158a = new ArrayList<>();
+                this.f51159a = new ArrayList<>();
                 for (String str : optString.split("\\|")) {
                     int d2 = d.b.b.e.m.b.d(str, 2);
                     if (d2 > 0) {
-                        this.f51158a.add(Integer.valueOf(d2));
+                        this.f51159a.add(Integer.valueOf(d2));
                     }
                 }
             }

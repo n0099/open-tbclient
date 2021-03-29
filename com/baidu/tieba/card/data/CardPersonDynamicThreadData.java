@@ -44,16 +44,16 @@ public class CardPersonDynamicThreadData extends a {
     public int J;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15274e;
+    public String f15275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15275f;
+    public String f15276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15276g;
+    public String f15277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15277h;
+    public String f15278h;
     public int i;
     public String j;
     public String k;
@@ -373,11 +373,11 @@ public class CardPersonDynamicThreadData extends a {
         if (postInfoList == null) {
             return;
         }
-        this.f15274e = String.valueOf(postInfoList.forum_id);
-        this.f15275f = String.valueOf(postInfoList.thread_id);
+        this.f15275e = String.valueOf(postInfoList.forum_id);
+        this.f15276f = String.valueOf(postInfoList.thread_id);
         String valueOf = String.valueOf(postInfoList.post_id);
-        this.f15276g = valueOf;
-        this.f15277h = valueOf;
+        this.f15277g = valueOf;
+        this.f15278h = valueOf;
         this.i = postInfoList.create_time.intValue();
         long intValue = postInfoList.create_time.intValue() * 1000;
         this.t = StringHelper.getChineseYearBytime(intValue);
@@ -447,10 +447,10 @@ public class CardPersonDynamicThreadData extends a {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.D[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.j) && b.f(this.f15274e, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.j) && b.f(this.f15275e, -1L) != -1) {
             this.D = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = b.f(this.f15274e, 0L);
+            multipleForum2.forum_id = b.f(this.f15275e, 0L);
             multipleForum2.forum_name = this.j;
             this.D[0] = multipleForum2;
         }
@@ -475,7 +475,7 @@ public class CardPersonDynamicThreadData extends a {
             }
             AgreeData L = this.r.L();
             if (L != null) {
-                L.threadId = this.f15275f;
+                L.threadId = this.f15276f;
                 L.parseProtobuf(postInfoList.agree);
             }
         }
@@ -487,8 +487,8 @@ public class CardPersonDynamicThreadData extends a {
             a2Var.s1 = true;
         }
         this.r.d4(postInfoList.share_num.intValue());
-        this.r.D3(this.f15275f);
-        this.r.l4(this.f15275f);
+        this.r.D3(this.f15276f);
+        this.r.l4(this.f15276f);
         this.r.t3(postInfoList.forum_id.longValue());
         this.r.x3(this.j);
         this.r.Y3(this.n);
@@ -520,7 +520,7 @@ public class CardPersonDynamicThreadData extends a {
         }
         a2 a2Var3 = this.r;
         a2Var3.b2 = this.q;
-        a2Var3.c2 = this.f15277h;
+        a2Var3.c2 = this.f15278h;
         Item item = postInfoList.item;
         if (item != null) {
             a2Var3.M3(item);
@@ -580,11 +580,11 @@ public class CardPersonDynamicThreadData extends a {
         if (threadInfo == null) {
             return;
         }
-        this.f15274e = String.valueOf(threadInfo.fid);
-        this.f15275f = String.valueOf(threadInfo.tid);
+        this.f15275e = String.valueOf(threadInfo.fid);
+        this.f15276f = String.valueOf(threadInfo.tid);
         String valueOf = String.valueOf(threadInfo.post_id);
-        this.f15276g = valueOf;
-        this.f15277h = valueOf;
+        this.f15277g = valueOf;
+        this.f15278h = valueOf;
         this.i = threadInfo.create_time.intValue();
         long j2 = j * 1000;
         this.t = StringHelper.getChineseYearBytime(j2);
@@ -651,8 +651,8 @@ public class CardPersonDynamicThreadData extends a {
         a2 a2Var = new a2();
         this.r = a2Var;
         a2Var.Q2(threadInfo);
-        this.r.D3(this.f15275f);
-        this.r.l4(this.f15275f);
+        this.r.D3(this.f15276f);
+        this.r.l4(this.f15276f);
         this.r.t3(threadInfo.fid.longValue());
         this.r.Y3(this.n);
         this.r.r4(this.o);

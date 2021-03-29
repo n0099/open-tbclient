@@ -13,24 +13,24 @@ import d.b.b.j.e.n;
 import d.b.b.j.e.w;
 import d.b.i0.x.t;
 import d.b.i0.z0.g.l.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ReadProgessDelegetAdapter extends d.b.b.j.e.a<b, ViewHolder> {
     public final TbPageContext<?> m;
     public w n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.z0.g.l.a f17283a;
+        public d.b.i0.z0.g.l.a f17284a;
 
         public ViewHolder(d.b.i0.z0.g.l.a aVar) {
             super(aVar.m());
-            this.f17283a = aVar;
+            this.f17284a = aVar;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements w {
         public a(ReadProgessDelegetAdapter readProgessDelegetAdapter) {
         }
@@ -62,7 +62,7 @@ public class ReadProgessDelegetAdapter extends d.b.b.j.e.a<b, ViewHolder> {
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
         t.b().a(new StatisticItem("c11272"));
-        viewHolder.f17283a.n(bVar);
+        viewHolder.f17284a.n(bVar);
         return viewHolder.a();
     }
 }

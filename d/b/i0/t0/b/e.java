@@ -5,24 +5,24 @@ import tbclient.GetGiftList.PresentNumInfo;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61011a;
+    public int f61012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61012b;
+    public String f61013b;
 
     public String a() {
-        return this.f61012b;
+        return this.f61013b;
     }
 
     public int b() {
-        return this.f61011a;
+        return this.f61012a;
     }
 
     public void c(PresentNumInfo presentNumInfo) {
         if (presentNumInfo == null) {
             return;
         }
-        this.f61011a = presentNumInfo.num.intValue();
-        this.f61012b = presentNumInfo.name;
+        this.f61012a = presentNumInfo.num.intValue();
+        this.f61013b = presentNumInfo.name;
     }
 }

@@ -7,14 +7,14 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IOAdEvent f8432a;
+    public final /* synthetic */ IOAdEvent f8433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ o f8433b;
+    public final /* synthetic */ o f8434b;
 
     public p(o oVar, IOAdEvent iOAdEvent) {
-        this.f8433b = oVar;
-        this.f8432a = iOAdEvent;
+        this.f8434b = oVar;
+        this.f8433a = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -24,21 +24,21 @@ public class p implements Runnable {
         InterstitialAdListener interstitialAdListener3;
         InterstitialAdListener interstitialAdListener4;
         InterstitialAdListener interstitialAdListener5;
-        if (IXAdEvent.AD_LOADED.equals(this.f8432a.getType())) {
-            interstitialAdListener5 = this.f8433b.f8394a.f8140e;
+        if (IXAdEvent.AD_LOADED.equals(this.f8433a.getType())) {
+            interstitialAdListener5 = this.f8434b.f8395a.f8141e;
             interstitialAdListener5.onAdReady();
-        } else if (IXAdEvent.AD_ERROR.equals(this.f8432a.getType())) {
-            interstitialAdListener4 = this.f8433b.f8394a.f8140e;
-            interstitialAdListener4.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f8432a.getData()));
-        } else if (IXAdEvent.AD_STOPPED.equals(this.f8432a.getType())) {
-            interstitialAdListener3 = this.f8433b.f8394a.f8140e;
+        } else if (IXAdEvent.AD_ERROR.equals(this.f8433a.getType())) {
+            interstitialAdListener4 = this.f8434b.f8395a.f8141e;
+            interstitialAdListener4.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f8433a.getData()));
+        } else if (IXAdEvent.AD_STOPPED.equals(this.f8433a.getType())) {
+            interstitialAdListener3 = this.f8434b.f8395a.f8141e;
             interstitialAdListener3.onAdDismissed();
-        } else if (IXAdEvent.AD_STARTED.equals(this.f8432a.getType())) {
-            interstitialAdListener2 = this.f8433b.f8394a.f8140e;
+        } else if (IXAdEvent.AD_STARTED.equals(this.f8433a.getType())) {
+            interstitialAdListener2 = this.f8434b.f8395a.f8141e;
             interstitialAdListener2.onAdPresent();
-        } else if ("AdUserClick".equals(this.f8432a.getType())) {
-            interstitialAdListener = this.f8433b.f8394a.f8140e;
-            interstitialAdListener.onAdClick(this.f8433b.f8394a);
+        } else if ("AdUserClick".equals(this.f8433a.getType())) {
+            interstitialAdListener = this.f8434b.f8395a.f8141e;
+            interstitialAdListener.onAdClick(this.f8434b.f8395a);
         }
     }
 }

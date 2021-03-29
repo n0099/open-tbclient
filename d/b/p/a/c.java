@@ -14,20 +14,20 @@ import io.flutter.view.TextureRegistry;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnMediaSourceChangedListener, MethodChannel.MethodCallHandler {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextureRegistry.SurfaceTextureEntry f64235e;
+    public TextureRegistry.SurfaceTextureEntry f64236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Context> f64236f;
+    public WeakReference<Context> f64237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f64237g;
+    public String f64238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f64238h;
+    public Context f64239h;
     public FlutterCyberView i;
     public Surface j;
     public CyberPlayer k;
@@ -35,16 +35,16 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     public MethodChannel m;
     public a n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(long j);
     }
 
     public c(Context context, BinaryMessenger binaryMessenger, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, HashMap<String, String> hashMap, String str, String str2, int i, boolean z) {
-        this.f64236f = new WeakReference<>(context);
-        this.f64235e = surfaceTextureEntry;
-        this.f64237g = str;
-        this.f64238h = context;
+        this.f64237f = new WeakReference<>(context);
+        this.f64236e = surfaceTextureEntry;
+        this.f64238g = str;
+        this.f64239h = context;
         FlutterCyberView flutterCyberView = new FlutterCyberView(context);
         this.i = flutterCyberView;
         flutterCyberView.setOnPreparedListener(this);
@@ -90,7 +90,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
         if (surface != null) {
             surface.release();
         }
-        TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = this.f64235e;
+        TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = this.f64236e;
         if (surfaceTextureEntry != null) {
             surfaceTextureEntry.release();
         }
@@ -140,11 +140,11 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     public void f(boolean z) {
         if (z) {
             this.k.setVolume(0.0f, 0.0f);
-            b.a(this.f64236f, true);
+            b.a(this.f64237f, true);
             return;
         }
         this.k.setVolume(1.0f, 1.0f);
-        b.a(this.f64236f, false);
+        b.a(this.f64237f, false);
     }
 
     public void g(HashMap<String, String> hashMap) {
@@ -164,7 +164,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        d.b().c(this.f64237g);
+        d.b().c(this.f64238g);
         this.m.invokeMethod("onCompletion", "");
     }
 

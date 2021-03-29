@@ -3,10 +3,10 @@ package d.b.g0.a.w0.c;
 import android.content.Context;
 import android.net.Uri;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface i {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
 

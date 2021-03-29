@@ -19,7 +19,7 @@ public class FunAdStatic {
     }
 
     static {
-        d.b.i0.q0.b.f59262a.set(new d());
+        d.b.i0.q0.b.f59263a.set(new d());
         a();
     }
 

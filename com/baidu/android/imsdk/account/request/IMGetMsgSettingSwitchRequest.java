@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     public static final String TAG = "IMGetMsgSettingSwitchRequest";
     public IGetMsgSettingSwitchListener mListener;

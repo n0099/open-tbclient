@@ -1,7 +1,7 @@
 package com.baidu.android.lbspay.channelpay.alipay;
 
 import com.alipay.sdk.util.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Result {
     public static final String RESULT_CANCLE = "6001";
     public static final String RESULT_ERROR = "9999";

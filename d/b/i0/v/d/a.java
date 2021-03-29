@@ -13,10 +13,10 @@ import d.b.h0.v0.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f61953a;
+    public TbPageContext f61954a;
 
     public a(TbPageContext tbPageContext) {
-        this.f61953a = tbPageContext;
+        this.f61954a = tbPageContext;
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
@@ -29,7 +29,7 @@ public class a {
         CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
         candidateSearchReqMsg.applyId = i;
         candidateSearchReqMsg.fid = j;
-        candidateSearchReqMsg.setTag(this.f61953a.getUniqueId());
+        candidateSearchReqMsg.setTag(this.f61954a.getUniqueId());
         MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
     }
 }

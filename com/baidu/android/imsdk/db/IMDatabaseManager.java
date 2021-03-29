@@ -1,4 +1,4 @@
 package com.baidu.android.imsdk.db;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMDatabaseManager {
 }

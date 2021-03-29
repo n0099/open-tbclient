@@ -215,8 +215,8 @@ public class d extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
 
     /* renamed from: d.b.i0.p0.n1.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1405d implements d.b.b.j.e.w {
-        public C1405d() {
+    public class C1406d implements d.b.b.j.e.w {
+        public C1406d() {
         }
 
         @Override // d.b.b.j.e.w
@@ -229,7 +229,7 @@ public class d extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     d.this.B.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), d.this.w, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -277,7 +277,7 @@ public class d extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         oVar.x("frs");
         oVar.z(2);
         oVar.C(this.z, this.A);
-        oVar.F(0, d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds44), 0, 0);
+        oVar.F(0, d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds44), 0, 0);
         oVar.y(this.x);
         oVar.w(1);
         if (this.w == 502) {
@@ -291,7 +291,7 @@ public class d extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
         threadCardViewHolder.k(this.i);
         threadCardViewHolder.o(false);
-        c0(new C1405d());
+        c0(new C1406d());
         return threadCardViewHolder;
     }
 

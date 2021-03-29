@@ -1,7 +1,7 @@
 package d.b.g0.a.p.c;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d {
     boolean A();
 

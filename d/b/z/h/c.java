@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static boolean a(Context context, String str, String str2) {
         FileOutputStream fileOutputStream;

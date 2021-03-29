@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import d.b.b.e.p.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaRoundRelativeLayout extends RelativeLayout {
     public float[] mRadius;
     public RectF mRectF;

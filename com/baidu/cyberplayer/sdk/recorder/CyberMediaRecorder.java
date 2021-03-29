@@ -2,11 +2,11 @@ package com.baidu.cyberplayer.sdk.recorder;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CyberMediaRecorder {
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public final class AudioFormat {
         public static final int CYBER_ENCODING_DEFAULT = 1;
         public static final int CYBER_ENCODING_INVALID = 0;
@@ -25,7 +25,7 @@ public class CyberMediaRecorder {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public final class AudioSource {
         public static final int CAMCORDER = 5;
         public static final int DEFAULT = 0;

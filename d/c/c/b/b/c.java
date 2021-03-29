@@ -85,7 +85,7 @@ public class c extends Request<File> {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0174 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0174 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -283,7 +283,7 @@ public class c extends Request<File> {
             aVar = this.A;
         }
         if (aVar != null) {
-            aVar.a(o.c(this.x, oVar.f65739b));
+            aVar.a(o.c(this.x, oVar.f65740b));
         }
     }
 

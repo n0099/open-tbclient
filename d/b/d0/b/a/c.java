@@ -11,10 +11,10 @@ import android.os.Bundle;
 public class c implements Cursor {
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f42716e;
+    public Bundle f42717e;
 
     public c(Bundle bundle) {
-        this.f42716e = bundle;
+        this.f42717e = bundle;
     }
 
     @Override // android.database.Cursor, java.io.Closeable, java.lang.AutoCloseable
@@ -71,7 +71,7 @@ public class c implements Cursor {
 
     @Override // android.database.Cursor
     public Bundle getExtras() {
-        return this.f42716e;
+        return this.f42717e;
     }
 
     @Override // android.database.Cursor
@@ -199,7 +199,7 @@ public class c implements Cursor {
 
     @Override // android.database.Cursor
     public void setExtras(Bundle bundle) {
-        this.f42716e = bundle;
+        this.f42717e = bundle;
     }
 
     @Override // android.database.Cursor

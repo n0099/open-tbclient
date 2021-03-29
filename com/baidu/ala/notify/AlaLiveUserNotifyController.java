@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaLiveUserNotifyController {
     public AlaLiveUserNotifyDialog mBdAlertDialog;
     public TbPageContext mTbPageContext;

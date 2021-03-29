@@ -1,6 +1,6 @@
 package com.baidu.android.util.io;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface ByteSize {
     public static final int GB = 1073741824;
     public static final int KB = 1024;

@@ -16,7 +16,7 @@ import java.util.List;
 public abstract class FunAbsAdView extends NativeAdContainer {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16810e;
+    public String f16811e;
 
     public FunAbsAdView(Context context) {
         this(context, null, 0);

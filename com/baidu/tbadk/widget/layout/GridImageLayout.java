@@ -32,16 +32,16 @@ public class GridImageLayout extends RelativeLayout {
     public TbImageView.g A;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.e.k.b<ImageView> f14205e;
+    public d.b.b.e.k.b<ImageView> f14206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.e.k.b<GifView> f14206f;
+    public d.b.b.e.k.b<GifView> f14207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.h0.b1.m.a f14207g;
+    public d.b.h0.b1.m.a f14208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<TbRichTextImageInfo> f14208h;
+    public ArrayList<TbRichTextImageInfo> f14209h;
     public int i;
     public int j;
     public boolean k;
@@ -69,7 +69,7 @@ public class GridImageLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String url;
-            if (GridImageLayout.this.w != null && GridImageLayout.this.f14208h != null) {
+            if (GridImageLayout.this.w != null && GridImageLayout.this.f14209h != null) {
                 int indexOfChild = GridImageLayout.this.indexOfChild(view);
                 if (view instanceof TbImageView) {
                     url = ((TbImageView) view).getUrl();
@@ -132,8 +132,8 @@ public class GridImageLayout extends RelativeLayout {
 
     public GridImageLayout(Context context) {
         super(context);
-        this.f14205e = null;
-        this.f14206f = null;
+        this.f14206e = null;
+        this.f14207f = null;
         this.r = true;
         this.v = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.y = new a();
@@ -160,14 +160,14 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public void f() {
-        this.f14208h = null;
+        this.f14209h = null;
     }
 
     public final void g(int i, TbRichTextImageInfo tbRichTextImageInfo) {
-        if (tbRichTextImageInfo == null || this.f14207g == null) {
+        if (tbRichTextImageInfo == null || this.f14208g == null) {
             return;
         }
-        d.b.b.e.k.b<GifView> bVar = this.f14206f;
+        d.b.b.e.k.b<GifView> bVar = this.f14207f;
         GifView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
             b2 = new GifView(getContext());
@@ -200,17 +200,17 @@ public class GridImageLayout extends RelativeLayout {
             b2.setLongIconSupport(true);
             b2.setGifIconSupport(true);
         }
-        if (this.f14207g.q) {
+        if (this.f14208g.q) {
             b2.setSupportNoImage(true);
         }
         b2.setDefaultNoImageDay(SkinManager.getResourceId(R.drawable.icon_click));
         String v = tbRichTextImageInfo.v();
         if (StringUtils.isNull(v)) {
-            if (this.f14207g.c()) {
-                v = this.f14207g.r ? tbRichTextImageInfo.s() : tbRichTextImageInfo.t();
+            if (this.f14208g.c()) {
+                v = this.f14208g.r ? tbRichTextImageInfo.s() : tbRichTextImageInfo.t();
             }
             if (StringUtils.isNull(v)) {
-                v = this.f14207g.r ? tbRichTextImageInfo.u() : tbRichTextImageInfo.x();
+                v = this.f14208g.r ? tbRichTextImageInfo.u() : tbRichTextImageInfo.x();
             }
         }
         b2.setShowStaticDrawable(false);
@@ -220,11 +220,11 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public final void h() {
-        if (ListUtils.isEmpty(this.f14208h)) {
+        if (ListUtils.isEmpty(this.f14209h)) {
             return;
         }
         for (int i = 0; i < this.i && i < 9; i++) {
-            TbRichTextImageInfo tbRichTextImageInfo = this.f14208h.get(i);
+            TbRichTextImageInfo tbRichTextImageInfo = this.f14209h.get(i);
             if (tbRichTextImageInfo != null) {
                 int width = tbRichTextImageInfo.getWidth();
                 int height = tbRichTextImageInfo.getHeight();
@@ -241,7 +241,7 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void i() {
         TbRichTextImageInfo tbRichTextImageInfo;
-        if (ListUtils.isEmpty(this.f14208h) || (tbRichTextImageInfo = this.f14208h.get(0)) == null) {
+        if (ListUtils.isEmpty(this.f14209h) || (tbRichTextImageInfo = this.f14209h.get(0)) == null) {
             return;
         }
         int width = tbRichTextImageInfo.getWidth();
@@ -257,10 +257,10 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public final void j(int i, TbRichTextImageInfo tbRichTextImageInfo) {
-        if (tbRichTextImageInfo == null || this.f14207g == null) {
+        if (tbRichTextImageInfo == null || this.f14208g == null) {
             return;
         }
-        d.b.b.e.k.b<ImageView> bVar = this.f14205e;
+        d.b.b.e.k.b<ImageView> bVar = this.f14206e;
         String str = null;
         ImageView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
@@ -296,7 +296,7 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setGifIconSupport(true);
             }
-            if (this.f14207g.q) {
+            if (this.f14208g.q) {
                 tbImageView.setSupportNoImage(true);
             }
             if (!this.r) {
@@ -309,13 +309,13 @@ public class GridImageLayout extends RelativeLayout {
                 }
                 this.s = 13;
             } else {
-                if (this.f14207g.c()) {
-                    str = this.f14207g.r ? tbRichTextImageInfo.s() : tbRichTextImageInfo.t();
+                if (this.f14208g.c()) {
+                    str = this.f14208g.r ? tbRichTextImageInfo.s() : tbRichTextImageInfo.t();
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.f14207g.r ? tbRichTextImageInfo.u() : tbRichTextImageInfo.x();
+                    str = this.f14208g.r ? tbRichTextImageInfo.u() : tbRichTextImageInfo.x();
                 }
-                this.s = this.f14207g.r ? 13 : 14;
+                this.s = this.f14208g.r ? 13 : 14;
             }
             tbImageView.W(str, this.s, false);
             if (!tbRichTextImageInfo.y()) {
@@ -386,7 +386,7 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public final boolean o(ArrayList<TbRichTextImageInfo> arrayList) {
-        return ListUtils.equalList(this.f14208h, arrayList);
+        return ListUtils.equalList(this.f14209h, arrayList);
     }
 
     public void p() {
@@ -398,7 +398,7 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public final void q(TbImageView tbImageView, int i) {
-        if (tbImageView == null || this.f14207g == null) {
+        if (tbImageView == null || this.f14208g == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.t, this.u);
@@ -408,7 +408,7 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void r() {
         TbRichTextImageInfo tbRichTextImageInfo;
-        if (this.f14207g == null || ListUtils.isEmpty(this.f14208h) || (tbRichTextImageInfo = this.f14208h.get(0)) == null) {
+        if (this.f14208g == null || ListUtils.isEmpty(this.f14209h) || (tbRichTextImageInfo = this.f14209h.get(0)) == null) {
             return;
         }
         int width = tbRichTextImageInfo.getWidth();
@@ -417,7 +417,7 @@ public class GridImageLayout extends RelativeLayout {
             return;
         }
         float f2 = (width * 1.0f) / height;
-        int i = this.f14207g.D;
+        int i = this.f14208g.D;
         int i2 = this.j;
         int i3 = (i - (i2 * 2)) / 3;
         this.t = 0;
@@ -427,17 +427,9 @@ public class GridImageLayout extends RelativeLayout {
             this.u = i3;
         } else if (f2 >= 2.0f) {
             this.t = (i3 * 2) + i2;
-            double d2 = i3;
-            Double.isNaN(d2);
-            double d3 = i2;
-            Double.isNaN(d3);
-            this.u = (int) ((d2 * 1.5d) + d3);
+            this.u = (int) ((i3 * 1.5d) + i2);
         } else if (f2 <= 0.5d) {
-            double d4 = i3;
-            Double.isNaN(d4);
-            double d5 = i2;
-            Double.isNaN(d5);
-            this.t = (int) ((d4 * 1.5d) + d5);
+            this.t = (int) ((i3 * 1.5d) + i2);
             this.u = (i3 * 2) + i2;
         } else {
             int i4 = i3 * 2;
@@ -453,7 +445,7 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public final void s() {
-        if (ListUtils.isEmpty(this.f14208h)) {
+        if (ListUtils.isEmpty(this.f14209h)) {
             return;
         }
         removeAllViews();
@@ -476,10 +468,10 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public void setData(ArrayList<TbRichTextImageInfo> arrayList) {
-        if (ListUtils.isEmpty(arrayList) || o(arrayList) || this.f14207g == null) {
+        if (ListUtils.isEmpty(arrayList) || o(arrayList) || this.f14208g == null) {
             return;
         }
-        this.f14208h = arrayList;
+        this.f14209h = arrayList;
         int size = arrayList.size();
         this.i = size;
         this.l = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(this.i - 9)}) : "";
@@ -494,15 +486,15 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public void setLayoutStrategy(d.b.h0.b1.m.a aVar) {
-        this.f14207g = aVar;
+        this.f14208g = aVar;
         if (aVar != null) {
             this.j = aVar.E;
         }
     }
 
     public void setObjectPool(d.b.b.e.k.b<ImageView> bVar, d.b.b.e.k.b<GifView> bVar2) {
-        this.f14205e = bVar;
-        this.f14206f = bVar2;
+        this.f14206e = bVar;
+        this.f14207f = bVar2;
     }
 
     public void setOnImageClickListener(TbRichTextView.w wVar) {
@@ -614,8 +606,8 @@ public class GridImageLayout extends RelativeLayout {
 
     public GridImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14205e = null;
-        this.f14206f = null;
+        this.f14206e = null;
+        this.f14207f = null;
         this.r = true;
         this.v = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.y = new a();
@@ -625,8 +617,8 @@ public class GridImageLayout extends RelativeLayout {
 
     public GridImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14205e = null;
-        this.f14206f = null;
+        this.f14206e = null;
+        this.f14207f = null;
         this.r = true;
         this.v = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.y = new a();

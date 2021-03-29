@@ -9,28 +9,28 @@ import com.kwad.sdk.utils.ao;
 public class b extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f34833b;
+    public ImageView f34834b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f34834c;
+    public AdTemplate f34835c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<?, AdTemplate> f34835d;
+    public com.kwad.sdk.lib.b.c<?, AdTemplate> f34836d;
 
     /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.kwad.sdk.lib.b.c<?, MODEL>, com.kwad.sdk.lib.b.c<?, com.kwad.sdk.core.response.model.AdTemplate> */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a;
-        this.f34834c = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
-        this.f34835d = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36004f;
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36008a;
+        this.f34835c = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
+        this.f34836d = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36005f;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         ImageView imageView = (ImageView) b(R.id.ksad_feed_item_close);
-        this.f34833b = imageView;
+        this.f34834b = imageView;
         imageView.setOnClickListener(this);
     }
 
@@ -39,9 +39,9 @@ public class b extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         if (ao.a()) {
             return;
         }
-        if (view == this.f34833b && com.kwad.sdk.core.response.b.c.c(this.f34834c)) {
-            com.kwad.sdk.core.report.b.d(this.f34834c, 69);
+        if (view == this.f34834b && com.kwad.sdk.core.response.b.c.c(this.f34835c)) {
+            com.kwad.sdk.core.report.b.d(this.f34835c, 69);
         }
-        this.f34835d.a((com.kwad.sdk.lib.b.c<?, AdTemplate>) this.f34834c);
+        this.f34836d.a((com.kwad.sdk.lib.b.c<?, AdTemplate>) this.f34835c);
     }
 }

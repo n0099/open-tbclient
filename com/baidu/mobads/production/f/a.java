@@ -109,7 +109,7 @@ public class a extends com.baidu.mobads.production.a {
     @Override // com.baidu.mobads.production.a
     public void c() {
         com.baidu.mobads.constants.a.q = System.currentTimeMillis();
-        IXAdContainer iXAdContainer = this.f8440h;
+        IXAdContainer iXAdContainer = this.f8441h;
         if (iXAdContainer == null || this.A) {
             return;
         }

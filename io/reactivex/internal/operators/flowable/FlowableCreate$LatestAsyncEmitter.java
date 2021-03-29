@@ -19,17 +19,19 @@ public final class FlowableCreate$LatestAsyncEmitter<T> extends FlowableCreate$B
     }
 
     public void drain() {
+        int i;
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
         c<? super T> cVar = this.actual;
         AtomicReference<T> atomicReference = this.queue;
-        int i = 1;
+        int i2 = 1;
         do {
             long j = get();
             long j2 = 0;
             while (true) {
-                if (j2 == j) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i == 0) {
                     break;
                 } else if (isCancelled()) {
                     atomicReference.lazySet(null);
@@ -55,7 +57,7 @@ public final class FlowableCreate$LatestAsyncEmitter<T> extends FlowableCreate$B
                     }
                 }
             }
-            if (j2 == j) {
+            if (i == 0) {
                 if (isCancelled()) {
                     atomicReference.lazySet(null);
                     return;
@@ -76,8 +78,8 @@ public final class FlowableCreate$LatestAsyncEmitter<T> extends FlowableCreate$B
             if (j2 != 0) {
                 b.e(this, j2);
             }
-            i = this.wip.addAndGet(-i);
-        } while (i != 0);
+            i2 = this.wip.addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     @Override // io.reactivex.internal.operators.flowable.FlowableCreate$BaseEmitter, f.a.d

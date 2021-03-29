@@ -18,81 +18,81 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f44831d = new c();
+    public static final c f44832d = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44828a = k.f45050a;
+    public static final boolean f44829a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44829b = "swan" + File.separator + "libs" + File.separator + "so";
+    public static final String f44830b = "swan" + File.separator + "libs" + File.separator + "so";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, e> f44830c = new LinkedHashMap();
+    public static final Map<String, e> f44831c = new LinkedHashMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44832a;
+        public final /* synthetic */ String f44833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Ref.ObjectRef f44833b;
+        public final /* synthetic */ Ref.ObjectRef f44834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Function1 f44834c;
+        public final /* synthetic */ Function1 f44835c;
 
         public a(String str, Ref.ObjectRef objectRef, Function1 function1) {
-            this.f44832a = str;
-            this.f44833b = objectRef;
-            this.f44834c = function1;
+            this.f44833a = str;
+            this.f44834b = objectRef;
+            this.f44835c = function1;
         }
 
         @Override // d.b.g0.l.o.b.a
         public final void a(boolean z) {
-            c cVar = c.f44831d;
-            if (c.f44828a) {
-                Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.f44832a);
+            c cVar = c.f44832d;
+            if (c.f44829a) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.f44833a);
             }
             if (z) {
-                c.f44831d.u(this.f44832a, ((i) this.f44833b.element).i);
-                c cVar2 = c.f44831d;
-                String str = this.f44832a;
-                String str2 = ((i) this.f44833b.element).j;
+                c.f44832d.u(this.f44833a, ((i) this.f44834b.element).i);
+                c cVar2 = c.f44832d;
+                String str = this.f44833a;
+                String str2 = ((i) this.f44834b.element).j;
                 Intrinsics.checkExpressionValueIsNotNull(str2, "soPkg.versionName");
                 cVar2.v(str, str2);
-                c cVar3 = c.f44831d;
-                String str3 = this.f44832a;
-                AbiType abiType = ((i) this.f44833b.element).q;
+                c cVar3 = c.f44832d;
+                String str3 = this.f44833a;
+                AbiType abiType = ((i) this.f44834b.element).q;
                 Intrinsics.checkExpressionValueIsNotNull(abiType, "soPkg.abi");
                 cVar3.t(str3, abiType);
-                this.f44834c.invoke(null);
+                this.f44835c.invoke(null);
                 return;
             }
-            Function1 function1 = this.f44834c;
+            Function1 function1 = this.f44835c;
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
             aVar.j(16);
             aVar.b(2900);
-            aVar.e("install error: pkg=" + ((i) this.f44833b.element));
+            aVar.e("install error: pkg=" + ((i) this.f44834b.element));
             function1.invoke(aVar);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class b<MsgType> implements d.b.g0.a.i2.u0.b<Exception> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f44835e = new b();
+        public static final b f44836e = new b();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public final void onCallback(Exception exc) {
-            c cVar = c.f44831d;
-            if (c.f44828a) {
+            c cVar = c.f44832d;
+            if (c.f44829a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("main updatePmsPkg pmsUpdateSo end with e: ");
                 sb.append("");
@@ -108,7 +108,7 @@ public final class c {
     }
 
     public final void e(String str) {
-        f44830c.remove(str);
+        f44831c.remove(str);
     }
 
     public final String f(i iVar) {
@@ -137,11 +137,11 @@ public final class c {
     public final File h() {
         Context appContext = AppRuntime.getAppContext();
         Intrinsics.checkExpressionValueIsNotNull(appContext, "AppRuntime.getAppContext()");
-        return new File(appContext.getFilesDir(), f44829b);
+        return new File(appContext.getFilesDir(), f44830b);
     }
 
     public final e i(String str) {
-        return f44830c.get(str);
+        return f44831c.get(str);
     }
 
     public final boolean j(String str) {
@@ -187,7 +187,7 @@ public final class c {
         e i = i(str);
         if (i == null) {
             e eVar = new e(fVar, str);
-            f44830c.put(str, eVar);
+            f44831c.put(str, eVar);
             return eVar;
         }
         return i;
@@ -200,12 +200,12 @@ public final class c {
 
     /* JADX WARN: Type inference failed for: r6v1, types: [d.b.g0.l.k.i, T] */
     public final void s(String str, Function1<? super d.b.g0.a.f2.a, Unit> function1) {
-        if (f44828a) {
+        if (f44829a) {
             Log.i("SoLibManager", "tryInstallUpdatePkg: libName=" + str);
         }
         d.b.g0.a.j0.i.a a2 = d.b.g0.a.j0.i.b.a(str);
         if (a2 == null) {
-            if (f44828a) {
+            if (f44829a) {
                 Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + str);
             }
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
@@ -214,7 +214,7 @@ public final class c {
             aVar.e("not available: so=" + a2);
             function1.invoke(aVar);
         } else if (a2.f()) {
-            if (f44828a) {
+            if (f44829a) {
                 Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + a2);
             }
             function1.invoke(null);
@@ -225,16 +225,16 @@ public final class c {
             if (((i) q) != null && ((i) q).a() && AbiType.currentAbi().compat(((i) objectRef.element).q)) {
                 AbiType o = o(str);
                 if (k(str, ((i) objectRef.element).i) && o != null && o.compat(((i) objectRef.element).q)) {
-                    if (f44828a) {
+                    if (f44829a) {
                         Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + str + " soPkg=" + ((i) objectRef.element));
                     }
                     function1.invoke(null);
                     return;
                 }
-                a2.a(((i) objectRef.element).f48916a, new a(str, objectRef, function1));
+                a2.a(((i) objectRef.element).f48917a, new a(str, objectRef, function1));
                 return;
             }
-            if (f44828a) {
+            if (f44829a) {
                 Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + str + " soPkg=" + ((i) objectRef.element));
             }
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
@@ -258,12 +258,12 @@ public final class c {
     }
 
     public final void w(d dVar) {
-        if (f44828a) {
+        if (f44829a) {
             Log.i("SoLibManager", "main updatePmsPkg start args: " + dVar);
         }
-        dVar.e(b.f44835e);
+        dVar.e(b.f44836e);
         f fVar = new f(new d.b.g0.l.l.k.h(5), dVar);
-        if (f44828a) {
+        if (f44829a) {
             Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + fVar);
         }
         d.b.g0.l.c.k(fVar);

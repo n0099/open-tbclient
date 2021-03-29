@@ -7,30 +7,30 @@ import com.baidu.card.view.ThreadCardView;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a<T extends d.b.h0.r.q.a> implements q, p<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public k0 f51761e;
+    public k0 f51762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f51762f;
+    public Context f51763f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Boolean f51763g = Boolean.FALSE;
+    public Boolean f51764g = Boolean.FALSE;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.x.b0<T> f51764h;
-    public InterfaceC1115a i;
+    public d.b.i0.x.b0<T> f51765h;
+    public InterfaceC1116a i;
 
     /* renamed from: d.b.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC1115a {
+    /* loaded from: classes.dex */
+    public interface InterfaceC1116a {
         void a(d.b.h0.r.q.a aVar);
     }
 
     public a(Context context) {
-        this.f51762f = context;
+        this.f51763f = context;
     }
 
     public void b(int i) {
@@ -40,7 +40,7 @@ public abstract class a<T extends d.b.h0.r.q.a> implements q, p<T> {
     }
 
     public d.b.i0.x.b0<T> d() {
-        return this.f51764h;
+        return this.f51765h;
     }
 
     public final ThreadCardView e(View view, int i) {
@@ -54,7 +54,7 @@ public abstract class a<T extends d.b.h0.r.q.a> implements q, p<T> {
     }
 
     public Boolean f() {
-        return this.f51763g;
+        return this.f51764g;
     }
 
     public abstract View g();
@@ -63,11 +63,11 @@ public abstract class a<T extends d.b.h0.r.q.a> implements q, p<T> {
     }
 
     public void i(int i, a.b bVar) {
-        this.f51761e.m(i, bVar);
+        this.f51762e.m(i, bVar);
     }
 
     public void j(k0 k0Var) {
-        this.f51761e = k0Var;
+        this.f51762e = k0Var;
     }
 
     public void k(View view, int i) {
@@ -81,7 +81,7 @@ public abstract class a<T extends d.b.h0.r.q.a> implements q, p<T> {
     }
 
     public void l(d.b.i0.x.b0<T> b0Var) {
-        this.f51764h = b0Var;
+        this.f51765h = b0Var;
     }
 
     public void m(View view, int i) {
@@ -94,6 +94,6 @@ public abstract class a<T extends d.b.h0.r.q.a> implements q, p<T> {
     }
 
     public void n(Boolean bool) {
-        this.f51763g = bool;
+        this.f51764g = bool;
     }
 }

@@ -40,7 +40,7 @@ import java.net.URLEncoder;
 public class f extends d.b.i0.v2.d.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62063h;
+    public int f62064h;
     public ShareEntity i;
     public d.b.i0.v2.e.b j;
     public IWXAPI k;
@@ -108,10 +108,10 @@ public class f extends d.b.i0.v2.d.a {
         public void onCancelled(String str) {
             super.onCancelled(str);
             if (f.this.j != null) {
-                f.this.j.onShare(f.this.f62063h, 3);
+                f.this.j.onShare(f.this.f62064h, 3);
             }
             f fVar = f.this;
-            fVar.w(3, fVar.f62063h);
+            fVar.w(3, fVar.f62064h);
         }
 
         public /* synthetic */ c(f fVar, a aVar) {
@@ -128,7 +128,7 @@ public class f extends d.b.i0.v2.d.a {
             }
             Bitmap p = aVar.p();
             if (!TextUtils.isEmpty(f.this.i.g())) {
-                if (f.this.f62063h != 2) {
+                if (f.this.f62064h != 2) {
                     String m = f.this.i.m();
                     int o = f.this.i.o();
                     if ((o != 2 && o != 4 && (StringUtils.isNull(m) || m.equals("0"))) || !f.this.i.canShareBySmartApp) {
@@ -167,23 +167,23 @@ public class f extends d.b.i0.v2.d.a {
                 int intExtra = intent.getIntExtra("weixin_result_errCode", 0);
                 if (intExtra == 0) {
                     if (f.this.j != null) {
-                        f.this.j.onShare(f.this.f62063h, 1);
+                        f.this.j.onShare(f.this.f62064h, 1);
                     }
                     f fVar = f.this;
-                    fVar.w(1, fVar.f62063h);
+                    fVar.w(1, fVar.f62064h);
                 } else if (intExtra == -2) {
                     if (f.this.j != null) {
-                        f.this.j.onShare(f.this.f62063h, 3);
+                        f.this.j.onShare(f.this.f62064h, 3);
                     }
                     f fVar2 = f.this;
-                    fVar2.w(3, fVar2.f62063h);
+                    fVar2.w(3, fVar2.f62064h);
                 } else {
                     f.this.l0(intExtra, intent.getStringExtra("weixin_result_errMsg"));
                     if (f.this.j != null) {
-                        f.this.j.onShare(f.this.f62063h, 2);
+                        f.this.j.onShare(f.this.f62064h, 2);
                     }
                     f fVar3 = f.this;
-                    fVar3.w(2, fVar3.f62063h);
+                    fVar3.w(2, fVar3.f62064h);
                 }
                 f.this.T();
             }
@@ -198,8 +198,8 @@ public class f extends d.b.i0.v2.d.a {
         super(context);
         this.m = new a();
         this.n = new c(this, null);
-        this.f62051b = context.getApplicationContext();
-        this.f62063h = i;
+        this.f62052b = context.getApplicationContext();
+        this.f62064h = i;
         this.k = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
     }
 
@@ -243,7 +243,7 @@ public class f extends d.b.i0.v2.d.a {
     }
 
     public final int O() {
-        int i = this.f62063h;
+        int i = this.f62064h;
         if (i == 3) {
             return 0;
         }
@@ -280,7 +280,7 @@ public class f extends d.b.i0.v2.d.a {
     }
 
     public final void T() {
-        FileHelper.deleteFile(new File(d.b.i0.v2.d.a.f62047e + d.b.i0.v2.d.a.f62049g));
+        FileHelper.deleteFile(new File(d.b.i0.v2.d.a.f62048e + d.b.i0.v2.d.a.f62050g));
     }
 
     public String U(Context context, File file) {
@@ -293,10 +293,10 @@ public class f extends d.b.i0.v2.d.a {
     }
 
     public final boolean V(WXImageObject wXImageObject, Bitmap bitmap) {
-        Context context = this.f62051b;
+        Context context = this.f62052b;
         if (context != null && wXImageObject != null && bitmap != null && R(context) && Q()) {
             try {
-                X(wXImageObject, FileHelper.saveFileAsPNG(d.b.i0.v2.d.a.f62047e, d.b.i0.v2.d.a.f62049g, bitmap, 100), bitmap);
+                X(wXImageObject, FileHelper.saveFileAsPNG(d.b.i0.v2.d.a.f62048e, d.b.i0.v2.d.a.f62050g, bitmap, 100), bitmap);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -306,16 +306,16 @@ public class f extends d.b.i0.v2.d.a {
     }
 
     public final void W() {
-        if (this.f62051b != null) {
+        if (this.f62052b != null) {
             this.l = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
-            this.f62051b.registerReceiver(this.l, intentFilter);
+            this.f62052b.registerReceiver(this.l, intentFilter);
         }
     }
 
     public final void X(@NonNull WXImageObject wXImageObject, @NonNull String str, @NonNull Bitmap bitmap) {
-        wXImageObject.setImagePath(U(this.f62051b, new File(str)));
+        wXImageObject.setImagePath(U(this.f62052b, new File(str)));
         WXMediaMessage wXMediaMessage = new WXMediaMessage();
         wXMediaMessage.mediaObject = wXImageObject;
         wXMediaMessage.thumbData = M(bitmap);
@@ -364,11 +364,11 @@ public class f extends d.b.i0.v2.d.a {
         if (shareEntity != null && this.k != null) {
             this.i = shareEntity;
             this.j = bVar;
-            this.f62063h = shareEntity.j();
+            this.f62064h = shareEntity.j();
             if (!this.k.isWXAppInstalled()) {
                 d.b.i0.v2.e.b bVar2 = this.j;
                 if (bVar2 != null) {
-                    bVar2.onShare(this.f62063h, 2);
+                    bVar2.onShare(this.f62064h, 2);
                 }
                 BdToast.e(c(), c().getText(R.string.share_weixin_not_installed_yet), 0, ShareHandlerActivity.skinType).q();
                 return;
@@ -404,14 +404,14 @@ public class f extends d.b.i0.v2.d.a {
                 }
             }
         }
-        w(2, this.f62063h);
+        w(2, this.f62064h);
         if (bVar != null) {
             bVar.onShare(0, 2);
         }
     }
 
     public final boolean a0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
-        if (this.f62063h != 2 && this.i.k() != 1) {
+        if (this.f62064h != 2 && this.i.k() != 1) {
             return Y(shareEntity, emotionShare);
         }
         return c0(shareEntity, emotionShare);
@@ -579,7 +579,7 @@ public class f extends d.b.i0.v2.d.a {
 
     public final void k0() {
         d dVar;
-        Context context = this.f62051b;
+        Context context = this.f62052b;
         if (context == null || (dVar = this.l) == null) {
             return;
         }
@@ -608,14 +608,8 @@ public class f extends d.b.i0.v2.d.a {
                 }
                 while (length > 125.0d) {
                     Double valueOf = Double.valueOf(length / 125.0d);
-                    double d2 = width;
-                    double sqrt = Math.sqrt(valueOf.doubleValue());
-                    Double.isNaN(d2);
-                    Double valueOf2 = Double.valueOf(d2 / sqrt);
-                    double d3 = height;
-                    double sqrt2 = Math.sqrt(valueOf.doubleValue());
-                    Double.isNaN(d3);
-                    Double valueOf3 = Double.valueOf(d3 / sqrt2);
+                    Double valueOf2 = Double.valueOf(width / Math.sqrt(valueOf.doubleValue()));
+                    Double valueOf3 = Double.valueOf(height / Math.sqrt(valueOf.doubleValue()));
                     width = valueOf2.intValue();
                     height = valueOf3.intValue();
                     bitmap = j(bitmap, width, height);

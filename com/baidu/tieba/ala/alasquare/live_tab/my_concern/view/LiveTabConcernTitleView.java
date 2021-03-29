@@ -19,20 +19,20 @@ public class LiveTabConcernTitleView extends b<g> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public LiveTabConcernTitleView f14800a;
+        public LiveTabConcernTitleView f14801a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14801b;
+        public View f14802b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f14802c;
+        public TextView f14803c;
 
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
             super(liveTabConcernTitleView.m());
-            this.f14800a = liveTabConcernTitleView;
+            this.f14801a = liveTabConcernTitleView;
             View m = liveTabConcernTitleView.m();
-            this.f14801b = m;
-            this.f14802c = (TextView) m.findViewById(R.id.tab_sub_rec_title_tv);
+            this.f14802b = m;
+            this.f14803c = (TextView) m.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 
@@ -49,8 +49,8 @@ public class LiveTabConcernTitleView extends b<g> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        SkinManager.setBackgroundColor(this.m.f14801b, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.m.f14802c, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.m.f14802b, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.m.f14803c, R.color.CAM_X0105);
     }
 
     @Override // android.view.View.OnClickListener
@@ -62,9 +62,9 @@ public class LiveTabConcernTitleView extends b<g> {
     /* renamed from: u */
     public void n(g gVar) {
         ViewHolder viewHolder;
-        if (gVar == null || StringUtils.isNull(gVar.f60545f) || (viewHolder = this.m) == null) {
+        if (gVar == null || StringUtils.isNull(gVar.f60546f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.f14802c.setText(gVar.f60545f);
+        viewHolder.f14803c.setText(gVar.f60546f);
     }
 }

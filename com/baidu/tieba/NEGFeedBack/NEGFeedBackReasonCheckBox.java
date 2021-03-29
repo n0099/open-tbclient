@@ -18,16 +18,16 @@ import d.b.i0.c3.c;
 public class NEGFeedBackReasonCheckBox extends CheckBox {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14431e;
+    public Context f14432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14432f;
+    public int f14433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f14433g;
+    public GradientDrawable f14434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GradientDrawable f14434h;
+    public GradientDrawable f14435h;
     public GradientDrawable i;
     public StateListDrawable j;
     public CustomMessageListener k;
@@ -49,24 +49,24 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
 
     public NEGFeedBackReasonCheckBox(Context context) {
         super(context);
-        this.f14431e = null;
-        this.f14432f = 3;
+        this.f14432e = null;
+        this.f14433f = 3;
         this.k = new a(2001304);
-        this.f14431e = context;
+        this.f14432e = context;
         b();
     }
 
     public void a() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.f14432f) {
-            c(R.string.J_X07, l.g(this.f14431e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
+        if (skinType != this.f14433f) {
+            c(R.string.J_X07, l.g(this.f14432e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
-            this.f14432f = skinType;
+            this.f14433f = skinType;
         }
     }
 
     public final void b() {
-        int g2 = l.g(this.f14431e, R.dimen.ds24);
+        int g2 = l.g(this.f14432e, R.dimen.ds24);
         setPadding(g2, 0, g2, 0);
         setButtonDrawable((Drawable) null);
     }
@@ -74,16 +74,16 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     public final void c(int i, int i2, int i3, int i4, int i5) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
         GradientDrawable gradientDrawable = new GradientDrawable();
-        this.f14433g = gradientDrawable;
+        this.f14434g = gradientDrawable;
         gradientDrawable.setShape(0);
         float f2 = parseInt;
-        this.f14433g.setCornerRadius(f2);
-        this.f14433g.setStroke(i2, SkinManager.getColor(i3));
+        this.f14434g.setCornerRadius(f2);
+        this.f14434g.setStroke(i2, SkinManager.getColor(i3));
         GradientDrawable gradientDrawable2 = new GradientDrawable();
-        this.f14434h = gradientDrawable2;
+        this.f14435h = gradientDrawable2;
         gradientDrawable2.setShape(0);
-        this.f14434h.setCornerRadius(f2);
-        this.f14434h.setStroke(i2, c.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
+        this.f14435h.setCornerRadius(f2);
+        this.f14435h.setStroke(i2, c.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
         GradientDrawable gradientDrawable3 = new GradientDrawable();
         this.i = gradientDrawable3;
         gradientDrawable3.setShape(0);
@@ -91,9 +91,9 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         this.i.setStroke(i2, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
         StateListDrawable stateListDrawable = new StateListDrawable();
         this.j = stateListDrawable;
-        stateListDrawable.addState(new int[]{16842912}, this.f14434h);
+        stateListDrawable.addState(new int[]{16842912}, this.f14435h);
         this.j.addState(new int[]{-16842910}, this.i);
-        this.j.addState(new int[0], this.f14433g);
+        this.j.addState(new int[0], this.f14434g);
         setBackgroundDrawable(this.j);
     }
 
@@ -111,19 +111,19 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
 
     public NEGFeedBackReasonCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14431e = null;
-        this.f14432f = 3;
+        this.f14432e = null;
+        this.f14433f = 3;
         this.k = new a(2001304);
-        this.f14431e = context;
+        this.f14432e = context;
         b();
     }
 
     public NEGFeedBackReasonCheckBox(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14431e = null;
-        this.f14432f = 3;
+        this.f14432e = null;
+        this.f14433f = 3;
         this.k = new a(2001304);
-        this.f14431e = context;
+        this.f14432e = context;
         b();
     }
 }

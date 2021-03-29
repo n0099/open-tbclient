@@ -97,28 +97,28 @@ public class BaseActivity extends TitleActivity {
     public static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    public ValueCallback<Uri> f10921a;
+    public ValueCallback<Uri> f10922a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueCallback<Uri[]> f10922b;
+    public ValueCallback<Uri[]> f10923b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SapiWebView.PickPhotoResult f10923c;
+    public SapiWebView.PickPhotoResult f10924c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SapiWebView.BiometricsIdentifyResult f10924d;
+    public SapiWebView.BiometricsIdentifyResult f10925d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f10925e;
+    public a f10926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10926f;
+    public int f10927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10927g;
+    public int f10928g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f10928h;
+    public ImageCropCallback.ImageCropResult f10929h;
     public com.baidu.sapi2.shell.a.a i;
     public boolean loginStatusChange;
     public SapiWebView sapiWebView;
@@ -163,8 +163,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onFailure(PassFaceRecogResult passFaceRecogResult) {
                 JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
-                if (BaseActivity.this.f10924d != null) {
-                    BaseActivity.this.f10924d.setIdentifyToken(a2.toString());
+                if (BaseActivity.this.f10925d != null) {
+                    BaseActivity.this.f10925d.setIdentifyToken(a2.toString());
                 }
             }
 
@@ -172,8 +172,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
                 JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
-                if (BaseActivity.this.f10924d != null) {
-                    BaseActivity.this.f10924d.setIdentifyToken(a2.toString());
+                if (BaseActivity.this.f10925d != null) {
+                    BaseActivity.this.f10925d.setIdentifyToken(a2.toString());
                 }
             }
         });
@@ -193,42 +193,42 @@ public class BaseActivity extends TitleActivity {
             activityResultCallback.onActivityResult(i, i2, intent);
         }
         if (i == 1001) {
-            if (this.f10923c == null) {
+            if (this.f10924c == null) {
                 return;
             }
             if (i2 == -1 && imageCropCallback2 != null) {
-                imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f10926f, this.f10927g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.17
+                imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f10927f, this.f10928g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.17
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str != null) {
-                            BaseActivity.this.f10923c.setImageData(str);
+                            BaseActivity.this.f10924c.setImageData(str);
                         } else {
-                            BaseActivity.this.f10923c.setImageData("");
+                            BaseActivity.this.f10924c.setImageData("");
                         }
                     }
                 });
             } else {
-                this.f10923c.setImageData("");
+                this.f10924c.setImageData("");
             }
         } else if (i != 1002) {
             if (i == 2001 && i2 == 3001) {
                 a(intent);
             }
-        } else if (this.f10923c == null) {
+        } else if (this.f10924c == null) {
         } else {
             if (i2 == -1 && intent.getData() != null && imageCropCallback2 != null) {
-                imageCropCallback2.onImageCrop(this, intent.getData(), this.f10926f, this.f10927g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.18
+                imageCropCallback2.onImageCrop(this, intent.getData(), this.f10927f, this.f10928g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.18
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str != null) {
-                            BaseActivity.this.f10923c.setImageData(str);
+                            BaseActivity.this.f10924c.setImageData(str);
                         } else {
-                            BaseActivity.this.f10923c.setImageData("");
+                            BaseActivity.this.f10924c.setImageData("");
                         }
                     }
                 });
             } else {
-                this.f10923c.setImageData("");
+                this.f10924c.setImageData("");
             }
         }
     }
@@ -307,8 +307,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.permissions.PermissionsCallback
             public void onFailure(int i) {
                 Toast.makeText(BaseActivity.this, BaseOptionActivity.NO_STORAGE_PERM_MSG, 1).show();
-                if (BaseActivity.this.f10923c != null) {
-                    BaseActivity.this.f10923c.setImageData("");
+                if (BaseActivity.this.f10924c != null) {
+                    BaseActivity.this.f10924c.setImageData("");
                 }
             }
 
@@ -436,9 +436,9 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setPickPhotoCallback(new SapiWebView.PickPhotoCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.3
             @Override // com.baidu.sapi2.SapiWebView.PickPhotoCallback
             public void onPickImage(int i, int i2, int i3, SapiWebView.PickPhotoResult pickPhotoResult) {
-                BaseActivity.this.f10923c = pickPhotoResult;
-                BaseActivity.this.f10926f = i2;
-                BaseActivity.this.f10927g = i3;
+                BaseActivity.this.f10924c = pickPhotoResult;
+                BaseActivity.this.f10927f = i2;
+                BaseActivity.this.f10928g = i3;
                 if (1 == i) {
                     BaseActivity.this.takePhoto();
                 } else {
@@ -449,7 +449,7 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setBiometricsIdentifyCallback(new SapiWebView.BiometricsIdentifyCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.4
             @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
             public void onBiometricsIdentify(SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-                BaseActivity.this.f10924d = biometricsIdentifyResult;
+                BaseActivity.this.f10925d = biometricsIdentifyResult;
                 if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
                     BaseActivity.this.a(biometricsIdentifyResult);
                 } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType) || "authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
@@ -473,8 +473,8 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setInvokeScAppCallback(new SapiWebView.InvokeScAppCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.7
             @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
             public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-                BaseActivity.this.f10925e = new a();
-                BaseActivity.this.f10925e.a(BaseActivity.this, str, str2, list, invokeScAppResult);
+                BaseActivity.this.f10926e = new a();
+                BaseActivity.this.f10926e.a(BaseActivity.this, str, str2, list, invokeScAppResult);
             }
         });
         this.sapiWebView.setLoginStatusChangeCallback(new SapiJsCallBacks.LoginStatusChangeCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.8
@@ -531,8 +531,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.permissions.PermissionsCallback
             public void onFailure(int i) {
                 Toast.makeText(BaseActivity.this, BaseOptionActivity.NO_CAMERA_PERM_MSG, 1).show();
-                if (BaseActivity.this.f10923c != null) {
-                    BaseActivity.this.f10923c.setImageData("");
+                if (BaseActivity.this.f10924c != null) {
+                    BaseActivity.this.f10924c.setImageData("");
                 }
             }
 
@@ -569,7 +569,7 @@ public class BaseActivity extends TitleActivity {
         return new ImageCropCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.19
             @Override // com.baidu.sapi2.callback.ImageCropCallback
             public void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropCallback.ImageCropResult imageCropResult) {
-                BaseActivity.this.f10928h = imageCropResult;
+                BaseActivity.this.f10929h = imageCropResult;
                 Intent intent = new Intent(context, ImageClipActivity.class);
                 if (i == ClipBoxView.H) {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
@@ -611,8 +611,8 @@ public class BaseActivity extends TitleActivity {
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-                if (BaseActivity.this.f10924d != null) {
-                    BaseActivity.this.f10924d.setIdentifyToken(jSONObject.toString());
+                if (BaseActivity.this.f10925d != null) {
+                    BaseActivity.this.f10925d.setIdentifyToken(jSONObject.toString());
                 }
             }
 
@@ -635,8 +635,8 @@ public class BaseActivity extends TitleActivity {
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-                if (BaseActivity.this.f10924d != null) {
-                    BaseActivity.this.f10924d.setIdentifyToken(jSONObject.toString());
+                if (BaseActivity.this.f10925d != null) {
+                    BaseActivity.this.f10925d.setIdentifyToken(jSONObject.toString());
                 }
             }
         }, currentAccount.bduss, arrayList);
@@ -722,12 +722,12 @@ public class BaseActivity extends TitleActivity {
                 if (i == 1003) {
                     if (i2 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || BaseActivity.this.f10928h == null) {
+                        if (byteArrayExtra == null || BaseActivity.this.f10929h == null) {
                             return;
                         }
-                        BaseActivity.this.f10928h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (BaseActivity.this.f10928h != null) {
-                        BaseActivity.this.f10928h.onImageResult(null);
+                        BaseActivity.this.f10929h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (BaseActivity.this.f10929h != null) {
+                        BaseActivity.this.f10929h.onImageResult(null);
                     }
                 }
             }

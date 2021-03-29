@@ -83,7 +83,7 @@ public class f {
 
     public static String e(Context context) {
         int h2 = h(context);
-        return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3873b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+        return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3874b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
     }
 
     public static String f(Context context) {
@@ -97,7 +97,7 @@ public class f {
             if (f2.equals("2G")) {
                 return Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
             }
-            if (f2.equals(com.baidu.apollon.statistics.g.f3873b)) {
+            if (f2.equals(com.baidu.apollon.statistics.g.f3874b)) {
                 return Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
             }
             if (f2.equals("4G")) {

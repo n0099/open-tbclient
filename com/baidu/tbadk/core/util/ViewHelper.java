@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
 import d.b.b.e.k.a;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ViewHelper {
     public static final String ARROW = "skin_arrow";
     public static final String CHECK_BOX = "skin_check_box";

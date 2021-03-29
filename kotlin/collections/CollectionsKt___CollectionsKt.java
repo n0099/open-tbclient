@@ -153,20 +153,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         double d2 = 0.0d;
         int i = 0;
         for (Byte b2 : iterable) {
-            double byteValue = b2.byteValue();
-            Double.isNaN(byteValue);
-            d2 += byteValue;
+            d2 += b2.byteValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             }
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfDouble")
@@ -180,12 +173,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             }
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d4 = i;
-        Double.isNaN(d4);
-        return d2 / d4;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfFloat")
@@ -193,20 +181,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         double d2 = 0.0d;
         int i = 0;
         for (Float f2 : iterable) {
-            double floatValue = f2.floatValue();
-            Double.isNaN(floatValue);
-            d2 += floatValue;
+            d2 += f2.floatValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             }
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfInt")
@@ -214,20 +195,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         double d2 = 0.0d;
         int i = 0;
         for (Integer num : iterable) {
-            double intValue = num.intValue();
-            Double.isNaN(intValue);
-            d2 += intValue;
+            d2 += num.intValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             }
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfLong")
@@ -235,20 +209,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         double d2 = 0.0d;
         int i = 0;
         for (Long l : iterable) {
-            double longValue = l.longValue();
-            Double.isNaN(longValue);
-            d2 += longValue;
+            d2 += l.longValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             }
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @JvmName(name = "averageOfShort")
@@ -256,20 +223,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         double d2 = 0.0d;
         int i = 0;
         for (Short sh : iterable) {
-            double shortValue = sh.shortValue();
-            Double.isNaN(shortValue);
-            d2 += shortValue;
+            d2 += sh.shortValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             }
         }
-        if (i == 0) {
-            return DoubleCompanionObject.INSTANCE.getNaN();
-        }
-        double d3 = i;
-        Double.isNaN(d3);
-        return d2 / d3;
+        return i == 0 ? DoubleCompanionObject.INSTANCE.getNaN() : d2 / i;
     }
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)

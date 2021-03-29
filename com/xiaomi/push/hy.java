@@ -16,7 +16,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
     public static final jg f599a = new jg("XmPushActionCollectData");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40732a = new iy("", (byte) 15, 1);
+    public static final iy f40733a = new iy("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -53,7 +53,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
         jbVar.m505a();
         while (true) {
             iy m501a = jbVar.m501a();
-            byte b2 = m501a.f40866a;
+            byte b2 = m501a.f40867a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
@@ -98,7 +98,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
         a();
         jbVar.a(f599a);
         if (this.f600a != null) {
-            jbVar.a(f40732a);
+            jbVar.a(f40733a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f600a.size()));
             for (hn hnVar : this.f600a) {
                 hnVar.b(jbVar);

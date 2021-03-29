@@ -15,7 +15,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static String a(String str) {
         MessageDigest messageDigest;

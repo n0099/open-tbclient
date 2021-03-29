@@ -12,41 +12,41 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f65922a;
+    public JSONArray f65923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65923b;
+    public int f65924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f65924c;
+    public byte[] f65925c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f65925d;
+    public byte[] f65926d;
 
     /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f65926a;
+        public int f65927a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65927b;
+        public String f65928b;
     }
 
     /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static h f65928a = new h();
+        public static h f65929a = new h();
     }
 
     public static h a() {
-        return c.f65928a;
+        return c.f65929a;
     }
 
     public void b(int i, String str) {
         if ("normal_log".equals(str)) {
-            this.f65923b = i;
+            this.f65924b = i;
         }
     }
 
@@ -54,18 +54,18 @@ public class h {
         if (jVar == null) {
             return;
         }
-        synchronized (this.f65924c) {
+        synchronized (this.f65925c) {
             try {
-                this.f65922a.put(this.f65922a.length(), jVar.b());
+                this.f65923a.put(this.f65923a.length(), jVar.b());
             } catch (JSONException unused) {
             }
-            e(d.d.a.a.a.e().f().isForceToSend(jVar.f65932a));
+            e(d.d.a.a.a.e().f().isForceToSend(jVar.f65933a));
         }
     }
 
     public void d(String str) {
         if ("normal_log".equals(str)) {
-            synchronized (this.f65924c) {
+            synchronized (this.f65925c) {
                 i();
             }
             e(false);
@@ -74,12 +74,12 @@ public class h {
 
     public final void e(boolean z) {
         int i;
-        synchronized (this.f65924c) {
-            if (this.f65922a.length() == 0) {
+        synchronized (this.f65925c) {
+            if (this.f65923a.length() == 0) {
                 e.g(false, d.d.a.a.a.c(), "f509cd1137cc45e510496d1c174306a6.json", "", false);
                 return;
             }
-            String jSONArray = this.f65922a.toString();
+            String jSONArray = this.f65923a.toString();
             try {
                 i = jSONArray.getBytes().length;
             } catch (Throwable th) {
@@ -104,7 +104,7 @@ public class h {
     public b f(String str) {
         JSONObject jSONObject;
         b bVar = new b();
-        synchronized (this.f65925d) {
+        synchronized (this.f65926d) {
             try {
                 d.d.a.a.b.a f2 = d.d.a.a.a.e().f();
                 jSONObject = f2 != null ? new JSONObject(f2.getHeader()) : null;
@@ -115,11 +115,11 @@ public class h {
         if (jSONObject == null) {
             return bVar;
         }
-        synchronized (this.f65924c) {
+        synchronized (this.f65925c) {
             try {
-                jSONObject.put("array", this.f65922a);
-                bVar.f65926a = this.f65922a.length();
-                bVar.f65927b = jSONObject.toString();
+                jSONObject.put("array", this.f65923a);
+                bVar.f65927a = this.f65923a.length();
+                bVar.f65928b = jSONObject.toString();
             } catch (JSONException unused2) {
             }
         }
@@ -128,8 +128,8 @@ public class h {
 
     public boolean g() {
         boolean z;
-        synchronized (this.f65924c) {
-            z = this.f65922a.length() == 0;
+        synchronized (this.f65925c) {
+            z = this.f65923a.length() == 0;
         }
         return z;
     }
@@ -141,8 +141,8 @@ public class h {
                 return;
             }
             try {
-                synchronized (this.f65924c) {
-                    this.f65922a = new JSONArray(c2);
+                synchronized (this.f65925c) {
+                    this.f65923a = new JSONArray(c2);
                 }
             } catch (JSONException unused) {
             }
@@ -151,7 +151,7 @@ public class h {
 
     @SuppressLint({"NewApi"})
     public final void i() {
-        int i = this.f65923b;
+        int i = this.f65924b;
         if (i <= 0) {
             return;
         }
@@ -159,10 +159,10 @@ public class h {
             while (true) {
                 int i2 = i - 1;
                 if (i > 0) {
-                    this.f65922a.remove(0);
+                    this.f65923a.remove(0);
                     i = i2;
                 } else {
-                    this.f65923b = 0;
+                    this.f65924b = 0;
                     return;
                 }
             }
@@ -170,8 +170,8 @@ public class h {
             try {
                 Field declaredField = JSONArray.class.getDeclaredField("values");
                 declaredField.setAccessible(true);
-                List list = (List) declaredField.get(this.f65922a);
-                int i3 = this.f65923b;
+                List list = (List) declaredField.get(this.f65923a);
+                int i3 = this.f65924b;
                 while (true) {
                     int i4 = i3 - 1;
                     if (i3 > 0) {
@@ -180,7 +180,7 @@ public class h {
                         }
                         i3 = i4;
                     } else {
-                        this.f65923b = 0;
+                        this.f65924b = 0;
                         return;
                     }
                 }
@@ -190,9 +190,9 @@ public class h {
     }
 
     public h() {
-        this.f65922a = new JSONArray();
-        this.f65923b = 0;
-        this.f65924c = new byte[0];
-        this.f65925d = new byte[0];
+        this.f65923a = new JSONArray();
+        this.f65924b = 0;
+        this.f65925c = new byte[0];
+        this.f65926d = new byte[0];
     }
 }

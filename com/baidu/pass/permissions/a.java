@@ -5,17 +5,17 @@ import android.view.View;
 public class a implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f9782a;
+    public final /* synthetic */ PermissionsHelperActivity f9783a;
 
     public a(PermissionsHelperActivity permissionsHelperActivity) {
-        this.f9782a = permissionsHelperActivity;
+        this.f9783a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PermissionsCallback permissionsCallback;
-        permissionsCallback = this.f9782a.f9779d;
+        permissionsCallback = this.f9783a.f9780d;
         permissionsCallback.onFailure(-2);
-        this.f9782a.finish();
+        this.f9783a.finish();
     }
 }

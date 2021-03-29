@@ -5,16 +5,16 @@ import org.json.JSONObject;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60874a;
+    public String f60875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60875b;
+    public String f60876b;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f60874a = jSONObject.optString("name");
-        this.f60875b = jSONObject.optString("url");
+        this.f60875a = jSONObject.optString("name");
+        this.f60876b = jSONObject.optString("url");
     }
 }

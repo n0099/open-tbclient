@@ -114,7 +114,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f13694c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().f13692a) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f13695c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().f13693a) {
                     return;
                 }
                 d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(PushDialogActivity.this);
@@ -499,7 +499,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.lifeSequence = str;
         TiebaStatic.eventStat(this, "push_dialog", str);
         super.onCreate(bundle);
-        this.screenLockUtils = d.b.i0.t2.a.j().f61100d;
+        this.screenLockUtils = d.b.i0.t2.a.j().f61101d;
         if (this.mCancelController == null) {
             this.mCancelController = new d.b.i0.k3.b();
         }

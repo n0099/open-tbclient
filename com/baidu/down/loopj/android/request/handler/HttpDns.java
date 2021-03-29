@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class HttpDns {
     public static final String ACCOUNT_ID = "0024";
     public static final int EMPTY_RESULT_HOST_TTL = 300;
@@ -33,7 +33,7 @@ public final class HttpDns {
     public ExecutorService pool = Executors.newCachedThreadPool(new NamingThreadFactory(TAG));
     public DegradationFilter degradationFilter = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class HostObject {
         public String hostName;
         public String[] ip;
@@ -84,7 +84,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class QueryHostTask implements Callable<String[]> {
         public String hostName;
         public boolean isRequestRetried = false;
@@ -94,8 +94,8 @@ public final class HttpDns {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:85:0x01c8  */
-        /* JADX WARN: Removed duplicated region for block: B:87:0x01d0 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:85:0x01c7  */
+        /* JADX WARN: Removed duplicated region for block: B:87:0x01cf A[RETURN] */
         @Override // java.util.concurrent.Callable
         /*
             Code decompiled incorrectly, please refer to instructions dump.

@@ -99,7 +99,7 @@ public class CAVLCReader extends BitstreamReader {
         if (i > 1) {
             return readUE();
         }
-        return (read1Bit() ^ (-1)) & 1;
+        return (~read1Bit()) & 1;
     }
 
     public void readTrailingBits() throws IOException {

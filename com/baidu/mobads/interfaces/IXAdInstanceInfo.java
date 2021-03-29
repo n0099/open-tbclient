@@ -20,16 +20,16 @@ public interface IXAdInstanceInfo {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8349a;
+        public final String f8350a;
 
         CreativeType(String str) {
-            this.f8349a = str;
+            this.f8350a = str;
         }
 
         public static CreativeType parse(String str) {
             CreativeType[] values;
             for (CreativeType creativeType : values()) {
-                if (creativeType.f8349a.equalsIgnoreCase(str)) {
+                if (creativeType.f8350a.equalsIgnoreCase(str)) {
                     return creativeType;
                 }
             }
@@ -37,7 +37,7 @@ public interface IXAdInstanceInfo {
         }
 
         public String getValue() {
-            return this.f8349a;
+            return this.f8350a;
         }
     }
 

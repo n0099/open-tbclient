@@ -34,16 +34,16 @@ import tbclient.FrsTabInfo;
 public class b implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f57213e;
+    public TbPageContext f57214e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b.i0.o0.b.c f57214f;
+    public final d.b.i0.o0.b.c f57215f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.b.i0.o0.b.d f57215g;
+    public final d.b.i0.o0.b.d f57216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.i0.o0.b.a f57216h;
+    public final d.b.i0.o0.b.a f57217h;
     public ArrayList<n> i;
     public String j;
     public int k;
@@ -53,7 +53,7 @@ public class b implements View.OnClickListener {
     public String o;
     public String p;
     public View.OnClickListener q = new a();
-    public Runnable r = new RunnableC1366b();
+    public Runnable r = new RunnableC1367b();
     public CustomMessageListener s = new c(2921021);
     public CustomMessageListener t = new d(2921020);
     public d.b u = new e();
@@ -67,7 +67,7 @@ public class b implements View.OnClickListener {
         public void onClick(View view) {
             if (view.getTag() instanceof d.b.i0.o0.c.b) {
                 Intent intent = new Intent();
-                b.this.f57213e.getPageActivity().setResult(-1, intent);
+                b.this.f57214e.getPageActivity().setResult(-1, intent);
                 d.b.i0.o0.c.b bVar = (d.b.i0.o0.c.b) view.getTag();
                 if (b.this.k == 1) {
                     b.this.q(bVar.n(), bVar.o());
@@ -81,7 +81,7 @@ public class b implements View.OnClickListener {
                 } else {
                     intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_ID, String.valueOf(bVar.n()));
                     intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_NAME, bVar.o());
-                    b.this.f57213e.getPageActivity().finish();
+                    b.this.f57214e.getPageActivity().finish();
                 }
             }
         }
@@ -89,13 +89,13 @@ public class b implements View.OnClickListener {
 
     /* renamed from: d.b.i0.o0.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1366b implements Runnable {
-        public RunnableC1366b() {
+    public class RunnableC1367b implements Runnable {
+        public RunnableC1367b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            l.J(b.this.f57213e.getPageActivity(), b.this.f57214f.f57228d);
+            l.J(b.this.f57214e.getPageActivity(), b.this.f57215f.f57229d);
         }
     }
 
@@ -112,8 +112,8 @@ public class b implements View.OnClickListener {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            b.this.f57214f.f57228d.setText(str);
-            b.this.f57214f.f57228d.setSelection(str.length());
+            b.this.f57215f.f57229d.setText(str);
+            b.this.f57215f.f57229d.setSelection(str.length());
             b.this.n();
         }
     }
@@ -198,7 +198,7 @@ public class b implements View.OnClickListener {
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             if (!z) {
-                l.w(b.this.f57213e.getPageActivity(), view);
+                l.w(b.this.f57214e.getPageActivity(), view);
             } else {
                 b.this.n();
             }
@@ -206,15 +206,15 @@ public class b implements View.OnClickListener {
     }
 
     public b(TbPageContext tbPageContext) {
-        this.f57213e = tbPageContext;
-        this.f57214f = new d.b.i0.o0.b.c(tbPageContext);
+        this.f57214e = tbPageContext;
+        this.f57215f = new d.b.i0.o0.b.c(tbPageContext);
         m();
         d.b.i0.o0.b.d dVar = new d.b.i0.o0.b.d(tbPageContext, tbPageContext.getUniqueId());
-        this.f57215g = dVar;
+        this.f57216g = dVar;
         dVar.e(this.u);
         this.i = new ArrayList<>();
-        d.b.i0.o0.b.a aVar = new d.b.i0.o0.b.a(tbPageContext, this.f57214f.f57231g);
-        this.f57216h = aVar;
+        d.b.i0.o0.b.a aVar = new d.b.i0.o0.b.a(tbPageContext, this.f57215f.f57232g);
+        this.f57217h = aVar;
         aVar.a(this.q);
         I();
         tbPageContext.registerListener(this.t);
@@ -241,12 +241,12 @@ public class b implements View.OnClickListener {
     }
 
     public final void I() {
-        this.f57215g.c();
+        this.f57216g.c();
         this.i.clear();
         ArrayList<String> c2 = d.b.i0.o0.b.e.c();
         if (!ListUtils.isEmpty(c2)) {
             d.b.i0.o0.c.a aVar = new d.b.i0.o0.c.a();
-            aVar.j(d.b.i0.o0.c.a.f57239h);
+            aVar.j(d.b.i0.o0.c.a.f57240h);
             this.i.add(aVar);
             this.i.add(new d.b.i0.o0.c.a(c2));
             w(this.i);
@@ -265,49 +265,49 @@ public class b implements View.OnClickListener {
     }
 
     public final void m() {
-        this.f57214f.f57226b.setOnClickListener(this);
-        this.f57214f.f57228d.setOnEditorActionListener(new f());
-        this.f57214f.f57228d.addTextChangedListener(new g());
-        this.f57214f.f57228d.setOnFocusChangeListener(new h());
-        this.f57214f.f57228d.setOnClickListener(this);
-        this.f57214f.f57229e.setOnClickListener(this);
-        this.f57214f.f57230f.setOnClickListener(this);
+        this.f57215f.f57227b.setOnClickListener(this);
+        this.f57215f.f57229d.setOnEditorActionListener(new f());
+        this.f57215f.f57229d.addTextChangedListener(new g());
+        this.f57215f.f57229d.setOnFocusChangeListener(new h());
+        this.f57215f.f57229d.setOnClickListener(this);
+        this.f57215f.f57230e.setOnClickListener(this);
+        this.f57215f.f57231f.setOnClickListener(this);
     }
 
     public final void n() {
-        if (this.f57214f.f57228d.getText() != null && !StringUtils.isNull(this.f57214f.f57228d.getText().toString())) {
+        if (this.f57215f.f57229d.getText() != null && !StringUtils.isNull(this.f57215f.f57229d.getText().toString())) {
             n nVar = (n) ListUtils.getItem(this.i, 0);
-            if (nVar != null && nVar.getType() == d.b.i0.o0.c.a.f57239h) {
+            if (nVar != null && nVar.getType() == d.b.i0.o0.c.a.f57240h) {
                 this.i.clear();
                 w(this.i);
             }
-            this.f57214f.f57229e.setVisibility(0);
-            String obj = this.f57214f.f57228d.getText().toString();
+            this.f57215f.f57230e.setVisibility(0);
+            String obj = this.f57215f.f57229d.getText().toString();
             this.j = obj;
-            this.f57215g.d(obj);
+            this.f57216g.d(obj);
             return;
         }
-        this.f57214f.f57229e.setVisibility(8);
+        this.f57215f.f57230e.setVisibility(8);
         this.j = null;
         I();
     }
 
     public d.b.i0.o0.b.c o() {
-        return this.f57214f;
+        return this.f57215f;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.i0.o0.b.c cVar = this.f57214f;
-        EditText editText = cVar.f57228d;
+        d.b.i0.o0.b.c cVar = this.f57215f;
+        EditText editText = cVar.f57229d;
         if (view == editText) {
             n();
-        } else if (view == cVar.f57230f) {
-            l.w(this.f57213e.getPageActivity(), this.f57214f.f57228d);
-            this.f57213e.getPageActivity().finish();
-        } else if (view == cVar.f57229e) {
+        } else if (view == cVar.f57231f) {
+            l.w(this.f57214e.getPageActivity(), this.f57215f.f57229d);
+            this.f57214e.getPageActivity().finish();
+        } else if (view == cVar.f57230e) {
             editText.setText("");
-        } else if (view == cVar.f57226b) {
+        } else if (view == cVar.f57227b) {
             w(this.i);
         }
     }
@@ -336,30 +336,30 @@ public class b implements View.OnClickListener {
         transmitForumData.tabItemDatas = new ArrayList<>();
         ArrayList arrayList = new ArrayList();
         arrayList.add(transmitForumData);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaWriteShareInBarActivityConfig(this.f57213e.getPageActivity(), arrayList, String.valueOf(this.l))));
-        this.f57213e.getPageActivity().finish();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaWriteShareInBarActivityConfig(this.f57214e.getPageActivity(), arrayList, String.valueOf(this.l))));
+        this.f57214e.getPageActivity().finish();
     }
 
     public final void r(String str, String str2) {
         if (WriteActivityConfig.isAsyncWriting()) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f57213e.getPageActivity()).setType(9).setForumId(str).setForumName(str2).setFrom(WriteActivityConfig.FROM_FORUM_SHARE).send();
-        this.f57213e.getPageActivity().finish();
+        WriteActivityConfig.newInstance(this.f57214e.getPageActivity()).setType(9).setForumId(str).setForumName(str2).setFrom(WriteActivityConfig.FROM_FORUM_SHARE).send();
+        this.f57214e.getPageActivity().finish();
     }
 
     public final void s(d.b.i0.o0.c.b bVar) {
         if (bVar == null) {
             return;
         }
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.f57213e.getPageActivity(), 9, String.valueOf(bVar.n()), bVar.o(), null, null, 13011, null, null, null, this.n);
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.f57214e.getPageActivity(), 9, String.valueOf(bVar.n()), bVar.o(), null, null, 13011, null, null, null, this.n);
         transmitPostEditActivityConfig.setCallFrom("2");
         transmitPostEditActivityConfig.setBaijiahaoData(this.m);
         transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.o);
         transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.p);
         transmitPostEditActivityConfig.setFrsTabInfo(p(bVar));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
-        this.f57213e.getPageActivity().finish();
+        this.f57214e.getPageActivity().finish();
     }
 
     public void u() {
@@ -374,7 +374,7 @@ public class b implements View.OnClickListener {
 
     public void w(ArrayList<n> arrayList) {
         this.i = arrayList;
-        this.f57214f.f57231g.setData(arrayList);
+        this.f57215f.f57232g.setData(arrayList);
     }
 
     public void x(int i) {

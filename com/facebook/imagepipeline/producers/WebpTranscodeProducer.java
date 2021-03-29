@@ -22,7 +22,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final ProducerContext mContext;
         public TriState mShouldTranscodeWhenFinished;

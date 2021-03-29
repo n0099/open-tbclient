@@ -19,7 +19,6 @@ public final class UnsignedKt {
             if (d2 <= d3) {
                 return UInt.m713constructorimpl((int) d2);
             }
-            Double.isNaN(d3);
             return UInt.m713constructorimpl(UInt.m713constructorimpl((int) (d2 - d3)) + UInt.m713constructorimpl(Integer.MAX_VALUE));
         }
         return 0;
@@ -58,13 +57,7 @@ public final class UnsignedKt {
 
     @PublishedApi
     public static final double uintToDouble(int i) {
-        double d2 = Integer.MAX_VALUE & i;
-        double d3 = (i >>> 31) << 30;
-        double d4 = 2;
-        Double.isNaN(d3);
-        Double.isNaN(d4);
-        Double.isNaN(d2);
-        return d2 + (d3 * d4);
+        return (Integer.MAX_VALUE & i) + (((i >>> 31) << 30) * 2);
     }
 
     @PublishedApi
@@ -103,13 +96,7 @@ public final class UnsignedKt {
 
     @PublishedApi
     public static final double ulongToDouble(long j) {
-        double d2 = j >>> 11;
-        double d3 = 2048;
-        Double.isNaN(d2);
-        Double.isNaN(d3);
-        double d4 = j & 2047;
-        Double.isNaN(d4);
-        return (d2 * d3) + d4;
+        return ((j >>> 11) * 2048) + (j & 2047);
     }
 
     public static final String ulongToString(long j) {

@@ -55,14 +55,14 @@ public class b extends d.b.i0.x.b<h> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(m(), R.drawable.home_thread_card_item_bg);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -82,23 +82,23 @@ public class b extends d.b.i0.x.b<h> {
     /* renamed from: u */
     public void n(h hVar) {
         MetaData metaData;
-        if (hVar == null || (metaData = hVar.f62210e) == null || metaData.getGodUserData() == null) {
+        if (hVar == null || (metaData = hVar.f62211e) == null || metaData.getGodUserData() == null) {
             return;
         }
         this.v = hVar;
-        MetaData metaData2 = hVar.f62210e;
+        MetaData metaData2 = hVar.f62211e;
         this.u = metaData2;
         this.o.setData(metaData2);
-        this.p.setText(hVar.f62210e.getName_show());
-        this.q.setText(hVar.f62210e.getGodUserData().getIntro());
+        this.p.setText(hVar.f62211e.getName_show());
+        this.q.setText(hVar.f62211e.getGodUserData().getIntro());
         String string = this.t.getResources().getString(R.string.recommend_reason);
-        String recommendReason = hVar.f62210e.getGodUserData().getRecommendReason();
+        String recommendReason = hVar.f62211e.getGodUserData().getRecommendReason();
         if (StringUtils.isNull(recommendReason)) {
             this.r.setText("");
         } else {
             this.r.setText(String.format(string, recommendReason));
         }
-        this.n.n(hVar.f62210e);
+        this.n.n(hVar.f62211e);
         o(null, TbadkCoreApplication.getInst().getSkinType());
     }
 

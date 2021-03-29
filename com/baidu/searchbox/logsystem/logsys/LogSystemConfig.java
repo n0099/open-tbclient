@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig;
 import com.baidu.searchbox.logsystem.logsys.LogUploadConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogSystemConfig {
     @NonNull
     public Context mContext;
@@ -14,7 +14,7 @@ public class LogSystemConfig {
     @NonNull
     public LogUploadConfig mLogUploadConfig;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         @NonNull
         public Context mContext;

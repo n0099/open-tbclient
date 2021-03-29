@@ -14,10 +14,10 @@ import d.b.g0.a.v1.c.c;
 import d.b.g0.a.v1.c.h;
 import d.b.g0.a.v1.c.i.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppDownloadAction extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum SwanAppDownloadType {
         TYPE_QUERY_STATUS("queryStatus"),
         TYPE_START_DOWNLOAD("startDownload"),
@@ -49,27 +49,27 @@ public class SwanAppDownloadAction extends a0 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f12646e;
+        public final /* synthetic */ CallbackHandler f12647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f12647f;
+        public final /* synthetic */ UnitedSchemeEntity f12648f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f12648g;
+        public final /* synthetic */ Context f12649g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f12649h;
+        public final /* synthetic */ JSONObject f12650h;
         public final /* synthetic */ SwanAppDownloadType i;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-            this.f12646e = callbackHandler;
-            this.f12647f = unitedSchemeEntity;
-            this.f12648g = context;
-            this.f12649h = jSONObject;
+            this.f12647e = callbackHandler;
+            this.f12648f = unitedSchemeEntity;
+            this.f12649g = context;
+            this.f12650h = jSONObject;
             this.i = swanAppDownloadType;
         }
 
@@ -78,13 +78,13 @@ public class SwanAppDownloadAction extends a0 {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (c.h(hVar)) {
-                if (SwanAppDownloadAction.this.k(this.f12648g, this.f12647f, this.f12646e, this.f12649h, this.i)) {
+                if (SwanAppDownloadAction.this.k(this.f12649g, this.f12648f, this.f12647e, this.f12650h, this.i)) {
                     return;
                 }
-                UnitedSchemeUtility.callCallback(this.f12646e, this.f12647f, UnitedSchemeUtility.wrapCallbackParams(1001));
+                UnitedSchemeUtility.callCallback(this.f12647e, this.f12648f, UnitedSchemeUtility.wrapCallbackParams(1001));
                 return;
             }
-            c.n(hVar, this.f12646e, this.f12647f);
+            c.n(hVar, this.f12647e, this.f12648f);
         }
     }
 

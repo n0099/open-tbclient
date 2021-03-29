@@ -6,25 +6,25 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BdLog {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4306a = true;
+    public static boolean f4307a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f4307b = null;
+    public static FileOutputStream f4308b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4308c = false;
+    public static boolean f4309c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4309d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    public static String f4310d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f4310e;
+    public static String f4311e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum LogLevel {
         DEBUG,
         ERROR,
@@ -33,33 +33,33 @@ public final class BdLog {
         WARN
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4311a;
+        public static final /* synthetic */ int[] f4312a;
 
         static {
             int[] iArr = new int[LogLevel.values().length];
-            f4311a = iArr;
+            f4312a = iArr;
             try {
                 iArr[LogLevel.DEBUG.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f4311a[LogLevel.ERROR.ordinal()] = 2;
+                f4312a[LogLevel.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f4311a[LogLevel.INFO.ordinal()] = 3;
+                f4312a[LogLevel.INFO.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f4311a[LogLevel.VERBOSE.ordinal()] = 4;
+                f4312a[LogLevel.VERBOSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f4311a[LogLevel.WARN.ordinal()] = 5;
+                f4312a[LogLevel.WARN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -67,11 +67,11 @@ public final class BdLog {
 
     static {
         StringBuilder sb = new StringBuilder();
-        sb.append(f4309d);
+        sb.append(f4310d);
         sb.append("baiduliulanqi_log.txt");
-        f4310e = sb.toString();
+        f4311e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f4309d);
+        sb2.append(f4310d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -83,7 +83,7 @@ public final class BdLog {
         if (str2 == null) {
             str2 = "";
         }
-        int i = a.f4311a[logLevel.ordinal()];
+        int i = a.f4312a[logLevel.ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
@@ -115,7 +115,7 @@ public final class BdLog {
         } else {
             Log.d(str, str2, th);
         }
-        if (f4308c) {
+        if (f4309c) {
             d(str, str2);
         }
     }
@@ -127,15 +127,15 @@ public final class BdLog {
     public static void d(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f4309d);
+                File file = new File(f4310d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f4307b == null) {
-                    f4307b = new FileOutputStream(f4310e);
+                if (f4308b == null) {
+                    f4308b = new FileOutputStream(f4311e);
                 }
-                f4307b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f4307b.write("\n".getBytes());
+                f4308b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                f4308b.write("\n".getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -143,10 +143,10 @@ public final class BdLog {
     }
 
     public static boolean e() {
-        return f4306a;
+        return f4307a;
     }
 
     public static void f(boolean z) {
-        f4306a = z;
+        f4307a = z;
     }
 }

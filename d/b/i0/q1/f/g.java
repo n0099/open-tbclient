@@ -16,28 +16,28 @@ import com.baidu.tieba.R;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f59430a;
+    public Context f59431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f59431b;
+    public TbPageContext f59432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f59432c;
+    public NavigationBar f59433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f59433d;
+    public NoNetworkView f59434d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f59434e;
+    public TbImageView f59435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59435f;
+    public TextView f59436f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59436g;
+    public TextView f59437g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59437h;
+    public TextView f59438h;
     public TextView i;
     public TextView j;
     public TextView k;
@@ -50,25 +50,25 @@ public class g {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(g.this.f59431b, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+            UrlManager.getInstance().dealOneLink(g.this.f59432b, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
         }
     }
 
     public g(TbPageContext tbPageContext) {
-        this.f59430a = tbPageContext.getPageActivity();
-        this.f59431b = tbPageContext;
+        this.f59431a = tbPageContext.getPageActivity();
+        this.f59432b = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.member_pay_result_layout);
         NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.navigation_bar);
-        this.f59432c = navigationBar;
+        this.f59433c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f59432c.showBottomLine();
-        this.f59433d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.no_network_view);
-        this.f59432c.onChangeSkinType(tbPageContext, TbadkApplication.getInst().getSkinType());
-        this.f59434e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.success_img);
-        this.f59435f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.success_text);
-        this.f59436g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.pay_content);
+        this.f59433c.showBottomLine();
+        this.f59434d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.no_network_view);
+        this.f59433c.onChangeSkinType(tbPageContext, TbadkApplication.getInst().getSkinType());
+        this.f59435e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.success_img);
+        this.f59436f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.success_text);
+        this.f59437g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.pay_content);
         this.i = (TextView) tbPageContext.getPageActivity().findViewById(R.id.super_member);
-        this.f59437h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.tip_content);
+        this.f59438h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.tip_content);
         TextView textView = (TextView) tbPageContext.getPageActivity().findViewById(R.id.open_card_box_view);
         this.j = textView;
         textView.setOnClickListener(new a());
@@ -76,32 +76,32 @@ public class g {
     }
 
     public void b(String str) {
-        this.f59436g.setText(String.format(this.f59430a.getString(R.string.pay_member_content), str));
+        this.f59437g.setText(String.format(this.f59431a.getString(R.string.pay_member_content), str));
     }
 
     public final void c() {
-        this.k = this.f59432c.setCenterTextTitle(this.f59430a.getString(R.string.card_box_nav_title));
-        this.f59433d.c(this.f59431b, TbadkApplication.getInst().getSkinType());
+        this.k = this.f59433c.setCenterTextTitle(this.f59431a.getString(R.string.card_box_nav_title));
+        this.f59434d.c(this.f59432b, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-        SkinManager.setImageResource(this.f59434e, R.drawable.icon_send_ok);
-        SkinManager.setViewTextColor(this.f59435f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f59436g, R.color.CAM_X0105);
+        SkinManager.setImageResource(this.f59435e, R.drawable.icon_send_ok);
+        SkinManager.setViewTextColor(this.f59436f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f59437g, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0305);
-        SkinManager.setViewTextColor(this.f59437h, R.color.CAM_X0108);
+        SkinManager.setViewTextColor(this.f59438h, R.color.CAM_X0108);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0111);
         SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_orange);
     }
 
     public void d(int i) {
         if (this.l != i) {
-            this.f59432c.onChangeSkinType(this.f59431b, i);
-            this.f59433d.c(this.f59431b, i);
+            this.f59433c.onChangeSkinType(this.f59432b, i);
+            this.f59434d.c(this.f59432b, i);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-            SkinManager.setImageResource(this.f59434e, R.drawable.icon_send_ok);
-            SkinManager.setViewTextColor(this.f59435f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f59436g, R.color.CAM_X0105);
+            SkinManager.setImageResource(this.f59435e, R.drawable.icon_send_ok);
+            SkinManager.setViewTextColor(this.f59436f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f59437g, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0305);
-            SkinManager.setViewTextColor(this.f59437h, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f59438h, R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0111);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_orange);
         }

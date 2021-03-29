@@ -1,7 +1,7 @@
 package com.baidu.apollon.armor;
 
 import android.util.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class SafePay {
     public static final int INPUT_ID_CVV = 2;
     public static final int INPUT_ID_CVV_MAX_LEN = 3;
@@ -18,38 +18,38 @@ public final class SafePay {
     public static final int SIG_RSA_SHA512 = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3500a = false;
+    public static final boolean f3501a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3501b = "SafePay";
+    public static final String f3502b = "SafePay";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SafePay f3502c = null;
+    public static SafePay f3503c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3503d = true;
+    public static boolean f3504d = true;
 
     static {
         try {
             System.loadLibrary("bd_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f3503d = false;
-            Log.e(f3501b, "load library failed, " + e2.getMessage());
+            f3504d = false;
+            Log.e(f3502b, "load library failed, " + e2.getMessage());
         }
     }
 
     public static synchronized SafePay getInstance() {
         SafePay safePay;
         synchronized (SafePay.class) {
-            if (f3502c == null) {
+            if (f3503c == null) {
                 SafePay safePay2 = new SafePay();
-                f3502c = safePay2;
+                f3503c = safePay2;
                 try {
                     safePay2.init();
                 } catch (Throwable unused) {
                 }
             }
-            safePay = f3502c;
+            safePay = f3503c;
         }
         return safePay;
     }
@@ -151,7 +151,7 @@ public final class SafePay {
     public native String mapScancode(String str);
 
     public boolean prepareCompleted() {
-        return f3503d;
+        return f3504d;
     }
 
     public native String rsaDecrypt(String str);

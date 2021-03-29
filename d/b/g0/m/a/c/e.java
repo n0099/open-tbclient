@@ -9,54 +9,54 @@ import java.util.Set;
 public abstract class e<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public e<K, V>.b f49149a;
+    public e<K, V>.b f49150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e<K, V>.c f49150b;
+    public e<K, V>.c f49151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e<K, V>.C1026e f49151c;
+    public e<K, V>.C1027e f49152c;
 
     /* loaded from: classes3.dex */
     public final class a<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f49152e;
+        public final int f49153e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f49153f;
+        public int f49154f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f49154g;
+        public int f49155g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f49155h = false;
+        public boolean f49156h = false;
 
         public a(int i) {
-            this.f49152e = i;
-            this.f49153f = e.this.d();
+            this.f49153e = i;
+            this.f49154f = e.this.d();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f49154g < this.f49153f;
+            return this.f49155g < this.f49154f;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            T t = (T) e.this.b(this.f49154g, this.f49152e);
-            this.f49154g++;
-            this.f49155h = true;
+            T t = (T) e.this.b(this.f49155g, this.f49153e);
+            this.f49155g++;
+            this.f49156h = true;
             return t;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            if (this.f49155h) {
-                int i = this.f49154g - 1;
-                this.f49154g = i;
-                this.f49153f--;
-                this.f49155h = false;
+            if (this.f49156h) {
+                int i = this.f49155g - 1;
+                this.f49155g = i;
+                this.f49154f--;
+                this.f49156h = false;
                 e.this.h(i);
                 return;
             }
@@ -269,30 +269,30 @@ public abstract class e<K, V> {
     public final class d implements Iterator<Map.Entry<K, V>>, Map.Entry<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f49158e;
+        public int f49159e;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f49160g = false;
+        public boolean f49161g = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f49159f = -1;
+        public int f49160f = -1;
 
         public d() {
-            this.f49158e = e.this.d() - 1;
+            this.f49159e = e.this.d() - 1;
         }
 
         public Map.Entry<K, V> a() {
-            this.f49159f++;
-            this.f49160g = true;
+            this.f49160f++;
+            this.f49161g = true;
             return this;
         }
 
         @Override // java.util.Map.Entry
         public final boolean equals(Object obj) {
-            if (this.f49160g) {
+            if (this.f49161g) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    return d.b.g0.m.a.c.b.b(entry.getKey(), e.this.b(this.f49159f, 0)) && d.b.g0.m.a.c.b.b(entry.getValue(), e.this.b(this.f49159f, 1));
+                    return d.b.g0.m.a.c.b.b(entry.getKey(), e.this.b(this.f49160f, 0)) && d.b.g0.m.a.c.b.b(entry.getValue(), e.this.b(this.f49160f, 1));
                 }
                 return false;
             }
@@ -301,30 +301,30 @@ public abstract class e<K, V> {
 
         @Override // java.util.Map.Entry
         public K getKey() {
-            if (this.f49160g) {
-                return (K) e.this.b(this.f49159f, 0);
+            if (this.f49161g) {
+                return (K) e.this.b(this.f49160f, 0);
             }
             throw new IllegalStateException("This container does not support retaining Map.Entry objects");
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
-            if (this.f49160g) {
-                return (V) e.this.b(this.f49159f, 1);
+            if (this.f49161g) {
+                return (V) e.this.b(this.f49160f, 1);
             }
             throw new IllegalStateException("This container does not support retaining Map.Entry objects");
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f49159f < this.f49158e;
+            return this.f49160f < this.f49159e;
         }
 
         @Override // java.util.Map.Entry
         public final int hashCode() {
-            if (this.f49160g) {
-                Object b2 = e.this.b(this.f49159f, 0);
-                Object b3 = e.this.b(this.f49159f, 1);
+            if (this.f49161g) {
+                Object b2 = e.this.b(this.f49160f, 0);
+                Object b3 = e.this.b(this.f49160f, 1);
                 return (b2 == null ? 0 : b2.hashCode()) ^ (b3 != null ? b3.hashCode() : 0);
             }
             throw new IllegalStateException("This container does not support retaining Map.Entry objects");
@@ -338,11 +338,11 @@ public abstract class e<K, V> {
 
         @Override // java.util.Iterator
         public void remove() {
-            if (this.f49160g) {
-                e.this.h(this.f49159f);
-                this.f49159f--;
-                this.f49158e--;
-                this.f49160g = false;
+            if (this.f49161g) {
+                e.this.h(this.f49160f);
+                this.f49160f--;
+                this.f49159e--;
+                this.f49161g = false;
                 return;
             }
             throw new IllegalStateException();
@@ -350,8 +350,8 @@ public abstract class e<K, V> {
 
         @Override // java.util.Map.Entry
         public V setValue(V v) {
-            if (this.f49160g) {
-                return (V) e.this.i(this.f49159f, v);
+            if (this.f49161g) {
+                return (V) e.this.i(this.f49160f, v);
             }
             throw new IllegalStateException("This container does not support retaining Map.Entry objects");
         }
@@ -363,8 +363,8 @@ public abstract class e<K, V> {
 
     /* renamed from: d.b.g0.m.a.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public final class C1026e implements Collection<V> {
-        public C1026e() {
+    public final class C1027e implements Collection<V> {
+        public C1027e() {
         }
 
         @Override // java.util.Collection
@@ -536,24 +536,24 @@ public abstract class e<K, V> {
     public abstract V i(int i, V v);
 
     public Set<Map.Entry<K, V>> l() {
-        if (this.f49149a == null) {
-            this.f49149a = new b();
+        if (this.f49150a == null) {
+            this.f49150a = new b();
         }
-        return this.f49149a;
+        return this.f49150a;
     }
 
     public Set<K> m() {
-        if (this.f49150b == null) {
-            this.f49150b = new c();
+        if (this.f49151b == null) {
+            this.f49151b = new c();
         }
-        return this.f49150b;
+        return this.f49151b;
     }
 
     public Collection<V> n() {
-        if (this.f49151c == null) {
-            this.f49151c = new C1026e();
+        if (this.f49152c == null) {
+            this.f49152c = new C1027e();
         }
-        return this.f49151c;
+        return this.f49152c;
     }
 
     public Object[] q(int i) {

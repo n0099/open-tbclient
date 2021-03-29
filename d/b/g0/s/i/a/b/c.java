@@ -70,8 +70,8 @@ public class c extends a {
         try {
             jSONObject.put("ext_from", "aiapp");
             jSONObject.put("appid", d.b.g0.a.r1.e.T());
-            jSONObject.put("url", this.f49359b);
-            jSONObject.put(TiebaStatic.Params.VID, this.f49359b);
+            jSONObject.put("url", this.f49360b);
+            jSONObject.put(TiebaStatic.Params.VID, this.f49360b);
             jSONObject.put("isInline", true);
             String str = "";
             d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();

@@ -33,28 +33,28 @@ public class a {
     public long X;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f33993a;
+    public AdTemplate f33994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f33994b;
+    public SceneImpl f33995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f33995c;
+    public long f33996c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f33996d;
+    public long f33997d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33997e;
+    public long f33998e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33998f;
+    public long f33999f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33999g;
+    public long f34000g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f34000h;
+    public long f34001h;
     public long i;
     public long j;
     public long k;
@@ -85,8 +85,8 @@ public class a {
         this.E = -1;
         this.V = -1;
         this.W = -1;
-        this.f33995c = j;
-        this.f33993a = null;
+        this.f33996c = j;
+        this.f33994a = null;
     }
 
     public a(long j, @NonNull AdTemplate adTemplate) {
@@ -100,8 +100,8 @@ public class a {
         this.E = -1;
         this.V = -1;
         this.W = -1;
-        this.f33995c = j;
-        this.f33993a = adTemplate;
+        this.f33996c = j;
+        this.f33994a = adTemplate;
         a(adTemplate.getShowPosition());
     }
 

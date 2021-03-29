@@ -54,7 +54,7 @@ public final class FastPayCallBackManager {
         if (a2 == null) {
             return;
         }
-        a2.onFastPayFail(i, i2, new a.C0245a(i3, str, simpleOrderInfo));
+        a2.onFastPayFail(i, i2, new a.C0246a(i3, str, simpleOrderInfo));
         a.a().b(i);
     }
 

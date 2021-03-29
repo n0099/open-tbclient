@@ -18,29 +18,29 @@ public abstract class b<T extends b<T>> implements a.b {
     public static final l s = new a("alpha");
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f61220d;
+    public final Object f61221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.i0.u.c f61221e;
+    public final d.b.i0.u.c f61222e;
     public float j;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f61217a = 0.0f;
+    public float f61218a = 0.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f61218b = Float.MAX_VALUE;
+    public float f61219b = Float.MAX_VALUE;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61219c = false;
+    public boolean f61220c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61222f = false;
+    public boolean f61223f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f61223g = Float.MAX_VALUE;
+    public float f61224g = Float.MAX_VALUE;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f61224h = -Float.MAX_VALUE;
+    public float f61225h = -Float.MAX_VALUE;
     public long i = 0;
     public final ArrayList<j> k = new ArrayList<>();
     public final ArrayList<k> l = new ArrayList<>();
@@ -68,7 +68,7 @@ public abstract class b<T extends b<T>> implements a.b {
 
     /* renamed from: d.b.i0.u.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1594b extends l {
+    public static class C1595b extends l {
     }
 
     /* loaded from: classes4.dex */
@@ -201,10 +201,10 @@ public abstract class b<T extends b<T>> implements a.b {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public float f61225a;
+        public float f61226a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f61226b;
+        public float f61227b;
     }
 
     /* loaded from: classes4.dex */
@@ -219,7 +219,7 @@ public abstract class b<T extends b<T>> implements a.b {
 
     /* loaded from: classes4.dex */
     public static abstract class l extends d.b.i0.u.c<View> {
-        public /* synthetic */ l(String str, C1594b c1594b) {
+        public /* synthetic */ l(String str, C1595b c1595b) {
             this(str);
         }
 
@@ -229,8 +229,8 @@ public abstract class b<T extends b<T>> implements a.b {
     }
 
     public <K> b(K k2, d.b.i0.u.c<K> cVar) {
-        this.f61220d = k2;
-        this.f61221e = cVar;
+        this.f61221d = k2;
+        this.f61222e = cVar;
         if (cVar != p && cVar != q && cVar != r) {
             if (cVar == s) {
                 this.j = 0.00390625f;
@@ -260,15 +260,15 @@ public abstract class b<T extends b<T>> implements a.b {
         long j3 = this.i;
         if (j3 == 0) {
             this.i = j2;
-            f(this.f61218b);
+            f(this.f61219b);
             return false;
         }
         this.i = j2;
         boolean i2 = i(j2 - j3);
-        float min = Math.min(this.f61218b, this.f61223g);
-        this.f61218b = min;
-        float max = Math.max(min, this.f61224h);
-        this.f61218b = max;
+        float min = Math.min(this.f61219b, this.f61224g);
+        this.f61219b = min;
+        float max = Math.max(min, this.f61225h);
+        this.f61219b = max;
         f(max);
         if (i2) {
             b(false);
@@ -277,20 +277,20 @@ public abstract class b<T extends b<T>> implements a.b {
     }
 
     public final void b(boolean z) {
-        this.f61222f = false;
+        this.f61223f = false;
         d.b.i0.u.a.i().l(this);
         this.i = 0L;
-        this.f61219c = false;
+        this.f61220c = false;
         for (int i2 = 0; i2 < this.k.size(); i2++) {
             if (this.k.get(i2) != null) {
-                this.k.get(i2).a(this, z, this.f61218b, this.f61217a);
+                this.k.get(i2).a(this, z, this.f61219b, this.f61218a);
             }
         }
         e(this.k);
     }
 
     public final float c() {
-        return this.f61221e.a(this.f61220d);
+        return this.f61222e.a(this.f61221d);
     }
 
     public float d() {
@@ -298,10 +298,10 @@ public abstract class b<T extends b<T>> implements a.b {
     }
 
     public void f(float f2) {
-        this.f61221e.b(this.f61220d, f2);
+        this.f61222e.b(this.f61221d, f2);
         for (int i2 = 0; i2 < this.l.size(); i2++) {
             if (this.l.get(i2) != null) {
-                this.l.get(i2).a(this, this.f61218b, this.f61217a);
+                this.l.get(i2).a(this, this.f61219b, this.f61218a);
             }
         }
         e(this.l);
@@ -309,7 +309,7 @@ public abstract class b<T extends b<T>> implements a.b {
 
     public void g() {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            if (this.f61222f) {
+            if (this.f61223f) {
                 return;
             }
             h();
@@ -319,15 +319,15 @@ public abstract class b<T extends b<T>> implements a.b {
     }
 
     public final void h() {
-        if (this.f61222f) {
+        if (this.f61223f) {
             return;
         }
-        this.f61222f = true;
-        if (!this.f61219c) {
-            this.f61218b = c();
+        this.f61223f = true;
+        if (!this.f61220c) {
+            this.f61219b = c();
         }
-        float f2 = this.f61218b;
-        if (f2 <= this.f61223g && f2 >= this.f61224h) {
+        float f2 = this.f61219b;
+        if (f2 <= this.f61224g && f2 >= this.f61225h) {
             d.b.i0.u.a.i().f(this, 0L);
             return;
         }

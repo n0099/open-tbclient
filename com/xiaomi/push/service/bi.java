@@ -13,7 +13,7 @@ import java.util.List;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static bi f41002a = new bi();
+    public static bi f41003a = new bi();
 
     /* renamed from: a  reason: collision with other field name */
     public static String f926a;
@@ -37,7 +37,7 @@ public class bi {
     }
 
     public static bi a() {
-        return f41002a;
+        return f41003a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -77,7 +77,7 @@ public class bi {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

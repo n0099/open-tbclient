@@ -7,13 +7,13 @@ import java.lang.reflect.Field;
 public final class c extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static Class f66113d;
+    public static Class f66114d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f66114b = d();
+    public final Object f66115b = d();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Field f66115c = c();
+    public final Field f66116c = c();
 
     public static Field c() {
         try {
@@ -26,7 +26,7 @@ public final class c extends b {
     public static Object d() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
-            f66113d = cls;
+            f66114d = cls;
             Field declaredField = cls.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
@@ -48,9 +48,9 @@ public final class c extends b {
     }
 
     public boolean e(AccessibleObject accessibleObject) {
-        if (this.f66114b != null && this.f66115c != null) {
+        if (this.f66115b != null && this.f66116c != null) {
             try {
-                f66113d.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f66114b, accessibleObject, Long.valueOf(((Long) f66113d.getMethod("objectFieldOffset", Field.class).invoke(this.f66114b, this.f66115c)).longValue()), Boolean.TRUE);
+                f66114d.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f66115b, accessibleObject, Long.valueOf(((Long) f66114d.getMethod("objectFieldOffset", Field.class).invoke(this.f66115b, this.f66116c)).longValue()), Boolean.TRUE);
                 return true;
             } catch (Exception unused) {
             }

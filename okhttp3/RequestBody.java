@@ -9,7 +9,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public abstract class RequestBody {
     public static RequestBody create(@Nullable MediaType mediaType, String str) {
         Charset charset = Util.UTF_8;

@@ -31,19 +31,19 @@ import java.util.List;
 public class j {
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.r.s.a f61809b;
+    public d.b.h0.r.s.a f61810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.u3.u.c.c f61810c;
+    public d.b.i0.u3.u.c.c f61811c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.u3.u.c.b f61811d;
+    public d.b.i0.u3.u.c.b f61812d;
 
     /* renamed from: f  reason: collision with root package name */
-    public StickerLayout f61813f;
+    public StickerLayout f61814f;
 
     /* renamed from: h  reason: collision with root package name */
-    public FragmentTabWidget f61815h;
+    public FragmentTabWidget f61816h;
     public TbPageContext<WriteMultiImgsActivity> i;
     public LinearLayout k;
     public List<String> l;
@@ -52,13 +52,13 @@ public class j {
     public NavigationBar o;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61808a = 3;
+    public int f61809a = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdBaseViewPager f61812e = null;
+    public BdBaseViewPager f61813e = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f61814g = null;
+    public TextView f61815g = null;
     public int j = 0;
     public ArrayList<FragmentTabIndicator> p = new ArrayList<>();
 
@@ -102,34 +102,34 @@ public class j {
                 return;
             }
             if (i == 0) {
-                jVar.f61810c.e().setVisibility(0);
-                j.this.f61811d.e().setVisibility(8);
+                jVar.f61811c.e().setVisibility(0);
+                j.this.f61812d.e().setVisibility(8);
                 if (ListUtils.isEmpty(j.this.l)) {
                     if (j.this.n != null) {
                         j.this.n.c();
                     }
                 } else {
                     j jVar2 = j.this;
-                    jVar2.f61810c.g(jVar2.l);
+                    jVar2.f61811c.g(jVar2.l);
                 }
             } else if (i == 1) {
-                StickerLayout stickerLayout = jVar.f61813f;
+                StickerLayout stickerLayout = jVar.f61814f;
                 if (stickerLayout != null) {
                     stickerLayout.e();
                 }
-                j.this.f61810c.e().setVisibility(8);
-                j.this.f61811d.e().setVisibility(0);
+                j.this.f61811c.e().setVisibility(8);
+                j.this.f61812d.e().setVisibility(0);
             } else if (i == 2) {
-                StickerLayout stickerLayout2 = jVar.f61813f;
+                StickerLayout stickerLayout2 = jVar.f61814f;
                 if (stickerLayout2 != null) {
                     stickerLayout2.e();
                 }
-                j.this.f61810c.e().setVisibility(8);
-                j.this.f61811d.e().setVisibility(0);
+                j.this.f61811c.e().setVisibility(8);
+                j.this.f61812d.e().setVisibility(0);
             }
             j jVar3 = j.this;
             jVar3.j = i;
-            jVar3.f61815h.setCurrentTab(j.this.j, true, true);
+            jVar3.f61816h.setCurrentTab(j.this.j, true, true);
         }
     }
 
@@ -140,8 +140,8 @@ public class j {
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            if (j.this.f61809b != null) {
-                j.this.f61809b.dismiss();
+            if (j.this.f61810b != null) {
+                j.this.f61810b.dismiss();
             }
             j.this.j(true);
         }
@@ -154,8 +154,8 @@ public class j {
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            if (j.this.f61809b != null) {
-                j.this.f61809b.dismiss();
+            if (j.this.f61810b != null) {
+                j.this.f61810b.dismiss();
             }
             j.this.j(false);
         }
@@ -170,21 +170,21 @@ public class j {
 
     public void a(List<String> list) {
         this.l = list;
-        this.f61810c.g(list);
+        this.f61811c.g(list);
     }
 
     public void h(int i) {
-        if (this.f61808a == i) {
+        if (this.f61809a == i) {
             return;
         }
-        this.f61808a = i;
+        this.f61809a = i;
         SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.o.onChangeSkinType(this.i, i);
-        SkinManager.setNavbarTitleColor(this.f61814g, R.color.CAM_X0302, R.color.s_navbar_title_color);
-        this.f61813f.setRemoveRes(R.drawable.icon_sticker_delete);
-        this.f61810c.h();
-        this.f61811d.f();
+        SkinManager.setNavbarTitleColor(this.f61815g, R.color.CAM_X0302, R.color.s_navbar_title_color);
+        this.f61814f.setRemoveRes(R.drawable.icon_sticker_delete);
+        this.f61811c.h();
+        this.f61812d.f();
         Iterator<FragmentTabIndicator> it = this.p.iterator();
         while (it.hasNext()) {
             FragmentTabIndicator next = it.next();
@@ -192,11 +192,11 @@ public class j {
                 next.e(i);
             }
         }
-        this.f61815h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
+        this.f61816h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
     }
 
     public void i(Bitmap bitmap) {
-        this.f61813f.setVisibility(0);
+        this.f61814f.setVisibility(0);
         try {
             Matrix matrix = new Matrix();
             matrix.postScale(0.6f, 0.6f);
@@ -205,7 +205,7 @@ public class j {
             TbadkCoreApplication.getInst().onAppMemoryLow();
             th.printStackTrace();
         }
-        this.f61813f.b(bitmap, this.n);
+        this.f61814f.b(bitmap, this.n);
     }
 
     public final void j(boolean z) {
@@ -225,7 +225,7 @@ public class j {
     }
 
     public final void l() {
-        this.f61815h = (FragmentTabWidget) this.k.findViewById(R.id.tab_widget);
+        this.f61816h = (FragmentTabWidget) this.k.findViewById(R.id.tab_widget);
         Resources resources = this.i.getResources();
         String[] stringArray = resources.getStringArray(R.array.edit_pic_no_fliter_tab);
         this.p.clear();
@@ -235,46 +235,46 @@ public class j {
             fragmentTabIndicator.setTextColorResId(R.color.edit_pic_tab_title_color);
             fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.fontsize34));
             fragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
-            this.f61815h.addView(fragmentTabIndicator, i);
+            this.f61816h.addView(fragmentTabIndicator, i);
             this.p.add(fragmentTabIndicator);
         }
-        this.f61815h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
-        this.f61815h.setCurrentTab(this.j, true, false);
-        this.f61815h.setDviderRectWidth(l.g(this.i.getContext(), R.dimen.ds64));
-        this.f61815h.setTabSelectionListener(new c());
+        this.f61816h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
+        this.f61816h.setCurrentTab(this.j, true, false);
+        this.f61816h.setDviderRectWidth(l.g(this.i.getContext(), R.dimen.ds64));
+        this.f61816h.setTabSelectionListener(new c());
     }
 
     public final void m() {
-        this.f61812e = (BdBaseViewPager) this.k.findViewById(R.id.write_multi_imgs_viewpager);
-        this.f61813f = (StickerLayout) this.k.findViewById(R.id.stickers_container);
+        this.f61813e = (BdBaseViewPager) this.k.findViewById(R.id.write_multi_imgs_viewpager);
+        this.f61814f = (StickerLayout) this.k.findViewById(R.id.stickers_container);
         Resources resources = this.i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.i.getResources();
         NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.write_multi_imgs_navibar);
         this.o = navigationBar;
         navigationBar.setCenterTextTitle(resources.getString(R.string.pic_navigation_title));
         this.o.showBottomLine();
-        this.f61814g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.done));
+        this.f61815g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.done));
         this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
         FrameLayout frameLayout = (FrameLayout) this.k.findViewById(R.id.edit_container);
         d.b.i0.u3.u.c.c cVar = new d.b.i0.u3.u.c.c(this.i);
-        this.f61810c = cVar;
+        this.f61811c = cVar;
         cVar.i(new b());
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
         layoutParams.setMargins(0, l.g(this.i.getContext(), R.dimen.ds36), 0, 0);
-        this.f61810c.e().setLayoutParams(layoutParams);
-        frameLayout.addView(this.f61810c.e());
+        this.f61811c.e().setLayoutParams(layoutParams);
+        frameLayout.addView(this.f61811c.e());
         d.b.i0.u3.u.c.b bVar = new d.b.i0.u3.u.c.b(this.i);
-        this.f61811d = bVar;
+        this.f61812d = bVar;
         frameLayout.addView(bVar.e());
-        this.f61811d.e().setVisibility(8);
+        this.f61812d.e().setVisibility(8);
         l();
     }
 
     public void n() {
-        this.f61810c.f();
+        this.f61811c.f();
     }
 
     public void o() {
-        StickerLayout stickerLayout = this.f61813f;
+        StickerLayout stickerLayout = this.f61814f;
         if (stickerLayout != null) {
             stickerLayout.f(null);
         }
@@ -285,14 +285,14 @@ public class j {
     }
 
     public void q() {
-        if (this.f61809b == null) {
+        if (this.f61810b == null) {
             d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.i.getPageActivity());
-            this.f61809b = aVar;
+            this.f61810b = aVar;
             aVar.setMessageId(R.string.orginal_conflict_tip);
-            this.f61809b.setPositiveButton(R.string.alert_yes_button, new d());
-            this.f61809b.setNegativeButton(R.string.cancel, new e());
-            this.f61809b.create(this.i);
+            this.f61810b.setPositiveButton(R.string.alert_yes_button, new d());
+            this.f61810b.setNegativeButton(R.string.cancel, new e());
+            this.f61810b.create(this.i);
         }
-        this.f61809b.show();
+        this.f61810b.show();
     }
 }

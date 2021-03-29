@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RetrieveReportImpl implements IRetrieveReportTask {
     public static final String TAG = "RetrieveReportImpl";
     public static volatile RetrieveReportImpl instance;

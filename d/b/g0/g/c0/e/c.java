@@ -8,18 +8,18 @@ import org.json.JSONObject;
 public class c extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48024b;
+    public String f48025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48025c;
+    public int f48026c;
 
     @Override // d.b.g0.g.c0.e.d
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.f48024b);
-            jSONObject.put(RouterCallback.KEY_ERROR_CODE, this.f48025c);
-            jSONObject.put("errMsg", this.f48026a);
+            jSONObject.put(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.f48025b);
+            jSONObject.put(RouterCallback.KEY_ERROR_CODE, this.f48026c);
+            jSONObject.put("errMsg", this.f48027a);
         } catch (JSONException unused) {
         }
         return jSONObject;

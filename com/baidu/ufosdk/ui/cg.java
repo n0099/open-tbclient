@@ -37,19 +37,19 @@ import org.json.JSONArray;
 public final class cg extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23114a;
+    public final /* synthetic */ FeedbackInputActivity f23115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f23115b;
+    public Context f23116b;
 
     public cg(FeedbackInputActivity feedbackInputActivity, Context context) {
-        this.f23114a = feedbackInputActivity;
-        this.f23115b = context;
+        this.f23115a = feedbackInputActivity;
+        this.f23116b = context;
     }
 
     @Override // android.widget.Adapter
     public final int getCount() {
-        return this.f23114a.f23021h.size();
+        return this.f23115a.f23022h.size();
     }
 
     @Override // android.widget.Adapter
@@ -175,13 +175,13 @@ public final class cg extends BaseAdapter {
         Context applicationContext4;
         float f4;
         Handler handler3;
-        if (((Integer) ((Map) this.f23114a.f23021h.get(i)).get("from")).equals(0)) {
-            i2 = (((String) ((Map) this.f23114a.f23021h.get(i)).get("contenttype")).contentEquals("1") || ((String) ((Map) this.f23114a.f23021h.get(i)).get("contenttype")).contentEquals("2")) ? 1 : 2;
+        if (((Integer) ((Map) this.f23115a.f23022h.get(i)).get("from")).equals(0)) {
+            i2 = (((String) ((Map) this.f23115a.f23022h.get(i)).get("contenttype")).contentEquals("1") || ((String) ((Map) this.f23115a.f23022h.get(i)).get("contenttype")).contentEquals("2")) ? 1 : 2;
         } else {
-            if (((Integer) ((Map) this.f23114a.f23021h.get(i)).get("from")).equals(1)) {
-                if (((String) ((Map) this.f23114a.f23021h.get(i)).get("contenttype")).contentEquals("1") || ((String) ((Map) this.f23114a.f23021h.get(i)).get("contenttype")).contentEquals("2") || ((Map) this.f23114a.f23021h.get(i)).get("content").toString().startsWith("http://bs.baidu.com") || ((Map) this.f23114a.f23021h.get(i)).get("content").toString().startsWith("https://bs.baidu.com")) {
+            if (((Integer) ((Map) this.f23115a.f23022h.get(i)).get("from")).equals(1)) {
+                if (((String) ((Map) this.f23115a.f23022h.get(i)).get("contenttype")).contentEquals("1") || ((String) ((Map) this.f23115a.f23022h.get(i)).get("contenttype")).contentEquals("2") || ((Map) this.f23115a.f23022h.get(i)).get("content").toString().startsWith("http://bs.baidu.com") || ((Map) this.f23115a.f23022h.get(i)).get("content").toString().startsWith("https://bs.baidu.com")) {
                     i2 = 4;
-                } else if (((String) ((Map) this.f23114a.f23021h.get(i)).get("contenttype")).contentEquals("-1")) {
+                } else if (((String) ((Map) this.f23115a.f23022h.get(i)).get("contenttype")).contentEquals("-1")) {
                     i2 = 5;
                 }
             }
@@ -218,8 +218,8 @@ public final class cg extends BaseAdapter {
             i3 = i2;
             obj = "contenttype";
             obj2 = "content";
-            packageManager = this.f23115b.getApplicationContext().getPackageManager();
-            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(this.f23115b.getPackageName(), 0);
+            packageManager = this.f23116b.getApplicationContext().getPackageManager();
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(this.f23116b.getPackageName(), 0);
             if (packageManager != null) {
             }
             if (i3 == 1) {
@@ -227,18 +227,18 @@ public final class cg extends BaseAdapter {
             return relativeLayout3;
         }
         if (i2 == 1) {
-            RelativeLayout relativeLayout4 = new RelativeLayout(this.f23115b);
-            RelativeLayout relativeLayout5 = new RelativeLayout(this.f23115b);
-            RelativeLayout relativeLayout6 = new RelativeLayout(this.f23115b);
+            RelativeLayout relativeLayout4 = new RelativeLayout(this.f23116b);
+            RelativeLayout relativeLayout5 = new RelativeLayout(this.f23116b);
+            RelativeLayout relativeLayout6 = new RelativeLayout(this.f23116b);
             relativeLayout4.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
             relativeLayout4.setBackgroundColor(com.baidu.ufosdk.b.z);
             relativeLayout5.setBackgroundColor(com.baidu.ufosdk.b.z);
             relativeLayout6.setBackgroundColor(com.baidu.ufosdk.b.z);
             relativeLayout6.setId(R.id.FUNCTION);
             relativeLayout6.setClickable(false);
-            TextView textView9 = new TextView(this.f23114a);
+            TextView textView9 = new TextView(this.f23115a);
             try {
-                textView9.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_date_bg.9.png"));
+                textView9.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_date_bg.9.png"));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -248,31 +248,31 @@ public final class cg extends BaseAdapter {
             textView9.setMovementMethod(LinkMovementMethod.getInstance());
             obj2 = "content";
             obj = "contenttype";
-            textView9.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f));
+            textView9.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), 0, 0);
+            layoutParams.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), 0, 0);
             layoutParams.addRule(14);
             relativeLayout6.addView(textView9, layoutParams);
             ViewGroup.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
-            relativeLayout6.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+            relativeLayout6.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
             relativeLayout4.addView(relativeLayout6, layoutParams2);
-            dcVar2.f23161a = textView9;
-            dcVar2.f23164d = relativeLayout6;
-            ImageView imageView6 = new ImageView(this.f23114a);
+            dcVar2.f23162a = textView9;
+            dcVar2.f23165d = relativeLayout6;
+            ImageView imageView6 = new ImageView(this.f23115a);
             imageView6.setId(R.id.DOWN);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f));
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f));
             layoutParams3.addRule(11);
-            layoutParams3.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), 0);
+            layoutParams3.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), 0);
             relativeLayout5.addView(imageView6, layoutParams3);
-            dcVar2.f23162b = imageView6;
-            RelativeLayout relativeLayout7 = new RelativeLayout(this.f23114a);
+            dcVar2.f23163b = imageView6;
+            RelativeLayout relativeLayout7 = new RelativeLayout(this.f23115a);
             try {
-                relativeLayout7.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_me_send_bg.9.png"));
-                relativeLayout7.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.0f), 11, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.0f));
+                relativeLayout7.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_me_send_bg.9.png"));
+                relativeLayout7.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.0f), 11, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.0f));
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            ImageView imageView7 = new ImageView(this.f23114a);
+            ImageView imageView7 = new ImageView(this.f23115a);
             imageView7.setOnClickListener(new ch(this));
             imageView7.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView7.setAdjustViewBounds(true);
@@ -281,11 +281,11 @@ public final class cg extends BaseAdapter {
             relativeLayout7.addView(imageView7, layoutParams4);
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
             daVar = daVar3;
-            layoutParams5.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 55.0f), 0, 0, 0);
+            layoutParams5.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 55.0f), 0, 0, 0);
             layoutParams5.addRule(0, imageView6.getId());
             relativeLayout5.addView(relativeLayout7, layoutParams5);
-            dcVar2.f23163c = imageView7;
-            relativeLayout5.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 20.0f));
+            dcVar2.f23164c = imageView7;
+            relativeLayout5.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 20.0f));
             RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams6.addRule(3, relativeLayout6.getId());
             relativeLayout4.addView(relativeLayout5, layoutParams6);
@@ -300,9 +300,9 @@ public final class cg extends BaseAdapter {
             daVar = daVar3;
             if (i2 != 2) {
                 if (i2 == 3) {
-                    RelativeLayout relativeLayout8 = new RelativeLayout(this.f23115b);
-                    RelativeLayout relativeLayout9 = new RelativeLayout(this.f23115b);
-                    RelativeLayout relativeLayout10 = new RelativeLayout(this.f23115b);
+                    RelativeLayout relativeLayout8 = new RelativeLayout(this.f23116b);
+                    RelativeLayout relativeLayout9 = new RelativeLayout(this.f23116b);
+                    RelativeLayout relativeLayout10 = new RelativeLayout(this.f23116b);
                     ViewGroup.LayoutParams layoutParams7 = new AbsListView.LayoutParams(-1, -2);
                     relativeLayout8.setBackgroundColor(com.baidu.ufosdk.b.z);
                     relativeLayout9.setBackgroundColor(com.baidu.ufosdk.b.z);
@@ -310,9 +310,9 @@ public final class cg extends BaseAdapter {
                     relativeLayout8.setLayoutParams(layoutParams7);
                     relativeLayout10.setId(R.id.FUNCTION);
                     relativeLayout10.setClickable(false);
-                    TextView textView10 = new TextView(this.f23114a);
+                    TextView textView10 = new TextView(this.f23115a);
                     try {
-                        textView10.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_date_bg.9.png"));
+                        textView10.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_date_bg.9.png"));
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
@@ -320,36 +320,36 @@ public final class cg extends BaseAdapter {
                     textView10.setTextSize(com.baidu.ufosdk.b.Q);
                     textView10.setGravity(17);
                     textView10.setMovementMethod(LinkMovementMethod.getInstance());
-                    textView10.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f));
+                    textView10.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f));
                     RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams8.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), 0, 0);
+                    layoutParams8.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), 0, 0);
                     layoutParams8.addRule(14);
                     relativeLayout10.addView(textView10, layoutParams8);
                     ViewGroup.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(-1, -2);
-                    relativeLayout10.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+                    relativeLayout10.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
                     relativeLayout8.addView(relativeLayout10, layoutParams9);
-                    dbVar2.f23153a = textView10;
-                    dbVar2.f23156d = relativeLayout10;
-                    ImageView imageView8 = new ImageView(this.f23114a);
+                    dbVar2.f23154a = textView10;
+                    dbVar2.f23157d = relativeLayout10;
+                    ImageView imageView8 = new ImageView(this.f23115a);
                     imageView8.setId(R.id.DOWN);
-                    RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f));
-                    layoutParams10.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 4.0f), 0);
+                    RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f));
+                    layoutParams10.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 4.0f), 0);
                     layoutParams10.addRule(9);
                     relativeLayout9.addView(imageView8, layoutParams10);
-                    dbVar2.f23154b = imageView8;
-                    LinearLayout linearLayout = new LinearLayout(this.f23115b);
+                    dbVar2.f23155b = imageView8;
+                    LinearLayout linearLayout = new LinearLayout(this.f23116b);
                     linearLayout.setOrientation(1);
                     linearLayout.setId(R.style.AppTheme);
                     try {
-                        linearLayout.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_server_send_bg.9.png"));
+                        linearLayout.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_server_send_bg.9.png"));
                     } catch (IOException e5) {
                         e5.printStackTrace();
                     } catch (Exception e6) {
                         e6.printStackTrace();
                     }
-                    TextView textView11 = new TextView(this.f23114a);
+                    TextView textView11 = new TextView(this.f23115a);
                     textView11.setId(R.style.AppBaseTheme);
-                    textView11.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+                    textView11.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
                     textView11.setGravity(16);
                     textView11.setLineSpacing(5.0f, 1.0f);
                     textView11.setTextColor(-13421773);
@@ -357,80 +357,80 @@ public final class cg extends BaseAdapter {
                     textView11.setAutoLinkMask(1);
                     textView11.setMovementMethod(LinkMovementMethod.getInstance());
                     textView11.setOnLongClickListener(new ct(this));
-                    dbVar2.f23155c = textView11;
+                    dbVar2.f23156c = textView11;
                     linearLayout.addView(textView11, new LinearLayout.LayoutParams(-2, -2));
-                    RelativeLayout relativeLayout11 = new RelativeLayout(this.f23115b);
+                    RelativeLayout relativeLayout11 = new RelativeLayout(this.f23116b);
                     relativeLayout11.setVisibility(8);
                     relativeLayout11.setBackgroundColor(-1);
-                    LinearLayout linearLayout2 = new LinearLayout(this.f23115b);
+                    LinearLayout linearLayout2 = new LinearLayout(this.f23116b);
                     linearLayout2.setBackgroundColor(-1);
                     linearLayout2.setOrientation(0);
-                    TextView textView12 = new TextView(this.f23115b);
+                    TextView textView12 = new TextView(this.f23116b);
                     textView12.setText("满意");
                     textView12.setTextColor(-12814593);
                     textView12.setTextSize(15.0f);
                     textView12.setGravity(17);
-                    BitmapDrawable bitmapDrawable2 = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_solved.png"));
-                    bitmapDrawable2.setBounds(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 20.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 20.0f));
+                    BitmapDrawable bitmapDrawable2 = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_solved.png"));
+                    bitmapDrawable2.setBounds(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 20.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 20.0f));
                     textView12.setCompoundDrawables(bitmapDrawable2, null, null, null);
-                    textView12.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_bottom_button.9.png", "ufo_bottom_button_pressed.9.png"));
-                    LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 35.0f));
-                    layoutParams11.setMargins(0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f), 0);
+                    textView12.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_bottom_button.9.png", "ufo_bottom_button_pressed.9.png"));
+                    LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 35.0f));
+                    layoutParams11.setMargins(0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f), 0);
                     layoutParams11.weight = 1.0f;
                     linearLayout2.addView(textView12, layoutParams11);
-                    TextView textView13 = new TextView(this.f23115b);
+                    TextView textView13 = new TextView(this.f23116b);
                     textView13.setText("不满意");
                     textView13.setTextColor(-65536);
                     textView13.setTextSize(15.0f);
                     textView13.setGravity(17);
-                    BitmapDrawable bitmapDrawable3 = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_not_solved.png"));
+                    BitmapDrawable bitmapDrawable3 = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_not_solved.png"));
                     int i9 = i2;
-                    bitmapDrawable3.setBounds(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 13.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 33.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 20.0f));
+                    bitmapDrawable3.setBounds(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 13.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 33.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 20.0f));
                     textView13.setCompoundDrawables(bitmapDrawable3, null, null, null);
-                    textView13.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_bottom_button.9.png", "ufo_bottom_button_pressed.9.png"));
-                    LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 35.0f));
-                    layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f), 0, 0, 0);
+                    textView13.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_bottom_button.9.png", "ufo_bottom_button_pressed.9.png"));
+                    LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 35.0f));
+                    layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f), 0, 0, 0);
                     layoutParams12.weight = 1.0f;
                     linearLayout2.addView(textView13, layoutParams12);
                     relativeLayout11.addView(linearLayout2, new RelativeLayout.LayoutParams(-1, -1));
-                    dbVar2.f23157e = relativeLayout11;
-                    dbVar2.f23158f = textView12;
-                    dbVar2.f23159g = textView13;
-                    i iVar = new i(this.f23114a);
+                    dbVar2.f23158e = relativeLayout11;
+                    dbVar2.f23159f = textView12;
+                    dbVar2.f23160g = textView13;
+                    i iVar = new i(this.f23115a);
                     iVar.setVisibility(8);
-                    dbVar2.f23160h = iVar;
-                    ImageView imageView9 = new ImageView(this.f23114a);
+                    dbVar2.f23161h = iVar;
+                    ImageView imageView9 = new ImageView(this.f23115a);
                     imageView9.setId(R.id.TOP);
                     imageView9.setVisibility(8);
                     dbVar2.i = imageView9;
                     LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams13.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 13.0f));
+                    layoutParams13.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 13.0f));
                     linearLayout.addView(relativeLayout11, layoutParams13);
-                    LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 0.5f));
-                    layoutParams14.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 3.0f));
+                    LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 0.5f));
+                    layoutParams14.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 3.0f));
                     linearLayout.addView(iVar, layoutParams14);
-                    LinearLayout.LayoutParams layoutParams15 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 20.0f));
-                    layoutParams15.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 13.0f));
+                    LinearLayout.LayoutParams layoutParams15 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 20.0f));
+                    layoutParams15.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 13.0f));
                     linearLayout.addView(imageView9, layoutParams15);
                     RelativeLayout.LayoutParams layoutParams16 = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams16.setMargins(0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 57.0f), 0);
+                    layoutParams16.setMargins(0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 57.0f), 0);
                     layoutParams16.addRule(1, imageView8.getId());
                     relativeLayout9.addView(linearLayout, layoutParams16);
-                    TextView textView14 = new TextView(this.f23115b);
+                    TextView textView14 = new TextView(this.f23116b);
                     textView14.setVisibility(8);
                     textView14.setText("填写不满意原因");
                     textView14.setTextSize(15.0f);
                     textView14.setTextColor(com.baidu.ufosdk.f.i.a(-12814593, -15644211, -12814593, -12814593));
-                    Drawable a9 = com.baidu.ufosdk.f.i.a(this.f23115b, com.baidu.ufosdk.R.drawable.ufo_show_reason_normal);
-                    a9.setBounds(com.baidu.ufosdk.f.i.a(this.f23115b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23115b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23115b, 14.0f), com.baidu.ufosdk.f.i.a(this.f23115b, 14.0f));
+                    Drawable a9 = com.baidu.ufosdk.f.i.a(this.f23116b, com.baidu.ufosdk.R.drawable.ufo_show_reason_normal);
+                    a9.setBounds(com.baidu.ufosdk.f.i.a(this.f23116b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23116b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23116b, 14.0f), com.baidu.ufosdk.f.i.a(this.f23116b, 14.0f));
                     textView14.setCompoundDrawables(null, null, a9, null);
                     RelativeLayout.LayoutParams layoutParams17 = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams17.addRule(3, linearLayout.getId());
                     layoutParams17.addRule(1, imageView8.getId());
-                    layoutParams17.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 13.0f));
+                    layoutParams17.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 3.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 13.0f));
                     relativeLayout9.addView(textView14, layoutParams17);
                     dbVar2.j = textView14;
-                    relativeLayout9.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f));
+                    relativeLayout9.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f));
                     RelativeLayout.LayoutParams layoutParams18 = new RelativeLayout.LayoutParams(-1, -2);
                     layoutParams18.addRule(3, relativeLayout10.getId());
                     relativeLayout8.addView(relativeLayout9, layoutParams18);
@@ -448,9 +448,9 @@ public final class cg extends BaseAdapter {
                     dcVar = dcVar2;
                     ddVar = ddVar2;
                     if (i3 == 4) {
-                        RelativeLayout relativeLayout12 = new RelativeLayout(this.f23115b);
-                        RelativeLayout relativeLayout13 = new RelativeLayout(this.f23115b);
-                        RelativeLayout relativeLayout14 = new RelativeLayout(this.f23115b);
+                        RelativeLayout relativeLayout12 = new RelativeLayout(this.f23116b);
+                        RelativeLayout relativeLayout13 = new RelativeLayout(this.f23116b);
+                        RelativeLayout relativeLayout14 = new RelativeLayout(this.f23116b);
                         ViewGroup.LayoutParams layoutParams19 = new AbsListView.LayoutParams(-1, -2);
                         relativeLayout12.setBackgroundColor(com.baidu.ufosdk.b.z);
                         relativeLayout13.setBackgroundColor(com.baidu.ufosdk.b.z);
@@ -458,9 +458,9 @@ public final class cg extends BaseAdapter {
                         relativeLayout12.setLayoutParams(layoutParams19);
                         relativeLayout14.setId(R.id.FUNCTION);
                         relativeLayout14.setClickable(false);
-                        TextView textView15 = new TextView(this.f23114a);
+                        TextView textView15 = new TextView(this.f23115a);
                         try {
-                            textView15.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_date_bg.9.png"));
+                            textView15.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_date_bg.9.png"));
                         } catch (Exception e7) {
                             e7.printStackTrace();
                         }
@@ -468,31 +468,31 @@ public final class cg extends BaseAdapter {
                         textView15.setTextSize(com.baidu.ufosdk.b.Q);
                         textView15.setGravity(17);
                         textView15.setMovementMethod(LinkMovementMethod.getInstance());
-                        textView15.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f));
+                        textView15.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f));
                         RelativeLayout.LayoutParams layoutParams20 = new RelativeLayout.LayoutParams(-2, -2);
-                        layoutParams20.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), 0, 0);
+                        layoutParams20.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), 0, 0);
                         layoutParams20.addRule(14);
                         relativeLayout14.addView(textView15, layoutParams20);
                         ViewGroup.LayoutParams layoutParams21 = new RelativeLayout.LayoutParams(-1, -2);
-                        relativeLayout14.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+                        relativeLayout14.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
                         relativeLayout12.addView(relativeLayout14, layoutParams21);
-                        czVar2.f23142a = textView15;
-                        czVar2.f23145d = relativeLayout14;
-                        ImageView imageView10 = new ImageView(this.f23114a);
+                        czVar2.f23143a = textView15;
+                        czVar2.f23146d = relativeLayout14;
+                        ImageView imageView10 = new ImageView(this.f23115a);
                         imageView10.setId(R.id.DOWN);
-                        RelativeLayout.LayoutParams layoutParams22 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f));
-                        layoutParams22.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 4.0f), 0);
+                        RelativeLayout.LayoutParams layoutParams22 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f));
+                        layoutParams22.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 4.0f), 0);
                         layoutParams22.addRule(9);
                         relativeLayout13.addView(imageView10, layoutParams22);
-                        czVar2.f23143b = imageView10;
-                        RelativeLayout relativeLayout15 = new RelativeLayout(this.f23114a);
+                        czVar2.f23144b = imageView10;
+                        RelativeLayout relativeLayout15 = new RelativeLayout(this.f23115a);
                         try {
-                            relativeLayout15.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_server_send_bg.9.png"));
-                            relativeLayout15.setPadding(11, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.2f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.0f));
+                            relativeLayout15.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_server_send_bg.9.png"));
+                            relativeLayout15.setPadding(11, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.2f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.0f));
                         } catch (Exception e8) {
                             e8.printStackTrace();
                         }
-                        ImageView imageView11 = new ImageView(this.f23114a);
+                        ImageView imageView11 = new ImageView(this.f23115a);
                         imageView11.setOnClickListener(new cv(this));
                         imageView11.setScaleType(ImageView.ScaleType.FIT_XY);
                         if (com.baidu.ufosdk.f.i.a() < 23) {
@@ -502,17 +502,17 @@ public final class cg extends BaseAdapter {
                             relativeLayout15.addView(imageView11, layoutParams23);
                             i4 = 0;
                         } else {
-                            RelativeLayout.LayoutParams layoutParams24 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 80.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 120.0f));
+                            RelativeLayout.LayoutParams layoutParams24 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 80.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 120.0f));
                             i4 = 0;
                             layoutParams24.setMargins(0, 0, 0, 0);
                             relativeLayout15.addView(imageView11, layoutParams24);
                         }
                         RelativeLayout.LayoutParams layoutParams25 = new RelativeLayout.LayoutParams(-2, -2);
-                        layoutParams25.setMargins(i4, i4, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 57.0f), i4);
+                        layoutParams25.setMargins(i4, i4, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 57.0f), i4);
                         layoutParams25.addRule(1, imageView10.getId());
                         relativeLayout13.addView(relativeLayout15, layoutParams25);
-                        czVar2.f23144c = imageView11;
-                        relativeLayout13.setPadding(i4, i4, i4, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f));
+                        czVar2.f23145c = imageView11;
+                        relativeLayout13.setPadding(i4, i4, i4, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f));
                         RelativeLayout.LayoutParams layoutParams26 = new RelativeLayout.LayoutParams(-1, -2);
                         layoutParams26.addRule(3, relativeLayout14.getId());
                         relativeLayout12.addView(relativeLayout13, layoutParams26);
@@ -525,9 +525,9 @@ public final class cg extends BaseAdapter {
                         ddVar2 = ddVar;
                         relativeLayout3 = relativeLayout12;
                     } else if (i3 == 5) {
-                        RelativeLayout relativeLayout16 = new RelativeLayout(this.f23115b);
-                        RelativeLayout relativeLayout17 = new RelativeLayout(this.f23115b);
-                        RelativeLayout relativeLayout18 = new RelativeLayout(this.f23115b);
+                        RelativeLayout relativeLayout16 = new RelativeLayout(this.f23116b);
+                        RelativeLayout relativeLayout17 = new RelativeLayout(this.f23116b);
+                        RelativeLayout relativeLayout18 = new RelativeLayout(this.f23116b);
                         ViewGroup.LayoutParams layoutParams27 = new AbsListView.LayoutParams(-1, -2);
                         relativeLayout16.setBackgroundColor(com.baidu.ufosdk.b.z);
                         relativeLayout17.setBackgroundColor(com.baidu.ufosdk.b.z);
@@ -535,9 +535,9 @@ public final class cg extends BaseAdapter {
                         relativeLayout16.setLayoutParams(layoutParams27);
                         relativeLayout18.setId(R.id.FUNCTION);
                         relativeLayout18.setClickable(false);
-                        TextView textView16 = new TextView(this.f23114a);
+                        TextView textView16 = new TextView(this.f23115a);
                         try {
-                            textView16.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_date_bg.9.png"));
+                            textView16.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_date_bg.9.png"));
                         } catch (Exception e9) {
                             e9.printStackTrace();
                         }
@@ -545,56 +545,56 @@ public final class cg extends BaseAdapter {
                         textView16.setTextSize(com.baidu.ufosdk.b.Q);
                         textView16.setGravity(17);
                         textView16.setMovementMethod(LinkMovementMethod.getInstance());
-                        textView16.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f));
+                        textView16.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f));
                         RelativeLayout.LayoutParams layoutParams28 = new RelativeLayout.LayoutParams(-2, -2);
-                        layoutParams28.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), 0, 0);
+                        layoutParams28.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), 0, 0);
                         layoutParams28.addRule(14);
                         relativeLayout18.addView(textView16, layoutParams28);
                         ViewGroup.LayoutParams layoutParams29 = new RelativeLayout.LayoutParams(-1, -2);
-                        relativeLayout18.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+                        relativeLayout18.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
                         relativeLayout16.addView(relativeLayout18, layoutParams29);
                         daVar2 = daVar;
-                        daVar2.f23146a = textView16;
-                        daVar2.f23152g = relativeLayout18;
-                        ImageView imageView12 = new ImageView(this.f23114a);
+                        daVar2.f23147a = textView16;
+                        daVar2.f23153g = relativeLayout18;
+                        ImageView imageView12 = new ImageView(this.f23115a);
                         imageView12.setId(R.id.DOWN);
-                        RelativeLayout.LayoutParams layoutParams30 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f));
-                        layoutParams30.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 4.0f), 0);
+                        RelativeLayout.LayoutParams layoutParams30 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f));
+                        layoutParams30.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 4.0f), 0);
                         layoutParams30.addRule(9);
                         relativeLayout17.addView(imageView12, layoutParams30);
-                        daVar2.f23147b = imageView12;
-                        LinearLayout linearLayout3 = new LinearLayout(this.f23114a);
+                        daVar2.f23148b = imageView12;
+                        LinearLayout linearLayout3 = new LinearLayout(this.f23115a);
                         linearLayout3.setOrientation(1);
                         linearLayout3.setId(2131755014);
                         try {
-                            linearLayout3.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_server_send_bg_type5.9.png"));
+                            linearLayout3.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_server_send_bg_type5.9.png"));
                         } catch (Exception e10) {
                             e10.printStackTrace();
                         }
                         linearLayout3.setPadding(10, 3, 2, 2);
-                        TextView textView17 = new TextView(this.f23114a);
+                        TextView textView17 = new TextView(this.f23115a);
                         textView17.setGravity(16);
                         textView17.setLineSpacing(5.0f, 1.0f);
                         textView17.setSingleLine(false);
                         textView17.setTextColor(-13421773);
                         textView17.setBackgroundColor(BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT);
                         textView17.setTextSize(com.baidu.ufosdk.b.R);
-                        textView17.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f));
+                        textView17.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f));
                         linearLayout3.addView(textView17, new LinearLayout.LayoutParams(-1, -2));
-                        daVar2.f23149d = textView17;
-                        ListView listView = new ListView(this.f23114a);
+                        daVar2.f23150d = textView17;
+                        ListView listView = new ListView(this.f23115a);
                         listView.setBackgroundColor(com.baidu.ufosdk.b.D);
                         listView.setDivider(new ColorDrawable(com.baidu.ufosdk.b.I));
                         listView.setDividerHeight(0);
                         linearLayout3.addView(listView, new LinearLayout.LayoutParams(-1, -2));
-                        daVar2.f23148c = listView;
-                        View view2 = new View(this.f23114a);
+                        daVar2.f23149c = listView;
+                        View view2 = new View(this.f23115a);
                         view2.setBackgroundColor(BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT);
                         view2.setVisibility(8);
-                        linearLayout3.addView(view2, new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 1.0f)));
-                        LinearLayout linearLayout4 = new LinearLayout(this.f23114a);
+                        linearLayout3.addView(view2, new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 1.0f)));
+                        LinearLayout linearLayout4 = new LinearLayout(this.f23115a);
                         linearLayout4.setBackgroundColor(com.baidu.ufosdk.b.z);
-                        TextView textView18 = new TextView(this.f23114a);
+                        TextView textView18 = new TextView(this.f23115a);
                         textView18.setGravity(16);
                         textView18.setBackgroundColor(com.baidu.ufosdk.b.z);
                         textView18.setLineSpacing(5.0f, 1.0f);
@@ -604,19 +604,19 @@ public final class cg extends BaseAdapter {
                         LinearLayout.LayoutParams layoutParams31 = new LinearLayout.LayoutParams(-1, -2);
                         czVar = czVar2;
                         dbVar = dbVar2;
-                        layoutParams31.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 5.0f));
+                        layoutParams31.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 5.0f));
                         linearLayout4.addView(textView18, layoutParams31);
-                        daVar2.f23150e = textView18;
+                        daVar2.f23151e = textView18;
                         RelativeLayout.LayoutParams layoutParams32 = new RelativeLayout.LayoutParams(-1, -2);
-                        layoutParams32.setMargins(0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 57.0f), 0);
+                        layoutParams32.setMargins(0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 57.0f), 0);
                         layoutParams32.addRule(1, imageView12.getId());
                         relativeLayout17.addView(linearLayout3, layoutParams32);
-                        daVar2.f23151f = linearLayout3;
+                        daVar2.f23152f = linearLayout3;
                         RelativeLayout.LayoutParams layoutParams33 = new RelativeLayout.LayoutParams(-1, -2);
                         layoutParams33.addRule(1, imageView12.getId());
                         layoutParams33.addRule(3, linearLayout3.getId());
                         relativeLayout17.addView(linearLayout4, layoutParams33);
-                        relativeLayout17.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f));
+                        relativeLayout17.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f));
                         RelativeLayout.LayoutParams layoutParams34 = new RelativeLayout.LayoutParams(-1, -2);
                         layoutParams34.addRule(3, relativeLayout18.getId());
                         relativeLayout16.addView(relativeLayout17, layoutParams34);
@@ -630,8 +630,8 @@ public final class cg extends BaseAdapter {
                         relativeLayout2 = view;
                     }
                 }
-                packageManager = this.f23115b.getApplicationContext().getPackageManager();
-                ApplicationInfo applicationInfo2 = packageManager.getApplicationInfo(this.f23115b.getPackageName(), 0);
+                packageManager = this.f23116b.getApplicationContext().getPackageManager();
+                ApplicationInfo applicationInfo2 = packageManager.getApplicationInfo(this.f23116b.getPackageName(), 0);
                 if (packageManager != null) {
                     Drawable applicationIcon = packageManager.getApplicationIcon(applicationInfo2);
                     bitmap = applicationIcon instanceof BitmapDrawable ? ((BitmapDrawable) applicationIcon).getBitmap() : FeedbackInputActivity.a(applicationIcon);
@@ -639,63 +639,63 @@ public final class cg extends BaseAdapter {
                     bitmap = null;
                 }
                 if (i3 == 1) {
-                    dcVar2.f23164d.setVisibility(0);
+                    dcVar2.f23165d.setVisibility(0);
                     if (i == 0) {
-                        textView8 = dcVar2.f23161a;
-                        a8 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time")));
+                        textView8 = dcVar2.f23162a;
+                        a8 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time")));
                     } else {
-                        long parseLong = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i - 1)).get("time"));
-                        long parseLong2 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time"));
+                        long parseLong = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i - 1)).get("time"));
+                        long parseLong2 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time"));
                         long j = parseLong - parseLong2;
                         if (j > VideoCloudSetting.HOUR_MILLISECOND || parseLong2 - parseLong > VideoCloudSetting.HOUR_MILLISECOND) {
-                            dcVar2.f23161a.setText(com.baidu.ufosdk.f.i.c(parseLong2));
+                            dcVar2.f23162a.setText(com.baidu.ufosdk.f.i.c(parseLong2));
                             if (j > 86400000 || parseLong2 - parseLong > 86400000) {
-                                textView8 = dcVar2.f23161a;
+                                textView8 = dcVar2.f23162a;
                                 a8 = com.baidu.ufosdk.f.i.a(parseLong2);
                             }
                         } else {
-                            dcVar2.f23164d.setVisibility(8);
+                            dcVar2.f23165d.setVisibility(8);
                         }
-                        dcVar2.f23162b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23114a.getApplicationContext())));
+                        dcVar2.f23163b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23115a.getApplicationContext())));
                         obj3 = obj;
-                        if (((String) ((Map) this.f23114a.f23021h.get(i)).get(obj3)).contentEquals("1")) {
+                        if (((String) ((Map) this.f23115a.f23022h.get(i)).get(obj3)).contentEquals("1")) {
                             Object obj4 = obj2;
-                            if (((String) ((Map) this.f23114a.f23021h.get(i)).get(obj3)).contentEquals("2") && dcVar2.f23163c != null) {
-                                bitmap2 = (Bitmap) ((Map) this.f23114a.f23021h.get(i)).get(obj4);
+                            if (((String) ((Map) this.f23115a.f23022h.get(i)).get(obj3)).contentEquals("2") && dcVar2.f23164c != null) {
+                                bitmap2 = (Bitmap) ((Map) this.f23115a.f23022h.get(i)).get(obj4);
                                 if (bitmap2.getHeight() > bitmap2.getWidth()) {
-                                    dcVar2.f23163c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 80.0f));
-                                    imageView5 = dcVar2.f23163c;
-                                    applicationContext4 = this.f23114a.getApplicationContext();
+                                    dcVar2.f23164c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 80.0f));
+                                    imageView5 = dcVar2.f23164c;
+                                    applicationContext4 = this.f23115a.getApplicationContext();
                                     f4 = 120.0f;
                                 } else {
-                                    dcVar2.f23163c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 120.0f));
-                                    imageView5 = dcVar2.f23163c;
-                                    applicationContext4 = this.f23114a.getApplicationContext();
+                                    dcVar2.f23164c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 120.0f));
+                                    imageView5 = dcVar2.f23164c;
+                                    applicationContext4 = this.f23115a.getApplicationContext();
                                     f4 = 80.0f;
                                 }
                                 imageView5.setMaxHeight(com.baidu.ufosdk.f.i.a(applicationContext4, f4));
-                                imageView3 = dcVar2.f23163c;
+                                imageView3 = dcVar2.f23164c;
                                 imageView3.setImageBitmap(bitmap2);
                             }
                         } else {
-                            dcVar2.f23163c.setImageBitmap(com.baidu.ufosdk.f.m.a(this.f23115b, "ufo_pic_defult_icon.png"));
+                            dcVar2.f23164c.setImageBitmap(com.baidu.ufosdk.f.m.a(this.f23116b, "ufo_pic_defult_icon.png"));
                             com.baidu.ufosdk.f.a a10 = com.baidu.ufosdk.f.a.a();
-                            Context applicationContext5 = this.f23114a.getApplicationContext();
-                            ImageView imageView13 = dcVar2.f23163c;
-                            handler3 = this.f23114a.aK;
-                            Bitmap a11 = a10.a(new com.baidu.ufosdk.f.n(applicationContext5, imageView13, handler3), (String) ((Map) this.f23114a.f23021h.get(i)).get(obj2));
+                            Context applicationContext5 = this.f23115a.getApplicationContext();
+                            ImageView imageView13 = dcVar2.f23164c;
+                            handler3 = this.f23115a.aK;
+                            Bitmap a11 = a10.a(new com.baidu.ufosdk.f.n(applicationContext5, imageView13, handler3), (String) ((Map) this.f23115a.f23022h.get(i)).get(obj2));
                             if (a11 != null) {
-                                dcVar2.f23163c.setImageBitmap(a11);
+                                dcVar2.f23164c.setImageBitmap(a11);
                                 if (a11.getHeight() > a11.getWidth()) {
-                                    dcVar2.f23163c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 80.0f));
-                                    imageView = dcVar2.f23163c;
-                                    applicationContext3 = this.f23114a.getApplicationContext();
+                                    dcVar2.f23164c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 80.0f));
+                                    imageView = dcVar2.f23164c;
+                                    applicationContext3 = this.f23115a.getApplicationContext();
                                     f3 = 120.0f;
                                     imageView.setMaxHeight(com.baidu.ufosdk.f.i.a(applicationContext3, f3));
                                 } else {
-                                    dcVar2.f23163c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 120.0f));
-                                    imageView = dcVar2.f23163c;
-                                    applicationContext3 = this.f23114a.getApplicationContext();
+                                    dcVar2.f23164c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 120.0f));
+                                    imageView = dcVar2.f23164c;
+                                    applicationContext3 = this.f23115a.getApplicationContext();
                                     f3 = 80.0f;
                                     imageView.setMaxHeight(com.baidu.ufosdk.f.i.a(applicationContext3, f3));
                                 }
@@ -703,76 +703,76 @@ public final class cg extends BaseAdapter {
                         }
                     }
                     textView8.setText(a8);
-                    dcVar2.f23162b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23114a.getApplicationContext())));
+                    dcVar2.f23163b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23115a.getApplicationContext())));
                     obj3 = obj;
-                    if (((String) ((Map) this.f23114a.f23021h.get(i)).get(obj3)).contentEquals("1")) {
+                    if (((String) ((Map) this.f23115a.f23022h.get(i)).get(obj3)).contentEquals("1")) {
                     }
                 } else {
                     Object obj5 = obj2;
                     Object obj6 = obj;
                     if (i3 == 2) {
-                        ddVar2.f23168d.setVisibility(0);
+                        ddVar2.f23169d.setVisibility(0);
                         if (i == 0) {
-                            textView7 = ddVar2.f23165a;
-                            a7 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time")));
+                            textView7 = ddVar2.f23166a;
+                            a7 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time")));
                         } else {
-                            long parseLong3 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i - 1)).get("time"));
-                            long parseLong4 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time"));
+                            long parseLong3 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i - 1)).get("time"));
+                            long parseLong4 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time"));
                             long j2 = parseLong3 - parseLong4;
                             if (j2 > VideoCloudSetting.HOUR_MILLISECOND || parseLong4 - parseLong3 > VideoCloudSetting.HOUR_MILLISECOND) {
-                                ddVar2.f23165a.setText(com.baidu.ufosdk.f.i.c(parseLong4));
+                                ddVar2.f23166a.setText(com.baidu.ufosdk.f.i.c(parseLong4));
                                 if (j2 > 86400000 || parseLong4 - parseLong3 > 86400000) {
-                                    textView7 = ddVar2.f23165a;
+                                    textView7 = ddVar2.f23166a;
                                     a7 = com.baidu.ufosdk.f.i.a(parseLong4);
                                 }
                             } else {
-                                ddVar2.f23168d.setVisibility(8);
+                                ddVar2.f23169d.setVisibility(8);
                             }
-                            ddVar2.f23166b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23114a.getApplicationContext())));
-                            ddVar2.f23167c.setText((String) ((Map) this.f23114a.f23021h.get(i)).get(obj5));
+                            ddVar2.f23167b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23115a.getApplicationContext())));
+                            ddVar2.f23168c.setText((String) ((Map) this.f23115a.f23022h.get(i)).get(obj5));
                         }
                         textView7.setText(a7);
-                        ddVar2.f23166b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23114a.getApplicationContext())));
-                        ddVar2.f23167c.setText((String) ((Map) this.f23114a.f23021h.get(i)).get(obj5));
+                        ddVar2.f23167b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.c(this.f23115a.getApplicationContext())));
+                        ddVar2.f23168c.setText((String) ((Map) this.f23115a.f23022h.get(i)).get(obj5));
                     } else if (i3 == 3) {
-                        dbVar2.f23156d.setVisibility(0);
+                        dbVar2.f23157d.setVisibility(0);
                         if (i == 0) {
-                            textView3 = dbVar2.f23153a;
-                            a5 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time")));
+                            textView3 = dbVar2.f23154a;
+                            a5 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time")));
                         } else {
-                            long parseLong5 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i - 1)).get("time"));
-                            long parseLong6 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time"));
+                            long parseLong5 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i - 1)).get("time"));
+                            long parseLong6 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time"));
                             long j3 = parseLong5 - parseLong6;
                             if (j3 > VideoCloudSetting.HOUR_MILLISECOND || parseLong6 - parseLong5 > VideoCloudSetting.HOUR_MILLISECOND) {
-                                dbVar2.f23153a.setText(com.baidu.ufosdk.f.i.c(parseLong6));
+                                dbVar2.f23154a.setText(com.baidu.ufosdk.f.i.c(parseLong6));
                                 if (j3 > 86400000 || parseLong6 - parseLong5 > 86400000) {
-                                    textView3 = dbVar2.f23153a;
+                                    textView3 = dbVar2.f23154a;
                                     a5 = com.baidu.ufosdk.f.i.a(parseLong6);
                                 }
                             } else {
-                                dbVar2.f23156d.setVisibility(8);
+                                dbVar2.f23157d.setVisibility(8);
                             }
                             if (bitmap != null) {
                                 try {
-                                    dbVar2.f23154b.setBackgroundDrawable(new BitmapDrawable(bitmap));
+                                    dbVar2.f23155b.setBackgroundDrawable(new BitmapDrawable(bitmap));
                                 } catch (Exception e11) {
                                     e11.printStackTrace();
                                 }
                             }
-                            if (dbVar2.f23155c != null) {
-                                String str5 = (String) ((Map) this.f23114a.f23021h.get(i)).get(obj5);
+                            if (dbVar2.f23156c != null) {
+                                String str5 = (String) ((Map) this.f23115a.f23022h.get(i)).get(obj5);
                                 com.baidu.ufosdk.f.c.a(str5);
                                 if (str5.startsWith("http://bs.baidu.com") || str5.startsWith("https://bs.baidu.com")) {
                                     com.baidu.ufosdk.f.a a12 = com.baidu.ufosdk.f.a.a();
-                                    Context applicationContext6 = this.f23114a.getApplicationContext();
-                                    TextView textView19 = dbVar2.f23155c;
-                                    handler2 = this.f23114a.aK;
+                                    Context applicationContext6 = this.f23115a.getApplicationContext();
+                                    TextView textView19 = dbVar2.f23156c;
+                                    handler2 = this.f23115a.aK;
                                     Bitmap a13 = a12.a(new com.baidu.ufosdk.f.n(applicationContext6, textView19, handler2), str5);
                                     if (a13 != null) {
-                                        ImageSpan imageSpan = new ImageSpan(this.f23114a.getApplicationContext(), a13);
+                                        ImageSpan imageSpan = new ImageSpan(this.f23115a.getApplicationContext(), a13);
                                         SpannableString spannableString = new SpannableString("icon");
                                         spannableString.setSpan(imageSpan, 0, 4, 33);
-                                        textView6 = dbVar2.f23155c;
+                                        textView6 = dbVar2.f23156c;
                                         str5 = spannableString.toString();
                                     }
                                 } else {
@@ -808,23 +808,23 @@ public final class cg extends BaseAdapter {
                                             String str6 = str5;
                                             try {
                                                 String[] split = str6.split("<a.*?</a>");
-                                                dbVar2.f23155c.setText("");
+                                                dbVar2.f23156c.setText("");
                                                 for (int i10 = 0; i10 < split.length; i10++) {
-                                                    dbVar2.f23155c.append(new SpannableString(split[i10]));
+                                                    dbVar2.f23156c.append(new SpannableString(split[i10]));
                                                     if (i10 < split.length - 1) {
                                                         SpannableString spannableString2 = new SpannableString((CharSequence) arrayList5.get(i10));
-                                                        eqVar3 = this.f23114a.aM;
+                                                        eqVar3 = this.f23115a.aM;
                                                         spannableString2.setSpan(new ep((String) arrayList6.get(i10), eqVar3), 0, ((String) arrayList5.get(i10)).length(), 33);
-                                                        dbVar2.f23155c.append(spannableString2);
+                                                        dbVar2.f23156c.append(spannableString2);
                                                     }
                                                 }
-                                                dbVar2.f23155c.setMovementMethod(LinkMovementMethod.getInstance());
+                                                dbVar2.f23156c.setMovementMethod(LinkMovementMethod.getInstance());
                                             } catch (Exception e12) {
                                                 com.baidu.ufosdk.f.c.a("处理连接出错！", e12);
                                                 if (str6.contains("(=^o^=)Y")) {
                                                     str6 = str6.replace("(=^o^=)Y", "\\\"");
                                                 }
-                                                dbVar2.f23155c.setText(str6);
+                                                dbVar2.f23156c.setText(str6);
                                             }
                                         } else if (str5.contains("(=^o^=)Y")) {
                                             str5 = str5.replace("(=^o^=)Y", "\\\"");
@@ -832,136 +832,136 @@ public final class cg extends BaseAdapter {
                                     } else {
                                         if (str5.contains("人工反馈")) {
                                             com.baidu.ufosdk.f.c.a("lastIndexof : 人工反馈: " + str5.lastIndexOf("人工反馈"));
-                                            FeedbackInputActivity feedbackInputActivity2 = this.f23114a;
+                                            FeedbackInputActivity feedbackInputActivity2 = this.f23115a;
                                             feedbackInputActivity2.u = !feedbackInputActivity2.H;
                                             SpannableString spannableString3 = new SpannableString(str5);
-                                            eqVar2 = this.f23114a.aM;
+                                            eqVar2 = this.f23115a.aM;
                                             spannableString3.setSpan(new ep("人工反馈", eqVar2), str5.lastIndexOf("人工反馈"), str5.lastIndexOf("人工反馈") + 4, 33);
-                                            if (this.f23114a.H) {
-                                                dbVar2.f23155c.setText(str5);
+                                            if (this.f23115a.H) {
+                                                dbVar2.f23156c.setText(str5);
                                             } else {
-                                                dbVar2.f23155c.setText(spannableString3);
-                                                dbVar2.f23155c.setMovementMethod(LinkMovementMethod.getInstance());
+                                                dbVar2.f23156c.setText(spannableString3);
+                                                dbVar2.f23156c.setMovementMethod(LinkMovementMethod.getInstance());
                                             }
-                                            arrayList4 = this.f23114a.aw;
+                                            arrayList4 = this.f23115a.aw;
                                             if (arrayList4 == null) {
-                                                feedbackInputActivity = this.f23114a;
+                                                feedbackInputActivity = this.f23115a;
                                                 arrayList2 = new ArrayList();
                                             }
                                         } else if (str5.contains("我的反馈")) {
                                             com.baidu.ufosdk.f.c.a("indexof : 我的反馈: " + str5.lastIndexOf("我的反馈"));
-                                            FeedbackInputActivity feedbackInputActivity3 = this.f23114a;
+                                            FeedbackInputActivity feedbackInputActivity3 = this.f23115a;
                                             feedbackInputActivity3.u = !feedbackInputActivity3.H;
                                             SpannableString spannableString4 = new SpannableString(str5);
-                                            eqVar = this.f23114a.aM;
+                                            eqVar = this.f23115a.aM;
                                             spannableString4.setSpan(new ep("我的反馈", eqVar), str5.lastIndexOf("我的反馈"), str5.lastIndexOf("我的反馈") + 4, 33);
-                                            if (this.f23114a.H) {
-                                                dbVar2.f23155c.setText(str5);
+                                            if (this.f23115a.H) {
+                                                dbVar2.f23156c.setText(str5);
                                             } else {
-                                                dbVar2.f23155c.setText(spannableString4);
-                                                dbVar2.f23155c.setMovementMethod(LinkMovementMethod.getInstance());
-                                                dbVar2.f23155c.setHighlightColor(0);
+                                                dbVar2.f23156c.setText(spannableString4);
+                                                dbVar2.f23156c.setMovementMethod(LinkMovementMethod.getInstance());
+                                                dbVar2.f23156c.setHighlightColor(0);
                                             }
-                                            arrayList = this.f23114a.aw;
+                                            arrayList = this.f23115a.aw;
                                             if (arrayList == null) {
-                                                feedbackInputActivity = this.f23114a;
+                                                feedbackInputActivity = this.f23115a;
                                                 arrayList2 = new ArrayList();
                                             }
                                         }
                                         feedbackInputActivity.aw = arrayList2;
-                                        arrayList3 = this.f23114a.aw;
-                                        arrayList3.add(dbVar2.f23155c);
+                                        arrayList3 = this.f23115a.aw;
+                                        arrayList3.add(dbVar2.f23156c);
                                     }
-                                    textView6 = dbVar2.f23155c;
+                                    textView6 = dbVar2.f23156c;
                                 }
                                 textView6.setText(str5);
                             }
-                            i5 = ((Integer) ((Map) this.f23114a.f23021h.get(i)).get("ask")).intValue();
+                            i5 = ((Integer) ((Map) this.f23115a.f23022h.get(i)).get("ask")).intValue();
                             if (i5 != 0) {
-                                dbVar2.f23157e.setVisibility(8);
-                                dbVar2.f23160h.setVisibility(8);
+                                dbVar2.f23158e.setVisibility(8);
+                                dbVar2.f23161h.setVisibility(8);
                                 dbVar2.i.setVisibility(8);
                                 dbVar2.j.setVisibility(8);
                             } else {
                                 if (i5 == 1) {
-                                    dbVar2.f23160h.setVisibility(8);
+                                    dbVar2.f23161h.setVisibility(8);
                                     dbVar2.i.setVisibility(8);
                                     dbVar2.j.setVisibility(8);
-                                    dbVar2.f23157e.setVisibility(0);
-                                    dbVar2.f23159g.setClickable(true);
-                                    dbVar2.f23158f.setClickable(true);
-                                    dbVar2.f23158f.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_bottom_button.9.png", "ufo_bottom_button_pressed.9.png"));
-                                    textView4 = dbVar2.f23159g;
-                                    applicationContext2 = this.f23114a.getApplicationContext();
+                                    dbVar2.f23158e.setVisibility(0);
+                                    dbVar2.f23160g.setClickable(true);
+                                    dbVar2.f23159f.setClickable(true);
+                                    dbVar2.f23159f.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_bottom_button.9.png", "ufo_bottom_button_pressed.9.png"));
+                                    textView4 = dbVar2.f23160g;
+                                    applicationContext2 = this.f23115a.getApplicationContext();
                                     str2 = "ufo_bottom_button.9.png";
                                     str3 = "ufo_bottom_button_pressed.9.png";
                                 } else {
                                     if (i5 == 2) {
                                         com.baidu.ufosdk.f.c.a(">>>>>>>已解决 ask=2");
-                                        dbVar2.f23157e.setVisibility(0);
+                                        dbVar2.f23158e.setVisibility(0);
                                         dbVar2.j.setVisibility(8);
-                                        dbVar2.f23159g.setClickable(false);
-                                        dbVar2.f23158f.setClickable(false);
-                                        dbVar2.f23160h.setVisibility(8);
+                                        dbVar2.f23160g.setClickable(false);
+                                        dbVar2.f23159f.setClickable(false);
+                                        dbVar2.f23161h.setVisibility(8);
                                         dbVar2.i.setVisibility(8);
-                                        dbVar2.f23158f.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_bottom_button_pressed.9.png", "ufo_bottom_button_pressed.9.png"));
-                                        textView4 = dbVar2.f23159g;
+                                        dbVar2.f23159f.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_bottom_button_pressed.9.png", "ufo_bottom_button_pressed.9.png"));
+                                        textView4 = dbVar2.f23160g;
                                     } else if (i5 == 3) {
                                         com.baidu.ufosdk.f.c.a(">>>>>>>未解决 ask=3");
-                                        dbVar2.f23157e.setVisibility(0);
+                                        dbVar2.f23158e.setVisibility(0);
                                         dbVar2.j.setVisibility(8);
-                                        dbVar2.f23158f.setClickable(false);
-                                        dbVar2.f23159g.setClickable(false);
-                                        dbVar2.f23160h.setVisibility(8);
+                                        dbVar2.f23159f.setClickable(false);
+                                        dbVar2.f23160g.setClickable(false);
+                                        dbVar2.f23161h.setVisibility(8);
                                         dbVar2.i.setVisibility(8);
-                                        dbVar2.f23159g.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_bottom_button_pressed.9.png", "ufo_bottom_button_pressed.9.png"));
-                                        textView4 = dbVar2.f23158f;
+                                        dbVar2.f23160g.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_bottom_button_pressed.9.png", "ufo_bottom_button_pressed.9.png"));
+                                        textView4 = dbVar2.f23159f;
                                     } else {
                                         if (i5 == 9) {
-                                            i6 = this.f23114a.aG;
+                                            i6 = this.f23115a.aG;
                                             if (i6 != 0) {
                                                 i7 = 0;
                                                 dbVar2.j.setVisibility(0);
                                             } else {
                                                 i7 = 0;
                                             }
-                                            dbVar2.f23157e.setVisibility(8);
-                                            dbVar2.f23160h.setVisibility(i7);
+                                            dbVar2.f23158e.setVisibility(8);
+                                            dbVar2.f23161h.setVisibility(i7);
                                             dbVar2.i.setVisibility(i7);
                                             imageView4 = dbVar2.i;
-                                            bitmapDrawable = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_not_solved.png"));
+                                            bitmapDrawable = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_not_solved.png"));
                                         } else if (i5 == 11) {
                                             dbVar2.j.setVisibility(8);
-                                            dbVar2.f23157e.setVisibility(8);
-                                            dbVar2.f23160h.setVisibility(0);
+                                            dbVar2.f23158e.setVisibility(8);
+                                            dbVar2.f23161h.setVisibility(0);
                                             dbVar2.i.setVisibility(0);
                                             imageView4 = dbVar2.i;
-                                            bitmapDrawable = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23114a.getApplicationContext(), "ufo_solved.png"));
+                                            bitmapDrawable = new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23115a.getApplicationContext(), "ufo_solved.png"));
                                         }
                                         imageView4.setBackgroundDrawable(bitmapDrawable);
                                     }
-                                    applicationContext2 = this.f23114a.getApplicationContext();
+                                    applicationContext2 = this.f23115a.getApplicationContext();
                                     str2 = "ufo_bottom_button.9.png";
                                     str3 = "ufo_bottom_button.9.png";
                                 }
                                 textView4.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(applicationContext2, str2, str3));
                             }
                             if (i5 != 3 || i5 == 9) {
-                                i8 = this.f23114a.aG;
+                                i8 = this.f23115a.aG;
                                 if (i8 != 0) {
                                     dbVar2.j.setVisibility(0);
-                                    if (((Map) this.f23114a.f23021h.get(i)).containsKey("isClicked")) {
+                                    if (((Map) this.f23115a.f23022h.get(i)).containsKey("isClicked")) {
                                         dbVar2.j.setTextColor(com.baidu.ufosdk.f.i.a(2134669055, -15644211, 2134669055, 2134669055));
-                                        a6 = com.baidu.ufosdk.f.i.a(this.f23115b, com.baidu.ufosdk.R.drawable.ufo_show_reason_pressed);
+                                        a6 = com.baidu.ufosdk.f.i.a(this.f23116b, com.baidu.ufosdk.R.drawable.ufo_show_reason_pressed);
                                         a6.setAlpha(127);
                                     } else {
                                         dbVar2.j.setTextColor(com.baidu.ufosdk.f.i.a(-12814593, -15644211, -12814593, -12814593));
-                                        a6 = com.baidu.ufosdk.f.i.a(this.f23115b, com.baidu.ufosdk.R.drawable.ufo_show_reason_normal);
+                                        a6 = com.baidu.ufosdk.f.i.a(this.f23116b, com.baidu.ufosdk.R.drawable.ufo_show_reason_normal);
                                     }
-                                    a6.setBounds(com.baidu.ufosdk.f.i.a(this.f23115b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23115b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23115b, 14.0f), com.baidu.ufosdk.f.i.a(this.f23115b, 14.0f));
+                                    a6.setBounds(com.baidu.ufosdk.f.i.a(this.f23116b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23116b, 1.0f), com.baidu.ufosdk.f.i.a(this.f23116b, 14.0f), com.baidu.ufosdk.f.i.a(this.f23116b, 14.0f));
                                     dbVar2.j.setCompoundDrawables(null, null, a6, null);
-                                    String str7 = (String) ((Map) this.f23114a.f23021h.get(i)).get("discontent_reason");
-                                    JSONArray jSONArray = (JSONArray) ((Map) this.f23114a.f23021h.get(i)).get("discontent_labels");
+                                    String str7 = (String) ((Map) this.f23115a.f23022h.get(i)).get("discontent_reason");
+                                    JSONArray jSONArray = (JSONArray) ((Map) this.f23115a.f23022h.get(i)).get("discontent_labels");
                                     if (TextUtils.isEmpty(str7) && (jSONArray == null || jSONArray.length() == 0)) {
                                         textView5 = dbVar2.j;
                                         str4 = "填写不满意原因";
@@ -974,180 +974,180 @@ public final class cg extends BaseAdapter {
                                 }
                             }
                             if (i5 != 1) {
-                                dbVar2.f23158f.setOnClickListener(new ci(this, i));
-                                dbVar2.f23159g.setOnClickListener(new ck(this, i));
+                                dbVar2.f23159f.setOnClickListener(new ci(this, i));
+                                dbVar2.f23160g.setOnClickListener(new ck(this, i));
                             } else {
-                                dbVar2.f23158f.setClickable(false);
-                                dbVar2.f23158f.setOnClickListener(null);
-                                dbVar2.f23159g.setClickable(false);
-                                dbVar2.f23159g.setOnClickListener(null);
+                                dbVar2.f23159f.setClickable(false);
+                                dbVar2.f23159f.setOnClickListener(null);
+                                dbVar2.f23160g.setClickable(false);
+                                dbVar2.f23160g.setOnClickListener(null);
                             }
                         }
                         textView3.setText(a5);
                         if (bitmap != null) {
                         }
-                        if (dbVar2.f23155c != null) {
+                        if (dbVar2.f23156c != null) {
                         }
-                        i5 = ((Integer) ((Map) this.f23114a.f23021h.get(i)).get("ask")).intValue();
+                        i5 = ((Integer) ((Map) this.f23115a.f23022h.get(i)).get("ask")).intValue();
                         if (i5 != 0) {
                         }
                         if (i5 != 3) {
                         }
-                        i8 = this.f23114a.aG;
+                        i8 = this.f23115a.aG;
                         if (i8 != 0) {
                         }
                         if (i5 != 1) {
                         }
                     } else if (i3 == 4) {
-                        czVar2.f23145d.setVisibility(0);
+                        czVar2.f23146d.setVisibility(0);
                         if (i == 0) {
-                            textView2 = czVar2.f23142a;
-                            a3 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time")));
+                            textView2 = czVar2.f23143a;
+                            a3 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time")));
                         } else {
-                            long parseLong7 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i - 1)).get("time"));
-                            long parseLong8 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time"));
+                            long parseLong7 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i - 1)).get("time"));
+                            long parseLong8 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time"));
                             long j4 = parseLong7 - parseLong8;
                             if (j4 > VideoCloudSetting.HOUR_MILLISECOND || parseLong8 - parseLong7 > VideoCloudSetting.HOUR_MILLISECOND) {
-                                czVar2.f23142a.setText(com.baidu.ufosdk.f.i.c(parseLong8));
+                                czVar2.f23143a.setText(com.baidu.ufosdk.f.i.c(parseLong8));
                                 if (j4 > 86400000 || parseLong8 - parseLong7 > 86400000) {
-                                    textView2 = czVar2.f23142a;
+                                    textView2 = czVar2.f23143a;
                                     a3 = com.baidu.ufosdk.f.i.a(parseLong8);
                                 }
                             } else {
-                                czVar2.f23145d.setVisibility(8);
+                                czVar2.f23146d.setVisibility(8);
                             }
                             if (bitmap != null) {
                                 try {
-                                    czVar2.f23143b.setBackgroundDrawable(new BitmapDrawable(bitmap));
+                                    czVar2.f23144b.setBackgroundDrawable(new BitmapDrawable(bitmap));
                                 } catch (Exception e13) {
                                     e13.printStackTrace();
                                 }
                             }
-                            if (!((String) ((Map) this.f23114a.f23021h.get(i)).get(obj6)).contentEquals("1") || ((Map) this.f23114a.f23021h.get(i)).get(obj5).toString().startsWith("http://bs.baidu.com") || ((Map) this.f23114a.f23021h.get(i)).get(obj5).toString().startsWith("https://bs.baidu.com")) {
-                                czVar2.f23144c.setImageBitmap(com.baidu.ufosdk.f.m.a(this.f23115b, "ufo_pic_defult_icon.png"));
+                            if (!((String) ((Map) this.f23115a.f23022h.get(i)).get(obj6)).contentEquals("1") || ((Map) this.f23115a.f23022h.get(i)).get(obj5).toString().startsWith("http://bs.baidu.com") || ((Map) this.f23115a.f23022h.get(i)).get(obj5).toString().startsWith("https://bs.baidu.com")) {
+                                czVar2.f23145c.setImageBitmap(com.baidu.ufosdk.f.m.a(this.f23116b, "ufo_pic_defult_icon.png"));
                                 com.baidu.ufosdk.f.a a14 = com.baidu.ufosdk.f.a.a();
-                                Context applicationContext7 = this.f23114a.getApplicationContext();
-                                ImageView imageView14 = czVar2.f23144c;
-                                handler = this.f23114a.aK;
-                                a4 = a14.a(new com.baidu.ufosdk.f.n(applicationContext7, imageView14, handler), (String) ((Map) this.f23114a.f23021h.get(i)).get(obj5));
+                                Context applicationContext7 = this.f23115a.getApplicationContext();
+                                ImageView imageView14 = czVar2.f23145c;
+                                handler = this.f23115a.aK;
+                                a4 = a14.a(new com.baidu.ufosdk.f.n(applicationContext7, imageView14, handler), (String) ((Map) this.f23115a.f23022h.get(i)).get(obj5));
                                 if (a4 != null) {
-                                    czVar2.f23144c.setImageBitmap(a4);
+                                    czVar2.f23145c.setImageBitmap(a4);
                                     if (a4.getHeight() > a4.getWidth()) {
-                                        czVar2.f23144c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 80.0f));
-                                        imageView = czVar2.f23144c;
-                                        applicationContext3 = this.f23114a.getApplicationContext();
+                                        czVar2.f23145c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 80.0f));
+                                        imageView = czVar2.f23145c;
+                                        applicationContext3 = this.f23115a.getApplicationContext();
                                         f3 = 120.0f;
                                         imageView.setMaxHeight(com.baidu.ufosdk.f.i.a(applicationContext3, f3));
                                     } else {
-                                        czVar2.f23144c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 120.0f));
-                                        imageView = czVar2.f23144c;
-                                        applicationContext3 = this.f23114a.getApplicationContext();
+                                        czVar2.f23145c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 120.0f));
+                                        imageView = czVar2.f23145c;
+                                        applicationContext3 = this.f23115a.getApplicationContext();
                                         f3 = 80.0f;
                                         imageView.setMaxHeight(com.baidu.ufosdk.f.i.a(applicationContext3, f3));
                                     }
                                 }
-                            } else if (((String) ((Map) this.f23114a.f23021h.get(i)).get(obj6)).contentEquals("2") && czVar2.f23144c != null) {
-                                bitmap2 = (Bitmap) ((Map) this.f23114a.f23021h.get(i)).get(obj5);
+                            } else if (((String) ((Map) this.f23115a.f23022h.get(i)).get(obj6)).contentEquals("2") && czVar2.f23145c != null) {
+                                bitmap2 = (Bitmap) ((Map) this.f23115a.f23022h.get(i)).get(obj5);
                                 if (bitmap2.getHeight() > bitmap2.getWidth()) {
-                                    czVar2.f23144c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 80.0f));
-                                    imageView2 = czVar2.f23144c;
-                                    applicationContext = this.f23114a.getApplicationContext();
+                                    czVar2.f23145c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 80.0f));
+                                    imageView2 = czVar2.f23145c;
+                                    applicationContext = this.f23115a.getApplicationContext();
                                     f2 = 120.0f;
                                 } else {
-                                    czVar2.f23144c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 120.0f));
-                                    imageView2 = czVar2.f23144c;
-                                    applicationContext = this.f23114a.getApplicationContext();
+                                    czVar2.f23145c.setMaxWidth(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 120.0f));
+                                    imageView2 = czVar2.f23145c;
+                                    applicationContext = this.f23115a.getApplicationContext();
                                     f2 = 80.0f;
                                 }
                                 imageView2.setMaxHeight(com.baidu.ufosdk.f.i.a(applicationContext, f2));
-                                imageView3 = czVar2.f23144c;
+                                imageView3 = czVar2.f23145c;
                                 imageView3.setImageBitmap(bitmap2);
                             }
                         }
                         textView2.setText(a3);
                         if (bitmap != null) {
                         }
-                        if (((String) ((Map) this.f23114a.f23021h.get(i)).get(obj6)).contentEquals("1")) {
+                        if (((String) ((Map) this.f23115a.f23022h.get(i)).get(obj6)).contentEquals("1")) {
                         }
-                        czVar2.f23144c.setImageBitmap(com.baidu.ufosdk.f.m.a(this.f23115b, "ufo_pic_defult_icon.png"));
+                        czVar2.f23145c.setImageBitmap(com.baidu.ufosdk.f.m.a(this.f23116b, "ufo_pic_defult_icon.png"));
                         com.baidu.ufosdk.f.a a142 = com.baidu.ufosdk.f.a.a();
-                        Context applicationContext72 = this.f23114a.getApplicationContext();
-                        ImageView imageView142 = czVar2.f23144c;
-                        handler = this.f23114a.aK;
-                        a4 = a142.a(new com.baidu.ufosdk.f.n(applicationContext72, imageView142, handler), (String) ((Map) this.f23114a.f23021h.get(i)).get(obj5));
+                        Context applicationContext72 = this.f23115a.getApplicationContext();
+                        ImageView imageView142 = czVar2.f23145c;
+                        handler = this.f23115a.aK;
+                        a4 = a142.a(new com.baidu.ufosdk.f.n(applicationContext72, imageView142, handler), (String) ((Map) this.f23115a.f23022h.get(i)).get(obj5));
                         if (a4 != null) {
                         }
                     } else if (i3 == 5) {
-                        daVar3.f23152g.setVisibility(0);
+                        daVar3.f23153g.setVisibility(0);
                         if (i == 0) {
-                            textView = daVar3.f23146a;
-                            a2 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time")));
+                            textView = daVar3.f23147a;
+                            a2 = com.baidu.ufosdk.f.i.a(Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time")));
                         } else {
-                            long parseLong9 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i - 1)).get("time"));
-                            long parseLong10 = Long.parseLong((String) ((Map) this.f23114a.f23021h.get(i)).get("time"));
+                            long parseLong9 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i - 1)).get("time"));
+                            long parseLong10 = Long.parseLong((String) ((Map) this.f23115a.f23022h.get(i)).get("time"));
                             long j5 = parseLong9 - parseLong10;
                             if (j5 > VideoCloudSetting.HOUR_MILLISECOND || parseLong10 - parseLong9 > VideoCloudSetting.HOUR_MILLISECOND) {
-                                daVar3.f23146a.setText(com.baidu.ufosdk.f.i.c(parseLong10));
+                                daVar3.f23147a.setText(com.baidu.ufosdk.f.i.c(parseLong10));
                                 if (j5 > 86400000 || parseLong10 - parseLong9 > 86400000) {
-                                    textView = daVar3.f23146a;
+                                    textView = daVar3.f23147a;
                                     a2 = com.baidu.ufosdk.f.i.a(parseLong10);
                                 }
                             } else {
-                                daVar3.f23152g.setVisibility(8);
+                                daVar3.f23153g.setVisibility(8);
                             }
                             if (bitmap != null) {
                                 try {
-                                    daVar3.f23147b.setBackgroundDrawable(new BitmapDrawable(bitmap));
+                                    daVar3.f23148b.setBackgroundDrawable(new BitmapDrawable(bitmap));
                                 } catch (Exception e14) {
                                     e14.printStackTrace();
                                 }
                             }
-                            FeedbackInputActivity feedbackInputActivity4 = this.f23114a;
-                            fd fdVar = new fd(feedbackInputActivity4, (JSONArray) ((Map) feedbackInputActivity4.f23021h.get(i)).get(obj5), ((Integer) ((Map) this.f23114a.f23021h.get(i)).get("subtype")).intValue(), this.f23114a.H);
-                            if (((Integer) ((Map) this.f23114a.f23021h.get(i)).get("subtype")).intValue() != 1) {
-                                daVar3.f23149d.setText("请选择问题发生的场景");
-                                daVar3.f23150e.setVisibility(8);
+                            FeedbackInputActivity feedbackInputActivity4 = this.f23115a;
+                            fd fdVar = new fd(feedbackInputActivity4, (JSONArray) ((Map) feedbackInputActivity4.f23022h.get(i)).get(obj5), ((Integer) ((Map) this.f23115a.f23022h.get(i)).get("subtype")).intValue(), this.f23115a.H);
+                            if (((Integer) ((Map) this.f23115a.f23022h.get(i)).get("subtype")).intValue() != 1) {
+                                daVar3.f23150d.setText("请选择问题发生的场景");
+                                daVar3.f23151e.setVisibility(8);
                             } else {
                                 try {
-                                    str = (String) ((Map) this.f23114a.f23021h.get(i)).get("tip");
+                                    str = (String) ((Map) this.f23115a.f23022h.get(i)).get("tip");
                                 } catch (Exception unused) {
                                     str = "";
                                 }
                                 if (TextUtils.isEmpty(str)) {
                                     str = "您是不是要问以下问题？";
                                 }
-                                daVar3.f23149d.setText(str);
+                                daVar3.f23150d.setText(str);
                                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("没有想要的，进入人工反馈");
                                 spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.ufosdk.b.v), 8, 12, 33);
-                                if (this.f23114a.H) {
-                                    daVar3.f23150e.setText("没有想要的，进入人工反馈");
+                                if (this.f23115a.H) {
+                                    daVar3.f23151e.setText("没有想要的，进入人工反馈");
                                 } else {
-                                    daVar3.f23150e.setText(spannableStringBuilder);
+                                    daVar3.f23151e.setText(spannableStringBuilder);
                                 }
-                                daVar3.f23150e.setVisibility(0);
-                                daVar3.f23150e.setOnClickListener(new cm(this));
+                                daVar3.f23151e.setVisibility(0);
+                                daVar3.f23151e.setOnClickListener(new cm(this));
                             }
-                            daVar3.f23148c.setAdapter((ListAdapter) fdVar);
-                            daVar3.f23148c.setOnItemClickListener(new co(this, i));
-                            FeedbackInputActivity.a(daVar3.f23148c);
+                            daVar3.f23149c.setAdapter((ListAdapter) fdVar);
+                            daVar3.f23149c.setOnItemClickListener(new co(this, i));
+                            FeedbackInputActivity.a(daVar3.f23149c);
                         }
                         textView.setText(a2);
                         if (bitmap != null) {
                         }
-                        FeedbackInputActivity feedbackInputActivity42 = this.f23114a;
-                        fd fdVar2 = new fd(feedbackInputActivity42, (JSONArray) ((Map) feedbackInputActivity42.f23021h.get(i)).get(obj5), ((Integer) ((Map) this.f23114a.f23021h.get(i)).get("subtype")).intValue(), this.f23114a.H);
-                        if (((Integer) ((Map) this.f23114a.f23021h.get(i)).get("subtype")).intValue() != 1) {
+                        FeedbackInputActivity feedbackInputActivity42 = this.f23115a;
+                        fd fdVar2 = new fd(feedbackInputActivity42, (JSONArray) ((Map) feedbackInputActivity42.f23022h.get(i)).get(obj5), ((Integer) ((Map) this.f23115a.f23022h.get(i)).get("subtype")).intValue(), this.f23115a.H);
+                        if (((Integer) ((Map) this.f23115a.f23022h.get(i)).get("subtype")).intValue() != 1) {
                         }
-                        daVar3.f23148c.setAdapter((ListAdapter) fdVar2);
-                        daVar3.f23148c.setOnItemClickListener(new co(this, i));
-                        FeedbackInputActivity.a(daVar3.f23148c);
+                        daVar3.f23149c.setAdapter((ListAdapter) fdVar2);
+                        daVar3.f23149c.setOnItemClickListener(new co(this, i));
+                        FeedbackInputActivity.a(daVar3.f23149c);
                     }
                 }
                 return relativeLayout3;
             }
-            RelativeLayout relativeLayout19 = new RelativeLayout(this.f23115b);
-            RelativeLayout relativeLayout20 = new RelativeLayout(this.f23115b);
-            RelativeLayout relativeLayout21 = new RelativeLayout(this.f23115b);
+            RelativeLayout relativeLayout19 = new RelativeLayout(this.f23116b);
+            RelativeLayout relativeLayout20 = new RelativeLayout(this.f23116b);
+            RelativeLayout relativeLayout21 = new RelativeLayout(this.f23116b);
             ViewGroup.LayoutParams layoutParams35 = new AbsListView.LayoutParams(-1, -2);
             relativeLayout19.setBackgroundColor(com.baidu.ufosdk.b.z);
             relativeLayout20.setBackgroundColor(com.baidu.ufosdk.b.z);
@@ -1155,9 +1155,9 @@ public final class cg extends BaseAdapter {
             relativeLayout19.setLayoutParams(layoutParams35);
             relativeLayout21.setId(R.id.FUNCTION);
             relativeLayout21.setClickable(false);
-            TextView textView20 = new TextView(this.f23114a);
+            TextView textView20 = new TextView(this.f23115a);
             try {
-                textView20.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_date_bg.9.png"));
+                textView20.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_date_bg.9.png"));
             } catch (Exception e15) {
                 e15.printStackTrace();
             }
@@ -1165,46 +1165,46 @@ public final class cg extends BaseAdapter {
             textView20.setTextSize(com.baidu.ufosdk.b.Q);
             textView20.setGravity(17);
             textView20.setMovementMethod(LinkMovementMethod.getInstance());
-            textView20.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 2.0f));
+            textView20.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f) + 2, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 2.0f));
             RelativeLayout.LayoutParams layoutParams36 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams36.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), 0, 0);
+            layoutParams36.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), 0, 0);
             layoutParams36.addRule(14);
             relativeLayout21.addView(textView20, layoutParams36);
             ViewGroup.LayoutParams layoutParams37 = new RelativeLayout.LayoutParams(-1, -2);
-            relativeLayout21.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+            relativeLayout21.setPadding(0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
             relativeLayout19.addView(relativeLayout21, layoutParams37);
-            ddVar2.f23165a = textView20;
-            ddVar2.f23168d = relativeLayout21;
-            ImageView imageView15 = new ImageView(this.f23114a);
+            ddVar2.f23166a = textView20;
+            ddVar2.f23169d = relativeLayout21;
+            ImageView imageView15 = new ImageView(this.f23115a);
             imageView15.setId(R.id.DOWN);
-            RelativeLayout.LayoutParams layoutParams38 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 40.0f));
+            RelativeLayout.LayoutParams layoutParams38 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 40.0f));
             layoutParams38.addRule(11);
-            layoutParams38.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), 0);
+            layoutParams38.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 6.0f), 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), 0);
             relativeLayout20.addView(imageView15, layoutParams38);
-            ddVar2.f23166b = imageView15;
-            TextView textView21 = new TextView(this.f23114a);
+            ddVar2.f23167b = imageView15;
+            TextView textView21 = new TextView(this.f23115a);
             textView21.setTextColor(-13421773);
             textView21.setTextSize(com.baidu.ufosdk.b.R);
             textView21.setLineSpacing(4.0f, 1.0f);
             try {
-                textView21.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23114a.getApplicationContext(), "ufo_me_send_bg.9.png"));
+                textView21.setBackgroundDrawable(com.baidu.ufosdk.f.o.a(this.f23115a.getApplicationContext(), "ufo_me_send_bg.9.png"));
             } catch (IOException e16) {
                 e16.printStackTrace();
             } catch (Exception e17) {
                 e17.printStackTrace();
             }
             textView21.setGravity(16);
-            textView21.setPadding(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 14.0f), com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 8.0f));
+            textView21.setPadding(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 14.0f), com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 8.0f));
             textView21.setLineSpacing(5.0f, 1.0f);
             textView21.setAutoLinkMask(1);
             textView21.setMovementMethod(LinkMovementMethod.getInstance());
             textView21.setOnLongClickListener(new cr(this));
             RelativeLayout.LayoutParams layoutParams39 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams39.setMargins(com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 55.0f), 0, 0, 0);
+            layoutParams39.setMargins(com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 55.0f), 0, 0, 0);
             layoutParams39.addRule(0, imageView15.getId());
             relativeLayout20.addView(textView21, layoutParams39);
-            ddVar2.f23167c = textView21;
-            relativeLayout20.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23114a.getApplicationContext(), 10.0f));
+            ddVar2.f23168c = textView21;
+            relativeLayout20.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(this.f23115a.getApplicationContext(), 10.0f));
             RelativeLayout.LayoutParams layoutParams40 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams40.addRule(3, relativeLayout21.getId());
             relativeLayout19.addView(relativeLayout20, layoutParams40);
@@ -1216,8 +1216,8 @@ public final class cg extends BaseAdapter {
         }
         daVar3 = daVar;
         relativeLayout3 = relativeLayout;
-        packageManager = this.f23115b.getApplicationContext().getPackageManager();
-        ApplicationInfo applicationInfo22 = packageManager.getApplicationInfo(this.f23115b.getPackageName(), 0);
+        packageManager = this.f23116b.getApplicationContext().getPackageManager();
+        ApplicationInfo applicationInfo22 = packageManager.getApplicationInfo(this.f23116b.getPackageName(), 0);
         if (packageManager != null) {
         }
         if (i3 == 1) {
@@ -1229,8 +1229,8 @@ public final class cg extends BaseAdapter {
         ddVar2 = ddVar;
         czVar2 = czVar;
         relativeLayout3 = relativeLayout2;
-        packageManager = this.f23115b.getApplicationContext().getPackageManager();
-        ApplicationInfo applicationInfo222 = packageManager.getApplicationInfo(this.f23115b.getPackageName(), 0);
+        packageManager = this.f23116b.getApplicationContext().getPackageManager();
+        ApplicationInfo applicationInfo222 = packageManager.getApplicationInfo(this.f23116b.getPackageName(), 0);
         if (packageManager != null) {
         }
         if (i3 == 1) {

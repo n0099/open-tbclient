@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.download;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DownloadCallback;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IDownloadManager {
     public static final IDownloadManager EMPTY = new IDownloadManager() { // from class: com.baidu.searchbox.pms.download.IDownloadManager.1
         @Override // com.baidu.searchbox.pms.download.IDownloadManager

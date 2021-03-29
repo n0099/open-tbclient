@@ -14,47 +14,47 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<GiftCommonList.NumInfo> f60990e;
+    public List<GiftCommonList.NumInfo> f60991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f60991f;
+    public Context f60992f;
 
     /* renamed from: d.b.i0.t0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1579b {
+    public class C1580b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f60992a;
+        public TextView f60993a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f60993b;
+        public View f60994b;
 
-        public C1579b(b bVar) {
+        public C1580b(b bVar) {
         }
     }
 
     public b(Context context) {
-        this.f60991f = context;
+        this.f60992f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public GiftCommonList.NumInfo getItem(int i) {
-        if (this.f60990e == null || i < 0 || i >= getCount() - 1) {
+        if (this.f60991e == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.f60990e.get(i);
+        return this.f60991e.get(i);
     }
 
     public void b(List<GiftCommonList.NumInfo> list) {
-        this.f60990e = list;
+        this.f60991e = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<GiftCommonList.NumInfo> list = this.f60990e;
+        List<GiftCommonList.NumInfo> list = this.f60991e;
         if (list == null) {
             return 1;
         }
@@ -73,33 +73,33 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1579b c1579b;
+        C1580b c1580b;
         if (view != null && view.getTag() != null) {
-            c1579b = (C1579b) view.getTag();
+            c1580b = (C1580b) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f60991f).inflate(R.layout.gift_num_item, (ViewGroup) null);
-            c1579b = new C1579b();
-            c1579b.f60992a = (TextView) view.findViewById(R.id.text);
-            c1579b.f60993b = view.findViewById(R.id.divider);
-            view.setTag(c1579b);
+            view = LayoutInflater.from(this.f60992f).inflate(R.layout.gift_num_item, (ViewGroup) null);
+            c1580b = new C1580b();
+            c1580b.f60993a = (TextView) view.findViewById(R.id.text);
+            c1580b.f60994b = view.findViewById(R.id.divider);
+            view.setTag(c1580b);
         }
         SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
-        SkinManager.setViewTextColor(c1579b.f60992a, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundColor(c1579b.f60993b, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(c1580b.f60993a, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundColor(c1580b.f60994b, R.color.CAM_X0204);
         GiftCommonList.NumInfo item = getItem(i);
         if (getItemViewType(i) == 1) {
-            c1579b.f60992a.setText(R.string.custom_num);
-            c1579b.f60993b.setVisibility(4);
+            c1580b.f60993a.setText(R.string.custom_num);
+            c1580b.f60994b.setVisibility(4);
         } else {
             if (item != null) {
                 int num = item.getNum() > 0 ? item.getNum() : 1;
                 String name = item.getName() != null ? item.getName() : "";
-                TextView textView = c1579b.f60992a;
+                TextView textView = c1580b.f60993a;
                 textView.setText(num + name);
-                c1579b.f60993b.setVisibility(0);
+                c1580b.f60994b.setVisibility(0);
             } else {
-                c1579b.f60992a.setText("");
-                c1579b.f60993b.setVisibility(0);
+                c1580b.f60993a.setText("");
+                c1580b.f60994b.setVisibility(0);
             }
         }
         return view;

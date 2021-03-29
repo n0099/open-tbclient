@@ -18,14 +18,14 @@ import java.util.Map;
 public class b extends PayBaseBean<GetJumpUrlResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25458a;
+    public String f25459a;
 
     public b(Context context) {
         super(context);
     }
 
     public void a(String str) {
-        this.f25458a = str;
+        this.f25459a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -55,8 +55,8 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
         if (!TextUtils.isEmpty(sessionId)) {
             arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, sessionId));
         }
-        if (!TextUtils.isEmpty(this.f25458a)) {
-            arrayList.add(new RestNameValuePair("selected_card_no", this.f25458a));
+        if (!TextUtils.isEmpty(this.f25459a)) {
+            arrayList.add(new RestNameValuePair("selected_card_no", this.f25459a));
         }
         if (!TextUtils.isEmpty(str2)) {
             arrayList.add(new RestNameValuePair("serial_num", str2));

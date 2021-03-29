@@ -12,8 +12,8 @@ public class LabelDataList extends ArrayList<a> {
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.f58518a == i) {
-                return next.f58519b;
+            if (next != null && next.f58519a == i) {
+                return next.f58520b;
             }
         }
         return null;
@@ -23,14 +23,14 @@ public class LabelDataList extends ArrayList<a> {
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.f58520c) {
-                return next.f58518a;
+            if (next != null && next.f58521c) {
+                return next.f58519a;
             }
         }
         a aVar = (a) ListUtils.getItem(this, 0);
         if (aVar != null) {
-            aVar.f58520c = true;
-            return aVar.f58518a;
+            aVar.f58521c = true;
+            return aVar.f58519a;
         }
         return 0;
     }
@@ -43,26 +43,26 @@ public class LabelDataList extends ArrayList<a> {
         for (ForumSubLabel forumSubLabel : list) {
             if (forumSubLabel != null) {
                 a aVar = new a();
-                aVar.f58518a = forumSubLabel.id.intValue();
-                aVar.f58519b = forumSubLabel.sub_label_name;
+                aVar.f58519a = forumSubLabel.id.intValue();
+                aVar.f58520b = forumSubLabel.sub_label_name;
                 add(aVar);
             }
         }
         if (isEmpty()) {
             return;
         }
-        get(0).f58520c = true;
+        get(0).f58521c = true;
     }
 
     public void setSelectedIndex(int i) {
         a aVar = (a) ListUtils.getItem(this, i);
         if (aVar != null) {
-            aVar.f58520c = true;
+            aVar.f58521c = true;
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null && next != aVar) {
-                    next.f58520c = false;
+                    next.f58521c = false;
                 }
             }
         }

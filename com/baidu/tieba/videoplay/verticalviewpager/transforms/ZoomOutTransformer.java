@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 public class ZoomOutTransformer implements ViewPager.PageTransformer {
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
     public void transformPage(View view, float f2) {
+        int i;
         int width = view.getWidth();
         int height = view.getHeight();
         float f3 = 0.0f;
@@ -16,7 +17,7 @@ public class ZoomOutTransformer implements ViewPager.PageTransformer {
             float f4 = 1.0f - max;
             float f5 = (height * f4) / 2.0f;
             float f6 = (width * f4) / 2.0f;
-            if (f2 < 0.0f) {
+            if (i < 0) {
                 view.setTranslationX(f6 - (f5 / 2.0f));
             } else {
                 view.setTranslationX((-f6) + (f5 / 2.0f));

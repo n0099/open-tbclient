@@ -77,7 +77,7 @@ public class BigdayImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         boolean H = j.H();
         if (d.b.b.e.a.d.g().a(cVar)) {
@@ -117,11 +117,11 @@ public class BigdayImageLoaderProc implements e<a> {
         }
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f41847a = webClient;
+            bVar.f41848a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
         boolean needCache = webClient.needCache();
-        if ((downloadImageBytes != null || webClient.getResponse().f41796a) && needCache && !webClient.isCrackPic) {
+        if ((downloadImageBytes != null || webClient.getResponse().f41797a) && needCache && !webClient.isCrackPic) {
             c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
             cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.setData(downloadImageBytes);
@@ -132,7 +132,7 @@ public class BigdayImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f41847a = diskCancelWorker;
+                bVar.f41848a = diskCancelWorker;
             }
         }
         return null;

@@ -23,39 +23,39 @@ import d.b.b.e.p.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f52905a;
+    public FrameLayout f52906a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f52906b;
+    public LinearLayout f52907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f52907c;
+    public EMTextView f52908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f52908d;
+    public EMTextView f52909d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52909e;
+    public String f52910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52910f;
+    public int f52911f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f52911e;
+        public final /* synthetic */ TbPageContext f52912e;
 
         public a(TbPageContext tbPageContext) {
-            this.f52911e = tbPageContext;
+            this.f52912e = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<?> tbPageContext = this.f52911e;
-            urlManager.dealOneLink(tbPageContext, new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1&postId=" + d.this.f52909e});
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("obj_locate", d.this.f52910f));
+            TbPageContext<?> tbPageContext = this.f52912e;
+            urlManager.dealOneLink(tbPageContext, new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1&postId=" + d.this.f52910e});
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("obj_locate", d.this.f52911f));
         }
     }
 
@@ -65,48 +65,48 @@ public class d {
 
     public void b(BdTypeListView bdTypeListView, int i) {
         if (bdTypeListView != null) {
-            bdTypeListView.x(this.f52905a, i);
+            bdTypeListView.x(this.f52906a, i);
         }
     }
 
     public final void c(TbPageContext<?> tbPageContext) {
-        if (this.f52905a != null) {
+        if (this.f52906a != null) {
             return;
         }
-        this.f52905a = (FrameLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.pb_head_ueg_layout, (ViewGroup) null);
+        this.f52906a = (FrameLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.pb_head_ueg_layout, (ViewGroup) null);
         h(tbPageContext);
     }
 
     public void d() {
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f52906b);
+        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f52907b);
         a2.h(R.string.J_X05);
         a2.c(R.color.CAM_X0206);
-        SkinManager.setViewTextColor(this.f52907c, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f52908d, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f52908c, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f52909d, R.color.CAM_X0109);
     }
 
     public void e(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            bdTypeListView.removeHeaderView(this.f52905a);
+            bdTypeListView.removeHeaderView(this.f52906a);
         }
     }
 
     public void f(String str) {
-        this.f52909e = str;
+        this.f52910e = str;
     }
 
     public void g(int i) {
-        this.f52905a.setVisibility(i);
+        this.f52906a.setVisibility(i);
     }
 
     public final void h(TbPageContext<?> tbPageContext) {
-        this.f52906b = (LinearLayout) this.f52905a.findViewById(R.id.container);
-        this.f52907c = (EMTextView) this.f52905a.findViewById(R.id.tv_title);
-        this.f52908d = (EMTextView) this.f52905a.findViewById(R.id.tv_content);
-        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f52907c);
+        this.f52907b = (LinearLayout) this.f52906a.findViewById(R.id.container);
+        this.f52908c = (EMTextView) this.f52906a.findViewById(R.id.tv_title);
+        this.f52909d = (EMTextView) this.f52906a.findViewById(R.id.tv_content);
+        d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f52908c);
         a2.n(R.color.CAM_X0109);
         a2.s(R.string.F_X01);
-        d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.f52908d);
+        d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.f52909d);
         a3.o(R.dimen.M_H_X003);
         a3.n(R.color.CAM_X0109);
         a3.s(R.string.F_X01);
@@ -116,13 +116,13 @@ public class d {
         eMRichTextAnyIconSpan.c(l.g(tbPageContext.getContext(), R.dimen.M_W_X002));
         eMRichTextAnyIconSpan.a(0);
         spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-        this.f52907c.setText(spannableStringBuilder);
+        this.f52908c.setText(spannableStringBuilder);
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.pb_head_block_content));
         EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.icon_pure_arrow12_right_n, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan2.a(l.g(tbPageContext.getContext(), R.dimen.tbds3));
         spannableStringBuilder2.setSpan(eMRichTextAnyIconSpan2, spannableStringBuilder2.length() - 1, spannableStringBuilder2.length(), 33);
-        this.f52908d.setText(spannableStringBuilder2);
-        this.f52906b.setOnClickListener(new a(tbPageContext));
+        this.f52909d.setText(spannableStringBuilder2);
+        this.f52907b.setOnClickListener(new a(tbPageContext));
     }
 
     public d(VideoPbFragment videoPbFragment, FrameLayout frameLayout) {
@@ -130,7 +130,7 @@ public class d {
     }
 
     public d(TbPageContext<?> tbPageContext, FrameLayout frameLayout) {
-        this.f52905a = frameLayout;
+        this.f52906a = frameLayout;
         h(tbPageContext);
     }
 }

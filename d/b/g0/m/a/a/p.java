@@ -14,52 +14,52 @@ import java.lang.reflect.Modifier;
 public class p extends o {
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f49129g = false;
+    public static boolean f49130g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.g0.m.a.c.g<a> f49130a = new d.b.g0.m.a.c.g<>();
+    public final d.b.g0.m.a.c.g<a> f49131a = new d.b.g0.m.a.c.g<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.g0.m.a.c.g<a> f49131b = new d.b.g0.m.a.c.g<>();
+    public final d.b.g0.m.a.c.g<a> f49132b = new d.b.g0.m.a.c.g<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f49132c;
+    public final String f49133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f49133d;
+    public boolean f49134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49134e;
+    public boolean f49135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f49135f;
+    public j f49136f;
 
     /* loaded from: classes3.dex */
-    public final class a implements d.a<Object> {
+    public final class a implements d.b<Object>, d.a<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f49136a;
+        public final int f49137a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Bundle f49137b;
+        public final Bundle f49138b;
 
         /* renamed from: c  reason: collision with root package name */
-        public o.a<Object> f49138c;
+        public o.a<Object> f49139c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.b.g0.m.a.b.d<Object> f49139d;
+        public d.b.g0.m.a.b.d<Object> f49140d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f49140e;
+        public boolean f49141e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f49141f;
+        public boolean f49142f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f49142g;
+        public Object f49143g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f49143h;
+        public boolean f49144h;
         public boolean i;
         public boolean j;
         public boolean k;
@@ -69,29 +69,21 @@ public class p extends o {
         public final /* synthetic */ p o;
 
         public void a(d.b.g0.m.a.b.d<Object> dVar, Object obj) {
-            String str;
-            if (this.f49138c != null) {
-                if (this.o.f49135f != null) {
-                    str = this.o.f49135f.f49096d.s;
-                    this.o.f49135f.f49096d.s = "onLoadFinished";
-                } else {
-                    str = null;
+            if (this.f49139c != null) {
+                String str = null;
+                if (this.o.f49136f != null) {
+                    str = this.o.f49136f.f49097d.s;
+                    this.o.f49136f.f49097d.s = "onLoadFinished";
                 }
                 try {
-                    if (!p.f49129g) {
-                        this.f49138c.b(dVar, obj);
-                        this.f49141f = true;
-                        return;
+                    if (p.f49130g) {
+                        Log.v(LoaderManagerImpl.TAG, "  onLoadFinished in " + dVar + ": " + dVar.a(obj));
                     }
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("  onLoadFinished in ");
-                    sb.append(dVar);
-                    sb.append(": ");
-                    dVar.a(obj);
-                    throw null;
+                    this.f49139c.b(dVar, obj);
+                    this.f49142f = true;
                 } finally {
-                    if (this.o.f49135f != null) {
-                        this.o.f49135f.f49096d.s = str;
+                    if (this.o.f49136f != null) {
+                        this.o.f49136f.f49097d.s = str;
                     }
                 }
             }
@@ -99,42 +91,41 @@ public class p extends o {
 
         public void b() {
             String str;
-            if (p.f49129g) {
+            if (p.f49130g) {
                 Log.v(LoaderManagerImpl.TAG, "  Destroying: " + this);
             }
             this.l = true;
-            boolean z = this.f49141f;
-            this.f49141f = false;
-            if (this.f49138c != null && this.f49139d != null && this.f49140e && z) {
-                if (p.f49129g) {
+            boolean z = this.f49142f;
+            this.f49142f = false;
+            if (this.f49139c != null && this.f49140d != null && this.f49141e && z) {
+                if (p.f49130g) {
                     Log.v(LoaderManagerImpl.TAG, "  Reseting: " + this);
                 }
-                if (this.o.f49135f != null) {
-                    str = this.o.f49135f.f49096d.s;
-                    this.o.f49135f.f49096d.s = "onLoaderReset";
+                if (this.o.f49136f != null) {
+                    str = this.o.f49136f.f49097d.s;
+                    this.o.f49136f.f49097d.s = "onLoaderReset";
                 } else {
                     str = null;
                 }
                 try {
-                    this.f49138c.a(this.f49139d);
+                    this.f49139c.a(this.f49140d);
                 } finally {
-                    if (this.o.f49135f != null) {
-                        this.o.f49135f.f49096d.s = str;
+                    if (this.o.f49136f != null) {
+                        this.o.f49136f.f49097d.s = str;
                     }
                 }
             }
-            this.f49138c = null;
-            this.f49142g = null;
-            this.f49140e = false;
-            d.b.g0.m.a.b.d<Object> dVar = this.f49139d;
+            this.f49139c = null;
+            this.f49143g = null;
+            this.f49141e = false;
+            d.b.g0.m.a.b.d<Object> dVar = this.f49140d;
             if (dVar != null) {
                 if (this.m) {
                     this.m = false;
-                    dVar.f(this);
-                    throw null;
+                    dVar.h(this);
+                    this.f49140d.i(this);
                 }
-                dVar.d();
-                throw null;
+                this.f49140d.e();
             }
             a aVar = this.n;
             if (aVar != null) {
@@ -145,131 +136,130 @@ public class p extends o {
         public void c(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             printWriter.print(str);
             printWriter.print("mId=");
-            printWriter.print(this.f49136a);
+            printWriter.print(this.f49137a);
             printWriter.print(" mArgs=");
-            printWriter.println(this.f49137b);
+            printWriter.println(this.f49138b);
             printWriter.print(str);
             printWriter.print("mCallbacks=");
-            printWriter.println(this.f49138c);
+            printWriter.println(this.f49139c);
             printWriter.print(str);
             printWriter.print("mLoader=");
-            printWriter.println(this.f49139d);
-            d.b.g0.m.a.b.d<Object> dVar = this.f49139d;
-            if (dVar == null) {
-                if (this.f49140e || this.f49141f) {
-                    printWriter.print(str);
-                    printWriter.print("mHaveData=");
-                    printWriter.print(this.f49140e);
-                    printWriter.print("  mDeliveredData=");
-                    printWriter.println(this.f49141f);
-                    printWriter.print(str);
-                    printWriter.print("mData=");
-                    printWriter.println(this.f49142g);
-                }
-                printWriter.print(str);
-                printWriter.print("mStarted=");
-                printWriter.print(this.f49143h);
-                printWriter.print(" mReportNextStart=");
-                printWriter.print(this.k);
-                printWriter.print(" mDestroyed=");
-                printWriter.println(this.l);
-                printWriter.print(str);
-                printWriter.print("mRetaining=");
-                printWriter.print(this.i);
-                printWriter.print(" mRetainingStarted=");
-                printWriter.print(this.j);
-                printWriter.print(" mListenerRegistered=");
-                printWriter.println(this.m);
-                if (this.n != null) {
-                    printWriter.print(str);
-                    printWriter.println("Pending Loader ");
-                    printWriter.print(this.n);
-                    printWriter.println(":");
-                    a aVar = this.n;
-                    aVar.c(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
-                    return;
-                }
-                return;
+            printWriter.println(this.f49140d);
+            d.b.g0.m.a.b.d<Object> dVar = this.f49140d;
+            if (dVar != null) {
+                dVar.b(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
             }
-            dVar.b(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
-            throw null;
+            if (this.f49141e || this.f49142f) {
+                printWriter.print(str);
+                printWriter.print("mHaveData=");
+                printWriter.print(this.f49141e);
+                printWriter.print("  mDeliveredData=");
+                printWriter.println(this.f49142f);
+                printWriter.print(str);
+                printWriter.print("mData=");
+                printWriter.println(this.f49143g);
+            }
+            printWriter.print(str);
+            printWriter.print("mStarted=");
+            printWriter.print(this.f49144h);
+            printWriter.print(" mReportNextStart=");
+            printWriter.print(this.k);
+            printWriter.print(" mDestroyed=");
+            printWriter.println(this.l);
+            printWriter.print(str);
+            printWriter.print("mRetaining=");
+            printWriter.print(this.i);
+            printWriter.print(" mRetainingStarted=");
+            printWriter.print(this.j);
+            printWriter.print(" mListenerRegistered=");
+            printWriter.println(this.m);
+            if (this.n != null) {
+                printWriter.print(str);
+                printWriter.println("Pending Loader ");
+                printWriter.print(this.n);
+                printWriter.println(":");
+                a aVar = this.n;
+                aVar.c(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+            }
         }
 
         public void d() {
             if (this.i) {
-                if (p.f49129g) {
+                if (p.f49130g) {
                     Log.v(LoaderManagerImpl.TAG, "  Finished Retaining: " + this);
                 }
                 this.i = false;
-                boolean z = this.f49143h;
+                boolean z = this.f49144h;
                 if (z != this.j && !z) {
                     h();
                 }
             }
-            if (this.f49143h && this.f49140e && !this.k) {
-                a(this.f49139d, this.f49142g);
+            if (this.f49144h && this.f49141e && !this.k) {
+                a(this.f49140d, this.f49143g);
             }
         }
 
         public void e() {
-            if (this.f49143h && this.k) {
+            if (this.f49144h && this.k) {
                 this.k = false;
-                if (this.f49140e) {
-                    a(this.f49139d, this.f49142g);
+                if (this.f49141e) {
+                    a(this.f49140d, this.f49143g);
                 }
             }
         }
 
         public void f() {
-            if (p.f49129g) {
+            if (p.f49130g) {
                 Log.v(LoaderManagerImpl.TAG, "  Retaining: " + this);
             }
             this.i = true;
-            this.j = this.f49143h;
-            this.f49143h = false;
-            this.f49138c = null;
+            this.j = this.f49144h;
+            this.f49144h = false;
+            this.f49139c = null;
         }
 
         public void g() {
             o.a<Object> aVar;
             if (this.i && this.j) {
-                this.f49143h = true;
-            } else if (this.f49143h) {
+                this.f49144h = true;
+            } else if (this.f49144h) {
             } else {
-                this.f49143h = true;
-                if (p.f49129g) {
+                this.f49144h = true;
+                if (p.f49130g) {
                     Log.v(LoaderManagerImpl.TAG, "  Starting: " + this);
                 }
-                if (this.f49139d == null && (aVar = this.f49138c) != null) {
-                    this.f49139d = aVar.onCreateLoader(this.f49136a, this.f49137b);
+                if (this.f49140d == null && (aVar = this.f49139c) != null) {
+                    this.f49140d = aVar.onCreateLoader(this.f49137a, this.f49138b);
                 }
-                d.b.g0.m.a.b.d<Object> dVar = this.f49139d;
+                d.b.g0.m.a.b.d<Object> dVar = this.f49140d;
                 if (dVar != null) {
-                    if (dVar.getClass().isMemberClass() && !Modifier.isStatic(this.f49139d.getClass().getModifiers())) {
-                        throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.f49139d);
-                    } else if (!this.m) {
-                        this.f49139d.c(this.f49136a, this);
-                        throw null;
-                    } else {
-                        this.f49139d.e();
-                        throw null;
+                    if (dVar.getClass().isMemberClass() && !Modifier.isStatic(this.f49140d.getClass().getModifiers())) {
+                        throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.f49140d);
                     }
+                    if (!this.m) {
+                        this.f49140d.c(this.f49137a, this);
+                        this.f49140d.d(this);
+                        this.m = true;
+                    }
+                    this.f49140d.f();
+                    throw null;
                 }
             }
         }
 
         public void h() {
             d.b.g0.m.a.b.d<Object> dVar;
-            if (p.f49129g) {
+            if (p.f49130g) {
                 Log.v(LoaderManagerImpl.TAG, "  Stopping: " + this);
             }
-            this.f49143h = false;
-            if (this.i || (dVar = this.f49139d) == null || !this.m) {
+            this.f49144h = false;
+            if (this.i || (dVar = this.f49140d) == null || !this.m) {
                 return;
             }
             this.m = false;
-            dVar.f(this);
-            throw null;
+            dVar.h(this);
+            this.f49140d.i(this);
+            this.f49140d.g();
         }
 
         public String toString() {
@@ -277,124 +267,124 @@ public class p extends o {
             sb.append("LoaderInfo{");
             sb.append(Integer.toHexString(System.identityHashCode(this)));
             sb.append(" #");
-            sb.append(this.f49136a);
+            sb.append(this.f49137a);
             sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-            d.b.g0.m.a.c.c.a(this.f49139d, sb);
+            d.b.g0.m.a.c.c.a(this.f49140d, sb);
             sb.append("}}");
             return sb.toString();
         }
     }
 
     public p(String str, j jVar, boolean z) {
-        this.f49132c = str;
-        this.f49135f = jVar;
-        this.f49133d = z;
+        this.f49133c = str;
+        this.f49136f = jVar;
+        this.f49134d = z;
     }
 
     public void b() {
-        if (!this.f49134e) {
-            if (f49129g) {
+        if (!this.f49135e) {
+            if (f49130g) {
                 Log.v(LoaderManagerImpl.TAG, "Destroying Active in " + this);
             }
-            for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-                this.f49130a.g(f2).b();
+            for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+                this.f49131a.g(f2).b();
             }
-            this.f49130a.b();
+            this.f49131a.b();
         }
-        if (f49129g) {
+        if (f49130g) {
             Log.v(LoaderManagerImpl.TAG, "Destroying Inactive in " + this);
         }
-        for (int f3 = this.f49131b.f() - 1; f3 >= 0; f3--) {
-            this.f49131b.g(f3).b();
+        for (int f3 = this.f49132b.f() - 1; f3 >= 0; f3--) {
+            this.f49132b.g(f3).b();
         }
-        this.f49131b.b();
+        this.f49132b.b();
     }
 
     public void c() {
-        for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-            this.f49130a.g(f2).k = true;
+        for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+            this.f49131a.g(f2).k = true;
         }
     }
 
     public void d() {
-        for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-            this.f49130a.g(f2).e();
+        for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+            this.f49131a.g(f2).e();
         }
     }
 
     public void e() {
-        if (f49129g) {
+        if (f49130g) {
             Log.v(LoaderManagerImpl.TAG, "Retaining in " + this);
         }
-        if (!this.f49133d) {
+        if (!this.f49134d) {
             RuntimeException runtimeException = new RuntimeException("here");
             runtimeException.fillInStackTrace();
             Log.w(LoaderManagerImpl.TAG, "Called doRetain when not started: " + this, runtimeException);
             return;
         }
-        this.f49134e = true;
-        this.f49133d = false;
-        for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-            this.f49130a.g(f2).f();
+        this.f49135e = true;
+        this.f49134d = false;
+        for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+            this.f49131a.g(f2).f();
         }
     }
 
     public void f() {
-        if (f49129g) {
+        if (f49130g) {
             Log.v(LoaderManagerImpl.TAG, "Starting in " + this);
         }
-        if (this.f49133d) {
+        if (this.f49134d) {
             RuntimeException runtimeException = new RuntimeException("here");
             runtimeException.fillInStackTrace();
             Log.w(LoaderManagerImpl.TAG, "Called doStart when already started: " + this, runtimeException);
             return;
         }
-        this.f49133d = true;
-        for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-            this.f49130a.g(f2).g();
+        this.f49134d = true;
+        for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+            this.f49131a.g(f2).g();
         }
     }
 
     public void g() {
-        if (f49129g) {
+        if (f49130g) {
             Log.v(LoaderManagerImpl.TAG, "Stopping in " + this);
         }
-        if (!this.f49133d) {
+        if (!this.f49134d) {
             RuntimeException runtimeException = new RuntimeException("here");
             runtimeException.fillInStackTrace();
             Log.w(LoaderManagerImpl.TAG, "Called doStop when not started: " + this, runtimeException);
             return;
         }
-        for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-            this.f49130a.g(f2).h();
+        for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+            this.f49131a.g(f2).h();
         }
-        this.f49133d = false;
+        this.f49134d = false;
     }
 
     public void h(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        if (this.f49130a.f() > 0) {
+        if (this.f49131a.f() > 0) {
             printWriter.print(str);
             printWriter.println("Active Loaders:");
             String str2 = str + "    ";
-            for (int i = 0; i < this.f49130a.f(); i++) {
-                a g2 = this.f49130a.g(i);
+            for (int i = 0; i < this.f49131a.f(); i++) {
+                a g2 = this.f49131a.g(i);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.f49130a.e(i));
+                printWriter.print(this.f49131a.e(i));
                 printWriter.print(": ");
                 printWriter.println(g2.toString());
                 g2.c(str2, fileDescriptor, printWriter, strArr);
             }
         }
-        if (this.f49131b.f() > 0) {
+        if (this.f49132b.f() > 0) {
             printWriter.print(str);
             printWriter.println("Inactive Loaders:");
             String str3 = str + "    ";
-            for (int i2 = 0; i2 < this.f49131b.f(); i2++) {
-                a g3 = this.f49131b.g(i2);
+            for (int i2 = 0; i2 < this.f49132b.f(); i2++) {
+                a g3 = this.f49132b.g(i2);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.f49131b.e(i2));
+                printWriter.print(this.f49132b.e(i2));
                 printWriter.print(": ");
                 printWriter.println(g3.toString());
                 g3.c(str3, fileDescriptor, printWriter, strArr);
@@ -403,29 +393,29 @@ public class p extends o {
     }
 
     public void i() {
-        if (this.f49134e) {
-            if (f49129g) {
+        if (this.f49135e) {
+            if (f49130g) {
                 Log.v(LoaderManagerImpl.TAG, "Finished Retaining in " + this);
             }
-            this.f49134e = false;
-            for (int f2 = this.f49130a.f() - 1; f2 >= 0; f2--) {
-                this.f49130a.g(f2).d();
+            this.f49135e = false;
+            for (int f2 = this.f49131a.f() - 1; f2 >= 0; f2--) {
+                this.f49131a.g(f2).d();
             }
         }
     }
 
     public boolean j() {
-        int f2 = this.f49130a.f();
+        int f2 = this.f49131a.f();
         boolean z = false;
         for (int i = 0; i < f2; i++) {
-            a g2 = this.f49130a.g(i);
-            z |= g2.f49143h && !g2.f49141f;
+            a g2 = this.f49131a.g(i);
+            z |= g2.f49144h && !g2.f49142f;
         }
         return z;
     }
 
     public void k(j jVar) {
-        this.f49135f = jVar;
+        this.f49136f = jVar;
     }
 
     public String toString() {
@@ -433,7 +423,7 @@ public class p extends o {
         sb.append("LoaderManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");
-        d.b.g0.m.a.c.c.a(this.f49135f, sb);
+        d.b.g0.m.a.c.c.a(this.f49136f, sb);
         sb.append("}}");
         return sb.toString();
     }

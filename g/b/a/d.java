@@ -5,52 +5,52 @@ import org.brotli.dec.BrotliRuntimeException;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f67582a = {1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    public static final int[] f67587a = {1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f67583b = {3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
+    public static final int[] f67588b = {3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f67584c = {0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
+    public static final int[] f67589c = {0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f67585d = {131072, 131076, 131075, 196610, 131072, 131076, 131075, 262145, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
+    public static final int[] f67590d = {131072, 131076, 131075, 196610, 131072, 131076, 131075, 262145, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
 
     public static void a(j jVar) {
-        a aVar = jVar.f67604c;
-        byte[] bArr = jVar.f67605d;
-        int i = jVar.f67608g;
+        a aVar = jVar.f67609c;
+        byte[] bArr = jVar.f67610d;
+        int i = jVar.f67613g;
         if (i <= 0) {
             a.k(aVar);
-            jVar.f67602a = 1;
+            jVar.f67607a = 1;
             return;
         }
         int min = Math.min(jVar.Q - jVar.r, i);
         a.c(aVar, bArr, jVar.r, min);
-        jVar.f67608g -= min;
+        jVar.f67613g -= min;
         int i2 = jVar.r + min;
         jVar.r = i2;
         int i3 = jVar.Q;
         if (i2 == i3) {
-            jVar.f67603b = 5;
+            jVar.f67608b = 5;
             jVar.Y = i3;
             jVar.X = 0;
-            jVar.f67602a = 12;
+            jVar.f67607a = 12;
             return;
         }
         a.k(aVar);
-        jVar.f67602a = 1;
+        jVar.f67607a = 1;
     }
 
     public static void b(j jVar, int i) {
         int i2;
-        a aVar = jVar.f67604c;
+        a aVar = jVar.f67609c;
         int[] iArr = jVar.p;
         int i3 = i * 2;
         a.d(aVar);
         int i4 = i * 1080;
-        int r = r(jVar.f67606e, i4, aVar);
-        jVar.n[i] = m(jVar.f67607f, i4, aVar);
+        int r = r(jVar.f67611e, i4, aVar);
+        jVar.n[i] = m(jVar.f67612f, i4, aVar);
         if (r == 1) {
             i2 = iArr[i3 + 1] + 1;
         } else {
@@ -67,7 +67,7 @@ public final class d {
 
     public static void c(j jVar) {
         b(jVar, 1);
-        jVar.F = jVar.l.f67591c[jVar.p[3]];
+        jVar.F = jVar.l.f67596c[jVar.p[3]];
     }
 
     public static int d(int i, byte[] bArr, a aVar) {
@@ -120,17 +120,17 @@ public final class d {
         jVar.B = i2;
         int i3 = jVar.A[i2] & 255;
         jVar.v = i3;
-        jVar.w = jVar.k.f67591c[i3];
+        jVar.w = jVar.k.f67596c[i3];
         byte b2 = jVar.z[i];
-        int[] iArr = c.f67581b;
+        int[] iArr = c.f67586b;
         jVar.D = iArr[b2];
         jVar.E = iArr[b2 + 1];
     }
 
     public static void g(a aVar, j jVar) {
         boolean z = a.i(aVar, 1) == 1;
-        jVar.f67609h = z;
-        jVar.f67608g = 0;
+        jVar.f67614h = z;
+        jVar.f67613g = 0;
         jVar.i = false;
         jVar.j = false;
         if (!z || a.i(aVar, 1) == 0) {
@@ -147,7 +147,7 @@ public final class d {
                         if (i4 == 0 && i3 + 1 == i2 && i2 > 1) {
                             throw new BrotliRuntimeException("Exuberant nibble");
                         }
-                        jVar.f67608g = (i4 << (i3 * 8)) | jVar.f67608g;
+                        jVar.f67613g = (i4 << (i3 * 8)) | jVar.f67613g;
                     }
                 } else {
                     throw new BrotliRuntimeException("Corrupted reserved bit");
@@ -158,11 +158,11 @@ public final class d {
                     if (i6 == 0 && i5 + 1 == i && i > 4) {
                         throw new BrotliRuntimeException("Exuberant nibble");
                     }
-                    jVar.f67608g = (i6 << (i5 * 4)) | jVar.f67608g;
+                    jVar.f67613g = (i6 << (i5 * 4)) | jVar.f67613g;
                 }
             }
-            jVar.f67608g++;
-            if (jVar.f67609h) {
+            jVar.f67613g++;
+            if (jVar.f67614h) {
                 return;
             }
             jVar.i = a.i(aVar, 1) == 1;
@@ -184,13 +184,13 @@ public final class d {
         throw new org.brotli.dec.BrotliRuntimeException("Invalid backward reference");
      */
     /* JADX WARN: Removed duplicated region for block: B:110:0x02e6  */
-    /* JADX WARN: Removed duplicated region for block: B:162:0x00dc A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:163:0x00d8 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:164:0x01f8 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x0311 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x00dc A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x00d8 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:163:0x01f8 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:169:0x0311 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:179:0x0013 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:180:0x0013 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x0013 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x030c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x030c A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:48:0x013e A[LOOP:2: B:48:0x013e->B:54:0x0174, LOOP_START] */
     /* JADX WARN: Removed duplicated region for block: B:56:0x0181  */
     /*
@@ -203,21 +203,21 @@ public final class d {
         int i4;
         int i5;
         int i6;
-        int i7 = jVar.f67602a;
+        int i7 = jVar.f67607a;
         if (i7 == 0) {
             throw new IllegalStateException("Can't decompress until initialized");
         }
         if (i7 != 11) {
-            a aVar = jVar.f67604c;
+            a aVar = jVar.f67609c;
             int i8 = jVar.Q - 1;
-            byte[] bArr = jVar.f67605d;
+            byte[] bArr = jVar.f67610d;
             while (true) {
-                int i9 = jVar.f67602a;
+                int i9 = jVar.f67607a;
                 if (i9 == 10) {
                     if (i9 == 10) {
-                        if (jVar.f67608g >= 0) {
+                        if (jVar.f67613g >= 0) {
                             a.g(aVar);
-                            a.a(jVar.f67604c, true);
+                            a.a(jVar.f67609c, true);
                             return;
                         }
                         throw new BrotliRuntimeException("Invalid metablock length");
@@ -227,19 +227,19 @@ public final class d {
                     int i10 = 0;
                     switch (i9) {
                         case 1:
-                            if (jVar.f67608g >= 0) {
+                            if (jVar.f67613g >= 0) {
                                 q(jVar);
                                 i8 = jVar.Q - 1;
-                                bArr = jVar.f67605d;
+                                bArr = jVar.f67610d;
                                 break;
                             } else {
                                 throw new BrotliRuntimeException("Invalid metablock length");
                             }
                         case 2:
                             p(jVar);
-                            jVar.f67602a = 3;
-                            if (jVar.f67608g > 0) {
-                                jVar.f67602a = 1;
+                            jVar.f67607a = 3;
+                            if (jVar.f67613g > 0) {
+                                jVar.f67607a = 1;
                                 break;
                             } else {
                                 a.j(aVar);
@@ -249,19 +249,19 @@ public final class d {
                                 int[] iArr = jVar.n;
                                 iArr[1] = iArr[1] - 1;
                                 a.d(aVar);
-                                int r = r(jVar.l.f67590b, jVar.F, aVar);
+                                int r = r(jVar.l.f67595b, jVar.F, aVar);
                                 int i11 = r >>> 6;
                                 jVar.G = 0;
                                 if (i11 >= 2) {
                                     i11 -= 2;
                                     jVar.G = -1;
                                 }
-                                int i12 = i.f67600g[i11] + ((r >>> 3) & 7);
-                                int i13 = i.f67601h[i11] + (r & 7);
-                                jVar.y = i.f67596c[i12] + a.i(aVar, i.f67597d[i12]);
-                                jVar.M = i.f67598e[i13] + a.i(aVar, i.f67599f[i13]);
+                                int i12 = i.f67605g[i11] + ((r >>> 3) & 7);
+                                int i13 = i.f67606h[i11] + (r & 7);
+                                jVar.y = i.f67601c[i12] + a.i(aVar, i.f67602d[i12]);
+                                jVar.M = i.f67603e[i13] + a.i(aVar, i.f67604f[i13]);
                                 jVar.x = 0;
-                                jVar.f67602a = 6;
+                                jVar.f67607a = 6;
                                 if (jVar.u) {
                                     int i14 = jVar.r;
                                     int i15 = bArr[(i14 - 1) & i8] & 255;
@@ -274,22 +274,22 @@ public final class d {
                                             }
                                             byte[] bArr2 = jVar.A;
                                             int i17 = jVar.B;
-                                            int[] iArr2 = c.f67580a;
+                                            int[] iArr2 = c.f67585a;
                                             int i18 = iArr2[jVar.D + i15];
                                             int[] iArr3 = jVar.n;
                                             iArr3[0] = iArr3[0] - 1;
                                             a.d(aVar);
                                             g gVar = jVar.k;
-                                            int r2 = r(gVar.f67590b, gVar.f67591c[bArr2[i17 + (iArr2[jVar.E + i16] | i18)] & 255], aVar);
+                                            int r2 = r(gVar.f67595b, gVar.f67596c[bArr2[i17 + (iArr2[jVar.E + i16] | i18)] & 255], aVar);
                                             int i19 = jVar.r;
                                             bArr[i19] = (byte) r2;
                                             jVar.x++;
                                             jVar.r = i19 + 1;
                                             if (i19 == i8) {
-                                                jVar.f67603b = 6;
+                                                jVar.f67608b = 6;
                                                 jVar.Y = jVar.Q;
                                                 jVar.X = 0;
-                                                jVar.f67602a = 12;
+                                                jVar.f67607a = 12;
                                             } else {
                                                 int i20 = i15;
                                                 i15 = r2;
@@ -307,26 +307,26 @@ public final class d {
                                             int[] iArr4 = jVar.n;
                                             iArr4[0] = iArr4[0] - 1;
                                             a.d(aVar);
-                                            bArr[jVar.r] = (byte) r(jVar.k.f67590b, jVar.w, aVar);
+                                            bArr[jVar.r] = (byte) r(jVar.k.f67595b, jVar.w, aVar);
                                             jVar.x++;
                                             int i21 = jVar.r;
                                             jVar.r = i21 + 1;
                                             if (i21 == i8) {
-                                                jVar.f67603b = 6;
+                                                jVar.f67608b = 6;
                                                 jVar.Y = jVar.Q;
                                                 jVar.X = 0;
-                                                jVar.f67602a = 12;
+                                                jVar.f67607a = 12;
                                             }
                                         }
                                     }
                                 }
-                                if (jVar.f67602a == 6) {
+                                if (jVar.f67607a == 6) {
                                     continue;
                                 } else {
-                                    int i22 = jVar.f67608g - jVar.y;
-                                    jVar.f67608g = i22;
+                                    int i22 = jVar.f67613g - jVar.y;
+                                    jVar.f67613g = i22;
                                     if (i22 <= 0) {
-                                        jVar.f67602a = 3;
+                                        jVar.f67607a = 3;
                                         break;
                                     } else {
                                         if (jVar.G < 0) {
@@ -338,8 +338,8 @@ public final class d {
                                             iArr5[2] = iArr5[2] - 1;
                                             a.d(aVar);
                                             g gVar2 = jVar.m;
-                                            int[] iArr6 = gVar2.f67590b;
-                                            int[] iArr7 = gVar2.f67591c;
+                                            int[] iArr6 = gVar2.f67595b;
+                                            int[] iArr7 = gVar2.f67596c;
                                             byte[] bArr3 = jVar.H;
                                             int i23 = jVar.C;
                                             int i24 = jVar.M;
@@ -369,7 +369,7 @@ public final class d {
                                             jVar.N = jVar.r;
                                             int i32 = jVar.L;
                                             if (i32 > jVar.s) {
-                                                jVar.f67602a = 9;
+                                                jVar.f67607a = 9;
                                                 break;
                                             } else {
                                                 if (jVar.G > 0) {
@@ -378,9 +378,9 @@ public final class d {
                                                     iArr8[i33 & 3] = i32;
                                                     jVar.t = i33 + 1;
                                                 }
-                                                if (jVar.M <= jVar.f67608g) {
+                                                if (jVar.M <= jVar.f67613g) {
                                                     jVar.x = 0;
-                                                    jVar.f67602a = 7;
+                                                    jVar.f67607a = 7;
                                                     int i34 = jVar.r;
                                                     i = (i34 - jVar.L) & i8;
                                                     i2 = jVar.M - jVar.x;
@@ -392,7 +392,7 @@ public final class d {
                                                             i++;
                                                         }
                                                         jVar.x += i2;
-                                                        jVar.f67608g -= i2;
+                                                        jVar.f67613g -= i2;
                                                         jVar.r += i2;
                                                     } else {
                                                         do {
@@ -400,25 +400,25 @@ public final class d {
                                                             if (i3 >= jVar.M) {
                                                                 i4 = jVar.r;
                                                                 bArr[i4] = bArr[(i4 - jVar.L) & i8];
-                                                                jVar.f67608g--;
+                                                                jVar.f67613g--;
                                                                 jVar.x = i3 + 1;
                                                                 jVar.r = i4 + 1;
                                                             }
                                                         } while (i4 != i8);
                                                         i5 = 7;
-                                                        jVar.f67603b = 7;
+                                                        jVar.f67608b = 7;
                                                         jVar.Y = jVar.Q;
                                                         jVar.X = 0;
-                                                        jVar.f67602a = 12;
-                                                        if (jVar.f67602a != i5) {
+                                                        jVar.f67607a = 12;
+                                                        if (jVar.f67607a != i5) {
                                                             break;
                                                         } else {
-                                                            jVar.f67602a = 3;
+                                                            jVar.f67607a = 3;
                                                             break;
                                                         }
                                                     }
                                                     i5 = 7;
-                                                    if (jVar.f67602a != i5) {
+                                                    if (jVar.f67607a != i5) {
                                                     }
                                                 } else {
                                                     throw new BrotliRuntimeException("Invalid backward reference");
@@ -432,16 +432,16 @@ public final class d {
                             }
                             break;
                         case 3:
-                            if (jVar.f67608g > 0) {
+                            if (jVar.f67613g > 0) {
                             }
                             break;
                         case 4:
-                            while (jVar.f67608g > 0) {
+                            while (jVar.f67613g > 0) {
                                 a.j(aVar);
                                 a.i(aVar, 8);
-                                jVar.f67608g--;
+                                jVar.f67613g--;
                             }
-                            jVar.f67602a = 1;
+                            jVar.f67607a = 1;
                             break;
                         case 5:
                             a(jVar);
@@ -449,7 +449,7 @@ public final class d {
                         case 6:
                             if (jVar.u) {
                             }
-                            if (jVar.f67602a == 6) {
+                            if (jVar.f67607a == 6) {
                             }
                             break;
                         case 7:
@@ -465,42 +465,42 @@ public final class d {
                                 }
                             } while (i4 != i8);
                             i5 = 7;
-                            jVar.f67603b = 7;
+                            jVar.f67608b = 7;
                             jVar.Y = jVar.Q;
                             jVar.X = 0;
-                            jVar.f67602a = 12;
-                            if (jVar.f67602a != i5) {
+                            jVar.f67607a = 12;
+                            if (jVar.f67607a != i5) {
                             }
                             break;
                         case 8:
                             int i35 = jVar.Q;
                             System.arraycopy(bArr, i35, bArr, 0, jVar.N - i35);
-                            jVar.f67602a = 3;
+                            jVar.f67607a = 3;
                             break;
                         case 9:
                             int i36 = jVar.M;
                             if (i36 >= 4 && i36 <= 24) {
-                                int i37 = e.f67586a[i36];
+                                int i37 = e.f67591a[i36];
                                 int i38 = (jVar.L - jVar.s) - 1;
-                                int i39 = e.f67587b[i36];
+                                int i39 = e.f67592b[i36];
                                 int i40 = ((1 << i39) - 1) & i38;
                                 int i41 = i38 >>> i39;
                                 int i42 = i37 + (i40 * i36);
-                                if (i41 < k.f67610d.length) {
-                                    int b2 = k.b(bArr, jVar.N, e.a(), i42, jVar.M, k.f67610d[i41]);
+                                if (i41 < k.f67615d.length) {
+                                    int b2 = k.b(bArr, jVar.N, e.a(), i42, jVar.M, k.f67615d[i41]);
                                     int i43 = jVar.N + b2;
                                     jVar.N = i43;
                                     jVar.r += b2;
-                                    jVar.f67608g -= b2;
+                                    jVar.f67613g -= b2;
                                     int i44 = jVar.Q;
                                     if (i43 >= i44) {
-                                        jVar.f67603b = 8;
+                                        jVar.f67608b = 8;
                                         jVar.Y = i44;
                                         jVar.X = 0;
-                                        jVar.f67602a = 12;
+                                        jVar.f67607a = 12;
                                         break;
                                     } else {
-                                        jVar.f67602a = 3;
+                                        jVar.f67607a = 3;
                                         break;
                                     }
                                 } else {
@@ -509,7 +509,7 @@ public final class d {
                             }
                             break;
                         default:
-                            throw new BrotliRuntimeException("Unexpected state " + jVar.f67602a);
+                            throw new BrotliRuntimeException("Unexpected state " + jVar.f67607a);
                     }
                 } else if (!u(jVar)) {
                     return;
@@ -520,7 +520,7 @@ public final class d {
                         jVar.s = i46;
                     }
                     jVar.r &= i8;
-                    jVar.f67602a = jVar.f67603b;
+                    jVar.f67607a = jVar.f67608b;
                 }
             }
         } else {
@@ -554,7 +554,7 @@ public final class d {
                 }
                 i2 = i3;
             }
-            if (!jVar.f67609h && i2 < 16384 && jVar.P >= 16384) {
+            if (!jVar.f67614h && i2 < 16384 && jVar.P >= 16384) {
                 i2 = 16384;
             }
         }
@@ -563,7 +563,7 @@ public final class d {
             return;
         }
         byte[] bArr = new byte[i2 + 37];
-        byte[] bArr2 = jVar.f67605d;
+        byte[] bArr2 = jVar.f67610d;
         if (bArr2 != null) {
             System.arraycopy(bArr2, 0, bArr, 0, i4);
         } else {
@@ -582,7 +582,7 @@ public final class d {
                 jVar.T = i5;
             }
         }
-        jVar.f67605d = bArr;
+        jVar.f67610d = bArr;
         jVar.Q = i2;
     }
 
@@ -598,7 +598,7 @@ public final class d {
     public static int m(int[] iArr, int i, a aVar) {
         a.d(aVar);
         int r = r(iArr, i, aVar);
-        return i.f67594a[r] + a.i(aVar, i.f67595b[r]);
+        return i.f67599a[r] + a.i(aVar, i.f67600b[r]);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:58:0x00de  */
@@ -652,13 +652,13 @@ public final class d {
         int i8 = 32;
         int i9 = 0;
         while (i3 < 18 && i8 > 0) {
-            int i10 = f67582a[i3];
+            int i10 = f67587a[i3];
             a.d(aVar);
-            long j = aVar.f67573f;
-            int i11 = aVar.f67574g;
+            long j = aVar.f67578f;
+            int i11 = aVar.f67579g;
             int i12 = ((int) (j >>> i11)) & 15;
-            int[] iArr5 = f67585d;
-            aVar.f67574g = i11 + (iArr5[i12] >> 16);
+            int[] iArr5 = f67590d;
+            aVar.f67579g = i11 + (iArr5[i12] >> 16);
             int i13 = iArr5[i12] & 65535;
             iArr4[i10] = i13;
             if (i13 != 0) {
@@ -683,7 +683,7 @@ public final class d {
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0086, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x008f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x008e, code lost:
         throw new org.brotli.dec.BrotliRuntimeException("Unused space");
      */
     /*
@@ -701,10 +701,10 @@ public final class d {
             while (i3 < i && i4 > 0) {
                 a.j(aVar);
                 a.d(aVar);
-                long j = aVar.f67573f;
-                int i7 = aVar.f67574g;
+                long j = aVar.f67578f;
+                int i7 = aVar.f67579g;
                 int i8 = ((int) (j >>> i7)) & 31;
-                aVar.f67574g = i7 + (iArr3[i8] >> 16);
+                aVar.f67579g = i7 + (iArr3[i8] >> 16);
                 int i9 = iArr3[i8] & 65535;
                 if (i9 < 16) {
                     int i10 = i3 + 1;
@@ -745,16 +745,16 @@ public final class d {
 
     public static void p(j jVar) {
         int[] iArr;
-        a aVar = jVar.f67604c;
+        a aVar = jVar.f67609c;
         for (int i = 0; i < 3; i++) {
             jVar.o[i] = h(aVar) + 1;
             jVar.n[i] = 268435456;
             int[] iArr2 = jVar.o;
             if (iArr2[i] > 1) {
                 int i2 = i * 1080;
-                n(iArr2[i] + 2, jVar.f67606e, i2, aVar);
-                n(26, jVar.f67607f, i2, aVar);
-                jVar.n[i] = m(jVar.f67607f, i2, aVar);
+                n(iArr2[i] + 2, jVar.f67611e, i2, aVar);
+                n(26, jVar.f67612f, i2, aVar);
+                jVar.n[i] = m(jVar.f67612f, i2, aVar);
             }
         }
         a.j(aVar);
@@ -806,13 +806,13 @@ public final class d {
         g.a(jVar.m, aVar);
         jVar.B = 0;
         jVar.C = 0;
-        int[] iArr4 = c.f67581b;
+        int[] iArr4 = c.f67586b;
         byte[] bArr3 = jVar.z;
         jVar.D = iArr4[bArr3[0]];
         jVar.E = iArr4[bArr3[0] + 1];
         jVar.v = 0;
-        jVar.w = jVar.k.f67591c[0];
-        jVar.F = jVar.l.f67591c[0];
+        jVar.w = jVar.k.f67596c[0];
+        jVar.F = jVar.l.f67596c[0];
         int[] iArr5 = jVar.p;
         iArr5[4] = 1;
         iArr5[2] = 1;
@@ -823,36 +823,36 @@ public final class d {
     }
 
     public static void q(j jVar) {
-        a aVar = jVar.f67604c;
-        if (jVar.f67609h) {
-            jVar.f67603b = 10;
+        a aVar = jVar.f67609c;
+        if (jVar.f67614h) {
+            jVar.f67608b = 10;
             jVar.Y = jVar.r;
             jVar.X = 0;
-            jVar.f67602a = 12;
+            jVar.f67607a = 12;
             return;
         }
         g gVar = jVar.k;
-        gVar.f67590b = null;
-        gVar.f67591c = null;
+        gVar.f67595b = null;
+        gVar.f67596c = null;
         g gVar2 = jVar.l;
-        gVar2.f67590b = null;
-        gVar2.f67591c = null;
+        gVar2.f67595b = null;
+        gVar2.f67596c = null;
         g gVar3 = jVar.m;
-        gVar3.f67590b = null;
-        gVar3.f67591c = null;
+        gVar3.f67595b = null;
+        gVar3.f67596c = null;
         a.j(aVar);
         g(aVar, jVar);
-        if (jVar.f67608g != 0 || jVar.j) {
+        if (jVar.f67613g != 0 || jVar.j) {
             if (!jVar.i && !jVar.j) {
-                jVar.f67602a = 2;
+                jVar.f67607a = 2;
             } else {
                 a.g(aVar);
-                jVar.f67602a = jVar.j ? 4 : 5;
+                jVar.f67607a = jVar.j ? 4 : 5;
             }
             if (jVar.j) {
                 return;
             }
-            jVar.R += jVar.f67608g;
+            jVar.R += jVar.f67613g;
             if (jVar.Q < jVar.P) {
                 k(jVar);
             }
@@ -860,18 +860,18 @@ public final class d {
     }
 
     public static int r(int[] iArr, int i, a aVar) {
-        long j = aVar.f67573f;
-        int i2 = aVar.f67574g;
+        long j = aVar.f67578f;
+        int i2 = aVar.f67579g;
         int i3 = (int) (j >>> i2);
         int i4 = i + (i3 & 255);
         int i5 = iArr[i4] >> 16;
         int i6 = iArr[i4] & 65535;
         if (i5 <= 8) {
-            aVar.f67574g = i2 + i5;
+            aVar.f67579g = i2 + i5;
             return i6;
         }
         int i7 = i4 + i6 + ((((1 << i5) - 1) & i3) >>> 8);
-        aVar.f67574g = i2 + (iArr[i7] >> 16) + 8;
+        aVar.f67579g = i2 + (iArr[i7] >> 16) + 8;
         return iArr[i7] & 65535;
     }
 
@@ -883,7 +883,7 @@ public final class d {
     }
 
     public static int t(int i, int[] iArr, int i2) {
-        return i < 16 ? iArr[(i2 + f67583b[i]) & 3] + f67584c[i] : (i - 16) + 1;
+        return i < 16 ? iArr[(i2 + f67588b[i]) & 3] + f67589c[i] : (i - 16) + 1;
     }
 
     public static boolean u(j jVar) {
@@ -894,7 +894,7 @@ public final class d {
         }
         int min = Math.min(jVar.V - jVar.W, jVar.Y - jVar.X);
         if (min != 0) {
-            System.arraycopy(jVar.f67605d, jVar.X, jVar.Z, jVar.U + jVar.W, min);
+            System.arraycopy(jVar.f67610d, jVar.X, jVar.Z, jVar.U + jVar.W, min);
             jVar.W += min;
             jVar.X += min;
         }

@@ -9,63 +9,63 @@ import com.opensource.svgaplayer.SVGAVideoEntity;
 public final class b extends Drawable {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66214b;
+    public int f66215b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.l.a.f.b f66216d;
+    public final d.l.a.f.b f66217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SVGAVideoEntity f66217e;
+    public final SVGAVideoEntity f66218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f66218f;
+    public final c f66219f;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66213a = true;
+    public boolean f66214a = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView.ScaleType f66215c = ImageView.ScaleType.MATRIX;
+    public ImageView.ScaleType f66216c = ImageView.ScaleType.MATRIX;
 
     public b(SVGAVideoEntity sVGAVideoEntity, c cVar) {
-        this.f66217e = sVGAVideoEntity;
-        this.f66218f = cVar;
-        this.f66216d = new d.l.a.f.b(sVGAVideoEntity, cVar);
+        this.f66218e = sVGAVideoEntity;
+        this.f66219f = cVar;
+        this.f66217d = new d.l.a.f.b(sVGAVideoEntity, cVar);
     }
 
     public final int a() {
-        return this.f66214b;
+        return this.f66215b;
     }
 
     public final SVGAVideoEntity b() {
-        return this.f66217e;
+        return this.f66218e;
     }
 
     public final void c(boolean z) {
-        if (this.f66213a == z) {
+        if (this.f66214a == z) {
             return;
         }
-        this.f66213a = z;
+        this.f66214a = z;
         invalidateSelf();
     }
 
     public final void d(int i) {
-        if (this.f66214b == i) {
+        if (this.f66215b == i) {
             return;
         }
-        this.f66214b = i;
+        this.f66215b = i;
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.f66213a || canvas == null) {
+        if (this.f66214a || canvas == null) {
             return;
         }
-        this.f66216d.a(canvas, this.f66214b, this.f66215c);
+        this.f66217d.a(canvas, this.f66215b, this.f66216c);
     }
 
     public final void e(ImageView.ScaleType scaleType) {
-        this.f66215c = scaleType;
+        this.f66216c = scaleType;
     }
 
     @Override // android.graphics.drawable.Drawable

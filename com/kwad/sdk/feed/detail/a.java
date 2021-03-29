@@ -22,13 +22,13 @@ import java.io.Serializable;
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public FeedSlideParam f34897a;
+    public FeedSlideParam f34898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f34898b;
+    public ImageView f34899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f34899c;
+    public g f34900c;
 
     public static void a(KsFragment ksFragment, FeedSlideParam feedSlideParam) {
         if (ksFragment == null || feedSlideParam == null) {
@@ -42,33 +42,33 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_FEED_SLIDE_PARAM");
         if (serializableExtra instanceof FeedSlideParam) {
-            this.f34897a = (FeedSlideParam) serializableExtra;
+            this.f34898a = (FeedSlideParam) serializableExtra;
         }
-        FeedSlideParam feedSlideParam = this.f34897a;
+        FeedSlideParam feedSlideParam = this.f34898a;
         return (feedSlideParam == null || feedSlideParam.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f34898b = (ImageView) findViewById(R.id.ksad_back_btn);
+        this.f34899b = (ImageView) findViewById(R.id.ksad_back_btn);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f34898b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f34899b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f34898b.setLayoutParams(marginLayoutParams);
+            this.f34899b.setLayoutParams(marginLayoutParams);
         }
-        this.f34898b.setOnClickListener(this);
+        this.f34899b.setOnClickListener(this);
     }
 
     private void c() {
-        g a2 = g.a(new KsScene.Builder(this.f34897a.mEntryScene).build());
-        this.f34899c = a2;
-        a2.getArguments().putSerializable("KEY_FEED_SLIDE_PARAM", this.f34897a);
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.f34899c).commitAllowingStateLoss();
+        g a2 = g.a(new KsScene.Builder(this.f34898a.mEntryScene).build());
+        this.f34900c = a2;
+        a2.getArguments().putSerializable("KEY_FEED_SLIDE_PARAM", this.f34898a);
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.f34900c).commitAllowingStateLoss();
     }
 
     private void d() {
         g gVar;
         SlidePlayViewPager c2;
-        if (getActivity() == null || (gVar = this.f34899c) == null || (c2 = gVar.c()) == null) {
+        if (getActivity() == null || (gVar = this.f34900c) == null || (c2 = gVar.c()) == null) {
             return;
         }
         com.kwad.sdk.feed.a.a.a().b(c2.getData());
@@ -77,11 +77,11 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
-        g gVar = this.f34899c;
+        g gVar = this.f34900c;
         if (gVar == null || !gVar.b()) {
             super.onBackPressed();
             d();
-            g gVar2 = this.f34899c;
+            g gVar2 = this.f34900c;
             if (gVar2 != null) {
                 e.d(gVar2.d());
             }
@@ -90,7 +90,7 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f34898b == view) {
+        if (this.f34899b == view) {
             onBackPressed();
         }
     }

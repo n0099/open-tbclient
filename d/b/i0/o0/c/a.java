@@ -7,40 +7,40 @@ import java.util.ArrayList;
 public class a extends BaseCardInfo {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f57238g = BdUniqueId.gen();
+    public static final BdUniqueId f57239g = BdUniqueId.gen();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f57239h = BdUniqueId.gen();
+    public static final BdUniqueId f57240h = BdUniqueId.gen();
     public static final BdUniqueId i = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f57240e;
+    public BdUniqueId f57241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f57241f;
+    public ArrayList<String> f57242f;
 
     public a() {
-        BdUniqueId bdUniqueId = f57239h;
-        this.f57240e = bdUniqueId;
-        this.f57240e = bdUniqueId;
+        BdUniqueId bdUniqueId = f57240h;
+        this.f57241e = bdUniqueId;
+        this.f57241e = bdUniqueId;
     }
 
     public ArrayList<String> g() {
-        return this.f57241f;
+        return this.f57242f;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return this.f57240e;
+        return this.f57241e;
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.f57240e = bdUniqueId;
+        this.f57241e = bdUniqueId;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.f57240e = f57239h;
-        this.f57241f = arrayList;
-        this.f57240e = f57238g;
+        this.f57241e = f57240h;
+        this.f57242f = arrayList;
+        this.f57241e = f57239g;
     }
 }

@@ -6,18 +6,18 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d.b.g0.a.x.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0877a implements Camera.AutoFocusCallback {
+    /* loaded from: classes2.dex */
+    public static class C0878a implements Camera.AutoFocusCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46947a;
+        public final /* synthetic */ String f46948a;
 
-        public C0877a(String str) {
-            this.f46947a = str;
+        public C0878a(String str) {
+            this.f46948a = str;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
@@ -26,7 +26,7 @@ public class a {
             if (camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
-            parameters.setFocusMode(this.f46947a);
+            parameters.setFocusMode(this.f46948a);
             camera.setParameters(parameters);
         }
     }
@@ -74,6 +74,6 @@ public class a {
         String focusMode = parameters.getFocusMode();
         parameters.setFocusMode(c(parameters));
         camera.setParameters(parameters);
-        camera.autoFocus(new C0877a(focusMode));
+        camera.autoFocus(new C0878a(focusMode));
     }
 }

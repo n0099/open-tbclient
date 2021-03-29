@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static final boolean DEBUG = false;
     public static final String TAG = "UrlConnectionRequestHandler";

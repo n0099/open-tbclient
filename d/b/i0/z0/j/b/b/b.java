@@ -8,12 +8,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.b.e.p.l;
 import d.b.i0.z0.j.b.c.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<c, CardViewHolder<d.b.i0.z0.j.b.d.b>> {
     public TbPageContext<?> m;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.f63365g);
+        super(tbPageContext.getPageActivity(), c.f63366g);
         this.m = tbPageContext;
     }
 

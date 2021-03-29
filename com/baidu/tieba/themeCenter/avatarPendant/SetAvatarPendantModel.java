@@ -13,16 +13,16 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21588e;
+    public long f21589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21589f;
+    public int f21590f;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21591h;
+    public b f21592h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21590g = false;
+    public boolean f21591g = false;
     public d.b.b.c.g.a i = new a(CmdConfigHttp.CMD_SET_PENDANT, 309412);
 
     /* loaded from: classes5.dex */
@@ -46,18 +46,18 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
                     SetAvatarPendantModel.this.y(setPendantHttpResponse.getPendantId());
-                    SetAvatarPendantModel.this.f21589f = setPendantHttpResponse.getFreeUseLevel();
+                    SetAvatarPendantModel.this.f21590f = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
                     SetAvatarPendantModel.this.y(setPendantSocketResponse.getPendantId());
-                    SetAvatarPendantModel.this.f21589f = setPendantSocketResponse.getFreeUseLevel();
+                    SetAvatarPendantModel.this.f21590f = setPendantSocketResponse.getFreeUseLevel();
                 }
-                if (SetAvatarPendantModel.this.f21591h != null) {
-                    int i = c.f56219b;
-                    if (responsedMessage.getError() == c.f56220c) {
-                        i = c.f56218a;
+                if (SetAvatarPendantModel.this.f21592h != null) {
+                    int i = c.f56220b;
+                    if (responsedMessage.getError() == c.f56221c) {
+                        i = c.f56219a;
                     }
-                    SetAvatarPendantModel.this.f21591h.onSetPendantCallback(SetAvatarPendantModel.this.f21590g, SetAvatarPendantModel.this.f21588e, SetAvatarPendantModel.this.f21589f, responsedMessage.getErrorString(), i);
+                    SetAvatarPendantModel.this.f21592h.onSetPendantCallback(SetAvatarPendantModel.this.f21591g, SetAvatarPendantModel.this.f21589e, SetAvatarPendantModel.this.f21590f, responsedMessage.getErrorString(), i);
                 }
             }
         }
@@ -75,7 +75,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void A(boolean z) {
-        this.f21590g = z;
+        this.f21591g = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -101,10 +101,10 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void y(long j) {
-        this.f21588e = j;
+        this.f21589e = j;
     }
 
     public void z(b bVar) {
-        this.f21591h = bVar;
+        this.f21592h = bVar;
     }
 }

@@ -12,7 +12,7 @@ public interface KsEntryElement {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface EntranceType {
         public static final int ENTRYTYPE_BLUR = 4;
         public static final int ENTRYTYPE_GIF = 3;

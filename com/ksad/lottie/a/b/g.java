@@ -8,33 +8,33 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<a<com.ksad.lottie.model.content.h, Path>> f31294a;
+    public final List<a<com.ksad.lottie.model.content.h, Path>> f31295a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a<Integer, Integer>> f31295b;
+    public final List<a<Integer, Integer>> f31296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Mask> f31296c;
+    public final List<Mask> f31297c;
 
     public g(List<Mask> list) {
-        this.f31296c = list;
-        this.f31294a = new ArrayList(list.size());
-        this.f31295b = new ArrayList(list.size());
+        this.f31297c = list;
+        this.f31295a = new ArrayList(list.size());
+        this.f31296b = new ArrayList(list.size());
         for (int i = 0; i < list.size(); i++) {
-            this.f31294a.add(list.get(i).b().a());
-            this.f31295b.add(list.get(i).c().a());
+            this.f31295a.add(list.get(i).b().a());
+            this.f31296b.add(list.get(i).c().a());
         }
     }
 
     public List<Mask> a() {
-        return this.f31296c;
+        return this.f31297c;
     }
 
     public List<a<com.ksad.lottie.model.content.h, Path>> b() {
-        return this.f31294a;
+        return this.f31295a;
     }
 
     public List<a<Integer, Integer>> c() {
-        return this.f31295b;
+        return this.f31296b;
     }
 }

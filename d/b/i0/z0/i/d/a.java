@@ -17,7 +17,7 @@ import d.b.h0.r.q.n1;
 import d.b.h0.r.q.o1;
 import d.b.i.e0;
 import d.b.i.k0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.b.j.e.a<o1, ThreadCardViewHolder<o1>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -29,9 +29,9 @@ public class a extends d.b.b.j.e.a<o1, ThreadCardViewHolder<o1>> implements d.b.
     public d.b.h0.m.f t;
 
     /* renamed from: d.b.i0.z0.i.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1705a implements View.OnClickListener {
-        public View$OnClickListenerC1705a() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1706a implements View.OnClickListener {
+        public View$OnClickListenerC1706a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -40,7 +40,7 @@ public class a extends d.b.b.j.e.a<o1, ThreadCardViewHolder<o1>> implements d.b.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements PullLeftRefreshLayout.f {
         public b() {
         }
@@ -51,7 +51,7 @@ public class a extends d.b.b.j.e.a<o1, ThreadCardViewHolder<o1>> implements d.b.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.h0.m.f<n1> {
         public c() {
         }
@@ -84,7 +84,7 @@ public class a extends d.b.b.j.e.a<o1, ThreadCardViewHolder<o1>> implements d.b.
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.r = new View$OnClickListenerC1705a();
+        this.r = new View$OnClickListenerC1706a();
         this.s = new b();
         this.t = new c();
         this.n = tbPageContext;

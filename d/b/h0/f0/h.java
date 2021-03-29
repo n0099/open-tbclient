@@ -6,20 +6,20 @@ import d.b.h0.f0.a;
 public abstract class h<T extends a> extends d.b.b.c.d implements b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50192a = false;
+    public boolean f50193a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f50193b = null;
+    public BdUniqueId f50194b = null;
 
     public BdUniqueId getTag() {
-        return this.f50193b;
+        return this.f50194b;
     }
 
     public boolean isSelfListener() {
-        return this.f50192a;
+        return this.f50193a;
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.f50193b = bdUniqueId;
+        this.f50194b = bdUniqueId;
     }
 }

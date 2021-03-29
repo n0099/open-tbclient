@@ -17,15 +17,15 @@ public class l extends d.b.h0.d0.c {
     }
 
     public final void g() {
-        TbImageView tbImageView = this.f50093c;
+        TbImageView tbImageView = this.f50094c;
         if (tbImageView == null || !(tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f50093c.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f50094c.getLayoutParams();
         int i = j;
         layoutParams.width = i;
         layoutParams.height = i;
         layoutParams.topMargin = k;
-        this.f50093c.setLayoutParams(layoutParams);
+        this.f50094c.setLayoutParams(layoutParams);
     }
 }

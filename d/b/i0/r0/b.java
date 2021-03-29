@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
@@ -27,52 +28,52 @@ public class b implements a.b {
     public class a implements a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAd f59693a;
+        public final /* synthetic */ FunNativeAd f59694a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f59694b;
+        public final /* synthetic */ Activity f59695b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f59695c;
+        public final /* synthetic */ ViewGroup f59696c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ List f59696d;
+        public final /* synthetic */ List f59697d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f59697e;
+        public final /* synthetic */ List f59698e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f59698f;
+        public final /* synthetic */ FunAdInteractionListener f59699f;
 
         public a(b bVar, FunNativeAd funNativeAd, Activity activity, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener) {
-            this.f59693a = funNativeAd;
-            this.f59694b = activity;
-            this.f59695c = viewGroup;
-            this.f59696d = list;
-            this.f59697e = list2;
-            this.f59698f = funAdInteractionListener;
+            this.f59694a = funNativeAd;
+            this.f59695b = activity;
+            this.f59696c = viewGroup;
+            this.f59697d = list;
+            this.f59698e = list2;
+            this.f59699f = funAdInteractionListener;
         }
 
         @Override // d.b.i0.q0.a.g
         public void a() {
-            this.f59693a.show(this.f59694b, this.f59695c, this.f59696d, this.f59697e, this.f59698f);
+            this.f59694a.show(this.f59695b, this.f59696c, this.f59697d, this.f59698e, this.f59699f);
         }
     }
 
     /* renamed from: d.b.i0.r0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1501b implements FunAdSdk.SdkInitializeCallback {
+    public class C1502b implements FunAdSdk.SdkInitializeCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.g f59699a;
+        public final /* synthetic */ a.g f59700a;
 
-        public C1501b(b bVar, a.g gVar) {
-            this.f59699a = gVar;
+        public C1502b(b bVar, a.g gVar) {
+            this.f59700a = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdSdk.SdkInitializeCallback
         public void onComplete() {
-            a.g gVar = this.f59699a;
+            a.g gVar = this.f59700a;
             if (gVar != null) {
                 gVar.a();
             }
@@ -83,32 +84,32 @@ public class b implements a.b {
     public class c implements FunAdLoadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f59700a;
+        public final /* synthetic */ a.d f59701a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.c f59701b;
+        public final /* synthetic */ a.c f59702b;
 
         public c(a.d dVar, a.c cVar) {
-            this.f59700a = dVar;
-            this.f59701b = cVar;
+            this.f59701a = dVar;
+            this.f59702b = cVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
         public void onAdLoaded(String str) {
-            a.d dVar = this.f59700a;
+            a.d dVar = this.f59701a;
             if (dVar != null) {
                 dVar.a(str, 0);
             }
-            b.this.k("advert_load", str, 1, this.f59701b);
+            b.this.k("advert_load", str, 1, this.f59702b);
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
         public void onError(String str) {
-            a.d dVar = this.f59700a;
+            a.d dVar = this.f59701a;
             if (dVar != null) {
                 dVar.onError(str);
             }
-            b.this.k("advert_load", str, 0, this.f59701b);
+            b.this.k("advert_load", str, 0, this.f59702b);
         }
     }
 
@@ -116,23 +117,23 @@ public class b implements a.b {
     public class d implements a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f59703a;
+        public final /* synthetic */ Activity f59704a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f59704b;
+        public final /* synthetic */ FunAdSlot f59705b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdLoadListener f59705c;
+        public final /* synthetic */ FunAdLoadListener f59706c;
 
         public d(b bVar, Activity activity, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-            this.f59703a = activity;
-            this.f59704b = funAdSlot;
-            this.f59705c = funAdLoadListener;
+            this.f59704a = activity;
+            this.f59705b = funAdSlot;
+            this.f59706c = funAdLoadListener;
         }
 
         @Override // d.b.i0.q0.a.g
         public void a() {
-            FunAdSdk.getAdFactory().loadAd(this.f59703a, this.f59704b, this.f59705c);
+            FunAdSdk.getAdFactory().loadAd(this.f59704a, this.f59705b, this.f59706c);
         }
     }
 
@@ -140,19 +141,19 @@ public class b implements a.b {
     public class e implements FunAdInteractionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.e f59706a;
+        public final /* synthetic */ a.e f59707a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.c f59707b;
+        public final /* synthetic */ a.c f59708b;
 
         public e(a.e eVar, a.c cVar) {
-            this.f59706a = eVar;
-            this.f59707b = cVar;
+            this.f59707a = eVar;
+            this.f59708b = cVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClicked(String str) {
-            a.e eVar = this.f59706a;
+            a.e eVar = this.f59707a;
             if (eVar != null) {
                 eVar.onAdClicked(str);
             }
@@ -160,7 +161,7 @@ public class b implements a.b {
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClose(String str) {
-            a.e eVar = this.f59706a;
+            a.e eVar = this.f59707a;
             if (eVar != null) {
                 eVar.onAdClose(str);
             }
@@ -168,25 +169,25 @@ public class b implements a.b {
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdError(String str) {
-            a.e eVar = this.f59706a;
+            a.e eVar = this.f59707a;
             if (eVar != null) {
                 eVar.onAdError(str);
             }
-            b.this.k("advert_show", str, 0, this.f59707b);
+            b.this.k("advert_show", str, 0, this.f59708b);
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdShow(String str) {
-            a.e eVar = this.f59706a;
+            a.e eVar = this.f59707a;
             if (eVar != null) {
                 eVar.onAdShow(str);
             }
-            b.this.k("advert_show", str, 1, this.f59707b);
+            b.this.k("advert_show", str, 1, this.f59708b);
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onRewardedVideo(String str) {
-            a.e eVar = this.f59706a;
+            a.e eVar = this.f59707a;
             if (eVar != null) {
                 eVar.onRewardedVideo(str);
             }
@@ -197,27 +198,27 @@ public class b implements a.b {
     public class f implements a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f59709a;
+        public final /* synthetic */ Activity f59710a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f59710b;
+        public final /* synthetic */ ViewGroup f59711b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f59711c;
+        public final /* synthetic */ String f59712c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f59712d;
+        public final /* synthetic */ FunAdInteractionListener f59713d;
 
         public f(b bVar, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
-            this.f59709a = activity;
-            this.f59710b = viewGroup;
-            this.f59711c = str;
-            this.f59712d = funAdInteractionListener;
+            this.f59710a = activity;
+            this.f59711b = viewGroup;
+            this.f59712c = str;
+            this.f59713d = funAdInteractionListener;
         }
 
         @Override // d.b.i0.q0.a.g
         public void a() {
-            FunAdSdk.getAdFactory().showAd(this.f59709a, this.f59710b, this.f59711c, this.f59712d);
+            FunAdSdk.getAdFactory().showAd(this.f59710a, this.f59711b, this.f59712c, this.f59713d);
         }
     }
 
@@ -225,15 +226,15 @@ public class b implements a.b {
     public class g implements a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f59713a;
+        public final /* synthetic */ String f59714a;
 
         public g(b bVar, String str) {
-            this.f59713a = str;
+            this.f59714a = str;
         }
 
         @Override // d.b.i0.q0.a.g
         public void a() {
-            FunAdSdk.getAdFactory().destroyAd(this.f59713a);
+            FunAdSdk.getAdFactory().destroyAd(this.f59714a);
         }
     }
 
@@ -241,30 +242,30 @@ public class b implements a.b {
     public class h implements FunAdLoadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f59714a;
+        public final /* synthetic */ WeakReference f59715a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.c f59715b;
+        public final /* synthetic */ a.c f59716b;
 
         public h(WeakReference weakReference, a.c cVar) {
-            this.f59714a = weakReference;
-            this.f59715b = cVar;
+            this.f59715a = weakReference;
+            this.f59716b = cVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
         public void onAdLoaded(String str) {
-            if (this.f59714a.get() != null) {
-                ((a.d) this.f59714a.get()).a(str, 0);
+            if (this.f59715a.get() != null) {
+                ((a.d) this.f59715a.get()).a(str, 0);
             }
-            b.this.k("advert_load", str, 1, this.f59715b);
+            b.this.k("advert_load", str, 1, this.f59716b);
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
         public void onError(String str) {
-            if (this.f59714a.get() != null) {
-                ((a.d) this.f59714a.get()).onError(str);
+            if (this.f59715a.get() != null) {
+                ((a.d) this.f59715a.get()).onError(str);
             }
-            b.this.k("advert_load", str, 0, this.f59715b);
+            b.this.k("advert_load", str, 0, this.f59716b);
         }
     }
 
@@ -272,23 +273,27 @@ public class b implements a.b {
     public class i implements a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f59717a;
+        public final /* synthetic */ Activity f59718a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f59718b;
+        public final /* synthetic */ FunAdSlot f59719b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdLoadListener f59719c;
+        public final /* synthetic */ FunAdLoadListener f59720c;
 
         public i(b bVar, Activity activity, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-            this.f59717a = activity;
-            this.f59718b = funAdSlot;
-            this.f59719c = funAdLoadListener;
+            this.f59718a = activity;
+            this.f59719b = funAdSlot;
+            this.f59720c = funAdLoadListener;
         }
 
         @Override // d.b.i0.q0.a.g
         public void a() {
-            FunAdSdk.getAdFactory().loadAd(this.f59717a, this.f59718b, this.f59719c);
+            try {
+                FunAdSdk.getAdFactory().loadAd(this.f59718a, this.f59719b, this.f59720c);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
         }
     }
 
@@ -296,19 +301,19 @@ public class b implements a.b {
     public class j implements FunAdInteractionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.e f59720a;
+        public final /* synthetic */ a.e f59721a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.c f59721b;
+        public final /* synthetic */ a.c f59722b;
 
         public j(a.e eVar, a.c cVar) {
-            this.f59720a = eVar;
-            this.f59721b = cVar;
+            this.f59721a = eVar;
+            this.f59722b = cVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClicked(String str) {
-            a.e eVar = this.f59720a;
+            a.e eVar = this.f59721a;
             if (eVar != null) {
                 eVar.onAdClicked(str);
             }
@@ -316,7 +321,7 @@ public class b implements a.b {
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClose(String str) {
-            a.e eVar = this.f59720a;
+            a.e eVar = this.f59721a;
             if (eVar != null) {
                 eVar.onAdClose(str);
             }
@@ -324,25 +329,25 @@ public class b implements a.b {
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdError(String str) {
-            a.e eVar = this.f59720a;
+            a.e eVar = this.f59721a;
             if (eVar != null) {
                 eVar.onAdError(str);
             }
-            b.this.k("advert_show", str, 0, this.f59721b);
+            b.this.k("advert_show", str, 0, this.f59722b);
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdShow(String str) {
-            a.e eVar = this.f59720a;
+            a.e eVar = this.f59721a;
             if (eVar != null) {
                 eVar.onAdShow(str);
             }
-            b.this.k("advert_show", str, 1, this.f59721b);
+            b.this.k("advert_show", str, 1, this.f59722b);
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onRewardedVideo(String str) {
-            a.e eVar = this.f59720a;
+            a.e eVar = this.f59721a;
             if (eVar != null) {
                 eVar.onRewardedVideo(str);
             }
@@ -378,7 +383,7 @@ public class b implements a.b {
     @Override // d.b.i0.q0.a.b
     public synchronized void e(Application application, a.g gVar) {
         if (!FunAdSdk.isSdkInitializeComplete()) {
-            FunAdSdk.init(new FunAdConfig.Builder(application).setAppName(application.getString(R.string.app_name)).setAppId("b122ce58b8954c27b6882f7987c08860").setUserId("").setUseTextureView(true).setTitleBarTheme(1).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false).setLogEnabled(TbadkCoreApplication.getInst().isDebugMode()).build(), null, new C1501b(this, gVar));
+            FunAdSdk.init(new FunAdConfig.Builder(application).setAppName(application.getString(R.string.app_name)).setAppId("b122ce58b8954c27b6882f7987c08860").setUserId("").setUseTextureView(true).setTitleBarTheme(1).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false).setLogEnabled(TbadkCoreApplication.getInst().isDebugMode()).build(), null, new C1502b(this, gVar));
             return;
         }
         if (gVar != null) {
@@ -420,8 +425,8 @@ public class b implements a.b {
     public final void k(String str, String str2, int i2, a.c cVar) {
         d.b.b.e.n.a a2 = d.b.h0.m0.j.a();
         a2.b("type", "bear");
-        a2.b("locate", cVar.f59260a);
-        a2.b(SetImageWatermarkTypeReqMsg.SWITCH, cVar.f59261b);
+        a2.b("locate", cVar.f59261a);
+        a2.b(SetImageWatermarkTypeReqMsg.SWITCH, cVar.f59262b);
         a2.b("sid", str2);
         a2.c("isSuccess", Integer.valueOf(i2));
         BdStatisticsManager.getInstance().debug(str, a2);

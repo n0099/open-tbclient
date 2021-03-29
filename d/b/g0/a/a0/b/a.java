@@ -16,48 +16,48 @@ import d.b.g0.a.a0.b.b;
 import d.b.g0.a.k;
 import h.d;
 import h.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f43099h = k.f45050a;
+    public static final boolean f43100h = k.f45051a;
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.a0.e.a f43100a;
+    public d.b.g0.a.a0.e.a f43101a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public V f43101b;
+    public V f43102b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public M f43102c;
+    public M f43103c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public M f43103d;
+    public M f43104d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public SwanAppComponentContainerView f43104e;
+    public SwanAppComponentContainerView f43105e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public j f43105f;
+    public j f43106f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43106g;
+    public int f43107g;
 
     /* renamed from: d.b.g0.a.a0.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0589a extends j<Object> {
+    /* loaded from: classes2.dex */
+    public class C0590a extends j<Object> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43107e;
+        public final /* synthetic */ String f43108e;
 
-        public C0589a(String str) {
-            this.f43107e = str;
+        public C0590a(String str) {
+            this.f43108e = str;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: d.b.g0.a.a0.b.a */
@@ -66,21 +66,21 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
         @Override // h.e
         public void onCompleted() {
             a aVar = a.this;
-            aVar.f43101b = aVar.v(aVar.f43100a.b());
+            aVar.f43102b = aVar.v(aVar.f43101a.b());
             a aVar2 = a.this;
-            aVar2.B(aVar2.f43101b);
-            a.this.f43104e.setTargetView(a.this.f43101b, 0);
+            aVar2.B(aVar2.f43102b);
+            a.this.f43105e.setTargetView(a.this.f43102b, 0);
             a aVar3 = a.this;
-            aVar3.D(aVar3.f43101b, a.this.f43102c, new d.b.g0.a.a0.f.b(true));
-            if (a.f43099h) {
-                Log.d("Component-Base", this.f43107e + " insert delayed（view）: success");
+            aVar3.D(aVar3.f43102b, a.this.f43103c, new d.b.g0.a.a0.f.b(true));
+            if (a.f43100h) {
+                Log.d("Component-Base", this.f43108e + " insert delayed（view）: success");
             }
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            d.b.g0.a.c0.c.l("Component-Base", this.f43107e + " insert delayed（view）: fail");
-            if (a.f43099h && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
+            d.b.g0.a.c0.c.l("Component-Base", this.f43108e + " insert delayed（view）: fail");
+            if (a.f43100h && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
                 throw new RuntimeException("save subscriber and return subscriber: nolinear !");
             }
             a.this.C();
@@ -88,35 +88,35 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
         @Override // h.e
         public void onNext(Object obj) {
-            d.b.g0.a.c0.c.l("Component-Base", this.f43107e + " success should call onCompleted");
+            d.b.g0.a.c0.c.l("Component-Base", this.f43108e + " success should call onCompleted");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.a<Object> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f43109e;
+        public final /* synthetic */ long f43110e;
 
         public b(long j) {
-            this.f43109e = j;
+            this.f43110e = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super Object> jVar) {
-            if (a.f43099h) {
+            if (a.f43100h) {
                 Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
             }
-            if (this.f43109e != Thread.currentThread().getId()) {
+            if (this.f43110e != Thread.currentThread().getId()) {
                 d.b.g0.a.a0.g.a.a("Component-Base", "save subscriber and return subscriber: nolinear !");
             }
-            a.this.f43105f = jVar;
+            a.this.f43106f = jVar;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c extends d.b.g0.a.j2.f.b.b {
         public final /* synthetic */ boolean n;
 
@@ -134,9 +134,9 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
     public a(@Nullable Context context, @NonNull M m) {
         M j = j(m);
-        this.f43102c = j;
+        this.f43103c = j;
         d.b.g0.a.a0.e.a c2 = d.b.g0.a.a0.d.a.c(j);
-        this.f43100a = c2;
+        this.f43101a = c2;
         if (c2 != null) {
             if (context != null) {
                 c2.d(context);
@@ -159,14 +159,14 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
     @UiThread
     public final d.b.g0.a.a0.b.c C() {
         String o = o();
-        if (f43099h) {
+        if (f43100h) {
             Log.i("Component-Base", "=====================" + o + " start remove=====================");
         }
-        d.b.g0.a.a0.e.a aVar = this.f43100a;
+        d.b.g0.a.a0.e.a aVar = this.f43101a;
         if (aVar == null) {
             d.b.g0.a.a0.g.a.a("Component-Base", o + " remove with a null component context!");
             return new d.b.g0.a.a0.b.c(202, "component context is null");
-        } else if (this.f43104e == null) {
+        } else if (this.f43105e == null) {
             d.b.g0.a.c0.c.b("Component-Base", o + " remove must after insert");
             return new d.b.g0.a.a0.b.c(202, "component remove must after insert");
         } else if (!aVar.a().e(this)) {
@@ -175,7 +175,7 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
             return new d.b.g0.a.a0.b.c(1001, str);
         } else {
             A();
-            if (f43099h) {
+            if (f43100h) {
                 Log.d("Component-Base", o + " remove: success");
             }
             return new d.b.g0.a.a0.b.c(0, "success");
@@ -189,24 +189,24 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
     @SuppressLint({"ClickableViewAccessibility"})
     public final void E(@NonNull M m, @NonNull d.b.g0.a.a0.f.b bVar) {
-        if (this.f43104e == null) {
+        if (this.f43105e == null) {
             d.b.g0.a.a0.g.a.a("Component-Base", "renderContainerView with a null container view");
             return;
         }
         if (bVar.a(1)) {
-            this.f43104e.setHidden(m.j);
+            this.f43105e.setHidden(m.j);
         }
         if (bVar.a(2)) {
-            r(this.f43104e, m);
+            r(this.f43105e, m);
         }
     }
 
     public final void F() {
-        j jVar = this.f43105f;
+        j jVar = this.f43106f;
         if (jVar == null || jVar.isUnsubscribed()) {
             return;
         }
-        this.f43105f.unsubscribe();
+        this.f43106f.unsubscribe();
     }
 
     @NonNull
@@ -215,44 +215,44 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
         String o = o();
         d.b.g0.a.a0.b.c i = i(m);
         if (!i.a()) {
-            d.b.g0.a.c0.c.b("Component-Base", o + " update with a invalid model => " + i.f43116b);
+            d.b.g0.a.c0.c.b("Component-Base", o + " update with a invalid model => " + i.f43117b);
             return i;
         }
-        if (f43099h) {
+        if (f43100h) {
             Log.i("Component-Base", "=====================" + o + " start update=====================");
         }
-        M m2 = this.f43102c;
+        M m2 = this.f43103c;
         if (m2 == m) {
             String str = o + " update with the same model";
             d.b.g0.a.a0.g.a.a("Component-Base", str);
             return new d.b.g0.a.a0.b.c(202, str);
-        } else if (!TextUtils.equals(m2.f43112f, m.f43112f)) {
-            String str2 = o + " update with different id: " + this.f43102c.f43112f + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f43112f;
+        } else if (!TextUtils.equals(m2.f43113f, m.f43113f)) {
+            String str2 = o + " update with different id: " + this.f43103c.f43113f + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f43113f;
             d.b.g0.a.a0.g.a.a("Component-Base", str2);
             return new d.b.g0.a.a0.b.c(202, str2);
-        } else if (!TextUtils.equals(this.f43102c.f43113g, m.f43113g)) {
-            String str3 = o + " update with different slave id: " + this.f43102c.f43113g + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f43113g;
+        } else if (!TextUtils.equals(this.f43103c.f43114g, m.f43114g)) {
+            String str3 = o + " update with different slave id: " + this.f43103c.f43114g + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f43114g;
             d.b.g0.a.a0.g.a.a("Component-Base", str3);
             return new d.b.g0.a.a0.b.c(202, str3);
-        } else if (this.f43101b != null && this.f43104e != null) {
-            if (this.f43100a == null) {
+        } else if (this.f43102b != null && this.f43105e != null) {
+            if (this.f43101a == null) {
                 d.b.g0.a.a0.g.a.a("Component-Base", o + " update with a null component context!");
                 return new d.b.g0.a.a0.b.c(202, "component context is null");
             }
-            M m3 = this.f43102c;
-            this.f43103d = m3;
+            M m3 = this.f43103c;
+            this.f43104d = m3;
             d.b.g0.a.a0.f.b k = k(m3, m);
             M j = j(m);
-            this.f43102c = j;
-            D(this.f43101b, j, k);
-            boolean f2 = this.f43100a.a().f(this, k);
-            this.f43103d = null;
+            this.f43103c = j;
+            D(this.f43102b, j, k);
+            boolean f2 = this.f43101a.a().f(this, k);
+            this.f43104d = null;
             if (!f2) {
                 String str4 = o + " update component fail";
                 d.b.g0.a.c0.c.b("Component-Base", str4);
                 return new d.b.g0.a.a0.b.c(1001, str4);
             }
-            if (f43099h) {
+            if (f43100h) {
                 Log.d("Component-Base", o + " component update: success");
             }
             return new d.b.g0.a.a0.b.c(0, "success");
@@ -265,7 +265,7 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
     @NonNull
     public final a g(int i) {
-        this.f43106g = i | this.f43106g;
+        this.f43107g = i | this.f43107g;
         return this;
     }
 
@@ -280,7 +280,7 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
         if (m == null) {
             return new d.b.g0.a.a0.b.c(202, "model is null");
         }
-        if (TextUtils.isEmpty(m.f43113g)) {
+        if (TextUtils.isEmpty(m.f43114g)) {
             return new d.b.g0.a.a0.b.c(202, "slave id is empty");
         }
         if (!m.isValid()) {
@@ -338,49 +338,49 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
     @NonNull
     public final M l() {
-        return j(this.f43102c);
+        return j(this.f43103c);
     }
 
     @Nullable
     public final SwanAppComponentContainerView m() {
-        return this.f43104e;
+        return this.f43105e;
     }
 
     @NonNull
     public final M n() {
-        return this.f43102c;
+        return this.f43103c;
     }
 
     @NonNull
     public final String o() {
-        d.b.g0.a.a0.b.c i = i(this.f43102c);
+        d.b.g0.a.a0.b.c i = i(this.f43103c);
         if (i.a()) {
-            return this.f43102c.d();
+            return this.f43103c.d();
         }
-        return "【illegal component#" + i.f43116b + "】";
+        return "【illegal component#" + i.f43117b + "】";
     }
 
     @Nullable
     public final M p() {
-        return this.f43103d;
+        return this.f43104d;
     }
 
     @Nullable
     public final V q() {
-        return this.f43101b;
+        return this.f43102b;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull M m) {
-        swanAppComponentContainerView.setOnTouchListener(new c(this, m.f43113g, m.f43112f, m.f43111e, m.k));
+        swanAppComponentContainerView.setOnTouchListener(new c(this, m.f43114g, m.f43113f, m.f43112e, m.k));
     }
 
     public final boolean s(int i) {
-        return (this.f43106g & i) == i;
+        return (this.f43107g & i) == i;
     }
 
     public final boolean t() {
-        return this.f43103d != null;
+        return this.f43104d != null;
     }
 
     @NonNull
@@ -395,32 +395,32 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
     @UiThread
     public final d.b.g0.a.a0.b.c w() {
         String o = o();
-        d.b.g0.a.a0.b.c i = i(this.f43102c);
+        d.b.g0.a.a0.b.c i = i(this.f43103c);
         if (!i.a()) {
-            d.b.g0.a.c0.c.b("Component-Base", o + " insert with a invalid model => " + i.f43116b);
+            d.b.g0.a.c0.c.b("Component-Base", o + " insert with a invalid model => " + i.f43117b);
             return i;
         }
-        if (f43099h) {
+        if (f43100h) {
             Log.i("Component-Base", "=====================" + o + " start insert=====================");
         }
-        d.b.g0.a.a0.e.a aVar = this.f43100a;
+        d.b.g0.a.a0.e.a aVar = this.f43101a;
         if (aVar == null) {
             d.b.g0.a.c0.c.b("Component-Base", o + " insert with a null component context!");
             return new d.b.g0.a.a0.b.c(202, "component context is null");
         }
         Context b2 = aVar.b();
-        if (this.f43104e != null || this.f43101b != null) {
+        if (this.f43105e != null || this.f43102b != null) {
             d.b.g0.a.c0.c.l("Component-Base", o + " repeat insert");
         }
-        V v = v(this.f43100a.b());
-        this.f43101b = v;
+        V v = v(this.f43101a.b());
+        this.f43102b = v;
         B(v);
         SwanAppComponentContainerView u = u(b2);
-        this.f43104e = u;
-        u.setTargetView(this.f43101b);
-        D(this.f43101b, this.f43102c, new d.b.g0.a.a0.f.b(true));
-        if (h(this.f43100a)) {
-            if (f43099h) {
+        this.f43105e = u;
+        u.setTargetView(this.f43102b);
+        D(this.f43102b, this.f43103c, new d.b.g0.a.a0.f.b(true));
+        if (h(this.f43101a)) {
+            if (f43100h) {
                 Log.d("Component-Base", o + " insert: success");
             }
             return new d.b.g0.a.a0.b.c(0, "success");
@@ -433,35 +433,35 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
     @UiThread
     public final j x() {
         String o = o();
-        d.b.g0.a.a0.b.c i = i(this.f43102c);
+        d.b.g0.a.a0.b.c i = i(this.f43103c);
         if (!i.a()) {
-            d.b.g0.a.c0.c.b("Component-Base", o + " insert delayed with a invalid model => " + i.f43116b);
+            d.b.g0.a.c0.c.b("Component-Base", o + " insert delayed with a invalid model => " + i.f43117b);
             return null;
         }
-        if (f43099h) {
+        if (f43100h) {
             Log.i("Component-Base", "=====================" + o + " start insertDelayed=====================");
         }
-        if (this.f43100a == null) {
+        if (this.f43101a == null) {
             d.b.g0.a.a0.g.a.a("Component-Base", o + " insert delayed with a null component context!");
             return null;
         }
-        if (this.f43104e != null) {
+        if (this.f43105e != null) {
             d.b.g0.a.c0.c.l("Component-Base", o + " repeat insert delayed: container view repeat");
         }
-        j jVar = this.f43105f;
+        j jVar = this.f43106f;
         if (jVar != null && !jVar.isUnsubscribed()) {
-            this.f43105f.unsubscribe();
-            this.f43105f = null;
+            this.f43106f.unsubscribe();
+            this.f43106f = null;
             d.b.g0.a.c0.c.l("Component-Base", o + " insert delayed repeat: subscriber repeat");
         }
-        this.f43104e = u(this.f43100a.b());
-        E(this.f43102c, new d.b.g0.a.a0.f.b(true));
-        if (h(this.f43100a)) {
-            if (f43099h) {
+        this.f43105e = u(this.f43101a.b());
+        E(this.f43103c, new d.b.g0.a.a0.f.b(true));
+        if (h(this.f43101a)) {
+            if (f43100h) {
                 Log.d("Component-Base", o + " insert delayed（container view）: success");
             }
-            d.c(new b(Thread.currentThread().getId())).B(new C0589a(o));
-            return this.f43105f;
+            d.c(new b(Thread.currentThread().getId())).B(new C0590a(o));
+            return this.f43106f;
         }
         d.b.g0.a.c0.c.b("Component-Base", o + " insert delayed: attach fail");
         return null;
@@ -472,7 +472,7 @@ public abstract class a<V extends View, M extends d.b.g0.a.a0.b.b> {
 
     @CallSuper
     public void z() {
-        if (f43099h) {
+        if (f43100h) {
             Log.d("Component-Base", o() + " onDestroy");
         }
         F();

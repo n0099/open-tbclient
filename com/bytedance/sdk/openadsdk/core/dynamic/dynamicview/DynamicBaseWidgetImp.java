@@ -43,20 +43,20 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     }
 
     public ViewGroup.LayoutParams getWidgetLayoutParams() {
-        return new ViewGroup.LayoutParams(this.f28303e, this.f28304f);
+        return new ViewGroup.LayoutParams(this.f28304e, this.f28305f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         if (this.n != null) {
             u.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i + "," + i2 + "," + i3 + "," + i4);
-            this.n.layout(0, 0, this.f28303e, this.f28304f);
+            this.n.layout(0, 0, this.f28304e, this.f28305f);
         }
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(this.f28303e, this.f28304f);
+        setMeasuredDimension(this.f28304e, this.f28305f);
     }
 }

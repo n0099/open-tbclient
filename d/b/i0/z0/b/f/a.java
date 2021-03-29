@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
 import tbclient.Userlike.ConcernData;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends s1 {
     public static final Integer l = 6;
     public boolean j;

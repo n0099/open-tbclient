@@ -11,7 +11,7 @@ public class d extends d.b.b.j.e.a<e, CardViewHolder<d.b.i0.i0.k.d.d>> {
     public TbPageContext<?> m;
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.f55652f);
+        super(tbPageContext.getPageActivity(), e.f55653f);
         this.m = tbPageContext;
     }
 

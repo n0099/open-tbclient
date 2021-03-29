@@ -16,16 +16,16 @@ public class c extends EventTargetImpl implements d.b.g0.g.a.b, f.a, a.e {
     public String adUnitId;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.i.b f47693e;
+    public d.b.g0.g.i.b f47694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47694f;
+    public String f47695f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47695g;
+    public boolean f47696g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f47696h;
+    public e f47697h;
     public String i;
     public boolean j;
     public i k;
@@ -75,11 +75,11 @@ public class c extends EventTargetImpl implements d.b.g0.g.a.b, f.a, a.e {
         f fVar;
         this.style = null;
         this.k = new b();
-        this.f47693e = bVar;
+        this.f47694e = bVar;
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
         if (F != null) {
             this.adUnitId = F.B("adUnitId");
-            this.f47694f = F.B("appSid");
+            this.f47695f = F.B("appSid");
             d.b.g0.g.e.d.c w = F.w("style");
             if (w != null) {
                 this.style = new f(w);
@@ -88,13 +88,13 @@ public class c extends EventTargetImpl implements d.b.g0.g.a.b, f.a, a.e {
         boolean e2 = d.b.g0.e.a.q.f.e();
         this.j = e2;
         if (e2) {
-            this.f47694f = d.b.g0.e.a.q.f.a();
+            this.f47695f = d.b.g0.e.a.q.f.a();
             this.adUnitId = d.b.g0.e.a.q.f.b();
         }
         if (B()) {
-            if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f47694f) && (fVar = this.style) != null) {
-                e eVar = new e(this.f47694f, this.adUnitId, fVar, this, this.j);
-                this.f47696h = eVar;
+            if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f47695f) && (fVar = this.style) != null) {
+                e eVar = new e(this.f47695f, this.adUnitId, fVar, this, this.j);
+                this.f47697h = eVar;
                 eVar.C(this.k);
                 f fVar2 = this.style;
                 if (fVar2 != null) {
@@ -125,21 +125,21 @@ public class c extends EventTargetImpl implements d.b.g0.g.a.b, f.a, a.e {
         if (TextUtils.isEmpty(this.i)) {
             return true;
         }
-        this.f47693e.postOnJSThread(new a());
+        this.f47694e.postOnJSThread(new a());
         d.b.g0.g.k0.e.b.c(this.j ? "gdtbanner" : "banner", "reject", this.i);
         return false;
     }
 
     @JavascriptInterface
     public void destroy() {
-        this.f47695g = true;
+        this.f47696g = true;
         removeEventListener("error", null);
         removeEventListener(TrackLoadSettingsAtom.TYPE, null);
         removeEventListener("resize", null);
-        e eVar = this.f47696h;
+        e eVar = this.f47697h;
         if (eVar != null) {
             eVar.t();
-            this.f47696h = null;
+            this.f47697h = null;
         }
     }
 
@@ -150,7 +150,7 @@ public class c extends EventTargetImpl implements d.b.g0.g.a.b, f.a, a.e {
 
     @JavascriptInterface
     public void hide() {
-        e eVar = this.f47696h;
+        e eVar = this.f47697h;
         if (eVar != null) {
             eVar.u();
         }
@@ -159,17 +159,17 @@ public class c extends EventTargetImpl implements d.b.g0.g.a.b, f.a, a.e {
     @JavascriptInterface
     public void showAd(JsObject jsObject) {
         d.b.g0.g.k0.e.b.d(this.j ? "gdtbanner" : "banner");
-        if (!B() || this.f47696h == null) {
+        if (!B() || this.f47697h == null) {
             return;
         }
         d.b.g0.g.i0.c.A().E();
-        this.f47696h.v(jsObject);
+        this.f47697h.v(jsObject);
     }
 
     @Override // d.b.g0.e.a.r.f.a
     public void v(String str) {
         e eVar;
-        if (this.f47695g || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (eVar = this.f47696h) == null) {
+        if (this.f47696g || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (eVar = this.f47697h) == null) {
             return;
         }
         eVar.D(str);

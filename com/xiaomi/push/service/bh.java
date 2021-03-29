@@ -11,10 +11,10 @@ import java.util.List;
 public class bh implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ServiceClient f41001a;
+    public final /* synthetic */ ServiceClient f41002a;
 
     public bh(ServiceClient serviceClient) {
-        this.f41001a = serviceClient;
+        this.f41002a = serviceClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -22,26 +22,26 @@ public class bh implements ServiceConnection {
         List<Message> list;
         List list2;
         Messenger messenger;
-        synchronized (this.f41001a) {
-            this.f41001a.f832b = new Messenger(iBinder);
-            this.f41001a.f833b = false;
-            list = this.f41001a.f830a;
+        synchronized (this.f41002a) {
+            this.f41002a.f832b = new Messenger(iBinder);
+            this.f41002a.f833b = false;
+            list = this.f41002a.f830a;
             for (Message message : list) {
                 try {
-                    messenger = this.f41001a.f832b;
+                    messenger = this.f41002a.f832b;
                     messenger.send(message);
                 } catch (RemoteException e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
             }
-            list2 = this.f41001a.f830a;
+            list2 = this.f41002a.f830a;
             list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f41001a.f832b = null;
-        this.f41001a.f833b = false;
+        this.f41002a.f832b = null;
+        this.f41002a.f833b = false;
     }
 }

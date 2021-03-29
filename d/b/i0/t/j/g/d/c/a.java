@@ -15,42 +15,42 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60962a;
+    public TbPageContext f60963a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f60963b;
+    public BdTypeListView f60964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f60964c;
+    public List<d.b.b.j.e.a> f60965c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaEnterEffectAdapter f60965d;
+    public AlaEnterEffectAdapter f60966d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaEnterEffectCategoryAdapter f60966e;
+    public AlaEnterEffectCategoryAdapter f60967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f60967f;
+    public List<n> f60968f;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
-        this.f60962a = tbPageContext;
-        this.f60963b = bdTypeListView;
+        this.f60963a = tbPageContext;
+        this.f60964b = bdTypeListView;
         a();
     }
 
     public final void a() {
-        this.f60964c = new ArrayList();
-        AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.f60962a.getPageActivity());
-        this.f60965d = alaEnterEffectAdapter;
-        this.f60964c.add(alaEnterEffectAdapter);
-        AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.f60962a.getPageActivity());
-        this.f60966e = alaEnterEffectCategoryAdapter;
-        this.f60964c.add(alaEnterEffectCategoryAdapter);
-        this.f60963b.a(this.f60964c);
+        this.f60965c = new ArrayList();
+        AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.f60963a.getPageActivity());
+        this.f60966d = alaEnterEffectAdapter;
+        this.f60965c.add(alaEnterEffectAdapter);
+        AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.f60963a.getPageActivity());
+        this.f60967e = alaEnterEffectCategoryAdapter;
+        this.f60965c.add(alaEnterEffectCategoryAdapter);
+        this.f60964b.a(this.f60965c);
     }
 
     public void b() {
-        for (d.b.b.j.e.a aVar : this.f60964c) {
+        for (d.b.b.j.e.a aVar : this.f60965c) {
             aVar.L();
         }
     }
@@ -59,13 +59,13 @@ public class a {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f60963b.setData(list);
-        this.f60967f = this.f60963b.getData();
+        this.f60964b.setData(list);
+        this.f60968f = this.f60964b.getData();
     }
 
     public void d(String str, int i) {
         List<n> list;
-        if (StringUtils.isNull(str) || (list = this.f60967f) == null) {
+        if (StringUtils.isNull(str) || (list = this.f60968f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -81,7 +81,7 @@ public class a {
 
     public void e(String str, boolean z) {
         List<n> list;
-        if (TextUtils.isEmpty(str) || (list = this.f60967f) == null) {
+        if (TextUtils.isEmpty(str) || (list = this.f60968f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -98,7 +98,7 @@ public class a {
 
     public void f(String str, boolean z) {
         List<n> list;
-        if (TextUtils.isEmpty(str) || (list = this.f60967f) == null) {
+        if (TextUtils.isEmpty(str) || (list = this.f60968f) == null) {
             return;
         }
         for (n nVar : list) {

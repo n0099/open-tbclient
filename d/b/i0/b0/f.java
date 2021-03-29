@@ -20,28 +20,28 @@ public class f implements c.a {
     public static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f51977a;
+    public c f51978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f51978b;
+    public c f51979b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f51980d;
+    public ArrayList<TransmitForumData> f51981d;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f51982f;
+    public ArrayList<TransmitForumData> f51983f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51984h;
+    public int f51985h;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f51979c = new ArrayList<>();
+    public ArrayList<TransmitForumData> f51980c = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51981e = false;
+    public boolean f51982e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51983g = false;
+    public boolean f51984g = false;
     public boolean i = false;
 
     public f() {
@@ -63,15 +63,15 @@ public class f implements c.a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.f51982f = arrayList;
+                this.f51983f = arrayList;
             }
-            this.f51983g = true;
+            this.f51984g = true;
         } else if (i == 2) {
             if (z) {
-                this.f51980d = arrayList;
-                this.f51984h = i2;
+                this.f51981d = arrayList;
+                this.f51985h = i2;
             }
-            this.f51981e = true;
+            this.f51982e = true;
         }
         i();
     }
@@ -103,9 +103,9 @@ public class f implements c.a {
     public final void e() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), c.class);
         if (runTask != null) {
-            this.f51978b = (c) runTask.getData();
+            this.f51979b = (c) runTask.getData();
         }
-        c cVar = this.f51978b;
+        c cVar = this.f51979b;
         if (cVar != null) {
             cVar.a(this);
         }
@@ -114,16 +114,16 @@ public class f implements c.a {
     public final void f() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), c.class);
         if (runTask != null) {
-            this.f51977a = (c) runTask.getData();
+            this.f51978a = (c) runTask.getData();
         }
-        c cVar = this.f51977a;
+        c cVar = this.f51978a;
         if (cVar != null) {
             cVar.a(this);
         }
     }
 
     public final boolean g(long j2) {
-        ArrayList<TransmitForumData> arrayList = this.f51979c;
+        ArrayList<TransmitForumData> arrayList = this.f51980c;
         if (arrayList == null) {
             return false;
         }
@@ -139,50 +139,50 @@ public class f implements c.a {
 
     public void h() {
         this.i = true;
-        c cVar = this.f51977a;
+        c cVar = this.f51978a;
         if (cVar != null) {
             cVar.b();
         }
-        c cVar2 = this.f51978b;
+        c cVar2 = this.f51979b;
         if (cVar2 != null) {
             cVar2.b();
         }
     }
 
     public final void i() {
-        if (this.f51977a == null || this.f51981e) {
-            if (this.f51978b == null || this.f51983g) {
-                this.f51981e = false;
-                this.f51983g = false;
+        if (this.f51978a == null || this.f51982e) {
+            if (this.f51979b == null || this.f51984g) {
+                this.f51982e = false;
+                this.f51984g = false;
                 this.i = false;
-                this.f51979c.clear();
-                if (!ListUtils.isEmpty(this.f51980d)) {
-                    Iterator<TransmitForumData> it = this.f51980d.iterator();
+                this.f51980c.clear();
+                if (!ListUtils.isEmpty(this.f51981d)) {
+                    Iterator<TransmitForumData> it = this.f51981d.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!g(next.forumId)) {
-                            this.f51979c.add(next);
+                            this.f51980c.add(next);
                         }
                     }
                 }
-                if (!ListUtils.isEmpty(this.f51982f)) {
-                    Iterator<TransmitForumData> it2 = this.f51982f.iterator();
+                if (!ListUtils.isEmpty(this.f51983f)) {
+                    Iterator<TransmitForumData> it2 = this.f51983f.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!g(next2.forumId)) {
-                            this.f51979c.add(next2);
+                            this.f51980c.add(next2);
                         }
                     }
                 }
-                this.f51980d = null;
-                this.f51982f = null;
+                this.f51981d = null;
+                this.f51983f = null;
                 j();
             }
         }
     }
 
     public final void j() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f51979c));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f51980c));
     }
 
     public void k(ShareDialogConfig shareDialogConfig) {
@@ -196,8 +196,8 @@ public class f implements c.a {
             h();
         }
         shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.f51979c);
-        shareDialogConfig.setPrivateThread(this.f51984h);
+        shareDialogConfig.setTransmitForumList(this.f51980c);
+        shareDialogConfig.setPrivateThread(this.f51985h);
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

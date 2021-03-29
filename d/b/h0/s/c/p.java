@@ -3,46 +3,46 @@ package d.b.h0.s.c;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public o f51208a;
+    public o f51209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51209b;
+    public boolean f51210b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51210c;
+    public int f51211c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51211d;
+    public String f51212d;
 
     public o a() {
-        return this.f51208a;
+        return this.f51209a;
     }
 
     public int b() {
-        return this.f51210c;
+        return this.f51211c;
     }
 
     public String c() {
-        return this.f51211d;
+        return this.f51212d;
     }
 
     public boolean d() {
-        return this.f51209b;
+        return this.f51210b;
     }
 
     public void e(o oVar) {
-        this.f51208a = oVar;
+        this.f51209a = oVar;
     }
 
     public void f(int i) {
-        this.f51210c = i;
+        this.f51211c = i;
     }
 
     public void g(String str) {
-        this.f51211d = str;
+        this.f51212d = str;
     }
 
     public void h(boolean z) {
-        this.f51209b = z;
+        this.f51210b = z;
     }
 }

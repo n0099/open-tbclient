@@ -21,7 +21,7 @@ import java.util.Properties;
 public final class C$Gson$Types {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Type[] f30905a = new Type[0];
+    public static final Type[] f30906a = new Type[0];
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
     /* loaded from: classes6.dex */
@@ -154,7 +154,7 @@ public final class C$Gson$Types {
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
             Type type = this.lowerBound;
-            return type != null ? new Type[]{type} : C$Gson$Types.f30905a;
+            return type != null ? new Type[]{type} : C$Gson$Types.f30906a;
         }
 
         @Override // java.lang.reflect.WildcardType
@@ -455,7 +455,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType s(Type type) {
-        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f30905a);
+        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f30906a);
     }
 
     public static WildcardType t(Type type) {

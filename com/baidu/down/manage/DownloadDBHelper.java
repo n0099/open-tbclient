@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.down.manage.DownloadConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static final String TAG = "DaoMaster";
     public static DownloadDBHelper mInstance;

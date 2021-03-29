@@ -35,7 +35,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAdvertAppEmptyHolder> impl
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.d dVar, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
         AdvertAppInfo g2 = dVar.g();
         if (g2 != null) {
-            d.b.h0.r.q.d.e(g2.Y3, dVar.position, g2.U3.f13209h == -1001);
+            d.b.h0.r.q.d.e(g2.Y3, dVar.position, g2.U3.f13210h == -1001);
         }
         return cardAdvertAppEmptyHolder.a();
     }

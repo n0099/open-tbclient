@@ -11,20 +11,20 @@ import java.util.List;
 public class j extends ProxySelector {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f29720a = Collections.singletonList(Proxy.NO_PROXY);
+    public static final List<Proxy> f29721a = Collections.singletonList(Proxy.NO_PROXY);
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f29721b = ProxySelector.getDefault();
+    public final ProxySelector f29722b = ProxySelector.getDefault();
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f29722c;
+    public final String f29723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29723d;
+    public final int f29724d;
 
     public j(String str, int i) {
-        this.f29722c = str;
-        this.f29723d = i;
+        this.f29723c = str;
+        this.f29724d = i;
     }
 
     public static void a(String str, int i) {
@@ -33,13 +33,13 @@ public class j extends ProxySelector {
 
     @Override // java.net.ProxySelector
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        this.f29721b.connectFailed(uri, socketAddress, iOException);
+        this.f29722b.connectFailed(uri, socketAddress, iOException);
     }
 
     @Override // java.net.ProxySelector
     public List<Proxy> select(URI uri) {
         if (uri != null) {
-            return (this.f29722c.equalsIgnoreCase(uri.getHost()) && this.f29723d == uri.getPort()) ? f29720a : this.f29721b.select(uri);
+            return (this.f29723c.equalsIgnoreCase(uri.getHost()) && this.f29724d == uri.getPort()) ? f29721a : this.f29722b.select(uri);
         }
         throw new IllegalArgumentException("URI can't be null");
     }

@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public INetWorkCore f59897a = null;
+    public INetWorkCore f59898a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpNetContext f59898b = null;
+    public HttpNetContext f59899b = null;
 
     public c() {
         d();
@@ -23,31 +23,31 @@ public class c {
     }
 
     public boolean b(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        c().getRequest().addBdussData(this.f59897a);
-        return this.f59897a.downloadFile(str, handler, i, i2, i3, z);
+        c().getRequest().addBdussData(this.f59898a);
+        return this.f59898a.downloadFile(str, handler, i, i2, i3, z);
     }
 
     public HttpNetContext c() {
-        return this.f59898b;
+        return this.f59899b;
     }
 
     public final void d() {
-        this.f59898b = new HttpNetContext();
-        this.f59897a = new d(this.f59898b);
-        this.f59898b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
+        this.f59899b = new HttpNetContext();
+        this.f59898a = new d(this.f59899b);
+        this.f59899b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
         d.b.b.e.j.b.a.o(TbadkCoreApplication.getInst().getCuid());
         d.b.b.e.j.b.a.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
         d.b.b.e.j.b.a.r(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public void e() {
-        INetWorkCore iNetWorkCore = this.f59897a;
+        INetWorkCore iNetWorkCore = this.f59898a;
         if (iNetWorkCore != null) {
             iNetWorkCore.setCancel();
         }
     }
 
     public void f(String str) {
-        this.f59898b.getRequest().getNetWorkParam().mUrl = str;
+        this.f59899b.getRequest().getNetWorkParam().mUrl = str;
     }
 }

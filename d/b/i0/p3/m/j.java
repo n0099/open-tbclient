@@ -20,16 +20,16 @@ import java.io.File;
 public class j implements i.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f59173e;
+    public MediaPlayer f59174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f59174f;
+    public int f59175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59175g;
+    public String f59176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f59176h;
+    public String f59177h;
     public boolean i;
     public Context j;
     public boolean k;
@@ -39,25 +39,25 @@ public class j implements i.b {
     public class a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a f59177a;
+        public final /* synthetic */ d.a f59178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MusicData f59178b;
+        public final /* synthetic */ MusicData f59179b;
 
         public a(d.a aVar, MusicData musicData) {
-            this.f59177a = aVar;
-            this.f59178b = musicData;
+            this.f59178a = aVar;
+            this.f59179b = musicData;
         }
 
         @Override // d.b.i0.p3.j.f.a.b
         public void a(String str) {
-            if (this.f59177a.f59134d != j.this.f59174f) {
+            if (this.f59178a.f59135d != j.this.f59175f) {
                 return;
             }
             j.this.k = false;
-            this.f59177a.f59132b.setVisibility(4);
-            this.f59177a.f59131a.setDrawBorder(true);
-            this.f59177a.f59131a.invalidate();
+            this.f59178a.f59133b.setVisibility(4);
+            this.f59178a.f59132a.setDrawBorder(true);
+            this.f59178a.f59132a.invalidate();
             d.b.b.e.p.l.L(TbadkCoreApplication.getInst(), str);
             if (j.this.l != null) {
                 j.this.l.c(3, str);
@@ -66,28 +66,28 @@ public class j implements i.b {
 
         @Override // d.b.i0.p3.j.f.a.b
         public void b() {
-            if (this.f59177a.f59134d != j.this.f59174f) {
+            if (this.f59178a.f59135d != j.this.f59175f) {
                 return;
             }
             j.this.k = false;
-            this.f59177a.f59131a.setDrawBorder(true);
-            this.f59177a.f59131a.invalidate();
-            this.f59177a.f59132b.setVisibility(4);
+            this.f59178a.f59132a.setDrawBorder(true);
+            this.f59178a.f59132a.invalidate();
+            this.f59178a.f59133b.setVisibility(4);
         }
 
         @Override // d.b.i0.p3.j.f.a.b
         public void c(String str, String str2) {
-            if (this.f59177a.f59134d != j.this.f59174f) {
+            if (this.f59178a.f59135d != j.this.f59175f) {
                 return;
             }
             j.this.k = false;
             if (!TextUtils.isEmpty(str2)) {
                 str = str2;
             }
-            j.this.p(str, this.f59178b);
-            this.f59177a.f59132b.setVisibility(4);
-            this.f59177a.f59131a.setDrawBorder(true);
-            this.f59177a.f59131a.invalidate();
+            j.this.p(str, this.f59179b);
+            this.f59178a.f59133b.setVisibility(4);
+            this.f59178a.f59132a.setDrawBorder(true);
+            this.f59178a.f59132a.invalidate();
         }
     }
 
@@ -95,10 +95,10 @@ public class j implements i.b {
     public class b implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MusicData f59180a;
+        public final /* synthetic */ MusicData f59181a;
 
         public b(MusicData musicData) {
-            this.f59180a = musicData;
+            this.f59181a = musicData;
         }
 
         @Override // d.b.i0.p3.j.f.a.b
@@ -118,7 +118,7 @@ public class j implements i.b {
             if (!TextUtils.isEmpty(str2)) {
                 str = str2;
             }
-            j.this.p(str, this.f59180a);
+            j.this.p(str, this.f59181a);
         }
     }
 
@@ -129,8 +129,8 @@ public class j implements i.b {
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            j.this.f59173e.setLooping(true);
-            j.this.f59173e.start();
+            j.this.f59174e.setLooping(true);
+            j.this.f59174e.start();
         }
     }
 
@@ -164,14 +164,14 @@ public class j implements i.b {
     }
 
     public void g(EditVideoActivityConfig editVideoActivityConfig) {
-        if (TextUtils.isEmpty(this.f59176h) || TextUtils.isEmpty(this.f59175g)) {
+        if (TextUtils.isEmpty(this.f59177h) || TextUtils.isEmpty(this.f59176g)) {
             return;
         }
-        editVideoActivityConfig.addMusicInfo(this.f59176h, this.f59175g, this.f59174f);
+        editVideoActivityConfig.addMusicInfo(this.f59177h, this.f59176g, this.f59175f);
     }
 
     public String h() {
-        return this.f59176h;
+        return this.f59177h;
     }
 
     public boolean i() {
@@ -180,8 +180,8 @@ public class j implements i.b {
 
     public void j(String str, String str2) {
         this.i = false;
-        this.f59176h = str;
-        this.f59175g = str2;
+        this.f59177h = str;
+        this.f59176g = str2;
         p(str, null);
     }
 
@@ -202,61 +202,61 @@ public class j implements i.b {
 
     public void l() {
         this.i = true;
-        MediaPlayer mediaPlayer = this.f59173e;
+        MediaPlayer mediaPlayer = this.f59174e;
         if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
             return;
         }
-        this.f59173e.pause();
+        this.f59174e.pause();
     }
 
     public void m() {
         this.i = false;
-        MediaPlayer mediaPlayer = this.f59173e;
+        MediaPlayer mediaPlayer = this.f59174e;
         if (mediaPlayer != null) {
             mediaPlayer.start();
-            this.f59173e.seekTo(0);
+            this.f59174e.seekTo(0);
         }
     }
 
     public void n(int i) {
-        MediaPlayer mediaPlayer = this.f59173e;
+        MediaPlayer mediaPlayer = this.f59174e;
         if (mediaPlayer == null || mediaPlayer.getDuration() <= 0) {
             return;
         }
         if (i < 0) {
             i = 0;
         }
-        if (i > this.f59173e.getDuration()) {
-            i %= this.f59173e.getDuration();
+        if (i > this.f59174e.getDuration()) {
+            i %= this.f59174e.getDuration();
         }
-        this.f59173e.seekTo(i);
-        this.f59173e.start();
+        this.f59174e.seekTo(i);
+        this.f59174e.start();
     }
 
     public void o() {
-        MediaPlayer mediaPlayer = this.f59173e;
+        MediaPlayer mediaPlayer = this.f59174e;
         if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
             return;
         }
-        this.f59173e.pause();
+        this.f59174e.pause();
     }
 
     public final void p(String str, MusicData musicData) {
         if (this.i) {
             return;
         }
-        if (this.f59173e == null) {
+        if (this.f59174e == null) {
             MediaPlayer mediaPlayer = new MediaPlayer();
-            this.f59173e = mediaPlayer;
+            this.f59174e = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
         }
         try {
-            this.f59176h = str;
-            this.f59173e.reset();
-            this.f59173e.setDataSource(str);
-            this.f59173e.prepare();
-            this.f59173e.setOnPreparedListener(new c());
-            this.f59173e.setOnErrorListener(new d());
+            this.f59177h = str;
+            this.f59174e.reset();
+            this.f59174e.setDataSource(str);
+            this.f59174e.prepare();
+            this.f59174e.setOnPreparedListener(new c());
+            this.f59174e.setOnErrorListener(new d());
         } catch (Exception e2) {
             e2.printStackTrace();
             s(str, musicData);
@@ -267,22 +267,22 @@ public class j implements i.b {
         if (musicData == null || TextUtils.isEmpty(musicData.resource)) {
             return;
         }
-        MediaPlayer mediaPlayer = this.f59173e;
+        MediaPlayer mediaPlayer = this.f59174e;
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            this.f59173e.stop();
+            this.f59174e.stop();
         }
         this.k = false;
-        this.f59175g = musicData.id;
+        this.f59176g = musicData.id;
         String g2 = d.b.i0.p3.j.f.a.h().g(musicData.resource);
         if (obj != null && (obj instanceof d.a)) {
-            this.f59174f = ((d.a) obj).f59134d;
+            this.f59175f = ((d.a) obj).f59135d;
         }
         if (TextUtils.isEmpty(g2)) {
             if (obj instanceof d.a) {
                 d.a aVar = (d.a) obj;
-                aVar.f59132b.setVisibility(0);
-                aVar.f59131a.setDrawBorder(false);
-                aVar.f59131a.invalidate();
+                aVar.f59133b.setVisibility(0);
+                aVar.f59132a.setDrawBorder(false);
+                aVar.f59132a.invalidate();
                 this.k = true;
                 d.b.i0.p3.j.f.a.h().f(musicData.id, musicData.resource, new a(aVar, musicData));
                 return;
@@ -294,20 +294,20 @@ public class j implements i.b {
     }
 
     public void r() {
-        MediaPlayer mediaPlayer = this.f59173e;
+        MediaPlayer mediaPlayer = this.f59174e;
         if (mediaPlayer != null) {
             if (mediaPlayer.isPlaying()) {
-                this.f59173e.stop();
+                this.f59174e.stop();
             }
-            this.f59173e.release();
-            this.f59173e = null;
+            this.f59174e.release();
+            this.f59174e = null;
         }
-        this.f59176h = null;
-        this.f59175g = null;
+        this.f59177h = null;
+        this.f59176g = null;
     }
 
     public final void s(String str, MusicData musicData) {
-        this.f59176h = null;
+        this.f59177h = null;
         r();
         if (str.startsWith("/")) {
             File file = new File(str);

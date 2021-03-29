@@ -10,13 +10,13 @@ public class ThirdActivityProxy extends ActivityProxy {
     public boolean proxyStopService(Intent intent) {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a c2 = stringExtra != null ? d.a().c(stringExtra) : null;
-        if (c2 != null && c2.f42206a != null) {
+        if (c2 != null && c2.f42207a != null) {
             if (d.a().b() == 1) {
                 d.a().e(stringExtra);
-                c2.f42206a.stopSelf();
+                c2.f42207a.stopSelf();
                 return true;
             }
-            c2.f42206a.onDestroy();
+            c2.f42207a.onDestroy();
             d.a().e(stringExtra);
             return true;
         }

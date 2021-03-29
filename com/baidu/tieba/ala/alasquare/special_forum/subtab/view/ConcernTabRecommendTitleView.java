@@ -18,19 +18,19 @@ public class ConcernTabRecommendTitleView extends b<g> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f14922a;
+        public View f14923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f14923b;
+        public TextView f14924b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f14924c;
+        public View f14925c;
 
         public ViewHolder(View view) {
             super(view);
-            this.f14922a = view;
-            this.f14923b = (TextView) view.findViewById(R.id.title);
-            this.f14924c = this.f14922a.findViewById(R.id.divider);
+            this.f14923a = view;
+            this.f14924b = (TextView) view.findViewById(R.id.title);
+            this.f14925c = this.f14923a.findViewById(R.id.divider);
         }
     }
 
@@ -47,7 +47,7 @@ public class ConcernTabRecommendTitleView extends b<g> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        SkinManager.setViewTextColor(this.m.f14923b, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m.f14924b, R.color.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener
@@ -60,10 +60,10 @@ public class ConcernTabRecommendTitleView extends b<g> {
     public void n(g gVar) {
         ViewHolder viewHolder = this.m;
         if (viewHolder != null) {
-            if (gVar.f60544e) {
-                viewHolder.f14924c.setVisibility(0);
+            if (gVar.f60545e) {
+                viewHolder.f14925c.setVisibility(0);
             } else {
-                viewHolder.f14924c.setVisibility(8);
+                viewHolder.f14925c.setVisibility(8);
             }
         }
     }

@@ -3,11 +3,11 @@ package com.baidu.sapi2.utils.enums;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11497a = "import";
+    public static final String f11498a = "import";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11498b = "export";
+    public static final String f11499b = "export";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11499c = "both";
+    public static final String f11500c = "both";
 }

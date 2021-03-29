@@ -74,30 +74,30 @@ public class e {
     public boolean Y;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52420b;
+    public String f52421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CardHListViewData f52421c;
+    public CardHListViewData f52422c;
     public y c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52422d;
+    public int f52423d;
     public String d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52423e;
+    public int f52424e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PbSortType> f52424f;
+    public List<PbSortType> f52425f;
     public List<ThreadInfo> f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52425g;
+    public int f52426g;
     public ForumRuleStatus g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f52426h;
+    public k f52427h;
     public d.b.h0.t.c h0;
     public boolean i0;
     public a l;
@@ -125,7 +125,7 @@ public class e {
     public int v = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public final UserData f52419a = new UserData();
+    public final UserData f52420a = new UserData();
     public List<MuteUser> z = new ArrayList();
     public c1 x = new c1();
     public d1 A = new d1();
@@ -233,7 +233,7 @@ public class e {
                     r2 = this.p.u1().thumbnail_url;
                 }
                 a2 a2Var3 = this.p;
-                if (a2Var3 != null && !a2Var3.s1 && r2 == null && (originalThreadInfo = a2Var3.r1) != null && (arrayList = originalThreadInfo.f13217h) != null) {
+                if (a2Var3 != null && !a2Var3.s1 && r2 == null && (originalThreadInfo = a2Var3.r1) != null && (arrayList = originalThreadInfo.f13218h) != null) {
                     int size2 = arrayList.size();
                     int i3 = 0;
                     while (true) {
@@ -282,7 +282,7 @@ public class e {
     }
 
     public UserData Q() {
-        return this.f52419a;
+        return this.f52420a;
     }
 
     public int R() {
@@ -294,7 +294,7 @@ public class e {
     }
 
     public String T() {
-        return this.f52420b;
+        return this.f52421b;
     }
 
     public List<d.b.i0.c3.h0.o> U() {
@@ -315,8 +315,8 @@ public class e {
             alaLiveInfoCoreData.parserProtoBuf(alaLiveInfo);
         }
         this.N = dataRes.fold_tip;
-        this.f52422d = dataRes.exp_news_today.intValue();
-        this.f52423e = dataRes.exp_guide_today.intValue();
+        this.f52423d = dataRes.exp_news_today.intValue();
+        this.f52424e = dataRes.exp_guide_today.intValue();
         if (!ListUtils.isEmpty(dataRes.thread_topic)) {
             for (int i = 0; i < dataRes.thread_topic.size(); i++) {
                 RecommendTopicData.RecommendTopicListData recommendTopicListData = new RecommendTopicData.RecommendTopicListData();
@@ -324,11 +324,11 @@ public class e {
                 this.P.add(recommendTopicListData);
             }
         }
-        this.f52424f = dataRes.pb_sort_info;
-        this.f52425g = dataRes.sort_type.intValue();
+        this.f52425f = dataRes.pb_sort_info;
+        this.f52426g = dataRes.sort_type.intValue();
         ManagerElection managerElection = dataRes.manager_election;
         if (managerElection != null) {
-            this.f52426h = k.i(managerElection);
+            this.f52427h = k.i(managerElection);
         }
     }
 
@@ -451,13 +451,13 @@ public class e {
     }
 
     public String c() {
-        List<PbSortType> list = this.f52424f;
-        if (list == null || list.size() <= this.f52425g) {
+        List<PbSortType> list = this.f52425f;
+        if (list == null || list.size() <= this.f52426g) {
             return "";
         }
-        for (int i = 0; i < this.f52424f.size(); i++) {
-            if (this.f52424f.get(i).sort_type.intValue() == this.f52425g) {
-                return this.f52424f.get(i).sort_name;
+        for (int i = 0; i < this.f52425f.size(); i++) {
+            if (this.f52425f.get(i).sort_type.intValue() == this.f52426g) {
+                return this.f52425f.get(i).sort_name;
             }
         }
         return "";
@@ -577,7 +577,7 @@ public class e {
                 this.p.T().setBusinessAccountData(this.h0);
             }
             this.x.a(dataRes.news_info);
-            int i2 = this.x.f50736c;
+            int i2 = this.x.f50737c;
             if (i2 == 1) {
                 this.y.w0 = this.x;
             } else if (i2 == 2) {
@@ -611,7 +611,7 @@ public class e {
             if (dataRes.user != null) {
                 this.v = dataRes.user.is_manager.intValue();
             }
-            this.f52419a.parserProtobuf(dataRes.user);
+            this.f52420a.parserProtobuf(dataRes.user);
             if (dataRes.user != null && dataRes.user.mute_user != null) {
                 for (SimpleUser simpleUser : dataRes.user.mute_user) {
                     if (simpleUser != null) {
@@ -655,7 +655,7 @@ public class e {
             d.b.i0.r2.s.o().m();
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                currentAccountObj.setIsSelectTail(this.f52419a.getIsSelectTail());
+                currentAccountObj.setIsSelectTail(this.f52420a.getIsSelectTail());
             }
             this.F.parserProtobuf(dataRes.twzhibo_anti);
             AppealInfo appealInfo = dataRes.appeal_info;
@@ -666,7 +666,7 @@ public class e {
             }
             if (dataRes.guess_like != null) {
                 CardHListViewData cardHListViewData = new CardHListViewData();
-                this.f52421c = cardHListViewData;
+                this.f52422c = cardHListViewData;
                 cardHListViewData.parseProtobuf(dataRes.guess_like);
             }
             X(dataRes);
@@ -842,7 +842,7 @@ public class e {
     }
 
     public CardHListViewData q() {
-        return this.f52421c;
+        return this.f52422c;
     }
 
     public void q0(z0 z0Var, int i) {
@@ -913,7 +913,7 @@ public class e {
     }
 
     public void w0(String str) {
-        this.f52420b = str;
+        this.f52421b = str;
     }
 
     public d.b.i0.c3.h0.o x() {

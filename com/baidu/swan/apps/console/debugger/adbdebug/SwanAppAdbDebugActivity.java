@@ -12,12 +12,12 @@ import d.b.g0.a.i2.u;
 import d.b.g0.a.k;
 import d.b.g0.a.q1.b.b.g;
 import d.b.g0.a.q1.b.f.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String TAG = "SwanAppAdbDebugActivity";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements DialogInterface.OnClickListener {
         public a() {
         }
@@ -28,20 +28,20 @@ public class SwanAppAdbDebugActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f12130e;
+        public final /* synthetic */ Intent f12131e;
 
         public b(Intent intent) {
-            this.f12130e = intent;
+            this.f12131e = intent;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            this.f12130e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
-            SwanAppAdbDebugActivity.this.startActivity(this.f12130e);
+            this.f12131e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
+            SwanAppAdbDebugActivity.this.startActivity(this.f12131e);
             SwanAppAdbDebugActivity.this.finish();
         }
     }

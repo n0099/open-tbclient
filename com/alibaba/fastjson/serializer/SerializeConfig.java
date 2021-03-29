@@ -116,7 +116,7 @@ public class SerializeConfig {
             if (z) {
                 buildBeanInfo.features = serializerFeature.mask | buildBeanInfo.features;
             } else {
-                buildBeanInfo.features = (serializerFeature.mask ^ (-1)) & buildBeanInfo.features;
+                buildBeanInfo.features = (~serializerFeature.mask) & buildBeanInfo.features;
             }
             put((Type) cls, createJavaBeanSerializer(buildBeanInfo));
         } else if (objectWriter instanceof JavaBeanSerializer) {
@@ -125,7 +125,7 @@ public class SerializeConfig {
             if (z) {
                 serializeBeanInfo.features = serializerFeature.mask | i;
             } else {
-                serializeBeanInfo.features = (serializerFeature.mask ^ (-1)) & i;
+                serializeBeanInfo.features = (~serializerFeature.mask) & i;
             }
             if (i == serializeBeanInfo.features || objectWriter.getClass() == JavaBeanSerializer.class) {
                 return;
@@ -187,8 +187,8 @@ public class SerializeConfig {
         this(8192, z);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:219:0x03cd */
-    /* JADX WARN: Removed duplicated region for block: B:224:0x03e8  */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:219:0x03cc */
+    /* JADX WARN: Removed duplicated region for block: B:224:0x03e7  */
     /* JADX WARN: Removed duplicated region for block: B:272:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -19,17 +19,17 @@ public class PatchReplaceMethodHelper {
     public static class a extends ClassLoader {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DexFile f2236a;
+        public final /* synthetic */ DexFile f2237a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ClassLoader classLoader, DexFile dexFile) {
             super(classLoader);
-            this.f2236a = dexFile;
+            this.f2237a = dexFile;
         }
 
         @Override // java.lang.ClassLoader
         public Class<?> findClass(String str) throws ClassNotFoundException {
-            Class<?> loadClass = this.f2236a.loadClass(str, this);
+            Class<?> loadClass = this.f2237a.loadClass(str, this);
             if (loadClass == null && str.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
                 return Class.forName(str);
             }

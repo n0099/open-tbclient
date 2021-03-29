@@ -5,15 +5,15 @@ import com.baidu.mobads.interfaces.IXAdContainer;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f8473a;
+    public final /* synthetic */ a f8474a;
 
     public i(a aVar) {
-        this.f8473a = aVar;
+        this.f8474a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        IXAdContainer iXAdContainer = this.f8473a.f8440h;
+        IXAdContainer iXAdContainer = this.f8474a.f8441h;
         if (iXAdContainer != null) {
             iXAdContainer.pause();
         }

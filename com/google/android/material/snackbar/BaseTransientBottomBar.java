@@ -84,7 +84,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes.dex */
+        /* loaded from: classes6.dex */
         public @interface DismissEvent {
         }
 
@@ -155,7 +155,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface Duration {
     }
 

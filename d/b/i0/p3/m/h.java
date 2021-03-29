@@ -42,28 +42,28 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecordVideoActivity f59139a;
+    public RecordVideoActivity f59140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f59140b;
+    public Bitmap f59141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f59141c;
+    public j f59142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Camera f59142d;
+    public Camera f59143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59143e;
+    public int f59144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f59144f;
+    public int f59145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f59145g;
+    public FrameLayout f59146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f59146h;
+    public int f59147h;
     public int i;
     public List<String> j;
     public boolean k;
@@ -94,30 +94,30 @@ public class h {
             if (i == 1) {
                 h.this.K();
             } else if (i != 2) {
-                if (i == 3 && h.this.f59139a != null) {
-                    d.b.b.e.p.l.K(h.this.f59139a, R.string.disallow_audio_record_permission);
+                if (i == 3 && h.this.f59140a != null) {
+                    d.b.b.e.p.l.K(h.this.f59140a, R.string.disallow_audio_record_permission);
                     if (h.this.u != null) {
-                        h.this.u.c(2, h.this.f59139a.getResources().getString(R.string.disallow_audio_record_permission));
+                        h.this.u.c(2, h.this.f59140a.getResources().getString(R.string.disallow_audio_record_permission));
                     }
-                    h.this.f59139a.finish();
+                    h.this.f59140a.finish();
                 }
-            } else if (h.this.f59139a != null) {
+            } else if (h.this.f59140a != null) {
                 if (!"OD103".equals(Build.MODEL)) {
-                    d.b.b.e.p.l.K(h.this.f59139a, R.string.disallow_camera_permission);
+                    d.b.b.e.p.l.K(h.this.f59140a, R.string.disallow_camera_permission);
                     if (h.this.u != null) {
                         Object obj = message.obj;
                         if (!(obj instanceof String)) {
-                            string = h.this.f59139a.getResources().getString(R.string.disallow_camera_permission);
+                            string = h.this.f59140a.getResources().getString(R.string.disallow_camera_permission);
                         } else {
                             string = (String) obj;
                         }
                         h.this.u.c(1, string);
                     }
-                    h.this.f59139a.finish();
+                    h.this.f59140a.finish();
                     return;
                 }
                 h hVar = h.this;
-                hVar.x(hVar.f59139a);
+                hVar.x(hVar.f59140a);
             }
         }
     }
@@ -126,16 +126,16 @@ public class h {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f59148e;
+        public final /* synthetic */ Activity f59149e;
 
         public b(h hVar, Activity activity) {
-            this.f59148e = activity;
+            this.f59149e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            this.f59148e.finish();
+            this.f59149e.finish();
         }
     }
 
@@ -143,10 +143,10 @@ public class h {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f59149e;
+        public final /* synthetic */ Activity f59150e;
 
         public c(h hVar, Activity activity) {
-            this.f59149e = activity;
+            this.f59150e = activity;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -155,9 +155,9 @@ public class h {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", this.f59149e.getPackageName(), null));
-            this.f59149e.startActivity(intent);
-            this.f59149e.finish();
+            intent.setData(Uri.fromParts("package", this.f59150e.getPackageName(), null));
+            this.f59150e.startActivity(intent);
+            this.f59150e.finish();
         }
     }
 
@@ -168,15 +168,15 @@ public class h {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f59151e;
+            public final /* synthetic */ boolean f59152e;
 
             public a(boolean z) {
-                this.f59151e = z;
+                this.f59152e = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                h.this.w.onFaceIdentifyState(this.f59151e);
+                h.this.w.onFaceIdentifyState(this.f59152e);
             }
         }
 
@@ -221,16 +221,16 @@ public class h {
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            if (h.this.f59139a != null) {
-                h.this.f59139a.finish();
+            if (h.this.f59140a != null) {
+                h.this.f59140a.finish();
             }
         }
     }
 
     /* renamed from: d.b.i0.p3.m.h$h  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1469h implements a.e {
-        public C1469h(h hVar) {
+    public class C1470h implements a.e {
+        public C1470h(h hVar) {
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -243,16 +243,16 @@ public class h {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g.a f59156e;
+        public final /* synthetic */ g.a f59157e;
 
         public i(g.a aVar) {
-            this.f59156e = aVar;
+            this.f59157e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (h.this.o != null) {
-                h.this.o.e(this.f59156e);
+                h.this.o.e(this.f59157e);
             }
         }
     }
@@ -261,24 +261,24 @@ public class h {
     public class j extends View {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f59158e;
+        public int f59159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f59159f;
+        public int f59160f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Bitmap f59160g;
+        public Bitmap f59161g;
 
         public j(h hVar, Context context, int i, int i2, Bitmap bitmap) {
             super(context);
-            this.f59158e = i;
-            this.f59159f = i2;
-            this.f59160g = bitmap;
+            this.f59159e = i;
+            this.f59160f = i2;
+            this.f59161g = bitmap;
         }
 
         @Override // android.view.View
         public void onDraw(Canvas canvas) {
-            canvas.drawBitmap(this.f59160g, this.f59158e, this.f59159f, (Paint) null);
+            canvas.drawBitmap(this.f59161g, this.f59159e, this.f59160f, (Paint) null);
             super.onDraw(canvas);
         }
     }
@@ -301,14 +301,14 @@ public class h {
         }
         this.v = new a();
         this.x = new d();
-        this.f59139a = recordVideoActivity;
+        this.f59140a = recordVideoActivity;
         s();
-        this.f59140b = BitmapFactory.decodeResource(recordVideoActivity.getResources(), R.drawable.box_recorder_focus);
+        this.f59141b = BitmapFactory.decodeResource(recordVideoActivity.getResources(), R.drawable.box_recorder_focus);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         recordVideoActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.f59143e = displayMetrics.widthPixels;
-        this.f59144f = displayMetrics.heightPixels;
-        this.f59145g = this.f59139a.getSurfaceContainer();
+        this.f59144e = displayMetrics.widthPixels;
+        this.f59145f = displayMetrics.heightPixels;
+        this.f59146g = this.f59140a.getSurfaceContainer();
         if (Build.VERSION.SDK_INT >= 18) {
             GLVideoPreviewView gLVideoPreviewView = new GLVideoPreviewView(recordVideoActivity, this);
             this.p = gLVideoPreviewView;
@@ -327,10 +327,10 @@ public class h {
 
     public final void A() {
         j jVar;
-        if (this.f59145g == null || (jVar = this.f59141c) == null || jVar.getParent() == null) {
+        if (this.f59146g == null || (jVar = this.f59142c) == null || jVar.getParent() == null) {
             return;
         }
-        this.f59145g.removeView(this.f59141c);
+        this.f59146g.removeView(this.f59142c);
     }
 
     public void B(d.b.i0.p3.a aVar) {
@@ -353,7 +353,7 @@ public class h {
             this.l = c2;
             if (-1 != c2) {
                 t();
-                this.t = new d.b.i0.p3.m.b(this.f59142d);
+                this.t = new d.b.i0.p3.m.b(this.f59143d);
                 this.k = z;
                 return;
             }
@@ -413,29 +413,29 @@ public class h {
     }
 
     public final void J() {
-        RecordVideoActivity recordVideoActivity = this.f59139a;
+        RecordVideoActivity recordVideoActivity = this.f59140a;
         if (recordVideoActivity == null) {
             return;
         }
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(recordVideoActivity.getPageContext().getPageActivity());
         aVar.setMessageId(R.string.video_quit_confirm);
         aVar.setPositiveButton(R.string.dialog_ok, new g());
-        aVar.setNegativeButton(R.string.dialog_cancel, new C1469h(this));
+        aVar.setNegativeButton(R.string.dialog_cancel, new C1470h(this));
         aVar.setCancelable(true);
-        aVar.create(this.f59139a.getPageContext());
+        aVar.create(this.f59140a.getPageContext());
         aVar.show();
     }
 
     public void K() {
-        this.o.a(this.f59142d);
+        this.o.a(this.f59143d);
     }
 
     public void L() {
-        this.o.b(this.f59142d);
+        this.o.b(this.f59143d);
     }
 
     public void M() {
-        this.o.d(this.f59142d);
+        this.o.d(this.f59143d);
     }
 
     public void N(g.a aVar) {
@@ -449,14 +449,14 @@ public class h {
 
     public final void O(int i2, int i3) {
         try {
-            this.f59142d.cancelAutoFocus();
+            this.f59143d.cancelAutoFocus();
             if (this.j.contains("auto")) {
-                Camera.Parameters parameters = this.f59142d.getParameters();
+                Camera.Parameters parameters = this.f59143d.getParameters();
                 this.n = parameters;
                 parameters.setFocusMode("auto");
             }
-            this.f59142d.setParameters(this.n);
-            this.f59142d.autoFocus(null);
+            this.f59143d.setParameters(this.n);
+            this.f59143d.autoFocus(null);
         } catch (Exception e2) {
             e2.printStackTrace();
             d.b.i0.s1.g gVar = this.u;
@@ -484,7 +484,7 @@ public class h {
         if (surfaceView2 == null || !(surfaceView2 instanceof VideoPreviewView)) {
             return;
         }
-        ((VideoPreviewView) surfaceView2).c(this.f59142d);
+        ((VideoPreviewView) surfaceView2).c(this.f59143d);
         z();
         int i3 = this.m == 0 ? 1 : 0;
         this.m = i3;
@@ -493,11 +493,11 @@ public class h {
     }
 
     public String g() {
-        File file = new File(d.b.i0.p3.c.f58889c);
+        File file = new File(d.b.i0.p3.c.f58890c);
         if (!file.exists()) {
             file.mkdirs();
         }
-        String str = d.b.i0.p3.c.f58889c + "f_" + System.currentTimeMillis() + ".mp4";
+        String str = d.b.i0.p3.c.f58890c + "f_" + System.currentTimeMillis() + ".mp4";
         this.r = str;
         return str;
     }
@@ -520,18 +520,18 @@ public class h {
 
     public void i() {
         try {
-            if (this.f59142d == null) {
+            if (this.f59143d == null) {
                 return;
             }
             if (this.n == null) {
-                this.n = this.f59142d.getParameters();
+                this.n = this.f59143d.getParameters();
             }
             if ("off".equals(this.n.getFlashMode())) {
                 this.n.setFlashMode("torch");
             } else {
                 this.n.setFlashMode("off");
             }
-            this.f59142d.setParameters(this.n);
+            this.f59143d.setParameters(this.n);
         } catch (Exception e2) {
             e2.printStackTrace();
             d.b.i0.s1.g gVar = this.u;
@@ -551,11 +551,11 @@ public class h {
 
     public boolean l() {
         try {
-            if (this.f59142d == null) {
+            if (this.f59143d == null) {
                 return false;
             }
             if (this.n == null) {
-                this.n = this.f59142d.getParameters();
+                this.n = this.f59143d.getParameters();
             }
             return !"off".equals(this.n.getFlashMode());
         } catch (Exception e2) {
@@ -580,11 +580,11 @@ public class h {
         if (this.q == null) {
             this.q = new ArrayList();
         }
-        File file = new File(d.b.i0.p3.c.f58889c);
+        File file = new File(d.b.i0.p3.c.f58890c);
         if (!file.exists()) {
             file.mkdirs();
         }
-        String str = d.b.i0.p3.c.f58889c + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
+        String str = d.b.i0.p3.c.f58890c + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
         this.q.add(str);
         return str;
     }
@@ -614,33 +614,33 @@ public class h {
         if (action == 0) {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
-            if (y > this.f59144f || x < d.b.b.e.p.l.g(this.f59139a, R.dimen.ds60)) {
+            if (y > this.f59145f || x < d.b.b.e.p.l.g(this.f59140a, R.dimen.ds60)) {
                 return true;
             }
-            int width = this.f59140b.getWidth();
-            int height = this.f59140b.getHeight();
+            int width = this.f59141b.getWidth();
+            int height = this.f59141b.getHeight();
             int i2 = width / 2;
-            int a2 = d.b.i0.p3.m.a.a(x, i2, this.f59143e - i2);
+            int a2 = d.b.i0.p3.m.a.a(x, i2, this.f59144e - i2);
             int i3 = height / 2;
-            int a3 = d.b.i0.p3.m.a.a(y, i3, this.f59144f - i3);
+            int a3 = d.b.i0.p3.m.a.a(y, i3, this.f59145f - i3);
             if (viewParent != null && (viewParent instanceof FrameLayout)) {
-                if (this.f59145g == null) {
-                    this.f59145g = (FrameLayout) viewParent;
+                if (this.f59146g == null) {
+                    this.f59146g = (FrameLayout) viewParent;
                 }
                 int i4 = 0;
                 while (true) {
-                    if (i4 >= this.f59145g.getChildCount()) {
+                    if (i4 >= this.f59146g.getChildCount()) {
                         break;
-                    } else if (this.f59141c == this.f59145g.getChildAt(i4)) {
-                        this.f59145g.removeViewAt(i4);
+                    } else if (this.f59142c == this.f59146g.getChildAt(i4)) {
+                        this.f59146g.removeViewAt(i4);
                         break;
                     } else {
                         i4++;
                     }
                 }
-                j jVar = new j(this, this.f59139a, a2 - i2, a3 - i3, this.f59140b);
-                this.f59141c = jVar;
-                this.f59145g.addView(jVar, new ViewGroup.LayoutParams(-2, -2));
+                j jVar = new j(this, this.f59140a, a2 - i2, a3 - i3, this.f59141b);
+                this.f59142c = jVar;
+                this.f59146g.addView(jVar, new ViewGroup.LayoutParams(-2, -2));
                 O(a2, a3);
             }
         } else if (action == 1) {
@@ -650,14 +650,14 @@ public class h {
     }
 
     public final void s() {
-        this.f59146h = PeerConnectionClient.HD_VIDEO_HEIGHT;
+        this.f59147h = PeerConnectionClient.HD_VIDEO_HEIGHT;
         this.i = TbConfig.HEAD_IMG_SIZE;
     }
 
     public final void t() {
         try {
             Camera open = Camera.open(this.l);
-            this.f59142d = open;
+            this.f59143d = open;
             this.n = open.getParameters();
             y();
         } catch (RuntimeException e2) {
@@ -671,7 +671,7 @@ public class h {
 
     public void u() {
         z();
-        this.o.c(this.f59142d);
+        this.o.c(this.f59143d);
         SurfaceView surfaceView = this.p;
         if (surfaceView == null || !(surfaceView instanceof GLVideoPreviewView)) {
             return;
@@ -720,32 +720,32 @@ public class h {
 
     public void y() {
         RecordVideoActivity recordVideoActivity;
-        if (this.f59142d == null && (recordVideoActivity = this.f59139a) != null) {
+        if (this.f59143d == null && (recordVideoActivity = this.f59140a) != null) {
             recordVideoActivity.finish();
             return;
         }
-        int k2 = d.b.b.e.p.l.k(this.f59139a.getPageContext().getPageActivity());
-        int p = p(this.f59139a.getPageContext().getPageActivity());
+        int k2 = d.b.b.e.p.l.k(this.f59140a.getPageContext().getPageActivity());
+        int p = p(this.f59140a.getPageContext().getPageActivity());
         if (DeviceInfoUtil.isHuaWeiP40()) {
-            p = this.f59144f;
+            p = this.f59145f;
         }
         float f2 = p;
         float f3 = k2;
-        Camera.Size d2 = d.b.i0.p3.m.a.d(this.f59142d, PeerConnectionClient.HD_VIDEO_HEIGHT, (int) (((float) PeerConnectionClient.HD_VIDEO_HEIGHT) * ((f2 * 1.0f) / f3)));
+        Camera.Size d2 = d.b.i0.p3.m.a.d(this.f59143d, PeerConnectionClient.HD_VIDEO_HEIGHT, (int) (((float) PeerConnectionClient.HD_VIDEO_HEIGHT) * ((f2 * 1.0f) / f3)));
         if (d2 != null) {
             int i2 = d2.width;
-            this.f59146h = i2;
+            this.f59147h = i2;
             int i3 = d2.height;
             this.i = i3;
             this.n.setPreviewSize(i2, i3);
             d.b.i0.p3.m.g gVar = this.o;
             if (gVar != null) {
-                gVar.setPreviewSize(this.f59146h, this.i);
+                gVar.setPreviewSize(this.f59147h, this.i);
             }
         }
         this.n.setPreviewFormat(17);
         G();
-        this.f59142d.setDisplayOrientation(d.b.i0.p3.m.a.b(this.f59139a, this.l));
+        this.f59143d.setDisplayOrientation(d.b.i0.p3.m.a.b(this.f59140a, this.l));
         List<String> supportedFocusModes = this.n.getSupportedFocusModes();
         this.j = supportedFocusModes;
         if (supportedFocusModes != null) {
@@ -755,12 +755,12 @@ public class h {
                 this.n.setFocusMode("continuous-video");
             }
         }
-        this.f59142d.setParameters(this.n);
-        RecordVideoActivity recordVideoActivity2 = this.f59139a;
+        this.f59143d.setParameters(this.n);
+        RecordVideoActivity recordVideoActivity2 = this.f59140a;
         if (recordVideoActivity2 == null || recordVideoActivity2.getSurfaceContainer() == null) {
             return;
         }
-        float f4 = (this.i * 1.0f) / this.f59146h;
+        float f4 = (this.i * 1.0f) / this.f59147h;
         if ((f3 * 1.0f) / f2 > f4) {
             p = (int) (f3 / f4);
         } else {
@@ -778,13 +778,13 @@ public class h {
     }
 
     public final void z() {
-        Camera camera = this.f59142d;
+        Camera camera = this.f59143d;
         if (camera != null) {
             try {
                 camera.stopPreview();
-                this.f59142d.setPreviewCallback(null);
-                this.f59142d.setPreviewTexture(null);
-                this.f59142d.release();
+                this.f59143d.setPreviewCallback(null);
+                this.f59143d.setPreviewTexture(null);
+                this.f59143d.release();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 d.b.i0.s1.g gVar = this.u;
@@ -792,7 +792,7 @@ public class h {
                     gVar.c(6, d.b.i0.s1.a.a(e2));
                 }
             }
-            this.f59142d = null;
+            this.f59143d = null;
         }
     }
 }

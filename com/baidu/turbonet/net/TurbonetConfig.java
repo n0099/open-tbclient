@@ -11,16 +11,16 @@ import org.json.JSONObject;
 public class TurbonetConfig {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22839b;
+    public String f22840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22840c = false;
+    public boolean f22841c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f22838a = new JSONObject();
+    public JSONObject f22839a = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public @interface HttpCacheSetting {
     }
 
@@ -42,7 +42,7 @@ public class TurbonetConfig {
                 throw new IllegalArgumentException("Storage path must not be set");
             }
         } else if (l() != null) {
-            this.f22840c = true;
+            this.f22841c = true;
         } else {
             throw new IllegalArgumentException("Storage path must be set");
         }
@@ -68,21 +68,21 @@ public class TurbonetConfig {
     }
 
     public JSONObject g() {
-        return this.f22838a;
+        return this.f22839a;
     }
 
     public boolean h() {
-        return this.f22840c;
+        return this.f22841c;
     }
 
     public void i(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.f22838a.optJSONObject(str);
+            JSONObject optJSONObject = this.f22839a.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.f22838a.put(str, optJSONObject);
+            this.f22839a.put(str, optJSONObject);
         } catch (JSONException e2) {
             throw new IllegalStateException("JSON expcetion:", e2);
         }
@@ -98,13 +98,13 @@ public class TurbonetConfig {
 
     public void k(String str) {
         if (new File(str).isDirectory()) {
-            this.f22839b = str;
+            this.f22840b = str;
             return;
         }
         throw new IllegalArgumentException("Storage path must be set to existing directory");
     }
 
     public String l() {
-        return this.f22839b;
+        return this.f22840b;
     }
 }

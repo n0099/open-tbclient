@@ -7,10 +7,10 @@ import java.util.zip.Adler32;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f39005a;
+    public static a f39006a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f39006d = new Object();
+    public static final Object f39007d = new Object();
 
     public static long a(a aVar) {
         if (aVar != null) {
@@ -28,11 +28,11 @@ public class b {
 
     public static synchronized a b(Context context) {
         synchronized (b.class) {
-            if (f39005a != null) {
-                return f39005a;
+            if (f39006a != null) {
+                return f39006a;
             } else if (context != null) {
                 a a2 = a(context);
-                f39005a = a2;
+                f39006a = a2;
                 return a2;
             } else {
                 return null;
@@ -42,7 +42,7 @@ public class b {
 
     public static a a(Context context) {
         if (context != null) {
-            synchronized (f39006d) {
+            synchronized (f39007d) {
                 String value = c.a(context).getValue();
                 if (f.isEmpty(value)) {
                     return null;

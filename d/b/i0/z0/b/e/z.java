@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i.k0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class z extends d.b.b.j.e.a<d.b.i0.z0.b.f.c, ThreadCardViewHolder<d.b.i0.z0.b.f.c>> implements d.b.i0.m.f {
     public TbPageContext<?> m;
     public BdUniqueId n;

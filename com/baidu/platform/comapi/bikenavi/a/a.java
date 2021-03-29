@@ -3,5 +3,5 @@ package com.baidu.platform.comapi.bikenavi.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9824a = true;
+    public static boolean f9825a = true;
 }

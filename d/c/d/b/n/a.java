@@ -12,27 +12,27 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f65900b;
+    public static volatile a f65901b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Context f65901a;
+    public volatile Context f65902a;
 
     public a(@NonNull Context context) {
-        this.f65901a = context;
+        this.f65902a = context;
     }
 
     public static a a() {
-        if (f65900b == null) {
-            f65900b = new a(m.e());
+        if (f65901b == null) {
+            f65901b = new a(m.e());
         }
-        return f65900b;
+        return f65901b;
     }
 
     @Nullable
     public String b(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             try {
-                return l.e.b(l.i.a(this.f65901a), l.i.b(), com.bytedance.tea.crash.upload.b.f(m.a().a()), jSONObject, com.bytedance.tea.crash.upload.b.g());
+                return l.e.b(l.i.a(this.f65902a), l.i.b(), com.bytedance.tea.crash.upload.b.f(m.a().a()), jSONObject, com.bytedance.tea.crash.upload.b.g());
             } catch (Throwable unused) {
             }
         }
@@ -43,7 +43,7 @@ public class a {
         if (jSONObject != null && jSONObject.length() > 0) {
             try {
                 String f2 = com.bytedance.tea.crash.upload.b.f(m.a().a());
-                String b2 = l.e.b(l.i.a(this.f65901a), l.i.d(), f2, jSONObject, com.bytedance.tea.crash.upload.b.k());
+                String b2 = l.e.b(l.i.a(this.f65902a), l.i.d(), f2, jSONObject, com.bytedance.tea.crash.upload.b.k());
                 jSONObject.put("upload_scene", "direct");
                 if (!com.bytedance.tea.crash.upload.b.j(f2, jSONObject.toString()).a()) {
                     return;

@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpRetryStrategyDataParse {
     public static final boolean DEBUG = false;
     public static final String DOWNFLOW_DOWNLOAD_INNER = "download_inner";
@@ -48,7 +48,7 @@ public class HttpRetryStrategyDataParse {
     public long mFetchServerDataElapsedTime;
     public Timer mFetchServerDataOverTime;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnFetchRetryDataRequestListener {
         void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i);
     }

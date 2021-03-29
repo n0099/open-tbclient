@@ -32,66 +32,66 @@ import org.apache.http.message.BasicNameValuePair;
 public class d implements INetWorkCore {
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f59899d = 2097152;
+    public static int f59900d = 2097152;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpNetContext f59900a;
+    public final HttpNetContext f59901a;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.r2.x.m.d f59902c = new d.b.i0.r2.x.m.d();
+    public d.b.i0.r2.x.m.d f59903c = new d.b.i0.r2.x.m.d();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59901b = TbadkCoreApplication.getInst().getApp();
+    public Context f59902b = TbadkCoreApplication.getInst().getApp();
 
     /* loaded from: classes5.dex */
     public class a implements d.b.i0.r2.x.m.j {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f59903a = 0;
+        public int f59904a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59904b = 0;
+        public int f59905b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59905c = 0;
+        public int f59906c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Handler f59906d;
+        public final /* synthetic */ Handler f59907d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f59907e;
+        public final /* synthetic */ int f59908e;
 
         public a(d dVar, Handler handler, int i) {
-            this.f59906d = handler;
-            this.f59907e = i;
+            this.f59907d = handler;
+            this.f59908e = i;
         }
 
         @Override // d.b.i0.r2.x.m.j
         public void onProgress(int i, int i2) {
             if (i2 > 0) {
-                this.f59903a = i2 / 50;
+                this.f59904a = i2 / 50;
             }
-            int i3 = this.f59904b + (i - this.f59905c);
-            this.f59904b = i3;
-            this.f59905c = i;
-            if (this.f59906d != null) {
-                if (i3 > this.f59903a || i == i2) {
-                    this.f59904b = 0;
-                    Handler handler = this.f59906d;
-                    handler.sendMessage(handler.obtainMessage(this.f59907e, i, i2));
+            int i3 = this.f59905b + (i - this.f59906c);
+            this.f59905b = i3;
+            this.f59906c = i;
+            if (this.f59907d != null) {
+                if (i3 > this.f59904a || i == i2) {
+                    this.f59905b = 0;
+                    Handler handler = this.f59907d;
+                    handler.sendMessage(handler.obtainMessage(this.f59908e, i, i2));
                 }
             }
         }
     }
 
     public d(HttpNetContext httpNetContext) {
-        this.f59900a = httpNetContext;
+        this.f59901a = httpNetContext;
         d.b.i0.r2.x.m.d.n("bdtb for Android " + TbConfig.getVersion());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
-        d.b.i0.r2.x.m.d.l((TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) ? d.b.h0.l.a.f50251a : cookie);
+        d.b.i0.r2.x.m.d.l((TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) ? d.b.h0.l.a.f50252a : cookie);
     }
 
     public final int a(ArrayList<BasicNameValuePair> arrayList, String str) {
@@ -125,13 +125,13 @@ public class d implements INetWorkCore {
     }
 
     public final LinkedList<BasicNameValuePair> b() {
-        if (this.f59900a != null) {
+        if (this.f59901a != null) {
             LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
-            if (!TextUtils.isEmpty(this.f59900a.getRequest().getNetWorkParam().mSeqId)) {
-                linkedList.add(new BasicNameValuePair("sid", this.f59900a.getRequest().getNetWorkParam().mSeqId));
+            if (!TextUtils.isEmpty(this.f59901a.getRequest().getNetWorkParam().mSeqId)) {
+                linkedList.add(new BasicNameValuePair("sid", this.f59901a.getRequest().getNetWorkParam().mSeqId));
             }
-            if (!TextUtils.isEmpty(this.f59900a.getRequest().getNetWorkParam().mNetType)) {
-                linkedList.add(new BasicNameValuePair("net", this.f59900a.getRequest().getNetWorkParam().mNetType));
+            if (!TextUtils.isEmpty(this.f59901a.getRequest().getNetWorkParam().mNetType)) {
+                linkedList.add(new BasicNameValuePair("net", this.f59901a.getRequest().getNetWorkParam().mNetType));
             }
             return linkedList;
         }
@@ -152,24 +152,24 @@ public class d implements INetWorkCore {
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public void cancelNetConnect() {
-        this.f59902c.c();
+        this.f59903c.c();
     }
 
     public void d(String str) {
-        this.f59900a.getResponse().mServerErrorCode = -1;
+        this.f59901a.getResponse().mServerErrorCode = -1;
         if (str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
-                this.f59900a.getResponse().mServerErrorCode = errorData.getError_code();
-                if (this.f59900a.getResponse().mServerErrorCode == -1) {
-                    this.f59900a.getResponse().mErrorString = this.f59901b.getString(R.string.error_unkown_try_again);
-                } else if (this.f59900a.getResponse().mServerErrorCode != 0) {
-                    this.f59900a.getResponse().mErrorString = errorData.getError_msg();
+                this.f59901a.getResponse().mServerErrorCode = errorData.getError_code();
+                if (this.f59901a.getResponse().mServerErrorCode == -1) {
+                    this.f59901a.getResponse().mErrorString = this.f59902b.getString(R.string.error_unkown_try_again);
+                } else if (this.f59901a.getResponse().mServerErrorCode != 0) {
+                    this.f59901a.getResponse().mErrorString = errorData.getError_msg();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
-                this.f59900a.getResponse().mErrorString = this.f59901b.getString(R.string.error_unkown_try_again);
+                this.f59901a.getResponse().mErrorString = this.f59902b.getString(R.string.error_unkown_try_again);
             }
         }
     }
@@ -181,16 +181,16 @@ public class d implements INetWorkCore {
         try {
             try {
             } catch (Exception e2) {
-                this.f59900a.getResponse().mNetErrorCode = -10;
-                HttpResponse response = this.f59900a.getResponse();
-                response.mErrorString = this.f59901b.getResources().getString(R.string.neterror) + " detailException:" + e2.getMessage();
+                this.f59901a.getResponse().mNetErrorCode = -10;
+                HttpResponse response = this.f59901a.getResponse();
+                response.mErrorString = this.f59902b.getResources().getString(R.string.neterror) + " detailException:" + e2.getMessage();
                 BdLog.e(e2.getMessage());
             } catch (OutOfMemoryError e3) {
-                this.f59900a.getResponse().mNetErrorCode = -15;
-                this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.memoryerror);
+                this.f59901a.getResponse().mNetErrorCode = -15;
+                this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.memoryerror);
                 BdLog.e(e3.getMessage());
             }
-            if (this.f59902c.i()) {
+            if (this.f59903c.i()) {
                 return false;
             }
             if (z) {
@@ -198,10 +198,10 @@ public class d implements INetWorkCore {
             } else {
                 a2 = d.b.i0.r2.b.a(str);
             }
-            z2 = this.f59902c.d(this.f59900a.getRequest().getNetWorkParam().mUrl, a2.getAbsolutePath(), false, i2, i3, -1, -1, b(), new a(this, handler, i), true);
+            z2 = this.f59903c.d(this.f59901a.getRequest().getNetWorkParam().mUrl, a2.getAbsolutePath(), false, i2, i3, -1, -1, b(), new a(this, handler, i), true);
             return z2;
         } finally {
-            TiebaStatic.net(this.f59900a);
+            TiebaStatic.net(this.f59901a);
         }
     }
 
@@ -224,29 +224,29 @@ public class d implements INetWorkCore {
         String str3;
         d.b.i0.r2.x.m.d.m(TbadkCoreApplication.getCurrentAccount());
         try {
-            if (this.f59900a.getRequest().getNetWorkParam().mPostData != null && this.f59900a.getRequest().getNetWorkParam().mPostData.size() > 0 && !this.f59900a.getRequest().mIsFromCDN) {
+            if (this.f59901a.getRequest().getNetWorkParam().mPostData != null && this.f59901a.getRequest().getNetWorkParam().mPostData.size() > 0 && !this.f59901a.getRequest().mIsFromCDN) {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.f59900a.getRequest().getNetWorkParam().mUrl);
-                if (this.f59900a.getRequest().getNetWorkParam().mUrl.indexOf("?") < 0) {
+                sb.append(this.f59901a.getRequest().getNetWorkParam().mUrl);
+                if (this.f59901a.getRequest().getNetWorkParam().mUrl.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.f59900a.getRequest().getNetWorkParam().mUrl.endsWith("?") && !this.f59900a.getRequest().getNetWorkParam().mUrl.endsWith("&")) {
+                } else if (!this.f59901a.getRequest().getNetWorkParam().mUrl.endsWith("?") && !this.f59901a.getRequest().getNetWorkParam().mUrl.endsWith("&")) {
                     sb.append("&");
                 }
-                for (int i = 0; i < this.f59900a.getRequest().getNetWorkParam().mPostData.size(); i++) {
+                for (int i = 0; i < this.f59901a.getRequest().getNetWorkParam().mPostData.size(); i++) {
                     if (i != 0) {
                         sb.append("&");
                     }
-                    sb.append(this.f59900a.getRequest().getNetWorkParam().mPostData.get(i).getName());
+                    sb.append(this.f59901a.getRequest().getNetWorkParam().mPostData.get(i).getName());
                     sb.append("=");
-                    sb.append(d.b.b.e.p.k.getUrlEncode(this.f59900a.getRequest().getNetWorkParam().mPostData.get(i).getValue()));
+                    sb.append(d.b.b.e.p.k.getUrlEncode(this.f59901a.getRequest().getNetWorkParam().mPostData.get(i).getValue()));
                 }
                 str = sb.toString();
             } else {
-                str = this.f59900a.getRequest().getNetWorkParam().mUrl;
+                str = this.f59901a.getRequest().getNetWorkParam().mUrl;
             }
             str2 = str;
             TbConfig.getDebugSwitch();
-            z = (this.f59900a.getRequest().getNetWorkParam().mRequestGzip && !this.f59900a.getRequest().getNetWorkParam().mIsBDImage) || this.f59900a.getRequest().mIsFromCDN;
+            z = (this.f59901a.getRequest().getNetWorkParam().mRequestGzip && !this.f59901a.getRequest().getNetWorkParam().mIsBDImage) || this.f59901a.getRequest().mIsFromCDN;
         } catch (BdHttpCancelException e2) {
             bdHttpCancelException = e2;
             iVar = null;
@@ -263,10 +263,10 @@ public class d implements INetWorkCore {
             exc = e6;
             iVar = null;
         }
-        if (!this.f59902c.i()) {
+        if (!this.f59903c.i()) {
             long time = new Date().getTime();
-            this.f59902c.g(str2, z, 5, 100, -1, -1, b());
-            d.b.i0.r2.x.m.g f2 = this.f59902c.f();
+            this.f59903c.g(str2, z, 5, 100, -1, -1, b());
+            d.b.i0.r2.x.m.g f2 = this.f59903c.f();
             if (f2 == null) {
                 return null;
             }
@@ -278,88 +278,88 @@ public class d implements INetWorkCore {
                     }
                 } catch (BdHttpCancelException e7) {
                     bdHttpCancelException = e7;
-                    this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
-                    HttpResponse response = this.f59900a.getResponse();
+                    this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
+                    HttpResponse response = this.f59901a.getResponse();
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append(this.f59900a.getResponse().mNetErrorCode);
+                    sb2.append(this.f59901a.getResponse().mNetErrorCode);
                     sb2.append("|retryCount:");
-                    sb2.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                    sb2.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                     sb2.append(FieldBuilder.SE);
                     sb2.append(BdHttpCancelException.class);
                     sb2.append(FieldBuilder.SE);
                     sb2.append(bdHttpCancelException.getMessage());
                     response.mException = sb2.toString();
-                    this.f59900a.getResponse().mNetErrorCode = -14;
+                    this.f59901a.getResponse().mNetErrorCode = -14;
                     if (iVar == null) {
                     }
                 } catch (OutOfMemoryError e8) {
                     outOfMemoryError = e8;
-                    this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.memoryerror);
-                    HttpResponse response2 = this.f59900a.getResponse();
+                    this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.memoryerror);
+                    HttpResponse response2 = this.f59901a.getResponse();
                     StringBuilder sb3 = new StringBuilder();
-                    sb3.append(this.f59900a.getResponse().mNetErrorCode);
+                    sb3.append(this.f59901a.getResponse().mNetErrorCode);
                     sb3.append("|retryCount:");
-                    sb3.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                    sb3.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                     sb3.append(FieldBuilder.SE);
                     sb3.append(outOfMemoryError.getClass());
                     sb3.append(FieldBuilder.SE);
                     sb3.append(outOfMemoryError.getMessage());
                     response2.mException = sb3.toString();
-                    this.f59900a.getResponse().mNetErrorCode = -15;
+                    this.f59901a.getResponse().mNetErrorCode = -15;
                     BdLog.e(outOfMemoryError.getMessage());
-                    TiebaStatic.net(this.f59900a);
+                    TiebaStatic.net(this.f59901a);
                     if (iVar == null) {
                     }
                 } catch (SocketException e9) {
                     socketException = e9;
-                    this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
-                    HttpResponse response3 = this.f59900a.getResponse();
+                    this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
+                    HttpResponse response3 = this.f59901a.getResponse();
                     StringBuilder sb4 = new StringBuilder();
-                    sb4.append(this.f59900a.getResponse().mNetErrorCode);
+                    sb4.append(this.f59901a.getResponse().mNetErrorCode);
                     sb4.append("|retryCount:");
-                    sb4.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                    sb4.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                     sb4.append(FieldBuilder.SE);
                     sb4.append(socketException.getClass());
                     sb4.append(FieldBuilder.SE);
                     sb4.append(socketException.getMessage());
                     response3.mException = sb4.toString();
-                    this.f59900a.getResponse().mNetErrorCode = -12;
-                    TiebaStatic.net(this.f59900a);
+                    this.f59901a.getResponse().mNetErrorCode = -12;
+                    TiebaStatic.net(this.f59901a);
                     if (iVar == null) {
                     }
                 } catch (SocketTimeoutException e10) {
                     socketTimeoutException = e10;
-                    this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
-                    HttpResponse response4 = this.f59900a.getResponse();
+                    this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
+                    HttpResponse response4 = this.f59901a.getResponse();
                     StringBuilder sb5 = new StringBuilder();
-                    sb5.append(this.f59900a.getResponse().mNetErrorCode);
+                    sb5.append(this.f59901a.getResponse().mNetErrorCode);
                     sb5.append("|retryCount:");
-                    sb5.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                    sb5.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                     sb5.append(FieldBuilder.SE);
                     sb5.append(socketTimeoutException.getClass());
                     sb5.append(FieldBuilder.SE);
                     sb5.append(socketTimeoutException.getMessage());
                     response4.mException = sb5.toString();
-                    this.f59900a.getResponse().mNetErrorCode = -13;
-                    TiebaStatic.net(this.f59900a);
+                    this.f59901a.getResponse().mNetErrorCode = -13;
+                    TiebaStatic.net(this.f59901a);
                     if (iVar == null) {
                     }
                 } catch (Exception e11) {
                     exc = e11;
-                    this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror) + " detailException:" + exc.getMessage();
-                    HttpResponse response5 = this.f59900a.getResponse();
+                    this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror) + " detailException:" + exc.getMessage();
+                    HttpResponse response5 = this.f59901a.getResponse();
                     StringBuilder sb6 = new StringBuilder();
-                    sb6.append(this.f59900a.getResponse().mNetErrorCode);
+                    sb6.append(this.f59901a.getResponse().mNetErrorCode);
                     sb6.append("|retryCount:");
-                    sb6.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                    sb6.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                     sb6.append(FieldBuilder.SE);
                     sb6.append(exc.getClass());
                     sb6.append(FieldBuilder.SE);
                     sb6.append(exc.getMessage());
                     response5.mException = sb6.toString();
-                    this.f59900a.getResponse().mNetErrorCode = -10;
+                    this.f59901a.getResponse().mNetErrorCode = -10;
                     BdLog.e(exc.getMessage());
-                    TiebaStatic.net(this.f59900a);
+                    TiebaStatic.net(this.f59901a);
                     if (iVar == null) {
                     }
                 }
@@ -367,37 +367,37 @@ public class d implements INetWorkCore {
             if (iVar == null) {
                 return null;
             }
-            this.f59900a.getResponse().mNetErrorCode = iVar.f59981b;
-            if (this.f59900a.getResponse().mNetErrorCode != 200) {
-                this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
-                if (this.f59900a.getStat().stat != null && !TextUtils.isEmpty(this.f59900a.getStat().stat.f41784h)) {
-                    this.f59900a.getResponse().mException = this.f59900a.getStat().stat.f41784h;
+            this.f59901a.getResponse().mNetErrorCode = iVar.f59982b;
+            if (this.f59901a.getResponse().mNetErrorCode != 200) {
+                this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
+                if (this.f59901a.getStat().stat != null && !TextUtils.isEmpty(this.f59901a.getStat().stat.f41785h)) {
+                    this.f59901a.getResponse().mException = this.f59901a.getStat().stat.f41785h;
                 } else {
-                    HttpResponse response6 = this.f59900a.getResponse();
+                    HttpResponse response6 = this.f59901a.getResponse();
                     StringBuilder sb7 = new StringBuilder();
-                    sb7.append(this.f59900a.getResponse().mNetErrorCode);
+                    sb7.append(this.f59901a.getResponse().mNetErrorCode);
                     sb7.append("|retryCount:");
-                    sb7.append(this.f59900a.getStat().stat == null ? -1 : this.f59900a.getStat().stat.f41781e);
+                    sb7.append(this.f59901a.getStat().stat == null ? -1 : this.f59901a.getStat().stat.f41782e);
                     response6.mException = sb7.toString();
                 }
-                TiebaStatic.net(this.f59900a);
+                TiebaStatic.net(this.f59901a);
                 return null;
             }
-            if (TbadkCoreApplication.getInst().isMainProcess(true) && (str3 = iVar.f59984e) != null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true) && (str3 = iVar.f59985e) != null) {
                 try {
                     int parseInt = Integer.parseInt(str3);
-                    if (parseInt > f59899d) {
-                        this.f59900a.getResponse().mNetErrorCode = -11;
-                        TiebaStatic.net(this.f59900a);
+                    if (parseInt > f59900d) {
+                        this.f59901a.getResponse().mNetErrorCode = -11;
+                        TiebaStatic.net(this.f59901a);
                         return null;
                     }
                     int i2 = parseInt * 10;
                     if (i2 > 0) {
                         BdLog.isDebugMode();
                         if (!d.b.h0.a0.c.j().h(i2)) {
-                            BdLog.d("Image download cacelled. out of memory. url:[" + this.f59900a.getRequest().getNetWorkParam().mUrl + "], size:" + i2);
-                            this.f59900a.getResponse().mNetErrorCode = -16;
-                            TiebaStatic.net(this.f59900a);
+                            BdLog.d("Image download cacelled. out of memory. url:[" + this.f59901a.getRequest().getNetWorkParam().mUrl + "], size:" + i2);
+                            this.f59901a.getResponse().mNetErrorCode = -16;
+                            TiebaStatic.net(this.f59901a);
                             return null;
                         }
                     }
@@ -406,15 +406,15 @@ public class d implements INetWorkCore {
             }
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = c(d.b.b.e.p.j.I());
-            statisticsData.mSize = this.f59900a.getStat().stat.f41778b;
+            statisticsData.mSize = this.f59901a.getStat().stat.f41779b;
             statisticsData.mTime = new Date().getTime() - time;
-            statisticsData.mTimesNum = this.f59900a.getStat().stat.f41781e;
+            statisticsData.mTimesNum = this.f59901a.getStat().stat.f41782e;
             statisticsData.mMethod = 2;
             NetWorkState.addStatisticsData(statisticsData);
-            NetWorkState.mErrorNums.set(this.f59900a.getStat().stat.f41781e);
-            TiebaStatic.net(this.f59900a);
+            NetWorkState.mErrorNums.set(this.f59901a.getStat().stat.f41782e);
+            TiebaStatic.net(this.f59901a);
             if (iVar == null) {
-                return iVar.f59986g;
+                return iVar.f59987g;
             }
             return null;
         }
@@ -425,12 +425,12 @@ public class d implements INetWorkCore {
     public String getNetString() {
         byte[] netData = getNetData();
         String str = null;
-        if (netData == null || this.f59900a.getResponse().mNetErrorCode != 200) {
+        if (netData == null || this.f59901a.getResponse().mNetErrorCode != 200) {
             return null;
         }
         try {
-            this.f59900a.getRequest().getNetWorkParam().charSet = TextUtils.isEmpty(this.f59900a.getRequest().getNetWorkParam().charSet) ? "UTF-8" : this.f59900a.getRequest().getNetWorkParam().charSet;
-            String str2 = new String(netData, 0, netData.length, this.f59900a.getRequest().getNetWorkParam().charSet);
+            this.f59901a.getRequest().getNetWorkParam().charSet = TextUtils.isEmpty(this.f59901a.getRequest().getNetWorkParam().charSet) ? "UTF-8" : this.f59901a.getRequest().getNetWorkParam().charSet;
+            String str2 = new String(netData, 0, netData.length, this.f59901a.getRequest().getNetWorkParam().charSet);
             try {
                 d(str2);
                 return str2;
@@ -454,12 +454,12 @@ public class d implements INetWorkCore {
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public ArrayList<BasicNameValuePair> getPostData() {
-        return this.f59900a.getRequest().getNetWorkParam().mPostData;
+        return this.f59901a.getRequest().getNetWorkParam().mPostData;
     }
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public String getSeqId() {
-        HttpNetContext httpNetContext = this.f59900a;
+        HttpNetContext httpNetContext = this.f59901a;
         if (httpNetContext != null) {
             return httpNetContext.getRequest().getNetWorkParam().mSeqId;
         }
@@ -468,14 +468,14 @@ public class d implements INetWorkCore {
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public boolean isCancel() {
-        return this.f59902c.i();
+        return this.f59903c.i();
     }
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public String postMultiNetData() {
         StringBuilder sb = new StringBuilder(1024);
-        for (int i = 0; this.f59900a.getRequest().getNetWorkParam().mPostData != null && i < this.f59900a.getRequest().getNetWorkParam().mPostData.size(); i++) {
-            BasicNameValuePair basicNameValuePair = this.f59900a.getRequest().getNetWorkParam().mPostData.get(i);
+        for (int i = 0; this.f59901a.getRequest().getNetWorkParam().mPostData != null && i < this.f59901a.getRequest().getNetWorkParam().mPostData.size(); i++) {
+            BasicNameValuePair basicNameValuePair = this.f59901a.getRequest().getNetWorkParam().mPostData.get(i);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -484,18 +484,18 @@ public class d implements INetWorkCore {
                 sb.append(value);
             }
         }
-        if (this.f59900a.getRequest().getNetWorkParam().mIsBaiduServer) {
+        if (this.f59901a.getRequest().getNetWorkParam().mIsBaiduServer) {
             sb.append(NetWork.SIGN_SUFFIX);
             addPostData("sign", q.c(sb.toString()));
         }
         TbConfig.getDebugSwitch();
         String str = null;
         try {
-            if (this.f59902c.i()) {
+            if (this.f59903c.i()) {
                 return null;
             }
-            if (this.f59902c.j(this.f59900a.getRequest().getNetWorkParam().mUrl, this.f59900a.getRequest().getNetWorkParam().mPostData, this.f59900a.getRequest().getNetWorkParam().mRequestGzip, 5, -1, b()) != null) {
-                d.b.i0.r2.x.m.g f2 = this.f59902c.f();
+            if (this.f59903c.j(this.f59901a.getRequest().getNetWorkParam().mUrl, this.f59901a.getRequest().getNetWorkParam().mPostData, this.f59901a.getRequest().getNetWorkParam().mRequestGzip, 5, -1, b()) != null) {
+                d.b.i0.r2.x.m.g f2 = this.f59903c.f();
                 if (f2 == null) {
                     return null;
                 }
@@ -503,95 +503,95 @@ public class d implements INetWorkCore {
                 if (f2 != null && f2.c() != null) {
                     f2.c().size();
                 }
-                this.f59900a.getResponse().mNetErrorCode = b2.f59981b;
-                this.f59900a.getResponse().mHeader = b2.f59985f;
-                if (this.f59900a.getResponse().mNetErrorCode != 200) {
-                    if (this.f59900a.getStat().stat != null && !TextUtils.isEmpty(this.f59900a.getStat().stat.f41784h)) {
-                        this.f59900a.getResponse().mException = this.f59900a.getStat().stat.f41784h;
+                this.f59901a.getResponse().mNetErrorCode = b2.f59982b;
+                this.f59901a.getResponse().mHeader = b2.f59986f;
+                if (this.f59901a.getResponse().mNetErrorCode != 200) {
+                    if (this.f59901a.getStat().stat != null && !TextUtils.isEmpty(this.f59901a.getStat().stat.f41785h)) {
+                        this.f59901a.getResponse().mException = this.f59901a.getStat().stat.f41785h;
                     } else {
-                        HttpResponse response = this.f59900a.getResponse();
+                        HttpResponse response = this.f59901a.getResponse();
                         StringBuilder sb2 = new StringBuilder();
-                        sb2.append(this.f59900a.getResponse().mNetErrorCode);
+                        sb2.append(this.f59901a.getResponse().mNetErrorCode);
                         sb2.append("|retryCount:");
-                        sb2.append(this.f59900a.getStat().stat == null ? -1 : this.f59900a.getStat().stat.f41781e);
+                        sb2.append(this.f59901a.getStat().stat == null ? -1 : this.f59901a.getStat().stat.f41782e);
                         response.mException = sb2.toString();
                     }
-                    TiebaStatic.net(this.f59900a);
+                    TiebaStatic.net(this.f59901a);
                     return null;
-                } else if (this.f59902c.i()) {
+                } else if (this.f59903c.i()) {
                     return null;
                 } else {
-                    String str2 = new String(b2.f59986g, StandardCharsets.UTF_8);
+                    String str2 = new String(b2.f59987g, StandardCharsets.UTF_8);
                     try {
-                        if (this.f59900a.getRequest().getNetWorkParam().mIsBaiduServer && this.f59900a.getRequest().getNetWorkParam().mIsJson) {
+                        if (this.f59901a.getRequest().getNetWorkParam().mIsBaiduServer && this.f59901a.getRequest().getNetWorkParam().mIsJson) {
                             d(str2);
                         }
                         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
                         statisticsData.mMode = c(d.b.b.e.p.j.I());
-                        statisticsData.mSize = this.f59900a.getStat().stat.f41778b;
-                        statisticsData.mTime = this.f59900a.getStat().stat.f41782f;
-                        statisticsData.mTimesNum = this.f59900a.getStat().stat.f41781e;
+                        statisticsData.mSize = this.f59901a.getStat().stat.f41779b;
+                        statisticsData.mTime = this.f59901a.getStat().stat.f41783f;
+                        statisticsData.mTimesNum = this.f59901a.getStat().stat.f41782e;
                         statisticsData.mMethod = 1;
                         NetWorkState.addStatisticsData(statisticsData);
-                        NetWorkState.mErrorNums.set(this.f59900a.getStat().stat.f41781e);
-                        TiebaStatic.net(this.f59900a);
+                        NetWorkState.mErrorNums.set(this.f59901a.getStat().stat.f41782e);
+                        TiebaStatic.net(this.f59901a);
                         return str2;
                     } catch (BdHttpCancelException e2) {
                         e = e2;
                         str = str2;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
-                        HttpResponse response2 = this.f59900a.getResponse();
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
+                        HttpResponse response2 = this.f59901a.getResponse();
                         StringBuilder sb3 = new StringBuilder();
-                        sb3.append(this.f59900a.getResponse().mNetErrorCode);
+                        sb3.append(this.f59901a.getResponse().mNetErrorCode);
                         sb3.append("|retryCount:");
-                        sb3.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                        sb3.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                         sb3.append(FieldBuilder.SE);
                         sb3.append(BdHttpCancelException.class);
                         sb3.append(FieldBuilder.SE);
                         sb3.append(e.getMessage());
                         response2.mException = sb3.toString();
-                        this.f59900a.getResponse().mNetErrorCode = -14;
+                        this.f59901a.getResponse().mNetErrorCode = -14;
                         return str;
                     } catch (OutOfMemoryError e3) {
                         e = e3;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -15;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.memoryerror);
+                        this.f59901a.getResponse().mNetErrorCode = -15;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.memoryerror);
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (SocketException e4) {
                         e = e4;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -12;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
+                        this.f59901a.getResponse().mNetErrorCode = -12;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (SocketTimeoutException e5) {
                         e = e5;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -13;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
+                        this.f59901a.getResponse().mNetErrorCode = -13;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (Exception e6) {
                         e = e6;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -10;
-                        HttpResponse response3 = this.f59900a.getResponse();
-                        response3.mErrorString = this.f59901b.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                        this.f59901a.getResponse().mNetErrorCode = -10;
+                        HttpResponse response3 = this.f59901a.getResponse();
+                        response3.mErrorString = this.f59902b.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (Throwable th) {
                         th = th;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -10;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
+                        this.f59901a.getResponse().mNetErrorCode = -10;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     }
                 }
@@ -615,8 +615,8 @@ public class d implements INetWorkCore {
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public String postNetData() {
         StringBuilder sb = new StringBuilder(1024);
-        for (int i = 0; this.f59900a.getRequest().getNetWorkParam().mPostData != null && i < this.f59900a.getRequest().getNetWorkParam().mPostData.size(); i++) {
-            BasicNameValuePair basicNameValuePair = this.f59900a.getRequest().getNetWorkParam().mPostData.get(i);
+        for (int i = 0; this.f59901a.getRequest().getNetWorkParam().mPostData != null && i < this.f59901a.getRequest().getNetWorkParam().mPostData.size(); i++) {
+            BasicNameValuePair basicNameValuePair = this.f59901a.getRequest().getNetWorkParam().mPostData.get(i);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -625,18 +625,18 @@ public class d implements INetWorkCore {
                 sb.append(value);
             }
         }
-        if (this.f59900a.getRequest().getNetWorkParam().mIsBaiduServer) {
+        if (this.f59901a.getRequest().getNetWorkParam().mIsBaiduServer) {
             sb.append(NetWork.SIGN_SUFFIX);
             addPostData("sign", q.c(sb.toString()));
         }
         TbConfig.getDebugSwitch();
         String str = null;
         try {
-            if (this.f59902c.i()) {
+            if (this.f59903c.i()) {
                 return null;
             }
-            if (this.f59902c.j(this.f59900a.getRequest().getNetWorkParam().mUrl, this.f59900a.getRequest().getNetWorkParam().mPostData, this.f59900a.getRequest().getNetWorkParam().mRequestGzip, 5, -1, b()) != null) {
-                d.b.i0.r2.x.m.g f2 = this.f59902c.f();
+            if (this.f59903c.j(this.f59901a.getRequest().getNetWorkParam().mUrl, this.f59901a.getRequest().getNetWorkParam().mPostData, this.f59901a.getRequest().getNetWorkParam().mRequestGzip, 5, -1, b()) != null) {
+                d.b.i0.r2.x.m.g f2 = this.f59903c.f();
                 if (f2 == null) {
                     return null;
                 }
@@ -644,95 +644,95 @@ public class d implements INetWorkCore {
                 if (f2 != null && f2.c() != null) {
                     f2.c().size();
                 }
-                this.f59900a.getResponse().mNetErrorCode = b2.f59981b;
-                this.f59900a.getResponse().mHeader = b2.f59985f;
-                if (this.f59900a.getResponse().mNetErrorCode != 200) {
-                    if (this.f59900a.getStat().stat != null && !TextUtils.isEmpty(this.f59900a.getStat().stat.f41784h)) {
-                        this.f59900a.getResponse().mException = this.f59900a.getStat().stat.f41784h;
+                this.f59901a.getResponse().mNetErrorCode = b2.f59982b;
+                this.f59901a.getResponse().mHeader = b2.f59986f;
+                if (this.f59901a.getResponse().mNetErrorCode != 200) {
+                    if (this.f59901a.getStat().stat != null && !TextUtils.isEmpty(this.f59901a.getStat().stat.f41785h)) {
+                        this.f59901a.getResponse().mException = this.f59901a.getStat().stat.f41785h;
                     } else {
-                        HttpResponse response = this.f59900a.getResponse();
+                        HttpResponse response = this.f59901a.getResponse();
                         StringBuilder sb2 = new StringBuilder();
-                        sb2.append(this.f59900a.getResponse().mNetErrorCode);
+                        sb2.append(this.f59901a.getResponse().mNetErrorCode);
                         sb2.append("|retryCount:");
-                        sb2.append(this.f59900a.getStat().stat == null ? -1 : this.f59900a.getStat().stat.f41781e);
+                        sb2.append(this.f59901a.getStat().stat == null ? -1 : this.f59901a.getStat().stat.f41782e);
                         response.mException = sb2.toString();
                     }
-                    TiebaStatic.net(this.f59900a);
+                    TiebaStatic.net(this.f59901a);
                     return null;
-                } else if (this.f59902c.i()) {
+                } else if (this.f59903c.i()) {
                     return null;
                 } else {
-                    String str2 = new String(b2.f59986g, StandardCharsets.UTF_8);
+                    String str2 = new String(b2.f59987g, StandardCharsets.UTF_8);
                     try {
-                        if (this.f59900a.getRequest().getNetWorkParam().mIsBaiduServer && this.f59900a.getRequest().getNetWorkParam().mIsJson) {
+                        if (this.f59901a.getRequest().getNetWorkParam().mIsBaiduServer && this.f59901a.getRequest().getNetWorkParam().mIsJson) {
                             d(str2);
                         }
                         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
                         statisticsData.mMode = c(d.b.b.e.p.j.I());
-                        statisticsData.mSize = this.f59900a.getStat().stat.f41778b;
-                        statisticsData.mTime = this.f59900a.getStat().stat.f41782f;
-                        statisticsData.mTimesNum = this.f59900a.getStat().stat.f41781e;
+                        statisticsData.mSize = this.f59901a.getStat().stat.f41779b;
+                        statisticsData.mTime = this.f59901a.getStat().stat.f41783f;
+                        statisticsData.mTimesNum = this.f59901a.getStat().stat.f41782e;
                         statisticsData.mMethod = 1;
                         NetWorkState.addStatisticsData(statisticsData);
-                        NetWorkState.mErrorNums.set(this.f59900a.getStat().stat.f41781e);
-                        TiebaStatic.net(this.f59900a);
+                        NetWorkState.mErrorNums.set(this.f59901a.getStat().stat.f41782e);
+                        TiebaStatic.net(this.f59901a);
                         return str2;
                     } catch (BdHttpCancelException e2) {
                         e = e2;
                         str = str2;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
-                        HttpResponse response2 = this.f59900a.getResponse();
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
+                        HttpResponse response2 = this.f59901a.getResponse();
                         StringBuilder sb3 = new StringBuilder();
-                        sb3.append(this.f59900a.getResponse().mNetErrorCode);
+                        sb3.append(this.f59901a.getResponse().mNetErrorCode);
                         sb3.append("|retryCount:");
-                        sb3.append(this.f59900a.getStat().stat != null ? this.f59900a.getStat().stat.f41781e : -1);
+                        sb3.append(this.f59901a.getStat().stat != null ? this.f59901a.getStat().stat.f41782e : -1);
                         sb3.append(FieldBuilder.SE);
                         sb3.append(BdHttpCancelException.class);
                         sb3.append(FieldBuilder.SE);
                         sb3.append(e.getMessage());
                         response2.mException = sb3.toString();
-                        this.f59900a.getResponse().mNetErrorCode = -14;
+                        this.f59901a.getResponse().mNetErrorCode = -14;
                         return str;
                     } catch (OutOfMemoryError e3) {
                         e = e3;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -15;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.memoryerror);
+                        this.f59901a.getResponse().mNetErrorCode = -15;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.memoryerror);
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (SocketException e4) {
                         e = e4;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -12;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
+                        this.f59901a.getResponse().mNetErrorCode = -12;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (SocketTimeoutException e5) {
                         e = e5;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -13;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
+                        this.f59901a.getResponse().mNetErrorCode = -13;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (Exception e6) {
                         e = e6;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -10;
-                        HttpResponse response3 = this.f59900a.getResponse();
-                        response3.mErrorString = this.f59901b.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                        this.f59901a.getResponse().mNetErrorCode = -10;
+                        HttpResponse response3 = this.f59901a.getResponse();
+                        response3.mErrorString = this.f59902b.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                         BdLog.e(e.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     } catch (Throwable th) {
                         th = th;
                         str = str2;
-                        this.f59900a.getResponse().mNetErrorCode = -10;
-                        this.f59900a.getResponse().mErrorString = this.f59901b.getResources().getString(R.string.neterror);
+                        this.f59901a.getResponse().mNetErrorCode = -10;
+                        this.f59901a.getResponse().mErrorString = this.f59902b.getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
-                        TiebaStatic.net(this.f59900a);
+                        TiebaStatic.net(this.f59901a);
                         return str;
                     }
                 }
@@ -755,7 +755,7 @@ public class d implements INetWorkCore {
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public void setCancel() {
-        d.b.i0.r2.x.m.d dVar = this.f59902c;
+        d.b.i0.r2.x.m.d dVar = this.f59903c;
         if (dVar != null) {
             dVar.k();
         }
@@ -763,13 +763,13 @@ public class d implements INetWorkCore {
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public void setIsBaiduServer(boolean z) {
-        this.f59900a.getRequest().getNetWorkParam().mIsBaiduServer = z;
+        this.f59901a.getRequest().getNetWorkParam().mIsBaiduServer = z;
     }
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.f59900a.getRequest().getNetWorkParam().mPostData != null) {
-            this.f59900a.getRequest().getNetWorkParam().mPostData.clear();
+        if (this.f59901a.getRequest().getNetWorkParam().mPostData != null) {
+            this.f59901a.getRequest().getNetWorkParam().mPostData.clear();
         }
         for (int i = 0; i < arrayList.size(); i++) {
             addPostData(arrayList.get(i));
@@ -781,27 +781,27 @@ public class d implements INetWorkCore {
         if (basicNameValuePair == null || basicNameValuePair.getName() == null) {
             return;
         }
-        if (this.f59900a.getRequest().getNetWorkParam().mPostData == null) {
-            this.f59900a.getRequest().getNetWorkParam().mPostData = new ArrayList<>();
+        if (this.f59901a.getRequest().getNetWorkParam().mPostData == null) {
+            this.f59901a.getRequest().getNetWorkParam().mPostData = new ArrayList<>();
         }
-        int a2 = a(this.f59900a.getRequest().getNetWorkParam().mPostData, basicNameValuePair.getName());
-        int size = this.f59900a.getRequest().getNetWorkParam().mPostData.size();
+        int a2 = a(this.f59901a.getRequest().getNetWorkParam().mPostData, basicNameValuePair.getName());
+        int size = this.f59901a.getRequest().getNetWorkParam().mPostData.size();
         if (a2 < 0 || a2 >= size) {
             if (a2 == size) {
-                this.f59900a.getRequest().getNetWorkParam().mPostData.add(a2, basicNameValuePair);
+                this.f59901a.getRequest().getNetWorkParam().mPostData.add(a2, basicNameValuePair);
             }
-        } else if (basicNameValuePair.getName().equals(this.f59900a.getRequest().getNetWorkParam().mPostData.get(a2).getName())) {
-            this.f59900a.getRequest().getNetWorkParam().mPostData.set(a2, basicNameValuePair);
+        } else if (basicNameValuePair.getName().equals(this.f59901a.getRequest().getNetWorkParam().mPostData.get(a2).getName())) {
+            this.f59901a.getRequest().getNetWorkParam().mPostData.set(a2, basicNameValuePair);
         } else {
-            this.f59900a.getRequest().getNetWorkParam().mPostData.add(a2, basicNameValuePair);
+            this.f59901a.getRequest().getNetWorkParam().mPostData.add(a2, basicNameValuePair);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.INetWorkCore
     public void addPostData(String str, byte[] bArr) {
-        if (this.f59900a.getRequest().getNetWorkParam().mFileData == null) {
-            this.f59900a.getRequest().getNetWorkParam().mFileData = new HashMap<>();
+        if (this.f59901a.getRequest().getNetWorkParam().mFileData == null) {
+            this.f59901a.getRequest().getNetWorkParam().mFileData = new HashMap<>();
         }
-        this.f59900a.getRequest().getNetWorkParam().mFileData.put(str, bArr);
+        this.f59901a.getRequest().getNetWorkParam().mFileData.put(str, bArr);
     }
 }

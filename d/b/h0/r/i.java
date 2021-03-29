@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final CustomMessageListener f50620a = new a(0);
+    public static final CustomMessageListener f50621a = new a(0);
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -49,11 +49,11 @@ public class i {
     }
 
     public static void a() {
-        MessageManager.getInstance().registerListener(2005009, f50620a);
-        MessageManager.getInstance().registerListener(2005010, f50620a);
-        MessageManager.getInstance().registerListener(2005011, f50620a);
-        MessageManager.getInstance().registerListener(2005012, f50620a);
-        MessageManager.getInstance().registerListener(2005013, f50620a);
-        MessageManager.getInstance().registerListener(2005015, f50620a);
+        MessageManager.getInstance().registerListener(2005009, f50621a);
+        MessageManager.getInstance().registerListener(2005010, f50621a);
+        MessageManager.getInstance().registerListener(2005011, f50621a);
+        MessageManager.getInstance().registerListener(2005012, f50621a);
+        MessageManager.getInstance().registerListener(2005013, f50621a);
+        MessageManager.getInstance().registerListener(2005015, f50621a);
     }
 }

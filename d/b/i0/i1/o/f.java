@@ -1,7 +1,7 @@
 package d.b.i0.i1.o;
 
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static int a(int i) {
         switch (i) {

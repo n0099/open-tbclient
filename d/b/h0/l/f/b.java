@@ -23,51 +23,51 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f50278a;
+    public final Context f50279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f50279b;
+    public final View f50280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadAchievementShareInfo.ParamBean f50280c;
+    public final ThreadAchievementShareInfo.ParamBean f50281c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichTextView f50281d;
+    public TbRichTextView f50282d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.b1.m.a f50282e;
+    public d.b.h0.b1.m.a f50283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f50283f;
+    public TbImageView f50284f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50284g;
+    public TextView f50285g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50285h;
+    public TextView f50286h;
     public TextView i;
     public TextView j;
     public TextView k;
 
     public b(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
-        this.f50278a = context;
-        this.f50279b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
-        this.f50280c = threadAchievementShareInfo.getParams();
+        this.f50279a = context;
+        this.f50280b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
+        this.f50281c = threadAchievementShareInfo.getParams();
         c();
         b();
     }
 
     public View a() {
-        return this.f50279b;
+        return this.f50280b;
     }
 
     public final void b() {
-        if (this.f50280c.getContent() == null || this.f50280c.getContent().size() == 0) {
+        if (this.f50281c.getContent() == null || this.f50281c.getContent().size() == 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
         ThreadAchievementShareInfo.ContentBean contentBean = null;
-        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.f50280c.getContent()) {
+        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.f50281c.getContent()) {
             if (contentBean2.getType() == 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -81,57 +81,57 @@ public class b {
                 contentBean = contentBean2;
             }
         }
-        if (!TextUtils.isEmpty(this.f50280c.getThread_title())) {
-            this.f50284g.setText(this.f50280c.getThread_title());
-            this.f50284g.setVisibility(0);
-            this.f50281d.setMaxLines(6);
+        if (!TextUtils.isEmpty(this.f50281c.getThread_title())) {
+            this.f50285g.setText(this.f50281c.getThread_title());
+            this.f50285g.setVisibility(0);
+            this.f50282d.setMaxLines(6);
         } else {
-            ((LinearLayout.LayoutParams) this.f50281d.getLayoutParams()).topMargin = l.g(this.f50278a, R.dimen.tbds20);
-            this.f50281d.setMaxLines(8);
+            ((LinearLayout.LayoutParams) this.f50282d.getLayoutParams()).topMargin = l.g(this.f50279a, R.dimen.tbds20);
+            this.f50282d.setMaxLines(8);
         }
-        this.f50281d.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.f50281d.setMinimumHeight(l.g(this.f50278a, R.dimen.tbds516));
-        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.f50280c.getThread_type().contains("pic")) {
-            this.f50283f.setVisibility(0);
-            this.f50283f.setDefaultBgResource(R.color.transparent);
-            this.f50283f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f50283f.setPlaceHolder(2);
-            this.f50283f.W(contentBean.getSrc(), 10, false);
-            if (!TextUtils.isEmpty(this.f50280c.getThread_title())) {
-                this.f50281d.setVisibility(8);
+        this.f50282d.setTextEllipsize(TextUtils.TruncateAt.END);
+        this.f50282d.setMinimumHeight(l.g(this.f50279a, R.dimen.tbds516));
+        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.f50281c.getThread_type().contains("pic")) {
+            this.f50284f.setVisibility(0);
+            this.f50284f.setDefaultBgResource(R.color.transparent);
+            this.f50284f.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f50284f.setPlaceHolder(2);
+            this.f50284f.W(contentBean.getSrc(), 10, false);
+            if (!TextUtils.isEmpty(this.f50281c.getThread_title())) {
+                this.f50282d.setVisibility(8);
             } else {
-                this.f50281d.setMaxLines(2);
-                this.f50281d.setTextEllipsize(TextUtils.TruncateAt.END);
-                this.f50281d.setLayoutStrategy(this.f50282e);
-                this.f50281d.setMinimumHeight(l.g(this.f50278a, R.dimen.tbds0));
+                this.f50282d.setMaxLines(2);
+                this.f50282d.setTextEllipsize(TextUtils.TruncateAt.END);
+                this.f50282d.setLayoutStrategy(this.f50283e);
+                this.f50282d.setMinimumHeight(l.g(this.f50279a, R.dimen.tbds0));
             }
         }
-        this.f50281d.setText(TbRichTextView.Q(this.f50278a, jSONArray, false));
-        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.f50280c.getAgree_num()));
-        this.f50285h.setText(StringHelper.numFormatOverWanWithNegative(this.f50280c.getPost_num()));
+        this.f50282d.setText(TbRichTextView.Q(this.f50279a, jSONArray, false));
+        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.f50281c.getAgree_num()));
+        this.f50286h.setText(StringHelper.numFormatOverWanWithNegative(this.f50281c.getPost_num()));
     }
 
     public final void c() {
-        this.f50285h = (TextView) this.f50279b.findViewById(R.id.comment_num);
-        this.i = (TextView) this.f50279b.findViewById(R.id.comment_desc);
-        this.j = (TextView) this.f50279b.findViewById(R.id.praise_desc);
-        this.k = (TextView) this.f50279b.findViewById(R.id.praise_num);
-        this.f50284g = (TextView) this.f50279b.findViewById(R.id.thread_title);
-        this.f50283f = (TbImageView) this.f50279b.findViewById(R.id.main_img);
-        this.f50281d = (TbRichTextView) this.f50279b.findViewById(R.id.rich_text);
+        this.f50286h = (TextView) this.f50280b.findViewById(R.id.comment_num);
+        this.i = (TextView) this.f50280b.findViewById(R.id.comment_desc);
+        this.j = (TextView) this.f50280b.findViewById(R.id.praise_desc);
+        this.k = (TextView) this.f50280b.findViewById(R.id.praise_num);
+        this.f50285g = (TextView) this.f50280b.findViewById(R.id.thread_title);
+        this.f50284f = (TbImageView) this.f50280b.findViewById(R.id.main_img);
+        this.f50282d = (TbRichTextView) this.f50280b.findViewById(R.id.rich_text);
         this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-        this.f50285h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+        this.f50286h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f50284g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f50285g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         d.b.h0.b1.m.a aVar = new d.b.h0.b1.m.a();
-        this.f50282e = aVar;
-        aVar.s(l.g(this.f50278a, R.dimen.tbds38));
-        this.f50282e.v(l.g(this.f50278a, R.dimen.tbds42));
-        this.f50282e.j(l.g(this.f50278a, R.dimen.tbds23));
-        this.f50282e.o(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-        this.f50282e.i(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        this.f50281d.setLayoutStrategy(this.f50282e);
-        this.f50281d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f50283e = aVar;
+        aVar.s(l.g(this.f50279a, R.dimen.tbds38));
+        this.f50283e.v(l.g(this.f50279a, R.dimen.tbds42));
+        this.f50283e.j(l.g(this.f50279a, R.dimen.tbds23));
+        this.f50283e.o(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
+        this.f50283e.i(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        this.f50282d.setLayoutStrategy(this.f50283e);
+        this.f50282d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
     }
 }

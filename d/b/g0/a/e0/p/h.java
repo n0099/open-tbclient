@@ -8,11 +8,11 @@ import com.baidu.swan.apps.SwanAppActivity;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44184a = d.b.g0.a.k.f45050a;
+    public static final boolean f44185a = d.b.g0.a.k.f45051a;
 
     public static void a(Message message) {
         if (message != null) {
@@ -27,7 +27,7 @@ public class h {
                     try {
                         jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
                     } catch (JSONException e2) {
-                        if (f44184a) {
+                        if (f44185a) {
                             e2.printStackTrace();
                         }
                     }
@@ -72,7 +72,7 @@ public class h {
     }
 
     public static void e(String str) {
-        if (f44184a) {
+        if (f44185a) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         d("updateReady", str, null);

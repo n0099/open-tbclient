@@ -8,53 +8,53 @@ import com.baidu.adp.widget.IndicatorView;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51061a;
+    public int f51062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51062b;
+    public int f51063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51063c;
+    public int f51064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51064d;
+    public int f51065d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51065e;
+    public int f51066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51066f;
+    public int f51067f;
 
     public int a() {
-        return this.f51062b;
+        return this.f51063b;
     }
 
     public int b() {
-        return this.f51063c;
+        return this.f51064c;
     }
 
     public final void c(int i) {
-        this.f51062b = i;
+        this.f51063b = i;
     }
 
     public final void d(int i) {
-        this.f51061a = i;
+        this.f51062a = i;
     }
 
     public final void e(int i) {
-        this.f51065e = i;
+        this.f51066e = i;
     }
 
     public void f(int i) {
-        this.f51066f = i;
+        this.f51067f = i;
     }
 
     public final void g(int i) {
-        this.f51063c = i;
+        this.f51064c = i;
     }
 
     public final void h(int i) {
-        this.f51064d = i;
+        this.f51065d = i;
     }
 
     public void i(IndicatorView indicatorView) {
@@ -62,27 +62,27 @@ public class c {
         if (indicatorView == null || (resources = indicatorView.getResources()) == null) {
             return;
         }
-        int i = this.f51064d;
+        int i = this.f51065d;
         if (i > 0) {
             indicatorView.setSpacing(resources.getDimensionPixelSize(i));
         }
-        int i2 = this.f51062b;
+        int i2 = this.f51063b;
         if (i2 > 0) {
             indicatorView.setDrawable(resources.getDrawable(i2));
         }
-        int i3 = this.f51063c;
+        int i3 = this.f51064c;
         if (i3 > 0) {
             indicatorView.setSelector(resources.getDrawable(i3));
         }
         ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.gravity = this.f51061a;
-            int i4 = this.f51065e;
+            layoutParams2.gravity = this.f51062a;
+            int i4 = this.f51066e;
             if (i4 > 0) {
                 layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
             }
-            int i5 = this.f51066f;
+            int i5 = this.f51067f;
             if (i5 > 0) {
                 layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
             }

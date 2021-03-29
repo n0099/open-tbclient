@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends a {
     public b(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/cancelRequest");

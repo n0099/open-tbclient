@@ -18,28 +18,28 @@ import d.b.b.a.d;
 public class c extends d<SecretSettingActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public NavigationBar f61308a;
+    public NavigationBar f61309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f61309b;
+    public LinearLayout f61310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f61310c;
+    public View f61311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbSettingTextTipView f61311d;
+    public TbSettingTextTipView f61312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbSettingTextTipView f61312e;
+    public TbSettingTextTipView f61313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbSettingTextTipView f61313f;
+    public TbSettingTextTipView f61314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbSettingTextTipView f61314g;
+    public TbSettingTextTipView f61315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f61315h;
+    public View f61316h;
     public TbSettingTextTipView i;
     public TbSettingTextTipView j;
     public SecretSettingActivity k;
@@ -60,13 +60,13 @@ public class c extends d<SecretSettingActivity> {
             if (c.this.q == null) {
                 return;
             }
-            if (view == c.this.f61310c) {
+            if (view == c.this.f61311c) {
                 c.this.q.onBackPressed();
-            } else if (view == c.this.f61311d) {
+            } else if (view == c.this.f61312d) {
                 c.this.q.e();
-            } else if (view == c.this.f61312e) {
+            } else if (view == c.this.f61313e) {
                 c.this.q.d();
-            } else if (view == c.this.f61314g) {
+            } else if (view == c.this.f61315g) {
                 c.this.q.g();
             } else if (view == c.this.j) {
                 c.this.q.a();
@@ -74,7 +74,7 @@ public class c extends d<SecretSettingActivity> {
                 c.this.q.c();
             } else if (view == c.this.n) {
                 c.this.q.b();
-            } else if (view == c.this.f61313f) {
+            } else if (view == c.this.f61314f) {
                 c.this.q.h();
             } else if (view == c.this.o) {
                 c.this.q.f();
@@ -105,7 +105,7 @@ public class c extends d<SecretSettingActivity> {
 
     public c(SecretSettingActivity secretSettingActivity) {
         super(secretSettingActivity.getPageContext());
-        this.f61308a = null;
+        this.f61309a = null;
         this.p = new a();
         this.k = secretSettingActivity;
         secretSettingActivity.setContentView(R.layout.secret_setting_activity);
@@ -113,24 +113,24 @@ public class c extends d<SecretSettingActivity> {
     }
 
     public final void o(SecretSettingActivity secretSettingActivity) {
-        this.f61309b = (LinearLayout) secretSettingActivity.findViewById(R.id.parent);
+        this.f61310b = (LinearLayout) secretSettingActivity.findViewById(R.id.parent);
         NavigationBar navigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
-        this.f61308a = navigationBar;
-        this.f61310c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f61308a.setTitleText(secretSettingActivity.getPageContext().getString(R.string.secretSetting));
-        this.f61311d = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
-        this.f61312e = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_bar);
-        this.f61313f = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.mark_setting);
+        this.f61309a = navigationBar;
+        this.f61311c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f61309a.setTitleText(secretSettingActivity.getPageContext().getString(R.string.secretSetting));
+        this.f61312d = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
+        this.f61313e = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_bar);
+        this.f61314f = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.mark_setting);
         this.j = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_group);
-        this.f61314g = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_live);
+        this.f61315g = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_live);
         this.i = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.thread_reply_setting);
-        this.f61315h = secretSettingActivity.findViewById(R.id.container_thread_reply_setting);
-        this.f61310c.setOnClickListener(this.p);
-        this.f61311d.setOnClickListener(this.p);
+        this.f61316h = secretSettingActivity.findViewById(R.id.container_thread_reply_setting);
+        this.f61311c.setOnClickListener(this.p);
+        this.f61312d.setOnClickListener(this.p);
         this.j.setOnClickListener(this.p);
-        this.f61312e.setOnClickListener(this.p);
-        this.f61313f.setOnClickListener(this.p);
-        this.f61314g.setOnClickListener(this.p);
+        this.f61313e.setOnClickListener(this.p);
+        this.f61314f.setOnClickListener(this.p);
+        this.f61315g.setOnClickListener(this.p);
         this.i.setOnClickListener(this.p);
         this.l = this.k.findViewById(R.id.privacy_setting_container);
         this.m = this.k.getResources().getStringArray(R.array.privacy_setting_config);
@@ -147,20 +147,20 @@ public class c extends d<SecretSettingActivity> {
         tbSettingTextTipView2.setOnClickListener(this.p);
         UserData b2 = d.b.h0.z.b.a().b();
         if (b2 != null && b2.getBazhuGradeData() != null && !StringUtils.isNull(b2.getBazhuGradeData().getDesc()) && !StringUtils.isNull(b2.getBazhuGradeData().getLevel())) {
-            this.f61313f.setVisibility(0);
+            this.f61314f.setVisibility(0);
         } else {
-            this.f61313f.setVisibility(8);
+            this.f61314f.setVisibility(8);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.k.getLayoutMode().k(i == 1);
-        this.k.getLayoutMode().j(this.f61309b);
-        this.f61308a.onChangeSkinType(this.k.getPageContext(), i);
+        this.k.getLayoutMode().j(this.f61310b);
+        this.f61309a.onChangeSkinType(this.k.getPageContext(), i);
     }
 
     public void q() {
-        this.f61311d.g();
+        this.f61312d.g();
     }
 
     public void r(b bVar) {
@@ -174,23 +174,23 @@ public class c extends d<SecretSettingActivity> {
             this.l.setVisibility(8);
         }
         if (SwitchManager.getInstance().findType("reply_private_setting_switch") == 1) {
-            this.f61315h.setVisibility(0);
+            this.f61316h.setVisibility(0);
             this.i.setVisibility(0);
             return;
         }
-        this.f61315h.setVisibility(8);
+        this.f61316h.setVisibility(8);
         this.i.setVisibility(8);
     }
 
     public void u(int i, int i2) {
         if (i2 == 3 && i == 3) {
-            this.f61313f.setTip(this.k.getString(R.string.mark_tip_no));
+            this.f61314f.setTip(this.k.getString(R.string.mark_tip_no));
         } else if (i2 == 3) {
-            this.f61313f.setTip(this.k.getString(R.string.mark_tip_inside));
+            this.f61314f.setTip(this.k.getString(R.string.mark_tip_inside));
         } else if (i == 3) {
-            this.f61313f.setTip(this.k.getString(R.string.mark_tip_outside));
+            this.f61314f.setTip(this.k.getString(R.string.mark_tip_outside));
         } else {
-            this.f61313f.setTip(this.k.getString(R.string.mark_tip_all));
+            this.f61314f.setTip(this.k.getString(R.string.mark_tip_all));
         }
     }
 
@@ -201,11 +201,11 @@ public class c extends d<SecretSettingActivity> {
             return;
         }
         if (TextUtils.equals(str, "like")) {
-            this.f61312e.setTip(this.m[i2]);
+            this.f61313e.setTip(this.m[i2]);
         } else if (TextUtils.equals(str, "group")) {
             this.j.setTip(this.m[i2]);
         } else if (TextUtils.equals(str, "live")) {
-            this.f61314g.setTip(this.m[i2]);
+            this.f61315g.setTip(this.m[i2]);
         } else if (TextUtils.equals(str, "reply")) {
             if (i2 == 0) {
                 this.i.setTip(this.k.getString(R.string.all_person));
@@ -230,11 +230,11 @@ public class c extends d<SecretSettingActivity> {
         }
         int c2 = aVar.c() - 1;
         if (c2 < length && c2 >= 0) {
-            this.f61312e.setTip(this.m[c2]);
+            this.f61313e.setTip(this.m[c2]);
         }
         int e2 = aVar.e() - 1;
         if (e2 < length && e2 >= 0) {
-            this.f61314g.setTip(this.m[e2]);
+            this.f61315g.setTip(this.m[e2]);
         }
         int g2 = aVar.g() - 1;
         if (g2 < length && g2 >= 0) {

@@ -8,20 +8,20 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Set<n>> f59753a = new HashMap();
+    public static final Map<String, Set<n>> f59754a = new HashMap();
 
     public static Set<n> a(String str) {
-        return f59753a.get(str);
+        return f59754a.get(str);
     }
 
     public static void b(String str, Set<n> set) {
-        f59753a.put(str, set);
+        f59754a.put(str, set);
     }
 
     public static void c(String str) {
-        if (f59753a.get(str) != null) {
-            f59753a.get(str).clear();
-            f59753a.remove(str);
+        if (f59754a.get(str) != null) {
+            f59754a.get(str).clear();
+            f59754a.remove(str);
         }
     }
 }

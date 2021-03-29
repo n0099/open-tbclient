@@ -47,14 +47,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChatMessageDBManager extends DBBase {
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     public static final String TAG = "ChatMessageDBManager";
     public static ChatMessageDBManager mInstance;
     public List<ChatMessageDbOberser> mObservers = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }
@@ -98,8 +98,8 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:70:0x02ca A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x02cc  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x02c1 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x02c3  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -616,14 +616,15 @@ public class ChatMessageDBManager extends DBBase {
                 boolean z = false;
                 int i2 = 1;
                 String[] strArr = {String.valueOf(chatObject.getContacter()), String.valueOf(chatObject.getCategory())};
-                if (j != -1) {
+                int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
+                if (i3 != 0) {
                     str = "contacter = ?  AND category = ? AND msgid <= " + j;
                 }
                 String addPaidCondition = addPaidCondition(str, "paid", chatObject.getPaid());
                 int delete = addPaidCondition != null ? openDatabase.delete("message", addPaidCondition, strArr) : -1;
                 long maxMsgid = getMaxMsgid(chatObject);
                 ChatSession chatSession = null;
-                if (j == -1 || maxMsgid <= j) {
+                if (i3 == 0 || maxMsgid <= j) {
                     String[] strArr2 = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
                     String addPaidCondition2 = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
                     chatSession = getChatRecordInternal(openDatabase, chatObject);
@@ -1455,11 +1456,11 @@ public class ChatMessageDBManager extends DBBase {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0135 A[Catch: all -> 0x01d7, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008e, B:22:0x0090, B:24:0x0096, B:25:0x009e, B:27:0x00a0, B:29:0x00ac, B:31:0x00b2, B:34:0x00bc, B:36:0x00c4, B:38:0x00d2, B:40:0x00da, B:47:0x0126, B:49:0x012f, B:51:0x0135, B:53:0x0148, B:55:0x014d, B:56:0x0151, B:58:0x015b, B:59:0x015f, B:61:0x01c7, B:62:0x01cb, B:63:0x01d5, B:52:0x0144, B:41:0x00e4, B:43:0x0114, B:45:0x011a, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0144 A[Catch: all -> 0x01d7, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008e, B:22:0x0090, B:24:0x0096, B:25:0x009e, B:27:0x00a0, B:29:0x00ac, B:31:0x00b2, B:34:0x00bc, B:36:0x00c4, B:38:0x00d2, B:40:0x00da, B:47:0x0126, B:49:0x012f, B:51:0x0135, B:53:0x0148, B:55:0x014d, B:56:0x0151, B:58:0x015b, B:59:0x015f, B:61:0x01c7, B:62:0x01cb, B:63:0x01d5, B:52:0x0144, B:41:0x00e4, B:43:0x0114, B:45:0x011a, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x014d A[Catch: all -> 0x01d7, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008e, B:22:0x0090, B:24:0x0096, B:25:0x009e, B:27:0x00a0, B:29:0x00ac, B:31:0x00b2, B:34:0x00bc, B:36:0x00c4, B:38:0x00d2, B:40:0x00da, B:47:0x0126, B:49:0x012f, B:51:0x0135, B:53:0x0148, B:55:0x014d, B:56:0x0151, B:58:0x015b, B:59:0x015f, B:61:0x01c7, B:62:0x01cb, B:63:0x01d5, B:52:0x0144, B:41:0x00e4, B:43:0x0114, B:45:0x011a, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x015b A[Catch: all -> 0x01d7, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008e, B:22:0x0090, B:24:0x0096, B:25:0x009e, B:27:0x00a0, B:29:0x00ac, B:31:0x00b2, B:34:0x00bc, B:36:0x00c4, B:38:0x00d2, B:40:0x00da, B:47:0x0126, B:49:0x012f, B:51:0x0135, B:53:0x0148, B:55:0x014d, B:56:0x0151, B:58:0x015b, B:59:0x015f, B:61:0x01c7, B:62:0x01cb, B:63:0x01d5, B:52:0x0144, B:41:0x00e4, B:43:0x0114, B:45:0x011a, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01c7 A[Catch: all -> 0x01d7, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008e, B:22:0x0090, B:24:0x0096, B:25:0x009e, B:27:0x00a0, B:29:0x00ac, B:31:0x00b2, B:34:0x00bc, B:36:0x00c4, B:38:0x00d2, B:40:0x00da, B:47:0x0126, B:49:0x012f, B:51:0x0135, B:53:0x0148, B:55:0x014d, B:56:0x0151, B:58:0x015b, B:59:0x015f, B:61:0x01c7, B:62:0x01cb, B:63:0x01d5, B:52:0x0144, B:41:0x00e4, B:43:0x0114, B:45:0x011a, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0133 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0142 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x014b A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0159 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x01c5 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1624,7 +1625,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00d9 A[Catch: all -> 0x00dd, TryCatch #3 {, blocks: (B:4:0x0003, B:6:0x0023, B:7:0x002a, B:9:0x002c, B:42:0x00d9, B:43:0x00dc, B:37:0x00d1, B:38:0x00d4, B:28:0x00be, B:29:0x00c1), top: B:51:0x0003 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00d9 A[Catch: all -> 0x00dd, TryCatch #3 {, blocks: (B:4:0x0003, B:6:0x0023, B:7:0x002a, B:9:0x002c, B:42:0x00d9, B:43:0x00dc, B:37:0x00d1, B:38:0x00d4, B:28:0x00be, B:29:0x00c1), top: B:49:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2050,8 +2051,8 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x005d  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0059  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x005c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2084,16 +2085,16 @@ public class ChatMessageDBManager extends DBBase {
         return fetchMsg(chatObject, j, j2, j3, z, "type != 101");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c3, code lost:
         if (r1 != null) goto L34;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c5, code lost:
         r1.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00e6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00e5, code lost:
         if (r1 == null) goto L35;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ea, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00e9, code lost:
         return r0;
      */
     /*
@@ -2270,7 +2271,7 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0067, code lost:
         return r10;
      */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x006c A[Catch: all -> 0x0070, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000a, B:7:0x0011, B:18:0x0042, B:27:0x0066, B:32:0x006c, B:33:0x006f), top: B:39:0x0003 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006c A[Catch: all -> 0x0070, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000a, B:7:0x0011, B:18:0x0042, B:27:0x0066, B:32:0x006c, B:33:0x006f), top: B:37:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -3953,27 +3954,25 @@ public class ChatMessageDBManager extends DBBase {
         updateSession(z, chatSession, chatMsg2);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0059, code lost:
-        if (r25 == (-1)) goto L112;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x024e  */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x01a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:136:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0109 A[Catch: all -> 0x022e, Exception -> 0x0231, TryCatch #6 {Exception -> 0x0231, all -> 0x022e, blocks: (B:39:0x0076, B:41:0x0086, B:44:0x0091, B:47:0x0109, B:49:0x011a, B:50:0x012e, B:52:0x0147, B:54:0x014f, B:64:0x016d, B:65:0x01a6, B:45:0x00ce), top: B:125:0x0076 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x011a A[Catch: all -> 0x022e, Exception -> 0x0231, TryCatch #6 {Exception -> 0x0231, all -> 0x022e, blocks: (B:39:0x0076, B:41:0x0086, B:44:0x0091, B:47:0x0109, B:49:0x011a, B:50:0x012e, B:52:0x0147, B:54:0x014f, B:64:0x016d, B:65:0x01a6, B:45:0x00ce), top: B:125:0x0076 }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0147 A[Catch: all -> 0x022e, Exception -> 0x0231, TryCatch #6 {Exception -> 0x0231, all -> 0x022e, blocks: (B:39:0x0076, B:41:0x0086, B:44:0x0091, B:47:0x0109, B:49:0x011a, B:50:0x012e, B:52:0x0147, B:54:0x014f, B:64:0x016d, B:65:0x01a6, B:45:0x00ce), top: B:125:0x0076 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x015d  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0164  */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x024f  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x01a8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:134:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x010c A[Catch: all -> 0x022f, Exception -> 0x0232, TryCatch #6 {Exception -> 0x0232, all -> 0x022f, blocks: (B:40:0x0079, B:42:0x008a, B:45:0x0095, B:48:0x010c, B:50:0x011d, B:51:0x0131, B:53:0x014a, B:55:0x0152, B:64:0x016e, B:65:0x01a7, B:46:0x00d2), top: B:123:0x0079 }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x011d A[Catch: all -> 0x022f, Exception -> 0x0232, TryCatch #6 {Exception -> 0x0232, all -> 0x022f, blocks: (B:40:0x0079, B:42:0x008a, B:45:0x0095, B:48:0x010c, B:50:0x011d, B:51:0x0131, B:53:0x014a, B:55:0x0152, B:64:0x016e, B:65:0x01a7, B:46:0x00d2), top: B:123:0x0079 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x014a A[Catch: all -> 0x022f, Exception -> 0x0232, TryCatch #6 {Exception -> 0x0232, all -> 0x022f, blocks: (B:40:0x0079, B:42:0x008a, B:45:0x0095, B:48:0x010c, B:50:0x011d, B:51:0x0131, B:53:0x014a, B:55:0x0152, B:64:0x016e, B:65:0x01a7, B:46:0x00d2), top: B:123:0x0079 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0160  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0167 A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z, String str) {
+        long j4;
         String str2;
         String str3;
         String str4;
         String[] strArr;
         String str5;
-        long j4 = j2;
+        long j5 = j2;
         ArrayList<ChatMsg> arrayList = new ArrayList<>();
         SQLiteDatabase openDatabase = openDatabase();
         Cursor cursor = null;
@@ -3981,8 +3980,9 @@ public class ChatMessageDBManager extends DBBase {
             LogUtils.d(TAG, "getReadableDb fail!");
             return null;
         }
-        if (j <= 0 && j4 >= 0) {
-            j4 = -j4;
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i <= 0 && j5 >= 0) {
+            j5 = -j5;
         }
         try {
         } catch (Throwable th) {
@@ -3993,22 +3993,20 @@ public class ChatMessageDBManager extends DBBase {
                 if (0 == j && j3 == -1) {
                     str2 = " >= ";
                 } else {
-                    long j5 = Long.MAX_VALUE;
-                    if (j4 == 0) {
+                    int i2 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
+                    if (i2 == 0) {
                         str2 = " = ";
-                        j5 = -2;
-                    } else if (j4 > 0) {
+                        j4 = -2;
+                    } else if (i2 > 0) {
                         str2 = " > ";
-                        if (j3 == Long.MAX_VALUE) {
-                            j5 = 0;
-                        }
-                        j5 = j3;
+                        j4 = j3 == Long.MAX_VALUE ? 0L : j3;
                     } else {
+                        j4 = j3 != -1 ? j3 : Long.MAX_VALUE;
                         str2 = " < ";
                     }
-                    if (j5 != -2) {
+                    if (j4 != -2) {
                         try {
-                            str3 = " AND _id" + str2 + j5;
+                            str3 = " AND _id" + str2 + j4;
                             if (chatObject.getContacter() != 17 && chatObject.getContacter() != 26) {
                                 str4 = "contacter = ? AND msgid" + str2 + "? AND category = ? ";
                                 strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
@@ -4022,11 +4020,11 @@ public class ChatMessageDBManager extends DBBase {
                                 if (chatObject.getCategory() != 17 && chatObject.getCategory() != 26) {
                                     str5 = addPaidCondition(str5, "paid", chatObject.getPaid());
                                 }
-                                if (j4 == 0) {
-                                    j4 = 1;
+                                if (j5 == 0) {
+                                    j5 = 1;
                                 }
-                                long j6 = j4;
-                                String str6 = (j6 > 0 || j <= 0) ? " desc " : " asc ";
+                                long j6 = j5;
+                                String str6 = (j6 > 0 || i <= 0) ? " desc " : " asc ";
                                 String str7 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j6);
                                 synchronized (DBBase.mSyncLock) {
                                     try {
@@ -4090,9 +4088,9 @@ public class ChatMessageDBManager extends DBBase {
                             if (chatObject.getCategory() != 17) {
                                 str5 = addPaidCondition(str5, "paid", chatObject.getPaid());
                             }
-                            if (j4 == 0) {
+                            if (j5 == 0) {
                             }
-                            long j62 = j4;
+                            long j62 = j5;
                             if (j62 > 0) {
                             }
                             String str72 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j62);
@@ -4120,9 +4118,9 @@ public class ChatMessageDBManager extends DBBase {
                     str5 = str4 + " AND status != 3";
                     if (chatObject.getCategory() != 17) {
                     }
-                    if (j4 == 0) {
+                    if (j5 == 0) {
                     }
-                    long j622 = j4;
+                    long j622 = j5;
                     if (j622 > 0) {
                     }
                     String str722 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j622);
@@ -4143,9 +4141,9 @@ public class ChatMessageDBManager extends DBBase {
             str5 = str4 + " AND status != 3";
             if (chatObject.getCategory() != 17) {
             }
-            if (j4 == 0) {
+            if (j5 == 0) {
             }
-            long j6222 = j4;
+            long j6222 = j5;
             if (j6222 > 0) {
             }
             String str7222 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j6222);

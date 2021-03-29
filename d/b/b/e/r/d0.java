@@ -3,73 +3,73 @@ package d.b.b.e.r;
 public class d0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42061a;
+    public int f42062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42062b;
+    public int f42063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42063c;
+    public boolean f42064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42064d;
+    public boolean f42065d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42065e;
+    public int f42066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42066f;
+    public int f42067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42067g;
+    public boolean f42068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42068h;
+    public boolean f42069h;
     public String i;
 
     public d0() {
         this.i = null;
-        this.f42061a = 32768;
-        this.f42062b = 131072;
-        this.f42063c = false;
-        this.f42064d = true;
-        this.f42065e = 30000;
-        this.f42066f = 30000;
-        this.f42067g = true;
-        this.f42068h = true;
+        this.f42062a = 32768;
+        this.f42063b = 131072;
+        this.f42064c = false;
+        this.f42065d = true;
+        this.f42066e = 30000;
+        this.f42067f = 30000;
+        this.f42068g = true;
+        this.f42069h = true;
         this.i = null;
     }
 
     public boolean a() {
-        return this.f42068h;
+        return this.f42069h;
     }
 
     public int b() {
-        return this.f42061a;
+        return this.f42062a;
     }
 
     public int c() {
-        return this.f42062b;
+        return this.f42063b;
     }
 
     public boolean d() {
-        return this.f42063c;
+        return this.f42064c;
     }
 
     public int e() {
-        return this.f42066f;
+        return this.f42067f;
     }
 
     public int f() {
-        return this.f42065e;
+        return this.f42066e;
     }
 
     public boolean g() {
-        return this.f42064d;
+        return this.f42065d;
     }
 
     public boolean h() {
-        return this.f42067g;
+        return this.f42068g;
     }
 
     public String i() {
@@ -82,14 +82,14 @@ public class d0 {
 
     public d0(d0 d0Var) {
         this.i = null;
-        this.f42061a = d0Var.f42061a;
-        this.f42062b = d0Var.f42062b;
-        this.f42063c = d0Var.f42063c;
-        this.f42064d = d0Var.f42064d;
-        this.f42065e = d0Var.f42065e;
-        this.f42066f = d0Var.f42066f;
-        this.f42067g = d0Var.f42067g;
-        this.f42068h = d0Var.f42068h;
+        this.f42062a = d0Var.f42062a;
+        this.f42063b = d0Var.f42063b;
+        this.f42064c = d0Var.f42064c;
+        this.f42065d = d0Var.f42065d;
+        this.f42066e = d0Var.f42066e;
+        this.f42067f = d0Var.f42067f;
+        this.f42068g = d0Var.f42068g;
+        this.f42069h = d0Var.f42069h;
         this.i = d0Var.i;
     }
 }

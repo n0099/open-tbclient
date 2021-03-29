@@ -17,16 +17,16 @@ import d.b.i0.o.c.e.b;
 public class ApkDownloadBannerView extends LinearLayout implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14508e;
+    public int f14509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f14509f;
+    public View f14510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BannerDownloadProgressBar f14510g;
+    public BannerDownloadProgressBar f14511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BannerDownloadStateBar f14511h;
+    public BannerDownloadStateBar f14512h;
     public BannerDownloadStateBar i;
     public int j;
 
@@ -34,29 +34,29 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f14512a;
+        public static final /* synthetic */ int[] f14513a;
 
         static {
             int[] iArr = new int[DownloadStatus.values().length];
-            f14512a = iArr;
+            f14513a = iArr;
             try {
                 iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f14512a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 2;
+                f14513a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f14512a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 3;
+                f14513a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f14512a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 4;
+                f14513a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f14512a[DownloadStatus.STATUS_PAUSED.ordinal()] = 5;
+                f14513a[DownloadStatus.STATUS_PAUSED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -68,7 +68,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
 
     @Override // d.b.i0.o.c.e.b
     public void a(int i) {
-        this.f14510g.setProgress(i);
+        this.f14511g.setProgress(i);
     }
 
     @Override // d.b.i0.o.c.e.b
@@ -83,16 +83,16 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
 
     @Override // d.b.i0.o.c.e.b
     public void d(DownloadStatus downloadStatus, int i) {
-        int i2 = a.f14512a[downloadStatus.ordinal()];
+        int i2 = a.f14513a[downloadStatus.ordinal()];
         if (i2 == 1) {
             a(0);
-            this.f14510g.setText("");
+            this.f14511g.setText("");
         } else if (i2 == 2 || i2 == 3) {
-            a(this.f14508e);
-            this.f14510g.setText("");
+            a(this.f14509e);
+            this.f14511g.setText("");
         } else if (i2 != 4 && i2 != 5) {
             a(0);
-            this.f14510g.setText("");
+            this.f14511g.setText("");
         } else {
             a(i);
         }
@@ -100,19 +100,19 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     }
 
     public final void e(Context context) {
-        this.f14509f = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
+        this.f14510f = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
         setOrientation(0);
         setGravity(16);
         int e2 = l.e(getContext(), 22.0f);
         setPadding(e2, 0, e2, 0);
-        this.f14510g = (BannerDownloadProgressBar) this.f14509f.findViewById(R.id.apk_download_progress);
-        this.f14511h = (BannerDownloadStateBar) this.f14509f.findViewById(R.id.apk_download_state_left);
-        this.i = (BannerDownloadStateBar) this.f14509f.findViewById(R.id.apk_download_state_right);
-        this.f14510g.setTextColor(Color.parseColor("#999999"));
+        this.f14511g = (BannerDownloadProgressBar) this.f14510f.findViewById(R.id.apk_download_progress);
+        this.f14512h = (BannerDownloadStateBar) this.f14510f.findViewById(R.id.apk_download_state_left);
+        this.i = (BannerDownloadStateBar) this.f14510f.findViewById(R.id.apk_download_state_right);
+        this.f14511g.setTextColor(Color.parseColor("#999999"));
     }
 
     public final int f(DownloadStatus downloadStatus) {
-        int i = a.f14512a[downloadStatus.ordinal()];
+        int i = a.f14513a[downloadStatus.ordinal()];
         if (i != 2) {
             if (i != 3) {
                 if (i != 4) {
@@ -134,13 +134,13 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public void setDownloadStateBarPosition(int i) {
         this.j = i;
         if (i == 0) {
-            this.f14511h.setVisibility(0);
+            this.f14512h.setVisibility(0);
             this.i.setVisibility(8);
         } else if (i != 1) {
-            this.f14511h.setVisibility(0);
+            this.f14512h.setVisibility(0);
             this.i.setVisibility(8);
         } else {
-            this.f14511h.setVisibility(8);
+            this.f14512h.setVisibility(8);
             this.i.setVisibility(0);
         }
     }
@@ -152,12 +152,12 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i0.o.c.e.b
     public BannerDownloadStateBar getActionBar() {
-        return this.f14511h.getVisibility() == 0 ? this.f14511h : this.i;
+        return this.f14512h.getVisibility() == 0 ? this.f14512h : this.i;
     }
 
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14508e = 100;
+        this.f14509e = 100;
         this.j = 1;
         e(context);
         setDownloadStateBarPosition(1);

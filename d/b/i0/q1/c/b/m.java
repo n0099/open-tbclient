@@ -11,13 +11,13 @@ import tbclient.GetVipInfo.VipSpecialItem;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f59314a;
+    public ArrayList<String> f59315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.q1.c.a.a f59315b;
+    public d.b.i0.q1.c.a.a f59316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedHashMap<String, c> f59316c;
+    public LinkedHashMap<String, c> f59317c;
 
     public m(DataRes dataRes) {
         if (dataRes == null) {
@@ -34,17 +34,17 @@ public class m {
         new p(dataRes.rank, dataRes.user);
         new g(dataRes.daily_list);
         d.b.i0.q1.c.a.a aVar = new d.b.i0.q1.c.a.a();
-        this.f59315b = aVar;
+        this.f59316b = aVar;
         aVar.a(dataRes);
         List<VipBasicList> list = dataRes.basic_list;
         if (list != null && list.size() > 0) {
-            this.f59316c = new LinkedHashMap<>();
+            this.f59317c = new LinkedHashMap<>();
             for (VipBasicList vipBasicList : dataRes.basic_list) {
                 List<VipSpecialItem> list2 = vipBasicList.item;
                 if (list2 != null && list2.size() > 0) {
                     c cVar = new c(vipBasicList);
-                    if (cVar.f59296g != 3 || cVar.a().size() >= 2) {
-                        this.f59316c.put(cVar.f59297h, cVar);
+                    if (cVar.f59297g != 3 || cVar.a().size() >= 2) {
+                        this.f59317c.put(cVar.f59298h, cVar);
                     }
                 }
             }
@@ -53,10 +53,10 @@ public class m {
         if (list3 == null || list3.size() <= 0) {
             return;
         }
-        this.f59314a = new ArrayList<>();
+        this.f59315a = new ArrayList<>();
         for (String str3 : dataRes.card_order) {
             if (!StringUtils.isNull(str3)) {
-                this.f59314a.add(str3);
+                this.f59315a.add(str3);
             }
         }
     }

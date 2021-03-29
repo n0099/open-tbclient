@@ -11,28 +11,28 @@ import d.b.g0.a.k;
 import d.b.g0.a.n1.c.f.c;
 import d.b.g0.a.n1.c.f.e;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45373a = k.f45050a;
+    public static final boolean f45374a = k.f45051a;
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends d.b.g0.a.n1.a.a.a> cls) {
         Iterator<c> it = e.j().p().iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next != null && next.D()) {
-                b(next.f45390f, bundle, cls, null);
+                b(next.f45391f, bundle, cls, null);
             }
         }
     }
 
     public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends d.b.g0.a.n1.a.a.a> cls, @Nullable d.b.g0.a.n1.a.b.c.c cVar) {
-        if (f45373a) {
+        if (f45374a) {
             Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, 125);
-        obtain.replyTo = e.j().f45399c;
+        obtain.replyTo = e.j().f45400c;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {

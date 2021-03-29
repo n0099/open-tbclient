@@ -11,14 +11,14 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<ServiceReference, b<?>> f42731a = new HashMap<>();
+    public static final HashMap<ServiceReference, b<?>> f42732a = new HashMap<>();
 
     static {
         d();
     }
 
     public static <T> T a(ServiceReference serviceReference) {
-        b<?> bVar = f42731a.get(serviceReference);
+        b<?> bVar = f42732a.get(serviceReference);
         if (bVar != null) {
             return (T) bVar.getService();
         }
@@ -26,8 +26,8 @@ public class c {
     }
 
     public static <T> void b(ServiceReference serviceReference, b<T> bVar) {
-        synchronized (f42731a) {
-            f42731a.put(serviceReference, bVar);
+        synchronized (f42732a) {
+            f42732a.put(serviceReference, bVar);
         }
     }
 

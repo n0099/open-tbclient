@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class CloseableReference<T> implements Cloneable, Closeable {
     @GuardedBy("this")
     public boolean mIsClosed = false;

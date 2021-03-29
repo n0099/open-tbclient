@@ -11,7 +11,7 @@ public class j extends a {
     @Override // d.o.a.e.a.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.FILE_OPEN");
-        intent.putExtra("FilePathToBeOpenAfterScan", this.f66786c);
+        intent.putExtra("FilePathToBeOpenAfterScan", this.f66791c);
         intent.putExtra("com.iqoo.secure", true);
         intent.putExtra("OpenParentAndLocationDestFile", true);
         intent.addFlags(268435456);

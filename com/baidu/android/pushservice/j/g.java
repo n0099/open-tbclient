@@ -12,14 +12,14 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f3391a;
+    public static ConnectivityManager f3392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f3392b;
+    public static TelephonyManager f3393b;
 
     public static boolean a(Context context) {
         NetworkInfo c2 = c(context);
@@ -100,7 +100,7 @@ public class g {
                 case 14:
                 case 15:
                 case 17:
-                    str = com.baidu.apollon.statistics.g.f3873b;
+                    str = com.baidu.apollon.statistics.g.f3874b;
                     break;
                 case 13:
                 case 18:
@@ -164,23 +164,23 @@ public class g {
 
     public static ConnectivityManager j(Context context) {
         if (context == null) {
-            return f3391a;
+            return f3392a;
         }
-        if (f3391a == null) {
-            f3391a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f3392a == null) {
+            f3392a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return f3391a;
+        return f3392a;
     }
 
     public static TelephonyManager k(Context context) {
         if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
             if (context == null) {
-                return f3392b;
+                return f3393b;
             }
-            if (f3392b == null) {
-                f3392b = (TelephonyManager) context.getSystemService("phone");
+            if (f3393b == null) {
+                f3393b = (TelephonyManager) context.getSystemService("phone");
             }
         }
-        return f3392b;
+        return f3393b;
     }
 }

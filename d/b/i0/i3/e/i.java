@@ -20,28 +20,28 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public BackgroundPreviewActivity f56288a;
+    public BackgroundPreviewActivity f56289a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f56289b;
+    public View f56290b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdExpandImageView f56290c;
+    public BdExpandImageView f56291c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f56291d;
+    public TbImageView f56292d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f56292e;
+    public TbImageView f56293e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f56293f;
+    public TextView f56294f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56294g;
+    public ImageView f56295g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56295h;
+    public TextView f56296h;
     public final d.b.b.e.l.c<d.b.b.j.d.a> i = new a();
 
     /* loaded from: classes5.dex */
@@ -63,40 +63,40 @@ public class i {
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.h(i.this.f56290c);
+                aVar.h(i.this.f56291c);
             }
         }
     }
 
     public i(BackgroundPreviewActivity backgroundPreviewActivity) {
-        this.f56288a = backgroundPreviewActivity;
+        this.f56289a = backgroundPreviewActivity;
         View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
-        this.f56289b = inflate;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.f56288a.getResources().getDimensionPixelSize(R.dimen.ds450)));
+        this.f56290b = inflate;
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.f56289a.getResources().getDimensionPixelSize(R.dimen.ds450)));
         c();
     }
 
     public View b() {
-        return this.f56289b;
+        return this.f56290b;
     }
 
     public final void c() {
-        this.f56290c = (BdExpandImageView) this.f56289b.findViewById(R.id.expand_image);
-        this.f56291d = (TbImageView) this.f56289b.findViewById(R.id.user_head);
-        TbImageView tbImageView = (TbImageView) this.f56289b.findViewById(R.id.vip_icon);
-        this.f56292e = tbImageView;
+        this.f56291c = (BdExpandImageView) this.f56290b.findViewById(R.id.expand_image);
+        this.f56292d = (TbImageView) this.f56290b.findViewById(R.id.user_head);
+        TbImageView tbImageView = (TbImageView) this.f56290b.findViewById(R.id.vip_icon);
+        this.f56293e = tbImageView;
         tbImageView.setAutoChangeStyle(false);
-        this.f56293f = (TextView) this.f56289b.findViewById(R.id.user_name);
-        this.f56294g = (ImageView) this.f56289b.findViewById(R.id.user_sex);
-        this.f56295h = (TextView) this.f56289b.findViewById(R.id.user_bar_age_num);
-        this.f56291d.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.f56294f = (TextView) this.f56290b.findViewById(R.id.user_name);
+        this.f56295g = (ImageView) this.f56290b.findViewById(R.id.user_sex);
+        this.f56296h = (TextView) this.f56290b.findViewById(R.id.user_bar_age_num);
+        this.f56292d.setDefaultResource(R.drawable.icon_default_avatar100);
     }
 
     public void d() {
-        if (this.f56288a.getPageContext() == null) {
+        if (this.f56289a.getPageContext() == null) {
             return;
         }
-        d.b.h0.s0.a.a(this.f56288a.getPageContext(), this.f56289b);
+        d.b.h0.s0.a.a(this.f56289a.getPageContext(), this.f56290b);
     }
 
     public void e(DressItemData dressItemData) {
@@ -105,43 +105,43 @@ public class i {
         }
         d.b.b.e.l.d.h().k(dressItemData.getExampleImgUrl(), 10, this.i, 0, 0, null, new Object[0]);
         if (StringUtils.isNull(dressItemData.getPropsStateImg())) {
-            this.f56295h.setText("0");
+            this.f56296h.setText("0");
         } else {
-            this.f56295h.setText(dressItemData.getPropsStateImg());
+            this.f56296h.setText(dressItemData.getPropsStateImg());
         }
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
-            SkinManager.setViewTextColor(this.f56295h, R.color.CAM_X0308, 1);
-            this.f56293f.setText(R.string.default_user_name);
-            this.f56294g.setImageResource(R.drawable.icon_pop_boy);
-            this.f56292e.setVisibility(8);
+            SkinManager.setViewTextColor(this.f56296h, R.color.CAM_X0308, 1);
+            this.f56294f.setText(R.string.default_user_name);
+            this.f56295g.setImageResource(R.drawable.icon_pop_boy);
+            this.f56293e.setVisibility(8);
             return;
         }
         String avatar = currentAccountInfo.getAvatar();
         int memberType = currentAccountInfo.getMemberType();
         if (!TextUtils.isEmpty(avatar)) {
-            this.f56291d.W(avatar, 25, false);
+            this.f56292d.W(avatar, 25, false);
         }
         String memberIconUrl = currentAccountInfo.getMemberIconUrl();
         if (StringUtils.isNull(memberIconUrl)) {
-            this.f56292e.setVisibility(8);
+            this.f56293e.setVisibility(8);
         } else {
-            this.f56292e.W(memberIconUrl, 10, false);
-            this.f56292e.setVisibility(0);
+            this.f56293e.W(memberIconUrl, 10, false);
+            this.f56293e.setVisibility(0);
         }
         if (memberType > 0) {
-            this.f56293f.setTextColor(this.f56288a.getResources().getColor(R.color.CAM_X0308));
+            this.f56294f.setTextColor(this.f56289a.getResources().getColor(R.color.CAM_X0308));
         } else {
-            this.f56293f.setTextColor(this.f56288a.getResources().getColor(R.color.CAM_X0111));
+            this.f56294f.setTextColor(this.f56289a.getResources().getColor(R.color.CAM_X0111));
         }
-        this.f56293f.setText(currentAccountInfo.getAccountNameShow());
+        this.f56294f.setText(currentAccountInfo.getAccountNameShow());
         int sex = currentAccountInfo.getSex();
         if (sex == 1) {
-            this.f56294g.setImageResource(R.drawable.icon_pop_boy);
+            this.f56295g.setImageResource(R.drawable.icon_pop_boy);
         } else if (sex == 2) {
-            this.f56294g.setImageResource(R.drawable.icon_pop_girl);
+            this.f56295g.setImageResource(R.drawable.icon_pop_girl);
         } else {
-            this.f56294g.setVisibility(8);
+            this.f56295g.setVisibility(8);
         }
     }
 }

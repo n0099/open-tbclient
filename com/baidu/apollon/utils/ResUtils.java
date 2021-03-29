@@ -7,33 +7,33 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.apollon.ApollonConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3983a = "id";
+    public static final String f3984a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3984b = "string";
+    public static final String f3985b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3985c = "layout";
+    public static final String f3986c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3986d = "style";
+    public static final String f3987d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3987e = "drawable";
+    public static final String f3988e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3988f = "color";
+    public static final String f3989f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3989g = "array";
+    public static final String f3990g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3990h = "attr";
+    public static final String f3991h = "attr";
     public static final String i = "dimen";
     public static final String j = "xml";
     public static final String k = "integer";

@@ -7,28 +7,28 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f48129a = false;
+    public static volatile boolean f48130a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f48130b = false;
+    public static volatile boolean f48131b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile List<d.b.g0.a.k0.b.b> f48131c = new ArrayList();
+    public static volatile List<d.b.g0.a.k0.b.b> f48132c = new ArrayList();
 
     public static void a() {
-        if (!f48129a || f48130b) {
+        if (!f48130a || f48131b) {
             return;
         }
         synchronized (i.class) {
-            if (f48131c != null) {
-                for (int i = 0; i < f48131c.size(); i++) {
-                    d.b.g0.a.z0.f.V().z("console", f48131c.get(i));
+            if (f48132c != null) {
+                for (int i = 0; i < f48132c.size(); i++) {
+                    d.b.g0.a.z0.f.V().z("console", f48132c.get(i));
                 }
-                f48131c.clear();
-                f48131c = null;
+                f48132c.clear();
+                f48132c = null;
             }
         }
-        f48130b = true;
+        f48131b = true;
     }
 
     public static String b(int i) {
@@ -37,9 +37,9 @@ public class i {
 
     public static void c() {
         synchronized (i.class) {
-            f48131c = new ArrayList();
+            f48132c = new ArrayList();
         }
-        f48130b = false;
+        f48131b = false;
     }
 
     public static void d(int i, String str) {
@@ -47,16 +47,16 @@ public class i {
     }
 
     public static void e(String str, String str2) {
-        if (f48129a) {
+        if (f48130a) {
             f(c.b(str, str2));
         }
     }
 
     public static void f(d.b.g0.a.k0.b.b bVar) {
-        if (!f48130b) {
+        if (!f48131b) {
             synchronized (i.class) {
-                if (f48131c != null) {
-                    f48131c.add(bVar);
+                if (f48132c != null) {
+                    f48132c.add(bVar);
                     return;
                 }
             }
@@ -65,13 +65,13 @@ public class i {
     }
 
     public static void g(String str, String str2) {
-        if (f48129a) {
+        if (f48130a) {
             f(c.d(str, str2));
         }
     }
 
     public static void h(boolean z) {
-        f48129a = z;
+        f48130a = z;
         d.b.g0.a.c0.c.k(z);
     }
 }

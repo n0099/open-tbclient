@@ -9,27 +9,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
-    public static boolean o = k.f45050a;
+    public static boolean o = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45667a;
+    public Context f45668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f45668b;
+    public CharSequence f45669b;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f45670d;
+    public CharSequence f45671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CharSequence f45671e;
+    public CharSequence f45672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f45672f;
+    public Drawable f45673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Uri f45673g;
+    public Uri f45674g;
     public int i;
     public a j;
     public boolean n;
@@ -38,18 +38,18 @@ public class d {
     public int m = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45674h = 2;
+    public int f45675h = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45669c = 14;
+    public int f45670c = 14;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }
 
     public d(Context context) {
-        this.f45667a = context;
+        this.f45668a = context;
     }
 
     public static void a() {
@@ -67,13 +67,13 @@ public class d {
 
     public static d e(@NonNull Context context, @StringRes int i) {
         d dVar = new d(context);
-        dVar.f45668b = context.getText(i);
+        dVar.f45669b = context.getText(i);
         return dVar;
     }
 
     public static d f(@NonNull Context context, @NonNull CharSequence charSequence) {
         d dVar = new d(context);
-        dVar.f45668b = charSequence;
+        dVar.f45669b = charSequence;
         return dVar;
     }
 
@@ -81,14 +81,14 @@ public class d {
         if (b()) {
             a();
             if (z) {
-                d.b.g0.a.q1.b.f.a.j(this.f45667a, this.f45673g, this.m, this.f45670d, this.f45668b, this.f45671e, this.k, this.f45674h, this.j);
+                d.b.g0.a.q1.b.f.a.j(this.f45668a, this.f45674g, this.m, this.f45671d, this.f45669b, this.f45672e, this.k, this.f45675h, this.j);
                 return;
             }
-            Context context = this.f45667a;
+            Context context = this.f45668a;
             if (context instanceof Activity) {
-                e.m((Activity) context, this.f45673g, this.m, this.f45670d, this.f45668b, this.f45671e, this.k, this.l, this.f45674h, this.j);
+                e.m((Activity) context, this.f45674g, this.m, this.f45671d, this.f45669b, this.f45672e, this.k, this.l, this.f45675h, this.j);
             } else {
-                d.b.g0.a.q1.b.f.a.j(context, this.f45673g, this.m, this.f45670d, this.f45668b, this.f45671e, this.k, this.f45674h, this.j);
+                d.b.g0.a.q1.b.f.a.j(context, this.f45674g, this.m, this.f45671d, this.f45669b, this.f45672e, this.k, this.f45675h, this.j);
             }
         }
     }
@@ -96,7 +96,7 @@ public class d {
     public void B() {
         if (b()) {
             a();
-            d.b.g0.a.q1.b.f.a.f(this.f45667a, this.f45668b, this.f45674h, false, this.i, this.n);
+            d.b.g0.a.q1.b.f.a.f(this.f45668a, this.f45669b, this.f45675h, false, this.i, this.n);
         }
     }
 
@@ -108,13 +108,13 @@ public class d {
         if (b()) {
             a();
             if (!z) {
-                Context context = this.f45667a;
+                Context context = this.f45668a;
                 if (context instanceof Activity) {
-                    e.n((Activity) context, this.f45668b, this.f45674h, this.i, this.n);
+                    e.n((Activity) context, this.f45669b, this.f45675h, this.i, this.n);
                     return;
                 }
             }
-            d.b.g0.a.q1.b.f.a.f(this.f45667a, this.f45668b, this.f45674h, true, this.i, this.n);
+            d.b.g0.a.q1.b.f.a.f(this.f45668a, this.f45669b, this.f45675h, true, this.i, this.n);
         }
     }
 
@@ -126,25 +126,25 @@ public class d {
         if (b()) {
             a();
             if (z) {
-                d.b.g0.a.q1.b.f.a.k(this.f45667a, this.f45668b, this.f45674h);
+                d.b.g0.a.q1.b.f.a.k(this.f45668a, this.f45669b, this.f45675h);
                 return;
             }
-            Context context = this.f45667a;
+            Context context = this.f45668a;
             if (context instanceof Activity) {
-                e.o((Activity) context, this.f45668b, this.f45674h);
+                e.o((Activity) context, this.f45669b, this.f45675h);
             } else {
-                d.b.g0.a.q1.b.f.a.k(context, this.f45668b, this.f45674h);
+                d.b.g0.a.q1.b.f.a.k(context, this.f45669b, this.f45675h);
             }
         }
     }
 
     public final boolean b() {
-        if (this.f45667a == null) {
+        if (this.f45668a == null) {
             if (o) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
             }
             return false;
-        } else if (this.f45668b == null) {
+        } else if (this.f45669b == null) {
             if (o) {
                 throw new IllegalArgumentException("UniversalToast toast text is null!!!");
             }
@@ -170,34 +170,34 @@ public class d {
     }
 
     public d j(@NonNull CharSequence charSequence) {
-        this.f45671e = charSequence;
+        this.f45672e = charSequence;
         return this;
     }
 
     public d k(int i) {
         if (i >= 1 && i <= 10) {
-            this.f45674h = i;
+            this.f45675h = i;
         } else {
-            this.f45674h = 2;
+            this.f45675h = 2;
         }
         return this;
     }
 
     public d l(@DrawableRes int i) {
-        Context context = this.f45667a;
+        Context context = this.f45668a;
         if (context != null && context.getResources() != null) {
-            this.f45672f = this.f45667a.getResources().getDrawable(i);
+            this.f45673f = this.f45668a.getResources().getDrawable(i);
         }
         return this;
     }
 
     public d m(@NonNull Drawable drawable) {
-        this.f45672f = drawable;
+        this.f45673f = drawable;
         return this;
     }
 
     public d n(@NonNull Uri uri) {
-        this.f45673g = uri;
+        this.f45674g = uri;
         return this;
     }
 
@@ -207,7 +207,7 @@ public class d {
     }
 
     public d p(@NonNull CharSequence charSequence) {
-        this.f45668b = charSequence;
+        this.f45669b = charSequence;
         return this;
     }
 
@@ -217,7 +217,7 @@ public class d {
     }
 
     public d r(@NonNull CharSequence charSequence) {
-        this.f45670d = charSequence;
+        this.f45671d = charSequence;
         return this;
     }
 
@@ -234,13 +234,13 @@ public class d {
         if (b()) {
             a();
             if (!z) {
-                Context context = this.f45667a;
+                Context context = this.f45668a;
                 if (context instanceof Activity) {
-                    e.j((Activity) context, this.f45668b, this.f45669c, this.f45671e, this.f45674h, this.j);
+                    e.j((Activity) context, this.f45669b, this.f45670c, this.f45672e, this.f45675h, this.j);
                     return;
                 }
             }
-            d.b.g0.a.q1.b.f.a.g(this.f45667a, this.f45668b, this.f45669c, this.f45671e, this.f45674h, this.j);
+            d.b.g0.a.q1.b.f.a.g(this.f45668a, this.f45669b, this.f45670c, this.f45672e, this.f45675h, this.j);
         }
     }
 
@@ -252,14 +252,14 @@ public class d {
         if (b()) {
             a();
             if (z) {
-                d.b.g0.a.q1.b.f.a.h(this.f45667a, this.f45668b, this.f45674h, this.n);
+                d.b.g0.a.q1.b.f.a.h(this.f45668a, this.f45669b, this.f45675h, this.n);
                 return;
             }
-            Context context = this.f45667a;
+            Context context = this.f45668a;
             if (context instanceof Activity) {
-                e.k((Activity) context, this.f45668b, this.f45674h, this.n);
+                e.k((Activity) context, this.f45669b, this.f45675h, this.n);
             } else {
-                d.b.g0.a.q1.b.f.a.h(context, this.f45668b, this.f45674h, this.n);
+                d.b.g0.a.q1.b.f.a.h(context, this.f45669b, this.f45675h, this.n);
             }
         }
     }
@@ -272,14 +272,14 @@ public class d {
         if (b()) {
             a();
             if (z) {
-                d.b.g0.a.q1.b.f.a.i(this.f45667a, this.f45668b, this.f45672f, this.f45674h, this.n);
+                d.b.g0.a.q1.b.f.a.i(this.f45668a, this.f45669b, this.f45673f, this.f45675h, this.n);
                 return;
             }
-            Context context = this.f45667a;
+            Context context = this.f45668a;
             if (context instanceof Activity) {
-                e.l((Activity) context, this.f45668b, this.f45672f, this.f45674h, this.n);
+                e.l((Activity) context, this.f45669b, this.f45673f, this.f45675h, this.n);
             } else {
-                d.b.g0.a.q1.b.f.a.i(context, this.f45668b, this.f45672f, this.f45674h, this.n);
+                d.b.g0.a.q1.b.f.a.i(context, this.f45669b, this.f45673f, this.f45675h, this.n);
             }
         }
     }

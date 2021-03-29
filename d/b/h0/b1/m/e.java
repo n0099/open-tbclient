@@ -43,7 +43,7 @@ import tbclient.PbContent;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49973a;
+    public static String f49974a;
 
     /* loaded from: classes3.dex */
     public static class a extends f {
@@ -115,7 +115,7 @@ public class e {
 
     /* renamed from: d.b.h0.b1.m.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1055e extends ClickableSpan {
+    public static class C1056e extends ClickableSpan {
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -244,9 +244,9 @@ public class e {
     public static SpannableString j(String str) {
         int b2;
         String str2;
-        a.C1042a c2;
+        a.C1043a c2;
         double d2;
-        double a2;
+        int a2;
         if (str == null || (b2 = TbFaceManager.e().b(str)) == 0) {
             return null;
         }
@@ -264,11 +264,9 @@ public class e {
             if (str != null && str.startsWith("bearchildren_")) {
                 d2 = 0.25d;
                 a2 = c2.a();
-                Double.isNaN(a2);
             } else {
                 d2 = 0.4d;
                 a2 = c2.a();
-                Double.isNaN(a2);
             }
             int i = (int) (a2 * d2);
             dVar.setBounds(new Rect(0, 0, i, i));
@@ -370,10 +368,10 @@ public class e {
                 eMRichTextAnyIconSpan2.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                 spannableString.setSpan(eMRichTextAnyIconSpan2, str.length() - 1, str.length() + 1, 33);
                 spannableString.setSpan(dVar, 0, str.length() - 1, 33);
-                if (f49973a != a2Var.w1()) {
-                    f49973a = a2Var.w1();
+                if (f49974a != a2Var.w1()) {
+                    f49974a = a2Var.w1();
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
-                    statisticItem.param("tid", f49973a);
+                    statisticItem.param("tid", f49974a);
                     statisticItem.param("obj_locate", a2Var.T1 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
                     return spannableString;
@@ -403,7 +401,7 @@ public class e {
         bVar.g(true);
         bVar.d(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
         if (WorkIntroSwitch.isOn()) {
-            spannableString.setSpan(new C1055e(), 0, spannableString.length(), 33);
+            spannableString.setSpan(new C1056e(), 0, spannableString.length(), 33);
         }
         spannableString.setSpan(bVar, 0, spannableString.length(), 33);
         return spannableString;
@@ -488,13 +486,13 @@ public class e {
         }
         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
         d.b.h0.t.l lVar = new d.b.h0.t.l();
-        lVar.f51481a = str;
+        lVar.f51482a = str;
         if (a2Var != null) {
-            lVar.f51482b = a2Var.a1();
-            lVar.f51483c = a2Var.N0();
+            lVar.f51483b = a2Var.a1();
+            lVar.f51484c = a2Var.N0();
         }
         d.b.h0.p0.b.i(lVar);
-        UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{lVar.f51481a, lVar.f51483c});
+        UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{lVar.f51482a, lVar.f51484c});
     }
 
     public static SpannableStringBuilder w(a2 a2Var, List<PbContent> list, String str) {

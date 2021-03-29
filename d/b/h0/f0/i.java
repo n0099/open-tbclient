@@ -11,17 +11,17 @@ public class i {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f50194a;
+        public static final /* synthetic */ int[] f50195a;
 
         static {
             int[] iArr = new int[DataType.values().length];
-            f50194a = iArr;
+            f50195a = iArr;
             try {
                 iArr[DataType.PARCELABLE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f50194a[DataType.SERIALIZABLE.ordinal()] = 2;
+                f50195a[DataType.SERIALIZABLE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -32,7 +32,7 @@ public class i {
         if (intExtra < 0) {
             return null;
         }
-        int i = a.f50194a[DataType.values()[intExtra].ordinal()];
+        int i = a.f50195a[DataType.values()[intExtra].ordinal()];
         if (i != 1) {
             if (i != 2) {
                 return null;

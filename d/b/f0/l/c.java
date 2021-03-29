@@ -18,37 +18,37 @@ import java.util.Calendar;
 import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43014a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f43015a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43015b = null;
+    public static String f43016b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43016c = null;
+    public static String f43017c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f43017d = 60000;
+    public static long f43018d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f43018e = 0;
+    public static long f43019e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f43019f = 0;
+    public static long f43020f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f43020g = 0;
+    public static long f43021g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f43021h = false;
+    public static boolean f43022h = false;
 
     static {
-        long j = f43017d * 60;
-        f43018e = j;
-        f43019f = j * 24;
+        long j = f43018d * 60;
+        f43019e = j;
+        f43020f = j * 24;
     }
 
     public static String a() {
@@ -65,21 +65,21 @@ public class c {
 
     public static String b(Context context) {
         try {
-            if (!TextUtils.isEmpty(f43016c)) {
-                return f43016c;
+            if (!TextUtils.isEmpty(f43017c)) {
+                return f43017c;
             }
             String o = d.b.f0.b.a.g(context).o();
-            f43016c = o;
+            f43017c = o;
             if (!TextUtils.isEmpty(o)) {
-                return f43016c;
+                return f43017c;
             }
             String str = new String(f());
-            f43016c = str;
+            f43017c = str;
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            d.b.f0.b.a.g(context).r(f43016c);
-            return f43016c;
+            d.b.f0.b.a.g(context).r(f43017c);
+            return f43017c;
         } catch (Throwable th) {
             d(th);
             return "";
@@ -101,7 +101,7 @@ public class c {
             jSONObject2.put("5", str);
             jSONObject2.put("6", System.currentTimeMillis());
             jSONObject2.put("7", "");
-            jSONObject2.put("8", d.b.f0.a.f42808b);
+            jSONObject2.put("8", d.b.f0.a.f42809b);
             jSONObject2.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "1.0.5");
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "");
@@ -133,7 +133,7 @@ public class c {
     public static byte[] f() {
         char[] cArr = new char[16];
         try {
-            char[] charArray = f43014a.toCharArray();
+            char[] charArray = f43015a.toCharArray();
             for (int i = 0; i < 16; i++) {
                 int nextInt = new Random().nextInt(62);
                 if (nextInt >= 0 && nextInt < charArray.length) {
@@ -217,23 +217,23 @@ public class c {
 
     public static String l(Context context) {
         try {
-            if (!TextUtils.isEmpty(f43015b)) {
-                return f43015b;
+            if (!TextUtils.isEmpty(f43016b)) {
+                return f43016b;
             }
             String j0 = d.b.f0.b.a.g(context).j0();
-            f43015b = j0;
+            f43016b = j0;
             if (!TextUtils.isEmpty(j0)) {
-                return f43015b;
+                return f43016b;
             }
             Signature signature = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0];
             if (signature != null) {
                 String d2 = g.d(signature.toByteArray());
-                f43015b = d2;
+                f43016b = d2;
                 if (TextUtils.isEmpty(d2)) {
                     return "";
                 }
-                d.b.f0.b.a.g(context).U(f43015b);
-                return f43015b;
+                d.b.f0.b.a.g(context).U(f43016b);
+                return f43016b;
             }
             return "";
         } catch (Throwable th) {
@@ -284,12 +284,12 @@ public class c {
 
     public static boolean o(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - f43020g < 1000) {
-            return f43021h;
+        if (currentTimeMillis - f43021g < 1000) {
+            return f43022h;
         }
         boolean z = s(context) && n(context);
-        f43021h = z;
-        f43020g = currentTimeMillis;
+        f43022h = z;
+        f43021g = currentTimeMillis;
         return z;
     }
 

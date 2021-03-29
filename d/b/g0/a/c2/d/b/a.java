@@ -6,22 +6,22 @@ import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43777a = new a();
+        public static final a f43778a = new a();
     }
 
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public static a b() {
-        return b.f43777a;
+        return b.f43778a;
     }
 
     public static float c(Context context) {

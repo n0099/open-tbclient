@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.searchbox.player.remote.BDPlayerServiceProxyWrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDRemotePlayerService extends RemotePlayerService {
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getKernelNetHandle() {

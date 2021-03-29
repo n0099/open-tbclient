@@ -91,7 +91,7 @@ public class a implements b {
                             com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb2.toString());
                             if (e instanceof SSLHandshakeException) {
                             }
-                            com.cmic.sso.sdk.c.a.f30669a.add(e);
+                            com.cmic.sso.sdk.c.a.f30670a.add(e);
                             if (e instanceof EOFException) {
                             }
                             a(outputStream);
@@ -174,7 +174,7 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    com.cmic.sso.sdk.c.a.f30669a.add(e);
+                                    com.cmic.sso.sdk.c.a.f30670a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
@@ -244,7 +244,7 @@ public class a implements b {
                         if (e instanceof SSLHandshakeException) {
                             aVar.a("isNeedToGetCert", true);
                         }
-                        com.cmic.sso.sdk.c.a.f30669a.add(e);
+                        com.cmic.sso.sdk.c.a.f30670a.add(e);
                         i2 = e instanceof EOFException ? 200050 : 102102;
                         a(outputStream);
                         a(inputStream);

@@ -7,10 +7,10 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f61759a;
+    public TbPageContext f61760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.b0.e f61760b;
+    public d.b.i0.b0.e f61761b;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -24,43 +24,43 @@ public class b {
     }
 
     public b(TbPageContext tbPageContext) {
-        this.f61759a = tbPageContext;
+        this.f61760a = tbPageContext;
     }
 
     public void a() {
-        d.b.i0.b0.e eVar = this.f61760b;
+        d.b.i0.b0.e eVar = this.f61761b;
         if (eVar != null) {
             eVar.H();
         }
     }
 
     public void b(View view) {
-        TbPageContext tbPageContext = this.f61759a;
+        TbPageContext tbPageContext = this.f61760a;
         if (tbPageContext == null || view == null) {
             return;
         }
-        if (this.f61760b == null) {
+        if (this.f61761b == null) {
             d.b.i0.b0.e eVar = new d.b.i0.b0.e(tbPageContext, view);
-            this.f61760b = eVar;
+            this.f61761b = eVar;
             eVar.c0(R.drawable.pic_sign_tip_down);
-            this.f61760b.R(1);
-            this.f61760b.N(32);
-            this.f61760b.K(2);
-            this.f61760b.U(false);
-            this.f61760b.L(new a());
-            int dimensionPixelSize = this.f61759a.getResources().getDimensionPixelSize(R.dimen.ds10);
-            int dimensionPixelSize2 = this.f61759a.getResources().getDimensionPixelSize(R.dimen.ds24);
-            int dimensionPixelSize3 = this.f61759a.getResources().getDimensionPixelSize(R.dimen.tbds44);
-            int dimensionPixelSize4 = this.f61759a.getResources().getDimensionPixelSize(R.dimen.tbds50);
-            int dimensionPixelSize5 = this.f61759a.getResources().getDimensionPixelSize(R.dimen.tbds6);
-            this.f61760b.Y(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
-            this.f61760b.f0(-dimensionPixelSize4);
-            this.f61760b.g0(-dimensionPixelSize5);
-            this.f61760b.M(3000);
+            this.f61761b.R(1);
+            this.f61761b.N(32);
+            this.f61761b.K(2);
+            this.f61761b.U(false);
+            this.f61761b.L(new a());
+            int dimensionPixelSize = this.f61760a.getResources().getDimensionPixelSize(R.dimen.ds10);
+            int dimensionPixelSize2 = this.f61760a.getResources().getDimensionPixelSize(R.dimen.ds24);
+            int dimensionPixelSize3 = this.f61760a.getResources().getDimensionPixelSize(R.dimen.tbds44);
+            int dimensionPixelSize4 = this.f61760a.getResources().getDimensionPixelSize(R.dimen.tbds50);
+            int dimensionPixelSize5 = this.f61760a.getResources().getDimensionPixelSize(R.dimen.tbds6);
+            this.f61761b.Y(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
+            this.f61761b.f0(-dimensionPixelSize4);
+            this.f61761b.g0(-dimensionPixelSize5);
+            this.f61761b.M(3000);
         }
-        String string = this.f61759a.getResources().getString(R.string.write_activity_tip_content);
-        this.f61760b.X(R.drawable.icon_pure_guide_haowu16);
-        this.f61760b.Q(true);
-        this.f61760b.i0(string, "commodity_tip_show_controller");
+        String string = this.f61760a.getResources().getString(R.string.write_activity_tip_content);
+        this.f61761b.X(R.drawable.icon_pure_guide_haowu16);
+        this.f61761b.Q(true);
+        this.f61761b.i0(string, "commodity_tip_show_controller");
     }
 }

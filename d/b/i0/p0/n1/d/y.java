@@ -47,7 +47,7 @@ public class y extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 return;
             }
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), this.x, false);
-            threadCardViewHolder.b().o(new a.C1117a(1));
+            threadCardViewHolder.b().o(new a.C1118a(1));
             d.b.i0.p0.j2.a.b(a2Var, 1, this.i, d.b.i0.p0.j2.d.J0, i0());
         }
     }

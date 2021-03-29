@@ -8,10 +8,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.b.h0.w.m;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RecorderManagerStatic {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Activity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<d.b.i0.c3.p0.a> run(CustomMessage<Activity> customMessage) {
@@ -19,7 +19,7 @@ public class RecorderManagerStatic {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
@@ -30,7 +30,7 @@ public class RecorderManagerStatic {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class c implements CustomMessageTask.CustomRunnable<Boolean> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Boolean> run(CustomMessage<Boolean> customMessage) {
@@ -38,7 +38,7 @@ public class RecorderManagerStatic {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -46,7 +46,7 @@ public class RecorderManagerStatic {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
@@ -57,7 +57,7 @@ public class RecorderManagerStatic {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class f implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
@@ -68,7 +68,7 @@ public class RecorderManagerStatic {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class g {
     }
 

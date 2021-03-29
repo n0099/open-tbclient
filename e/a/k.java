@@ -6,11 +6,11 @@ import dxm.sasdk.DxmSdkSensorsDataAPI;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DxmSdkSensorsDataAPI f67427a;
+    public static DxmSdkSensorsDataAPI f67432a;
 
     public static void a(String str, String str2) {
         try {
-            if (f67427a.y()) {
+            if (f67432a.y()) {
                 Log.i(str, str2);
             }
         } catch (Exception e2) {
@@ -39,6 +39,6 @@ public class k {
     }
 
     public static void d(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI) {
-        f67427a = dxmSdkSensorsDataAPI;
+        f67432a = dxmSdkSensorsDataAPI;
     }
 }

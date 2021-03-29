@@ -29,28 +29,28 @@ import d.b.i0.c3.e0;
 public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f16255a;
+    public TbPageContext f16256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f16256b;
+    public RelativeLayout f16257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f16257c;
+    public LinearLayout f16258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f16258d;
+    public TbImageView f16259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16259e;
+    public TextView f16260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16260f;
+    public TextView f16261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16261g;
+    public TextView f16262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16262h;
+    public TextView f16263h;
     public View i;
     public TextView j;
     public c2 k;
@@ -67,17 +67,17 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ViewHelper.checkUpIsLogin(FrsU9ViewHolder.this.f16255a.getPageActivity()) && l.C()) {
-                if (view == FrsU9ViewHolder.this.f16256b) {
+            if (ViewHelper.checkUpIsLogin(FrsU9ViewHolder.this.f16256a.getPageActivity()) && l.C()) {
+                if (view == FrsU9ViewHolder.this.f16257b) {
                     if (FrsU9ViewHolder.this.k == null || TextUtils.isEmpty(FrsU9ViewHolder.this.k.b())) {
                         return;
                     }
-                    TiebaStatic.eventStat(FrsU9ViewHolder.this.f16255a.getPageActivity(), "num_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(FrsU9ViewHolder.this.f16255a.getPageActivity()), new String[]{FrsU9ViewHolder.this.k.b()});
-                } else if (view != FrsU9ViewHolder.this.f16257c || FrsU9ViewHolder.this.l == null || TextUtils.isEmpty(FrsU9ViewHolder.this.l.A0())) {
+                    TiebaStatic.eventStat(FrsU9ViewHolder.this.f16256a.getPageActivity(), "num_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(FrsU9ViewHolder.this.f16256a.getPageActivity()), new String[]{FrsU9ViewHolder.this.k.b()});
+                } else if (view != FrsU9ViewHolder.this.f16258c || FrsU9ViewHolder.this.l == null || TextUtils.isEmpty(FrsU9ViewHolder.this.l.A0())) {
                 } else {
-                    TiebaStatic.eventStat(FrsU9ViewHolder.this.f16255a.getPageActivity(), "info_click", PrefetchEvent.STATE_CLICK, 1, "page", "frs");
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(FrsU9ViewHolder.this.f16255a.getPageActivity()), new String[]{FrsU9ViewHolder.this.l.A0()});
+                    TiebaStatic.eventStat(FrsU9ViewHolder.this.f16256a.getPageActivity(), "info_click", PrefetchEvent.STATE_CLICK, 1, "page", "frs");
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(FrsU9ViewHolder.this.f16256a.getPageActivity()), new String[]{FrsU9ViewHolder.this.l.A0()});
                 }
             }
         }
@@ -87,24 +87,24 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         super(view);
         this.o = 3;
         this.p = new a();
-        this.f16255a = tbPageContext;
-        this.f16256b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.f16257c = (LinearLayout) view.findViewById(R.id.u9_news_info);
+        this.f16256a = tbPageContext;
+        this.f16257b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
+        this.f16258c = (LinearLayout) view.findViewById(R.id.u9_news_info);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.f16258d = tbImageView;
+        this.f16259d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.f16259e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.f16260f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.f16261g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.f16262h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
+        this.f16260e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.f16261f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
+        this.f16262g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
+        this.f16263h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
         this.i = view.findViewById(R.id.u9_top_code_divider);
         ImageView imageView = (ImageView) view.findViewById(R.id.news_info_img);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
         this.j = (TextView) view.findViewById(R.id.news_info_text);
         this.n = view.findViewById(R.id.frs_list_item_u9_top_line);
-        SkinManager.setBackgroundResource(this.f16262h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f16262h, R.drawable.frs_text_color_selector);
+        SkinManager.setBackgroundResource(this.f16263h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f16263h, R.drawable.frs_text_color_selector);
         i();
     }
 
@@ -123,69 +123,69 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         }
         c2 c2Var = this.k;
         if (c2Var == null) {
-            this.f16256b.setVisibility(8);
+            this.f16257b.setVisibility(8);
             this.i.setVisibility(8);
         } else if (StringUtils.isNull(c2Var.g())) {
-            this.f16256b.setVisibility(8);
+            this.f16257b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
-            this.f16256b.setVisibility(0);
+            this.f16257b.setVisibility(0);
             this.i.setVisibility(0);
-            this.f16258d.W(this.k.e(), 10, false);
-            this.f16259e.setText(this.k.g());
+            this.f16259d.W(this.k.e(), 10, false);
+            this.f16260e.setText(this.k.g());
             if (StringUtils.isNull(y4.a())) {
-                this.f16262h.setVisibility(8);
+                this.f16263h.setVisibility(8);
             } else {
-                this.f16262h.setText(y4.a());
-                this.f16262h.setVisibility(0);
+                this.f16263h.setText(y4.a());
+                this.f16263h.setVisibility(0);
             }
             int c2 = this.k.c();
             if (c2 != 1 && c2 != 2) {
-                this.f16261g.setVisibility(8);
-                this.f16260f.setText(y4.f());
-                this.f16260f.setVisibility(0);
+                this.f16262g.setVisibility(8);
+                this.f16261f.setText(y4.f());
+                this.f16261f.setVisibility(0);
             } else {
                 if (StringUtils.isNull(this.k.h())) {
-                    this.f16260f.setVisibility(8);
+                    this.f16261f.setVisibility(8);
                 } else {
-                    String str = this.f16255a.getResources().getString(R.string.u9_shengyu) + this.k.h();
+                    String str = this.f16256a.getResources().getString(R.string.u9_shengyu) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f16260f.setText(spannableString);
-                    this.f16260f.setVisibility(0);
+                    this.f16261f.setText(spannableString);
+                    this.f16261f.setVisibility(0);
                 }
                 if (y4.d() <= 0) {
-                    this.f16261g.setVisibility(8);
+                    this.f16262g.setVisibility(8);
                 } else {
-                    String str2 = this.f16255a.getResources().getString(R.string.u9_worth) + this.k.d();
+                    String str2 = this.f16256a.getResources().getString(R.string.u9_worth) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f16261g.setText(spannableString2);
-                    this.f16261g.setVisibility(0);
+                    this.f16262g.setText(spannableString2);
+                    this.f16262g.setVisibility(0);
                 }
             }
         }
         if (this.l != null && !StringUtils.isNull(z4.B0())) {
-            this.f16257c.setVisibility(0);
+            this.f16258c.setVisibility(0);
             this.j.setText(z4.B0());
             return;
         }
-        this.f16257c.setVisibility(8);
+        this.f16258c.setVisibility(8);
     }
 
     public void h(int i) {
         if (this.o != i) {
             SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
-            SkinManager.setBackgroundResource(this.f16262h, R.drawable.frs_star_btn_like);
-            SkinManager.setViewTextColor(this.f16262h, R.drawable.frs_text_color_selector);
-            this.f16255a.getLayoutMode().k(i == 1);
-            this.f16255a.getLayoutMode().j(a());
+            SkinManager.setBackgroundResource(this.f16263h, R.drawable.frs_star_btn_like);
+            SkinManager.setViewTextColor(this.f16263h, R.drawable.frs_text_color_selector);
+            this.f16256a.getLayoutMode().k(i == 1);
+            this.f16256a.getLayoutMode().j(a());
             this.o = i;
         }
     }
 
     public void i() {
-        this.f16256b.setOnClickListener(this.p);
-        this.f16257c.setOnClickListener(this.p);
+        this.f16257b.setOnClickListener(this.p);
+        this.f16258c.setOnClickListener(this.p);
     }
 }

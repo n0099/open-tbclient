@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i.k0;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j extends d.b.b.j.e.a<d.b.i0.x.e0.l, ThreadCardViewHolder<d.b.i0.x.e0.l>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public BdUniqueId n;
@@ -22,7 +22,7 @@ public class j extends d.b.b.j.e.a<d.b.i0.x.e0.l, ThreadCardViewHolder<d.b.i0.x.
     public d.b.i.i r;
     public b0<d.b.i0.x.e0.l> s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.l> {
         public a() {
         }
@@ -35,7 +35,7 @@ public class j extends d.b.b.j.e.a<d.b.i0.x.e0.l, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.j.e.w {
         public b() {
         }

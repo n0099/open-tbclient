@@ -36,36 +36,36 @@ import org.json.JSONObject;
 public class a extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48568a = k.f45050a;
+    public static final boolean f48569a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f48569b;
+    public static final Set<String> f48570b;
 
     /* renamed from: d.b.g0.g.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0990a implements d.c {
+    public class C0991a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f48570a;
+        public final /* synthetic */ Context f48571a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f48571b;
+        public final /* synthetic */ c f48572b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f48572c;
+        public final /* synthetic */ CallbackHandler f48573c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f48573d;
+        public final /* synthetic */ UnitedSchemeEntity f48574d;
 
         /* renamed from: d.b.g0.g.t.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0991a implements Runnable {
-            public RunnableC0991a() {
+        public class RunnableC0992a implements Runnable {
+            public RunnableC0992a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.a.q1.b.f.d.f(C0990a.this.f48570a, "小游戏包下载成功").C();
+                d.b.g0.a.q1.b.f.d.f(C0991a.this.f48571a, "小游戏包下载成功").C();
             }
         }
 
@@ -79,25 +79,25 @@ public class a extends UnitedSchemeBaseInterceptor {
             public void a(int i, d.b.g0.a.u0.a aVar) {
                 d.b.g0.g.z.a.a aVar2;
                 a.c cVar = (a.c) aVar;
-                if (i != 0 || cVar == null || (aVar2 = cVar.f48546c) == null) {
+                if (i != 0 || cVar == null || (aVar2 = cVar.f48547c) == null) {
                     return;
                 }
-                C0990a.this.f48571b.I0(aVar2.f48693a);
-                C0990a c0990a = C0990a.this;
-                Intent W0 = c.W0(c0990a.f48570a, c0990a.f48571b);
+                C0991a.this.f48572b.I0(aVar2.f48694a);
+                C0991a c0991a = C0991a.this;
+                Intent W0 = c.W0(c0991a.f48571a, c0991a.f48572b);
                 W0.setAction(SwanAppLauncherActivity.SWAN_APP_LAUNCH_ACTION);
                 W0.setFlags(268435456);
-                C0990a.this.f48570a.startActivity(W0);
-                C0990a c0990a2 = C0990a.this;
-                UnitedSchemeUtility.callCallback(c0990a2.f48572c, c0990a2.f48573d, UnitedSchemeUtility.wrapCallbackParams(0));
+                C0991a.this.f48571a.startActivity(W0);
+                C0991a c0991a2 = C0991a.this;
+                UnitedSchemeUtility.callCallback(c0991a2.f48573c, c0991a2.f48574d, UnitedSchemeUtility.wrapCallbackParams(0));
             }
         }
 
-        public C0990a(Context context, c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f48570a = context;
-            this.f48571b = cVar;
-            this.f48572c = callbackHandler;
-            this.f48573d = unitedSchemeEntity;
+        public C0991a(Context context, c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            this.f48571a = context;
+            this.f48572b = cVar;
+            this.f48573c = callbackHandler;
+            this.f48574d = unitedSchemeEntity;
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -106,7 +106,7 @@ public class a extends UnitedSchemeBaseInterceptor {
 
         @Override // d.b.g0.a.u0.d.c
         public void onFailed() {
-            if (a.f48568a) {
+            if (a.f48569a) {
                 Log.d("SwanGameLaunchAction", "onFailed");
             }
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
@@ -114,19 +114,19 @@ public class a extends UnitedSchemeBaseInterceptor {
             aVar.h(9L);
             aVar.e("debug download pkg fail");
             e.a().f(aVar);
-            d.b.g0.a.y0.d.a.d(this.f48570a, aVar, 1, this.f48571b.G());
-            this.f48573d.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            d.b.g0.a.y0.d.a.d(this.f48571a, aVar, 1, this.f48572b.G());
+            this.f48574d.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         }
 
         @Override // d.b.g0.a.u0.d.c
         public void onSuccess() {
-            if (a.f48568a) {
+            if (a.f48569a) {
                 Log.d("SwanGameLaunchAction", "onSuccess");
             }
-            k0.X(new RunnableC0991a());
-            this.f48571b.R0("1.6.0");
-            this.f48571b.v0(true);
-            d.b.g0.a.y0.e.b c2 = a.this.c(this.f48571b);
+            k0.X(new RunnableC0992a());
+            this.f48572b.R0("1.6.0");
+            this.f48572b.v0(true);
+            d.b.g0.a.y0.e.b c2 = a.this.c(this.f48572b);
             if (c2 == null) {
                 return;
             }
@@ -136,7 +136,7 @@ public class a extends UnitedSchemeBaseInterceptor {
 
     static {
         HashSet hashSet = new HashSet();
-        f48569b = hashSet;
+        f48570b = hashSet;
         hashSet.add("_baiduboxapp");
     }
 
@@ -179,18 +179,18 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     public final String f(Uri uri) {
-        return i0.h(uri.getQuery(), f48569b);
+        return i0.h(uri.getQuery(), f48570b);
     }
 
     public final void g(c cVar, String str, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        d.C0848d c0848d = new d.C0848d();
+        d.C0849d c0849d = new d.C0849d();
         cVar.G();
-        c0848d.f46598a = str;
+        c0849d.f46599a = str;
         Context applicationContext = context.getApplicationContext();
         if (applicationContext == null) {
             return;
         }
-        d.b.g0.g.q.a.h(c0848d, new C0990a(applicationContext, cVar, callbackHandler, unitedSchemeEntity));
+        d.b.g0.g.q.a.h(c0849d, new C0991a(applicationContext, cVar, callbackHandler, unitedSchemeEntity));
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -214,7 +214,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             return true;
         }
         String d2 = d(uri);
-        if (f48568a) {
+        if (f48569a) {
             Log.d("SwanGameLaunchAction", "mAppId: " + d2);
         }
         if (TextUtils.isEmpty(d2)) {
@@ -233,7 +233,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         if (d.b.g0.g.i0.f.d.e() != null) {
             boolean exists = new File(d.b.g0.g.i0.f.d.e()).exists();
-            if (f48568a) {
+            if (f48569a) {
                 Log.d("V8LoadChecker", "is v8 load success: " + exists);
             }
             if (!exists) {
@@ -252,11 +252,11 @@ public class a extends UnitedSchemeBaseInterceptor {
             }
         }
         String e2 = e(d2, uri);
-        if (f48568a) {
+        if (f48569a) {
             Log.d("SwanGameLaunchAction", "pagePath: " + e2);
         }
         String f2 = f(uri);
-        if (f48568a) {
+        if (f48569a) {
             Log.d("SwanGameLaunchAction", "query: " + f2);
         }
         c.a aVar3 = (c.a) ((c.a) ((c.a) ((c.a) new c.a().q0(d2)).F0(uri.toString())).p0(1)).B0(false);
@@ -290,10 +290,10 @@ public class a extends UnitedSchemeBaseInterceptor {
                     }
                 } catch (JSONException e3) {
                     e = e3;
-                    if (f48568a) {
+                    if (f48569a) {
                         Log.d("SwanGameLaunchAction", "getLaunchFrom failed: " + Log.getStackTraceString(e));
                     }
-                    if (f48568a) {
+                    if (f48569a) {
                     }
                     param = unitedSchemeEntity.getParam("downloadUrl");
                     if (!d.b.g0.a.m1.a.a.u()) {
@@ -307,11 +307,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                 str = null;
             }
         }
-        if (f48568a) {
+        if (f48569a) {
             Log.d("SwanGameLaunchAction", "launchParams: " + aVar3);
         }
         param = unitedSchemeEntity.getParam("downloadUrl");
-        if ((!d.b.g0.a.m1.a.a.u() || f48568a) && !TextUtils.isEmpty(param)) {
+        if ((!d.b.g0.a.m1.a.a.u() || f48569a) && !TextUtils.isEmpty(param)) {
             aVar3.B0(true);
             g(aVar3, param, context, unitedSchemeEntity, callbackHandler);
             return true;

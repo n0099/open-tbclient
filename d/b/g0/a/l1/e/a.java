@@ -10,22 +10,21 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d.b.g0.a.l1.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0731a implements Comparator<String> {
+    /* loaded from: classes2.dex */
+    public static class C0732a implements Comparator<String> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(String str, String str2) {
-            long parseLong = Long.parseLong(str);
-            long parseLong2 = Long.parseLong(str2);
-            if (parseLong > parseLong2) {
+            int i = (Long.parseLong(str) > Long.parseLong(str2) ? 1 : (Long.parseLong(str) == Long.parseLong(str2) ? 0 : -1));
+            if (i > 0) {
                 return -1;
             }
-            return parseLong < parseLong2 ? 1 : 0;
+            return i < 0 ? 1 : 0;
         }
     }
 
@@ -37,7 +36,7 @@ public class a {
         }
         List asList = Arrays.asList(list);
         try {
-            Collections.sort(asList, new C0731a());
+            Collections.sort(asList, new C0732a());
         } catch (NumberFormatException e2) {
             d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e2));
         }
@@ -57,7 +56,7 @@ public class a {
             return;
         }
         h hVar = new h();
-        hVar.f48922g = str;
+        hVar.f48923g = str;
         hVar.j = b.q(j);
         d.b.g0.l.i.a.h().f(hVar);
     }

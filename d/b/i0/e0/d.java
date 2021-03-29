@@ -6,17 +6,17 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f54220a;
+    public static volatile d f54221a;
 
     public static final d c() {
-        if (f54220a == null) {
+        if (f54221a == null) {
             synchronized (d.class) {
-                if (f54220a == null) {
-                    f54220a = new d();
+                if (f54221a == null) {
+                    f54221a = new d();
                 }
             }
         }
-        return f54220a;
+        return f54221a;
     }
 
     public void a(String str, String str2) {

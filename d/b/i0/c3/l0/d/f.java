@@ -16,10 +16,10 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f53505a = new ArrayList<>();
+    public ArrayList<a> f53506a = new ArrayList<>();
 
     public void a(a aVar) {
-        this.f53505a.add(aVar);
+        this.f53506a.add(aVar);
     }
 
     public final void b(WebView webView, String str, String str2) {
@@ -38,7 +38,7 @@ public class f {
             cVar = new c();
         }
         if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.c()) && "addObserver".equals(eVar.a())) {
-            Iterator<a> it = this.f53505a.iterator();
+            Iterator<a> it = this.f53506a.iterator();
             while (it.hasNext()) {
                 cVar = it.next().addObserver(eVar.d(), cVar, true);
                 if (cVar.i()) {
@@ -55,7 +55,7 @@ public class f {
                 cVar.u(201);
                 return cVar;
             }
-            Iterator<a> it2 = this.f53505a.iterator();
+            Iterator<a> it2 = this.f53506a.iterator();
             while (it2.hasNext()) {
                 cVar = it2.next().dispatch(eVar, cVar);
                 if (cVar.h()) {
@@ -92,7 +92,7 @@ public class f {
         if (k.isEmpty(str)) {
             return null;
         }
-        Iterator<a> it = this.f53505a.iterator();
+        Iterator<a> it = this.f53506a.iterator();
         while (it.hasNext()) {
             list = it.next().processNotification(str, hashMap);
             if (!ListUtils.isEmpty(list)) {

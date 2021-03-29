@@ -9,16 +9,16 @@ import com.baidu.mobads.utils.q;
 public class f extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IXAdInstanceInfo f8466a;
+    public final /* synthetic */ IXAdInstanceInfo f8467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f8467b;
+    public final /* synthetic */ a f8468b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(a aVar, Looper looper, IXAdInstanceInfo iXAdInstanceInfo) {
         super(looper);
-        this.f8467b = aVar;
-        this.f8466a = iXAdInstanceInfo;
+        this.f8468b = aVar;
+        this.f8467a = iXAdInstanceInfo;
     }
 
     @Override // android.os.Handler
@@ -27,7 +27,7 @@ public class f extends Handler {
             return;
         }
         try {
-            this.f8467b.a(message, this.f8466a);
+            this.f8468b.a(message, this.f8467a);
         } catch (Exception e2) {
             q.a().d(e2);
         }

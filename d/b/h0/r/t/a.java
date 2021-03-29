@@ -14,14 +14,14 @@ import d.b.b.e.m.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f51044a = false;
+    public static boolean f51045a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f51045b = new HandlerC1089a();
+    public static Handler f51046b = new HandlerC1090a();
 
     /* renamed from: d.b.h0.r.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC1089a extends Handler {
+    public static class HandlerC1090a extends Handler {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
@@ -41,13 +41,13 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    if (a.f51044a) {
+                    if (a.f51045a) {
                         return;
                     }
-                    a.f51045b.sendEmptyMessageDelayed(1, 10000L);
+                    a.f51046b.sendEmptyMessageDelayed(1, 10000L);
                     return;
                 }
-                a.f51045b.removeMessages(1);
+                a.f51046b.removeMessages(1);
                 a.g();
             }
         }
@@ -58,7 +58,7 @@ public class a {
     }
 
     public static void e(boolean z) {
-        f51044a = z;
+        f51045a = z;
     }
 
     public static void f() {

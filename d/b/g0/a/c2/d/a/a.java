@@ -13,7 +13,7 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/brightness");
@@ -21,25 +21,25 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0116  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0109  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0117  */
     @Override // d.b.g0.a.t1.k.a0
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
         }
         JSONObject jSONObject = null;

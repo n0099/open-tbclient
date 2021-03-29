@@ -13,7 +13,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.t.d.g.b.b, SpecialLiveDoubleViewHolder
     public int p;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.g.b.b.f60606g);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.g.b.b.f60607g);
         this.m = tbPageContext;
     }
 
@@ -34,7 +34,7 @@ public class f extends d.b.b.j.e.a<d.b.i0.t.d.g.b.b, SpecialLiveDoubleViewHolder
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.g.b.b bVar, SpecialLiveDoubleViewHolder specialLiveDoubleViewHolder) {
-        specialLiveDoubleViewHolder.f14931a.v(bVar, this.p);
+        specialLiveDoubleViewHolder.f14932a.v(bVar, this.p);
         return specialLiveDoubleViewHolder.a();
     }
 

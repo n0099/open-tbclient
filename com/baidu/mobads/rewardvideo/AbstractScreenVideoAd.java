@@ -15,7 +15,7 @@ import java.util.HashMap;
 public abstract class AbstractScreenVideoAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public IXAdConstants4PDK.ActivityState f8508a = IXAdConstants4PDK.ActivityState.CREATE;
+    public IXAdConstants4PDK.ActivityState f8509a = IXAdConstants4PDK.ActivityState.CREATE;
     public ScreenVideoAdListener mAdListener;
     public a mAdProd;
     public final Context mContext;
@@ -107,7 +107,7 @@ public abstract class AbstractScreenVideoAd {
     }
 
     private void a(IXAdConstants4PDK.ActivityState activityState) {
-        this.f8508a = activityState;
+        this.f8509a = activityState;
         a aVar = this.mAdProd;
         if (aVar != null) {
             if (activityState == IXAdConstants4PDK.ActivityState.PAUSE) {

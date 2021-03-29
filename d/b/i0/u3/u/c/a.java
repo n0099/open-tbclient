@@ -7,14 +7,14 @@ import d.b.b.a.f;
 public abstract class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f61741a;
+    public f f61742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61742b;
+    public View f61743b;
 
     public a(f fVar) {
         super(fVar);
-        this.f61741a = fVar;
+        this.f61742a = fVar;
         d();
     }
 

@@ -22,16 +22,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8335a;
+        public final String f8336a;
 
         ActivityState(String str) {
-            this.f8335a = str;
+            this.f8336a = str;
         }
 
         public static ActivityState parse(String str) {
             ActivityState[] values;
             for (ActivityState activityState : values()) {
-                if (activityState.f8335a.equalsIgnoreCase(str)) {
+                if (activityState.f8336a.equalsIgnoreCase(str)) {
                     return activityState;
                 }
             }
@@ -39,7 +39,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8335a;
+            return this.f8336a;
         }
     }
 
@@ -50,16 +50,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8337a;
+        public final String f8338a;
 
         ScreenSizeMode(String str) {
-            this.f8337a = str;
+            this.f8338a = str;
         }
 
         public static ScreenSizeMode parse(String str) {
             ScreenSizeMode[] values;
             for (ScreenSizeMode screenSizeMode : values()) {
-                if (screenSizeMode.f8337a.equalsIgnoreCase(str)) {
+                if (screenSizeMode.f8338a.equalsIgnoreCase(str)) {
                     return screenSizeMode;
                 }
             }
@@ -67,7 +67,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8337a;
+            return this.f8338a;
         }
     }
 
@@ -83,16 +83,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8339a;
+        public final String f8340a;
 
         SlotState(String str) {
-            this.f8339a = str;
+            this.f8340a = str;
         }
 
         public static SlotState parse(String str) {
             SlotState[] values;
             for (SlotState slotState : values()) {
-                if (slotState.f8339a.equalsIgnoreCase(str)) {
+                if (slotState.f8340a.equalsIgnoreCase(str)) {
                     return slotState;
                 }
             }
@@ -100,7 +100,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8339a;
+            return this.f8340a;
         }
     }
 
@@ -126,16 +126,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8341a;
+        public final String f8342a;
 
         SlotType(String str) {
-            this.f8341a = str;
+            this.f8342a = str;
         }
 
         public static SlotType parse(String str) {
             SlotType[] values;
             for (SlotType slotType : values()) {
-                if (slotType.f8341a.equalsIgnoreCase(str)) {
+                if (slotType.f8342a.equalsIgnoreCase(str)) {
                     return slotType;
                 }
             }
@@ -143,7 +143,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8341a;
+            return this.f8342a;
         }
     }
 
@@ -154,16 +154,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8343a;
+        public final String f8344a;
 
         VideoAssetPlayMode(String str) {
-            this.f8343a = str;
+            this.f8344a = str;
         }
 
         public static VideoAssetPlayMode parse(String str) {
             VideoAssetPlayMode[] values;
             for (VideoAssetPlayMode videoAssetPlayMode : values()) {
-                if (videoAssetPlayMode.f8343a.equalsIgnoreCase(str)) {
+                if (videoAssetPlayMode.f8344a.equalsIgnoreCase(str)) {
                     return videoAssetPlayMode;
                 }
             }
@@ -171,7 +171,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8343a;
+            return this.f8344a;
         }
     }
 
@@ -184,16 +184,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8345a;
+        public final String f8346a;
 
         VideoState(String str) {
-            this.f8345a = str;
+            this.f8346a = str;
         }
 
         public static VideoState parse(String str) {
             VideoState[] values;
             for (VideoState videoState : values()) {
-                if (videoState.f8345a.equalsIgnoreCase(str)) {
+                if (videoState.f8346a.equalsIgnoreCase(str)) {
                     return videoState;
                 }
             }
@@ -201,7 +201,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8345a;
+            return this.f8346a;
         }
     }
 
@@ -212,16 +212,16 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8347a;
+        public final String f8348a;
 
         VisitorAction(String str) {
-            this.f8347a = str;
+            this.f8348a = str;
         }
 
         public static VisitorAction parse(String str) {
             VisitorAction[] values;
             for (VisitorAction visitorAction : values()) {
-                if (visitorAction.f8347a.equalsIgnoreCase(str)) {
+                if (visitorAction.f8348a.equalsIgnoreCase(str)) {
                     return visitorAction;
                 }
             }
@@ -229,7 +229,7 @@ public interface IXAdConstants4PDK {
         }
 
         public String getValue() {
-            return this.f8347a;
+            return this.f8348a;
         }
     }
 }

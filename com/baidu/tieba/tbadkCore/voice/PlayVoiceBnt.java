@@ -30,16 +30,16 @@ import d.b.b.e.p.l;
 public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21419e;
+    public int f21420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VoiceData$VoiceModel f21420f;
+    public VoiceData$VoiceModel f21421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21421g;
+    public ImageView f21422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21422h;
+    public TextView f21423h;
     public ProgressBar i;
     public Context j;
     public View.OnClickListener k;
@@ -54,9 +54,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     public PlayVoiceBnt(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21419e = 0;
+        this.f21420e = 0;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Voice_play_type);
-        this.f21419e = obtainStyledAttributes.getInteger(R$styleable.Voice_play_type_play_type, 0);
+        this.f21420e = obtainStyledAttributes.getInteger(R$styleable.Voice_play_type_play_type, 0);
         obtainStyledAttributes.recycle();
         d(context);
     }
@@ -92,10 +92,10 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             return;
         }
         if (this.l == null) {
-            k(this.f21420f.voice_status.intValue());
+            k(this.f21421f.voice_status.intValue());
         }
         j(i);
-        VoiceData$VoiceModel voiceData$VoiceModel = this.f21420f;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.f21421f;
         if (voiceData$VoiceModel != null) {
             voiceData$VoiceModel.elapse = i;
         }
@@ -103,34 +103,34 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     public final void b() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.f21419e == 0) {
+        if (this.f21420e == 0) {
             int i = skinType != 1 ? -13553101 : -6574132;
             SkinManager.setBackgroundResource(this, R.drawable.but_thread_voice_selector);
-            TextView textView = this.f21422h;
+            TextView textView = this.f21423h;
             if (textView != null) {
                 textView.setTextSize(0, this.j.getResources().getDimension(R.dimen.ds36));
-                this.f21422h.setTextColor(i);
+                this.f21423h.setTextColor(i);
             }
-            ImageView imageView = this.f21421g;
+            ImageView imageView = this.f21422g;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.anim.voice_btn_play_anim);
             }
-            this.f21421g.setPadding(l.e(getContext(), 12.0f), 0, 0, 0);
+            this.f21422g.setPadding(l.e(getContext(), 12.0f), 0, 0, 0);
         } else {
             int i2 = skinType != 1 ? -16777216 : -8682095;
             SkinManager.setBackgroundResource(this, R.drawable.but_thread_voice_reply_selector);
-            TextView textView2 = this.f21422h;
+            TextView textView2 = this.f21423h;
             if (textView2 != null) {
                 textView2.setTextSize(0, this.j.getResources().getDimension(R.dimen.ds28));
-                this.f21422h.setTextColor(i2);
+                this.f21423h.setTextColor(i2);
             }
-            ImageView imageView2 = this.f21421g;
+            ImageView imageView2 = this.f21422g;
             if (imageView2 != null) {
                 SkinManager.setImageResource(imageView2, R.anim.voice_btn_play_anim);
             }
-            this.f21421g.setPadding(l.e(getContext(), 8.0f), 0, 0, 0);
+            this.f21422g.setPadding(l.e(getContext(), 8.0f), 0, 0, 0);
         }
-        ((AnimationDrawable) this.f21421g.getDrawable()).stop();
+        ((AnimationDrawable) this.f21422g.getDrawable()).stop();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
@@ -138,7 +138,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         if (voiceData$VoiceModel == null) {
             return;
         }
-        if (this.f21420f != voiceData$VoiceModel) {
+        if (this.f21421f != voiceData$VoiceModel) {
             k(1);
         } else {
             k(voiceData$VoiceModel.voice_status.intValue());
@@ -156,8 +156,8 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     public void f(Context context) {
         LayoutInflater.from(context).inflate(R.layout.play_voice_bnt, (ViewGroup) this, true);
-        this.f21421g = (ImageView) findViewById(R.id.playingImg);
-        this.f21422h = (TextView) findViewById(R.id.playTime);
+        this.f21422g = (ImageView) findViewById(R.id.playingImg);
+        this.f21423h = (TextView) findViewById(R.id.playTime);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress);
         this.i = progressBar;
         if (progressBar != null) {
@@ -170,7 +170,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     public int[] getDefinedWH() {
         int[] iArr = {0, 0};
-        if (this.f21419e == 0) {
+        if (this.f21420e == 0) {
             iArr[0] = (int) getContext().getResources().getDimension(R.dimen.ds184);
             iArr[1] = (int) getContext().getResources().getDimension(R.dimen.ds86);
         } else {
@@ -185,9 +185,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         TbPageContext tbPageContext;
         Context context = getContext();
         if (context instanceof VoiceManager.j) {
-            return ((VoiceManager.j) context).getRealView(this.f21420f);
+            return ((VoiceManager.j) context).getRealView(this.f21421f);
         }
-        return ((j.a(getContext()) instanceof f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) ? ((VoiceManager.j) tbPageContext.getOrignalPage()).getRealView(this.f21420f) : this;
+        return ((j.a(getContext()) instanceof f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) ? ((VoiceManager.j) tbPageContext.getOrignalPage()).getRealView(this.f21421f) : this;
     }
 
     public VoiceManager getVoiceManager() {
@@ -204,15 +204,15 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
     public VoiceData$VoiceModel getVoiceModel() {
-        return this.f21420f;
+        return this.f21421f;
     }
 
     public final boolean h() {
-        if (this.f21420f == null) {
+        if (this.f21421f == null) {
             return false;
         }
         VoiceManager voiceManager = getVoiceManager();
-        return voiceManager == null || voiceManager.isPlayDoing(this.f21420f);
+        return voiceManager == null || voiceManager.isPlayDoing(this.f21421f);
     }
 
     public final int i(int i, int i2) {
@@ -227,25 +227,25 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     public void j(int i) {
         String formatVoiceTime;
         int i2;
-        VoiceData$VoiceModel voiceData$VoiceModel = this.f21420f;
-        if (voiceData$VoiceModel == null || this.f21422h == null) {
+        VoiceData$VoiceModel voiceData$VoiceModel = this.f21421f;
+        if (voiceData$VoiceModel == null || this.f21423h == null) {
             return;
         }
         int i3 = i / 1000;
         if (i3 > 0 && i3 < (i2 = voiceData$VoiceModel.duration)) {
             formatVoiceTime = VoiceManager.formatVoiceTime(i2 - i3);
         } else {
-            formatVoiceTime = VoiceManager.formatVoiceTime(this.f21420f.duration);
+            formatVoiceTime = VoiceManager.formatVoiceTime(this.f21421f.duration);
         }
-        String charSequence2String = k.charSequence2String(this.f21422h.getText(), null);
+        String charSequence2String = k.charSequence2String(this.f21423h.getText(), null);
         if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
-            this.f21422h.setText(formatVoiceTime);
+            this.f21423h.setText(formatVoiceTime);
         }
     }
 
     public void k(int i) {
         if (i == 3) {
-            ImageView imageView = this.f21421g;
+            ImageView imageView = this.f21422g;
             if (imageView != null) {
                 imageView.setVisibility(0);
             }
@@ -256,28 +256,28 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         p();
         if (i != 1) {
             if (i == 2) {
-                VoiceData$VoiceModel voiceData$VoiceModel = this.f21420f;
+                VoiceData$VoiceModel voiceData$VoiceModel = this.f21421f;
                 if (voiceData$VoiceModel != null) {
-                    this.f21422h.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
+                    this.f21423h.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
                 }
                 this.i.setVisibility(0);
                 return;
             }
             return;
         }
-        ImageView imageView2 = this.f21421g;
+        ImageView imageView2 = this.f21422g;
         if (imageView2 != null) {
             imageView2.setVisibility(0);
         }
-        VoiceData$VoiceModel voiceData$VoiceModel2 = this.f21420f;
+        VoiceData$VoiceModel voiceData$VoiceModel2 = this.f21421f;
         if (voiceData$VoiceModel2 != null) {
-            this.f21422h.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel2.duration));
+            this.f21423h.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel2.duration));
         }
         this.i.setVisibility(4);
     }
 
     public void l() {
-        this.f21420f = null;
+        this.f21421f = null;
         setTag(null);
         k(1);
     }
@@ -285,12 +285,12 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     public final void m() {
         int i;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.f21419e == 0) {
+        if (this.f21420e == 0) {
             i = skinType != 1 ? R.anim.voice_btn_play_anim : R.anim.voice_btn_play_anim_1;
         } else {
             i = skinType != 1 ? R.anim.voice_btn_play_anim : R.anim.voice_btn_play_anim_1;
         }
-        ImageView imageView = this.f21421g;
+        ImageView imageView = this.f21422g;
         if (imageView != null) {
             imageView.setImageResource(i);
         }
@@ -302,16 +302,16 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             animationDrawable.stop();
         }
         m();
-        AnimationDrawable animationDrawable2 = (AnimationDrawable) this.f21421g.getDrawable();
+        AnimationDrawable animationDrawable2 = (AnimationDrawable) this.f21422g.getDrawable();
         this.l = animationDrawable2;
         animationDrawable2.start();
     }
 
     public final void o() {
         TbadkCoreApplication.getInst().getSkinType();
-        ImageView imageView = this.f21421g;
+        ImageView imageView = this.f21422g;
         if (imageView != null) {
-            if (this.f21419e == 0) {
+            if (this.f21420e == 0) {
                 SkinManager.setImageResource(imageView, R.drawable.icon_thread_voice_reply_curve_three);
             } else {
                 SkinManager.setImageResource(imageView, R.drawable.icon_thread_voice_reply_curve_three);
@@ -321,7 +321,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f21420f != null) {
+        if (this.f21421f != null) {
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null) {
                 voiceManager.setAllowChangeVoiceMode(true);
@@ -331,7 +331,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
-            TiebaStatic.log(this.f21420f.from);
+            TiebaStatic.log(this.f21421f.from);
         }
     }
 
@@ -346,7 +346,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     }
 
     public void p() {
-        Drawable drawable = this.f21421g.getDrawable();
+        Drawable drawable = this.f21422g.getDrawable();
         if (drawable instanceof AnimationDrawable) {
             this.l = (AnimationDrawable) drawable;
         }
@@ -378,7 +378,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 voiceData$VoiceModel.duration = tbRichTextVoiceInfo.getDuration();
                 tbRichTextVoiceInfo.v(voiceData$VoiceModel);
             }
-            this.f21419e = tbRichTextVoiceInfo.s();
+            this.f21420e = tbRichTextVoiceInfo.s();
             setVoiceModel(voiceData$VoiceModel);
             b();
             obj = voiceData$VoiceModel;
@@ -392,17 +392,17 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
 
     public void setVoiceModel(VoiceData$VoiceModel voiceData$VoiceModel) {
         requestLayout();
-        this.f21420f = voiceData$VoiceModel;
+        this.f21421f = voiceData$VoiceModel;
         if (voiceData$VoiceModel == null) {
             return;
         }
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null && voiceManager.isPlayDoing(voiceData$VoiceModel)) {
             voiceManager.resetPlayView(this);
-            j(this.f21420f.elapse);
+            j(this.f21421f.elapse);
             return;
         }
-        k(this.f21420f.voice_status.intValue());
-        this.f21422h.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
+        k(this.f21421f.voice_status.intValue());
+        this.f21423h.setText(VoiceManager.formatVoiceTime(voiceData$VoiceModel.duration));
     }
 }

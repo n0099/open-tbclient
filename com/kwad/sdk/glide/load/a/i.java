@@ -17,7 +17,7 @@ public class i extends l<ParcelFileDescriptor> {
     @Override // com.kwad.sdk.glide.load.a.l
     /* renamed from: a */
     public ParcelFileDescriptor b(Uri uri, ContentResolver contentResolver) {
-        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7663a);
+        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7664a);
         if (openAssetFileDescriptor != null) {
             return openAssetFileDescriptor.getParcelFileDescriptor();
         }

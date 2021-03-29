@@ -7,19 +7,19 @@ import com.baidu.mobads.component.XAdView;
 public class w implements XAdView.Listener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SplashAd f8632a;
+    public final /* synthetic */ SplashAd f8633a;
 
     public w(SplashAd splashAd) {
-        this.f8632a = splashAd;
+        this.f8633a = splashAd;
     }
 
     @Override // com.baidu.mobads.component.XAdView.Listener
     public void onAttachedToWindow() {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.f8632a.f8150a;
+        aVar = this.f8633a.f8151a;
         if (aVar != null) {
-            aVar2 = this.f8632a.f8150a;
+            aVar2 = this.f8633a.f8151a;
             aVar2.n();
         }
     }
@@ -29,9 +29,9 @@ public class w implements XAdView.Listener {
     public void onDetachedFromWindow() {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.f8632a.f8150a;
+        aVar = this.f8633a.f8151a;
         if (aVar != null) {
-            aVar2 = this.f8632a.f8150a;
+            aVar2 = this.f8633a.f8151a;
             aVar2.o();
         }
     }
@@ -47,18 +47,18 @@ public class w implements XAdView.Listener {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
         com.baidu.mobads.production.f.a aVar3;
-        z = this.f8632a.f8152c;
+        z = this.f8633a.f8153c;
         if (z) {
-            aVar = this.f8632a.f8150a;
+            aVar = this.f8633a.f8151a;
             if (aVar != null) {
-                aVar2 = this.f8632a.f8150a;
+                aVar2 = this.f8633a.f8151a;
                 aVar2.A = false;
-                this.f8632a.f8152c = false;
-                aVar3 = this.f8632a.f8150a;
+                this.f8633a.f8153c = false;
+                aVar3 = this.f8633a.f8151a;
                 aVar3.c();
                 return;
             }
-            this.f8632a.a("展现失败，请检查splashAd参数是否正确");
+            this.f8633a.a("展现失败，请检查splashAd参数是否正确");
         }
     }
 
@@ -66,9 +66,9 @@ public class w implements XAdView.Listener {
     public void onWindowFocusChanged(boolean z) {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.f8632a.f8150a;
+        aVar = this.f8633a.f8151a;
         if (aVar != null) {
-            aVar2 = this.f8632a.f8150a;
+            aVar2 = this.f8633a.f8151a;
             aVar2.a(z);
         }
     }
@@ -77,9 +77,9 @@ public class w implements XAdView.Listener {
     public void onWindowVisibilityChanged(int i) {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.f8632a.f8150a;
+        aVar = this.f8633a.f8151a;
         if (aVar != null) {
-            aVar2 = this.f8632a.f8150a;
+            aVar2 = this.f8633a.f8151a;
             aVar2.b(i);
         }
     }

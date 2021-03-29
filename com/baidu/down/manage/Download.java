@@ -6,7 +6,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Download {
     public static final DecimalFormat DFOEMAT = new DecimalFormat("###0.0");
     public String mFromParam;
@@ -39,7 +39,7 @@ public class Download {
     public String mDownDir = "";
     public boolean mNotificationNeeded = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum DownloadState {
         WAITING,
         DOWNLOADING,
@@ -81,7 +81,7 @@ public class Download {
     }
 
     private void removeControlFlag(long j) {
-        this.mControlFlag = Long.valueOf((j ^ (-1)) & this.mControlFlag.longValue());
+        this.mControlFlag = Long.valueOf((~j) & this.mControlFlag.longValue());
     }
 
     public void addRequestHeader(String str, String str2) {

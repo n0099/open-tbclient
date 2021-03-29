@@ -6,18 +6,18 @@ import android.content.Context;
 public class JNIInitializer {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f6725a;
+    public static Context f6726a;
 
     public static Context getCachedContext() {
-        return f6725a;
+        return f6726a;
     }
 
     public static void setContext(Application application) {
         if (application == null) {
             throw new RuntimeException();
         }
-        if (f6725a == null) {
-            f6725a = application;
+        if (f6726a == null) {
+            f6726a = application;
         }
     }
 }

@@ -49,16 +49,16 @@ public class WheelView extends View {
     public float W;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f14356e;
+    public DividerType f14357e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f14357f;
+    public Context f14358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f14358g;
+    public Handler f14359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f14359h;
+    public GestureDetector f14360h;
     public b i;
     public boolean j;
     public boolean k;
@@ -147,10 +147,10 @@ public class WheelView extends View {
     }
 
     public final void f(Context context) {
-        this.f14357f = context;
-        this.f14358g = new d.b.h0.b1.o.b.d.b(this);
+        this.f14358f = context;
+        this.f14359g = new d.b.h0.b1.o.b.d.b(this);
         GestureDetector gestureDetector = new GestureDetector(context, new d.b.h0.b1.o.b.c.a(this));
-        this.f14359h = gestureDetector;
+        this.f14360h = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.C = true;
         this.G = 0.0f;
@@ -197,7 +197,7 @@ public class WheelView extends View {
 
     @Override // android.view.View
     public Handler getHandler() {
-        return this.f14358g;
+        return this.f14359g;
     }
 
     public int getInitPosition() {
@@ -264,14 +264,10 @@ public class WheelView extends View {
         } else if (i != 17) {
         } else {
             if (!this.j && (str2 = this.r) != null && !str2.equals("") && this.k) {
-                double width = this.N - rect.width();
-                Double.isNaN(width);
-                this.U = (int) (width * 0.25d);
-                return;
+                this.U = (int) ((this.N - rect.width()) * 0.25d);
+            } else {
+                this.U = (int) ((this.N - rect.width()) * 0.5d);
             }
-            double width2 = this.N - rect.width();
-            Double.isNaN(width2);
-            this.U = (int) (width2 * 0.5d);
         }
     }
 
@@ -287,14 +283,10 @@ public class WheelView extends View {
         } else if (i != 17) {
         } else {
             if (!this.j && (str2 = this.r) != null && !str2.equals("") && this.k) {
-                double width = this.N - rect.width();
-                Double.isNaN(width);
-                this.V = (int) (width * 0.25d);
-                return;
+                this.V = (int) ((this.N - rect.width()) * 0.25d);
+            } else {
+                this.V = (int) ((this.N - rect.width()) * 0.5d);
             }
-            double width2 = this.N - rect.width();
-            Double.isNaN(width2);
-            this.V = (int) (width2 * 0.5d);
         }
     }
 
@@ -366,7 +358,7 @@ public class WheelView extends View {
             }
             i3++;
         }
-        if (this.f14356e == DividerType.WRAP) {
+        if (this.f14357e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i = (this.N - this.t) / 2;
             } else {
@@ -392,7 +384,6 @@ public class WheelView extends View {
         for (int i6 = 0; i6 < this.L; i6++) {
             canvas.save();
             double d2 = ((this.w * i6) - f2) / this.O;
-            Double.isNaN(d2);
             float f11 = (float) (90.0d - ((d2 / 3.141592653589793d) * 180.0d));
             if (f11 < 90.0f && f11 > -90.0f) {
                 float pow = (float) Math.pow(Math.abs(f11) / 90.0f, 2.2d);
@@ -400,46 +391,37 @@ public class WheelView extends View {
                 o(c2);
                 l(c2);
                 m(c2);
-                double d3 = this.O;
-                double cos = Math.cos(d2);
-                double d4 = this.O;
-                Double.isNaN(d4);
-                Double.isNaN(d3);
-                double d5 = d3 - (cos * d4);
-                double sin = Math.sin(d2);
-                double d6 = this.u;
-                Double.isNaN(d6);
-                float f12 = (float) (d5 - ((sin * d6) / 2.0d));
-                canvas.translate(0.0f, f12);
-                float f13 = this.D;
-                if (f12 <= f13 && this.u + f12 >= f13) {
+                float cos = (float) ((this.O - (Math.cos(d2) * this.O)) - ((Math.sin(d2) * this.u) / 2.0d));
+                canvas.translate(0.0f, cos);
+                float f12 = this.D;
+                if (cos <= f12 && this.u + cos >= f12) {
                     canvas.save();
-                    canvas.clipRect(0.0f, 0.0f, this.N, this.D - f12);
+                    canvas.clipRect(0.0f, 0.0f, this.N, this.D - cos);
                     canvas.scale(1.0f, ((float) Math.sin(d2)) * 0.8f);
                     canvas.drawText(c2, this.V, this.u, this.n);
                     canvas.restore();
                     canvas.save();
-                    canvas.clipRect(0.0f, this.D - f12, this.N, (int) this.w);
+                    canvas.clipRect(0.0f, this.D - cos, this.N, (int) this.w);
                     canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
                     canvas.drawText(c2, this.U, this.u - this.W, this.o);
                     canvas.restore();
                 } else {
-                    float f14 = this.E;
-                    if (f12 <= f14 && this.u + f12 >= f14) {
+                    float f13 = this.E;
+                    if (cos <= f13 && this.u + cos >= f13) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.N, this.E - f12);
+                        canvas.clipRect(0.0f, 0.0f, this.N, this.E - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
                         canvas.drawText(c2, this.U, this.u - this.W, this.o);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.E - f12, this.N, (int) this.w);
+                        canvas.clipRect(0.0f, this.E - cos, this.N, (int) this.w);
                         canvas.scale(1.0f, ((float) Math.sin(d2)) * 0.8f);
                         canvas.drawText(c2, this.V, this.u, this.n);
                         canvas.restore();
                     } else {
-                        if (f12 >= this.D) {
+                        if (cos >= this.D) {
                             int i7 = this.u;
-                            if (i7 + f12 <= this.E) {
+                            if (i7 + cos <= this.E) {
                                 canvas.drawText(c2, this.U, i7 - this.W, this.o);
                                 this.I = this.J - ((this.L / 2) - i6);
                             }
@@ -474,8 +456,7 @@ public class WheelView extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        double d2;
-        boolean onTouchEvent = this.f14359h.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f14360h.onTouchEvent(motionEvent);
         float f2 = (-this.H) * this.w;
         float a2 = ((this.q.a() - 1) - this.H) * this.w;
         int action = motionEvent.getAction();
@@ -496,16 +477,8 @@ public class WheelView extends View {
         } else if (!onTouchEvent) {
             float y = motionEvent.getY();
             int i = this.O;
-            double acos = Math.acos((i - y) / i);
-            double d3 = this.O;
-            Double.isNaN(d3);
-            double d4 = acos * d3;
             float f4 = this.w;
-            double d5 = f4 / 2.0f;
-            Double.isNaN(d5);
-            double d6 = d4 + d5;
-            Double.isNaN(f4);
-            this.P = (int) (((((int) (d6 / d2)) - (this.L / 2)) * f4) - (((this.G % f4) + f4) % f4));
+            this.P = (int) (((((int) (((Math.acos((i - y) / i) * this.O) + (f4 / 2.0f)) / f4)) - (this.L / 2)) * f4) - (((this.G % f4) + f4) % f4));
             if (System.currentTimeMillis() - this.R > 120) {
                 r(ACTION.DAGGLE);
             } else {
@@ -524,12 +497,8 @@ public class WheelView extends View {
         }
         k();
         int i = (int) (this.w * (this.L - 1));
-        double d2 = i * 2;
-        Double.isNaN(d2);
-        this.M = (int) (d2 / 3.141592653589793d);
-        double d3 = i;
-        Double.isNaN(d3);
-        this.O = (int) (d3 / 3.141592653589793d);
+        this.M = (int) ((i * 2) / 3.141592653589793d);
+        this.O = (int) (i / 3.141592653589793d);
         this.N = View.MeasureSpec.getSize(this.S);
         int i2 = this.M;
         float f2 = this.w;
@@ -591,7 +560,7 @@ public class WheelView extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.f14356e = dividerType;
+        this.f14357e = dividerType;
     }
 
     public void setGravity(int i) {
@@ -629,7 +598,7 @@ public class WheelView extends View {
 
     public final void setTextSize(float f2) {
         if (f2 > 0.0f) {
-            int i = (int) (this.f14357f.getResources().getDisplayMetrics().density * f2);
+            int i = (int) (this.f14358f.getResources().getDisplayMetrics().density * f2);
             this.s = i;
             this.n.setTextSize(i);
             this.o.setTextSize(this.s);
@@ -671,14 +640,17 @@ public class WheelView extends View {
         float f2 = getResources().getDisplayMetrics().density;
         if (f2 < 1.0f) {
             this.W = 2.4f;
-        } else if (1.0f <= f2 && f2 < 2.0f) {
-            this.W = 3.6f;
-        } else if (1.0f <= f2 && f2 < 2.0f) {
-            this.W = 4.5f;
-        } else if (2.0f <= f2 && f2 < 3.0f) {
-            this.W = 6.0f;
-        } else if (f2 >= 3.0f) {
-            this.W = f2 * 2.5f;
+        } else {
+            int i = (1.0f > f2 ? 1 : (1.0f == f2 ? 0 : -1));
+            if (i <= 0 && f2 < 2.0f) {
+                this.W = 3.6f;
+            } else if (i <= 0 && f2 < 2.0f) {
+                this.W = 4.5f;
+            } else if (2.0f <= f2 && f2 < 3.0f) {
+                this.W = 6.0f;
+            } else if (f2 >= 3.0f) {
+                this.W = f2 * 2.5f;
+            }
         }
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.pickerview, 0, 0);

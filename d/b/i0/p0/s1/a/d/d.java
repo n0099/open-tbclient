@@ -12,26 +12,26 @@ import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 public class d extends d.b.i0.p0.s1.a.e.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public LabelDataList f58550g;
+    public LabelDataList f58551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f58551h;
+    public Context f58552h;
     public int i = 0;
     public final int j;
 
     public d(Context context) {
-        this.f58551h = context;
+        this.f58552h = context;
         this.j = context.getResources().getDimensionPixelSize(R.dimen.ds64);
     }
 
     @Override // d.b.i0.p0.s1.a.e.a
     public int b() {
-        return ListUtils.getCount(this.f58550g);
+        return ListUtils.getCount(this.f58551g);
     }
 
     @Override // d.b.i0.p0.s1.a.e.a
     public Object c(int i) {
-        return ListUtils.getItem(this.f58550g, i);
+        return ListUtils.getItem(this.f58551g, i);
     }
 
     @Override // d.b.i0.p0.s1.a.e.a
@@ -52,9 +52,9 @@ public class d extends d.b.i0.p0.s1.a.e.a {
         } else {
             m = m();
         }
-        d.b.i0.p0.s1.a.a.a aVar = (d.b.i0.p0.s1.a.a.a) ListUtils.getItem(this.f58550g, i);
+        d.b.i0.p0.s1.a.a.a aVar = (d.b.i0.p0.s1.a.a.a) ListUtils.getItem(this.f58551g, i);
         if (aVar != null) {
-            m.setText(aVar.f58519b);
+            m.setText(aVar.f58520b);
         }
         l(m, this.i == i);
         return m;
@@ -63,7 +63,7 @@ public class d extends d.b.i0.p0.s1.a.e.a {
     @Override // d.b.i0.p0.s1.a.e.a
     public void j(int i) {
         this.i = i;
-        this.f58550g.setSelectedIndex(i);
+        this.f58551g.setSelectedIndex(i);
         notifyDataSetChanged();
     }
 
@@ -78,15 +78,15 @@ public class d extends d.b.i0.p0.s1.a.e.a {
     }
 
     public final TextView m() {
-        TextView textView = new TextView(this.f58551h);
-        textView.setTextSize(0, this.f58551h.getResources().getDimensionPixelSize(R.dimen.fontsize26));
+        TextView textView = new TextView(this.f58552h);
+        textView.setTextSize(0, this.f58552h.getResources().getDimensionPixelSize(R.dimen.fontsize26));
         textView.setGravity(17);
         textView.setHeight(d());
         return textView;
     }
 
     public void n(LabelDataList labelDataList) {
-        this.f58550g = labelDataList;
+        this.f58551g = labelDataList;
         notifyDataSetChanged();
     }
 }

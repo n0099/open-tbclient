@@ -3,19 +3,19 @@ package com.baidu.lcp.sdk.client.bean;
 public class BLCPRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6377a = -1;
+    public long f6378a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6378b = -1;
+    public long f6379b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f6379c = new byte[0];
+    public byte[] f6380c = new byte[0];
 
     /* renamed from: d  reason: collision with root package name */
-    public long f6380d = -1;
+    public long f6381d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public SendTimeoutSecond f6381e = SendTimeoutSecond.TIMEOUT_120s;
+    public SendTimeoutSecond f6382e = SendTimeoutSecond.TIMEOUT_120s;
 
     /* loaded from: classes2.dex */
     public enum SendTimeoutSecond {

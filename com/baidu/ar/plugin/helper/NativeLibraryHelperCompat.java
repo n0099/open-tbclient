@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NativeLibraryHelperCompat {
     public static final int copyNativeBinaries(File file, File file2) {
         if (Build.VERSION.SDK_INT >= 21) {

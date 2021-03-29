@@ -20,7 +20,7 @@ public final class ObservableConcatMap$ConcatMapDelayErrorObserver<T, R> extends
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68054d;
+    public b f68059d;
     public volatile boolean done;
     public final AtomicThrowable error = new AtomicThrowable();
     public final h<? super T, ? extends n<? extends R>> mapper;
@@ -56,7 +56,7 @@ public final class ObservableConcatMap$ConcatMapDelayErrorObserver<T, R> extends
             ObservableConcatMap$ConcatMapDelayErrorObserver<?, R> observableConcatMap$ConcatMapDelayErrorObserver = this.parent;
             if (observableConcatMap$ConcatMapDelayErrorObserver.error.addThrowable(th)) {
                 if (!observableConcatMap$ConcatMapDelayErrorObserver.tillTheEnd) {
-                    observableConcatMap$ConcatMapDelayErrorObserver.f68054d.dispose();
+                    observableConcatMap$ConcatMapDelayErrorObserver.f68059d.dispose();
                 }
                 observableConcatMap$ConcatMapDelayErrorObserver.active = false;
                 observableConcatMap$ConcatMapDelayErrorObserver.drain();
@@ -87,7 +87,7 @@ public final class ObservableConcatMap$ConcatMapDelayErrorObserver<T, R> extends
     @Override // f.a.t.b
     public void dispose() {
         this.cancelled = true;
-        this.f68054d.dispose();
+        this.f68059d.dispose();
         this.observer.dispose();
     }
 
@@ -145,7 +145,7 @@ public final class ObservableConcatMap$ConcatMapDelayErrorObserver<T, R> extends
                             } catch (Throwable th2) {
                                 f.a.u.a.a(th2);
                                 this.cancelled = true;
-                                this.f68054d.dispose();
+                                this.f68059d.dispose();
                                 fVar.clear();
                                 atomicThrowable.addThrowable(th2);
                                 oVar.onError(atomicThrowable.terminate());
@@ -155,7 +155,7 @@ public final class ObservableConcatMap$ConcatMapDelayErrorObserver<T, R> extends
                     } catch (Throwable th3) {
                         f.a.u.a.a(th3);
                         this.cancelled = true;
-                        this.f68054d.dispose();
+                        this.f68059d.dispose();
                         atomicThrowable.addThrowable(th3);
                         oVar.onError(atomicThrowable.terminate());
                         return;
@@ -199,8 +199,8 @@ public final class ObservableConcatMap$ConcatMapDelayErrorObserver<T, R> extends
 
     @Override // f.a.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68054d, bVar)) {
-            this.f68054d = bVar;
+        if (DisposableHelper.validate(this.f68059d, bVar)) {
+            this.f68059d = bVar;
             if (bVar instanceof f.a.x.c.b) {
                 f.a.x.c.b bVar2 = (f.a.x.c.b) bVar;
                 int requestFusion = bVar2.requestFusion(3);

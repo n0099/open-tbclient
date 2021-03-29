@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WriteThreadMng {
     public static final boolean DEBUG = false;
     public static final String TAG = "WriteThreadMng";

@@ -11,19 +11,19 @@ import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.CrossPushMessage;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends d {
 
     /* renamed from: com.baidu.android.pushservice.message.a.c$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3431a;
+        public static final /* synthetic */ int[] f3432a;
 
         static {
             int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
-            f3431a = iArr;
+            f3432a = iArr;
             try {
                 iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -66,16 +66,16 @@ public class c extends d {
             String f2 = kVar.f();
             int a2 = kVar.a();
             byte[] h2 = kVar.h();
-            CrossPushMessage b2 = j.b(this.f3432a, f2, c2, bArr);
-            if (!this.f3432a.getPackageName().equals(b2.mPkgName) || TextUtils.isEmpty(b2.f3420a)) {
+            CrossPushMessage b2 = j.b(this.f3433a, f2, c2, bArr);
+            if (!this.f3433a.getPackageName().equals(b2.mPkgName) || TextUtils.isEmpty(b2.f3421a)) {
                 i = 2;
-            } else if (!m.b(this.f3432a, b2.f3420a)) {
+            } else if (!m.b(this.f3433a, b2.f3421a)) {
                 i = 8;
-            } else if (a(this.f3432a, b2.f3420a)) {
-                if (AnonymousClass1.f3431a[com.baidu.android.pushservice.a.d.a(this.f3432a, c2).a().ordinal()] != 1) {
+            } else if (a(this.f3433a, b2.f3421a)) {
+                if (AnonymousClass1.f3432a[com.baidu.android.pushservice.a.d.a(this.f3433a, c2).a().ordinal()] != 1) {
                     i = 7;
                 } else {
-                    f.a(this.f3432a, b2, c2, h2, bArr, a2);
+                    f.a(this.f3433a, b2, c2, h2, bArr, a2);
                     i = 1;
                 }
             }

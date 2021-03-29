@@ -13,25 +13,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44285a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+    public static final String f44286a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44286b;
+    public static final String f44287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44287c;
+    public static final String f44288c;
 
     static {
         StringBuilder sb = new StringBuilder();
         sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
         sb.append(File.separator);
         sb.append("libs");
-        f44286b = sb.toString();
-        f44287c = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+        f44287b = sb.toString();
+        f44288c = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x0120 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -43,11 +43,11 @@ public class a {
         FileOutputStream fileOutputStream;
         FileChannel fileChannel;
         FileLock fileLock;
-        File file = new File(f44285a + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(f44286a + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(f44286b);
+        File file2 = new File(f44287b);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -210,9 +210,9 @@ public class a {
         boolean z2 = true;
         if (b()) {
             a();
-            return f.d(d.a("zeusv8", f44286b, true), (d.a("arcore_sdk_c", f44285a, false) && d.a("arcore_sdk_jni", f44285a, false) && d.a("c++_shared", f44285a, false) && d.a("v8.engine", f44285a, false)) ? false : false);
+            return f.d(d.a("zeusv8", f44287b, true), (d.a("arcore_sdk_c", f44286a, false) && d.a("arcore_sdk_jni", f44286a, false) && d.a("c++_shared", f44286a, false) && d.a("v8.engine", f44286a, false)) ? false : false);
         }
-        d.a("zeusv8", f44287c, true);
-        return f.c(d.a("v8.engine", f44287c, true));
+        d.a("zeusv8", f44288c, true);
+        return f.c(d.a("v8.engine", f44288c, true));
     }
 }

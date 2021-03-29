@@ -62,13 +62,18 @@ public final class FlowableObserveOn$ObserveOnSubscriber<T> extends FlowableObse
 
     @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn$BaseObserveOnSubscriber
     public void runAsync() {
+        int i;
         c<? super T> cVar = this.actual;
         f<T> fVar = this.queue;
         long j = this.produced;
-        int i = 1;
+        int i2 = 1;
         while (true) {
             long j2 = this.requested.get();
-            while (j != j2) {
+            while (true) {
+                i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                if (i == 0) {
+                    break;
+                }
                 boolean z = this.done;
                 try {
                     Object obj = (T) fVar.poll();
@@ -97,18 +102,18 @@ public final class FlowableObserveOn$ObserveOnSubscriber<T> extends FlowableObse
                     return;
                 }
             }
-            if (j == j2 && checkTerminated(this.done, fVar.isEmpty(), cVar)) {
+            if (i == 0 && checkTerminated(this.done, fVar.isEmpty(), cVar)) {
                 return;
             }
-            int i2 = get();
-            if (i == i2) {
+            int i3 = get();
+            if (i2 == i3) {
                 this.produced = j;
-                i = addAndGet(-i);
-                if (i == 0) {
+                i2 = addAndGet(-i2);
+                if (i2 == 0) {
                     return;
                 }
             } else {
-                i = i2;
+                i2 = i3;
             }
         }
     }

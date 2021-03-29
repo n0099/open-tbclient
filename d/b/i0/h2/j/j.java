@@ -42,7 +42,7 @@ public class j extends d.b.i0.x.b<d.b.i0.h2.e.m> {
         this.o = (TextView) m.findViewById(R.id.card_person_vedio_list_title);
         HTypeListView hTypeListView = (HTypeListView) this.n.findViewById(R.id.card_person_vedio_view_pager);
         this.p = hTypeListView;
-        this.q = new d.b.i0.h2.c.o(this.f62180f, hTypeListView);
+        this.q = new d.b.i0.h2.c.o(this.f62181f, hTypeListView);
     }
 
     @Override // d.b.i0.x.b
@@ -52,10 +52,10 @@ public class j extends d.b.i0.x.b<d.b.i0.h2.e.m> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (i == this.f62179e) {
+        if (i == this.f62180e) {
             return;
         }
-        this.f62179e = i;
+        this.f62180e = i;
         SkinManager.setBackgroundColor(this.n, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
     }
@@ -65,17 +65,17 @@ public class j extends d.b.i0.x.b<d.b.i0.h2.e.m> {
     }
 
     public final void v() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.f62181g).createNormalCfg(this.m, BaiduWalletServiceProviderMap.PLUGIN_PERSONAL)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.f62182g).createNormalCfg(this.m, BaiduWalletServiceProviderMap.PLUGIN_PERSONAL)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i0.x.b
     /* renamed from: w */
     public void n(d.b.i0.h2.e.m mVar) {
-        if (mVar != null && !ListUtils.isEmpty(mVar.f55308f)) {
-            this.m = mVar.f55307e;
+        if (mVar != null && !ListUtils.isEmpty(mVar.f55309f)) {
+            this.m = mVar.f55308e;
             this.o.setText(R.string.video_title_str);
-            this.p.setData(x(mVar.f55308f));
+            this.p.setData(x(mVar.f55309f));
             this.q.b(this.r);
             return;
         }
@@ -88,13 +88,13 @@ public class j extends d.b.i0.x.b<d.b.i0.h2.e.m> {
             return list;
         }
         List<d.b.b.j.e.n> arrayList = new ArrayList<>(list);
-        int g2 = d.b.b.e.p.l.g(this.f62180f.getPageActivity(), R.dimen.ds490);
-        int g3 = d.b.b.e.p.l.g(this.f62180f.getPageActivity(), R.dimen.ds32);
+        int g2 = d.b.b.e.p.l.g(this.f62181f.getPageActivity(), R.dimen.ds490);
+        int g3 = d.b.b.e.p.l.g(this.f62181f.getPageActivity(), R.dimen.ds32);
         if (count > 3) {
             arrayList = arrayList.subList(0, 3);
             d.b.i0.h2.e.h hVar = new d.b.i0.h2.e.h();
-            hVar.f55291e = d.b.b.e.p.l.g(this.f62180f.getPageActivity(), R.dimen.ds120);
-            hVar.f55292f = d.b.b.e.p.l.g(this.f62180f.getPageActivity(), R.dimen.ds396);
+            hVar.f55292e = d.b.b.e.p.l.g(this.f62181f.getPageActivity(), R.dimen.ds120);
+            hVar.f55293f = d.b.b.e.p.l.g(this.f62181f.getPageActivity(), R.dimen.ds396);
             ListUtils.add(arrayList, hVar);
         }
         d.b.i0.e2.d dVar = new d.b.i0.e2.d(g3, g2);

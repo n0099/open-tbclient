@@ -13,9 +13,9 @@ import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes6.dex */
 public class TfrfBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     /* loaded from: classes6.dex */

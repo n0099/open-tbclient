@@ -1,7 +1,7 @@
 package d.b.i0.i1.o;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a(int i, HashMap<String, Object> hashMap);
 

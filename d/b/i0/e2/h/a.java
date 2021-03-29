@@ -26,27 +26,27 @@ public class a extends d.b.b.j.e.a<d.b.i0.e2.d, PersonCenterIntervalHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
     public PersonCenterIntervalHolder R(ViewGroup viewGroup) {
-        return new PersonCenterIntervalHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.item_person_center_list_interval, viewGroup, false));
+        return new PersonCenterIntervalHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.item_person_center_list_interval, viewGroup, false));
     }
 
     public View i0(int i, View view, ViewGroup viewGroup, d.b.i0.e2.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
         if (dVar != null && personCenterIntervalHolder != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (personCenterIntervalHolder.f20213a != skinType) {
-                personCenterIntervalHolder.f20213a = skinType;
-                SkinManager.setBackgroundResource(personCenterIntervalHolder.f20214b, dVar.f54522g);
+            if (personCenterIntervalHolder.f20214a != skinType) {
+                personCenterIntervalHolder.f20214a = skinType;
+                SkinManager.setBackgroundResource(personCenterIntervalHolder.f20215b, dVar.f54523g);
             }
-            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.f20214b.getLayoutParams();
-            int i2 = dVar.f54520e;
+            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.f20215b.getLayoutParams();
+            int i2 = dVar.f54521e;
             if (i2 > 0) {
                 layoutParams.height = i2;
             }
-            int i3 = dVar.f54521f;
+            int i3 = dVar.f54522f;
             if (i3 > 0) {
                 layoutParams.width = i3;
             }
-            personCenterIntervalHolder.f20214b.setLayoutParams(layoutParams);
-            personCenterIntervalHolder.f20214b.setOnClickListener(null);
+            personCenterIntervalHolder.f20215b.setLayoutParams(layoutParams);
+            personCenterIntervalHolder.f20215b.setOnClickListener(null);
         }
         return view;
     }

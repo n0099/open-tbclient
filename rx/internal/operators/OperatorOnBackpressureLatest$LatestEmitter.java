@@ -132,6 +132,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
     @Override // h.f
     public void request(long j) {
         long j2;
+        int i;
         long j3;
         if (j >= 0) {
             do {
@@ -139,7 +140,8 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
                 if (j2 == Long.MIN_VALUE) {
                     return;
                 }
-                if (j2 == -4611686018427387904L) {
+                i = (j2 > (-4611686018427387904L) ? 1 : (j2 == (-4611686018427387904L) ? 0 : -1));
+                if (i == 0) {
                     j3 = j;
                 } else {
                     j3 = j2 + j;
@@ -148,12 +150,10 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
                     }
                 }
             } while (!compareAndSet(j2, j3));
-            if (j2 != -4611686018427387904L) {
-                emit();
-            } else {
+            if (i == 0) {
                 this.parent.b(Long.MAX_VALUE);
-                throw null;
             }
+            emit();
         }
     }
 

@@ -12,16 +12,16 @@ import java.util.List;
 public final class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<SoftReference<Activity>> f41464c;
+    public static ArrayList<SoftReference<Activity>> f41465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f41465d;
+    public static b f41466d;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f41466a;
+    public a f41467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41467b = 0;
+    public int f41468b = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,16 +29,16 @@ public final class b {
     }
 
     public b() {
-        if (f41464c == null) {
-            f41464c = new ArrayList<>(20);
+        if (f41465c == null) {
+            f41465c = new ArrayList<>(20);
         }
     }
 
     public static b f() {
-        if (f41465d == null) {
-            f41465d = new b();
+        if (f41466d == null) {
+            f41466d = new b();
         }
-        return f41465d;
+        return f41466d;
     }
 
     public final void a(int i) {
@@ -57,8 +57,8 @@ public final class b {
 
     public Activity b() {
         SoftReference<Activity> softReference;
-        int size = f41464c.size();
-        if (size == 0 || (softReference = f41464c.get(size - 1)) == null) {
+        int size = f41465c.size();
+        if (size == 0 || (softReference = f41465c.get(size - 1)) == null) {
             return null;
         }
         return softReference.get();
@@ -69,10 +69,10 @@ public final class b {
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;
         Activity activity;
-        ArrayList<SoftReference<Activity>> arrayList = f41464c;
+        ArrayList<SoftReference<Activity>> arrayList = f41465c;
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
-            Iterator<SoftReference<Activity>> it = f41464c.iterator();
+            Iterator<SoftReference<Activity>> it = f41465c.iterator();
             while (it.hasNext()) {
                 SoftReference<Activity> next = it.next();
                 if (next != null && (activity = next.get()) != null) {
@@ -109,27 +109,27 @@ public final class b {
     }
 
     public int d() {
-        return this.f41467b;
+        return this.f41468b;
     }
 
     public Activity e(int i) {
         SoftReference<Activity> softReference;
-        int size = f41464c.size();
-        if (size != 0 && i >= 0 && i < size && (softReference = f41464c.get(i)) != null) {
+        int size = f41465c.size();
+        if (size != 0 && i >= 0 && i < size && (softReference = f41465c.get(i)) != null) {
             return softReference.get();
         }
         return null;
     }
 
     public int g() {
-        return f41464c.size();
+        return f41465c.size();
     }
 
     public boolean h(String str) {
-        if (f41464c.size() == 0) {
+        if (f41465c.size() == 0) {
             return false;
         }
-        Iterator<SoftReference<Activity>> it = f41464c.iterator();
+        Iterator<SoftReference<Activity>> it = f41465c.iterator();
         while (it.hasNext()) {
             SoftReference<Activity> next = it.next();
             if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
@@ -140,14 +140,14 @@ public final class b {
     }
 
     public int i(Activity activity) {
-        int size = f41464c.size();
+        int size = f41465c.size();
         if (size <= 0 || activity == null) {
             return -1;
         }
         for (int i = size - 1; i >= 0; i--) {
-            SoftReference<Activity> softReference = f41464c.get(i);
+            SoftReference<Activity> softReference = f41465c.get(i);
             if (softReference == null) {
-                f41464c.remove(i);
+                f41465c.remove(i);
             } else if (activity.equals(softReference.get())) {
                 return i;
             }
@@ -157,8 +157,8 @@ public final class b {
 
     public Activity j() {
         SoftReference<Activity> remove;
-        int size = f41464c.size();
-        if (size == 0 || (remove = f41464c.remove(size - 1)) == null) {
+        int size = f41465c.size();
+        if (size == 0 || (remove = f41465c.remove(size - 1)) == null) {
             return null;
         }
         return remove.get();
@@ -166,8 +166,8 @@ public final class b {
 
     public Activity k(int i) {
         SoftReference<Activity> remove;
-        int size = f41464c.size();
-        if (size != 0 && i >= 0 && i < size && (remove = f41464c.remove(i)) != null) {
+        int size = f41465c.size();
+        if (size != 0 && i >= 0 && i < size && (remove = f41465c.remove(i)) != null) {
             return remove.get();
         }
         return null;
@@ -177,9 +177,9 @@ public final class b {
         a aVar;
         a aVar2;
         if (activity != null) {
-            int size = f41464c.size();
+            int size = f41465c.size();
             if (size == 0) {
-                a aVar3 = this.f41466a;
+                a aVar3 = this.f41467a;
                 if (aVar3 != null) {
                     aVar3.onActivityClosed();
                     return;
@@ -187,17 +187,17 @@ public final class b {
                 return;
             }
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = f41464c.get(i);
+                SoftReference<Activity> softReference = f41465c.get(i);
                 if (softReference == null) {
-                    f41464c.remove(i);
+                    f41465c.remove(i);
                 } else if (activity.equals(softReference.get())) {
-                    f41464c.remove(i);
-                    if (f41464c.size() != 0 || (aVar = this.f41466a) == null) {
+                    f41465c.remove(i);
+                    if (f41465c.size() != 0 || (aVar = this.f41467a) == null) {
                         return;
                     }
                     aVar.onActivityClosed();
                     return;
-                } else if (f41464c.size() == 0 && (aVar2 = this.f41466a) != null) {
+                } else if (f41465c.size() == 0 && (aVar2 = this.f41467a) != null) {
                     aVar2.onActivityClosed();
                 }
             }
@@ -215,22 +215,22 @@ public final class b {
 
     public void n(Activity activity) {
         if (activity != null) {
-            f41464c.add(new SoftReference<>(activity));
-            a(this.f41467b);
+            f41465c.add(new SoftReference<>(activity));
+            a(this.f41468b);
         }
     }
 
     public void o() {
         Activity activity;
-        if (f41464c != null) {
-            while (!f41464c.isEmpty()) {
-                SoftReference<Activity> remove = f41464c.remove(0);
+        if (f41465c != null) {
+            while (!f41465c.isEmpty()) {
+                SoftReference<Activity> remove = f41465c.remove(0);
                 if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
                     activity.finish();
                 }
             }
         }
-        a aVar = this.f41466a;
+        a aVar = this.f41467a;
         if (aVar != null) {
             aVar.onActivityClosed();
         }
@@ -242,11 +242,11 @@ public final class b {
 
     public void q(int i) {
         if (i >= 10 || i == 0) {
-            this.f41467b = i;
+            this.f41468b = i;
         }
     }
 
     public void r(a aVar) {
-        this.f41466a = aVar;
+        this.f41467a = aVar;
     }
 }

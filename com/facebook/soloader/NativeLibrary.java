@@ -3,7 +3,7 @@ package com.facebook.soloader;
 import android.util.Log;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class NativeLibrary {
     public static final String TAG = "com.facebook.soloader.NativeLibrary";
     @Nullable

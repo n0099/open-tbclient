@@ -2,65 +2,65 @@ package d.b.f0.m;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f43032c;
+    public static a f43033c;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f43033a = null;
+    public b f43034a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43034b = false;
+    public boolean f43035b = false;
 
     /* renamed from: d.b.f0.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0585a {
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class C0586a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43035a;
+        public static final /* synthetic */ int[] f43036a;
 
         static {
             int[] iArr = new int[com.baidu.sso.q.b.values().length];
-            f43035a = iArr;
+            f43036a = iArr;
             try {
                 iArr[com.baidu.sso.q.b.VIVO.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43035a[com.baidu.sso.q.b.OPPO.ordinal()] = 2;
+                f43036a[com.baidu.sso.q.b.OPPO.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43035a[com.baidu.sso.q.b.XIAOMI.ordinal()] = 3;
+                f43036a[com.baidu.sso.q.b.XIAOMI.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f43035a[com.baidu.sso.q.b.HUA_WEI.ordinal()] = 4;
+                f43036a[com.baidu.sso.q.b.HUA_WEI.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f43035a[com.baidu.sso.q.b.UNSUPPORT.ordinal()] = 5;
+                f43036a[com.baidu.sso.q.b.UNSUPPORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
     }
 
     public static a b() {
-        if (f43032c == null) {
+        if (f43033c == null) {
             synchronized (a.class) {
-                if (f43032c == null) {
-                    f43032c = new a();
+                if (f43033c == null) {
+                    f43033c = new a();
                 }
             }
         }
-        return f43032c;
+        return f43033c;
     }
 
     @Override // d.b.f0.m.b
     public String a() {
-        b bVar = this.f43033a;
+        b bVar = this.f43034a;
         if (bVar == null) {
             return null;
         }
@@ -81,11 +81,11 @@ public class a implements b {
     public void a(Context context, c cVar) {
         b cVar2;
         try {
-            if (this.f43034b) {
+            if (this.f43035b) {
                 return;
             }
-            this.f43034b = true;
-            int i = C0585a.f43035a[com.baidu.sso.q.b.a(Build.MANUFACTURER).ordinal()];
+            this.f43035b = true;
+            int i = C0586a.f43036a[com.baidu.sso.q.b.a(Build.MANUFACTURER).ordinal()];
             if (i == 1) {
                 cVar2 = new d.b.f0.p.c();
             } else if (i == 2) {
@@ -95,16 +95,16 @@ public class a implements b {
             } else if (i == 4) {
                 cVar2 = new d.b.f0.n.b();
             } else if (i != 5) {
-                if (this.f43033a == null) {
-                    this.f43033a.a(context, cVar);
+                if (this.f43034a == null) {
+                    this.f43034a.a(context, cVar);
                     return;
                 }
                 return;
             } else {
                 cVar2 = null;
             }
-            this.f43033a = cVar2;
-            if (this.f43033a == null) {
+            this.f43034a = cVar2;
+            if (this.f43034a == null) {
             }
         } catch (Throwable th) {
             th.printStackTrace();

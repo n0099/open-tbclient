@@ -15,43 +15,43 @@ import tbclient.ItemInfo;
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragment f57600a;
+    public BaseFragment f57601a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsTopItemInfoView f57601b;
+    public FrsTopItemInfoView f57602b;
 
     public i0(BaseFragment baseFragment) {
         FrsViewData frsViewData;
         if (baseFragment == null) {
             return;
         }
-        this.f57600a = baseFragment;
-        this.f57601b = new FrsTopItemInfoView(baseFragment.getContext());
+        this.f57601a = baseFragment;
+        this.f57602b = new FrsTopItemInfoView(baseFragment.getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.f57601b.setLayoutParams(layoutParams);
+        this.f57602b.setLayoutParams(layoutParams);
         b();
-        BaseFragment baseFragment2 = this.f57600a;
-        if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).f16196h) == null || frsViewData.getForum() == null) {
+        BaseFragment baseFragment2 = this.f57601a;
+        if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).f16197h) == null || frsViewData.getForum() == null) {
             return;
         }
         ForumData forum = frsViewData.getForum();
-        this.f57601b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+        this.f57602b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
     }
 
     public View a() {
-        return this.f57601b;
+        return this.f57602b;
     }
 
     public void b() {
-        FrsTopItemInfoView frsTopItemInfoView = this.f57601b;
+        FrsTopItemInfoView frsTopItemInfoView = this.f57602b;
         if (frsTopItemInfoView != null) {
             frsTopItemInfoView.e();
         }
     }
 
     public void c(ItemInfo itemInfo) {
-        FrsTopItemInfoView frsTopItemInfoView = this.f57601b;
+        FrsTopItemInfoView frsTopItemInfoView = this.f57602b;
         if (frsTopItemInfoView != null) {
             frsTopItemInfoView.setData(itemInfo);
         }

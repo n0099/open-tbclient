@@ -167,7 +167,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
             for (d.b.i0.a1.b.c cVar : this.E) {
                 if (cVar != null && (cVar instanceof d.b.i0.x.e0.g)) {
                     d.b.i0.x.e0.g gVar = (d.b.i0.x.e0.g) cVar;
-                    if (String.valueOf(gVar.f62207d).equals(str)) {
+                    if (String.valueOf(gVar.f62208d).equals(str)) {
                         return gVar;
                     }
                 }
@@ -193,13 +193,13 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
             if (cVar != null && (cVar instanceof d.b.i0.x.e0.g) && cVar2 != null && (cVar2 instanceof d.b.i0.x.e0.g)) {
                 d.b.i0.x.e0.g gVar = (d.b.i0.x.e0.g) cVar;
                 d.b.i0.x.e0.g gVar2 = (d.b.i0.x.e0.g) cVar2;
-                if (gVar.f62207d != gVar2.f62207d) {
+                if (gVar.f62208d != gVar2.f62208d) {
                     z = false;
                 }
-                if (!gVar.f62205b.equals(gVar2.f62205b)) {
+                if (!gVar.f62206b.equals(gVar2.f62206b)) {
                     z = false;
                 }
-                i = gVar.f62206c.equals(gVar2.f62206c) ? i + 1 : 0;
+                i = gVar.f62207c.equals(gVar2.f62207c) ? i + 1 : 0;
             }
             z = false;
         }
@@ -274,7 +274,7 @@ public class i extends d.b.i0.x.c<d.b.i0.x.e0.i> {
     public final void Q(long j, boolean z) {
         d.b.i0.x.e0.g J = J(String.valueOf(j));
         if (J != null) {
-            J.f62208e = z;
+            J.f62209e = z;
         }
         d.b.i0.a1.b.b bVar = this.y;
         if (bVar != null) {

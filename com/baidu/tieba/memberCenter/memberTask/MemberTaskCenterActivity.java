@@ -132,15 +132,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18950e;
+        public final /* synthetic */ d.b.h0.r.s.a f18951e;
 
         public d(d.b.h0.r.s.a aVar) {
-            this.f18950e = aVar;
+            this.f18951e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18950e.dismiss();
+            this.f18951e.dismiss();
             ViewHelper.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
         }
     }
@@ -149,15 +149,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18952e;
+        public final /* synthetic */ d.b.h0.r.s.a f18953e;
 
         public e(d.b.h0.r.s.a aVar) {
-            this.f18952e = aVar;
+            this.f18953e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18952e.dismiss();
+            this.f18953e.dismiss();
         }
     }
 
@@ -165,15 +165,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18954e;
+        public final /* synthetic */ d.b.h0.r.s.a f18955e;
 
         public f(d.b.h0.r.s.a aVar) {
-            this.f18954e = aVar;
+            this.f18955e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18954e.dismiss();
+            this.f18955e.dismiss();
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(MemberTaskCenterActivity.this.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -184,15 +184,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class g implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18956e;
+        public final /* synthetic */ d.b.h0.r.s.a f18957e;
 
         public g(d.b.h0.r.s.a aVar) {
-            this.f18956e = aVar;
+            this.f18957e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18956e.dismiss();
+            this.f18957e.dismiss();
         }
     }
 

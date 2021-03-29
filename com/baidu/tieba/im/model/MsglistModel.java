@@ -53,7 +53,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class MsglistModel extends BdBaseModel<Object> {
     public static final int GAME_SHARE_COUNT_OVER = 3100001;
     public static final int MODE_TYPE_CHAT_ROOM_RULE = 13;
@@ -86,13 +86,13 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
     public CustomMessageListener mListenerUnLogin;
     public d mSendCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CacheInfo {
         public int customGroupType;
         public String id;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class CompareChatMessage implements Comparator<ChatMessage> {
         public CompareChatMessage() {
         }
@@ -296,10 +296,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         while (i >= 0 && i2 >= 0) {
             long recordId = list.get(i).getRecordId();
             ChatMessage chatMessage = list2.get(i2);
-            long recordId2 = chatMessage.getRecordId();
-            if (recordId > recordId2) {
+            int i4 = (recordId > chatMessage.getRecordId() ? 1 : (recordId == chatMessage.getRecordId() ? 0 : -1));
+            if (i4 > 0) {
                 i--;
-            } else if (recordId < recordId2) {
+            } else if (i4 < 0) {
                 list.add(i + 1, chatMessage);
                 i2--;
                 i3++;
@@ -334,10 +334,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().remove(i2);
             if (i2 == size - 1 && (cacheInfo = getCacheInfo()) != null) {
                 MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
-                aVar.f18050b = cacheInfo.customGroupType;
-                aVar.f18049a = cacheInfo.id;
-                aVar.f18051c = chatMessage2;
-                aVar.f18052d = 2;
+                aVar.f18051b = cacheInfo.customGroupType;
+                aVar.f18050a = cacheInfo.id;
+                aVar.f18052c = chatMessage2;
+                aVar.f18053d = 2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
             }
         }
@@ -437,7 +437,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         }
         for (ChatMessage chatMessage : list) {
             if (chatMessage.getMsgType() == 4) {
-                h.f53683a = o.e();
+                h.f53684a = o.e();
             }
             long userId = chatMessage.getUserId();
             String portrait = chatMessage.getUserInfo().getPortrait();
@@ -579,7 +579,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (loadDraftResponsedMessage.getData() == null) {
                 return;
             }
-            String str = loadDraftResponsedMessage.getData().f18038a;
+            String str = loadDraftResponsedMessage.getData().f18039a;
             this.mLoadDataMode = 8;
             e eVar = this.mLoadDataCallBack;
             if (eVar != null) {
@@ -595,9 +595,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 return true;
             }
             long j = this.mId;
-            if (j == 0 || j == d.b.b.e.m.b.f(loadHistoryResponsedMessage.getData().f18043a, 0L)) {
-                List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18044b;
-                boolean z = loadHistoryResponsedMessage.getData().f18045c;
+            if (j == 0 || j == d.b.b.e.m.b.f(loadHistoryResponsedMessage.getData().f18044a, 0L)) {
+                List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18045b;
+                boolean z = loadHistoryResponsedMessage.getData().f18046c;
                 int mergeList = mergeList(this.mDatas.getChatMessages(), list);
                 if (mergeList > 0) {
                     this.mDatas.setIsNewAdd(true);

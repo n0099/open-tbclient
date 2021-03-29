@@ -7,14 +7,14 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f53809d = null;
+    public static a f53810d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f53810e = "tb_private_msg_";
+    public static String f53811e = "tb_private_msg_";
 
     public m() {
         super("tb_private_msg_", PersonalChatMessage.class);
@@ -23,10 +23,10 @@ public class m extends a {
     public static synchronized m t() {
         m mVar;
         synchronized (m.class) {
-            if (f53809d == null) {
-                f53809d = new m();
+            if (f53810d == null) {
+                f53810d = new m();
             }
-            mVar = (m) f53809d;
+            mVar = (m) f53810d;
         }
         return mVar;
     }
@@ -41,7 +41,7 @@ public class m extends a {
         }
         try {
             try {
-                cursor = h.e().h("select * from " + (f53810e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                cursor = h.e().h("select * from " + (f53811e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                 try {
                     CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
                     if (cursor != null && cursor.moveToNext()) {

@@ -5,10 +5,10 @@ import java.lang.reflect.Field;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Field f30079a;
+    public final Field f30080a;
 
     public c(Field field) {
         com.bytedance.sdk.openadsdk.preload.a.b.a.a(field);
-        this.f30079a = field;
+        this.f30080a = field;
     }
 }

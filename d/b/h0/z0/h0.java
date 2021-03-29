@@ -5,29 +5,29 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TiebaIMConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class h0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f51692a = BdUniqueId.gen();
+    public static final BdUniqueId f51693a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdAsyncTaskParallel f51693b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f51692a);
+    public static final BdAsyncTaskParallel f51694b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f51693a);
 
     /* loaded from: classes3.dex */
     public static class a<T> extends BdAsyncTask<String, Object, T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public f0<T> f51694a;
+        public f0<T> f51695a;
 
         /* renamed from: b  reason: collision with root package name */
-        public n<T> f51695b;
+        public n<T> f51696b;
 
         public a(f0<T> f0Var, n<T> nVar) {
-            this.f51694a = null;
-            this.f51695b = null;
-            this.f51694a = f0Var;
-            this.f51695b = nVar;
+            this.f51695a = null;
+            this.f51696b = null;
+            this.f51695a = f0Var;
+            this.f51696b = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,8 +35,8 @@ public class h0 {
         /* renamed from: b */
         public T doInBackground(String... strArr) {
             try {
-                if (this.f51694a != null) {
-                    return this.f51694a.doInBackground();
+                if (this.f51695a != null) {
+                    return this.f51695a.doInBackground();
                 }
                 return null;
             } catch (Throwable th) {
@@ -47,7 +47,7 @@ public class h0 {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
-            n<T> nVar = this.f51695b;
+            n<T> nVar = this.f51696b;
             if (nVar != null) {
                 nVar.onReturnDataInUI(t);
             }
@@ -55,14 +55,14 @@ public class h0 {
     }
 
     public static void a() {
-        BdAsyncTask.removeAllTask(f51692a);
+        BdAsyncTask.removeAllTask(f51693a);
     }
 
     public static <T> void b(f0<T> f0Var, n<T> nVar) {
         if (f0Var != null) {
             a aVar = new a(f0Var, nVar);
-            aVar.setParallel(f51693b);
-            aVar.setTag(f51692a);
+            aVar.setParallel(f51694b);
+            aVar.setTag(f51693a);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }
@@ -72,7 +72,7 @@ public class h0 {
         if (f0Var != null) {
             a aVar = new a(f0Var, nVar);
             aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(f51692a);
+            aVar.setTag(f51693a);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }

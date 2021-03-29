@@ -20,48 +20,48 @@ import tbclient.SubBottomMenu;
 public class a implements BottomMenuView.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f57691a;
+    public TbPageContext<?> f57692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57692b;
+    public View f57693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f57693c;
+    public ImageView f57694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BottomMenuView f57694d;
+    public BottomMenuView f57695d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumData f57695e;
+    public ForumData f57696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57696f;
+    public int f57697f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57697g;
+    public int f57698g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57698h;
+    public int f57699h;
 
     public a(TbPageContext tbPageContext, View view) {
-        this.f57691a = tbPageContext;
-        this.f57692b = view;
-        this.f57693c = (ImageView) view.findViewById(R.id.normal_write_icon);
+        this.f57692a = tbPageContext;
+        this.f57693b = view;
+        this.f57694c = (ImageView) view.findViewById(R.id.normal_write_icon);
         BottomMenuView bottomMenuView = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
-        this.f57694d = bottomMenuView;
+        this.f57695d = bottomMenuView;
         bottomMenuView.setOnMenuItemClickListener(this);
-        this.f57696f = l.g(tbPageContext.getPageActivity(), R.dimen.tbds160);
-        this.f57697g = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
-        this.f57698h = l.g(tbPageContext.getPageActivity(), R.dimen.ds4);
+        this.f57697f = l.g(tbPageContext.getPageActivity(), R.dimen.tbds160);
+        this.f57698g = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        this.f57699h = l.g(tbPageContext.getPageActivity(), R.dimen.ds4);
     }
 
     @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
     public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
         if (subBottomMenu != null) {
-            UrlManager.getInstance().dealOneLink(this.f57691a, new String[]{subBottomMenu.url});
-            ForumData forumData = this.f57695e;
+            UrlManager.getInstance().dealOneLink(this.f57692a, new String[]{subBottomMenu.url});
+            ForumData forumData = this.f57696e;
             String id = forumData != null ? forumData.getId() : "";
-            ForumData forumData2 = this.f57695e;
+            ForumData forumData2 = this.f57696e;
             TiebaStatic.log(new StatisticItem("c13117").param("fid", id).param("fname", forumData2 != null ? forumData2.getName() : "").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", subBottomMenu.name));
         }
     }
@@ -70,10 +70,10 @@ public class a implements BottomMenuView.a {
     public void b(BottomMenuView.MenuItemView menuItemView, BottomMenu bottomMenu) {
         long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
         if (bottomMenu != null && ListUtils.getCount(bottomMenu.submenu) == 0) {
-            UrlManager.getInstance().dealOneLink(this.f57691a, new String[]{bottomMenu.url});
-            ForumData forumData = this.f57695e;
+            UrlManager.getInstance().dealOneLink(this.f57692a, new String[]{bottomMenu.url});
+            ForumData forumData = this.f57696e;
             String id = forumData != null ? forumData.getId() : "";
-            ForumData forumData2 = this.f57695e;
+            ForumData forumData2 = this.f57696e;
             TiebaStatic.log(new StatisticItem("c13117").param("fid", id).param("fname", forumData2 != null ? forumData2.getName() : "").param("uid", currentAccountId).param("obj_param1", bottomMenu.name));
             return;
         }
@@ -81,41 +81,41 @@ public class a implements BottomMenuView.a {
     }
 
     public final void c(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f57693c.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f57694c.getLayoutParams();
         if (z) {
             layoutParams.addRule(11);
             layoutParams.addRule(12);
             layoutParams.addRule(14, 0);
-            layoutParams.bottomMargin = this.f57696f;
-            layoutParams.rightMargin = this.f57697g;
+            layoutParams.bottomMargin = this.f57697f;
+            layoutParams.rightMargin = this.f57698g;
             return;
         }
         layoutParams.addRule(11, 0);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = this.f57698h;
+        layoutParams.bottomMargin = this.f57699h;
         layoutParams.rightMargin = 0;
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        if (this.f57694d.getVisibility() == 0) {
-            this.f57694d.a(tbPageContext, i);
+        if (this.f57695d.getVisibility() == 0) {
+            this.f57695d.a(tbPageContext, i);
         }
     }
 
     public void e(List<BottomMenu> list, ForumData forumData) {
-        this.f57695e = forumData;
+        this.f57696e = forumData;
         boolean z = ListUtils.getCount(list) > 0;
         c(z);
         if (z) {
-            this.f57694d.setVisibility(0);
-            this.f57694d.b(list, this.f57691a);
+            this.f57695d.setVisibility(0);
+            this.f57695d.b(list, this.f57692a);
             return;
         }
-        this.f57694d.setVisibility(8);
+        this.f57695d.setVisibility(8);
     }
 
     public void f(boolean z) {
-        this.f57694d.setVisibility(z ? 0 : 8);
+        this.f57695d.setVisibility(z ? 0 : 8);
     }
 }

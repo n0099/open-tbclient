@@ -66,35 +66,35 @@ public abstract class b {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f58429a;
+    public TbPageContext f58430a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsFragment f58430b;
+    public FrsFragment f58431b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f58431c;
+    public Handler f58432c;
     public int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f58432d;
+    public View f58433d;
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f58433e;
+    public TextView f58434e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58434f;
+    public TextView f58435f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58435g;
+    public TextView f58436g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f58436h;
+    public TBSpecificationBtn f58437h;
     public boolean h0;
     public TBSpecificationBtn i;
     public boolean i0;
@@ -134,19 +134,19 @@ public abstract class b {
             if (bVar.f0) {
                 return;
             }
-            d.b.b.e.m.g.d(bVar.G, bVar.f58429a.getPageActivity());
+            d.b.b.e.m.g.d(bVar.G, bVar.f58430a.getPageActivity());
         }
     }
 
     /* renamed from: d.b.i0.p0.q2.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1432b implements Animator.AnimatorListener {
+    public class C1433b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f58438e;
+        public final /* synthetic */ View f58439e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f58439f;
+        public final /* synthetic */ float f58440f;
 
         /* renamed from: d.b.i0.p0.q2.b$b$a */
         /* loaded from: classes4.dex */
@@ -160,8 +160,8 @@ public abstract class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                C1432b c1432b = C1432b.this;
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(c1432b.f58438e, "scaleX", 0.0f, c1432b.f58439f);
+                C1433b c1433b = C1433b.this;
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(c1433b.f58439e, "scaleX", 0.0f, c1433b.f58440f);
                 ofFloat.setDuration(300L);
                 ofFloat.start();
             }
@@ -175,9 +175,9 @@ public abstract class b {
             }
         }
 
-        public C1432b(b bVar, View view, float f2) {
-            this.f58438e = view;
-            this.f58439f = f2;
+        public C1433b(b bVar, View view, float f2) {
+            this.f58439e = view;
+            this.f58440f = f2;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -187,7 +187,7 @@ public abstract class b {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             a aVar = new a();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f58438e, "scaleX", 1.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f58439e, "scaleX", 1.0f, 0.0f);
             ofFloat.setDuration(300L);
             ofFloat.addListener(aVar);
             ofFloat.start();
@@ -216,8 +216,8 @@ public abstract class b {
 
     public void C(TextView textView, TextView textView2) {
         textView.setText(String.valueOf(this.b0));
-        String string = this.f58429a.getString(R.string.experience_divider);
-        String string2 = this.f58429a.getString(R.string.member_count_unit);
+        String string = this.f58430a.getString(R.string.experience_divider);
+        String string2 = this.f58430a.getString(R.string.member_count_unit);
         int i = this.c0;
         if (i >= 10000) {
             if (i % 10000 == 0) {
@@ -236,14 +236,14 @@ public abstract class b {
             this.k0 = false;
             this.p.setVisibility(0);
             this.q.setVisibility(8);
-            this.f58436h.setVisibility(0);
+            this.f58437h.setVisibility(0);
             this.i.setVisibility(8);
             return;
         }
         this.e0 = true;
         this.p.setVisibility(8);
         this.q.setVisibility(0);
-        this.f58436h.setVisibility(8);
+        this.f58437h.setVisibility(8);
         this.i.setVisibility(0);
     }
 
@@ -255,14 +255,14 @@ public abstract class b {
             this.k0 = false;
             this.p.setVisibility(0);
             this.q.setVisibility(8);
-            this.f58436h.setVisibility(0);
+            this.f58437h.setVisibility(0);
             this.i.setVisibility(8);
             return;
         }
         this.e0 = true;
         this.p.setVisibility(8);
         this.q.setVisibility(0);
-        this.f58436h.setVisibility(8);
+        this.f58437h.setVisibility(8);
         this.i.setVisibility(0);
         if (!z || this.k0) {
             return;
@@ -274,12 +274,12 @@ public abstract class b {
     public void F(int i) {
         if (i == 0) {
             this.g0 = false;
-            this.i.setText(this.f58429a.getString(R.string.sign));
+            this.i.setText(this.f58430a.getString(R.string.sign));
             z();
             return;
         }
         this.g0 = true;
-        this.i.setText(this.f58429a.getString(R.string.signed));
+        this.i.setText(this.f58430a.getString(R.string.signed));
         y();
     }
 
@@ -301,7 +301,7 @@ public abstract class b {
     public void I(f fVar) {
         if (fVar != null) {
             this.Q = fVar;
-            fVar.j(this.f58436h);
+            fVar.j(this.f58437h);
         }
     }
 
@@ -327,10 +327,10 @@ public abstract class b {
 
     public void P(View view, float f2, float f3) {
         view.setPivotX(0.0f);
-        C1432b c1432b = new C1432b(this, view, f3);
+        C1433b c1433b = new C1433b(this, view, f3);
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "scaleX", f2, 1.0f);
         ofFloat.setDuration(400L);
-        ofFloat.addListener(c1432b);
+        ofFloat.addListener(c1433b);
         ofFloat.start();
     }
 
@@ -366,7 +366,7 @@ public abstract class b {
     }
 
     public TextView f() {
-        return this.f58435g;
+        return this.f58436g;
     }
 
     public View g() {
@@ -384,7 +384,7 @@ public abstract class b {
     public abstract SignActivityInfo j();
 
     public View k() {
-        return this.f58432d;
+        return this.f58433d;
     }
 
     public boolean l() {

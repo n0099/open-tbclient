@@ -17,13 +17,13 @@ import d.b.b.e.l.d;
 public class IrregularImageView extends AppCompatImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22124e;
+    public int f22125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22125f;
+    public int f22126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c<d.b.b.j.d.a> f22126g;
+    public final c<d.b.b.j.d.a> f22127g;
 
     /* loaded from: classes5.dex */
     public class a extends c<d.b.b.j.d.a> {
@@ -34,29 +34,29 @@ public class IrregularImageView extends AppCompatImageView {
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             if (aVar == null) {
-                if (IrregularImageView.this.f22125f != 0) {
+                if (IrregularImageView.this.f22126f != 0) {
                     Bitmap bitmap = null;
                     try {
-                        bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.f22125f);
+                        bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.f22126f);
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                     if (bitmap != null) {
                         IrregularImageView irregularImageView = IrregularImageView.this;
-                        irregularImageView.setImage(bitmap, irregularImageView.f22124e);
+                        irregularImageView.setImage(bitmap, irregularImageView.f22125e);
                         return;
                     }
                     return;
                 }
                 return;
             }
-            IrregularImageView.this.setImage(aVar.p(), IrregularImageView.this.f22124e);
+            IrregularImageView.this.setImage(aVar.p(), IrregularImageView.this.f22125e);
         }
     }
 
     public IrregularImageView(Context context) {
         super(context);
-        this.f22126g = new a();
+        this.f22127g = new a();
     }
 
     public final Bitmap c(Bitmap bitmap, int i, int i2) {
@@ -96,17 +96,17 @@ public class IrregularImageView extends AppCompatImageView {
     }
 
     public void setErrorRes(int i) {
-        this.f22125f = i;
+        this.f22126f = i;
     }
 
     public void setImage(String str, BdUniqueId bdUniqueId, int i) {
-        this.f22124e = i;
-        d.h().k(str, 10, this.f22126g, 0, 0, bdUniqueId, new Object[0]);
+        this.f22125e = i;
+        d.h().k(str, 10, this.f22127g, 0, 0, bdUniqueId, new Object[0]);
     }
 
     public IrregularImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22126g = new a();
+        this.f22127g = new a();
     }
 
     public void setImage(Bitmap bitmap, int i) {
@@ -154,6 +154,6 @@ public class IrregularImageView extends AppCompatImageView {
 
     public IrregularImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f22126g = new a();
+        this.f22127g = new a();
     }
 }

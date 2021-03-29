@@ -13,33 +13,33 @@ import d.b.g0.a.i2.e;
 import d.b.g0.a.k;
 import d.b.g0.d.j.c.b;
 /* loaded from: classes3.dex */
-public class a implements b.InterfaceC0924b {
+public class a implements b.InterfaceC0925b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47532b = k.f45050a;
+    public static final boolean f47533b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47533a = false;
+    public boolean f47534a = false;
 
     /* renamed from: d.b.g0.d.j.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnClickListenerC0925a implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0926a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.u.c f47534e;
+        public final /* synthetic */ d.b.g0.a.e0.u.c f47535e;
 
-        public DialogInterface$OnClickListenerC0925a(d.b.g0.a.e0.u.c cVar) {
-            this.f47534e = cVar;
+        public DialogInterface$OnClickListenerC0926a(d.b.g0.a.e0.u.c cVar) {
+            this.f47535e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
             if (-2 == i) {
-                this.f47534e.onFail();
+                this.f47535e.onFail();
                 return;
             }
             a.this.j();
-            a.this.l(this.f47534e);
+            a.this.l(this.f47535e);
         }
     }
 
@@ -47,25 +47,25 @@ public class a implements b.InterfaceC0924b {
     public class b implements d.b.g0.a.i2.u0.b<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.u.c f47536e;
+        public final /* synthetic */ d.b.g0.a.e0.u.c f47537e;
 
         public b(d.b.g0.a.e0.u.c cVar) {
-            this.f47536e = cVar;
+            this.f47537e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(Boolean bool) {
-            if (a.f47532b) {
+            if (a.f47533b) {
                 Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
             }
-            a.this.f47533a = false;
+            a.this.f47534a = false;
             a.this.i();
             if (bool.booleanValue()) {
-                this.f47536e.onSuccess();
+                this.f47537e.onSuccess();
             } else {
-                this.f47536e.onFail();
+                this.f47537e.onFail();
             }
         }
     }
@@ -96,14 +96,14 @@ public class a implements b.InterfaceC0924b {
         }
     }
 
-    @Override // d.b.g0.d.j.c.b.InterfaceC0924b
+    @Override // d.b.g0.d.j.c.b.InterfaceC0925b
     public d.b.g0.l.o.b a() {
         return new d.b.g0.t.c();
     }
 
-    @Override // d.b.g0.d.j.c.b.InterfaceC0924b
+    @Override // d.b.g0.d.j.c.b.InterfaceC0925b
     public void b(boolean z, d.b.g0.a.e0.u.c cVar) {
-        if (this.f47533a) {
+        if (this.f47534a) {
             if (!z) {
                 j();
             }
@@ -111,7 +111,7 @@ public class a implements b.InterfaceC0924b {
         } else if (z) {
             l(cVar);
         } else {
-            k(new DialogInterface$OnClickListenerC0925a(cVar));
+            k(new DialogInterface$OnClickListenerC0926a(cVar));
         }
     }
 
@@ -133,11 +133,11 @@ public class a implements b.InterfaceC0924b {
     }
 
     public final void l(d.b.g0.a.e0.u.c cVar) {
-        this.f47533a = true;
-        if (f47532b) {
+        this.f47534a = true;
+        if (f47533b) {
             Log.i("SailorSoDownloadAdapter", "startDownload: ");
         }
-        d.b.g0.a.j0.i.c cVar2 = d.b.g0.a.j0.i.c.f44831d;
+        d.b.g0.a.j0.i.c cVar2 = d.b.g0.a.j0.i.c.f44832d;
         d.b.g0.a.j0.i.d dVar = new d.b.g0.a.j0.i.d();
         dVar.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(cVar));
         cVar2.w(dVar);

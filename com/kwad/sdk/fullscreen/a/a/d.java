@@ -14,16 +14,16 @@ import com.kwad.sdk.utils.ao;
 public class d extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f35008b;
+    public ImageView f35009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f35009c;
+    public TextView f35010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f35010d;
+    public AdTemplate f35011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f35011e = new f() { // from class: com.kwad.sdk.fullscreen.a.a.d.1
+    public e f35012e = new f() { // from class: com.kwad.sdk.fullscreen.a.a.d.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
             if (j2 > 5000) {
@@ -34,65 +34,65 @@ public class d extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f2) {
-        if (this.f35009c.getVisibility() == 0) {
+        if (this.f35010c.getVisibility() == 0) {
             int a2 = ao.a(o(), 40.0f);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f35009c.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f35010c.getLayoutParams();
             layoutParams.rightMargin = (int) (a2 * f2);
-            this.f35009c.setLayoutParams(layoutParams);
+            this.f35010c.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f35008b.getVisibility() == 0) {
+        if (this.f35009b.getVisibility() == 0) {
             return;
         }
-        this.f35008b.setAlpha(0.0f);
-        this.f35008b.setVisibility(0);
+        this.f35009b.setAlpha(0.0f);
+        this.f35009b.setVisibility(0);
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.fullscreen.a.a.d.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                d.this.f35008b.setAlpha(floatValue);
+                d.this.f35009b.setAlpha(floatValue);
                 d.this.a(floatValue);
             }
         });
         ofFloat.start();
-        this.f35008b.setOnClickListener(this);
+        this.f35009b.setOnClickListener(this);
     }
 
     private void f() {
-        com.kwad.sdk.core.report.b.i(this.f35010d, ((com.kwad.sdk.reward.d) this).f36457a.f36219d);
-        ((com.kwad.sdk.reward.d) this).f36457a.f36217b.b();
-        ((com.kwad.sdk.reward.d) this).f36457a.i.h();
-        ((com.kwad.sdk.reward.d) this).f36457a.b();
+        com.kwad.sdk.core.report.b.i(this.f35011d, ((com.kwad.sdk.reward.d) this).f36458a.f36220d);
+        ((com.kwad.sdk.reward.d) this).f36458a.f36218b.b();
+        ((com.kwad.sdk.reward.d) this).f36458a.i.h();
+        ((com.kwad.sdk.reward.d) this).f36458a.b();
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
-        this.f35010d = aVar.f36221f;
-        aVar.i.a(this.f35011e);
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36458a;
+        this.f35011d = aVar.f36222f;
+        aVar.i.a(this.f35012e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.reward.d) this).f36457a.i.b(this.f35011e);
+        ((com.kwad.sdk.reward.d) this).f36458a.i.b(this.f35012e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f35009c = (TextView) b(R.id.ksad_detail_call_btn);
-        this.f35008b = (ImageView) b(R.id.ksad_skip_icon);
+        this.f35010c = (TextView) b(R.id.ksad_detail_call_btn);
+        this.f35009b = (ImageView) b(R.id.ksad_skip_icon);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f35008b) {
+        if (view == this.f35009b) {
             f();
         }
     }

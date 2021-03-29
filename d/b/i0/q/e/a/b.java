@@ -15,15 +15,15 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f59232a;
+    public static b f59233a;
 
     public static synchronized b f() {
         b bVar;
         synchronized (b.class) {
-            if (f59232a == null) {
-                f59232a = new b();
+            if (f59233a == null) {
+                f59233a = new b();
             }
-            bVar = f59232a;
+            bVar = f59233a;
         }
         return bVar;
     }

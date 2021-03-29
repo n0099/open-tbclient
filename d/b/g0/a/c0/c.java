@@ -8,14 +8,14 @@ import d.b.g0.a.h;
 import d.b.g0.a.i2.j;
 import d.b.g0.a.k;
 import d.b.g0.a.z0.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43594a = false;
+    public static boolean f43595a = false;
 
     public static void a(String str, Object... objArr) {
-        if (!k.f45050a || objArr == null) {
+        if (!k.f45051a || objArr == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -30,7 +30,7 @@ public class c {
     public static void b(String str, String str2) {
         j("error", str, str2);
         d.b.g0.a.w0.a.U().e(str, str2);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.e(str, str2);
         }
     }
@@ -44,13 +44,13 @@ public class c {
         }
         j("error", str, str3);
         d.b.g0.a.w0.a.U().e(str, str2, th);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.e(str, str2, th);
         }
     }
 
     public static boolean d() {
-        return f43594a;
+        return f43595a;
     }
 
     public static String e() {
@@ -72,27 +72,27 @@ public class c {
     public static void g(String str, String str2) {
         j("info", str, str2);
         d.b.g0.a.w0.a.U().i(str, str2);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.i(str, str2);
         }
     }
 
     public static void h(String str, String str2) {
         d.b.g0.a.w0.a.U().i(str, str2);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.i(str, str2);
         }
     }
 
     public static void i(String str, String str2, Throwable th) {
         d.b.g0.a.w0.a.U().e(str, str2, th);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void j(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str3) || !f43594a) {
+        if (TextUtils.isEmpty(str3) || !f43595a) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -114,13 +114,13 @@ public class c {
     }
 
     public static void k(boolean z) {
-        f43594a = z;
+        f43595a = z;
     }
 
     public static void l(String str, String str2) {
         j("warn", str, str2);
         d.b.g0.a.w0.a.U().w(str, str2);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.w(str, str2);
         }
     }

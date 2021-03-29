@@ -86,10 +86,10 @@ import d.b.h0.z0.n0;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TiebaIMActivityStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Boolean> run(CustomMessage<String> customMessage) {
@@ -105,7 +105,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -113,7 +113,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -131,7 +131,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class d implements CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
@@ -142,7 +142,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e implements CustomMessageTask.CustomRunnable<UpdatesActivityConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<UpdatesActivityConfig> customMessage) {
@@ -154,7 +154,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class f implements CustomMessageTask.CustomRunnable<ValidateActivityConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<ValidateActivityConfig> customMessage) {
@@ -165,7 +165,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class g extends CustomMessageListener {
         public g(int i) {
             super(i);
@@ -179,54 +179,54 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17762b == null || (tbPageContext = aVar.f17761a) == null) {
+            if (aVar.f17763b == null || (tbPageContext = aVar.f17762a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
             msgMultiImageTextViewItemAdapter.n0(true);
-            aVar.f17762b.add(msgMultiImageTextViewItemAdapter);
+            aVar.f17763b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class h implements CustomMessageTask.CustomRunnable<OfficalBarChatActivityConfig> {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f17727a;
+            public final /* synthetic */ LinkedList f17728a;
 
             public a(h hVar, LinkedList linkedList) {
-                this.f17727a = linkedList;
+                this.f17728a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                return d.b.i0.d1.h.l.t().a(this.f17727a);
+                return d.b.i0.d1.h.l.t().a(this.f17728a);
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class b implements d.b.h0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f17728a;
+            public final /* synthetic */ CustomMessage f17729a;
 
             public b(h hVar, CustomMessage customMessage) {
-                this.f17728a = customMessage;
+                this.f17729a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
-                if (((OfficalBarChatActivityConfig) this.f17728a.getData()).getUserData().getUserIdLong() == 0) {
+                if (((OfficalBarChatActivityConfig) this.f17729a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((OfficalBarChatActivityConfig) this.f17728a.getData()).startActivity(OfficialBarChatActivity.class);
+                ((OfficalBarChatActivityConfig) this.f17729a.getData()).startActivity(OfficialBarChatActivity.class);
             }
         }
 
@@ -243,7 +243,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class i implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -283,7 +283,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class j implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -291,7 +291,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class k implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -299,7 +299,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class l implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -307,7 +307,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class m implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -315,7 +315,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class n extends CustomMessageListener {
         public n(int i) {
             super(i);
@@ -329,20 +329,20 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17762b == null || (tbPageContext = aVar.f17761a) == null) {
+            if (aVar.f17763b == null || (tbPageContext = aVar.f17762a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
             msgPhotoLiveItemAdapter.m0(true);
-            aVar.f17762b.add(msgPhotoLiveItemAdapter);
-            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17761a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
+            aVar.f17763b.add(msgPhotoLiveItemAdapter);
+            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17762a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
             msgActivityViewItemAdapter.m0(true);
             msgActivityViewItemAdapter.n0(true);
-            aVar.f17762b.add(msgActivityViewItemAdapter);
+            aVar.f17763b.add(msgActivityViewItemAdapter);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class o implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
@@ -353,7 +353,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class p implements IUpdatesModel {
         @Override // com.baidu.tieba.im.model.IUpdatesModel
         public UpdatesItemData convertToUpdatesItem(GroupNewsPojo groupNewsPojo) {
@@ -361,7 +361,7 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class q implements IValidateModel {
         @Override // com.baidu.tieba.im.model.IValidateModel
         public ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {

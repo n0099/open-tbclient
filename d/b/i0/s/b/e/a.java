@@ -21,31 +21,31 @@ import java.util.List;
 public class a implements c0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f60062b = k.f45050a;
+    public static final boolean f60063b = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f60063a;
+    public long f60064a;
 
     @Override // d.b.g0.a.p.c.c0
     public void a() {
-        if (f60062b) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.y().f45739f);
+        if (f60063b) {
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.y().f45740f);
         }
-        this.f60063a = System.currentTimeMillis();
+        this.f60064a = System.currentTimeMillis();
     }
 
     @Override // d.b.g0.a.p.c.c0
     public void b() {
-        if (f60062b) {
+        if (f60063b) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
         long k = d.b.h0.r.d0.b.i().k("smart_app_tid", 0L);
         String o = d.b.h0.r.d0.b.i().o("smart_app_id", "");
         String o2 = d.b.h0.r.d0.b.i().o("smart_app_name", "");
-        if (this.f60063a == 0 || k == 0) {
+        if (this.f60064a == 0 || k == 0) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.f60063a;
+        long currentTimeMillis = System.currentTimeMillis() - this.f60064a;
         d dVar = new d();
         dVar.v(currentTimeMillis);
         dVar.p(e());
@@ -60,7 +60,7 @@ public class a implements c0 {
 
     @Override // d.b.g0.a.p.c.c0
     public void c(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable d.b.g0.a.y0.e.b bVar) {
-        if (f60062b) {
+        if (f60063b) {
             Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
         if (d.b.h0.r.d0.b.i().g("key_ai_app_guide_display", true)) {

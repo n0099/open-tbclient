@@ -1,5 +1,5 @@
 package d.b.i0.d1.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static int a(int i) {
         if (i != 1) {

@@ -5,26 +5,26 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48340a;
+    public int f48341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48341b;
+    public String f48342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f48342c;
+    public List<String> f48343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f48343d;
+    public j f48344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48344e;
+    public long f48345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d> f48345f;
+    public List<d> f48346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48346g;
+    public String f48347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f48347h;
+    public byte[] f48348h;
 }

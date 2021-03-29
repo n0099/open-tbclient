@@ -36,7 +36,7 @@ public class ImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(aVar);
-            bVar.f41847a = diskCancelWorker;
+            bVar.f41848a = diskCancelWorker;
         }
         if (d.g().a(aVar)) {
             int i3 = j.H() ? 500 : 2000;
@@ -166,7 +166,7 @@ public class ImageLoaderProc implements e<a> {
                             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                             c.j().h(TbConfig.getPbImageSize() + downloadImageBytes.length);
                             boolean A = l.A(downloadImageBytes);
-                            NSGif f2 = (NSGif.f2134f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                            NSGif f2 = (NSGif.f2135f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                             if (f2 != null) {
                                 aVar = new a((d.b.b.d.b) f2, Bytes2Bitmap, true);
                                 aVar.y(needCache);
@@ -190,7 +190,7 @@ public class ImageLoaderProc implements e<a> {
                                 if (bVar != null) {
                                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                     diskCancelWorker.setOperate(aVar3);
-                                    bVar.f41847a = diskCancelWorker;
+                                    bVar.f41848a = diskCancelWorker;
                                 }
                             }
                             if (A) {

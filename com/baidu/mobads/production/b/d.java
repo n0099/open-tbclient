@@ -9,16 +9,16 @@ import java.util.HashMap;
 public class d extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8443a;
+    public int f8444a;
     public int l;
     public int m;
 
     public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f8443a = 1;
+        this.f8444a = 1;
         this.l = 1;
         this.m = 1;
-        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f8626b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         a("androidfeed");
     }
 
@@ -32,7 +32,7 @@ public class d extends com.baidu.mobads.vo.d {
         }
         hashMap.put("pos", "" + this.l);
         hashMap.put("seq", "" + this.m);
-        hashMap.put("viewid", "" + this.f8443a);
+        hashMap.put("viewid", "" + this.f8444a);
         return hashMap;
     }
 
@@ -50,6 +50,6 @@ public class d extends com.baidu.mobads.vo.d {
     }
 
     public void a(int i) {
-        this.f8443a = i;
+        this.f8444a = i;
     }
 }

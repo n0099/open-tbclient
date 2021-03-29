@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import d.b.g0.a.i2.i0;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j {
     public static void a(String str, Map<String, String> map) {
         if (TextUtils.isEmpty(str) || map == null) {

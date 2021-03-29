@@ -28,13 +28,13 @@ import java.util.Objects;
 public class b extends Drawable implements Cloneable {
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51047f;
+    public View f51048f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f51048g;
+    public Paint f51049g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f51049h;
+    public Paint f51050h;
     public Paint i;
     public int m;
     public int n;
@@ -45,7 +45,7 @@ public class b extends Drawable implements Cloneable {
     public RectF z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51046e = 0;
+    public int f51047e = 0;
     public float j = 1.0f;
     public int k = 0;
     public float l = 0.0f;
@@ -67,22 +67,22 @@ public class b extends Drawable implements Cloneable {
 
         /* renamed from: d.b.h0.r.u.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1090a implements Runnable {
+        public class RunnableC1091a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ View f51051e;
+            public final /* synthetic */ View f51052e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup.MarginLayoutParams f51052f;
+            public final /* synthetic */ ViewGroup.MarginLayoutParams f51053f;
 
-            public RunnableC1090a(View view, ViewGroup.MarginLayoutParams marginLayoutParams) {
-                this.f51051e = view;
-                this.f51052f = marginLayoutParams;
+            public RunnableC1091a(View view, ViewGroup.MarginLayoutParams marginLayoutParams) {
+                this.f51052e = view;
+                this.f51053f = marginLayoutParams;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.f51051e.setLayoutParams(this.f51052f);
+                this.f51052e.setLayoutParams(this.f51053f);
             }
         }
 
@@ -114,7 +114,7 @@ public class b extends Drawable implements Cloneable {
                 marginLayoutParams.bottomMargin -= (int) r[3];
                 marginLayoutParams.width = (i3 - i) + ((int) r[0]) + ((int) r[2]);
                 marginLayoutParams.height = (i4 - i2) + ((int) r[1]) + ((int) r[3]);
-                view.post(new RunnableC1090a(view, marginLayoutParams));
+                view.post(new RunnableC1091a(view, marginLayoutParams));
             }
             view.removeOnLayoutChangeListener(this);
         }
@@ -122,13 +122,13 @@ public class b extends Drawable implements Cloneable {
 
     public b() {
         Paint paint = new Paint();
-        this.f51049h = paint;
+        this.f51050h = paint;
         paint.setColor(0);
-        this.f51049h.setAntiAlias(true);
-        this.f51049h.setShadowLayer(this.m, this.r, this.s, this.n);
-        this.f51049h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+        this.f51050h.setAntiAlias(true);
+        this.f51050h.setShadowLayer(this.m, this.r, this.s, this.n);
+        this.f51050h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
         Paint paint2 = new Paint();
-        this.f51048g = paint2;
+        this.f51049g = paint2;
         paint2.setAntiAlias(true);
         Paint paint3 = new Paint();
         this.i = paint3;
@@ -159,10 +159,10 @@ public class b extends Drawable implements Cloneable {
     }
 
     public b C(int i) {
-        if (this.f51046e == i) {
+        if (this.f51047e == i) {
             return this;
         }
-        this.f51046e = i;
+        this.f51047e = i;
         M();
         return this;
     }
@@ -180,7 +180,7 @@ public class b extends Drawable implements Cloneable {
             return this;
         }
         this.r = i;
-        this.f51049h.setShadowLayer(this.m, i, this.s, this.n);
+        this.f51050h.setShadowLayer(this.m, i, this.s, this.n);
         return this;
     }
 
@@ -190,7 +190,7 @@ public class b extends Drawable implements Cloneable {
             return this;
         }
         this.s = i;
-        this.f51049h.setShadowLayer(this.m, i2, i, this.n);
+        this.f51050h.setShadowLayer(this.m, i2, i, this.n);
         return this;
     }
 
@@ -207,7 +207,7 @@ public class b extends Drawable implements Cloneable {
             return this;
         }
         this.n = i;
-        this.f51049h.setShadowLayer(this.m, this.r, this.s, i);
+        this.f51050h.setShadowLayer(this.m, this.r, this.s, i);
         return this;
     }
 
@@ -216,7 +216,7 @@ public class b extends Drawable implements Cloneable {
             return this;
         }
         this.m = i;
-        this.f51049h.setShadowLayer(i, this.r, this.s, this.n);
+        this.f51050h.setShadowLayer(i, this.r, this.s, this.n);
         return this;
     }
 
@@ -249,7 +249,7 @@ public class b extends Drawable implements Cloneable {
         float[] fArr = this.p;
         float[] fArr2 = this.q;
         System.arraycopy(fArr, 0, fArr2, 0, Math.min(fArr2.length, 8));
-        int i = this.f51046e;
+        int i = this.f51047e;
         if (i == 1) {
             for (int i2 = 4; i2 < 8; i2++) {
                 this.q[i2] = 0.0f;
@@ -274,7 +274,7 @@ public class b extends Drawable implements Cloneable {
         }
         bVar.K(this.o);
         bVar.J(this.E);
-        bVar.C(this.f51046e);
+        bVar.C(this.f51047e);
         bVar.L((float[]) this.p.clone());
         bVar.H(this.n);
         bVar.I(this.m);
@@ -294,13 +294,13 @@ public class b extends Drawable implements Cloneable {
         int[] q = q();
         if (q != null) {
             if (q.length == 1) {
-                this.f51048g.setColor(q[0]);
+                this.f51049g.setColor(q[0]);
             } else {
                 PointF t = t(this.y, this.x);
                 PointF s = s(this.y, this.x);
                 LinearGradient linearGradient = new LinearGradient(t.x, t.y, s.x, s.y, q, this.w, Shader.TileMode.CLAMP);
                 this.u = linearGradient;
-                this.f51048g.setShader(linearGradient);
+                this.f51049g.setShader(linearGradient);
             }
         }
         this.i.setColor(d.b.i0.c3.c.a(this.k, this.j));
@@ -308,14 +308,14 @@ public class b extends Drawable implements Cloneable {
         int i = this.o;
         if (i == 1) {
             p(canvas);
-            canvas.drawPath(this.B, this.f51048g);
+            canvas.drawPath(this.B, this.f51049g);
             o(canvas);
         } else if (i == 2) {
-            canvas.drawCircle(this.y.centerX(), this.y.centerY(), Math.min(this.y.width(), this.y.height()) / 2.0f, this.f51049h);
-            canvas.drawCircle(this.y.centerX(), this.y.centerY(), Math.min(this.y.width(), this.y.height()) / 2.0f, this.f51048g);
+            canvas.drawCircle(this.y.centerX(), this.y.centerY(), Math.min(this.y.width(), this.y.height()) / 2.0f, this.f51050h);
+            canvas.drawCircle(this.y.centerX(), this.y.centerY(), Math.min(this.y.width(), this.y.height()) / 2.0f, this.f51049g);
             canvas.drawCircle(this.y.centerX(), this.y.centerY(), (Math.min(this.y.width(), this.y.height()) / 2.0f) - (this.l * 0.5f), this.i);
         } else {
-            canvas.drawRect(this.y, this.f51048g);
+            canvas.drawRect(this.y, this.f51049g);
         }
     }
 
@@ -327,7 +327,7 @@ public class b extends Drawable implements Cloneable {
             return false;
         }
         b bVar = (b) obj;
-        return hashCode() == bVar.hashCode() && this.f51046e == bVar.f51046e && this.m == bVar.m && this.n == bVar.n && this.o == bVar.o && this.r == bVar.r && this.s == bVar.s && this.E == bVar.E && Arrays.equals(this.p, bVar.p) && Arrays.equals(this.q, bVar.q) && Arrays.equals(this.t, bVar.t) && Arrays.equals(this.v, bVar.v) && this.x.equals(bVar.x) && this.k == bVar.k && this.l == bVar.l && this.j == bVar.j;
+        return hashCode() == bVar.hashCode() && this.f51047e == bVar.f51047e && this.m == bVar.m && this.n == bVar.n && this.o == bVar.o && this.r == bVar.r && this.s == bVar.s && this.E == bVar.E && Arrays.equals(this.p, bVar.p) && Arrays.equals(this.q, bVar.q) && Arrays.equals(this.t, bVar.t) && Arrays.equals(this.v, bVar.v) && this.x.equals(bVar.x) && this.k == bVar.k && this.l == bVar.l && this.j == bVar.j;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -336,7 +336,7 @@ public class b extends Drawable implements Cloneable {
     }
 
     public int hashCode() {
-        return (((((((Objects.hash(Integer.valueOf(this.f51046e), Integer.valueOf(this.m), Integer.valueOf(this.n), Integer.valueOf(this.o), Integer.valueOf(this.r), Integer.valueOf(this.s), this.x, Integer.valueOf(this.E), Integer.valueOf(this.k), Float.valueOf(this.l), Float.valueOf(this.j)) * 31) + Arrays.hashCode(this.p)) * 31) + Arrays.hashCode(this.q)) * 31) + Arrays.hashCode(this.t)) * 31) + Arrays.hashCode(this.v);
+        return (((((((Objects.hash(Integer.valueOf(this.f51047e), Integer.valueOf(this.m), Integer.valueOf(this.n), Integer.valueOf(this.o), Integer.valueOf(this.r), Integer.valueOf(this.s), this.x, Integer.valueOf(this.E), Integer.valueOf(this.k), Float.valueOf(this.l), Float.valueOf(this.j)) * 31) + Arrays.hashCode(this.p)) * 31) + Arrays.hashCode(this.q)) * 31) + Arrays.hashCode(this.t)) * 31) + Arrays.hashCode(this.v);
     }
 
     public GradientDrawable l() {
@@ -430,12 +430,12 @@ public class b extends Drawable implements Cloneable {
         if (view == null) {
             return null;
         }
-        this.f51047f = view;
+        this.f51048f = view;
         if (equals(view.getBackground())) {
             return null;
         }
-        this.f51047f.removeOnLayoutChangeListener(this.D);
-        this.f51047f.addOnLayoutChangeListener(this.D);
+        this.f51048f.removeOnLayoutChangeListener(this.D);
+        this.f51048f.addOnLayoutChangeListener(this.D);
         return this;
     }
 
@@ -486,7 +486,7 @@ public class b extends Drawable implements Cloneable {
         if (this.m == 0 && this.r == 0 && this.s == 0) {
             return;
         }
-        canvas.drawPath(this.A, this.f51049h);
+        canvas.drawPath(this.A, this.f51050h);
     }
 
     public final int[] q() {
@@ -569,12 +569,12 @@ public class b extends Drawable implements Cloneable {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(@IntRange(from = 0, to = 255) int i) {
-        this.f51049h.setAlpha(i);
+        this.f51050h.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.f51049h.setColorFilter(colorFilter);
+        this.f51050h.setColorFilter(colorFilter);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -634,13 +634,13 @@ public class b extends Drawable implements Cloneable {
     }
 
     public void w() {
-        View view = this.f51047f;
+        View view = this.f51048f;
         if (view == null) {
             return;
         }
         view.removeOnLayoutChangeListener(this.D);
-        this.f51047f.setLayerType(0, null);
-        this.f51047f = null;
+        this.f51048f.setLayerType(0, null);
+        this.f51048f = null;
     }
 
     public b x(@FloatRange(from = 0.0d, to = 1.0d) float f2) {

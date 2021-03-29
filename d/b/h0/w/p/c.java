@@ -5,19 +5,19 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.j.d.a f51541a;
+    public d.b.b.j.d.a f51542a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.j.d.a f51542b;
+    public d.b.b.j.d.a f51543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51543c;
+    public int f51544c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51544d;
+    public int f51545d;
 
     public int a() {
-        return this.f51544d;
+        return this.f51545d;
     }
 
     public abstract String b(int i);
@@ -25,11 +25,11 @@ public abstract class c {
     public abstract int c();
 
     public d.b.b.j.d.a d() {
-        return this.f51541a;
+        return this.f51542a;
     }
 
     public d.b.b.j.d.a e() {
-        return this.f51542b;
+        return this.f51543b;
     }
 
     public abstract String f();
@@ -43,7 +43,7 @@ public abstract class c {
     public abstract boolean j();
 
     public int k() {
-        return this.f51543c;
+        return this.f51544c;
     }
 
     public abstract int l();
@@ -55,24 +55,24 @@ public abstract class c {
     public abstract d.b.b.j.d.a o(String str);
 
     public void p(int i) {
-        this.f51544d = i;
+        this.f51545d = i;
     }
 
     public void q(d.b.b.j.d.a aVar) {
         if (aVar != null) {
             aVar.p();
         }
-        this.f51541a = aVar;
+        this.f51542a = aVar;
     }
 
     public void r(d.b.b.j.d.a aVar) {
         if (aVar != null) {
             aVar.p();
         }
-        this.f51542b = aVar;
+        this.f51543b = aVar;
     }
 
     public void s(int i) {
-        this.f51543c = i;
+        this.f51544c = i;
     }
 }

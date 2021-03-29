@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static final String SHARED_PREFS_FILENAME_PREFIX = "disk_entries_list";
     public static final int START_OF_VERSIONING = 1;
@@ -298,11 +298,12 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 this.mCacheStats.reset();
                 maybeUpdateFileCacheSize();
                 long size = this.mCacheStats.getSize();
-                double d3 = size;
-                Double.isNaN(d3);
-                evictAboveSize(size - ((long) (d2 * d3)), CacheEventListener.EvictionReason.CACHE_MANAGER_TRIMMED);
+                evictAboveSize(size - ((long) (d2 * size)), CacheEventListener.EvictionReason.CACHE_MANAGER_TRIMMED);
             } catch (IOException e2) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.EVICTION, TAG, "trimBy: " + e2.getMessage(), e2);
+                CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
+                CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
+                Class<?> cls = TAG;
+                cacheErrorLogger.logError(cacheErrorCategory, cls, "trimBy: " + e2.getMessage(), e2);
             }
         }
     }
@@ -592,13 +593,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             maybeUpdateFileCacheSize();
             long size = this.mCacheStats.getSize();
             if (this.mCacheSizeLimitMinimum > 0 && size > 0 && size >= this.mCacheSizeLimitMinimum) {
-                double d2 = this.mCacheSizeLimitMinimum;
-                double d3 = size;
-                Double.isNaN(d2);
-                Double.isNaN(d3);
-                double d4 = 1.0d - (d2 / d3);
-                if (d4 > 0.02d) {
-                    trimBy(d4);
+                double d2 = 1.0d - (this.mCacheSizeLimitMinimum / size);
+                if (d2 > 0.02d) {
+                    trimBy(d2);
                 }
             }
         }

@@ -13,20 +13,20 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f49051a = f.f48888a;
+    public static final boolean f49052a = f.f48889a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f49052b;
+    public static volatile b f49053b;
 
     public static b a() {
-        if (f49052b == null) {
+        if (f49053b == null) {
             synchronized (b.class) {
-                if (f49052b == null) {
-                    f49052b = new b();
+                if (f49053b == null) {
+                    f49053b = new b();
                 }
             }
         }
-        return f49052b;
+        return f49053b;
     }
 
     public static void b(d.b.g0.l.k.e eVar, d.b.g0.l.r.f fVar) {
@@ -43,7 +43,7 @@ public class b {
     */
     public void c(JSONArray jSONArray, g gVar, g gVar2, g gVar3) {
         char c2;
-        if (f49051a) {
+        if (f49052a) {
             Log.i("SoBundleId", "updateConfig: soCallback=" + gVar3);
         }
         if (jSONArray == null || jSONArray.length() == 0) {
@@ -54,7 +54,7 @@ public class b {
         d.b.g0.l.r.f fVar = new d.b.g0.l.r.f();
         d.b.g0.l.r.f fVar2 = new d.b.g0.l.r.f();
         c w = gVar3 != null ? gVar3.w("so") : null;
-        if (f49051a) {
+        if (f49052a) {
             Log.i("SoBundleId", "updateConfig: soNodeHandler=" + w);
         }
         for (int i = 0; i < jSONArray.length(); i++) {
@@ -90,22 +90,22 @@ public class b {
                                     d.b.g0.l.k.d dVar = (d.b.g0.l.k.d) d.b.g0.l.r.e.i(jSONObject2, new d.b.g0.l.k.d());
                                     if (dVar != null) {
                                         b(dVar, fVar);
-                                        aVar.f49048b = dVar;
+                                        aVar.f49049b = dVar;
                                     }
                                 } else if (c2 == 1) {
                                     d.b.g0.l.k.d dVar2 = (d.b.g0.l.k.d) d.b.g0.l.r.e.i(jSONObject2, new d.b.g0.l.k.d());
                                     if (dVar2 != null) {
                                         b(dVar2, fVar2);
-                                        aVar2.f49047a = dVar2;
+                                        aVar2.f49048a = dVar2;
                                     }
                                 } else if (c2 == 2) {
                                     d.b.g0.l.k.b bVar = (d.b.g0.l.k.b) d.b.g0.l.r.e.i(jSONObject2, new d.b.g0.l.k.b());
                                     if (bVar != null) {
                                         b(bVar, fVar);
-                                        aVar.f49049c = bVar;
+                                        aVar.f49050c = bVar;
                                     }
                                 } else if (c2 == 3) {
-                                    if (f49051a) {
+                                    if (f49052a) {
                                         Log.i("SoBundleId", "updateConfig: case so= " + jSONObject2 + " soNodeHandler=" + w);
                                     }
                                     if (w != null) {
@@ -129,12 +129,12 @@ public class b {
                     }
                 }
             } catch (JSONException e2) {
-                if (f49051a) {
+                if (f49052a) {
                     Log.i("SoBundleId", "updateConfig: end parse by catch=" + e2);
                 }
             }
         }
-        if (f49051a) {
+        if (f49052a) {
             Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + w);
         }
         if (gVar != null) {
@@ -145,7 +145,7 @@ public class b {
                 d.b.g0.l.l.h.a.e(aVar, gVar);
             }
         }
-        if (f49051a) {
+        if (f49052a) {
             Log.i("SoBundleId", "updateConfig: handle core end");
         }
         if (gVar2 != null) {
@@ -156,13 +156,13 @@ public class b {
                 d.b.g0.l.l.h.a.e(aVar2, gVar2);
             }
         }
-        if (f49051a) {
+        if (f49052a) {
             Log.i("SoBundleId", "updateConfig: handle game end");
         }
         if (w != null) {
             w.n();
         }
-        if (f49051a) {
+        if (f49052a) {
             Log.i("SoBundleId", "updateConfig: handle so end");
         }
     }

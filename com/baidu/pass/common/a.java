@@ -11,36 +11,36 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0117a {
+    public static class C0118a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f9736a = "UTF-8";
+        public static final String f9737a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f9737b = "AES/CBC/NoPadding";
+        public static final String f9738b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f9738c = "AES";
+        public static final String f9739c = "AES";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9739d;
+        public String f9740d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f9740e;
+        public String f9741e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9741f;
+        public String f9742f;
 
-        public C0117a() {
+        public C0118a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
             if (str != null && str.length() != 0) {
                 try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9739d));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9741f);
-                    Cipher cipher = Cipher.getInstance(this.f9740e);
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9740d));
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9742f);
+                    Cipher cipher = Cipher.getInstance(this.f9741e);
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(a(str).getBytes());
                 } catch (NoSuchAlgorithmException e2) {
@@ -54,22 +54,22 @@ public class a {
             throw new Exception("Empty string");
         }
 
-        public C0117a(String str, String str2, String str3) {
-            this.f9739d = "UTF-8";
-            this.f9740e = "AES/CBC/NoPadding";
-            this.f9741f = "AES";
-            this.f9741f = str;
-            this.f9740e = str2;
-            this.f9739d = str3;
+        public C0118a(String str, String str2, String str3) {
+            this.f9740d = "UTF-8";
+            this.f9741e = "AES/CBC/NoPadding";
+            this.f9742f = "AES";
+            this.f9742f = str;
+            this.f9741e = str2;
+            this.f9740d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
             if (bArr != null && bArr.length != 0) {
                 byte[] bArr2 = new byte[0];
                 try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9739d));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9741f);
-                    Cipher cipher = Cipher.getInstance(this.f9740e);
+                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9740d));
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9742f);
+                    Cipher cipher = Cipher.getInstance(this.f9741e);
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
                 } catch (Throwable th) {

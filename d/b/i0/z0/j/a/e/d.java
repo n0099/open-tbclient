@@ -49,7 +49,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
     public TextView A;
     public View B;
@@ -70,18 +70,18 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
     public View y;
     public TbImageView z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.h0.b1.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f63349a;
+        public final /* synthetic */ LinkedList f63350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a2 f63350b;
+        public final /* synthetic */ a2 f63351b;
 
         public a(LinkedList linkedList, a2 a2Var) {
-            this.f63349a = linkedList;
-            this.f63350b = a2Var;
+            this.f63350a = linkedList;
+            this.f63351b = a2Var;
         }
 
         @Override // d.b.h0.b1.j.d
@@ -89,7 +89,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
             if (z) {
                 d.this.x();
             } else {
-                d.this.K(view, this.f63349a, i, this.f63350b);
+                d.this.K(view, this.f63350a, i, this.f63351b);
             }
         }
     }
@@ -110,12 +110,12 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         String formatTime;
         int Z0;
         AgreeData L;
-        if (cVar == null || cVar.f63318f == null) {
+        if (cVar == null || cVar.f63319f == null) {
             return;
         }
         this.n = cVar;
         o(this.m, TbadkCoreApplication.getInst().getSkinType());
-        a2 a2Var = this.n.f63318f;
+        a2 a2Var = this.n.f63319f;
         PostData z1 = a2Var.z1();
         if (z1 == null) {
             return;
@@ -132,7 +132,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         this.o.setPageId(this.m.getUniqueId());
         if (this.n.j) {
             this.q.setVisibility(0);
-            int i = this.n.f63320h;
+            int i = this.n.f63321h;
             if (i == 1) {
                 this.q.setImageResource(R.drawable.label_topic_agree_red);
                 this.o.setBorderColor(this.m.getPageActivity().getResources().getColor(R.color.CAM_X0301));
@@ -181,7 +181,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         }
         L.threadId = a2Var.w1();
         this.s.setData(L);
-        this.s.setTopicId(String.valueOf(this.n.f63319g));
+        this.s.setTopicId(String.valueOf(this.n.f63320g));
         E(z1, a2Var);
         B(cVar, a2Var);
         J(k());
@@ -199,8 +199,8 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
             this.y.setVisibility(0);
             this.A.setText(x1);
             String str = null;
-            if (ListUtils.getCount(a2Var.K0()) != 0 && !ListUtils.isEmpty(cVar.f63318f.K0())) {
-                Iterator<MediaData> it = cVar.f63318f.K0().iterator();
+            if (ListUtils.getCount(a2Var.K0()) != 0 && !ListUtils.isEmpty(cVar.f63319f.K0())) {
+                Iterator<MediaData> it = cVar.f63319f.K0().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {
@@ -278,7 +278,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
     }
 
     public final void I(d.b.i0.z0.j.a.c.c cVar) {
-        a2 a2Var = cVar.f63318f;
+        a2 a2Var = cVar.f63319f;
         ArrayList<MediaData> K0 = a2Var.K0();
         if (k.c().g() && ListUtils.getCount(K0) != 0) {
             LinkedList linkedList = new LinkedList();
@@ -311,7 +311,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
 
     public final void K(View view, List<MediaData> list, int i, a2 a2Var) {
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-            l.K(this.f62180f.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
+            l.K(this.f62181f.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -355,7 +355,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         bVar.I(true);
         bVar.O(a2Var);
         bVar.N(rect, UtilHelper.fixedDrawableRect(rect, view));
-        ImageViewerConfig v = bVar.v(this.f62180f.getPageActivity());
+        ImageViewerConfig v = bVar.v(this.f62181f.getPageActivity());
         if (this.l == 2) {
             v.getIntent().putExtra("from", "index");
         } else {
@@ -363,7 +363,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
         HistoryMessage historyMessage = new HistoryMessage();
-        historyMessage.Activity = this.f62180f;
+        historyMessage.Activity = this.f62181f;
         historyMessage.threadId = a2Var.o0();
         historyMessage.threadName = a2Var.x1();
         historyMessage.forumName = a2Var.i0();
@@ -385,7 +385,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         this.o.setIsNight(i == 1);
         d.b.i0.z0.j.a.c.c cVar = this.n;
         if (cVar.j) {
-            int i2 = cVar.f63320h;
+            int i2 = cVar.f63321h;
             if (i2 == 1) {
                 SkinManager.setImageResource(this.q, R.drawable.label_topic_agree_red);
                 this.o.setBorderColor(this.m.getPageActivity().getResources().getColor(R.color.CAM_X0301));
@@ -414,7 +414,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         d.b.i0.z0.j.a.c.c cVar = this.n;
-        if (cVar == null || cVar.f63318f == null) {
+        if (cVar == null || cVar.f63319f == null) {
             return;
         }
         if (view == this.v) {
@@ -443,7 +443,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
     }
 
     public final void v(String str) {
-        TiebaStatic.log(new StatisticItem("c13356").param("obj_locate", str).param("tid", this.n.f63318f.w1()).param("topic_id", this.n.f63319g).param("obj_type", String.valueOf(this.n.i)));
+        TiebaStatic.log(new StatisticItem("c13356").param("obj_locate", str).param("tid", this.n.f63319f.w1()).param("topic_id", this.n.f63320g).param("obj_type", String.valueOf(this.n.i)));
     }
 
     public final void w() {
@@ -490,23 +490,23 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
 
     public void x() {
         d.b.i0.z0.j.a.c.c cVar = this.n;
-        if (cVar == null || cVar.f63318f == null) {
+        if (cVar == null || cVar.f63319f == null) {
             return;
         }
-        PbActivityConfig addLocateParam = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(this.n.f63318f, null, "none", 18003, true, false, false).addLocateParam(null);
-        addLocateParam.setForumId(String.valueOf(this.n.f63318f.c0()));
+        PbActivityConfig addLocateParam = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(this.n.f63319f, null, "none", 18003, true, false, false).addLocateParam(null);
+        addLocateParam.setForumId(String.valueOf(this.n.f63319f.c0()));
         addLocateParam.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
-        addLocateParam.setForumName(this.n.f63318f.i0());
+        addLocateParam.setForumName(this.n.f63319f.i0());
         addLocateParam.setStartFrom(this.l);
         addLocateParam.setJumpGodReply(false);
         addLocateParam.setJumpToCommentArea(true);
-        m.a(this.n.f63318f.w1());
-        this.f62180f.sendMessage(new CustomMessage(2004001, addLocateParam));
+        m.a(this.n.f63319f.w1());
+        this.f62181f.sendMessage(new CustomMessage(2004001, addLocateParam));
     }
 
     public final void y() {
-        String format = String.format("%1$s", this.n.f63318f.z1().D());
-        String valueOf = String.valueOf(this.n.f63318f.w1());
+        String format = String.format("%1$s", this.n.f63319f.z1().D());
+        String valueOf = String.valueOf(this.n.f63319f.w1());
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.m.getPageActivity());
         PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(valueOf, format + "", 1, "mention");
         createNormalCfg.setStartFrom(12);
@@ -518,7 +518,7 @@ public class d extends d.b.i0.x.b<d.b.i0.z0.j.a.c.c> {
         a2 a2Var;
         MetaData T;
         d.b.i0.z0.j.a.c.c cVar = this.n;
-        if (cVar == null || (a2Var = cVar.f63318f) == null) {
+        if (cVar == null || (a2Var = cVar.f63319f) == null) {
             return;
         }
         if (cVar.i == 1 && a2Var.z1() != null) {

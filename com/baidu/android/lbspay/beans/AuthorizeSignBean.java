@@ -8,7 +8,7 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
     public AuthorizeData mAuthSignData;
 

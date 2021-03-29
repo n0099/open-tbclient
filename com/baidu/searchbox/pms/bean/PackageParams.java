@@ -1,5 +1,5 @@
 package com.baidu.searchbox.pms.bean;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PackageParams {
     public String packageName;
     public long updateVersion;

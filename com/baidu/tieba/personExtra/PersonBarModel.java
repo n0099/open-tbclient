@@ -18,16 +18,16 @@ public class PersonBarModel extends BdBaseModel {
     public static TbHttpMessageTask j;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20324e;
+    public b f20325e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20325f;
+    public boolean f20326f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20326g;
+    public String f20327g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20327h;
+    public int f20328h;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
@@ -40,8 +40,8 @@ public class PersonBarModel extends BdBaseModel {
 
     public PersonBarModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f20324e = new b();
-        this.f20325f = z;
+        this.f20325e = new b();
+        this.f20326f = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -55,18 +55,18 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public String getId() {
-        return this.f20326g;
+        return this.f20327g;
     }
 
     public b s() {
-        return this.f20324e;
+        return this.f20325e;
     }
 
     public void setSex(int i2) {
     }
 
     public boolean t() {
-        return this.f20325f;
+        return this.f20326f;
     }
 
     public void u() {
@@ -87,7 +87,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void w(String str) {
-        if (this.f20327h == 1 && this.f20325f) {
+        if (this.f20328h == 1 && this.f20326f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -103,10 +103,10 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void x(int i2) {
-        this.f20327h = i2;
+        this.f20328h = i2;
     }
 
     public void y(String str) {
-        this.f20326g = str;
+        this.f20327g = str;
     }
 }

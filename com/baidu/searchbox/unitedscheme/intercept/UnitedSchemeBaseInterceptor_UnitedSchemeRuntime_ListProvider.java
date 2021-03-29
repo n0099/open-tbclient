@@ -4,7 +4,7 @@ import d.b.d0.a.a;
 import d.b.g0.a.t1.l.b;
 import d.b.g0.a.t1.l.c;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implements a {
     @Override // d.b.d0.a.a
     public Object get() {

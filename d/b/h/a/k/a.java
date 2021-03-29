@@ -2,7 +2,7 @@ package d.b.h.a.k;
 
 import android.os.Environment;
 import android.os.StatFs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static float a() {
         long j;

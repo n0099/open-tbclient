@@ -18,16 +18,16 @@ import d.b.g0.i.j;
 public abstract class BaseMenuView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12981e;
+    public Context f12982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12982f;
+    public View f12983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12983g;
+    public TextView f12984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f12984h;
+    public View f12985h;
     public View i;
     public final int j;
 
@@ -36,8 +36,8 @@ public abstract class BaseMenuView extends FrameLayout {
     }
 
     public void a(int i) {
-        this.f12982f.getLayoutParams().height = i + this.j;
-        this.f12982f.requestLayout();
+        this.f12983f.getLayoutParams().height = i + this.j;
+        this.f12983f.requestLayout();
     }
 
     public abstract boolean b();
@@ -48,7 +48,7 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         int height = view.getHeight();
         if (height != 0) {
-            this.f12982f.getLayoutParams().height = height + this.j;
+            this.f12983f.getLayoutParams().height = height + this.j;
         }
         this.i = view;
         layoutParams.bottomMargin = this.j;
@@ -56,7 +56,7 @@ public abstract class BaseMenuView extends FrameLayout {
     }
 
     public View getBgView() {
-        return this.f12982f;
+        return this.f12983f;
     }
 
     public View getContentView() {
@@ -64,17 +64,17 @@ public abstract class BaseMenuView extends FrameLayout {
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.f12983g.setOnClickListener(onClickListener);
+        this.f12984g.setOnClickListener(onClickListener);
     }
 
     public void setMode() {
         Resources resources = getResources();
-        this.f12982f.setBackground(resources.getDrawable(h.swan_common_menu_content_bg));
-        this.f12984h.setBackgroundColor(resources.getColor(f.aiapp_menu_split_line_day));
-        this.f12983g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
-        this.f12983g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
-        this.f12984h.setAlpha(1.0f);
-        this.f12983g.setAlpha(1.0f);
+        this.f12983f.setBackground(resources.getDrawable(h.swan_common_menu_content_bg));
+        this.f12985h.setBackgroundColor(resources.getColor(f.aiapp_menu_split_line_day));
+        this.f12984g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
+        this.f12984g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
+        this.f12985h.setAlpha(1.0f);
+        this.f12984g.setAlpha(1.0f);
     }
 
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -83,11 +83,11 @@ public abstract class BaseMenuView extends FrameLayout {
 
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
-        this.f12981e = context;
+        this.f12982e = context;
         View inflate = FrameLayout.inflate(context, j.aiapp_menu_base_view_layout, this);
-        this.f12982f = inflate.findViewById(i.background);
-        this.f12983g = (TextView) inflate.findViewById(i.cancel);
-        this.f12984h = inflate.findViewById(i.divider);
+        this.f12983f = inflate.findViewById(i.background);
+        this.f12984g = (TextView) inflate.findViewById(i.cancel);
+        this.f12985h = inflate.findViewById(i.divider);
         Resources resources = context.getResources();
         this.j = ((int) resources.getDimension(g.aiapp_menu_divider_height)) + ((int) resources.getDimension(g.aiapp_menu_cancel_btn_height));
     }

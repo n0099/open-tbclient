@@ -25,19 +25,19 @@ import javax.net.ssl.HttpsURLConnection;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6331a;
+    public Context f6332a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6332b = null;
+    public String f6333b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f6333c = null;
+    public HashMap<String, String> f6334c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6334d = null;
+    public String f6335d = null;
 
     public g(Context context) {
-        this.f6331a = context;
+        this.f6332a = context;
     }
 
     private String a(Context context) {
@@ -50,7 +50,7 @@ public class g {
             }
             return null;
         } catch (Exception e2) {
-            if (a.f6321a) {
+            if (a.f6322a) {
                 e2.printStackTrace();
             }
             return null;
@@ -58,31 +58,31 @@ public class g {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:110:0x0192, code lost:
-        if (com.baidu.lbsapi.auth.a.f6321a == false) goto L23;
+        if (com.baidu.lbsapi.auth.a.f6322a == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:123:0x01c2, code lost:
-        if (com.baidu.lbsapi.auth.a.f6321a == false) goto L23;
+        if (com.baidu.lbsapi.auth.a.f6322a == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:97:0x0161, code lost:
-        if (com.baidu.lbsapi.auth.a.f6321a == false) goto L23;
+        if (com.baidu.lbsapi.auth.a.f6322a == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:98:0x0163, code lost:
         r14.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:103:0x016d A[Catch: all -> 0x0131, TryCatch #12 {all -> 0x0131, blocks: (B:7:0x002f, B:88:0x0136, B:90:0x013a, B:91:0x013d, B:101:0x0169, B:103:0x016d, B:104:0x0170, B:114:0x0197, B:116:0x019b, B:117:0x019e), top: B:150:0x002f }] */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x019b A[Catch: all -> 0x0131, TryCatch #12 {all -> 0x0131, blocks: (B:7:0x002f, B:88:0x0136, B:90:0x013a, B:91:0x013d, B:101:0x0169, B:103:0x016d, B:104:0x0170, B:114:0x0197, B:116:0x019b, B:117:0x019e), top: B:150:0x002f }] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x016d A[Catch: all -> 0x0131, TryCatch #12 {all -> 0x0131, blocks: (B:7:0x002f, B:88:0x0136, B:90:0x013a, B:91:0x013d, B:101:0x0169, B:103:0x016d, B:104:0x0170, B:114:0x0197, B:116:0x019b, B:117:0x019e), top: B:148:0x002f }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x019b A[Catch: all -> 0x0131, TryCatch #12 {all -> 0x0131, blocks: (B:7:0x002f, B:88:0x0136, B:90:0x013a, B:91:0x013d, B:101:0x0169, B:103:0x016d, B:104:0x0170, B:114:0x0197, B:116:0x019b, B:117:0x019e), top: B:148:0x002f }] */
     /* JADX WARN: Removed duplicated region for block: B:126:0x01c7 A[ADDED_TO_REGION] */
     /* JADX WARN: Removed duplicated region for block: B:131:0x01f7  */
     /* JADX WARN: Removed duplicated region for block: B:133:0x0205  */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x018b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:153:0x01bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x015a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:157:0x00fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00b4 A[Catch: all -> 0x0109, TryCatch #5 {all -> 0x0109, blocks: (B:45:0x00b0, B:47:0x00b4, B:48:0x00cf), top: B:146:0x00b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00f4 A[Catch: Exception -> 0x011a, IOException -> 0x011d, MalformedURLException -> 0x0120, all -> 0x0124, TRY_LEAVE, TryCatch #2 {all -> 0x0124, blocks: (B:8:0x0033, B:66:0x010e, B:68:0x0116, B:69:0x0119, B:51:0x00ec, B:53:0x00f4, B:31:0x0095, B:33:0x009d), top: B:145:0x0033 }] */
+    /* JADX WARN: Removed duplicated region for block: B:146:0x018b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x01bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x015a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x00fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00b4 A[Catch: all -> 0x0109, TryCatch #5 {all -> 0x0109, blocks: (B:45:0x00b0, B:47:0x00b4, B:48:0x00cf), top: B:144:0x00b0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00f4 A[Catch: Exception -> 0x011a, IOException -> 0x011d, MalformedURLException -> 0x0120, all -> 0x0124, TRY_LEAVE, TryCatch #2 {all -> 0x0124, blocks: (B:8:0x0033, B:66:0x010e, B:68:0x0116, B:69:0x0119, B:51:0x00ec, B:53:0x00f4, B:31:0x0095, B:33:0x009d), top: B:143:0x0033 }] */
     /* JADX WARN: Removed duplicated region for block: B:65:0x010c A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0116 A[Catch: Exception -> 0x011a, IOException -> 0x011d, MalformedURLException -> 0x0120, all -> 0x0124, TryCatch #2 {all -> 0x0124, blocks: (B:8:0x0033, B:66:0x010e, B:68:0x0116, B:69:0x0119, B:51:0x00ec, B:53:0x00f4, B:31:0x0095, B:33:0x009d), top: B:145:0x0033 }] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x013a A[Catch: all -> 0x0131, TryCatch #12 {all -> 0x0131, blocks: (B:7:0x002f, B:88:0x0136, B:90:0x013a, B:91:0x013d, B:101:0x0169, B:103:0x016d, B:104:0x0170, B:114:0x0197, B:116:0x019b, B:117:0x019e), top: B:150:0x002f }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0116 A[Catch: Exception -> 0x011a, IOException -> 0x011d, MalformedURLException -> 0x0120, all -> 0x0124, TryCatch #2 {all -> 0x0124, blocks: (B:8:0x0033, B:66:0x010e, B:68:0x0116, B:69:0x0119, B:51:0x00ec, B:53:0x00f4, B:31:0x0095, B:33:0x009d), top: B:143:0x0033 }] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x013a A[Catch: all -> 0x0131, TryCatch #12 {all -> 0x0131, blocks: (B:7:0x002f, B:88:0x0136, B:90:0x013a, B:91:0x013d, B:101:0x0169, B:103:0x016d, B:104:0x0170, B:114:0x0197, B:116:0x019b, B:117:0x019e), top: B:148:0x002f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -90,9 +90,9 @@ public class g {
         int i;
         OutputStream outputStream;
         BufferedReader bufferedReader;
-        a.a("https Post start,url:" + this.f6332b);
-        if (this.f6333c == null) {
-            this.f6334d = ErrorMessage.a("httpsPost request paramters is null.");
+        a.a("https Post start,url:" + this.f6333b);
+        if (this.f6334c == null) {
+            this.f6335d = ErrorMessage.a("httpsPost request paramters is null.");
             return;
         }
         boolean z = true;
@@ -121,8 +121,8 @@ public class g {
             try {
                 try {
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                    bufferedWriter.write(b(this.f6333c));
-                    a.a(b(this.f6333c));
+                    bufferedWriter.write(b(this.f6334c));
+                    a.a(b(this.f6334c));
                     bufferedWriter.flush();
                     bufferedWriter.close();
                     httpsURLConnection.connect();
@@ -142,15 +142,15 @@ public class g {
                                             }
                                             stringBuffer.append((char) read);
                                         }
-                                        this.f6334d = stringBuffer.toString();
+                                        this.f6335d = stringBuffer.toString();
                                         bufferedReader2 = bufferedReader;
                                     } catch (IOException e5) {
                                         e = e5;
                                         inputStream = inputStream2;
                                         try {
-                                            if (a.f6321a) {
+                                            if (a.f6322a) {
                                             }
-                                            this.f6334d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                                            this.f6335d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                                             if (inputStream != null) {
                                                 bufferedReader.close();
                                                 inputStream.close();
@@ -163,7 +163,7 @@ public class g {
                                             z2 = z;
                                             if (z2) {
                                             }
-                                            if (this.f6334d == null) {
+                                            if (this.f6335d == null) {
                                             }
                                         } catch (Throwable th2) {
                                             th = th2;
@@ -205,11 +205,11 @@ public class g {
                             bufferedReader = null;
                             inputStream = inputStream2;
                             i = -1;
-                            if (a.f6321a) {
+                            if (a.f6322a) {
                                 e.printStackTrace();
                                 a.a("httpsPost parse failed;" + e.getMessage());
                             }
-                            this.f6334d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                            this.f6335d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                             if (inputStream != null && bufferedReader != null) {
                                 bufferedReader.close();
                                 inputStream.close();
@@ -223,7 +223,7 @@ public class g {
                             z2 = z;
                             if (z2) {
                             }
-                            if (this.f6334d == null) {
+                            if (this.f6335d == null) {
                             }
                         } catch (Throwable th5) {
                             th = th5;
@@ -248,7 +248,7 @@ public class g {
                         try {
                             outputStream.close();
                         } catch (IOException e9) {
-                            if (a.f6321a) {
+                            if (a.f6322a) {
                                 e9.printStackTrace();
                             }
                         }
@@ -261,7 +261,7 @@ public class g {
                         try {
                             outputStream3.close();
                         } catch (IOException e10) {
-                            if (a.f6321a) {
+                            if (a.f6322a) {
                                 e10.printStackTrace();
                             }
                         }
@@ -271,10 +271,10 @@ public class g {
             } catch (MalformedURLException e11) {
                 e = e11;
                 outputStream4 = outputStream;
-                if (a.f6321a) {
+                if (a.f6322a) {
                     e.printStackTrace();
                 }
-                this.f6334d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
+                this.f6335d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
                 if (outputStream4 != null) {
                     try {
                         outputStream4.close();
@@ -284,15 +284,15 @@ public class g {
                 }
                 if (z2) {
                 }
-                if (this.f6334d == null) {
+                if (this.f6335d == null) {
                 }
             } catch (IOException e13) {
                 e = e13;
                 outputStream5 = outputStream;
-                if (a.f6321a) {
+                if (a.f6322a) {
                     e.printStackTrace();
                 }
-                this.f6334d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                this.f6335d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                 if (outputStream5 != null) {
                     try {
                         outputStream5.close();
@@ -302,15 +302,15 @@ public class g {
                 }
                 if (z2) {
                 }
-                if (this.f6334d == null) {
+                if (this.f6335d == null) {
                 }
             } catch (Exception e15) {
                 e = e15;
                 outputStream2 = outputStream;
-                if (a.f6321a) {
+                if (a.f6322a) {
                     e.printStackTrace();
                 }
-                this.f6334d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
+                this.f6335d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
                 if (outputStream2 != null) {
                     try {
                         outputStream2.close();
@@ -320,60 +320,60 @@ public class g {
                 }
                 if (z2) {
                 }
-                if (this.f6334d == null) {
+                if (this.f6335d == null) {
                 }
             }
         } catch (MalformedURLException e17) {
             e = e17;
             outputStream4 = outputStream;
             i = -1;
-            if (a.f6321a) {
+            if (a.f6322a) {
             }
-            this.f6334d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
+            this.f6335d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
             if (outputStream4 != null) {
             }
             if (z2) {
             }
-            if (this.f6334d == null) {
+            if (this.f6335d == null) {
             }
         } catch (IOException e18) {
             e = e18;
             outputStream5 = outputStream;
             i = -1;
-            if (a.f6321a) {
+            if (a.f6322a) {
             }
-            this.f6334d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+            this.f6335d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
             if (outputStream5 != null) {
             }
             if (z2) {
             }
-            if (this.f6334d == null) {
+            if (this.f6335d == null) {
             }
         } catch (Exception e19) {
             e = e19;
             outputStream2 = outputStream;
             i = -1;
-            if (a.f6321a) {
+            if (a.f6322a) {
             }
-            this.f6334d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
+            this.f6335d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
             if (outputStream2 != null) {
             }
             if (z2) {
             }
-            if (this.f6334d == null) {
+            if (this.f6335d == null) {
             }
         }
         if (z2 || 200 == i) {
-            if (this.f6334d == null) {
+            if (this.f6335d == null) {
                 a.a("httpsPost failed,mResult is null");
-                this.f6334d = ErrorMessage.a(-1, "httpsPost failed,internal error");
+                this.f6335d = ErrorMessage.a(-1, "httpsPost failed,internal error");
                 return;
             }
-            a.a("httpsPost success end,parse result = " + this.f6334d);
+            a.a("httpsPost success end,parse result = " + this.f6335d);
             return;
         }
         a.a("httpsPost failed,statusCode:" + i);
-        this.f6334d = ErrorMessage.a(-11, "httpsPost failed,statusCode:" + i);
+        this.f6335d = ErrorMessage.a(-11, "httpsPost failed,statusCode:" + i);
     }
 
     public static String b(HashMap<String, String> hashMap) throws UnsupportedEncodingException {
@@ -395,9 +395,9 @@ public class g {
     private HttpsURLConnection b() {
         String str;
         try {
-            URL url = new URL(this.f6332b);
-            a.a("https URL: " + this.f6332b);
-            String a2 = a(this.f6331a);
+            URL url = new URL(this.f6333b);
+            a.a("https URL: " + this.f6333b);
+            String a2 = a(this.f6332a);
             if (a2 != null && !a2.equals("")) {
                 a.a("checkNetwork = " + a2);
                 HttpsURLConnection httpsURLConnection = (HttpsURLConnection) (a2.equals(ConectivityUtils.APN_CMWAP) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a2.equals(ConectivityUtils.APN_CTWAP) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
@@ -410,23 +410,23 @@ public class g {
                 return httpsURLConnection;
             }
             a.c("Current network is not available.");
-            this.f6334d = ErrorMessage.a(-10, "Current network is not available.");
+            this.f6335d = ErrorMessage.a(-10, "Current network is not available.");
             return null;
         } catch (MalformedURLException e2) {
-            if (a.f6321a) {
+            if (a.f6322a) {
                 e2.printStackTrace();
                 a.a(e2.getMessage());
             }
             str = "Auth server could not be parsed as a URL.";
-            this.f6334d = ErrorMessage.a(-11, str);
+            this.f6335d = ErrorMessage.a(-11, str);
             return null;
         } catch (Exception e3) {
-            if (a.f6321a) {
+            if (a.f6322a) {
                 e3.printStackTrace();
                 a.a(e3.getMessage());
             }
             str = "Init httpsurlconnection failed.";
-            this.f6334d = ErrorMessage.a(-11, str);
+            this.f6335d = ErrorMessage.a(-11, str);
             return null;
         }
     }
@@ -442,22 +442,22 @@ public class g {
 
     public String a(HashMap<String, String> hashMap) {
         HashMap<String, String> c2 = c(hashMap);
-        this.f6333c = c2;
-        this.f6332b = c2.get("url");
+        this.f6334c = c2;
+        this.f6333b = c2.get("url");
         HttpsURLConnection b2 = b();
         if (b2 == null) {
             a.c("syncConnect failed,httpsURLConnection is null");
         } else {
             a(b2);
         }
-        return this.f6334d;
+        return this.f6335d;
     }
 
     public boolean a() {
         NetworkInfo activeNetworkInfo;
         a.a("checkNetwork start");
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.f6331a.getSystemService("connectivity");
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.f6332a.getSystemService("connectivity");
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                 return false;
             }
@@ -467,7 +467,7 @@ public class g {
             }
             return false;
         } catch (Exception e2) {
-            if (a.f6321a) {
+            if (a.f6322a) {
                 e2.printStackTrace();
             }
             return false;

@@ -3,7 +3,7 @@ package com.baidu.android.lbspay.channelpay.fast;
 import com.baidu.android.lbspay.channelpay.ChannelBaseWapPay;
 import com.baidu.android.lbspay.channelpay.PayDataBean;
 import com.baidu.android.lbspay.network.GetPayContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelFastPay extends ChannelBaseWapPay {
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay
     public int getChannelId() {

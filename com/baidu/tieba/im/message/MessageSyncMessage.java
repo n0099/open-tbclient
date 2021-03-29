@@ -9,7 +9,7 @@ import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MessageSyncMessage extends TbSocketMessage {
     public int height;
     public boolean isForTimer;

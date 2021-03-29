@@ -9,14 +9,14 @@ import com.baidu.platform.comapi.wnplatform.walkmap.f;
 public class RGStateEntry extends RGStateCar3D {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10049b = 0;
+    public int f10050b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f10048a = new a(this);
+    public f f10049a = new a(this);
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     public void exit() {
-        this.f10049b = 0;
+        this.f10050b = 0;
         b.a().G().a((f) null);
     }
 
@@ -24,7 +24,7 @@ public class RGStateEntry extends RGStateCar3D {
     public void onActionMapStatus() {
         b.a().Q().o();
         b.a().G().b(true);
-        b.a().G().a(this.f10048a);
+        b.a().G().a(this.f10049a);
         GeoPoint e2 = b.a().D().e();
         MapStatus i = b.a().G().i();
         if (i != null) {
@@ -34,7 +34,7 @@ public class RGStateEntry extends RGStateCar3D {
             }
             builder.target(e.a(e2));
             b.a().G().a(builder.build(), 500);
-            this.f10049b = 1;
+            this.f10050b = 1;
         }
     }
 

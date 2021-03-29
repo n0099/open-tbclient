@@ -10,32 +10,32 @@ import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ChatSetting> f54030a = new HashMap<>();
+    public HashMap<String, ChatSetting> f54031a = new HashMap<>();
 
     /* renamed from: d.b.i0.d1.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1212a extends f0<Boolean> {
+    /* loaded from: classes3.dex */
+    public class C1213a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54031a;
+        public final /* synthetic */ String f54032a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54032b;
+        public final /* synthetic */ String f54033b;
 
-        public C1212a(String str, String str2) {
-            this.f54031a = str;
-            this.f54032b = str2;
+        public C1213a(String str, String str2) {
+            this.f54032a = str;
+            this.f54033b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            ChatSetting a2 = a.this.a(this.f54031a, this.f54032b);
+            ChatSetting a2 = a.this.a(this.f54032a, this.f54033b);
             if (a2 == null) {
                 return Boolean.FALSE;
             }
@@ -56,27 +56,27 @@ public abstract class a {
     }
 
     public void d(String str, String str2, n<Boolean> nVar) {
-        h0.c(new C1212a(str, str2), nVar);
+        h0.c(new C1213a(str, str2), nVar);
     }
 
     public void e(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.f54030a) {
-            this.f54030a.clear();
+        synchronized (this.f54031a) {
+            this.f54031a.clear();
         }
         String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
         if (id == null || id.length() == 0) {
             return;
         }
         String str2 = id + "@";
-        synchronized (this.f54030a) {
+        synchronized (this.f54031a) {
             l<String> b2 = b();
             List<l.b<String>> b3 = p.b(b2);
             if (b3 != null) {
                 for (l.b<String> bVar : b3) {
-                    String str3 = bVar.f41700a;
+                    String str3 = bVar.f41701a;
                     if (str3 != null && str3.startsWith(str2) && (str = b2.get(str3)) != null) {
-                        this.f54030a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        this.f54031a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                     }
                 }
             }

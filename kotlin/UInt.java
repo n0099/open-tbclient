@@ -137,7 +137,7 @@ public final class UInt implements Comparable<UInt> {
     @InlineOnly
     /* renamed from: inv-impl  reason: not valid java name */
     public static final int m723invimpl(int i) {
-        return m713constructorimpl(i ^ (-1));
+        return m713constructorimpl(~i);
     }
 
     @InlineOnly

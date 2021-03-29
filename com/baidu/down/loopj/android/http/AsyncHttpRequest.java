@@ -34,7 +34,7 @@ import java.util.TreeSet;
 import javax.net.ssl.SSLException;
 import javax.security.cert.CertificateException;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AsyncHttpRequest implements Runnable {
     public static final boolean DEBUG = false;
     public static final String TAG = "AsyncHttpRequest";
@@ -59,7 +59,7 @@ public class AsyncHttpRequest implements Runnable {
     public HashSet<String> redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class HandlerCdnRedirectException extends RuntimeException {
         public static final long serialVersionUID = -5562528406378234456L;
 
@@ -67,7 +67,7 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class HandlerRedirectException extends RuntimeException {
         public static final long serialVersionUID = -4422626752285372402L;
 
@@ -197,10 +197,10 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:177:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:176:?, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:178:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:177:?, code lost:
         return;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x006a, code lost:
@@ -439,13 +439,14 @@ public class AsyncHttpRequest implements Runnable {
             }
         }
         long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j2);
-        if (segEndByPos == Long.MAX_VALUE) {
+        int i2 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
+        if (i2 == 0) {
             j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
         } else {
             str3 = str2;
         }
         if (j < segEndByPos) {
-            if (segEndByPos != Long.MAX_VALUE && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
+            if (i2 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
                 long j3 = 307200 + j;
                 str3 = String.valueOf(j3 - 1 < segEndByPos ? j3 - 2 : segEndByPos - 1);
             }

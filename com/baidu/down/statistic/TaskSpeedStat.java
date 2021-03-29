@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.down.utils.IdentityManager;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TaskSpeedStat {
     public long did;
     public String docid;

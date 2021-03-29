@@ -11,22 +11,22 @@ import com.baidu.tieba.memberCenter.memberprivilege.MemberPrivilegeActivity;
 public class d extends d.b.b.a.d<MemberPrivilegeActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public MemberPrivilegeActivity f59475a;
+    public MemberPrivilegeActivity f59476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f59476b;
+    public View f59477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f59477c;
+    public NavigationBar f59478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f59478d;
+    public NoNetworkView f59479d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f59479e;
+    public BdListView f59480e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f59480f;
+    public c f59481f;
 
     /* loaded from: classes3.dex */
     public class a implements NoNetworkView.b {
@@ -36,47 +36,47 @@ public class d extends d.b.b.a.d<MemberPrivilegeActivity> {
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                d.this.f59475a.requestMemberPrivilegeData();
+                d.this.f59476a.requestMemberPrivilegeData();
             }
         }
     }
 
     public d(MemberPrivilegeActivity memberPrivilegeActivity) {
         super(memberPrivilegeActivity.getPageContext());
-        this.f59475a = memberPrivilegeActivity;
+        this.f59476a = memberPrivilegeActivity;
         h();
     }
 
     public c e() {
-        return this.f59480f;
+        return this.f59481f;
     }
 
     public View f() {
-        return this.f59476b;
+        return this.f59477b;
     }
 
     public final void h() {
-        this.f59475a.setContentView(R.layout.memberprivilege_activity);
-        View findViewById = this.f59475a.findViewById(R.id.root);
-        this.f59476b = findViewById;
+        this.f59476a.setContentView(R.layout.memberprivilege_activity);
+        View findViewById = this.f59476a.findViewById(R.id.root);
+        this.f59477b = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.navigationbar);
-        this.f59477c = navigationBar;
+        this.f59478c = navigationBar;
         navigationBar.setTitleText(R.string.member_center);
-        this.f59477c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        NoNetworkView noNetworkView = (NoNetworkView) this.f59476b.findViewById(R.id.nonetworkview);
-        this.f59478d = noNetworkView;
+        this.f59478c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        NoNetworkView noNetworkView = (NoNetworkView) this.f59477b.findViewById(R.id.nonetworkview);
+        this.f59479d = noNetworkView;
         noNetworkView.a(new a());
-        this.f59479e = (BdListView) this.f59476b.findViewById(R.id.listview);
-        c cVar = new c(this.f59475a);
-        this.f59480f = cVar;
-        this.f59479e.setAdapter((ListAdapter) cVar);
-        this.f59479e.setOnItemClickListener(this.f59475a);
+        this.f59480e = (BdListView) this.f59477b.findViewById(R.id.listview);
+        c cVar = new c(this.f59476a);
+        this.f59481f = cVar;
+        this.f59480e.setAdapter((ListAdapter) cVar);
+        this.f59480e.setOnItemClickListener(this.f59476a);
     }
 
     public void onChangeSkinType(int i) {
-        this.f59475a.getLayoutMode().k(i == 1);
-        this.f59475a.getLayoutMode().j(this.f59476b);
-        this.f59477c.onChangeSkinType(this.f59475a.getPageContext(), i);
-        this.f59478d.c(this.f59475a.getPageContext(), i);
+        this.f59476a.getLayoutMode().k(i == 1);
+        this.f59476a.getLayoutMode().j(this.f59477b);
+        this.f59478c.onChangeSkinType(this.f59476a.getPageContext(), i);
+        this.f59479d.c(this.f59476a.getPageContext(), i);
     }
 }

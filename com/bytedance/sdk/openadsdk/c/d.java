@@ -40,10 +40,7 @@ public class d {
             al.a(jSONObject2);
             jSONObject.put("ad_extra_data", jSONObject2.toString());
             jSONObject.putOpt("log_extra", lVar.ap());
-            double currentTimeMillis = System.currentTimeMillis() / 1000;
-            double g2 = ak.g(lVar.ap());
-            Double.isNaN(currentTimeMillis);
-            float floatValue = Double.valueOf(currentTimeMillis - g2).floatValue();
+            float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - ak.g(lVar.ap())).floatValue();
             if (floatValue <= 0.0f) {
                 floatValue = 0.0f;
             }
@@ -364,10 +361,7 @@ public class d {
             }
         }
         jSONObject.putOpt("log_extra", lVar.ap());
-        double currentTimeMillis = System.currentTimeMillis() / 1000;
-        double g2 = ak.g(lVar.ap());
-        Double.isNaN(currentTimeMillis);
-        float floatValue = Double.valueOf(currentTimeMillis - g2).floatValue();
+        float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - ak.g(lVar.ap())).floatValue();
         if (floatValue <= 0.0f) {
             floatValue = 0.0f;
         }
@@ -600,11 +594,7 @@ public class d {
                 jSONObject.put("ad_extra_data", jSONObject2.toString());
                 jSONObject.put("tag", str2);
                 if (PrefetchEvent.STATE_CLICK.equals(str3)) {
-                    String optString2 = jSONObject.optString("log_extra");
-                    double currentTimeMillis = System.currentTimeMillis() / 1000;
-                    double g2 = ak.g(optString2);
-                    Double.isNaN(currentTimeMillis);
-                    float floatValue = Double.valueOf(currentTimeMillis - g2).floatValue();
+                    float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - ak.g(jSONObject.optString("log_extra"))).floatValue();
                     if (floatValue <= 0.0f) {
                         floatValue = 0.0f;
                     }

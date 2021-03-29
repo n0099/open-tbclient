@@ -14,33 +14,33 @@ import org.json.JSONException;
 public class c2 extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f39908a;
+    public boolean f39909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f39909b;
+    public final /* synthetic */ Context f39910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Info f39910c;
+    public final /* synthetic */ Info f39911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f39911d;
+    public final /* synthetic */ String f39912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ d2 f39912e;
+    public final /* synthetic */ d2 f39913e;
 
     public c2(d2 d2Var, Context context, Info info, String str) {
-        this.f39912e = d2Var;
-        this.f39909b = context;
-        this.f39910c = info;
-        this.f39911d = str;
+        this.f39913e = d2Var;
+        this.f39910b = context;
+        this.f39911c = info;
+        this.f39912d = str;
     }
 
     public final boolean a(String str) {
         Uri parse = Uri.parse(str);
         if (d2.a(parse) || d2.b(parse)) {
-            this.f39908a = true;
-            if (!R1.a(this.f39909b, parse, null)) {
-                a2.a(this.f39909b, parse);
+            this.f39909a = true;
+            if (!R1.a(this.f39910b, parse, null)) {
+                a2.a(this.f39910b, parse);
             }
             return true;
         }
@@ -50,13 +50,13 @@ public class c2 extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         super.onPageFinished(webView, str);
-        this.f39912e.f39919c.removeMessages(11);
-        if (this.f39908a) {
+        this.f39913e.f39920c.removeMessages(11);
+        if (this.f39909a) {
             return;
         }
-        Z0 a2 = a1.a(this.f39909b);
+        Z0 a2 = a1.a(this.f39910b);
         try {
-            a2.f39849b = a1.a("ps", new b1(this.f39910c));
+            a2.f39850b = a1.a("ps", new b1(this.f39911c));
             a2.a("co", 2004);
             a2.a("msg", str);
         } catch (JSONException unused) {
@@ -64,8 +64,8 @@ public class c2 extends WebViewClient {
         a2.a();
         Message obtain = Message.obtain();
         obtain.what = 12;
-        obtain.obj = this.f39911d;
-        this.f39912e.f39919c.sendMessage(obtain);
+        obtain.obj = this.f39912d;
+        this.f39913e.f39920c.sendMessage(obtain);
     }
 
     @Override // android.webkit.WebViewClient

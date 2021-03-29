@@ -12,7 +12,7 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f59752a = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
+    public static String f59753a = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
 
     public static File a(@NonNull String str) {
         return FileHelper.CreateFileIfNotFoundAbsolutePath(g(str));
@@ -74,7 +74,7 @@ public class b {
             return sb.toString();
         }
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f59752a);
+        sb2.append(f59753a);
         File file2 = new File(sb2.toString());
         if (!file2.exists()) {
             file2.mkdirs();

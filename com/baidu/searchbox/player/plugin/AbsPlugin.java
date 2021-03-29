@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbsPlugin implements IPlugin {
     public Context mContext;
     public IMessenger mCourier;

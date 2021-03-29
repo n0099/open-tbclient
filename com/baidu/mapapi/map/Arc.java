@@ -9,22 +9,22 @@ import java.util.ArrayList;
 public final class Arc extends Overlay {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f6792f = "Arc";
+    public static final String f6793f = "Arc";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6793a;
+    public int f6794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6794b;
+    public int f6795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6795c;
+    public LatLng f6796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f6796d;
+    public LatLng f6797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f6797e;
+    public LatLng f6798e;
 
     public Arc() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.arc;
@@ -35,40 +35,40 @@ public final class Arc extends Overlay {
         super.a(bundle);
         ArrayList arrayList = new ArrayList();
         arrayList.clear();
-        arrayList.add(this.f6795c);
-        arrayList.add(this.f6796d);
-        arrayList.add(this.f6797e);
+        arrayList.add(this.f6796c);
+        arrayList.add(this.f6797d);
+        arrayList.add(this.f6798e);
         GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f6794b);
+        bundle.putInt("width", this.f6795b);
         Overlay.a(arrayList, bundle);
-        Overlay.a(this.f6793a, bundle);
+        Overlay.a(this.f6794a, bundle);
         return bundle;
     }
 
     public int getColor() {
-        return this.f6793a;
+        return this.f6794a;
     }
 
     public LatLng getEndPoint() {
-        return this.f6797e;
+        return this.f6798e;
     }
 
     public LatLng getMiddlePoint() {
-        return this.f6796d;
+        return this.f6797d;
     }
 
     public LatLng getStartPoint() {
-        return this.f6795c;
+        return this.f6796c;
     }
 
     public int getWidth() {
-        return this.f6794b;
+        return this.f6795b;
     }
 
     public void setColor(int i) {
-        this.f6793a = i;
+        this.f6794a = i;
         this.listener.b(this);
     }
 
@@ -79,15 +79,15 @@ public final class Arc extends Overlay {
         if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
             throw new IllegalArgumentException("start and middle and end points can not be same");
         }
-        this.f6795c = latLng;
-        this.f6796d = latLng2;
-        this.f6797e = latLng3;
+        this.f6796c = latLng;
+        this.f6797d = latLng2;
+        this.f6798e = latLng3;
         this.listener.b(this);
     }
 
     public void setWidth(int i) {
         if (i > 0) {
-            this.f6794b = i;
+            this.f6795b = i;
             this.listener.b(this);
         }
     }

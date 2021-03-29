@@ -20,7 +20,7 @@ import java.util.Iterator;
 public class h extends j {
 
     /* renamed from: h  reason: collision with root package name */
-    public a2 f57473h;
+    public a2 f57474h;
     public boolean i;
     public String j;
     public PraiseModel k;
@@ -35,7 +35,7 @@ public class h extends j {
         public void a(String str) {
             if (h.this.i) {
                 int i = 1;
-                if (h.this.f57473h != null && h.this.f57473h.P0().getIsLike() == 1) {
+                if (h.this.f57474h != null && h.this.f57474h.P0().getIsLike() == 1) {
                     i = 0;
                 }
                 h.this.h(i);
@@ -45,14 +45,14 @@ public class h extends j {
 
         @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
         public void b(int i, String str) {
-            FrsFragment frsFragment = h.this.f57477b;
+            FrsFragment frsFragment = h.this.f57478b;
             if (frsFragment == null || frsFragment.getPageContext() == null || !h.this.i || TextUtils.isEmpty(str)) {
                 return;
             }
             if (AntiHelper.m(i, str)) {
-                AntiHelper.u(h.this.f57477b.getPageContext().getPageActivity(), str);
+                AntiHelper.u(h.this.f57478b.getPageContext().getPageActivity(), str);
             } else {
-                h.this.f57477b.showToast(str);
+                h.this.f57478b.showToast(str);
             }
         }
     }
@@ -82,13 +82,13 @@ public class h extends j {
         super(frsFragment);
         b bVar = new b(2004004);
         this.l = bVar;
-        this.f57477b.registerListener(bVar);
+        this.f57478b.registerListener(bVar);
         this.k = e();
     }
 
     public final PraiseModel e() {
         if (this.k == null) {
-            this.k = new PraiseModel(this.f57477b.getPageContext(), new a());
+            this.k = new PraiseModel(this.f57478b.getPageContext(), new a());
         }
         return this.k;
     }
@@ -140,8 +140,8 @@ public class h extends j {
 
     public void h(int i) {
         ArrayList<d.b.b.j.e.n> threadList;
-        FrsViewData S = this.f57477b.S();
-        if (S == null || this.f57476a == null || (threadList = S.getThreadList()) == null) {
+        FrsViewData S = this.f57478b.S();
+        if (S == null || this.f57477a == null || (threadList = S.getThreadList()) == null) {
             return;
         }
         Iterator<d.b.b.j.e.n> it = threadList.iterator();
@@ -152,9 +152,9 @@ public class h extends j {
             d.b.b.j.e.n next = it.next();
             if (next instanceof z1) {
                 a2 a2Var = ((z1) next).w;
-                if (a2Var == this.f57473h) {
+                if (a2Var == this.f57474h) {
                     g(a2Var, i);
-                    this.f57473h = null;
+                    this.f57474h = null;
                     break;
                 } else if (a2Var.o0() != null && a2Var.o0().equals(this.j)) {
                     g(a2Var, i);
@@ -163,7 +163,7 @@ public class h extends j {
                 }
             }
         }
-        this.f57476a.U().b(threadList, S);
-        this.f57476a.U().notifyDataSetChanged();
+        this.f57477a.U().b(threadList, S);
+        this.f57477a.U().notifyDataSetChanged();
     }
 }

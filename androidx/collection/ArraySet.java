@@ -163,7 +163,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     return i4;
                 }
             }
-            return i3 ^ (-1);
+            return ~i3;
         }
         return binarySearch;
     }
@@ -187,7 +187,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     return i3;
                 }
             }
-            return i2 ^ (-1);
+            return ~i2;
         }
         return binarySearch;
     }
@@ -207,7 +207,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         if (indexOf >= 0) {
             return false;
         }
-        int i2 = indexOf ^ (-1);
+        int i2 = ~indexOf;
         int i3 = this.mSize;
         if (i3 >= this.mHashes.length) {
             int i4 = 4;

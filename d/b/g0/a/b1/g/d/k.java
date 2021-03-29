@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class k extends g {
     public k(String str) {
         super(str);
@@ -12,7 +12,7 @@ public class k extends g {
 
     @Override // d.b.g0.a.b1.g.d.g
     public boolean a(d.b.g0.a.b1.g.a aVar, d.b.g0.a.b1.g.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        d.b.g0.a.c0.c.g("video", "update, video id:" + cVar.n + " slave id: " + cVar.f43113g);
+        d.b.g0.a.c0.c.g("video", "update, video id:" + cVar.n + " slave id: " + cVar.f43114g);
         d(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }

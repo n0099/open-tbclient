@@ -7,27 +7,27 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29750a = e.f29766a;
+    public int f29751a = e.f29767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29751b;
+    public int f29752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29752c;
+    public String f29753c;
 
     public b(int i, String str) {
-        this.f29751b = 0;
-        this.f29752c = "";
-        this.f29751b = i;
-        this.f29752c = str;
+        this.f29752b = 0;
+        this.f29753c = "";
+        this.f29752b = i;
+        this.f29753c = str;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("cupCount", this.f29750a);
-            jSONObject.put("sdkThreadCount", this.f29751b);
-            jSONObject.put("sdkThreadNames", this.f29752c);
+            jSONObject.put("cupCount", this.f29751a);
+            jSONObject.put("sdkThreadCount", this.f29752b);
+            jSONObject.put("sdkThreadNames", this.f29753c);
             return jSONObject;
         } catch (JSONException e2) {
             e2.printStackTrace();

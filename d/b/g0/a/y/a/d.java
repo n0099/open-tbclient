@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import d.b.g0.a.t1.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a {
     public d(j jVar) {
         super(jVar, "/swanAPI/canvas/insert");
@@ -23,13 +23,13 @@ public class d extends a {
             unitedSchemeEntity.result = l(1001);
             return false;
         } else {
-            String str = k.f43112f;
+            String str = k.f43113f;
             d.b.g0.a.e1.d.a.a aVar = k.l;
             if (!TextUtils.isEmpty(str) && aVar != null && aVar.i()) {
                 d.b.g0.a.a0.b.c w = new d.b.g0.a.a0.c.d.a(context, k).w();
                 boolean a2 = w.a();
                 if (!a2) {
-                    d.b.g0.a.c0.c.b("SwanAppCanvas", "insert canvas fail: " + w.f43116b);
+                    d.b.g0.a.c0.c.b("SwanAppCanvas", "insert canvas fail: " + w.f43117b);
                 }
                 j(unitedSchemeEntity, callbackHandler, a2);
                 return a2;

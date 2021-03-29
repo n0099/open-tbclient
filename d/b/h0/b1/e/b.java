@@ -79,8 +79,8 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
 
     /* renamed from: d.b.h0.b1.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1049b extends GestureDetector.SimpleOnGestureListener {
-        public C1049b() {
+    public class C1050b extends GestureDetector.SimpleOnGestureListener {
+        public C1050b() {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -311,7 +311,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         this.u = new int[2];
         this.z = false;
         this.A = 500.0f;
-        this.I = new C1049b();
+        this.I = new C1050b();
         this.G = aVar;
         this.F = listView;
         this.n = new GestureDetector(listView.getContext(), this);

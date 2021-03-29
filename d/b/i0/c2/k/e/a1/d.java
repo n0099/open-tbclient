@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.i.a;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d extends a {
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f52579f;
+    public LinearLayout f52580f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52580g;
+    public TextView f52581g;
 
     public d(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
@@ -26,30 +26,30 @@ public class d extends a {
 
     @Override // d.b.i0.c2.k.e.a1.a
     public View a() {
-        LinearLayout linearLayout = (LinearLayout) this.f52564a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.f52579f = linearLayout;
-        this.f52580g = (TextView) linearLayout.findViewById(R.id.text);
-        return this.f52579f;
+        LinearLayout linearLayout = (LinearLayout) this.f52565a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+        this.f52580f = linearLayout;
+        this.f52581g = (TextView) linearLayout.findViewById(R.id.text);
+        return this.f52580f;
     }
 
     @Override // d.b.i0.c2.k.e.a1.a
     public void b(TbPageContext tbPageContext, int i) {
-        if (this.f52568e != i) {
-            this.f52568e = i;
-            SkinManager.setBackgroundColor(this.f52579f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f52580g, R.color.CAM_X0105);
+        if (this.f52569e != i) {
+            this.f52569e = i;
+            SkinManager.setBackgroundColor(this.f52580f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f52581g, R.color.CAM_X0105);
         }
     }
 
     @Override // d.b.i0.c2.k.e.a1.a
     public void c(OriginalThreadInfo originalThreadInfo) {
-        this.f52580g.setText(new SpannableString(originalThreadInfo.f13216g));
-        SkinManager.setViewTextColor(this.f52580g, R.color.CAM_X0105);
+        this.f52581g.setText(new SpannableString(originalThreadInfo.f13217g));
+        SkinManager.setViewTextColor(this.f52581g, R.color.CAM_X0105);
     }
 
     @Override // d.b.i0.c2.k.e.a1.a
-    public void d(a.InterfaceC1115a interfaceC1115a) {
-        super.d(interfaceC1115a);
+    public void d(a.InterfaceC1116a interfaceC1116a) {
+        super.d(interfaceC1116a);
     }
 
     @Override // d.b.i0.c2.k.e.a1.a

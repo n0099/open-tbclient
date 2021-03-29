@@ -130,27 +130,27 @@ public class j0 extends d.b.i0.p0.k<a2, AutoVideoCardViewHolder<a2>> implements 
     }
 
     /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1115a {
+    public class c implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f58003a;
+        public final /* synthetic */ s0 f58004a;
 
         public c(s0 s0Var) {
-            this.f58003a = s0Var;
+            this.f58004a = s0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f58003a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f58004a.getVideoContainer());
             if (!(aVar instanceof a2)) {
-                ThreadCardUtils.jumpToPB(aVar, j0.this.f42357e, j0.this.B, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, j0.this.f42358e, j0.this.B, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, j0.this.f42357e, j0.this.B, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, j0.this.f42358e, j0.this.B, false, computeViewArea);
         }
     }
 
@@ -169,7 +169,7 @@ public class j0 extends d.b.i0.p0.k<a2, AutoVideoCardViewHolder<a2>> implements 
                     j0.this.E.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), j0.this.B, false, d.b.i.e.a((d.b.b.j.e.s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -178,24 +178,24 @@ public class j0 extends d.b.i0.p0.k<a2, AutoVideoCardViewHolder<a2>> implements 
     public class e implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f58006a;
+        public final /* synthetic */ ViewGroup f58007a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f58007b;
+        public final /* synthetic */ View f58008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f58008c;
+        public final /* synthetic */ int f58009c;
 
         public e(j0 j0Var, ViewGroup viewGroup, View view, int i) {
-            this.f58006a = viewGroup;
-            this.f58007b = view;
-            this.f58008c = i;
+            this.f58007a = viewGroup;
+            this.f58008b = view;
+            this.f58009c = i;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((d.b.b.j.e.s) this.f58006a, this.f58007b, this.f58008c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.b.i.e.a((d.b.b.j.e.s) this.f58007a, this.f58008b, this.f58009c));
             }
         }
     }
@@ -216,15 +216,15 @@ public class j0 extends d.b.i0.p0.k<a2, AutoVideoCardViewHolder<a2>> implements 
             return null;
         }
         d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-        oVar.f56163a = a2Var.X1() ? "3" : "2";
-        if (this.D.f57702d == 501) {
-            oVar.f56163a = "frs_tab";
+        oVar.f56164a = a2Var.X1() ? "3" : "2";
+        if (this.D.f57703d == 501) {
+            oVar.f56164a = "frs_tab";
         }
-        oVar.f56166d = this.D.f57701c;
-        oVar.f56165c = a2Var.w1();
-        oVar.f56168f = a2Var.R0;
-        oVar.f56169g = a2Var.V0;
-        oVar.f56170h = a2Var.S0;
+        oVar.f56167d = this.D.f57702c;
+        oVar.f56166c = a2Var.w1();
+        oVar.f56169f = a2Var.R0;
+        oVar.f56170g = a2Var.V0;
+        oVar.f56171h = a2Var.S0;
         oVar.l = a2Var.T0;
         if (a2Var.u1() != null) {
             oVar.m = a2Var.u1().video_md5;
@@ -263,9 +263,9 @@ public class j0 extends d.b.i0.p0.k<a2, AutoVideoCardViewHolder<a2>> implements 
         bVar.h(nVar);
         m0 m0Var = new m0(this.w.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50763c = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50764c = 2;
+        eVar.f50769h = 2;
         m0Var.v(eVar);
         m0Var.w(2);
         m0Var.A(1);
@@ -275,7 +275,7 @@ public class j0 extends d.b.i0.p0.k<a2, AutoVideoCardViewHolder<a2>> implements 
             m0Var.c(4);
         }
         bVar.m(m0Var);
-        bVar.l().d(d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds28));
+        bVar.l().d(d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds28));
         d.b.i.k0 i = bVar.i();
         AutoVideoCardViewHolder autoVideoCardViewHolder = new AutoVideoCardViewHolder(i);
         autoVideoCardViewHolder.k(this.i);

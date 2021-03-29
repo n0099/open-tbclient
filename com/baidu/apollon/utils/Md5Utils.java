@@ -9,11 +9,11 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f3966a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static char[] f3967a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static synchronized String a(byte[] bArr) {
         String sb;
@@ -40,7 +40,7 @@ public final class Md5Utils {
     }
 
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x004d: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x004d */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0050 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0050 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -189,8 +189,8 @@ public final class Md5Utils {
             if (i > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f3966a[i2]);
-            stringBuffer.append(f3966a[i3]);
+            stringBuffer.append(f3967a[i2]);
+            stringBuffer.append(f3967a[i3]);
         }
         return stringBuffer.toString();
     }

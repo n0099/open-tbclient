@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f19217e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+    public final HttpMessageListener f19218e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public a(NewFaceSyncDownloadModel newFaceSyncDownloadModel, int i) {
             super(i);
@@ -40,9 +40,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public NewFaceSyncDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f19217e.setTag(getUniqueId());
-        this.f19217e.setSelfListener(true);
-        registerListener(this.f19217e);
+        this.f19218e.setTag(getUniqueId());
+        this.f19218e.setSelfListener(true);
+        registerListener(this.f19218e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

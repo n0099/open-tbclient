@@ -12,7 +12,7 @@ import d.b.i0.d1.t.d;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static final int MASK_TYPE = 12;
 

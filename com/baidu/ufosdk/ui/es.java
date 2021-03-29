@@ -7,10 +7,10 @@ import android.widget.EditText;
 public final class es implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ er f23239a;
+    public final /* synthetic */ er f23240a;
 
     public es(er erVar) {
-        this.f23239a = erVar;
+        this.f23240a = erVar;
     }
 
     @Override // android.text.TextWatcher
@@ -18,13 +18,13 @@ public final class es implements TextWatcher {
         EditText editText;
         EditText editText2;
         EditText editText3;
-        editText = this.f23239a.j;
+        editText = this.f23240a.j;
         String obj = editText.getText().toString();
         if (obj.length() > 200) {
             String substring = obj.substring(0, 200);
-            editText2 = this.f23239a.j;
+            editText2 = this.f23240a.j;
             editText2.setText(substring.substring(0, 200));
-            editText3 = this.f23239a.j;
+            editText3 = this.f23240a.j;
             editText3.setSelection(substring.length());
         }
     }

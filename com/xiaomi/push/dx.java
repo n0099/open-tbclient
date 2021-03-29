@@ -5,7 +5,7 @@ import android.content.Context;
 public final class dx implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40428a;
+    public final /* synthetic */ int f40429a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Context f305a;
@@ -14,17 +14,17 @@ public final class dx implements Runnable {
     public final /* synthetic */ String f306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40429b;
+    public final /* synthetic */ String f40430b;
 
     public dx(Context context, String str, int i, String str2) {
         this.f305a = context;
         this.f306a = str;
-        this.f40428a = i;
-        this.f40429b = str2;
+        this.f40429a = i;
+        this.f40430b = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        dw.c(this.f305a, this.f306a, this.f40428a, this.f40429b);
+        dw.c(this.f305a, this.f306a, this.f40429a, this.f40430b);
     }
 }

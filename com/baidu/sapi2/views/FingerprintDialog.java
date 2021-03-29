@@ -18,41 +18,41 @@ import d.b.a0.a.h;
 public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f11539a;
+    public LinearLayout f11540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f11540b;
+    public TextView f11541b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f11541c;
+    public TextView f11542c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f11542d;
+    public TextView f11543d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f11543e;
+    public TextView f11544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f11544f;
+    public ImageView f11545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f11545g;
+    public Context f11546g;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f11546a;
+        public final /* synthetic */ View.OnClickListener f11547a;
 
         public a(View.OnClickListener onClickListener) {
-            this.f11546a = onClickListener;
+            this.f11547a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
-                ViewUtility.dismissDialog((Activity) FingerprintDialog.this.f11545g, FingerprintDialog.this);
-                this.f11546a.onClick(view);
+                ViewUtility.dismissDialog((Activity) FingerprintDialog.this.f11546g, FingerprintDialog.this);
+                this.f11547a.onClick(view);
             } catch (Exception unused) {
             }
         }
@@ -62,17 +62,17 @@ public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, No
     public class b implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f11548a;
+        public final /* synthetic */ View.OnClickListener f11549a;
 
         public b(View.OnClickListener onClickListener) {
-            this.f11548a = onClickListener;
+            this.f11549a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
-                ViewUtility.dismissDialog((Activity) FingerprintDialog.this.f11545g, FingerprintDialog.this);
-                this.f11548a.onClick(view);
+                ViewUtility.dismissDialog((Activity) FingerprintDialog.this.f11546g, FingerprintDialog.this);
+                this.f11549a.onClick(view);
             } catch (Exception unused) {
             }
         }
@@ -80,17 +80,17 @@ public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, No
 
     public FingerprintDialog(Context context) {
         super(context, h.SapiSdkBeautyDialog);
-        this.f11545g = context;
+        this.f11546g = context;
         setContentView(f.layout_sapi_sdk_fingerprint_dialog);
-        this.f11539a = (LinearLayout) findViewById(e.bg_layout);
-        this.f11540b = (TextView) findViewById(e.sapi_sdk_fingerprint_title);
-        this.f11541c = (TextView) findViewById(e.sapi_sdk_fingerprint_sub_title);
-        this.f11542d = (TextView) findViewById(e.sapi_sdk_fingerprint_negative_btn);
-        this.f11543e = (TextView) findViewById(e.sapi_sdk_fingerprint_positive_btn);
-        this.f11544f = (ImageView) findViewById(e.sapi_sdk_fingerprint_icon);
+        this.f11540a = (LinearLayout) findViewById(e.bg_layout);
+        this.f11541b = (TextView) findViewById(e.sapi_sdk_fingerprint_title);
+        this.f11542c = (TextView) findViewById(e.sapi_sdk_fingerprint_sub_title);
+        this.f11543d = (TextView) findViewById(e.sapi_sdk_fingerprint_negative_btn);
+        this.f11544e = (TextView) findViewById(e.sapi_sdk_fingerprint_positive_btn);
+        this.f11545f = (ImageView) findViewById(e.sapi_sdk_fingerprint_icon);
         a();
-        ViewUtility.setViewClickAlpha(this.f11542d, 0.2f);
-        ViewUtility.setViewClickAlpha(this.f11543e, 0.2f);
+        ViewUtility.setViewClickAlpha(this.f11543d, 0.2f);
+        ViewUtility.setViewClickAlpha(this.f11544e, 0.2f);
         setCancelable(false);
         setCanceledOnTouchOutside(false);
     }
@@ -98,15 +98,15 @@ public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, No
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b setBtnCount(int i) {
         if ((i <= 2 ? Math.max(i, 1) : 2) == 1) {
-            this.f11542d.setVisibility(8);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f11543e.getLayoutParams();
-            layoutParams.leftMargin = (int) this.f11545g.getResources().getDimension(c.sapi_sdk_finger_print_btn_margin);
-            layoutParams.rightMargin = (int) this.f11545g.getResources().getDimension(c.sapi_sdk_finger_print_btn_margin);
+            this.f11543d.setVisibility(8);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f11544e.getLayoutParams();
+            layoutParams.leftMargin = (int) this.f11546g.getResources().getDimension(c.sapi_sdk_finger_print_btn_margin);
+            layoutParams.rightMargin = (int) this.f11546g.getResources().getDimension(c.sapi_sdk_finger_print_btn_margin);
         } else {
-            this.f11542d.setVisibility(0);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f11543e.getLayoutParams();
-            layoutParams2.leftMargin = (int) this.f11545g.getResources().getDimension(c.sapi_sdk_finger_print_btn_left_margin);
-            layoutParams2.rightMargin = (int) this.f11545g.getResources().getDimension(c.sapi_sdk_finger_print_btn_right_margin);
+            this.f11543d.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f11544e.getLayoutParams();
+            layoutParams2.leftMargin = (int) this.f11546g.getResources().getDimension(c.sapi_sdk_finger_print_btn_left_margin);
+            layoutParams2.rightMargin = (int) this.f11546g.getResources().getDimension(c.sapi_sdk_finger_print_btn_right_margin);
         }
         return this;
     }
@@ -119,22 +119,22 @@ public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, No
 
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        this.f11542d.setText(str);
-        this.f11542d.setOnClickListener(new a(onClickListener));
+        this.f11543d.setText(str);
+        this.f11543d.setOnClickListener(new a(onClickListener));
         return this;
     }
 
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        this.f11543e.setText(str);
-        this.f11543e.setOnClickListener(new b(onClickListener));
+        this.f11544e.setText(str);
+        this.f11544e.setOnClickListener(new b(onClickListener));
         return this;
     }
 
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b setTitle(String str, String str2) {
-        this.f11540b.setText(str);
-        this.f11541c.setText(str2);
+        this.f11541b.setText(str);
+        this.f11542c.setText(str2);
         return this;
     }
 
@@ -145,14 +145,14 @@ public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, No
 
     private void a() {
         if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-            this.f11539a.setBackgroundResource(d.sapi_sdk_fingerprint_dialog_dark_mode);
-            this.f11544f.setImageResource(d.sapi_sdk_fingerprint_dark_mode);
-            this.f11540b.setTextColor(this.f11545g.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_edit_text_color));
-            this.f11541c.setTextColor(this.f11545g.getResources().getColor(d.b.a0.a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
-            this.f11542d.setTextColor(this.f11545g.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_edit_text_color));
-            this.f11542d.setBackground(this.f11545g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_negative_btn_bg_daynight));
-            this.f11543e.setTextColor(this.f11545g.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_edit_text_color));
-            this.f11543e.setBackground(this.f11545g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_positive_btn_bg_daynight));
+            this.f11540a.setBackgroundResource(d.sapi_sdk_fingerprint_dialog_dark_mode);
+            this.f11545f.setImageResource(d.sapi_sdk_fingerprint_dark_mode);
+            this.f11541b.setTextColor(this.f11546g.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f11542c.setTextColor(this.f11546g.getResources().getColor(d.b.a0.a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
+            this.f11543d.setTextColor(this.f11546g.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f11543d.setBackground(this.f11546g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_negative_btn_bg_daynight));
+            this.f11544e.setTextColor(this.f11546g.getResources().getColor(d.b.a0.a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f11544e.setBackground(this.f11546g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_positive_btn_bg_daynight));
         }
     }
 }

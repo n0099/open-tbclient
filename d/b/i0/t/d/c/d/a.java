@@ -15,7 +15,7 @@ public class a extends d.b.b.j.e.a<t, FrsNoListItemViewHolder> {
     public final int m;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f58578f);
+        super(tbPageContext.getPageActivity(), t.f58579f);
         this.m = (l.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
@@ -30,7 +30,7 @@ public class a extends d.b.b.j.e.a<t, FrsNoListItemViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
     public FrsNoListItemViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams u = u(viewGroup);
         u.width = -1;
         u.height = this.m;
@@ -39,9 +39,9 @@ public class a extends d.b.b.j.e.a<t, FrsNoListItemViewHolder> {
     }
 
     public View i0(int i, View view, ViewGroup viewGroup, t tVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        frsNoListItemViewHolder.f16068d.setText(R.string.no_data_common_txt);
-        SkinManager.setViewTextColor(frsNoListItemViewHolder.f16068d, R.color.CAM_X0107, 1);
-        SkinManager.setImageResource(frsNoListItemViewHolder.f16069e, R.drawable.new_pic_emotion_06);
+        frsNoListItemViewHolder.f16069d.setText(R.string.no_data_common_txt);
+        SkinManager.setViewTextColor(frsNoListItemViewHolder.f16069d, R.color.CAM_X0107, 1);
+        SkinManager.setImageResource(frsNoListItemViewHolder.f16070e, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

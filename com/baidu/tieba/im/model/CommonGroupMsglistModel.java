@@ -23,7 +23,7 @@ import d.b.h0.z0.h0;
 import d.b.i0.d1.k.b;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
     public final CustomMessageListener mCustomListener;
     public GroupData mGroup;

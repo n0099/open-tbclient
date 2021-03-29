@@ -12,10 +12,10 @@ import tbclient.ExcPbPage.ExcContent;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d> f53095a = new ArrayList<>();
+    public ArrayList<d> f53096a = new ArrayList<>();
 
     public ArrayList<d> a() {
-        return this.f53095a;
+        return this.f53096a;
     }
 
     public final boolean b(ExcContent excContent) {
@@ -38,9 +38,9 @@ public class a {
                             continue;
                         } else if (a2.a()) {
                             if (gVar != null) {
-                                this.f53095a.add(gVar);
+                                this.f53096a.add(gVar);
                             }
-                            this.f53095a.add(a2);
+                            this.f53096a.add(a2);
                         } else {
                             if (gVar == null) {
                                 gVar = new g();
@@ -49,16 +49,16 @@ public class a {
                         }
                     } else {
                         if (gVar != null) {
-                            this.f53095a.add(gVar);
+                            this.f53096a.add(gVar);
                         }
-                        this.f53095a.add(f.b(excContent));
+                        this.f53096a.add(f.b(excContent));
                     }
                 }
             }
             break loop0;
         }
         if (gVar != null) {
-            this.f53095a.add(gVar);
+            this.f53096a.add(gVar);
         }
     }
 }

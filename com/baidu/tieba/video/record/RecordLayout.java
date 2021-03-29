@@ -12,16 +12,16 @@ import d.b.b.e.p.l;
 public class RecordLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public VelocityTracker f21827e;
+    public VelocityTracker f21828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21828f;
+    public int f21829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21829g;
+    public int f21830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21830h;
+    public int f21831h;
     public float i;
     public a j;
 
@@ -38,28 +38,25 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public final void a() {
-        this.f21829g = ViewConfiguration.getMaximumFlingVelocity();
-        this.f21828f = ViewConfiguration.getMinimumFlingVelocity();
-        this.f21830h = l.g(getContext(), R.dimen.ds150);
+        this.f21830g = ViewConfiguration.getMaximumFlingVelocity();
+        this.f21829f = ViewConfiguration.getMinimumFlingVelocity();
+        this.f21831h = l.g(getContext(), R.dimen.ds150);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f21827e == null) {
-            this.f21827e = VelocityTracker.obtain();
+        if (this.f21828e == null) {
+            this.f21828e = VelocityTracker.obtain();
         }
-        this.f21827e.addMovement(motionEvent);
+        this.f21828e.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action != 0) {
             if ((action == 1 || action == 3) && this.j != null) {
-                this.f21827e.computeCurrentVelocity(1000, this.f21829g);
-                float xVelocity = this.f21827e.getXVelocity();
+                this.f21828e.computeCurrentVelocity(1000, this.f21830g);
+                float xVelocity = this.f21828e.getXVelocity();
                 int rawX = (int) (motionEvent.getRawX() - this.i);
-                if (Math.abs(xVelocity) <= this.f21828f || Math.abs(rawX) <= this.f21830h) {
-                    double abs = Math.abs(rawX);
-                    double k = l.k(getContext());
-                    Double.isNaN(k);
-                    if (abs > k * 0.5d) {
+                if (Math.abs(xVelocity) <= this.f21829f || Math.abs(rawX) <= this.f21831h) {
+                    if (Math.abs(rawX) > l.k(getContext()) * 0.5d) {
                         if (rawX > 0) {
                             this.j.onTouchToRight();
                         } else {
@@ -71,9 +68,9 @@ public class RecordLayout extends RelativeLayout {
                 } else {
                     this.j.onTouchToLeft();
                 }
-                this.f21827e.clear();
-                this.f21827e.recycle();
-                this.f21827e = null;
+                this.f21828e.clear();
+                this.f21828e.recycle();
+                this.f21828e = null;
             }
         } else {
             this.i = motionEvent.getRawX();

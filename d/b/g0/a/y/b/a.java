@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.a0.b.b {
     public boolean n;
 
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public a(String str) {
@@ -32,6 +32,6 @@ public class a extends d.b.g0.a.a0.b.b {
 
     @Override // d.b.g0.a.a0.b.b, d.b.g0.a.e1.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f43112f) || TextUtils.isEmpty(this.f43113g)) ? false : true;
+        return (TextUtils.isEmpty(this.f43113f) || TextUtils.isEmpty(this.f43114g)) ? false : true;
     }
 }

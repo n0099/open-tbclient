@@ -23,16 +23,16 @@ import java.util.List;
 public class ScrollLabelTabHost extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ScrollHorizontalTabView f16331e;
+    public ScrollHorizontalTabView f16332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FoldedGridView f16332f;
+    public FoldedGridView f16333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.p0.s1.a.d.d f16333g;
+    public d.b.i0.p0.s1.a.d.d f16334g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomViewPager f16334h;
+    public CustomViewPager f16335h;
     public FrsGameTabPagerAdapter i;
     public View j;
     public View k;
@@ -111,18 +111,18 @@ public class ScrollLabelTabHost extends RelativeLayout {
             if (eVar == null) {
                 return;
             }
-            ScrollLabelTabHost.this.m = eVar.f58552a;
-            Object obj = eVar.f58554c;
+            ScrollLabelTabHost.this.m = eVar.f58553a;
+            Object obj = eVar.f58555c;
             if (obj instanceof LabelDataList) {
                 LabelDataList labelDataList = (LabelDataList) obj;
                 if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
-                    ScrollLabelTabHost.this.n = aVar.f58518a;
+                    ScrollLabelTabHost.this.n = aVar.f58519a;
                 }
             }
             if (ScrollLabelTabHost.this.o(eVar)) {
-                ScrollLabelTabHost.this.f16332f.setVisibility(0);
+                ScrollLabelTabHost.this.f16333f.setVisibility(0);
             } else {
-                ScrollLabelTabHost.this.f16332f.setVisibility(8);
+                ScrollLabelTabHost.this.f16333f.setVisibility(8);
             }
         }
 
@@ -140,7 +140,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
         @Override // com.baidu.tieba.frs.game.strategy.view.FoldedGridView.a
         public void a(int i, Object obj) {
             if (obj instanceof d.b.i0.p0.s1.a.a.a) {
-                ScrollLabelTabHost.this.n = ((d.b.i0.p0.s1.a.a.a) obj).f58518a;
+                ScrollLabelTabHost.this.n = ((d.b.i0.p0.s1.a.a.a) obj).f58519a;
                 FrsGameStrategyItemListView e2 = ScrollLabelTabHost.this.i.e();
                 e2.o(ScrollLabelTabHost.this.m, ScrollLabelTabHost.this.n);
                 if (ScrollLabelTabHost.this.r == null || ScrollLabelTabHost.this.r.c(ScrollLabelTabHost.this.m, ScrollLabelTabHost.this.n)) {
@@ -186,27 +186,27 @@ public class ScrollLabelTabHost extends RelativeLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_game_strategy_tab_host_layout, this);
         this.i = new FrsGameTabPagerAdapter(context, this.r, this.s);
         CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.frs_game_pager);
-        this.f16334h = customViewPager;
+        this.f16335h = customViewPager;
         customViewPager.setAdapter(this.i);
         ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) findViewById(R.id.frs_game_tab_widget);
-        this.f16331e = scrollHorizontalTabView;
-        scrollHorizontalTabView.setViewPager(this.f16334h);
-        this.f16331e.setScrollTabPageListener(new c());
-        this.f16333g = new d.b.i0.p0.s1.a.d.d(getContext());
+        this.f16332e = scrollHorizontalTabView;
+        scrollHorizontalTabView.setViewPager(this.f16335h);
+        this.f16332e.setScrollTabPageListener(new c());
+        this.f16334g = new d.b.i0.p0.s1.a.d.d(getContext());
         FoldedGridView foldedGridView = (FoldedGridView) findViewById(R.id.frs_game_label_widget);
-        this.f16332f = foldedGridView;
+        this.f16333f = foldedGridView;
         foldedGridView.setArrowResouceId(R.drawable.icon_arrow_gray_down, R.drawable.icon_arrow_gray_up);
-        this.f16332f.setNumColumns(5);
-        this.f16332f.setFoldAdapter(this.f16333g);
-        this.f16332f.setExpandedBottomShadeResourceId(R.drawable.shape_frs_game_lable_bottom_shade);
-        this.f16332f.setFoldGridViewOnItemClickListener(new d());
+        this.f16333f.setNumColumns(5);
+        this.f16333f.setFoldAdapter(this.f16334g);
+        this.f16333f.setExpandedBottomShadeResourceId(R.drawable.shape_frs_game_lable_bottom_shade);
+        this.f16333f.setFoldGridViewOnItemClickListener(new d());
         this.j = findViewById(R.id.frs_game_tab_line);
         this.k = findViewById(R.id.frs_game_label_line);
     }
 
     public void m(int i) {
-        this.f16331e.onChangeSkinType(i);
-        this.f16332f.d(i);
+        this.f16332e.onChangeSkinType(i);
+        this.f16333f.d(i);
         this.i.j(i);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
         SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
@@ -222,13 +222,13 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public boolean o(e eVar) {
         if (eVar != null) {
-            Object obj = eVar.f58554c;
+            Object obj = eVar.f58555c;
             if (obj instanceof LabelDataList) {
                 LabelDataList labelDataList = (LabelDataList) obj;
                 if (labelDataList.isEmpty()) {
                     return false;
                 }
-                this.f16333g.n(labelDataList);
+                this.f16334g.n(labelDataList);
                 return true;
             }
         }
@@ -279,21 +279,21 @@ public class ScrollLabelTabHost extends RelativeLayout {
             this.o = z;
             this.l = list;
             this.i.l(list == null ? 0 : list.size());
-            this.f16331e.setData(list);
+            this.f16332e.setData(list);
             if (ListUtils.isEmpty(list)) {
-                this.f16331e.setVisibility(8);
+                this.f16332e.setVisibility(8);
                 this.j.setVisibility(8);
                 return;
             }
-            this.f16331e.setVisibility(0);
+            this.f16332e.setVisibility(0);
             this.j.setVisibility(0);
-            this.f16331e.setCurrentIndex(0, false);
+            this.f16332e.setCurrentIndex(0, false);
             if (o(list.get(0))) {
-                this.f16332f.setVisibility(0);
+                this.f16333f.setVisibility(0);
                 this.k.setVisibility(0);
                 return;
             }
-            this.f16332f.setVisibility(8);
+            this.f16333f.setVisibility(8);
             this.k.setVisibility(8);
         }
     }

@@ -16,7 +16,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
     public static final jg f639a = new jg("XmPushActionNormalConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40765a = new iy("", (byte) 15, 1);
+    public static final iy f40766a = new iy("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -53,7 +53,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
         jbVar.m505a();
         while (true) {
             iy m501a = jbVar.m501a();
-            byte b2 = m501a.f40866a;
+            byte b2 = m501a.f40867a;
             if (b2 == 0) {
                 jbVar.f();
                 m443a();
@@ -98,7 +98,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
         m443a();
         jbVar.a(f639a);
         if (this.f640a != null) {
-            jbVar.a(f40765a);
+            jbVar.a(f40766a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f640a.size()));
             for (ho hoVar : this.f640a) {
                 hoVar.b(jbVar);

@@ -10,7 +10,7 @@ import com.baidu.tieba.tblauncher.MainTabActivity;
 public class b implements d.b.h0.r.a0.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f54823a;
+    public a f54824a;
 
     @Override // d.b.h0.r.a0.a
     public void a(Context context) {
@@ -48,12 +48,12 @@ public class b implements d.b.h0.r.a0.a {
     }
 
     public void g(a aVar) {
-        this.f54823a = aVar;
+        this.f54824a = aVar;
     }
 
     @Override // d.b.h0.r.a0.a
     public int getCurrentTabType() {
-        a aVar = this.f54823a;
+        a aVar = this.f54824a;
         if (aVar != null) {
             return aVar.getCurrentTabType();
         }

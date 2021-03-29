@@ -87,7 +87,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChatMsgManagerImpl {
     public static final String TAG = "ChatMsgManagerImpl";
     public static final int USER_IDENTITY_UPDATE_TIME = 600000;
@@ -603,7 +603,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (a.f64551e && chatMsg.getCategory() == 4) {
+            if (a.f64552e && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -1018,7 +1018,7 @@ public class ChatMsgManagerImpl {
         LogUtils.i(str, " category: " + i + " contacter: " + j + " beginMsgid: " + j2 + " endMsgid: " + j3 + " count: " + i2 + " triggerReason: " + i3 + " jumpToRecentMsg: " + i4 + " key: " + addListener);
         if (j2 >= 0 && j3 >= 0) {
             if (AccountManager.isLogin(context)) {
-                if (a.f64551e && i == 4) {
+                if (a.f64552e && i == 4) {
                     creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
                 } else {
                     creatMethodIntent = Utility.creatMethodIntent(context, 93);
@@ -1658,11 +1658,11 @@ public class ChatMsgManagerImpl {
             }
             ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject);
             if (chatRecord != null) {
-                long newMsgSum = chatRecord.getNewMsgSum();
-                if (newMsgSum < 0) {
+                int i2 = (chatRecord.getNewMsgSum() > 0L ? 1 : (chatRecord.getNewMsgSum() == 0L ? 0 : -1));
+                if (i2 < 0) {
                     return false;
                 }
-                if (newMsgSum == 0) {
+                if (i2 == 0) {
                     return true;
                 }
             }

@@ -6,10 +6,10 @@ import d.b.i0.t.d.g.d.a;
 public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f14937a;
+    public a f14938a;
 
     public AlaSubListGameDoubleViewHolder(a aVar) {
         super(aVar.m());
-        this.f14937a = aVar;
+        this.f14938a = aVar;
     }
 }

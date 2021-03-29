@@ -9,14 +9,14 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54067e = 2001154;
+    public int f54068e = 2001154;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.d1.h.l f54068f = d.b.i0.d1.h.l.t();
+    public d.b.i0.d1.h.l f54069f = d.b.i0.d1.h.l.t();
 
     public final LoadHistoryResponsedMessage a(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
@@ -26,8 +26,8 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
-        if (this.f54068f == null) {
-            return a(this.f54067e);
+        if (this.f54069f == null) {
+            return a(this.f54068e);
         }
         List<d.b.i0.d1.h.o.a> u = d.b.i0.d1.h.l.u();
         if (u != null && u.size() > 0) {
@@ -35,14 +35,14 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
             for (d.b.i0.d1.h.o.a aVar : u) {
                 hashMap.put(aVar.b(), aVar);
             }
-            LinkedList<ChatMessage> k = this.f54068f.k(hashMap, 80);
+            LinkedList<ChatMessage> k = this.f54069f.k(hashMap, 80);
             if (k == null) {
-                return a(this.f54067e);
+                return a(this.f54068e);
             }
             OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
-            OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.f54067e);
-            aVar2.f18061b = k;
-            aVar2.f18060a = u;
+            OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.f54068e);
+            aVar2.f18062b = k;
+            aVar2.f18061a = u;
             try {
                 officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar2);
             } catch (Exception e2) {
@@ -50,6 +50,6 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
             }
             return officialFeedHeadResponsedMessage;
         }
-        return a(this.f54067e);
+        return a(this.f54068e);
     }
 }

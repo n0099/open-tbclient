@@ -82,16 +82,16 @@ public class m {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
                     k(decode);
                 }
-                gVar.f57916a = matcher.group(2);
+                gVar.f57917a = matcher.group(2);
             } else {
                 k(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (i = indexOf + 3) > decode.length()) {
                     return null;
                 }
-                gVar.f57916a = decode.substring(i);
+                gVar.f57917a = decode.substring(i);
                 try {
-                    gVar.f57917b = uri.getQueryParameter("from");
+                    gVar.f57918b = uri.getQueryParameter("from");
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }

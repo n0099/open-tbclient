@@ -4,10 +4,10 @@ import android.app.Activity;
 import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface TTInteractionAd {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface AdInteractionListener {
         void onAdClicked();
 

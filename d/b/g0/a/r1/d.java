@@ -12,104 +12,104 @@ import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class d extends d.b.g0.a.r1.a {
-    public static final boolean l = d.b.g0.a.k.f45050a;
+    public static final boolean l = d.b.g0.a.k.f45051a;
     public static d m;
     public static Handler n;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.a.p.a f45727e;
+    public d.b.g0.a.p.a f45728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<d.b.g0.a.i2.u0.b<i.a>> f45728f;
+    public final Set<d.b.g0.a.i2.u0.b<i.a>> f45729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f45729g;
+    public volatile int f45730g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Queue<Runnable> f45730h;
+    public final Queue<Runnable> f45731h;
     public Runnable i;
     public d.b.g0.l.l.f j;
     public boolean k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a f45731e;
+        public final /* synthetic */ i.a f45732e;
 
         /* renamed from: d.b.g0.a.r1.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0777a implements Runnable {
+        /* loaded from: classes2.dex */
+        public class RunnableC0778a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.i2.u0.b f45733e;
+            public final /* synthetic */ d.b.g0.a.i2.u0.b f45734e;
 
-            public RunnableC0777a(d.b.g0.a.i2.u0.b bVar) {
-                this.f45733e = bVar;
+            public RunnableC0778a(d.b.g0.a.i2.u0.b bVar) {
+                this.f45734e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.f45733e.onCallback(a.this.f45731e);
+                this.f45734e.onCallback(a.this.f45732e);
             }
         }
 
         public a(i.a aVar) {
-            this.f45731e = aVar;
+            this.f45732e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean z = Looper.getMainLooper() == Looper.myLooper();
-            for (d.b.g0.a.i2.u0.b bVar : d.this.f45728f) {
-                if (z && !this.f45731e.d("event_flag_force_post", false)) {
-                    bVar.onCallback(this.f45731e);
+            for (d.b.g0.a.i2.u0.b bVar : d.this.f45729f) {
+                if (z && !this.f45732e.d("event_flag_force_post", false)) {
+                    bVar.onCallback(this.f45732e);
                 } else {
-                    d.g().post(new RunnableC0777a(bVar));
+                    d.g().post(new RunnableC0778a(bVar));
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f45735e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f45736e;
 
         public b(d.b.g0.a.i2.u0.b bVar) {
-            this.f45735e = bVar;
+            this.f45736e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f45728f.add(this.f45735e);
+            d.this.f45729f.add(this.f45736e);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f45737e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f45738e;
 
         public c(d.b.g0.a.i2.u0.b bVar) {
-            this.f45737e = bVar;
+            this.f45738e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f45728f.remove(this.f45737e);
+            d.this.f45729f.remove(this.f45738e);
         }
     }
 
     public d() {
         new c.a();
-        this.f45728f = new HashSet();
-        this.f45729g = 0;
-        this.f45730h = new ArrayDeque();
+        this.f45729f = new HashSet();
+        this.f45730g = 0;
+        this.f45731h = new ArrayDeque();
         this.i = null;
         this.k = false;
     }
@@ -158,10 +158,10 @@ public abstract class d extends d.b.g0.a.r1.a {
     }
 
     public final synchronized void A(@NonNull Runnable runnable) {
-        this.f45730h.offer(runnable);
+        this.f45731h.offer(runnable);
         if (this.i == null) {
-            while (!this.f45730h.isEmpty()) {
-                Runnable poll = this.f45730h.poll();
+            while (!this.f45731h.isEmpty()) {
+                Runnable poll = this.f45731h.poll();
                 this.i = poll;
                 if (poll != null) {
                     poll.run();
@@ -187,10 +187,10 @@ public abstract class d extends d.b.g0.a.r1.a {
 
     @Override // d.b.g0.a.r1.h
     public d.b.g0.a.p.a o() {
-        if (this.f45727e == null) {
-            this.f45727e = new d.b.g0.a.p.a();
+        if (this.f45728e == null) {
+            this.f45728e = new d.b.g0.a.p.a();
         }
-        return this.f45727e;
+        return this.f45728e;
     }
 
     @Override // d.b.g0.a.r1.h
@@ -208,7 +208,7 @@ public abstract class d extends d.b.g0.a.r1.a {
     @Override // d.b.g0.a.r1.h
     public void t(i.a aVar) {
         if (l) {
-            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.f45728f.size());
+            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.f45729f.size());
         }
         if (aVar != null) {
             A(new a(aVar));

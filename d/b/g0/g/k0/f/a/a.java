@@ -12,7 +12,7 @@ import d.b.g0.a.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0970a f48244a;
+    public InterfaceC0971a f48245a;
     @V8JavascriptField
     public String backgroundColor;
     @V8JavascriptField
@@ -46,7 +46,7 @@ public class a {
 
     /* renamed from: d.b.g0.g.k0.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0970a {
+    public interface InterfaceC0971a {
         void l();
     }
 
@@ -55,20 +55,8 @@ public class a {
     }
 
     public static int c(@ColorInt int i) {
-        int i2 = (16711680 & i) >> 16;
-        int i3 = (65280 & i) >> 8;
-        int i4 = i & 255;
         float f2 = (((-16777216) & i) >>> 24) / 255.0f;
-        if (f2 > 0.0f) {
-            double d2 = i2 * f2;
-            Double.isNaN(d2);
-            double d3 = i3 * f2;
-            Double.isNaN(d3);
-            double d4 = i4 * f2;
-            Double.isNaN(d4);
-            return Color.argb(255, (int) (d2 + 0.5d), (int) (d3 + 0.5d), (int) (d4 + 0.5d));
-        }
-        return i;
+        return f2 > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f2) + 0.5d), (int) ((((65280 & i) >> 8) * f2) + 0.5d), (int) (((i & 255) * f2) + 0.5d)) : i;
     }
 
     public final void a(@NonNull d.b.g0.g.e.d.c cVar) {
@@ -87,23 +75,23 @@ public class a {
         this.hidden = cVar.n("hidden", this.hidden);
         this.opacity = cVar.o("opacity", this.opacity);
         this.color = cVar.C("color", this.color);
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
         }
     }
 
-    public void b(InterfaceC0970a interfaceC0970a) {
-        this.f48244a = interfaceC0970a;
+    public void b(InterfaceC0971a interfaceC0971a) {
+        this.f48245a = interfaceC0971a;
     }
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        InterfaceC0970a interfaceC0970a = this.f48244a;
-        if (interfaceC0970a != null) {
-            interfaceC0970a.l();
+        InterfaceC0971a interfaceC0971a = this.f48245a;
+        if (interfaceC0971a != null) {
+            interfaceC0971a.l();
         }
     }
 

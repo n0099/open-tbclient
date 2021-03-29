@@ -9,13 +9,13 @@ import java.io.InputStream;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36778a = "";
+    public static String f36779a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36779b = "";
+    public static String f36780b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36780c = "";
+    public static String f36781c = "";
 
     public static String a(int i) {
         String str;
@@ -26,16 +26,16 @@ public class j {
             return "";
         }
         if (i == 0) {
-            str = f36778a;
+            str = f36779a;
             str2 = "aes_key";
         } else if (i == 1) {
-            str = f36779b;
+            str = f36780b;
             str2 = "rsa_public_key";
         } else if (i != 2) {
             str = "";
             str2 = str;
         } else {
-            str = f36780c;
+            str = f36781c;
             str2 = "rsa_private_key";
         }
         if (TextUtils.isEmpty(str)) {
@@ -52,11 +52,11 @@ public class j {
                     com.kwad.sdk.core.d.a.d("EncryptUtils", "EncryptUtils getKey get encryptedKey is invalid ");
                 }
                 if (i == 0) {
-                    f36778a = a2;
+                    f36779a = a2;
                 } else if (i == 1) {
-                    f36779b = a2;
+                    f36780b = a2;
                 } else if (i == 2) {
-                    f36780c = a2;
+                    f36781c = a2;
                 }
                 return a2;
             }

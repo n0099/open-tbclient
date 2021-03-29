@@ -6,28 +6,28 @@ import android.graphics.PointF;
 public interface j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Integer f41179a = 1;
+    public static final Integer f41180a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Integer f41180b = 2;
+    public static final Integer f41181b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Integer f41181c = 3;
+    public static final Integer f41182c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Integer f41182d = 4;
+    public static final Integer f41183d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final PointF f41183e = new PointF();
+    public static final PointF f41184e = new PointF();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final PointF f41184f = new PointF();
+    public static final PointF f41185f = new PointF();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final PointF f41185g = new PointF();
+    public static final PointF f41186g = new PointF();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final PointF f41186h = new PointF();
+    public static final PointF f41187h = new PointF();
     public static final d.a.a.w.d i = new d.a.a.w.d();
     public static final Float j = Float.valueOf(1.0f);
     public static final Float k = Float.valueOf(2.0f);

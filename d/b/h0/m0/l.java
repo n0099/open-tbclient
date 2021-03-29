@@ -2,30 +2,30 @@ package d.b.h0.m0;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class l extends j {
     public static l E;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f50347b = false;
+    public boolean f50348b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50348c = false;
+    public boolean f50349c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50349d = false;
+    public boolean f50350d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50350e = false;
+    public boolean f50351e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f50351f = -1;
+    public long f50352f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50352g = -1;
+    public long f50353g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f50353h = -1;
+    public long f50354h = -1;
     public long i = -1;
     public long j = -1;
     public long k = -1;
@@ -61,7 +61,7 @@ public class l extends j {
     }
 
     public void A(boolean z) {
-        this.f50347b = z;
+        this.f50348b = z;
     }
 
     public void B(long j) {
@@ -72,7 +72,7 @@ public class l extends j {
     }
 
     public void D(boolean z) {
-        this.f50350e = z;
+        this.f50351e = z;
     }
 
     public void E(long j) {
@@ -98,7 +98,7 @@ public class l extends j {
     }
 
     public void J(long j) {
-        this.f50352g = j;
+        this.f50353g = j;
     }
 
     public void K(long j) {
@@ -114,7 +114,7 @@ public class l extends j {
     }
 
     public long c() {
-        return this.f50351f;
+        return this.f50352f;
     }
 
     public long d() {
@@ -122,23 +122,23 @@ public class l extends j {
     }
 
     public boolean e() {
-        return this.f50348c;
+        return this.f50349c;
     }
 
     public void f() {
         long j = 0;
-        if (this.D - this.f50351f <= 0 || this.f50349d || this.v <= 0 || !k.d().g()) {
+        if (this.D - this.f50352f <= 0 || this.f50350d || this.v <= 0 || !k.d().g()) {
             return;
         }
-        long j2 = this.f50352g - this.f50351f;
+        long j2 = this.f50353g - this.f50352f;
         long j3 = this.t;
         long j4 = j3 > 0 ? this.u - j3 : -1L;
-        this.f50349d = true;
+        this.f50350d = true;
         long j5 = this.D - this.C;
         d.b.b.e.n.a a2 = j.a();
         a2.b("procname", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
         a2.b("appc", String.valueOf(j2));
-        a2.b("loadclass", String.valueOf(this.f50353h));
+        a2.b("loadclass", String.valueOf(this.f50354h));
         a2.b("sapiinit", String.valueOf(this.i));
         a2.b("acctinit", String.valueOf(this.A));
         a2.b("iminit", String.valueOf(this.y));
@@ -152,7 +152,7 @@ public class l extends j {
         a2.b("cdninit", String.valueOf(this.p));
         a2.b("messagesetinit", String.valueOf(this.q));
         a2.b("logores", String.valueOf(this.B));
-        a2.b("opttest", String.valueOf(d.b.h0.r.x.d.f51070b ? 1 : 0));
+        a2.b("opttest", String.valueOf(d.b.h0.r.x.d.f51071b ? 1 : 0));
         long j6 = this.r;
         if (j6 > 0 && this.t > 0 && j4 > 0) {
             a2.b("adc", String.valueOf(j6 + this.s));
@@ -169,8 +169,8 @@ public class l extends j {
         }
         a2.b("tabc", String.valueOf(j5));
         a2.b("costt", String.valueOf(this.w - j));
-        a2.b("newinst", this.f50347b ? "1" : "0");
-        a2.c("pluginloadsync", Boolean.valueOf(this.f50350e));
+        a2.b("newinst", this.f50348b ? "1" : "0");
+        a2.c("pluginloadsync", Boolean.valueOf(this.f50351e));
         a2.b("hptotal", String.valueOf(this.v));
         a2.b("locationinit", String.valueOf(j2 + this.B + this.r + j4 + this.s + j5 + this.v));
         a2.b("userperceptiont", String.valueOf(this.x - j));
@@ -188,12 +188,12 @@ public class l extends j {
     }
 
     public final void h() {
-        this.f50347b = false;
-        this.f50348c = false;
-        this.f50351f = -1L;
-        this.f50352g = -1L;
+        this.f50348b = false;
+        this.f50349c = false;
+        this.f50352f = -1L;
+        this.f50353g = -1L;
         this.w = -1L;
-        this.f50353h = -1L;
+        this.f50354h = -1L;
         this.i = -1L;
         this.j = -1L;
         this.B = -1L;
@@ -245,7 +245,7 @@ public class l extends j {
             return;
         }
         this.v = j;
-        this.w = System.currentTimeMillis() - this.f50351f;
+        this.w = System.currentTimeMillis() - this.f50352f;
     }
 
     public void p(long j) {
@@ -264,11 +264,11 @@ public class l extends j {
     }
 
     public void t(long j) {
-        this.f50351f = j;
+        this.f50352f = j;
     }
 
     public void u(long j) {
-        this.f50353h = j;
+        this.f50354h = j;
     }
 
     public void v(long j) {
@@ -284,7 +284,7 @@ public class l extends j {
 
     public void y(long j) {
         this.D = j;
-        this.f50348c = true;
+        this.f50349c = true;
     }
 
     public void z(long j) {

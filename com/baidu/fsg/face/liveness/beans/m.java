@@ -20,49 +20,49 @@ import java.util.List;
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5920a;
+    public String f5921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5921b;
+    public String f5922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5922c;
+    public String f5923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5923d;
+    public String f5924d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5924e;
+    public String f5925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5925f;
+    public String f5926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LivenessRecogDTO f5926g;
+    public LivenessRecogDTO f5927g;
 
     public m(Context context) {
         super(context);
         String zid2 = RimGlobalUtils.getZid2();
-        this.f5924e = zid2;
+        this.f5925e = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f5923d = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f5924d = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
-        this.f5925f = str;
+        this.f5926f = str;
     }
 
     public void b(String str) {
-        this.f5921b = str;
+        this.f5922b = str;
     }
 
     public void c(String str) {
-        this.f5922c = str;
+        this.f5923c = str;
     }
 
     public void d(String str) {
-        this.f5920a = str;
+        this.f5921a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -75,23 +75,23 @@ public class m extends UploadBean {
         List<UploadBean.UploadFileModel> list;
         ArrayList arrayList = new ArrayList();
         LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) c.a().a("request_data");
-        this.f5926g = livenessRecogDTO;
+        this.f5927g = livenessRecogDTO;
         if (livenessRecogDTO != null && (list = this.files) != null && list.get(0) != null && this.files.get(0).filedata != null) {
-            setSpParameter(this.f5926g.spParams);
-            if (!TextUtils.isEmpty(this.f5926g.processid)) {
-                arrayList.add(new RestNameValuePair("processid", this.f5926g.processid));
+            setSpParameter(this.f5927g.spParams);
+            if (!TextUtils.isEmpty(this.f5927g.processid)) {
+                arrayList.add(new RestNameValuePair("processid", this.f5927g.processid));
             }
             if (!TextUtils.isEmpty(a())) {
                 arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
             }
-            if (!TextUtils.isEmpty(this.f5920a)) {
-                arrayList.add(new RestNameValuePair("video_type", this.f5920a));
+            if (!TextUtils.isEmpty(this.f5921a)) {
+                arrayList.add(new RestNameValuePair("video_type", this.f5921a));
             }
-            if (!TextUtils.isEmpty(this.f5921b)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f5921b));
+            if (!TextUtils.isEmpty(this.f5922b)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.f5922b));
             }
-            if (!TextUtils.isEmpty(this.f5922c)) {
-                arrayList.add(new RestNameValuePair("image_callbackkey", this.f5922c));
+            if (!TextUtils.isEmpty(this.f5923c)) {
+                arrayList.add(new RestNameValuePair("image_callbackkey", this.f5923c));
             }
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.files.get(0).filedata);
             arrayList.add(new RestNameValuePair("videomd5", Md5Utils.getMd5FromInputStream(byteArrayInputStream)));
@@ -100,19 +100,19 @@ public class m extends UploadBean {
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            if (!TextUtils.isEmpty(this.f5926g.serviceType)) {
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5926g.serviceType));
+            if (!TextUtils.isEmpty(this.f5927g.serviceType)) {
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5927g.serviceType));
             }
             arrayList.add(new RestNameValuePair("type", "video"));
         }
         arrayList.add(new RestNameValuePair("client", "android"));
-        if (!TextUtils.isEmpty(this.f5924e)) {
-            arrayList.add(new RestNameValuePair("zid2", this.f5924e));
-        } else if (!TextUtils.isEmpty(this.f5923d)) {
-            arrayList.add(new RestNameValuePair("zid", this.f5923d));
+        if (!TextUtils.isEmpty(this.f5925e)) {
+            arrayList.add(new RestNameValuePair("zid2", this.f5925e));
+        } else if (!TextUtils.isEmpty(this.f5924d)) {
+            arrayList.add(new RestNameValuePair("zid", this.f5924d));
         }
-        if (!TextUtils.isEmpty(this.f5925f)) {
-            arrayList.add(new RestNameValuePair("need_confirm", this.f5925f));
+        if (!TextUtils.isEmpty(this.f5926f)) {
+            arrayList.add(new RestNameValuePair("need_confirm", this.f5926f));
         }
         return arrayList;
     }
@@ -139,9 +139,9 @@ public class m extends UploadBean {
 
     private String a() {
         StringBuilder sb = new StringBuilder();
-        if (this.f5926g != null) {
-            sb.append("bduss=" + this.f5926g.bduss);
-            sb.append(";stoken=" + this.f5926g.stoken);
+        if (this.f5927g != null) {
+            sb.append("bduss=" + this.f5927g.bduss);
+            sb.append(";stoken=" + this.f5927g.stoken);
         }
         return PayUtils.encrypt("phone_number", sb.toString());
     }

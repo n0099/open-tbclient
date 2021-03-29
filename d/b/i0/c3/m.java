@@ -743,7 +743,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                     z1 z1Var = new z1();
                     z1Var.w = a2Var;
                     z1Var.position = i;
-                    z1Var.f50953e = true;
+                    z1Var.f50954e = true;
                     z1Var.setSupportType(BaseCardInfo.SupportType.TOP);
                     arrayList2.add(z1Var);
                     z1 z1Var2 = new z1();
@@ -752,13 +752,13 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                     if (a2Var.P1()) {
                         z1Var2.j = true;
                     } else if (a2Var.V2() == 1) {
-                        z1Var2.f50956h = true;
+                        z1Var2.f50957h = true;
                         z1Var2.x = p0[0];
                         z1Var2.y = p0[1];
                     } else if (a2Var.V2() >= 2) {
                         z1Var2.i = true;
                     } else {
-                        z1Var2.f50954f = true;
+                        z1Var2.f50955f = true;
                     }
                     z1Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                     arrayList2.add(z1Var2);
@@ -815,7 +815,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                     z1 z1Var9 = new z1();
                     z1Var9.w = a2Var;
                     z1Var9.position = i;
-                    z1Var9.f50953e = true;
+                    z1Var9.f50954e = true;
                     z1Var9.setSupportType(BaseCardInfo.SupportType.TOP);
                     arrayList2.add(z1Var9);
                     z1 z1Var10 = new z1();
@@ -869,7 +869,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                     z1 z1Var16 = new z1();
                     z1Var16.w = a2Var;
                     z1Var16.position = i;
-                    z1Var16.f50953e = true;
+                    z1Var16.f50954e = true;
                     z1Var16.setSupportType(BaseCardInfo.SupportType.TOP);
                     arrayList2.add(z1Var16);
                     z1 z1Var17 = new z1();
@@ -1047,7 +1047,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
             if (this.mEntelechyTabInfo != null && ListUtils.getItem(this.mEntelechyTabInfo.tab, 0) != null) {
                 this.defaultShowTab = ((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.tab, 0)).tab_id.intValue();
             }
-            if (d.b.h0.b.d.n() && !d.b.h0.b.g.a.f49753e.equals(((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.tab, 0)).tab_name)) {
+            if (d.b.h0.b.d.n() && !d.b.h0.b.g.a.f49754e.equals(((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.tab, 0)).tab_name)) {
                 this.defaultShowTab = d.b.h0.b.g.a.c();
             }
             if (this.mEntelechyTabInfo != null && !ListUtils.isEmpty(this.mEntelechyTabInfo.head)) {
@@ -1116,7 +1116,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
             if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                 g gVar = new g();
                 this.mFrsInsertLiveData = gVar;
-                gVar.f53353f = dataRes.ala_insert_floor.intValue();
+                gVar.f53354f = dataRes.ala_insert_floor.intValue();
                 ArrayList arrayList = new ArrayList();
                 for (int i4 = 0; i4 < dataRes.ala_live_insert.ala_live_list.size(); i4++) {
                     if (dataRes.ala_live_insert.ala_live_list.get(i4) != null) {
@@ -1126,7 +1126,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                         arrayList.add(a2Var2);
                     }
                 }
-                this.mFrsInsertLiveData.f53352e = arrayList;
+                this.mFrsInsertLiveData.f53353e = arrayList;
             }
             if (dataRes.ala_stage_list != null) {
                 this.mFrsStageLiveData = new h();
@@ -1139,7 +1139,7 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                         arrayList2.add(a2Var3);
                     }
                 }
-                this.mFrsStageLiveData.f53364e = arrayList2;
+                this.mFrsStageLiveData.f53365e = arrayList2;
             }
             if (dataRes.school_recom_info != null) {
                 this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -1231,37 +1231,37 @@ public class m implements d.b.h0.g0.b.b, d.b.h0.g0.b.h {
                 for (ServiceArea serviceArea : dataRes.service_area) {
                     if (serviceArea != null) {
                         b0 b0Var2 = new b0();
-                        b0Var2.f53317b = serviceArea.picurl;
-                        b0Var2.f53318c = serviceArea.servicename;
+                        b0Var2.f53318b = serviceArea.picurl;
+                        b0Var2.f53319c = serviceArea.servicename;
                         String str = serviceArea.service_type;
-                        b0Var2.f53316a = str;
+                        b0Var2.f53317a = str;
                         if (str != null && str.equals("原生小程序") && serviceArea.area_smart_app != null) {
-                            b0Var2.f53317b = serviceArea.area_smart_app.avatar;
-                            b0Var2.f53318c = serviceArea.area_smart_app.name;
+                            b0Var2.f53318b = serviceArea.area_smart_app.avatar;
+                            b0Var2.f53319c = serviceArea.area_smart_app.name;
                         }
-                        b0Var2.f53319d = serviceArea.serviceurl;
-                        b0Var2.f53320e = serviceArea.schema;
+                        b0Var2.f53320d = serviceArea.serviceurl;
+                        b0Var2.f53321e = serviceArea.schema;
                         String str2 = serviceArea.version;
-                        String o = d.b.h0.r.d0.b.i().o("frs_service_version_" + this.forum.getName() + b0Var2.f53318c, "");
+                        String o = d.b.h0.r.d0.b.i().o("frs_service_version_" + this.forum.getName() + b0Var2.f53319c, "");
                         if (!TextUtils.isEmpty(o)) {
                             o.equals(serviceArea.version);
                         }
                         if (serviceArea.area_smart_app != null) {
                             c0 c0Var = new c0();
                             c0Var.a(serviceArea.area_smart_app);
-                            b0Var2.f53321f = c0Var;
+                            b0Var2.f53322f = c0Var;
                         }
                         if (this.forum != null) {
                             this.forum.getName();
-                            b0Var2.f53322g = this.forum.getId();
+                            b0Var2.f53323g = this.forum.getId();
                         }
-                        b0Var2.f53323h = i;
+                        b0Var2.f53324h = i;
                         i++;
                         arrayList3.add(b0Var2);
                     }
                 }
-                this.serviceAreaData.f53314a = arrayList3.size();
-                this.serviceAreaData.f53315b = arrayList3;
+                this.serviceAreaData.f53315a = arrayList3.size();
+                this.serviceAreaData.f53316b = arrayList3;
             }
             this.itemInfo = dataRes.item_info;
             this.toLoadHorseData = dataRes.is_get_horse_race_lamp;

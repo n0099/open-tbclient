@@ -10,44 +10,44 @@ import java.util.ArrayList;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f48240b;
+    public FrameLayout f48241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f48241c;
+    public boolean f48242c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f48239a = new ArrayList<>();
+    public ArrayList<a> f48240a = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f48242d = false;
+    public boolean f48243d = false;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.f48240b = frameLayout;
+        this.f48241b = frameLayout;
     }
 
     public final synchronized void a() {
-        this.f48239a.clear();
+        this.f48240a.clear();
     }
 
     public final synchronized a[] b() {
-        if (this.f48239a.isEmpty()) {
+        if (this.f48240a.isEmpty()) {
             return null;
         }
-        a[] aVarArr = new a[this.f48239a.size()];
-        this.f48239a.toArray(aVarArr);
+        a[] aVarArr = new a[this.f48240a.size()];
+        this.f48240a.toArray(aVarArr);
         return aVarArr;
     }
 
     public Context c() {
-        return this.f48240b.getContext();
+        return this.f48241b.getContext();
     }
 
     public boolean d() {
-        return this.f48242d;
+        return this.f48243d;
     }
 
     public FrameLayout e() {
-        return this.f48240b;
+        return this.f48241b;
     }
 
     public boolean f(View view, d.b.g0.a.e1.d.a.a aVar) {
@@ -57,7 +57,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.g(), aVar.d());
         layoutParams.leftMargin = aVar.e();
         layoutParams.topMargin = aVar.f();
-        this.f48240b.addView(view, layoutParams);
+        this.f48241b.addView(view, layoutParams);
         return true;
     }
 
@@ -66,12 +66,12 @@ public class d {
             return false;
         }
         ViewParent parent = view.getParent();
-        FrameLayout frameLayout = this.f48240b;
+        FrameLayout frameLayout = this.f48241b;
         return parent == frameLayout && frameLayout.indexOfChild(view) >= 0;
     }
 
     public boolean h() {
-        return this.f48241c;
+        return this.f48242c;
     }
 
     public void i() {
@@ -106,32 +106,32 @@ public class d {
         if (aVar == null) {
             return;
         }
-        if (!this.f48239a.contains(aVar)) {
-            this.f48239a.add(aVar);
+        if (!this.f48240a.contains(aVar)) {
+            this.f48240a.add(aVar);
         }
     }
 
     public boolean m(View view) {
         if (g(view)) {
-            this.f48240b.removeView(view);
+            this.f48241b.removeView(view);
             return true;
         }
         return false;
     }
 
     public void n(boolean z) {
-        this.f48242d = z;
+        this.f48243d = z;
     }
 
     public void o(boolean z) {
-        this.f48241c = z;
+        this.f48242c = z;
     }
 
     public synchronized void p(a aVar) {
         if (aVar == null) {
             return;
         }
-        this.f48239a.remove(aVar);
+        this.f48240a.remove(aVar);
     }
 
     public boolean q(View view, d.b.g0.a.e1.d.a.a aVar) {
@@ -139,7 +139,7 @@ public class d {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.g(), aVar.d());
             layoutParams.leftMargin = aVar.e();
             layoutParams.topMargin = aVar.f();
-            this.f48240b.updateViewLayout(view, layoutParams);
+            this.f48241b.updateViewLayout(view, layoutParams);
             return true;
         }
         return false;

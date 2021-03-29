@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmotionUtils {
     public static final boolean CACHE_DEBUG = false;
     public static final String EMOTION_INFO_FILE = "emotion_info.json";
@@ -47,7 +47,7 @@ public class EmotionUtils {
     public String mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default);
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
 
@@ -61,7 +61,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionClassic {
         public File file;
         public String id;

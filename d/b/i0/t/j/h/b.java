@@ -76,7 +76,7 @@ public class b extends d.b.i0.x.b<f> {
         if (TextUtils.isEmpty(g2.b().yy_level_next_name) || g2.b().yy_levelup_exp <= g2.b().yy_level_exp) {
             return;
         }
-        String string = this.f62180f.getPageActivity().getResources().getString(R.string.ala_level_next_tips);
+        String string = this.f62181f.getPageActivity().getResources().getString(R.string.ala_level_next_tips);
         int i = (int) ((((float) (g2.b().yy_levelup_exp - g2.b().yy_level_exp)) * 100.0f) / ((float) g2.b().yy_levelup_exp));
         if (i <= 0) {
             i = 1;

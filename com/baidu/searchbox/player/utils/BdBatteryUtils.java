@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdBatteryUtils {
     public static final int BATTERY_MAX = 100;
     public static int batter_level;

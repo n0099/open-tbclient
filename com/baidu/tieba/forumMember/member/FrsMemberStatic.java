@@ -32,10 +32,10 @@ public class FrsMemberStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new g(null, h.f57035h));
-                absDelegateAdapterList.add(new i(null, j.f57040g));
-                absDelegateAdapterList.add(new f(null, n.f57931g));
-                absDelegateAdapterList.add(new d.b.i0.n0.b.a(null, d.b.i0.n0.b.b.f57013f));
+                absDelegateAdapterList.add(new g(null, h.f57036h));
+                absDelegateAdapterList.add(new i(null, j.f57041g));
+                absDelegateAdapterList.add(new f(null, n.f57932g));
+                absDelegateAdapterList.add(new d.b.i0.n0.b.a(null, d.b.i0.n0.b.b.f57014f));
                 absDelegateAdapterList.add(new c(null, d.k));
                 absDelegateAdapterList.add(new k(null, l.i));
             }
@@ -54,7 +54,7 @@ public class FrsMemberStatic {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
                 d.b.i0.n0.c.d dVar = new d.b.i0.n0.c.d();
-                dVar.E(f0Var.f57493e);
+                dVar.E(f0Var.f57494e);
                 f0Var.a(3, dVar);
             }
         }

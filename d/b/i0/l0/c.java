@@ -10,23 +10,23 @@ import java.util.ArrayList;
 public class c extends d.b.h0.w.p.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56498e;
+    public String f56499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56499f;
+    public String f56500f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56500g;
+    public int f56501g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56501h;
+    public int f56502h;
     public ArrayList<String> i = new ArrayList<>();
 
     public c(EmotionGroupData emotionGroupData) {
-        this.f56498e = emotionGroupData.getGroupId();
-        this.f56499f = emotionGroupData.getGroupName();
-        this.f56500g = emotionGroupData.getWidth();
-        this.f56501h = emotionGroupData.getHeight();
+        this.f56499e = emotionGroupData.getGroupId();
+        this.f56500f = emotionGroupData.getGroupName();
+        this.f56501g = emotionGroupData.getWidth();
+        this.f56502h = emotionGroupData.getHeight();
         t();
     }
 
@@ -45,12 +45,12 @@ public class c extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public String f() {
-        return this.f56498e;
+        return this.f56499e;
     }
 
     @Override // d.b.h0.w.p.c
     public String g() {
-        return this.f56499f;
+        return this.f56500f;
     }
 
     @Override // d.b.h0.w.p.c
@@ -60,7 +60,7 @@ public class c extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public int i() {
-        return this.f56501h;
+        return this.f56502h;
     }
 
     @Override // d.b.h0.w.p.c
@@ -70,7 +70,7 @@ public class c extends d.b.h0.w.p.c {
 
     @Override // d.b.h0.w.p.c
     public int l() {
-        return this.f56500g;
+        return this.f56501g;
     }
 
     @Override // d.b.h0.w.p.c
@@ -91,7 +91,7 @@ public class c extends d.b.h0.w.p.c {
         } else {
             b2 = b.b(str, false);
         }
-        Bitmap f2 = b.f(this.f56498e, b2);
+        Bitmap f2 = b.f(this.f56499e, b2);
         if (f2 == null) {
             return null;
         }
@@ -101,8 +101,8 @@ public class c extends d.b.h0.w.p.c {
     public final void t() {
         s(2);
         p(4);
-        Bitmap f2 = b.f(this.f56498e, "panel.png");
-        Bitmap f3 = b.f(this.f56498e, "panel_momo.png");
+        Bitmap f2 = b.f(this.f56499e, "panel.png");
+        Bitmap f3 = b.f(this.f56499e, "panel_momo.png");
         if (f2 != null) {
             q(new d.b.b.j.d.a(f2, false));
         }
@@ -110,7 +110,7 @@ public class c extends d.b.h0.w.p.c {
             r(new d.b.b.j.d.a(f3, false));
         }
         this.i.clear();
-        for (EmotionData emotionData : g.k().m(this.f56498e)) {
+        for (EmotionData emotionData : g.k().m(this.f56499e)) {
             this.i.add(emotionData.getSharpText());
         }
     }

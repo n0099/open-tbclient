@@ -5,11 +5,11 @@ import rx.exceptions.OnErrorNotImplementedException;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h.e<Object> f67968a = new C1883a();
+    public static final h.e<Object> f67973a = new C1884a();
 
     /* renamed from: h.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1883a implements h.e<Object> {
+    public static class C1884a implements h.e<Object> {
         @Override // h.e
         public final void onCompleted() {
         }
@@ -25,6 +25,6 @@ public final class a {
     }
 
     public static <T> h.e<T> a() {
-        return (h.e<T>) f67968a;
+        return (h.e<T>) f67973a;
     }
 }

@@ -5,21 +5,21 @@ import com.baidu.mobads.interfaces.error.XAdErrorCode;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f8445a;
+    public final /* synthetic */ a f8446a;
 
     public c(a aVar) {
-        this.f8445a = aVar;
+        this.f8446a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f8445a.f();
-            this.f8445a.l();
-            this.f8445a.k();
-            this.f8445a.a(XAdErrorCode.REQUEST_TIMEOUT, "");
+            this.f8446a.f();
+            this.f8446a.l();
+            this.f8446a.k();
+            this.f8446a.a(XAdErrorCode.REQUEST_TIMEOUT, "");
         } catch (Exception e2) {
-            this.f8445a.v.e(e2);
+            this.f8446a.v.e(e2);
         }
     }
 }

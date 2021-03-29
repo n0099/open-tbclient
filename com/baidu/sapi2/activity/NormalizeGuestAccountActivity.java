@@ -128,7 +128,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 NormalizeGuestAccountActivity.this.p.setResultCode(0);
                 NormalizeGuestAccountActivity.this.p.setResultMsg("成功");
                 NormalizeGuestAccountActivity.this.c();
-                new c().a(c.f11445e);
+                new c().a(c.f11446e);
             }
         }, str);
         setNewLoginTitleAndSetStyleChangeCallBack();

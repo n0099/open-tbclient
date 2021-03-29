@@ -12,33 +12,33 @@ public class a {
     public static volatile a i;
 
     /* renamed from: a  reason: collision with root package name */
-    public SensorManager f43795a;
+    public SensorManager f43796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorEventListener f43796b;
+    public SensorEventListener f43797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Sensor f43797c;
+    public Sensor f43798c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Sensor f43798d;
+    public Sensor f43799d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f43799e;
+    public b f43800e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f43800f;
+    public float[] f43801f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f43801g;
+    public float[] f43802g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43802h = false;
+    public boolean f43803h = false;
 
     /* renamed from: d.b.g0.a.c2.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0639a implements SensorEventListener {
-        public C0639a() {
+    public class C0640a implements SensorEventListener {
+        public C0640a() {
         }
 
         @Override // android.hardware.SensorEventListener
@@ -55,17 +55,17 @@ public class a {
                 if (fArr == null || fArr.length != 3) {
                     return;
                 }
-                a.this.f43800f = (float[]) fArr.clone();
+                a.this.f43801f = (float[]) fArr.clone();
             } else if (sensorEvent == null || (sensor = sensorEvent.sensor) == null || sensor.getType() != 2) {
             } else {
                 float[] fArr2 = sensorEvent.values;
                 if (fArr2 != null && fArr2.length == 3) {
-                    a.this.f43801g = (float[]) fArr2.clone();
+                    a.this.f43802g = (float[]) fArr2.clone();
                 }
-                if (a.this.f43799e == null || a.this.f43800f == null || a.this.f43801g == null || (g2 = a.this.g()) == null) {
+                if (a.this.f43800e == null || a.this.f43801f == null || a.this.f43802g == null || (g2 = a.this.g()) == null) {
                     return;
                 }
-                a.this.f43799e.a(g2);
+                a.this.f43800e.a(g2);
             }
         }
     }
@@ -98,7 +98,7 @@ public class a {
         float[] fArr = new float[9];
         float[] fArr2 = new float[9];
         float[] fArr3 = new float[3];
-        if (SensorManager.getRotationMatrix(fArr, null, this.f43800f, this.f43801g) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
+        if (SensorManager.getRotationMatrix(fArr, null, this.f43801f, this.f43802g) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
             SensorManager.getOrientation(fArr2, fArr3);
             return fArr3;
         }
@@ -107,46 +107,46 @@ public class a {
 
     public final SensorEventListener i() {
         c.g("SwanAppOrientationManager", "get System Sensor listener");
-        SensorEventListener sensorEventListener = this.f43796b;
+        SensorEventListener sensorEventListener = this.f43797b;
         if (sensorEventListener != null) {
             return sensorEventListener;
         }
-        C0639a c0639a = new C0639a();
-        this.f43796b = c0639a;
-        return c0639a;
+        C0640a c0640a = new C0640a();
+        this.f43797b = c0640a;
+        return c0640a;
     }
 
     public final void j() {
         c.g("SwanAppOrientationManager", "release");
-        if (this.f43802h) {
+        if (this.f43803h) {
             m();
         }
-        this.f43795a = null;
-        this.f43797c = null;
-        this.f43798d = null;
-        this.f43796b = null;
-        this.f43800f = null;
-        this.f43801g = null;
+        this.f43796a = null;
+        this.f43798c = null;
+        this.f43799d = null;
+        this.f43797b = null;
+        this.f43801f = null;
+        this.f43802g = null;
         i = null;
     }
 
     public boolean l(int i2, @NonNull b bVar) {
-        if (this.f43802h) {
+        if (this.f43803h) {
             c.l("SwanAppOrientationManager", "has already start, change new listener");
-            this.f43799e = bVar;
+            this.f43800e = bVar;
             return true;
         }
         SensorManager sensorManager = (SensorManager) d.b.g0.a.w0.a.c().getSystemService("sensor");
-        this.f43795a = sensorManager;
+        this.f43796a = sensorManager;
         if (sensorManager != null) {
-            this.f43799e = bVar;
-            this.f43797c = sensorManager.getDefaultSensor(1);
-            Sensor defaultSensor = this.f43795a.getDefaultSensor(2);
-            this.f43798d = defaultSensor;
-            if (this.f43797c != null && defaultSensor != null) {
-                this.f43795a.registerListener(i(), this.f43797c, i2);
-                this.f43795a.registerListener(i(), this.f43798d, i2);
-                this.f43802h = true;
+            this.f43800e = bVar;
+            this.f43798c = sensorManager.getDefaultSensor(1);
+            Sensor defaultSensor = this.f43796a.getDefaultSensor(2);
+            this.f43799d = defaultSensor;
+            if (this.f43798c != null && defaultSensor != null) {
+                this.f43796a.registerListener(i(), this.f43798c, i2);
+                this.f43796a.registerListener(i(), this.f43799d, i2);
+                this.f43803h = true;
                 c.g("SwanAppOrientationManager", "start listen");
                 return true;
             }
@@ -159,19 +159,19 @@ public class a {
 
     public void m() {
         SensorManager sensorManager;
-        if (!this.f43802h) {
+        if (!this.f43803h) {
             c.l("SwanAppOrientationManager", "has already stop");
             return;
         }
-        this.f43802h = false;
-        SensorEventListener sensorEventListener = this.f43796b;
-        if (sensorEventListener != null && (sensorManager = this.f43795a) != null) {
+        this.f43803h = false;
+        SensorEventListener sensorEventListener = this.f43797b;
+        if (sensorEventListener != null && (sensorManager = this.f43796a) != null) {
             sensorManager.unregisterListener(sensorEventListener);
-            this.f43796b = null;
+            this.f43797b = null;
         }
-        this.f43799e = null;
-        this.f43795a = null;
-        this.f43797c = null;
-        this.f43798d = null;
+        this.f43800e = null;
+        this.f43796a = null;
+        this.f43798c = null;
+        this.f43799d = null;
     }
 }

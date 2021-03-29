@@ -9,13 +9,13 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import d.b.i0.i1.o.b;
 import d.b.i0.i1.o.g.a;
 import d.b.i0.i1.o.l.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public BdUniqueId n;
     public TbPageContext<?> o;
     public ICardInfo p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
         public LegoDelegateViewHolder(e<?> eVar) {
             super((View) eVar);

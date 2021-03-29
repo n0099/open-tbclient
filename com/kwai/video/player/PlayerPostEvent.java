@@ -45,15 +45,15 @@ public interface PlayerPostEvent {
     public static final int MEDIA_SET_VIDEO_SIZE = 5;
     public static final int MEDIA_TIMED_TEXT = 99;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface MediaErrorType {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface MediaEventType {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface MediaInfoType {
     }
 }

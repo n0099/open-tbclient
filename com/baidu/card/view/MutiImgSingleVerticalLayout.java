@@ -30,21 +30,21 @@ import d.b.i.p;
 import d.b.i0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public static final int r = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4477e;
+    public TextView f4478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4478f;
+    public TextView f4479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayVoiceBntNew f4479g;
+    public PlayVoiceBntNew f4480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f4480h;
+    public TbImageView f4481h;
     public String i;
     public boolean j;
     public b0<d.b.h0.r.q.a> k;
@@ -55,7 +55,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
     public boolean p;
     public TbImageView.g q;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -70,7 +70,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements d.b.h0.b1.j.d {
         public b() {
         }
@@ -81,7 +81,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
             if (subClickListener != null) {
                 view.setTag("1");
                 MutiImgSingleVerticalLayout.this.l.objType = 2;
-                subClickListener.f62183a = Boolean.FALSE;
+                subClickListener.f62184a = Boolean.FALSE;
                 subClickListener.a(view, MutiImgSingleVerticalLayout.this.l);
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().q) {
@@ -96,7 +96,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements TbImageView.g {
         public c() {
         }
@@ -205,32 +205,32 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4484e;
+        public int f4485e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f4485f;
+        public boolean f4486f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f4486g;
+        public boolean f4487g;
 
         public d(int i, boolean z, boolean z2) {
             a(i, z, z2);
         }
 
         public void a(int i, boolean z, boolean z2) {
-            this.f4484e = i;
-            this.f4485f = z;
-            this.f4486g = z2;
+            this.f4485e = i;
+            this.f4486f = z;
+            this.f4487g = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (MutiImgSingleVerticalLayout.this.m != null) {
-                MutiImgSingleVerticalLayout.this.m.a(view, this.f4484e, this.f4485f && this.f4486g);
+                MutiImgSingleVerticalLayout.this.m.a(view, this.f4485e, this.f4486f && this.f4487g);
             }
         }
     }
@@ -250,33 +250,33 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
                 }
             }
             this.n = linkedList;
-            this.f4480h.setVisibility(8);
+            this.f4481h.setVisibility(8);
             if (ListUtils.getCount(linkedList) == 1) {
-                this.f4480h.setVisibility(0);
-                k((MediaData) ListUtils.getItem(K0, 0), this.f4480h, true, false, true, 0);
+                this.f4481h.setVisibility(0);
+                k((MediaData) ListUtils.getItem(K0, 0), this.f4481h, true, false, true, 0);
                 return;
             }
-            this.f4480h.setVisibility(8);
+            this.f4481h.setVisibility(8);
             return;
         }
-        this.f4480h.setVisibility(8);
+        this.f4481h.setVisibility(8);
     }
 
     private void setVoiceData(a2 a2Var) {
         ArrayList<VoiceData$VoiceModel> H1 = a2Var.H1();
         if (ListUtils.isEmpty(H1)) {
-            this.f4479g.setVisibility(8);
+            this.f4480g.setVisibility(8);
             return;
         }
-        this.f4479g.setVisibility(0);
+        this.f4480g.setVisibility(0);
         VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
-        this.f4479g.setVoiceModel(voiceData$VoiceModel);
-        this.f4479g.setTag(voiceData$VoiceModel);
-        this.f4479g.d();
+        this.f4480g.setVoiceModel(voiceData$VoiceModel);
+        this.f4480g.setTag(voiceData$VoiceModel);
+        this.f4480g.d();
         if (voiceData$VoiceModel != null) {
-            this.f4479g.m(voiceData$VoiceModel.voice_status.intValue());
+            this.f4480g.m(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4479g.o();
+        this.f4480g.o();
     }
 
     public final String g(MediaData mediaData) {
@@ -301,19 +301,19 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4478f = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4477e = (TextView) findViewById(R.id.thread_card_title);
+        this.f4479f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4478e = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4479g = playVoiceBntNew;
+        this.f4480g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
         TbImageView tbImageView = (TbImageView) findViewById(R.id.thread_card_img_singal);
-        this.f4480h = tbImageView;
+        this.f4481h = tbImageView;
         tbImageView.setRadiusById(R.string.J_X05);
-        this.f4480h.setConrers(15);
-        this.f4480h.setDrawCorner(true);
-        this.f4480h.setPlaceHolder(3);
-        this.f4480h.setLongIconSupport(true);
-        this.f4480h.setGifIconSupport(true);
+        this.f4481h.setConrers(15);
+        this.f4481h.setDrawCorner(true);
+        this.f4481h.setPlaceHolder(3);
+        this.f4481h.setLongIconSupport(true);
+        this.f4481h.setGifIconSupport(true);
         this.m = new b();
     }
 
@@ -323,14 +323,14 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
     public void a(d.b.h0.r.q.a aVar) {
         this.l = aVar;
         a2 n = aVar.n();
-        ThreadCardUtils.setTitle(this.f4477e, n, this.p);
-        ThreadCardUtils.setAbstract(this.f4478f, this.f4477e, n, r, this.p);
-        TextView textView = this.f4477e;
+        ThreadCardUtils.setTitle(this.f4478e, n, this.p);
+        ThreadCardUtils.setAbstract(this.f4479f, this.f4478e, n, r, this.p);
+        TextView textView = this.f4478e;
         boolean z = false;
         boolean z2 = textView == null || textView.getVisibility() != 0;
-        TextView textView2 = this.f4478f;
+        TextView textView2 = this.f4479f;
         boolean z3 = textView2 == null || textView2.getVisibility() != 0;
-        TbImageView tbImageView = this.f4480h;
+        TbImageView tbImageView = this.f4481h;
         if (z2 && z3) {
             z = true;
         }

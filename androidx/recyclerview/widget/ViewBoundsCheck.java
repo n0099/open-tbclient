@@ -76,7 +76,7 @@ public class ViewBoundsCheck {
         }
 
         public void setFlags(int i, int i2) {
-            this.mBoundFlags = (i & i2) | (this.mBoundFlags & (i2 ^ (-1)));
+            this.mBoundFlags = (i & i2) | (this.mBoundFlags & (~i2));
         }
     }
 

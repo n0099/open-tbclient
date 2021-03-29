@@ -3,7 +3,7 @@ package d.b.g0.a.s0.j;
 import androidx.annotation.NonNull;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import d.b.g0.a.r1.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static String a(@NonNull String str) {
         if (str.startsWith(ImageSource.FILE_SCHEME)) {

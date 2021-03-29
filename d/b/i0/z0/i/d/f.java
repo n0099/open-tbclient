@@ -17,7 +17,7 @@ import d.b.i.u0.a;
 import d.b.i.v;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
@@ -26,7 +26,7 @@ public class f extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public s q;
     public b0<a2> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -40,7 +40,7 @@ public class f extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -55,7 +55,7 @@ public class f extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     f.this.r.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

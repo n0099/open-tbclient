@@ -204,7 +204,7 @@ public class r implements IXAdPackageUtils {
         sb.append("&pack=");
         sb.append(context.getPackageName());
         sb.append("&v=");
-        sb.append("android_" + com.baidu.mobads.constants.a.f8205c + "_4.1.30");
+        sb.append("android_" + com.baidu.mobads.constants.a.f8206c + "_4.1.30");
         sb.append("&targetscheme=");
         sb.append(encodeUrl);
         sb.append("&pk=");
@@ -253,7 +253,7 @@ public class r implements IXAdPackageUtils {
         }
         try {
             com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(uRIUitls.addParameters(commonUtils.vdUrl(sb2 + str3, i), null), "");
-            bVar.f8413e = 1;
+            bVar.f8414e = 1;
             new com.baidu.mobads.openad.b.a().a(bVar);
             return z;
         } catch (Exception e2) {
@@ -280,7 +280,7 @@ public class r implements IXAdPackageUtils {
         sb.append("&pack=" + context.getPackageName());
         StringBuilder sb2 = new StringBuilder();
         sb2.append("&v=");
-        sb2.append("android_" + com.baidu.mobads.constants.a.f8205c + "_4.1.30");
+        sb2.append("android_" + com.baidu.mobads.constants.a.f8206c + "_4.1.30");
         sb.append(sb2.toString());
         StringBuilder sb3 = new StringBuilder();
         sb3.append("&targetscheme=");
@@ -289,7 +289,7 @@ public class r implements IXAdPackageUtils {
         sb.append("&pk=" + str2);
         try {
             com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(uRIUitls.addParameters(commonUtils.vdUrl(sb.toString(), 369), null), "");
-            bVar.f8413e = 1;
+            bVar.f8414e = 1;
             new com.baidu.mobads.openad.b.a().a(bVar);
         } catch (Exception e2) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("XAdPackageUtils", e2.getMessage());
@@ -314,7 +314,7 @@ public class r implements IXAdPackageUtils {
         sb.append("&pack=" + context.getPackageName());
         StringBuilder sb2 = new StringBuilder();
         sb2.append("&v=");
-        sb2.append("android_" + com.baidu.mobads.constants.a.f8205c + "_4.1.30");
+        sb2.append("android_" + com.baidu.mobads.constants.a.f8206c + "_4.1.30");
         sb.append(sb2.toString());
         StringBuilder sb3 = new StringBuilder();
         sb3.append("&pk=");
@@ -322,7 +322,7 @@ public class r implements IXAdPackageUtils {
         sb.append(sb3.toString());
         try {
             com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(uRIUitls.addParameters(commonUtils.vdUrl(sb.toString(), 372), null), "");
-            bVar.f8413e = 1;
+            bVar.f8414e = 1;
             new com.baidu.mobads.openad.b.a().a(bVar);
         } catch (Exception e2) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("XAdPackageUtils", e2.getMessage());

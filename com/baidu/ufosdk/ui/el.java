@@ -3,19 +3,19 @@ package com.baidu.ufosdk.ui;
 public final class el implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23217a;
+    public final /* synthetic */ FeedbackInputActivity f23218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ej f23218b;
+    public final /* synthetic */ ej f23219b;
 
     public el(ej ejVar, FeedbackInputActivity feedbackInputActivity) {
-        this.f23218b = ejVar;
-        this.f23217a = feedbackInputActivity;
+        this.f23219b = ejVar;
+        this.f23218a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f23217a.getApplicationContext();
-        com.baidu.ufosdk.e.a.a(this.f23217a.f23019f, 9);
+        this.f23218a.getApplicationContext();
+        com.baidu.ufosdk.e.a.a(this.f23218a.f23020f, 9);
     }
 }

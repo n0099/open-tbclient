@@ -7,14 +7,14 @@ import java.util.concurrent.atomic.AtomicReference;
 public class b implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<c> f59262a = new AtomicReference<>(null);
+    public static final AtomicReference<c> f59263a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f59263b = new b();
+    public static final c f59264b = new b();
 
     public static c d() {
-        c cVar = f59262a.get();
-        return cVar == null ? f59263b : cVar;
+        c cVar = f59263a.get();
+        return cVar == null ? f59264b : cVar;
     }
 
     @Override // d.b.i0.q0.c

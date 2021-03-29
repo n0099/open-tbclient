@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class UserPermission extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer isGroupManager;

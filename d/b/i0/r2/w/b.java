@@ -35,18 +35,18 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
     public class a implements d.b.i0.i1.o.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f59867a;
+        public final /* synthetic */ AdvertAppInfo f59868a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f59868b;
+        public final /* synthetic */ int f59869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f59869c;
+        public final /* synthetic */ String f59870c;
 
         /* renamed from: d.b.i0.r2.w.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1509a extends BdAsyncTask<String, Void, Void> {
-            public C1509a(a aVar) {
+        public class C1510a extends BdAsyncTask<String, Void, Void> {
+            public C1510a(a aVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -61,9 +61,9 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
         }
 
         public a(b bVar, AdvertAppInfo advertAppInfo, int i, String str) {
-            this.f59867a = advertAppInfo;
-            this.f59868b = i;
-            this.f59869c = str;
+            this.f59868a = advertAppInfo;
+            this.f59869b = i;
+            this.f59870c = str;
         }
 
         @Override // d.b.i0.i1.o.a
@@ -72,38 +72,38 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
                 return;
             }
             if (t.p(i)) {
-                d.b.i0.r2.b0.d.e(this.f59867a, this.f59868b, hashMap, i);
+                d.b.i0.r2.b0.d.e(this.f59868a, this.f59869b, hashMap, i);
             } else {
-                d.b.i0.r2.b0.d.k(this.f59867a, this.f59868b, this.f59869c, null, hashMap);
+                d.b.i0.r2.b0.d.k(this.f59868a, this.f59869b, this.f59870c, null, hashMap);
             }
-            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59867a));
+            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59868a));
         }
 
         @Override // d.b.i0.i1.o.a
         public void b(String str, String str2, HashMap<String, Object> hashMap) {
-            d.b.i0.r2.b0.d.k(this.f59867a, this.f59868b, this.f59869c, str, hashMap);
-            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59867a));
+            d.b.i0.r2.b0.d.k(this.f59868a, this.f59869b, this.f59870c, str, hashMap);
+            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59868a));
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            new C1509a(this).execute(str2);
+            new C1510a(this).execute(str2);
         }
     }
 
     /* renamed from: d.b.i0.r2.w.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1510b implements d.b.i0.i1.o.c {
+    public class C1511b implements d.b.i0.i1.o.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f59870a;
+        public final /* synthetic */ String f59871a;
 
-        public C1510b(String str) {
-            this.f59870a = str;
+        public C1511b(String str) {
+            this.f59871a = str;
         }
 
         @Override // d.b.i0.i1.o.c
         public void a(AdvertAppInfo advertAppInfo, int i) {
-            h.b(b.this.m.getPageActivity(), advertAppInfo, i, b.this.r0(advertAppInfo, this.f59870a));
+            h.b(b.this.m.getPageActivity(), advertAppInfo, i, b.this.r0(advertAppInfo, this.f59871a));
         }
     }
 
@@ -198,7 +198,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
     public View I(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.d dVar) {
         AdvertAppInfo advertAppInfo;
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        if (dVar == null || (advertAppInfo = dVar.f62200e) == null || (iLegoAdvert = advertAppInfo.W3) == null) {
+        if (dVar == null || (advertAppInfo = dVar.f62201e) == null || (iLegoAdvert = advertAppInfo.W3) == null) {
             return null;
         }
         this.p = iLegoAdvert;
@@ -245,7 +245,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
     public CardAppLegoViewHolder S(ViewGroup viewGroup, d.b.i0.x.e0.d dVar) {
         AdvertAppInfo advertAppInfo;
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        if (dVar == null || (advertAppInfo = dVar.f62200e) == null || (iLegoAdvert = advertAppInfo.W3) == null) {
+        if (dVar == null || (advertAppInfo = dVar.f62201e) == null || (iLegoAdvert = advertAppInfo.W3) == null) {
             return null;
         }
         this.p = iLegoAdvert;
@@ -257,7 +257,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
     /* renamed from: w0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.d dVar, CardAppLegoViewHolder cardAppLegoViewHolder) {
         AdvertAppInfo advertAppInfo;
-        if (this.m != null && dVar != null && (advertAppInfo = dVar.f62200e) != null) {
+        if (this.m != null && dVar != null && (advertAppInfo = dVar.f62201e) != null) {
             AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.W3;
             this.p = iLegoAdvert;
             if (iLegoAdvert != null && view != null) {
@@ -272,10 +272,10 @@ public class b extends d.b.b.j.e.a<d.b.i0.x.e0.d, CardAppLegoViewHolder> impleme
                 this.p.setAdvertAppInfo(g2);
                 eVar.setFromCDN(this.o);
                 eVar.c(this.p);
-                int i2 = dVar.f62202g;
-                String str = dVar.f62201f;
+                int i2 = dVar.f62203g;
+                String str = dVar.f62202f;
                 eVar.setAfterClickSchemeListener(new a(this, g2, i2, str));
-                eVar.setDownloadAppCallback(new C1510b(str));
+                eVar.setDownloadAppCallback(new C1511b(str));
                 if (n.class.isAssignableFrom(view.getClass())) {
                     cardAppLegoViewHolder.e(((n) view).getVideoOrVrView());
                 }

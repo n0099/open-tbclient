@@ -11,11 +11,11 @@ import java.security.spec.X509EncodedKeySpec;
 public final class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39565a = "RSA";
+    public static String f39566a = "RSA";
 
     public static PublicKey a(String str) throws Exception {
         try {
-            return KeyFactory.getInstance(f39565a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            return KeyFactory.getInstance(f39566a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
         } catch (NullPointerException unused) {
             throw new Exception("公钥数据为空");
         } catch (NoSuchAlgorithmException unused2) {

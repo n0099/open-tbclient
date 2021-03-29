@@ -38,9 +38,9 @@ import d.b.g0.a.p.c.x0;
 import d.b.g0.a.q0.c;
 import d.b.g0.a.q1.b.c.a;
 import d.b.g0.i.n;
-/* loaded from: classes3.dex */
-public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.InterfaceC0764a {
-    public static final boolean c1 = d.b.g0.a.k.f45050a;
+/* loaded from: classes2.dex */
+public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.InterfaceC0765a {
+    public static final boolean c1 = d.b.g0.a.k.f45051a;
     public ImageView A0;
     public View B0;
     public ImageView C0;
@@ -54,7 +54,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
     public k R0;
     public AudioManager T0;
     public boolean U0;
-    public C0663j V0;
+    public C0664j V0;
     public OrientationEventListener W0;
     public GameCloseGuidePopView Y0;
     public View a1;
@@ -67,7 +67,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
     public String X0 = "landscape";
     public boolean Z0 = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -80,7 +80,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnSystemUiVisibilityChangeListener {
         public b() {
         }
@@ -96,7 +96,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -105,12 +105,12 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         public void onClick(View view) {
             j.this.a2();
             d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-            fVar.f47253d = SupportMenuInflater.XML_MENU;
+            fVar.f47254d = SupportMenuInflater.XML_MENU;
             j.this.t1(fVar);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -138,7 +138,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements GameCloseGuidePopView.e {
         public e() {
         }
@@ -161,7 +161,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f implements c.b {
         public f() {
         }
@@ -172,7 +172,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class g implements GameCloseGuidePopView.e {
         public g() {
         }
@@ -195,7 +195,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class h implements Runnable {
         public h() {
         }
@@ -206,16 +206,16 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class i extends OrientationEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.i.a f44039a;
+        public final /* synthetic */ d.b.g0.g.i.a f44040a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(Context context, int i, d.b.g0.g.i.a aVar) {
             super(context, i);
-            this.f44039a = aVar;
+            this.f44040a = aVar;
         }
 
         @Override // android.view.OrientationEventListener
@@ -229,7 +229,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
                 }
                 j.this.f0.setRequestedOrientation(8);
                 j.this.X0 = "landscapeReverse";
-                d.b.g0.g.g0.a.a(this.f44039a, j.this.X0);
+                d.b.g0.g.g0.a.a(this.f44040a, j.this.X0);
                 if (j.c1) {
                     Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.X0);
                     return;
@@ -238,7 +238,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             }
             j.this.f0.setRequestedOrientation(0);
             j.this.X0 = "landscape";
-            d.b.g0.g.g0.a.a(this.f44039a, j.this.X0);
+            d.b.g0.g.g0.a.a(this.f44040a, j.this.X0);
             if (j.c1) {
                 Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.X0);
             }
@@ -246,18 +246,18 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
     }
 
     /* renamed from: d.b.g0.a.e0.l.j$j  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0663j implements AudioManager.OnAudioFocusChangeListener {
+    /* loaded from: classes2.dex */
+    public class C0664j implements AudioManager.OnAudioFocusChangeListener {
 
         /* renamed from: d.b.g0.a.e0.l.j$j$a */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f44042e;
+            public final /* synthetic */ int f44043e;
 
             public a(int i) {
-                this.f44042e = i;
+                this.f44043e = i;
             }
 
             @Override // java.lang.Runnable
@@ -265,7 +265,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
                 if (j.this.f3()) {
                     return;
                 }
-                int i = this.f44042e;
+                int i = this.f44043e;
                 if (i == -2) {
                     if (j.c1) {
                         Log.d("SwanGameFragment", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
@@ -281,7 +281,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             }
         }
 
-        public C0663j() {
+        public C0664j() {
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
@@ -289,12 +289,12 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             k0.X(new a(i));
         }
 
-        public /* synthetic */ C0663j(j jVar, a aVar) {
+        public /* synthetic */ C0664j(j jVar, a aVar) {
             this();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class k extends Handler {
         public k() {
         }
@@ -331,7 +331,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             activity.moveTaskToBack(true);
         }
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47253d = IntentConfig.CLOSE;
+        fVar.f47254d = IntentConfig.CLOSE;
         t1(fVar);
         ((SwanAppActivity) this.f0).handleSwanAppExit(1);
         p0.b().e(2);
@@ -497,7 +497,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    @Override // d.b.g0.a.q1.b.c.a.InterfaceC0764a
+    @Override // d.b.g0.a.q1.b.c.a.InterfaceC0765a
     public d.b.g0.a.q1.b.c.a getFloatLayer() {
         d.b.g0.g.k0.d dVar;
         if (this.N0 == null && (dVar = this.L0) != null && dVar.e() != null) {
@@ -508,11 +508,11 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
 
     @Override // d.b.g0.a.e0.l.c
     public void h1() {
-        C0663j c0663j;
+        C0664j c0664j;
         if (this.U0) {
             AudioManager audioManager = this.T0;
-            if (audioManager != null && (c0663j = this.V0) != null) {
-                audioManager.abandonAudioFocus(c0663j);
+            if (audioManager != null && (c0664j = this.V0) != null) {
+                audioManager.abandonAudioFocus(c0664j);
                 this.T0 = null;
                 this.V0 = null;
             }
@@ -588,7 +588,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             }
         }
         if (this.V0 == null) {
-            this.V0 = new C0663j(this, null);
+            this.V0 = new C0664j(this, null);
         }
         this.U0 = this.T0.requestAudioFocus(this.V0, 3, 1) == 1;
         if (c1) {

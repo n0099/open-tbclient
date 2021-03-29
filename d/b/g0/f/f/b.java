@@ -8,7 +8,7 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile HashMap<String, List<d.b.g0.f.f.f.b>> f47766a = new HashMap<>();
+    public volatile HashMap<String, List<d.b.g0.f.f.f.b>> f47767a = new HashMap<>();
 
     public synchronized void a(String str, d.b.g0.f.f.f.b bVar) {
         if (e(str, bVar)) {
@@ -18,8 +18,8 @@ public class b {
         if (!c2.contains(bVar)) {
             c2.add(bVar);
         }
-        if (!this.f47766a.containsKey(str)) {
-            this.f47766a.put(str, c2);
+        if (!this.f47767a.containsKey(str)) {
+            this.f47767a.put(str, c2);
         }
     }
 
@@ -35,7 +35,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<d.b.g0.f.f.f.b> list = this.f47766a.get(str);
+        List<d.b.g0.f.f.f.b> list = this.f47767a.get(str);
         return list == null ? new ArrayList() : list;
     }
 
@@ -44,7 +44,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        List<d.b.g0.f.f.f.b> list = this.f47766a.get(str);
+        List<d.b.g0.f.f.f.b> list = this.f47767a.get(str);
         if (list != null) {
             if (!list.isEmpty()) {
                 z = true;
@@ -66,14 +66,14 @@ public class b {
             return;
         }
         if (bVar == null) {
-            this.f47766a.remove(str);
+            this.f47767a.remove(str);
             return;
         }
         List<d.b.g0.f.f.f.b> c2 = c(str);
         if (c2.contains(bVar)) {
             c2.remove(bVar);
             if (c2.isEmpty()) {
-                this.f47766a.remove(str);
+                this.f47767a.remove(str);
             }
         }
     }

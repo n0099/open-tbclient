@@ -17,20 +17,20 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.j.d.g, CardViewHolder<d.b.i0.t.j.h.a
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.j.d.g f60827e;
+        public final /* synthetic */ d.b.i0.t.j.d.g f60828e;
 
         public a(d.b.i0.t.j.d.g gVar) {
-            this.f60827e = gVar;
+            this.f60828e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.this.j0(this.f60827e);
+            e.this.j0(this.f60828e);
         }
     }
 
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.g.f60866f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.g.f60867f);
         this.m = tbPageContext;
     }
 
@@ -39,7 +39,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.j.d.g, CardViewHolder<d.b.i0.t.j.h.a
             return;
         }
         aVar.z(0);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_person_live_admin));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_admin));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 

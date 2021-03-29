@@ -18,16 +18,16 @@ import okhttp3.Response;
 public class d implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.g0.e.a.l.i.d f47606e;
+    public final d.b.g0.e.a.l.i.d f47607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DownloadInfo f47607f;
+    public final DownloadInfo f47608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a f47608g;
+    public final a f47609g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f47609h;
+    public long f47610h;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -37,14 +37,14 @@ public class d implements Runnable {
     }
 
     public d(d.b.g0.e.a.l.i.d dVar, DownloadInfo downloadInfo, a aVar) {
-        this.f47606e = dVar;
-        this.f47607f = downloadInfo;
-        this.f47609h = downloadInfo.getProgress();
-        this.f47608g = aVar;
+        this.f47607e = dVar;
+        this.f47608f = downloadInfo;
+        this.f47610h = downloadInfo.getProgress();
+        this.f47609g = aVar;
     }
 
     public final void a() {
-        if (this.f47607f.isPause()) {
+        if (this.f47608f.isPause()) {
             throw new DownloadPauseException(7);
         }
     }
@@ -60,13 +60,13 @@ public class d implements Runnable {
         try {
             try {
                 try {
-                    URL url = new URL(this.f47607f.getUri());
-                    long j = this.f47609h;
+                    URL url = new URL(this.f47608f.getUri());
+                    long j = this.f47610h;
                     Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + "-").url(url).build()).execute();
                     if (execute != null) {
                         inputStream = execute.body().byteStream();
                         try {
-                            randomAccessFile2 = new RandomAccessFile(this.f47607f.getPath(), "rw");
+                            randomAccessFile2 = new RandomAccessFile(this.f47608f.getPath(), "rw");
                             try {
                                 randomAccessFile2.seek(j);
                                 byte[] bArr = new byte[1024];
@@ -79,11 +79,11 @@ public class d implements Runnable {
                                     a();
                                     i += read;
                                     randomAccessFile2.write(bArr, 0, read);
-                                    this.f47607f.setProgress(this.f47609h + i);
-                                    this.f47608g.b();
+                                    this.f47608f.setProgress(this.f47610h + i);
+                                    this.f47609g.b();
                                 }
                                 execute.body().close();
-                                this.f47608g.a();
+                                this.f47609g.a();
                                 inputStream2 = inputStream;
                             } catch (DownloadPauseException unused) {
                                 inputStream2 = inputStream;
@@ -190,22 +190,22 @@ public class d implements Runnable {
     public void run() {
         Process.setThreadPriority(10);
         try {
-            if (this.f47607f.getSize() <= 0) {
-                long c2 = c(this.f47607f.getUri());
+            if (this.f47608f.getSize() <= 0) {
+                long c2 = c(this.f47608f.getUri());
                 if (c2 > 0) {
-                    this.f47607f.setSize(c2);
+                    this.f47608f.setSize(c2);
                 } else {
                     throw new DownloadException(6, "length <= 0");
                 }
             }
-            this.f47607f.setStatus(SwanAdDownloadState.DOWNLOADING.value());
-            this.f47606e.b(this.f47607f);
+            this.f47608f.setStatus(SwanAdDownloadState.DOWNLOADING.value());
+            this.f47607e.b(this.f47608f);
             b();
         } catch (DownloadException e2) {
-            this.f47607f.setStatus(SwanAdDownloadState.DOWNLOAD_FAILED.value());
-            this.f47607f.setException(e2);
-            this.f47606e.b(this.f47607f);
-            this.f47606e.a(e2);
+            this.f47608f.setStatus(SwanAdDownloadState.DOWNLOAD_FAILED.value());
+            this.f47608f.setException(e2);
+            this.f47607e.b(this.f47608f);
+            this.f47607e.a(e2);
         }
     }
 }

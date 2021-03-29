@@ -8,10 +8,10 @@ import com.bun.miitmdid.utils.sysParamters;
 public class b implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27114a;
+    public Context f27115a;
 
     public b(Context context) {
-        this.f27114a = context;
+        this.f27115a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -38,7 +38,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return a.a(this.f27114a, sysParamters.g());
+            return a.a(this.f27115a, sysParamters.g());
         } catch (Exception unused) {
             return "";
         }
@@ -47,7 +47,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return a.b(this.f27114a);
+            return a.b(this.f27115a);
         } catch (Exception unused) {
             return "";
         }
@@ -61,7 +61,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return a.b(this.f27114a, sysParamters.g());
+            return a.b(this.f27115a, sysParamters.g());
         } catch (Exception unused) {
             return "";
         }
@@ -70,7 +70,7 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
         try {
-            return a.a(this.f27114a);
+            return a.a(this.f27115a);
         } catch (Exception unused) {
             return false;
         }

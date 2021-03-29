@@ -7,30 +7,30 @@ import d.b.n.a.h;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f4653c;
+    public static c f4654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f4654d;
+    public static Context f4655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ExecutorService f4655e;
+    public static ExecutorService f4656e;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f4656a;
+    public h f4657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public p f4657b;
+    public p f4658b;
 
     public c(Context context) {
-        f4654d = context;
-        this.f4657b = new p(Looper.getMainLooper().getThread(), a.f4642g);
-        this.f4656a = new h(new d.b.n.a.a(this), context);
-        if (f4655e == null) {
-            f4655e = Executors.newSingleThreadExecutor();
+        f4655d = context;
+        this.f4658b = new p(Looper.getMainLooper().getThread(), a.f4643g);
+        this.f4657a = new h(new d.b.n.a.a(this), context);
+        if (f4656e == null) {
+            f4656e = Executors.newSingleThreadExecutor();
         }
     }
 
@@ -41,19 +41,19 @@ public class c {
             return;
         }
         a b2 = a.b();
-        b2.f4649f = e2;
+        b2.f4650f = e2;
         b2.a(j, j2, j3, j4);
     }
 
     public static c b(Context context) {
-        if (f4653c == null) {
+        if (f4654c == null) {
             synchronized (c.class) {
-                if (f4653c == null) {
-                    f4653c = new c(context);
+                if (f4654c == null) {
+                    f4654c = new c(context);
                 }
             }
         }
-        return f4653c;
+        return f4654c;
     }
 
     public static void e() {

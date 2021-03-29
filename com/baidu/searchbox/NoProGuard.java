@@ -1,4 +1,4 @@
 package com.baidu.searchbox;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface NoProGuard {
 }

@@ -11,24 +11,24 @@ import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskSocketMessage;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59341b;
+    public int f59342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59342c;
+    public int f59343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f59343d;
+    public long f59344d;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f59340a = null;
+    public b f59341a = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.c.g.a f59344e = new C1479a(CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+    public d.b.b.c.g.a f59345e = new C1480a(CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
 
     /* renamed from: d.b.i0.q1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1479a extends d.b.b.c.g.a {
-        public C1479a(int i, int i2) {
+    public class C1480a extends d.b.b.c.g.a {
+        public C1480a(int i, int i2) {
             super(i, i2);
         }
 
@@ -40,12 +40,12 @@ public class a {
             boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
             if (z || (responsedMessage instanceof FinishMemberTaskSocketMessage)) {
                 if (z) {
-                    a.this.f59341b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+                    a.this.f59342b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
                 } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
-                    a.this.f59341b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+                    a.this.f59342b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
                 }
-                if (a.this.f59340a != null) {
-                    a.this.f59340a.a(responsedMessage.getError(), responsedMessage.getErrorString(), a.this.f59341b, a.this.f59342c, a.this.f59343d);
+                if (a.this.f59341a != null) {
+                    a.this.f59341a.a(responsedMessage.getError(), responsedMessage.getErrorString(), a.this.f59342b, a.this.f59343c, a.this.f59344d);
                 }
             }
         }
@@ -59,22 +59,22 @@ public class a {
     public a() {
         d.b.i0.c3.d0.a.h(309429, FinishMemberTaskSocketMessage.class, false, false);
         d.b.i0.c3.d0.a.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.f59344e);
+        MessageManager.getInstance().registerListener(this.f59345e);
     }
 
     public void f(long j, int i) {
-        this.f59343d = j;
-        this.f59342c = i;
+        this.f59344d = j;
+        this.f59343c = i;
         FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
         finishMemberTaskReqMessage.setTaskId(j);
         MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
     }
 
     public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f59344e);
+        MessageManager.getInstance().unRegisterListener(this.f59345e);
     }
 
     public void h(b bVar) {
-        this.f59340a = bVar;
+        this.f59341a = bVar;
     }
 }

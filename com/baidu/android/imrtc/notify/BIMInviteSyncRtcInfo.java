@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     public static final String TAG = "IMInviteRtcInfo";
     public int mMediaType;

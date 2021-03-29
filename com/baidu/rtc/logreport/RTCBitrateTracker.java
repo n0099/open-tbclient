@@ -27,15 +27,13 @@ public class RTCBitrateTracker {
                     return (int) Math.round(Double.parseDouble(str.substring(0, str.indexOf("Mbps"))) * 1000000.0d);
                 }
                 if (str.indexOf("Kbps") != -1) {
-                    double parseInt = Integer.parseInt(str.substring(0, str.indexOf("Kbps")));
-                    Double.isNaN(parseInt);
-                    return (int) (parseInt * 1000.0d);
-                } else if (str.indexOf("bps") != -1) {
-                    return Integer.parseInt(str.substring(0, str.indexOf("bps")));
-                } else {
-                    Log.e("BRTC", "illegal input num");
-                    return -1;
+                    return (int) (Integer.parseInt(str.substring(0, str.indexOf("Kbps"))) * 1000.0d);
                 }
+                if (str.indexOf("bps") != -1) {
+                    return Integer.parseInt(str.substring(0, str.indexOf("bps")));
+                }
+                Log.e("BRTC", "illegal input num");
+                return -1;
             } catch (NumberFormatException e2) {
                 Log.e("RTCBitrateTracker", "bitrateToString dataFormat error: " + e2);
                 return -1;

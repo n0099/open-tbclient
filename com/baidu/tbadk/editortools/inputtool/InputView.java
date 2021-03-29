@@ -26,16 +26,16 @@ import java.util.regex.Matcher;
 public class InputView extends EditText implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f13869e;
+    public EditorTools f13870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13870f;
+    public int f13871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13871g;
+    public boolean f13872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13872h;
+    public boolean f13873h;
     public boolean i;
     public int j;
 
@@ -103,9 +103,9 @@ public class InputView extends EditText implements n {
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.f13870f = 0;
-        this.f13871g = false;
-        this.f13872h = true;
+        this.f13871f = 0;
+        this.f13872g = false;
+        this.f13873h = true;
         this.i = true;
         this.j = -1;
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds64));
@@ -132,7 +132,7 @@ public class InputView extends EditText implements n {
 
     @Override // d.b.h0.w.n
     public void d(d.b.h0.w.a aVar) {
-        EditorTools editorTools = this.f13869e;
+        EditorTools editorTools = this.f13870e;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
@@ -140,7 +140,7 @@ public class InputView extends EditText implements n {
 
     @Override // d.b.h0.w.n
     public int getToolId() {
-        return this.f13870f;
+        return this.f13871f;
     }
 
     public final void h(ArrayList<String> arrayList) {
@@ -175,7 +175,7 @@ public class InputView extends EditText implements n {
 
     public final void j(d.b.h0.w.a aVar) {
         Object obj;
-        if (aVar == null || (obj = aVar.f51525c) == null || !(obj instanceof t)) {
+        if (aVar == null || (obj = aVar.f51526c) == null || !(obj instanceof t)) {
             return;
         }
         t tVar = (t) obj;
@@ -187,9 +187,9 @@ public class InputView extends EditText implements n {
     }
 
     public final void k(t tVar) {
-        if (!this.f13871g || tVar.e() == EmotionGroupType.LOCAL) {
+        if (!this.f13872g || tVar.e() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.f13872h && d.b.i0.k0.a.a(obj) >= 10 && getContext() != null) {
+            if (this.f13873h && d.b.i0.k0.a.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
                 d.b.i0.k0.b.b(getContext(), tVar, this);
@@ -202,7 +202,7 @@ public class InputView extends EditText implements n {
             return;
         }
         String obj = getText().toString();
-        if (this.f13872h && d.b.i0.k0.a.a(obj) >= 10 && getContext() != null) {
+        if (this.f13873h && d.b.i0.k0.a.a(obj) >= 10 && getContext() != null) {
             CustomToast.newInstance().showToast(R.string.too_many_face);
         } else {
             d.b.i0.k0.b.c(getContext(), tVar, this);
@@ -215,11 +215,11 @@ public class InputView extends EditText implements n {
         if (aVar == null) {
             return;
         }
-        int i = aVar.f51523a;
+        int i = aVar.f51524a;
         if (i == 3) {
             if (getSelectionStart() > 0) {
                 String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = d.b.i0.k0.a.f56419b.matcher(substring);
+                Matcher matcher = d.b.i0.k0.a.f56420b.matcher(substring);
                 if (matcher.find()) {
                     getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                 } else {
@@ -227,29 +227,29 @@ public class InputView extends EditText implements n {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = aVar.f51525c;
+            Object obj2 = aVar.f51526c;
             if (obj2 == null) {
                 setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     setText((CharSequence) null);
                 } else {
-                    d.b.i0.k0.b.d(getContext(), (String) aVar.f51525c, new c());
+                    d.b.i0.k0.b.d(getContext(), (String) aVar.f51526c, new c());
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) aVar.f51525c).booleanValue()) {
+            if (((Boolean) aVar.f51526c).booleanValue()) {
                 setText((CharSequence) null);
             }
         } else if (i == 17) {
-            Object obj3 = aVar.f51525c;
+            Object obj3 = aVar.f51526c;
             if (obj3 == null || !(obj3 instanceof ArrayList)) {
                 return;
             }
             h((ArrayList) obj3);
         } else if (i == 24) {
             j(aVar);
-        } else if (i == 44 && (obj = aVar.f51525c) != null && (obj instanceof String)) {
+        } else if (i == 44 && (obj = aVar.f51526c) != null && (obj instanceof String)) {
             i((String) obj);
         }
     }
@@ -268,19 +268,19 @@ public class InputView extends EditText implements n {
 
     @Override // d.b.h0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f13869e = editorTools;
+        this.f13870e = editorTools;
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.f13871g = z;
+        this.f13872g = z;
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.f13872h = z;
+        this.f13873h = z;
     }
 
     @Override // d.b.h0.w.n
     public void setToolId(int i) {
-        this.f13870f = i;
+        this.f13871f = i;
     }
 }

@@ -168,12 +168,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         try {
             File file = new File(l + ".tmp");
             if (file.exists() && h2.size > 0) {
-                double length = file.length();
-                Double.isNaN(length);
-                double d2 = length * 1.0d;
-                double d3 = h2.size;
-                Double.isNaN(d3);
-                return (int) ((d2 / d3) * 100.0d);
+                return (int) (((file.length() * 1.0d) / h2.size) * 100.0d);
             }
         } catch (Exception e2) {
             BdLog.e(e2);

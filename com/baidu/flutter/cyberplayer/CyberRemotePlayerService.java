@@ -2,7 +2,7 @@ package com.baidu.flutter.cyberplayer;
 
 import android.content.Intent;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CyberRemotePlayerService extends RemotePlayerService {
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {

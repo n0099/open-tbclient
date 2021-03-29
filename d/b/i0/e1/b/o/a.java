@@ -27,44 +27,44 @@ import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f54458a;
+    public TbPageContext f54459a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54459b;
+    public View f54460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f54460c;
+    public NavigationBar f54461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f54461d;
+    public NoNetworkView f54462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f54462e;
+    public RelativeLayout f54463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdSwipeRefreshLayout f54463f;
+    public BdSwipeRefreshLayout f54464f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdTypeRecyclerView f54464g;
+    public BdTypeRecyclerView f54465g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f54465h;
+    public g f54466h;
     public PbListView i;
     public NoDataView j;
     public boolean k;
     public d.b.i0.e1.b.p.d l;
     public e m;
-    public View.OnClickListener n = new View$OnClickListenerC1238a();
+    public View.OnClickListener n = new View$OnClickListenerC1239a();
     public final f.g o = new b();
 
     /* renamed from: d.b.i0.e1.b.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1238a implements View.OnClickListener {
-        public View$OnClickListenerC1238a() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1239a implements View.OnClickListener {
+        public View$OnClickListenerC1239a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -79,7 +79,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements f.g {
         public b() {
         }
@@ -93,14 +93,14 @@ public class a {
                 }
                 return;
             }
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = a.this.f54463f;
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = a.this.f54464f;
             if (bdSwipeRefreshLayout != null) {
                 bdSwipeRefreshLayout.setRefreshing(false);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements RecyclerView.RecyclerListener {
         public c(a aVar) {
         }
@@ -111,7 +111,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements BdListView.p {
         public d() {
         }
@@ -128,7 +128,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         void a();
 
@@ -136,20 +136,20 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, View view) {
-        this.f54458a = tbPageContext;
-        this.f54459b = view.findViewById(R.id.agree_me_layout);
+        this.f54459a = tbPageContext;
+        this.f54460b = view.findViewById(R.id.agree_me_layout);
         g(tbPageContext);
-        this.l = new d.b.i0.e1.b.p.d(tbPageContext, this.f54464g);
+        this.l = new d.b.i0.e1.b.p.d(tbPageContext, this.f54465g);
     }
 
     public void c(int i) {
-        g gVar = this.f54465h;
+        g gVar = this.f54466h;
         if (gVar != null) {
             gVar.I(i);
         }
-        NoNetworkView noNetworkView = this.f54461d;
+        NoNetworkView noNetworkView = this.f54462d;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f54458a, i);
+            noNetworkView.c(this.f54459a, i);
         }
         PbListView pbListView = this.i;
         if (pbListView != null) {
@@ -158,29 +158,29 @@ public class a {
         }
         NoDataView noDataView = this.j;
         if (noDataView != null) {
-            noDataView.f(this.f54458a, i);
+            noDataView.f(this.f54459a, i);
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
         }
-        NavigationBar navigationBar = this.f54460c;
+        NavigationBar navigationBar = this.f54461c;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f54458a, i);
+            navigationBar.onChangeSkinType(this.f54459a, i);
         }
         d.b.i0.e1.b.p.d dVar = this.l;
         if (dVar != null) {
             dVar.c();
         }
-        SkinManager.setBackgroundColor(this.f54459b, R.color.CAM_X0205);
-        SkinManager.setBackgroundColor(this.f54462e, R.color.CAM_X0205);
-        SkinManager.setBackgroundColor(this.f54463f, R.color.CAM_X0205);
-        SkinManager.setBackgroundColor(this.f54464g, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f54460b, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f54463e, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f54464f, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f54465g, R.color.CAM_X0204);
     }
 
     public RelativeLayout d() {
-        return this.f54462e;
+        return this.f54463e;
     }
 
     public List<n> e() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f54464g;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f54465g;
         if (bdTypeRecyclerView == null) {
             return null;
         }
@@ -188,19 +188,19 @@ public class a {
     }
 
     public View f() {
-        return this.f54459b;
+        return this.f54460b;
     }
 
     public final void g(TbPageContext tbPageContext) {
-        if (this.f54459b == null) {
+        if (this.f54460b == null) {
             return;
         }
-        if (this.f54465h == null) {
+        if (this.f54466h == null) {
             g gVar = new g(tbPageContext);
-            this.f54465h = gVar;
+            this.f54466h = gVar;
             gVar.b(this.o);
         }
-        this.f54465h.Z(tbPageContext.getUniqueId());
+        this.f54466h.Z(tbPageContext.getUniqueId());
         if (this.i == null) {
             PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
             this.i = pbListView;
@@ -213,28 +213,28 @@ public class a {
         this.i.C(SkinManager.getColor(R.color.CAM_X0109));
         this.i.y(R.color.CAM_X0110);
         this.i.z(this.n);
-        NoNetworkView noNetworkView = (NoNetworkView) this.f54459b.findViewById(R.id.no_networkview);
-        this.f54461d = noNetworkView;
-        noNetworkView.c(this.f54458a, TbadkCoreApplication.getInst().getSkinType());
-        this.f54462e = (RelativeLayout) this.f54459b.findViewById(R.id.container);
-        NavigationBar navigationBar = (NavigationBar) this.f54459b.findViewById(R.id.view_navigation_bar);
-        this.f54460c = navigationBar;
+        NoNetworkView noNetworkView = (NoNetworkView) this.f54460b.findViewById(R.id.no_networkview);
+        this.f54462d = noNetworkView;
+        noNetworkView.c(this.f54459a, TbadkCoreApplication.getInst().getSkinType());
+        this.f54463e = (RelativeLayout) this.f54460b.findViewById(R.id.container);
+        NavigationBar navigationBar = (NavigationBar) this.f54460b.findViewById(R.id.view_navigation_bar);
+        this.f54461c = navigationBar;
         navigationBar.showBottomLine();
-        this.f54460c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f54460c.setCenterTextTitle(this.f54458a.getString(R.string.agree_me));
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f54459b.findViewById(R.id.agree_me_pull_refresh_layout);
-        this.f54463f = bdSwipeRefreshLayout;
-        bdSwipeRefreshLayout.setProgressView(this.f54465h);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f54459b.findViewById(R.id.agree_me_recycler_view);
-        this.f54464g = bdTypeRecyclerView;
+        this.f54461c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f54461c.setCenterTextTitle(this.f54459a.getString(R.string.agree_me));
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f54460b.findViewById(R.id.agree_me_pull_refresh_layout);
+        this.f54464f = bdSwipeRefreshLayout;
+        bdSwipeRefreshLayout.setProgressView(this.f54466h);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f54460b.findViewById(R.id.agree_me_recycler_view);
+        this.f54465g = bdTypeRecyclerView;
         ((DefaultItemAnimator) bdTypeRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        this.f54464g.setLayoutManager(new LinearLayoutManager(this.f54458a.getContext()));
-        this.f54464g.setFadingEdgeLength(0);
-        this.f54464g.setBackgroundColor(SkinManager.getColor(R.color.transparent));
-        this.f54464g.setOverScrollMode(2);
-        this.f54464g.addItemDecoration(new DeviderLineDecoration());
-        this.f54464g.setRecyclerListener(new c(this));
-        this.f54464g.setOnSrollToBottomListener(new d());
+        this.f54465g.setLayoutManager(new LinearLayoutManager(this.f54459a.getContext()));
+        this.f54465g.setFadingEdgeLength(0);
+        this.f54465g.setBackgroundColor(SkinManager.getColor(R.color.transparent));
+        this.f54465g.setOverScrollMode(2);
+        this.f54465g.addItemDecoration(new DeviderLineDecoration());
+        this.f54465g.setRecyclerListener(new c(this));
+        this.f54465g.setOnSrollToBottomListener(new d());
     }
 
     public void h() {
@@ -242,7 +242,7 @@ public class a {
         if (dVar != null) {
             dVar.d();
         }
-        g gVar = this.f54465h;
+        g gVar = this.f54466h;
         if (gVar != null) {
             gVar.X();
         }
@@ -260,8 +260,8 @@ public class a {
     }
 
     public void k(boolean z, ArrayList<n> arrayList) {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f54463f;
-        if (bdSwipeRefreshLayout == null || this.i == null || this.f54464g == null || this.l == null) {
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f54464f;
+        if (bdSwipeRefreshLayout == null || this.i == null || this.f54465g == null || this.l == null) {
             return;
         }
         bdSwipeRefreshLayout.setRefreshing(false);
@@ -272,34 +272,34 @@ public class a {
         } else {
             this.i.J(0);
             this.i.f();
-            this.i.A(this.f54458a.getResources().getString(R.string.list_no_more));
+            this.i.A(this.f54459a.getResources().getString(R.string.list_no_more));
             this.i.z(null);
         }
         if (ListUtils.isEmpty(arrayList)) {
             if (this.j == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.f54458a.getContext(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.f54458a.getResources().getString(R.string.agree_me_nodata)), null);
+                NoDataView a2 = NoDataViewFactory.a(this.f54459a.getContext(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.f54459a.getResources().getString(R.string.agree_me_nodata)), null);
                 this.j = a2;
                 a2.setLayoutParams(new RecyclerView.LayoutParams(-1, -1));
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
             }
             if (this.j.getParent() == null && !this.k) {
                 this.k = true;
-                this.f54464g.t(this.j, 0);
+                this.f54465g.t(this.j, 0);
                 this.j.setVisibility(0);
-                this.j.f(this.f54458a, TbadkCoreApplication.getInst().getSkinType());
+                this.j.f(this.f54459a, TbadkCoreApplication.getInst().getSkinType());
             }
-            this.f54464g.setNextPage(null);
+            this.f54465g.setNextPage(null);
             return;
         }
-        this.f54464g.removeHeaderView(this.j);
+        this.f54465g.removeHeaderView(this.j);
         this.k = false;
-        this.f54464g.setNextPage(this.i);
+        this.f54465g.setNextPage(this.i);
         this.l.f(arrayList);
         this.l.c();
     }
 
     public void l(boolean z) {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f54463f;
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f54464f;
         if (bdSwipeRefreshLayout != null) {
             bdSwipeRefreshLayout.setRefreshing(z);
         }

@@ -15,26 +15,26 @@ import com.bytedance.sdk.openadsdk.utils.r;
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f29006a = WebChromeClient.class.getSimpleName();
+    public static final String f29007a = WebChromeClient.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final x f29007b;
+    public final x f29008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f29008c;
+    public j f29009c;
 
     public b(x xVar, j jVar) {
-        this.f29007b = xVar;
-        this.f29008c = jVar;
+        this.f29008b = xVar;
+        this.f29009c = jVar;
     }
 
     private boolean a(@NonNull String str) {
         try {
-            String str2 = f29006a;
+            String str2 = f29007a;
             Log.w(str2, "message:" + str);
             Uri parse = Uri.parse(str);
             if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                r.a(parse, this.f29007b);
+                r.a(parse, this.f29008b);
                 return true;
             }
             return false;
@@ -54,7 +54,7 @@ public class b extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i) {
         super.onProgressChanged(webView, i);
-        j jVar = this.f29008c;
+        j jVar = this.f29009c;
         if (jVar != null) {
             jVar.a(webView, i);
         }

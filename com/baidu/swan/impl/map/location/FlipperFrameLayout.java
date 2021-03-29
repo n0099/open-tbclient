@@ -14,13 +14,13 @@ import d.b.g0.h.a.j.d;
 public class FlipperFrameLayout extends FrameLayout implements d.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f12954e;
+    public float f12955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f12955f;
+    public d f12956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12956g;
+    public boolean f12957g;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -28,12 +28,12 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
 
     @Override // d.b.g0.h.a.j.d.b
     public void a(boolean z) {
-        this.f12956g = true;
+        this.f12957g = true;
     }
 
     @Override // d.b.g0.h.a.j.d.b
     public void b(boolean z) {
-        this.f12956g = false;
+        this.f12957g = false;
     }
 
     public final boolean c() {
@@ -59,34 +59,34 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.f12956g && this.f12955f != null) {
+        if (!this.f12957g && this.f12956f != null) {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        float rawY = motionEvent.getRawY() - this.f12954e;
+                        float rawY = motionEvent.getRawY() - this.f12955e;
                         boolean z = rawY <= 0.0f;
-                        if (z && !this.f12955f.d() && d(rawY)) {
-                            this.f12955f.e(true);
+                        if (z && !this.f12956f.d() && d(rawY)) {
+                            this.f12956f.e(true);
                             return true;
-                        } else if (!z && c() && this.f12955f.d() && d(rawY)) {
-                            this.f12955f.e(false);
+                        } else if (!z && c() && this.f12956f.d() && d(rawY)) {
+                            this.f12956f.e(false);
                             return true;
                         }
                     }
                 }
-                this.f12954e = motionEvent.getRawY();
+                this.f12955e = motionEvent.getRawY();
             } else {
-                this.f12954e = motionEvent.getRawY();
+                this.f12955e = motionEvent.getRawY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
-        this.f12954e = motionEvent.getRawY();
+        this.f12955e = motionEvent.getRawY();
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setViewFlipper(d dVar) {
-        this.f12955f = dVar;
+        this.f12956f = dVar;
     }
 
     public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {

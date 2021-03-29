@@ -2,20 +2,20 @@ package d.b.g0.a.y.a.j;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class p extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47038a = Integer.MAX_VALUE;
+    public int f47039a = Integer.MAX_VALUE;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47039b = Integer.MAX_VALUE;
+    public int f47040b = Integer.MAX_VALUE;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
         int i;
-        int i2 = this.f47038a;
-        if (i2 == Integer.MAX_VALUE || (i = this.f47039b) == Integer.MAX_VALUE) {
+        int i2 = this.f47039a;
+        if (i2 == Integer.MAX_VALUE || (i = this.f47040b) == Integer.MAX_VALUE) {
             return;
         }
         bVar.j.lineTo(i2, i);
@@ -24,8 +24,8 @@ public class p extends a {
     @Override // d.b.g0.a.y.a.j.a
     public void b(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.f47038a = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(0));
-            this.f47039b = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(1));
+            this.f47039a = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(0));
+            this.f47040b = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(1));
         }
     }
 }

@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.lbspay.network.NewCashierContent;
 import com.baidu.apollon.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelFootView extends RelativeLayout {
     public View layoutView;
     public TextView logoDesc;

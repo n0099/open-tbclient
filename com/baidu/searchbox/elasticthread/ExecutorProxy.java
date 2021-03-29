@@ -2,7 +2,7 @@ package com.baidu.searchbox.elasticthread;
 
 import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class ExecutorProxy implements Executor {
     public int mDefaultPriority;
     public String mDefaultTaskName;

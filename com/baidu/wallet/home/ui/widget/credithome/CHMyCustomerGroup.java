@@ -17,10 +17,10 @@ import java.util.List;
 public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24682a;
+    public NetImageView f24683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24683b;
+    public TextView f24684b;
 
     public CHMyCustomerGroup(Context context) {
         super(context);
@@ -34,8 +34,8 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_intelligent_customer_layout"), this);
-        this.f24682a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_icon"));
-        this.f24683b = (TextView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_txt"));
+        this.f24683a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_icon"));
+        this.f24684b = (TextView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_txt"));
         setOnClickListener(this);
     }
 
@@ -55,9 +55,9 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        NetImageView netImageView = this.f24682a;
+        NetImageView netImageView = this.f24683a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_logo);
-        this.f24683b.setText(this.mConfigData.group_name);
+        this.f24684b.setText(this.mConfigData.group_name);
     }
 
     public CHMyCustomerGroup(Context context, @Nullable AttributeSet attributeSet) {

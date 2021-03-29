@@ -61,7 +61,7 @@ public final class ZipUtil {
     }
 
     public static long getZipCrc(File file) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7663a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7664a);
         try {
             return computeCrcOfCentralDir(randomAccessFile, findCentralDirectory(randomAccessFile));
         } finally {

@@ -9,7 +9,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public static final List<String> H264_HW_EXCEPTION_MODELS = Arrays.asList("SAMSUNG-SGH-I337", "Nexus 7", "Nexus 4");
     public static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_L_MS = 15000;

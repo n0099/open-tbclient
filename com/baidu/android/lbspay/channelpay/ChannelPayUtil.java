@@ -7,7 +7,7 @@ import com.baidu.android.lbspay.channelpay.wxpay.ChannelWXPay;
 import com.baidu.android.lbspay.presenter.LBSTransAuthPresenter;
 import com.baidu.android.lbspay.utils.PayMode;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelPayUtil {
     public static IChannelPay getChannelPay(int i) {
         LogUtil.logd("channelId=" + i);

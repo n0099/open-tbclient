@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 public class c implements SpanWatcher {
 
     /* renamed from: e  reason: collision with root package name */
-    public SpanGroupManager f50545e;
+    public SpanGroupManager f50546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50546f;
+    public int f50547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50547g;
+    public int f50548g;
 
     public c(@NonNull SpanGroupManager spanGroupManager) {
-        this.f50545e = spanGroupManager;
+        this.f50546e = spanGroupManager;
     }
 
     @Override // android.text.SpanWatcher
@@ -28,17 +28,17 @@ public class c implements SpanWatcher {
 
     @Override // android.text.SpanWatcher
     public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager = this.f50545e;
+        SpanGroupManager spanGroupManager = this.f50546e;
         if (spanGroupManager == null) {
             return;
         }
-        if (obj == Selection.SELECTION_END && this.f50547g != i3) {
-            this.f50547g = i3;
+        if (obj == Selection.SELECTION_END && this.f50548g != i3) {
+            this.f50548g = i3;
             a q = spanGroupManager.q(i3);
             if (q instanceof TbLinkSpanGroup) {
                 int f2 = q.f();
                 int c2 = q.c();
-                if (Math.abs(this.f50547g - c2) <= Math.abs(this.f50547g - f2)) {
+                if (Math.abs(this.f50548g - c2) <= Math.abs(this.f50548g - f2)) {
                     f2 = c2;
                 }
                 int selectionStart = Selection.getSelectionStart(spannable);
@@ -51,15 +51,15 @@ public class c implements SpanWatcher {
                 Selection.setSelection(spannable, selectionStart, f2);
             }
         }
-        if (obj != Selection.SELECTION_START || this.f50546f == i3) {
+        if (obj != Selection.SELECTION_START || this.f50547f == i3) {
             return;
         }
-        this.f50546f = i3;
-        a q2 = this.f50545e.q(i3);
+        this.f50547f = i3;
+        a q2 = this.f50546e.q(i3);
         if (q2 instanceof TbLinkSpanGroup) {
             int f3 = q2.f();
             int c3 = q2.c();
-            if (Math.abs(this.f50546f - c3) <= Math.abs(this.f50546f - f3)) {
+            if (Math.abs(this.f50547f - c3) <= Math.abs(this.f50547f - f3)) {
                 f3 = c3;
             }
             int selectionEnd = Selection.getSelectionEnd(spannable);

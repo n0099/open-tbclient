@@ -17,14 +17,14 @@ import d.b.i.m;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public s o;
     public b0<k> p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<k> {
         public a() {
         }
@@ -40,7 +40,7 @@ public class d extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -55,7 +55,7 @@ public class d extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
                     d.this.p.a(threadCardViewHolder.a(), kVar);
                 }
                 d.b.i0.z0.k.d.a.c(kVar, view.getContext(), 19, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -100,7 +100,7 @@ public class d extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

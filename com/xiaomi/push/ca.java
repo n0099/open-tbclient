@@ -41,15 +41,10 @@ public class ca extends cc {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;
             }
-            double d2 = a2 - j;
-            Double.isNaN(d2);
-            double d3 = j;
-            Double.isNaN(d3);
-            double d4 = longValue;
-            Double.isNaN(d4);
-            long j2 = (long) (((d2 * 1.2d) / d3) * d4);
+            long j2 = (long) ((((a2 - j) * 1.2d) / j) * longValue);
             a(j2);
-            bu.a(context).a("begin delete " + j2 + "noUpload messages , because db size is " + a2 + "B");
+            bu a3 = bu.a(context);
+            a3.a("begin delete " + j2 + "noUpload messages , because db size is " + a2 + "B");
             super.a(context, obj);
         }
     }

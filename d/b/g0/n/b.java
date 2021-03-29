@@ -14,15 +14,15 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49210a;
+    public Context f49211a;
 
     public b(Context context) {
-        this.f49210a = context;
+        this.f49211a = context;
     }
 
     public final boolean a(u uVar) {
         File[] listFiles;
-        File file = new File(this.f49210a.getFilesDir() + File.separator + "ubcdir", "proc");
+        File file = new File(this.f49211a.getFilesDir() + File.separator + "ubcdir", "proc");
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return false;
         }
@@ -84,7 +84,7 @@ public class b {
 
     public void b(boolean z) {
         File[] listFiles;
-        File file = new File(this.f49210a.getFilesDir(), "ubcdir");
+        File file = new File(this.f49211a.getFilesDir(), "ubcdir");
         if (file.exists()) {
             File file2 = new File(file, z ? "filereal" : "filedata");
             if (file2.exists()) {
@@ -103,7 +103,7 @@ public class b {
     }
 
     public boolean c(u uVar, boolean z) {
-        File file = new File(this.f49210a.getFilesDir(), "ubcdir");
+        File file = new File(this.f49211a.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdir();
         }
@@ -160,7 +160,7 @@ public class b {
     public void d(i iVar, boolean z) {
         File file;
         FileOutputStream fileOutputStream;
-        File file2 = new File(this.f49210a.getFilesDir(), "ubcdir");
+        File file2 = new File(this.f49211a.getFilesDir(), "ubcdir");
         if (!file2.exists()) {
             file2.mkdirs();
         }

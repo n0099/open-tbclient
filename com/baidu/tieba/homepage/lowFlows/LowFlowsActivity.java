@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import d.b.i0.z0.f.c;
 import d.b.i0.z0.f.i.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     public c mLowFlowsView;
 

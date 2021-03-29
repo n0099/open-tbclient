@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PackageControl {
     public static volatile PackageControl sInstance;
     public Context mContext = AppRuntime.getAppContext();
@@ -421,49 +421,61 @@ public class PackageControl {
         return queryItems(str, str2, str3, "package_name", 10);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x005d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0071 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x004b */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r9v11, types: [java.lang.String] */
     public List<PackageInfo> queryItems(String str, String str2, String str3, String str4, int i) {
-        Cursor cursor;
         Throwable th;
+        Cursor cursor;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new Pair<>("channel_id", str));
         if (str2 != null) {
             arrayList.add(new Pair<>("package_name", str2));
         }
         if (i >= 0) {
-            arrayList.add(new Pair<>("type", i + ""));
+            str2 = i + "";
+            arrayList.add(new Pair<>("type", str2));
         }
+        Cursor cursor2 = str2;
         if (!TextUtils.isEmpty(str3)) {
+            ?? r9 = PackageTable.MD5;
             arrayList.add(new Pair<>(PackageTable.MD5, str3));
+            cursor2 = r9;
         }
         List<PackageInfo> list = null;
         try {
-            cursor = getPackageFileCursorByGroup(arrayList, true, PackageTable.UPDATE_VERSION, str4, null);
             try {
+                cursor = getPackageFileCursorByGroup(arrayList, true, PackageTable.UPDATE_VERSION, str4, null);
                 try {
                     list = safeLoadPackageFile(cursor);
+                    cursor2 = cursor;
                 } catch (Exception e2) {
                     e = e2;
+                    cursor2 = cursor;
                     if (AppConfig.isDebug()) {
                         e.printStackTrace();
+                        cursor2 = cursor;
                     }
-                    Closeables.closeSafely(cursor);
+                    Closeables.closeSafely(cursor2);
                     return list;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                Closeables.closeSafely(cursor);
+                Closeables.closeSafely(cursor2);
                 throw th;
             }
         } catch (Exception e3) {
             e = e3;
             cursor = null;
         } catch (Throwable th3) {
-            cursor = null;
+            cursor2 = null;
             th = th3;
-            Closeables.closeSafely(cursor);
+            Closeables.closeSafely(cursor2);
             throw th;
         }
-        Closeables.closeSafely(cursor);
+        Closeables.closeSafely(cursor2);
         return list;
     }
 
@@ -496,9 +508,9 @@ public class PackageControl {
         return cursor != null ? getPackageFiles(cursor) : new ArrayList(0);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0051 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0061 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0044 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0053 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0063 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0045 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0, types: [com.baidu.searchbox.pms.db.PackageControl] */
     /* JADX WARN: Type inference failed for: r6v11 */

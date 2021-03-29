@@ -58,7 +58,7 @@ public class e extends com.baidu.mobads.production.a {
 
     public void c(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onComplete(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, null);
+            ((IXAdDummyContainer) this.f8441h).onComplete(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, null);
         } catch (Exception unused) {
         }
     }
@@ -87,12 +87,12 @@ public class e extends com.baidu.mobads.production.a {
 
     @Override // com.baidu.mobads.production.a
     public void c() {
-        this.f8440h.load();
+        this.f8441h.load();
     }
 
     public void d(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onCstartcard(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getCstartcardTrackers()));
+            ((IXAdDummyContainer) this.f8441h).onCstartcard(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getCstartcardTrackers()));
         } catch (Exception unused) {
         }
     }
@@ -107,7 +107,7 @@ public class e extends com.baidu.mobads.production.a {
 
     public void b(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onStart(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getStartTrackers()));
+            ((IXAdDummyContainer) this.f8441h).onStart(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getStartTrackers()));
         } catch (Exception unused) {
         }
     }
@@ -122,7 +122,7 @@ public class e extends com.baidu.mobads.production.a {
 
     public void b(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onFullScreen(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getFullScreenTrackers()));
+            ((IXAdDummyContainer) this.f8441h).onFullScreen(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getFullScreenTrackers()));
         } catch (Exception unused) {
         }
     }
@@ -177,7 +177,7 @@ public class e extends com.baidu.mobads.production.a {
 
     public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(-1, iXAdInstanceInfo.getThirdImpressionTrackingUrls()));
+            ((IXAdDummyContainer) this.f8441h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(-1, iXAdInstanceInfo.getThirdImpressionTrackingUrls()));
         } catch (Exception unused) {
         }
     }
@@ -195,11 +195,11 @@ public class e extends com.baidu.mobads.production.a {
             stringBuffer.append("_&_");
             stringBuffer.append(iXAdInstanceInfo.getTitle());
             stringBuffer.append("_&_");
-            q.f8305a = stringBuffer.toString();
+            q.f8306a = stringBuffer.toString();
         } catch (Exception unused) {
         }
         try {
-            return ((IXAdDummyContainer) this.f8440h).isAdAvailable(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+            return ((IXAdDummyContainer) this.f8441h).isAdAvailable(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
         } catch (Exception unused2) {
             return false;
         }
@@ -208,14 +208,14 @@ public class e extends com.baidu.mobads.production.a {
     public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, int i, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
             getAdRequestInfo().d().setClickView(view);
-            ((IXAdDummyContainer) this.f8440h).onClick(view, iXAdInstanceInfo, i, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getThirdClickTrackingUrls()));
+            ((IXAdDummyContainer) this.f8441h).onClick(view, iXAdInstanceInfo, i, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getThirdClickTrackingUrls()));
         } catch (Exception unused) {
         }
     }
 
     public void a(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.f8440h).onClose(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getCloseTrackers()));
+            ((IXAdDummyContainer) this.f8441h).onClose(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getCloseTrackers()));
         } catch (Exception unused) {
         }
     }

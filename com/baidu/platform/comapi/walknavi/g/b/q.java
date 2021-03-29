@@ -8,14 +8,14 @@ import java.io.File;
 public class q implements com.baidu.platform.comapi.walknavi.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c.b f10108a;
+    public final /* synthetic */ c.b f10109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ c f10109b;
+    public final /* synthetic */ c f10110b;
 
     public q(c cVar, c.b bVar) {
-        this.f10109b = cVar;
-        this.f10108a = bVar;
+        this.f10110b = cVar;
+        this.f10109a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c
@@ -32,32 +32,32 @@ public class q implements com.baidu.platform.comapi.walknavi.d.c {
         String str2;
         com.baidu.platform.comapi.wnplatform.d.a.b("downloadnpc:responseCode = " + i + ", responseMessage = " + str);
         if (i == 0) {
-            c cVar = this.f10109b;
+            c cVar = this.f10110b;
             cVar.Q = str + File.separator + "ar";
-            c.b bVar = this.f10108a;
-            str2 = this.f10109b.Q;
+            c.b bVar = this.f10109a;
+            str2 = this.f10110b.Q;
             bVar.a(str2);
         } else if (i == 2 || i == 4 || i == 3) {
-            context = this.f10109b.l;
+            context = this.f10110b.l;
             Toast.makeText(context, "您的手机暂不支持3D模型导航", 0).show();
-            this.f10108a.a(i);
+            this.f10109a.a(i);
         } else if (i == 7) {
-            this.f10108a.a(i);
+            this.f10109a.a(i);
         } else if (i == 8) {
-            context5 = this.f10109b.l;
+            context5 = this.f10110b.l;
             Toast.makeText(context5, "正在为您切换至3D模型导航", 0).show();
-            this.f10108a.a(i);
+            this.f10109a.a(i);
         } else if (i == 1) {
-            context4 = this.f10109b.l;
+            context4 = this.f10110b.l;
             Toast.makeText(context4, "当前网络异常，请稍候再试", 0).show();
-            this.f10108a.a(i);
+            this.f10109a.a(i);
         } else if (i == 6 || i == 5 || i == -1) {
-            context2 = this.f10109b.l;
+            context2 = this.f10110b.l;
             Toast.makeText(context2, "下载失败，请稍候再试", 0).show();
-            this.f10108a.a(i);
+            this.f10109a.a(i);
         } else {
-            this.f10108a.a(i);
-            context3 = this.f10109b.l;
+            this.f10109a.a(i);
+            context3 = this.f10110b.l;
             Toast.makeText(context3, str, 0).show();
         }
     }

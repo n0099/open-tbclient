@@ -14,19 +14,19 @@ public class c extends GestureDetector implements ap.a {
     public VelocityTracker B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33393a;
+    public int f33394a;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33394c;
+    public int f33395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33395d;
+    public int f33396d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33396e;
+    public int f33397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33397f;
+    public int f33398f;
     public final Handler i;
     public final GestureDetector.OnGestureListener j;
     public GestureDetector.OnDoubleTapListener k;
@@ -47,13 +47,13 @@ public class c extends GestureDetector implements ap.a {
     public boolean z;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f33391g = ViewConfiguration.getLongPressTimeout();
+    public static final int f33392g = ViewConfiguration.getLongPressTimeout();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f33392h = ViewConfiguration.getTapTimeout();
+    public static final int f33393h = ViewConfiguration.getTapTimeout();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33390b = ViewConfiguration.getDoubleTapTimeout();
+    public static final int f33391b = ViewConfiguration.getDoubleTapTimeout();
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener) {
         this(context, onGestureListener, null);
@@ -61,7 +61,7 @@ public class c extends GestureDetector implements ap.a {
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener, Handler handler) {
         super(context, onGestureListener, handler);
-        this.A = f33390b;
+        this.A = f33391b;
         if (handler != null) {
             this.i = new ap(this, handler.getLooper());
         } else {
@@ -100,21 +100,21 @@ public class c extends GestureDetector implements ap.a {
         int i2 = 300;
         if (context == null) {
             i = ViewConfiguration.getTouchSlop();
-            this.f33396e = ViewConfiguration.getMinimumFlingVelocity();
-            this.f33397f = ViewConfiguration.getMaximumFlingVelocity();
+            this.f33397e = ViewConfiguration.getMinimumFlingVelocity();
+            this.f33398f = ViewConfiguration.getMaximumFlingVelocity();
             i2 = i;
             scaledDoubleTapSlop = 300;
         } else {
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             int scaledTouchSlop = viewConfiguration.getScaledTouchSlop();
             scaledDoubleTapSlop = viewConfiguration.getScaledDoubleTapSlop();
-            this.f33396e = viewConfiguration.getScaledMinimumFlingVelocity();
-            this.f33397f = viewConfiguration.getScaledMaximumFlingVelocity();
+            this.f33397e = viewConfiguration.getScaledMinimumFlingVelocity();
+            this.f33398f = viewConfiguration.getScaledMaximumFlingVelocity();
             i = scaledTouchSlop;
         }
-        this.f33393a = i * i;
-        this.f33394c = i2 * i2;
-        this.f33395d = scaledDoubleTapSlop * scaledDoubleTapSlop;
+        this.f33394a = i * i;
+        this.f33395c = i2 * i2;
+        this.f33396d = scaledDoubleTapSlop * scaledDoubleTapSlop;
     }
 
     private boolean a(MotionEvent motionEvent, MotionEvent motionEvent2, MotionEvent motionEvent3) {
@@ -125,7 +125,7 @@ public class c extends GestureDetector implements ap.a {
             }
             int x = ((int) motionEvent.getX()) - ((int) motionEvent3.getX());
             int y = ((int) motionEvent.getY()) - ((int) motionEvent3.getY());
-            return (x * x) + (y * y) < ((motionEvent.getFlags() & 8) != 0 ? 0 : this.f33395d);
+            return (x * x) + (y * y) < ((motionEvent.getFlags() & 8) != 0 ? 0 : this.f33396d);
         }
         return false;
     }
@@ -235,9 +235,9 @@ public class c extends GestureDetector implements ap.a {
                     this.m = false;
                     if (this.z) {
                         this.i.removeMessages(2);
-                        this.i.sendEmptyMessageAtTime(2, this.s.getDownTime() + f33391g);
+                        this.i.sendEmptyMessageAtTime(2, this.s.getDownTime() + f33392g);
                     }
-                    this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + f33392h);
+                    this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + f33393h);
                     return z | this.j.onDown(motionEvent);
                 }
                 this.i.sendEmptyMessageDelayed(3, this.A);
@@ -258,7 +258,7 @@ public class c extends GestureDetector implements ap.a {
             this.m = false;
             if (this.z) {
             }
-            this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + f33392h);
+            this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + f33393h);
             return z | this.j.onDown(motionEvent);
         }
         if (i == 1) {
@@ -279,10 +279,10 @@ public class c extends GestureDetector implements ap.a {
                 } else if (!this.r) {
                     VelocityTracker velocityTracker = this.B;
                     int pointerId = motionEvent.getPointerId(0);
-                    velocityTracker.computeCurrentVelocity(1000, this.f33397f);
+                    velocityTracker.computeCurrentVelocity(1000, this.f33398f);
                     float yVelocity = velocityTracker.getYVelocity(pointerId);
                     float xVelocity = velocityTracker.getXVelocity(pointerId);
-                    if (Math.abs(yVelocity) > this.f33396e || Math.abs(xVelocity) > this.f33396e) {
+                    if (Math.abs(yVelocity) > this.f33397e || Math.abs(xVelocity) > this.f33397e) {
                         onFling = this.j.onFling(this.s, motionEvent, xVelocity, yVelocity);
                     }
                 }
@@ -321,7 +321,7 @@ public class c extends GestureDetector implements ap.a {
                 this.x = f5;
                 this.w = f6;
                 this.y = f6;
-                this.B.computeCurrentVelocity(1000, this.f33397f);
+                this.B.computeCurrentVelocity(1000, this.f33398f);
                 int actionIndex2 = motionEvent.getActionIndex();
                 int pointerId2 = motionEvent.getPointerId(actionIndex2);
                 float xVelocity2 = this.B.getXVelocity(pointerId2);
@@ -357,7 +357,7 @@ public class c extends GestureDetector implements ap.a {
             int i4 = (int) (f5 - this.x);
             int i5 = (int) (f6 - this.y);
             int i6 = (i4 * i4) + (i5 * i5);
-            if (i6 > (z3 ? 0 : this.f33393a)) {
+            if (i6 > (z3 ? 0 : this.f33394a)) {
                 onFling = this.j.onScroll(this.s, motionEvent, f7, f8);
                 this.v = f5;
                 this.w = f6;
@@ -368,7 +368,7 @@ public class c extends GestureDetector implements ap.a {
             } else {
                 onFling = false;
             }
-            if (i6 > (z3 ? 0 : this.f33394c)) {
+            if (i6 > (z3 ? 0 : this.f33395c)) {
                 this.q = false;
             }
         }

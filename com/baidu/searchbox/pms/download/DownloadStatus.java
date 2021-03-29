@@ -2,7 +2,7 @@ package com.baidu.searchbox.pms.download;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadStatus {
     public static final int CANCEL = 5;
     public static final int ERROR = 6;
@@ -14,7 +14,7 @@ public class DownloadStatus {
     public static final int WAIT = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public @interface Status {
     }
 }

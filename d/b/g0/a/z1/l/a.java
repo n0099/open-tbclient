@@ -11,39 +11,39 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static final boolean j = k.f45050a;
+    public static final boolean j = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47258a;
+    public String f47259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47259b;
+    public String f47260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47260c;
+    public String f47261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47261d;
+    public String f47262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47262e;
+    public String f47263e;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, String> f47264g;
+    public HashMap<String, String> f47265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47265h;
+    public int f47266h;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, SearchFlowEvent> f47263f = new HashMap<>();
+    public HashMap<String, SearchFlowEvent> f47264f = new HashMap<>();
     public Timer i = new Timer();
 
     /* renamed from: d.b.g0.a.z1.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0896a extends TimerTask {
-        public C0896a() {
+    /* loaded from: classes2.dex */
+    public class C0897a extends TimerTask {
+        public C0897a() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -55,7 +55,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -67,9 +67,9 @@ public class a {
     }
 
     public a(String str) {
-        this.f47265h = 0;
-        this.f47258a = str;
-        this.f47265h = 0;
+        this.f47266h = 0;
+        this.f47259a = str;
+        this.f47266h = 0;
         if (j) {
             Log.d("SearchFlow", "-----New SearchFlow-----");
         }
@@ -82,8 +82,8 @@ public class a {
         if (r2 == 2) goto L37;
      */
     /* JADX WARN: Code restructure failed: missing block: B:46:0x00bd, code lost:
-        r6.f47260c = "fail";
-        r6.f47262e = r7.f12652c;
+        r6.f47261c = "fail";
+        r6.f47263e = r7.f12653c;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -95,20 +95,20 @@ public class a {
             }
             return;
         }
-        if (!TextUtils.isEmpty(this.f47258a) && this.f47263f != null) {
-            if (this.f47263f.get(searchFlowEvent.f12650a) != null) {
-                this.f47263f.remove(searchFlowEvent.f12650a);
+        if (!TextUtils.isEmpty(this.f47259a) && this.f47264f != null) {
+            if (this.f47264f.get(searchFlowEvent.f12651a) != null) {
+                this.f47264f.remove(searchFlowEvent.f12651a);
                 if (j) {
-                    Log.d("SearchFlow", "SearchFlowEvent removed: " + searchFlowEvent.f12650a);
+                    Log.d("SearchFlow", "SearchFlowEvent removed: " + searchFlowEvent.f12651a);
                 }
-            } else if (searchFlowEvent.f12654e == SearchFlowEvent.EventType.END) {
-                this.f47265h++;
+            } else if (searchFlowEvent.f12655e == SearchFlowEvent.EventType.END) {
+                this.f47266h++;
             }
-            this.f47263f.put(searchFlowEvent.f12650a, searchFlowEvent);
+            this.f47264f.put(searchFlowEvent.f12651a, searchFlowEvent);
             if (j) {
-                Log.d("SearchFlow", "SearchFlowEvent added: " + searchFlowEvent.f12650a);
+                Log.d("SearchFlow", "SearchFlowEvent added: " + searchFlowEvent.f12651a);
             }
-            String str = searchFlowEvent.f12650a;
+            String str = searchFlowEvent.f12651a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != -1037374011) {
@@ -122,8 +122,8 @@ public class a {
             } else if (str.equals("nreach")) {
                 c2 = 2;
             }
-            this.f47260c = "success";
-            this.f47262e = "";
+            this.f47261c = "success";
+            this.f47263e = "";
             return;
         }
         if (j) {
@@ -135,10 +135,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.f47264g == null) {
-            this.f47264g = new HashMap<>();
+        if (this.f47265g == null) {
+            this.f47265g = new HashMap<>();
         }
-        this.f47264g.put(str, str2);
+        this.f47265g.put(str, str2);
     }
 
     public final synchronized void e() {
@@ -151,33 +151,33 @@ public class a {
 
     public synchronized void f() {
         e();
-        if (this.f47263f != null) {
-            this.f47263f.clear();
+        if (this.f47264f != null) {
+            this.f47264f.clear();
         }
-        if (this.f47264g != null) {
-            this.f47264g.clear();
+        if (this.f47265g != null) {
+            this.f47265g.clear();
         }
-        this.f47259b = null;
-        this.f47260c = null;
-        this.f47261d = null;
-        this.f47262e = null;
-        this.f47263f = null;
-        this.f47264g = null;
-        this.f47265h = 0;
+        this.f47260b = null;
+        this.f47261c = null;
+        this.f47262d = null;
+        this.f47263e = null;
+        this.f47264f = null;
+        this.f47265g = null;
+        this.f47266h = 0;
         if (j) {
             Log.d("SearchFlow", "-----Destroy SearchFlow-----");
         }
     }
 
     public final boolean g(SearchFlowEvent searchFlowEvent) {
-        return (searchFlowEvent == null || TextUtils.isEmpty(searchFlowEvent.f12650a) || searchFlowEvent.f12651b <= 0) ? false : true;
+        return (searchFlowEvent == null || TextUtils.isEmpty(searchFlowEvent.f12651a) || searchFlowEvent.f12652b <= 0) ? false : true;
     }
 
     public void h() {
         if (j) {
             Log.d("SearchFlow", "try to send ubc: ");
         }
-        if (this.f47265h >= 2) {
+        if (this.f47266h >= 2) {
             if (j) {
                 Log.d("SearchFlow", "two+ ends, cancel timer task, and send ubc instantly");
             }
@@ -188,20 +188,20 @@ public class a {
                 Log.w("SearchFlow", "send delay timer is null");
             }
         } else {
-            C0896a c0896a = new C0896a();
+            C0897a c0897a = new C0897a();
             if (j) {
                 Log.d("SearchFlow", "timer: create timertask and schedule");
             }
-            this.i.schedule(c0896a, 3000L);
+            this.i.schedule(c0897a, 3000L);
         }
     }
 
     public final synchronized void i() {
-        if (TextUtils.equals(this.f47261d, "1250000000000000")) {
+        if (TextUtils.equals(this.f47262d, "1250000000000000")) {
             if (j) {
-                Log.w("SearchFlow", "source=" + this.f47261d + ", ignore this case");
+                Log.w("SearchFlow", "source=" + this.f47262d + ", ignore this case");
             }
-        } else if (this.f47263f == null) {
+        } else if (this.f47264f == null) {
             if (j) {
                 Log.d("SearchFlow", "event pool is empty");
             }
@@ -209,27 +209,27 @@ public class a {
             if (j) {
                 Log.d("SearchFlow", "ubc: begin flow");
             }
-            d.b.g0.a.z1.a e2 = h.e(this.f47258a);
+            d.b.g0.a.z1.a e2 = h.e(this.f47259a);
             if (e2 == null) {
                 if (j) {
                     Log.w("SearchFlow", "Ceres Flow create failed");
                 }
                 return;
             }
-            for (SearchFlowEvent searchFlowEvent : this.f47263f.values()) {
-                d.b.g0.a.z1.b.e(e2, searchFlowEvent.f12650a, searchFlowEvent.f12653d, searchFlowEvent.f12651b);
+            for (SearchFlowEvent searchFlowEvent : this.f47264f.values()) {
+                d.b.g0.a.z1.b.e(e2, searchFlowEvent.f12651a, searchFlowEvent.f12654d, searchFlowEvent.f12652b);
             }
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("from", "swan");
-                jSONObject.put("type", this.f47260c);
-                jSONObject.put("source", this.f47261d);
-                jSONObject.put("value", this.f47262e);
+                jSONObject.put("type", this.f47261c);
+                jSONObject.put("source", this.f47262d);
+                jSONObject.put("value", this.f47263e);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("appid", this.f47259b);
-                if (this.f47264g != null) {
-                    for (String str : this.f47264g.keySet()) {
-                        jSONObject2.put(str, this.f47264g.get(str));
+                jSONObject2.put("appid", this.f47260b);
+                if (this.f47265g != null) {
+                    for (String str : this.f47265g.keySet()) {
+                        jSONObject2.put(str, this.f47265g.get(str));
                     }
                 }
                 jSONObject.put("ext", jSONObject2);
@@ -255,10 +255,10 @@ public class a {
     }
 
     public void k(String str) {
-        this.f47259b = str;
+        this.f47260b = str;
     }
 
     public void l(String str) {
-        this.f47261d = str;
+        this.f47262d = str;
     }
 }

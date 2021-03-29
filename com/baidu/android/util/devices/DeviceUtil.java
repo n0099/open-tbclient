@@ -16,10 +16,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DeviceUtil implements IDevices {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class BrandInfo {
         public static String getDeviceBrand() {
             return RomUtils.getDeviceBrand();
@@ -51,7 +51,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
@@ -171,7 +171,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class OSInfo {
         public static final int KITKAT = 19;
         public static final int LOLLIPOP = 21;
@@ -273,7 +273,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ScreenInfo {
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
         public static int originDensityDip;

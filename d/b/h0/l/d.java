@@ -5,5 +5,5 @@ import java.util.HashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f50255a;
+    public HashMap<String, String> f50256a;
 }

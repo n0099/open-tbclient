@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MethodInvokeUtil;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class GetChatObjectInfoForRecordHandler {
     public static Method method;
     public Context mContext;

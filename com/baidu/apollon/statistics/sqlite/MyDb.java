@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class MyDb extends SQLiteOpenHelper {
     public SQLiteDatabase mDb;
 

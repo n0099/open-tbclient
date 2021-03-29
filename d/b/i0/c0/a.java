@@ -32,37 +32,37 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class a implements a.InterfaceC1279a {
+public class a implements a.InterfaceC1280a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52275d;
+    public String f52276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52276e;
+    public String f52277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52277f;
+    public String f52278f;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f52272a = false;
+    public boolean f52273a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52273b = false;
+    public boolean f52274b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f52274c = false;
+    public boolean f52275c = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f52278g = new C1137a(2005016);
+    public CustomMessageListener f52279g = new C1138a(2005016);
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f52279h = new b(this, 2001371);
+    public CustomMessageListener f52280h = new b(this, 2001371);
     public CustomMessageListener i = new c(2000994);
 
     /* renamed from: d.b.i0.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1137a extends CustomMessageListener {
-        public C1137a(int i) {
+    public class C1138a extends CustomMessageListener {
+        public C1138a(int i) {
             super(i);
         }
 
@@ -142,56 +142,56 @@ public class a implements a.InterfaceC1279a {
         }
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void a(Application application) {
-        MessageManager.getInstance().registerListener(this.f52279h);
-        MessageManager.getInstance().registerListener(this.f52278g);
+        MessageManager.getInstance().registerListener(this.f52280h);
+        MessageManager.getInstance().registerListener(this.f52279g);
         MessageManager.getInstance().registerListener(this.i);
-        if (this.f52272a) {
+        if (this.f52273a) {
             return;
         }
         l(application);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void b(String str) {
-        this.f52275d = str;
+        this.f52276d = str;
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void c(Exception exc) {
-        if (!this.f52272a || exc == null) {
+        if (!this.f52273a || exc == null) {
             return;
         }
         CrabSDK.uploadException(exc);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void d(MotionEvent motionEvent, Activity activity) {
-        if (!this.f52272a || activity == null || motionEvent == null) {
+        if (!this.f52273a || activity == null || motionEvent == null) {
             return;
         }
         CrabSDK.behaviorRecordEvent(motionEvent, activity);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void e(String str) {
-        this.f52277f = str;
+        this.f52278f = str;
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void f(String str) {
-        this.f52276e = str;
+        this.f52277e = str;
     }
 
     public final void h() {
-        if (this.f52272a && this.f52274c) {
+        if (this.f52273a && this.f52275c) {
             CrabSDK.closeAnrHandler();
         }
     }
 
     public final void i() {
-        if (this.f52272a && this.f52273b) {
+        if (this.f52273a && this.f52274b) {
             CrabSDK.disableBlockCatch();
         }
     }
@@ -295,7 +295,7 @@ public class a implements a.InterfaceC1279a {
             } else {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
-            this.f52272a = true;
+            this.f52273a = true;
             p();
             s(null);
             r();
@@ -339,7 +339,7 @@ public class a implements a.InterfaceC1279a {
             return true;
         } catch (Exception e2) {
             e2.printStackTrace();
-            this.f52272a = false;
+            this.f52273a = false;
             return false;
         }
     }
@@ -356,17 +356,17 @@ public class a implements a.InterfaceC1279a {
         return TbConfig.getVersionType() == 3;
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void onPause(Activity activity) {
-        if (!this.f52272a || activity == null) {
+        if (!this.f52273a || activity == null) {
             return;
         }
         CrabSDK.onPause(activity);
     }
 
-    @Override // d.b.i0.h3.a.InterfaceC1279a
+    @Override // d.b.i0.h3.a.InterfaceC1280a
     public void onResume(Activity activity) {
-        if (!this.f52272a || activity == null) {
+        if (!this.f52273a || activity == null) {
             return;
         }
         CrabSDK.onResume(activity);
@@ -377,14 +377,14 @@ public class a implements a.InterfaceC1279a {
     }
 
     public void q(String str, String str2) {
-        if (this.f52272a) {
+        if (this.f52273a) {
             CrabSDK.setUid(str);
             CrabSDK.setUserName(str2);
         }
     }
 
     public void r() {
-        if (this.f52272a) {
+        if (this.f52273a) {
             if (j.H()) {
                 CrabSDK.setCollectScreenshot(true);
             } else {
@@ -394,15 +394,15 @@ public class a implements a.InterfaceC1279a {
     }
 
     public final void s(Throwable th) {
-        if (this.f52272a) {
+        if (this.f52273a) {
             HashMap hashMap = new HashMap();
             hashMap.put("version_type", k());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             hashMap.put("plugin_info", j(th));
-            hashMap.put("lastFlutterPage", this.f52275d);
-            hashMap.put("openFlutterPage", this.f52276e);
-            hashMap.put("flutterPath", this.f52277f);
+            hashMap.put("lastFlutterPage", this.f52276d);
+            hashMap.put("openFlutterPage", this.f52277e);
+            hashMap.put("flutterPath", this.f52278f);
             hashMap.put("customTime", String.valueOf(System.currentTimeMillis()));
             hashMap.put("isBackground", String.valueOf(TbadkCoreApplication.getInst().isInBackground()));
             hashMap.put("pid", String.valueOf(Process.myPid()));

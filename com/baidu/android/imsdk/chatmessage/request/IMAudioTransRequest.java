@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public static final String CHARSET = "utf-8";
     public static final String CONTENT_TYPE = "multipart/form-data";
@@ -56,9 +56,9 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
 
     public void execute() {
         TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest.1
-            /* JADX WARN: Removed duplicated region for block: B:77:0x02ef A[Catch: Exception -> 0x02eb, TryCatch #3 {Exception -> 0x02eb, blocks: (B:73:0x02e7, B:77:0x02ef, B:79:0x02f4), top: B:87:0x02e7 }] */
-            /* JADX WARN: Removed duplicated region for block: B:79:0x02f4 A[Catch: Exception -> 0x02eb, TRY_LEAVE, TryCatch #3 {Exception -> 0x02eb, blocks: (B:73:0x02e7, B:77:0x02ef, B:79:0x02f4), top: B:87:0x02e7 }] */
-            /* JADX WARN: Removed duplicated region for block: B:87:0x02e7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+            /* JADX WARN: Removed duplicated region for block: B:77:0x02ee A[Catch: Exception -> 0x02ea, TryCatch #4 {Exception -> 0x02ea, blocks: (B:73:0x02e6, B:77:0x02ee, B:79:0x02f3), top: B:85:0x02e6 }] */
+            /* JADX WARN: Removed duplicated region for block: B:79:0x02f3 A[Catch: Exception -> 0x02ea, TRY_LEAVE, TryCatch #4 {Exception -> 0x02ea, blocks: (B:73:0x02e6, B:77:0x02ee, B:79:0x02f3), top: B:85:0x02e6 }] */
+            /* JADX WARN: Removed duplicated region for block: B:85:0x02e6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -114,69 +114,36 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                 stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
                                 dataOutputStream.write(stringBuffer2.toString().getBytes("utf-8"));
                                 fileInputStream = new FileInputStream(file);
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileInputStream = null;
-                            } catch (Throwable th) {
-                                th = th;
-                                fileInputStream = null;
-                            }
-                            try {
-                                byte[] bArr = new byte[1024];
-                                while (true) {
-                                    int read = fileInputStream.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    dataOutputStream.write(bArr, 0, read);
-                                }
-                                dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes("utf-8"));
-                                dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes("utf-8"));
-                                dataOutputStream.flush();
-                                int responseCode = httpURLConnection.getResponseCode();
-                                if (responseCode == 200) {
-                                    StringBuffer stringBuffer3 = new StringBuffer();
-                                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                                try {
+                                    byte[] bArr = new byte[1024];
                                     while (true) {
-                                        String readLine = bufferedReader.readLine();
-                                        if (readLine == null) {
+                                        int read = fileInputStream.read(bArr);
+                                        if (read == -1) {
                                             break;
                                         }
-                                        stringBuffer3.append(readLine);
+                                        dataOutputStream.write(bArr, 0, read);
                                     }
-                                    IMAudioTransRequest.this.onSuccess(responseCode, stringBuffer3.toString().getBytes());
-                                }
-                                if (outputStream2 != null) {
-                                    try {
-                                        outputStream2.close();
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
-                                        crashBuilder = new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext);
-                                        crashBuilder.exception(Log.getStackTraceString(e)).build();
-                                        return;
+                                    dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes("utf-8"));
+                                    dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes("utf-8"));
+                                    dataOutputStream.flush();
+                                    int responseCode = httpURLConnection.getResponseCode();
+                                    if (responseCode == 200) {
+                                        StringBuffer stringBuffer3 = new StringBuffer();
+                                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                                        while (true) {
+                                            String readLine = bufferedReader.readLine();
+                                            if (readLine == null) {
+                                                break;
+                                            }
+                                            stringBuffer3.append(readLine);
+                                        }
+                                        IMAudioTransRequest.this.onSuccess(responseCode, stringBuffer3.toString().getBytes());
                                     }
-                                }
-                                if (dataOutputStream != null) {
-                                    dataOutputStream.close();
-                                }
-                                if (fileInputStream != null) {
-                                    fileInputStream.close();
-                                    return;
-                                }
-                                return;
-                            } catch (Exception e4) {
-                                e = e4;
-                                outputStream = outputStream2;
-                                try {
-                                    LogUtils.d(IMAudioTransRequest.TAG, "Http Unknown exception");
-                                    IMAudioTransRequest.this.onFailure(-1003, "Http Unknown exception".getBytes(), e);
-                                    new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
-                                    if (outputStream != null) {
+                                    if (outputStream2 != null) {
                                         try {
-                                            outputStream.close();
-                                        } catch (Exception e5) {
-                                            e = e5;
+                                            outputStream2.close();
+                                        } catch (Exception e2) {
+                                            e = e2;
                                             LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
                                             crashBuilder = new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext);
                                             crashBuilder.exception(Log.getStackTraceString(e)).build();
@@ -191,35 +158,68 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                         return;
                                     }
                                     return;
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    outputStream = outputStream2;
+                                    try {
+                                        LogUtils.d(IMAudioTransRequest.TAG, "Http Unknown exception");
+                                        IMAudioTransRequest.this.onFailure(-1003, "Http Unknown exception".getBytes(), e);
+                                        new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (Exception e4) {
+                                                e = e4;
+                                                LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
+                                                crashBuilder = new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext);
+                                                crashBuilder.exception(Log.getStackTraceString(e)).build();
+                                                return;
+                                            }
+                                        }
+                                        if (dataOutputStream != null) {
+                                            dataOutputStream.close();
+                                        }
+                                        if (fileInputStream != null) {
+                                            fileInputStream.close();
+                                            return;
+                                        }
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (Exception e5) {
+                                                LogUtils.d(IMAudioTransRequest.TAG, e5.getMessage());
+                                                new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e5)).build();
+                                                throw th;
+                                            }
+                                        }
+                                        if (dataOutputStream != null) {
+                                            dataOutputStream.close();
+                                        }
+                                        if (fileInputStream != null) {
+                                            fileInputStream.close();
+                                        }
+                                        throw th;
+                                    }
                                 } catch (Throwable th2) {
                                     th = th2;
+                                    outputStream = outputStream2;
                                     if (outputStream != null) {
-                                        try {
-                                            outputStream.close();
-                                        } catch (Exception e6) {
-                                            LogUtils.d(IMAudioTransRequest.TAG, e6.getMessage());
-                                            new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e6)).build();
-                                            throw th;
-                                        }
                                     }
                                     if (dataOutputStream != null) {
-                                        dataOutputStream.close();
                                     }
                                     if (fileInputStream != null) {
-                                        fileInputStream.close();
                                     }
                                     throw th;
                                 }
+                            } catch (Exception e6) {
+                                e = e6;
+                                fileInputStream = null;
                             } catch (Throwable th3) {
                                 th = th3;
-                                outputStream = outputStream2;
-                                if (outputStream != null) {
-                                }
-                                if (dataOutputStream != null) {
-                                }
-                                if (fileInputStream != null) {
-                                }
-                                throw th;
+                                fileInputStream = null;
                             }
                         } catch (Exception e7) {
                             e = e7;

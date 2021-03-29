@@ -25,16 +25,16 @@ import com.baidubce.auth.NTLMEngineImpl;
 public class ForumTestWebView extends WebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public WebViewClient f15383e;
+    public WebViewClient f15384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f15384f;
+    public h f15385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f15385g;
+    public c f15386g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f15386h;
+    public e f15387h;
     public d i;
     public f j;
     public g k;
@@ -77,8 +77,8 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (ForumTestWebView.this.f15386h != null) {
-                ForumTestWebView.this.f15386h.a(webView, str);
+            if (ForumTestWebView.this.f15387h != null) {
+                ForumTestWebView.this.f15387h.a(webView, str);
             }
         }
 
@@ -89,8 +89,8 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (ForumTestWebView.this.f15385g != null) {
-                return ForumTestWebView.this.f15385g.shouldOverrideUrlLoading(webView, str);
+            if (ForumTestWebView.this.f15386g != null) {
+                return ForumTestWebView.this.f15386g.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -201,10 +201,10 @@ public class ForumTestWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
-        this.f15383e = null;
-        this.f15384f = null;
-        this.f15385g = null;
-        this.f15386h = null;
+        this.f15384e = null;
+        this.f15385f = null;
+        this.f15386g = null;
+        this.f15387h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -229,10 +229,10 @@ public class ForumTestWebView extends WebView {
         setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
         WebViewClient bVar2 = new b();
-        this.f15383e = bVar2;
+        this.f15384e = bVar2;
         setWebViewClient(bVar2);
         h hVar = new h(this, null);
-        this.f15384f = hVar;
+        this.f15385f = hVar;
         setWebChromeClient(hVar);
         d.b.i0.i0.e.a.a aVar = new d.b.i0.i0.e.a.a();
         this.l = aVar;

@@ -5,16 +5,16 @@ import android.os.Build;
 public final class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8871a = true;
+    public static boolean f8872a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f8872b;
+    public static final String f8873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f8873c;
+    public static final String f8874c;
 
     static {
-        f8872b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
-        f8873c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
+        f8873b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
+        f8874c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
     }
 }

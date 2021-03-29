@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import d.b.i0.z0.i.e.a;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public a tabFeedData;
 

@@ -11,94 +11,94 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<a2> f57349a;
+    public final ArrayList<a2> f57350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57350b;
+    public boolean f57351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public x0 f57351c;
+    public x0 f57352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AntiData f57352d;
+    public AntiData f57353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57353e;
+    public String f57354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57354f;
+    public boolean f57355f;
 
     /* renamed from: d.b.i0.p0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1377b {
+    public static class C1378b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f57355a = new b();
+        public static b f57356a = new b();
     }
 
     public static b e() {
-        return C1377b.f57355a;
+        return C1378b.f57356a;
     }
 
     public boolean a(a2 a2Var) {
         if (a2Var == null) {
             return false;
         }
-        if (this.f57349a.size() > 29) {
-            x0 x0Var = this.f57351c;
+        if (this.f57350a.size() > 29) {
+            x0 x0Var = this.f57352c;
             if (x0Var != null) {
                 x0Var.a(1);
             }
             return false;
         }
-        this.f57349a.add(a2Var);
-        x0 x0Var2 = this.f57351c;
+        this.f57350a.add(a2Var);
+        x0 x0Var2 = this.f57352c;
         if (x0Var2 != null) {
-            x0Var2.c(this.f57349a.size(), 1);
+            x0Var2.c(this.f57350a.size(), 1);
         }
         return true;
     }
 
     public void b() {
-        Iterator<a2> it = this.f57349a.iterator();
+        Iterator<a2> it = this.f57350a.iterator();
         while (it.hasNext()) {
             a2 next = it.next();
             if (next != null) {
                 next.S3(false);
             }
         }
-        this.f57349a.clear();
-        x0 x0Var = this.f57351c;
+        this.f57350a.clear();
+        x0 x0Var = this.f57352c;
         if (x0Var != null) {
             x0Var.c(0, 1);
         }
     }
 
     public AntiData c() {
-        return this.f57352d;
+        return this.f57353d;
     }
 
     public String d() {
-        return this.f57353e;
+        return this.f57354e;
     }
 
     public List<a2> f() {
-        return this.f57349a;
+        return this.f57350a;
     }
 
     public boolean g() {
-        return this.f57350b;
+        return this.f57351b;
     }
 
     public boolean h() {
-        return this.f57354f;
+        return this.f57355f;
     }
 
     public void i(List<String> list) {
-        if (ListUtils.isEmpty(list) || ListUtils.isEmpty(this.f57349a)) {
+        if (ListUtils.isEmpty(list) || ListUtils.isEmpty(this.f57350a)) {
             return;
         }
-        Iterator<a2> it = this.f57349a.iterator();
+        Iterator<a2> it = this.f57350a.iterator();
         while (it.hasNext()) {
             a2 next = it.next();
             int i = 0;
@@ -113,17 +113,17 @@ public class b {
                 }
             }
         }
-        x0 x0Var = this.f57351c;
+        x0 x0Var = this.f57352c;
         if (x0Var != null) {
-            x0Var.c(this.f57349a.size(), 1);
+            x0Var.c(this.f57350a.size(), 1);
         }
     }
 
     public void j(a2 a2Var) {
-        this.f57349a.remove(a2Var);
-        x0 x0Var = this.f57351c;
+        this.f57350a.remove(a2Var);
+        x0 x0Var = this.f57352c;
         if (x0Var != null) {
-            x0Var.c(this.f57349a.size(), 1);
+            x0Var.c(this.f57350a.size(), 1);
         }
     }
 
@@ -133,31 +133,31 @@ public class b {
     }
 
     public void l(AntiData antiData) {
-        this.f57352d = antiData;
+        this.f57353d = antiData;
     }
 
     public void m(boolean z, boolean z2) {
-        this.f57350b = z;
-        x0 x0Var = this.f57351c;
+        this.f57351b = z;
+        x0 x0Var = this.f57352c;
         if (x0Var != null) {
             x0Var.b(z, z2, 1);
         }
     }
 
     public void n(String str) {
-        this.f57353e = str;
+        this.f57354e = str;
     }
 
     public void o(x0 x0Var) {
-        this.f57351c = x0Var;
+        this.f57352c = x0Var;
     }
 
     public void p(boolean z) {
-        this.f57354f = z;
+        this.f57355f = z;
     }
 
     public b() {
-        this.f57350b = false;
-        this.f57349a = new ArrayList<>();
+        this.f57351b = false;
+        this.f57350a = new ArrayList<>();
     }
 }

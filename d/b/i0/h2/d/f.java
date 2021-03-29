@@ -37,13 +37,13 @@ import java.util.List;
 public class f extends d.b.i0.h2.d.e {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f55214f;
+    public TbPageContext f55215f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f55215g;
+    public NoDataView f55216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f55216h;
+    public View f55217h;
     public d.b.h0.d0.h i;
     public e j;
     public PbListView k;
@@ -65,8 +65,8 @@ public class f extends d.b.i0.h2.d.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(f.this.f55214f.getPageActivity(), "notlogin_10", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-            ViewHelper.skipToLoginActivity(f.this.f55214f.getPageActivity());
+            TiebaStatic.eventStat(f.this.f55215f.getPageActivity(), "notlogin_10", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            ViewHelper.skipToLoginActivity(f.this.f55215f.getPageActivity());
         }
     }
 
@@ -94,7 +94,7 @@ public class f extends d.b.i0.h2.d.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(f.this.f55214f.getPageActivity(), null, d.b.i0.c2.c.a(), true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(f.this.f55215f.getPageActivity(), null, d.b.i0.c2.c.a(), true)));
         }
     }
 
@@ -102,26 +102,26 @@ public class f extends d.b.i0.h2.d.e {
     public static class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.i0.h2.f.b f55220e = new d.b.i0.h2.f.b();
+        public d.b.i0.h2.f.b f55221e = new d.b.i0.h2.f.b();
 
         /* renamed from: f  reason: collision with root package name */
-        public UserData f55221f;
+        public UserData f55222f;
 
         /* renamed from: g  reason: collision with root package name */
-        public d.b.i0.t3.f f55222g;
+        public d.b.i0.t3.f f55223g;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UserData userData = this.f55221f;
+            UserData userData = this.f55222f;
             if (userData == null || !userData.isBaijiahaoUser()) {
                 TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                d.b.i0.h2.f.b bVar = this.f55220e;
-                bVar.f56402a = 10;
-                bVar.f56403b = new Bundle();
-                this.f55220e.f56403b.putSerializable(UserData.TYPE_USER, this.f55221f);
-                d.b.i0.t3.f fVar = this.f55222g;
+                d.b.i0.h2.f.b bVar = this.f55221e;
+                bVar.f56403a = 10;
+                bVar.f56404b = new Bundle();
+                this.f55221e.f56404b.putSerializable(UserData.TYPE_USER, this.f55222f);
+                d.b.i0.t3.f fVar = this.f55223g;
                 if (fVar != null) {
-                    fVar.a(view, this.f55220e);
+                    fVar.a(view, this.f55221e);
                 }
             }
         }
@@ -139,25 +139,25 @@ public class f extends d.b.i0.h2.d.e {
         if (tbPageContext == null || view == null) {
             return;
         }
-        this.f55214f = tbPageContext;
-        this.f55216h = view;
+        this.f55215f = tbPageContext;
+        this.f55217h = view;
         this.l = (NoNetworkView) view.findViewById(R.id.person_center_no_network_view);
-        this.m = (PluginErrorTipView) this.f55216h.findViewById(R.id.person_center_plugin_error_tip_view);
-        this.q = (LinearLayout) this.f55216h.findViewById(R.id.person_center_anti_container);
-        d.b.i0.h2.j.k kVar = new d.b.i0.h2.j.k(this.f55214f, this.f55216h.findViewById(R.id.person_center_anti_navigation_bar), this.f55216h.findViewById(R.id.person_center_anti_status_bar_space), z);
+        this.m = (PluginErrorTipView) this.f55217h.findViewById(R.id.person_center_plugin_error_tip_view);
+        this.q = (LinearLayout) this.f55217h.findViewById(R.id.person_center_anti_container);
+        d.b.i0.h2.j.k kVar = new d.b.i0.h2.j.k(this.f55215f, this.f55217h.findViewById(R.id.person_center_anti_navigation_bar), this.f55217h.findViewById(R.id.person_center_anti_status_bar_space), z);
         this.u = kVar;
         kVar.k(PersonStatus.GUEST_DEFAULT);
-        this.r = (FrameLayout) this.f55216h.findViewById(R.id.person_center_anti_content);
-        this.s = (NoNetworkView) this.f55216h.findViewById(R.id.person_center_anti_no_network_view);
-        this.t = (RelativeLayout) this.f55216h.findViewById(R.id.person_center_noanti_rootview);
-        PbListView pbListView = new PbListView(this.f55214f.getPageActivity());
+        this.r = (FrameLayout) this.f55217h.findViewById(R.id.person_center_anti_content);
+        this.s = (NoNetworkView) this.f55217h.findViewById(R.id.person_center_anti_no_network_view);
+        this.t = (RelativeLayout) this.f55217h.findViewById(R.id.person_center_noanti_rootview);
+        PbListView pbListView = new PbListView(this.f55215f.getPageActivity());
         this.k = pbListView;
         pbListView.b();
         this.k.C(SkinManager.getColor(R.color.CAM_X0109));
         this.k.y(R.color.CAM_X0110);
         this.k.o(R.color.CAM_X0201);
-        this.k.r(l.g(this.f55214f.getPageActivity(), R.dimen.ds140));
-        this.k.p(l.g(this.f55214f.getPageActivity(), R.dimen.ds12));
+        this.k.r(l.g(this.f55215f.getPageActivity(), R.dimen.ds140));
+        this.k.p(l.g(this.f55215f.getPageActivity(), R.dimen.ds12));
         this.k.x();
         this.k.u(R.color.CAM_X0205);
         r(TbadkCoreApplication.getInst().getSkinType());
@@ -175,15 +175,15 @@ public class f extends d.b.i0.h2.d.e {
             imageView.setVisibility(8);
         }
         this.q.setVisibility(0);
-        int dimensionPixelSize = this.f55214f.getResources().getDimensionPixelSize(R.dimen.ds220);
-        int dimensionPixelSize2 = this.f55214f.getResources().getDimensionPixelSize(R.dimen.ds480);
-        int dimensionPixelSize3 = this.f55214f.getResources().getDimensionPixelSize(R.dimen.ds360);
-        int dimensionPixelSize4 = this.f55214f.getResources().getDimensionPixelSize(R.dimen.ds60);
-        int dimensionPixelSize5 = this.f55214f.getResources().getDimensionPixelSize(R.dimen.ds20);
-        NoDataView a2 = NoDataViewFactory.a(this.f55214f.getPageActivity(), this.r, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.f55214f.getString(R.string.unlogin_person_button_text), new a()), dimensionPixelSize5));
-        this.f55215g = a2;
+        int dimensionPixelSize = this.f55215f.getResources().getDimensionPixelSize(R.dimen.ds220);
+        int dimensionPixelSize2 = this.f55215f.getResources().getDimensionPixelSize(R.dimen.ds480);
+        int dimensionPixelSize3 = this.f55215f.getResources().getDimensionPixelSize(R.dimen.ds360);
+        int dimensionPixelSize4 = this.f55215f.getResources().getDimensionPixelSize(R.dimen.ds60);
+        int dimensionPixelSize5 = this.f55215f.getResources().getDimensionPixelSize(R.dimen.ds20);
+        NoDataView a2 = NoDataViewFactory.a(this.f55215f.getPageActivity(), this.r, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.f55215f.getString(R.string.unlogin_person_button_text), new a()), dimensionPixelSize5));
+        this.f55216g = a2;
         a2.setVisibility(0);
-        this.f55215g.f(this.f55214f, TbadkCoreApplication.getInst().getSkinType());
+        this.f55216g.f(this.f55215f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void E(boolean z) {
@@ -204,7 +204,7 @@ public class f extends d.b.i0.h2.d.e {
     public void n() {
         d.b.h0.d0.g gVar = this.o;
         if (gVar != null) {
-            gVar.dettachView(this.f55216h);
+            gVar.dettachView(this.f55217h);
             this.o = null;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.TRUE));
@@ -233,19 +233,19 @@ public class f extends d.b.i0.h2.d.e {
         if (this.p == i) {
             return;
         }
-        NoDataView noDataView = this.f55215g;
+        NoDataView noDataView = this.f55216g;
         if (noDataView != null) {
-            noDataView.f(this.f55214f, i);
+            noDataView.f(this.f55215f, i);
         }
         NoNetworkView noNetworkView = this.s;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f55214f, i);
+            noNetworkView.c(this.f55215f, i);
         }
         d.b.i0.h2.j.k kVar = this.u;
         if (kVar != null) {
             kVar.g(i);
         }
-        SkinManager.setBackgroundResource(this.f55216h, R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.f55217h, R.color.CAM_X0201);
         d.b.h0.d0.h hVar = this.i;
         if (hVar != null) {
             hVar.onChangeSkinType();
@@ -263,13 +263,13 @@ public class f extends d.b.i0.h2.d.e {
 
     public void v(boolean z) {
         this.t.setVisibility(8);
-        int dimensionPixelSize = this.f55214f.getResources().getDimensionPixelSize(R.dimen.ds240);
-        if (this.f55215g == null) {
-            this.f55215g = NoDataViewFactory.a(this.f55214f.getPageActivity(), this.f55216h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.f55214f.getString(R.string.user_to_anti)), null);
+        int dimensionPixelSize = this.f55215f.getResources().getDimensionPixelSize(R.dimen.ds240);
+        if (this.f55216g == null) {
+            this.f55216g = NoDataViewFactory.a(this.f55215f.getPageActivity(), this.f55217h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.f55215f.getString(R.string.user_to_anti)), null);
         }
-        SkinManager.setViewTextColor(this.f55215g.getSuTextView(), R.color.CAM_X0106);
-        this.f55215g.f(this.f55214f, TbadkCoreApplication.getInst().getSkinType());
-        this.f55215g.setVisibility(0);
+        SkinManager.setViewTextColor(this.f55216g.getSuTextView(), R.color.CAM_X0106);
+        this.f55216g.f(this.f55215f, TbadkCoreApplication.getInst().getSkinType());
+        this.f55216g.setVisibility(0);
     }
 
     public void w(List<n> list) {
@@ -281,13 +281,13 @@ public class f extends d.b.i0.h2.d.e {
     public void x(boolean z, int i) {
         if (this.o == null) {
             if (i < 0) {
-                this.o = new d.b.h0.d0.g(this.f55214f.getContext());
+                this.o = new d.b.h0.d0.g(this.f55215f.getContext());
             } else {
-                this.o = new d.b.h0.d0.g(this.f55214f.getContext(), i);
+                this.o = new d.b.h0.d0.g(this.f55215f.getContext(), i);
             }
             this.o.onChangeSkinType();
         }
-        this.o.attachView(this.f55216h, z);
+        this.o.attachView(this.f55217h, z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.FALSE));
     }
 
@@ -297,7 +297,7 @@ public class f extends d.b.i0.h2.d.e {
         }
         this.q.setVisibility(0);
         if (this.i == null) {
-            this.i = new d.b.h0.d0.h(this.f55214f.getPageActivity(), new b());
+            this.i = new d.b.h0.d0.h(this.f55215f.getPageActivity(), new b());
         }
         this.i.h(R.drawable.new_pic_emotion_08);
         this.i.attachView(this.r, z);
@@ -312,7 +312,7 @@ public class f extends d.b.i0.h2.d.e {
     public void z() {
         if (NickNameActivitySwitch.isOn()) {
             if (this.n == null) {
-                ImageView imageView = new ImageView(this.f55214f.getPageActivity());
+                ImageView imageView = new ImageView(this.f55215f.getPageActivity());
                 this.n = imageView;
                 imageView.setImageResource(R.drawable.icon_nichengjun);
                 this.n.setOnClickListener(new c());
@@ -323,9 +323,9 @@ public class f extends d.b.i0.h2.d.e {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(10);
-            layoutParams.topMargin = l.g(this.f55214f.getPageActivity(), R.dimen.ds504);
-            layoutParams.rightMargin = l.g(this.f55214f.getPageActivity(), R.dimen.ds26);
-            View view = this.f55216h;
+            layoutParams.topMargin = l.g(this.f55215f.getPageActivity(), R.dimen.ds504);
+            layoutParams.rightMargin = l.g(this.f55215f.getPageActivity(), R.dimen.ds26);
+            View view = this.f55217h;
             if (view instanceof RelativeLayout) {
                 ((RelativeLayout) view).addView(this.n, layoutParams);
                 return;
@@ -337,7 +337,7 @@ public class f extends d.b.i0.h2.d.e {
             return;
         }
         ViewParent parent = this.n.getParent();
-        View view2 = this.f55216h;
+        View view2 = this.f55217h;
         if (parent == view2) {
             ((RelativeLayout) view2).removeView(this.n);
         }

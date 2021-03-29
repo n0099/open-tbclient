@@ -6,29 +6,29 @@ import com.baidu.tbadk.TbPageContext;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.p0.e2.l f58338a;
+    public d.b.i0.p0.e2.l f58339a;
 
     public q(TbPageContext tbPageContext, d.b.i0.p0.e2.l lVar) {
-        this.f58338a = lVar;
+        this.f58339a = lVar;
     }
 
     public void a(d.b.i0.e.d dVar) {
-        d.b.i0.p0.e2.l lVar = this.f58338a;
-        if (lVar == null || lVar.M() == null || this.f58338a.M().Z() == null || this.f58338a.x0() == null || dVar == null || this.f58338a.x0().Z() == null || this.f58338a.w0() == null) {
+        d.b.i0.p0.e2.l lVar = this.f58339a;
+        if (lVar == null || lVar.M() == null || this.f58339a.M().Z() == null || this.f58339a.x0() == null || dVar == null || this.f58339a.x0().Z() == null || this.f58339a.w0() == null) {
             return;
         }
-        BdTypeRecyclerView Z = this.f58338a.x0().Z();
-        int i = dVar.f54190a;
+        BdTypeRecyclerView Z = this.f58339a.x0().Z();
+        int i = dVar.f54191a;
         if (i != 2) {
             if (i == 3 && dVar.a() != null) {
                 Z.removeHeaderView(dVar.a());
-                this.f58338a.w0().g0(0);
+                this.f58339a.w0().g0(0);
             }
         } else if (dVar.a() == null) {
         } else {
             Z.removeHeaderView(dVar.a());
             Z.t(dVar.a(), Z.getHeaderViewsCount() - 1);
-            this.f58338a.w0().g0(8);
+            this.f58339a.w0().g0(8);
         }
     }
 }

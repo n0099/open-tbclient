@@ -12,16 +12,16 @@ public final class BackStackState implements Parcelable {
     public static final Parcelable.Creator<BackStackState> CREATOR = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f13026e;
+    public final int[] f13027e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f13027f;
+    public final int f13028f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f13028g;
+    public final int f13029g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f13029h;
+    public final String f13030h;
     public final int i;
     public final int j;
     public final CharSequence k;
@@ -49,39 +49,39 @@ public final class BackStackState implements Parcelable {
 
     public BackStackState(e eVar) {
         int i = 0;
-        for (e.d dVar = eVar.f49068f; dVar != null; dVar = dVar.f49080a) {
+        for (e.d dVar = eVar.f49069f; dVar != null; dVar = dVar.f49081a) {
             ArrayList<Fragment> arrayList = dVar.i;
             if (arrayList != null) {
                 i += arrayList.size();
             }
         }
-        this.f13026e = new int[(eVar.f49070h * 7) + i];
+        this.f13027e = new int[(eVar.f49071h * 7) + i];
         if (eVar.o) {
             int i2 = 0;
-            for (e.d dVar2 = eVar.f49068f; dVar2 != null; dVar2 = dVar2.f49080a) {
-                int[] iArr = this.f13026e;
+            for (e.d dVar2 = eVar.f49069f; dVar2 != null; dVar2 = dVar2.f49081a) {
+                int[] iArr = this.f13027e;
                 int i3 = i2 + 1;
-                iArr[i2] = dVar2.f49082c;
+                iArr[i2] = dVar2.f49083c;
                 int i4 = i3 + 1;
-                Fragment fragment = dVar2.f49083d;
+                Fragment fragment = dVar2.f49084d;
                 iArr[i3] = fragment != null ? fragment.j : -1;
-                int[] iArr2 = this.f13026e;
+                int[] iArr2 = this.f13027e;
                 int i5 = i4 + 1;
-                iArr2[i4] = dVar2.f49084e;
+                iArr2[i4] = dVar2.f49085e;
                 int i6 = i5 + 1;
-                iArr2[i5] = dVar2.f49085f;
+                iArr2[i5] = dVar2.f49086f;
                 int i7 = i6 + 1;
-                iArr2[i6] = dVar2.f49086g;
+                iArr2[i6] = dVar2.f49087g;
                 int i8 = i7 + 1;
-                iArr2[i7] = dVar2.f49087h;
+                iArr2[i7] = dVar2.f49088h;
                 ArrayList<Fragment> arrayList2 = dVar2.i;
                 if (arrayList2 != null) {
                     int size = arrayList2.size();
                     int i9 = i8 + 1;
-                    this.f13026e[i8] = size;
+                    this.f13027e[i8] = size;
                     int i10 = 0;
                     while (i10 < size) {
-                        this.f13026e[i9] = dVar2.i.get(i10).j;
+                        this.f13027e[i9] = dVar2.i.get(i10).j;
                         i10++;
                         i9++;
                     }
@@ -91,9 +91,9 @@ public final class BackStackState implements Parcelable {
                     i2 = i8 + 1;
                 }
             }
-            this.f13027f = eVar.m;
-            this.f13028g = eVar.n;
-            this.f13029h = eVar.p;
+            this.f13028f = eVar.m;
+            this.f13029g = eVar.n;
+            this.f13030h = eVar.p;
             this.i = eVar.r;
             this.j = eVar.s;
             this.k = eVar.t;
@@ -110,29 +110,29 @@ public final class BackStackState implements Parcelable {
         e eVar = new e(lVar);
         int i = 0;
         int i2 = 0;
-        while (i < this.f13026e.length) {
+        while (i < this.f13027e.length) {
             e.d dVar = new e.d();
             int i3 = i + 1;
-            dVar.f49082c = this.f13026e[i];
+            dVar.f49083c = this.f13027e[i];
             if (l.x) {
-                Log.v("FragmentManager", "Instantiate " + eVar + " op #" + i2 + " base fragment #" + this.f13026e[i3]);
+                Log.v("FragmentManager", "Instantiate " + eVar + " op #" + i2 + " base fragment #" + this.f13027e[i3]);
             }
             int i4 = i3 + 1;
-            int i5 = this.f13026e[i3];
+            int i5 = this.f13027e[i3];
             if (i5 >= 0) {
-                dVar.f49083d = lVar.f49104d.get(i5);
+                dVar.f49084d = lVar.f49105d.get(i5);
             } else {
-                dVar.f49083d = null;
+                dVar.f49084d = null;
             }
-            int[] iArr = this.f13026e;
+            int[] iArr = this.f13027e;
             int i6 = i4 + 1;
-            dVar.f49084e = iArr[i4];
+            dVar.f49085e = iArr[i4];
             int i7 = i6 + 1;
-            dVar.f49085f = iArr[i6];
+            dVar.f49086f = iArr[i6];
             int i8 = i7 + 1;
-            dVar.f49086g = iArr[i7];
+            dVar.f49087g = iArr[i7];
             int i9 = i8 + 1;
-            dVar.f49087h = iArr[i8];
+            dVar.f49088h = iArr[i8];
             int i10 = i9 + 1;
             int i11 = iArr[i9];
             if (i11 > 0) {
@@ -140,9 +140,9 @@ public final class BackStackState implements Parcelable {
                 int i12 = 0;
                 while (i12 < i11) {
                     if (l.x) {
-                        Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.f13026e[i10]);
+                        Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.f13027e[i10]);
                     }
-                    dVar.i.add(lVar.f49104d.get(this.f13026e[i10]));
+                    dVar.i.add(lVar.f49105d.get(this.f13027e[i10]));
                     i12++;
                     i10++;
                 }
@@ -151,9 +151,9 @@ public final class BackStackState implements Parcelable {
             eVar.m(dVar);
             i2++;
         }
-        eVar.m = this.f13027f;
-        eVar.n = this.f13028g;
-        eVar.p = this.f13029h;
+        eVar.m = this.f13028f;
+        eVar.n = this.f13029g;
+        eVar.p = this.f13030h;
         eVar.r = this.i;
         eVar.o = true;
         eVar.s = this.j;
@@ -173,10 +173,10 @@ public final class BackStackState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeIntArray(this.f13026e);
-        parcel.writeInt(this.f13027f);
-        parcel.writeInt(this.f13028g);
-        parcel.writeString(this.f13029h);
+        parcel.writeIntArray(this.f13027e);
+        parcel.writeInt(this.f13028f);
+        parcel.writeInt(this.f13029g);
+        parcel.writeString(this.f13030h);
         parcel.writeInt(this.i);
         parcel.writeInt(this.j);
         TextUtils.writeToParcel(this.k, parcel, 0);
@@ -187,10 +187,10 @@ public final class BackStackState implements Parcelable {
     }
 
     public BackStackState(Parcel parcel) {
-        this.f13026e = parcel.createIntArray();
-        this.f13027f = parcel.readInt();
-        this.f13028g = parcel.readInt();
-        this.f13029h = parcel.readString();
+        this.f13027e = parcel.createIntArray();
+        this.f13028f = parcel.readInt();
+        this.f13029g = parcel.readInt();
+        this.f13030h = parcel.readString();
         this.i = parcel.readInt();
         this.j = parcel.readInt();
         this.k = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);

@@ -8,13 +8,13 @@ import java.util.List;
 public class n extends BaseCardInfo implements d.b.b.j.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f54806f = BdUniqueId.gen();
+    public static BdUniqueId f54807f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f54807e = new ArrayList();
+    public List<a> f54808e = new ArrayList();
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f54806f;
+        return f54807f;
     }
 }

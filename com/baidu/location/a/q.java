@@ -3,21 +3,21 @@ package com.baidu.location.a;
 public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f6578a;
+    public final /* synthetic */ p f6579a;
 
     public q(p pVar) {
-        this.f6578a = pVar;
+        this.f6579a = pVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean a2;
         if (!com.baidu.location.b.i.i()) {
-            a2 = this.f6578a.a(com.baidu.location.f.getServiceContext());
+            a2 = this.f6579a.a(com.baidu.location.f.getServiceContext());
             if (!a2) {
                 return;
             }
         }
-        this.f6578a.d();
+        this.f6579a.d();
     }
 }

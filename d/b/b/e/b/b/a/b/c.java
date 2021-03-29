@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class c implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f41612a;
+    public Bundle f41613a;
 
     public c(Bundle bundle) {
-        this.f41612a = bundle;
+        this.f41613a = bundle;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -35,26 +35,26 @@ public class c implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41612a;
+        return this.f41613a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41612a;
+        return this.f41613a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object e(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41612a;
+        return this.f41613a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
         Type[] b2 = cVar.b();
-        Set<String> keySet = this.f41612a.keySet();
+        Set<String> keySet = this.f41613a.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.f41612a.get(str);
+            Object obj = this.f41613a.get(str);
             if (b2 != null && b2.length >= 2) {
                 try {
                     jSONObject.put(str, d.b.b.e.b.b.a.e.f.a(obj).f(new d.b.b.e.b.b.a.e.c(b2[1])));

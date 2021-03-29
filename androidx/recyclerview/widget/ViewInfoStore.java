@@ -67,7 +67,7 @@ public class ViewInfoStore {
         if (indexOfKey >= 0 && (valueAt = this.mLayoutHolderMap.valueAt(indexOfKey)) != null) {
             int i2 = valueAt.flags;
             if ((i2 & i) != 0) {
-                valueAt.flags = (i ^ (-1)) & i2;
+                valueAt.flags = (~i) & i2;
                 if (i == 4) {
                     itemHolderInfo = valueAt.preInfo;
                 } else if (i == 8) {

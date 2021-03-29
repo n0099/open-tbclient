@@ -17,26 +17,9 @@ public class b {
     public static class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f56208e;
-
-        public a(d.b.h0.r.s.a aVar) {
-            this.f56208e = aVar;
-        }
-
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f56208e.dismiss();
-        }
-    }
-
-    /* renamed from: d.b.i0.i3.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1312b implements a.e {
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ d.b.h0.r.s.a f56209e;
 
-        public C1312b(d.b.h0.r.s.a aVar) {
+        public a(d.b.h0.r.s.a aVar) {
             this.f56209e = aVar;
         }
 
@@ -46,28 +29,45 @@ public class b {
         }
     }
 
+    /* renamed from: d.b.i0.i3.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class c implements a.e {
+    public static class C1313b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ d.b.h0.r.s.a f56210e;
 
+        public C1313b(d.b.h0.r.s.a aVar) {
+            this.f56210e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f56210e.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f56211e;
+
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f56211f;
+        public final /* synthetic */ int f56212f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f56212g;
+        public final /* synthetic */ TbPageContext f56213g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f56213h;
+        public final /* synthetic */ int f56214h;
         public final /* synthetic */ String i;
         public final /* synthetic */ String j;
 
         public c(d.b.h0.r.s.a aVar, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
-            this.f56210e = aVar;
-            this.f56211f = i;
-            this.f56212g = tbPageContext;
-            this.f56213h = i2;
+            this.f56211e = aVar;
+            this.f56212f = i;
+            this.f56213g = tbPageContext;
+            this.f56214h = i2;
             this.i = str;
             this.j = str2;
         }
@@ -75,8 +75,8 @@ public class b {
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             int i;
-            this.f56210e.dismiss();
-            int i2 = this.f56211f;
+            this.f56211e.dismiss();
+            int i2 = this.f56212f;
             String str = null;
             if (i2 == 1) {
                 i = 10;
@@ -100,11 +100,11 @@ public class b {
                 i = 18;
                 TiebaStatic.log("c10767");
             }
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f56212g.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f56213g.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
             if (!StringUtils.isNULL(str)) {
                 memberPayActivityConfig.setSceneId(str);
             }
-            memberPayActivityConfig.setFromScence(this.f56213h);
+            memberPayActivityConfig.setFromScence(this.f56214h);
             memberPayActivityConfig.setReferPageClickZone(this.i, this.j);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
@@ -114,15 +114,15 @@ public class b {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f56214e;
+        public final /* synthetic */ d.b.h0.r.s.a f56215e;
 
         public d(d.b.h0.r.s.a aVar) {
-            this.f56214e = aVar;
+            this.f56215e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f56214e.dismiss();
+            this.f56215e.dismiss();
         }
     }
 
@@ -130,28 +130,28 @@ public class b {
     public static class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f56215e;
+        public final /* synthetic */ d.b.h0.r.s.a f56216e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f56216f;
+        public final /* synthetic */ String f56217f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f56217g;
+        public final /* synthetic */ TbPageContext f56218g;
 
         public e(d.b.h0.r.s.a aVar, String str, TbPageContext tbPageContext) {
-            this.f56215e = aVar;
-            this.f56216f = str;
-            this.f56217g = tbPageContext;
+            this.f56216e = aVar;
+            this.f56217f = str;
+            this.f56218g = tbPageContext;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f56215e.dismiss();
-            if (this.f56216f == null) {
+            this.f56216e.dismiss();
+            if (this.f56217f == null) {
                 return;
             }
             TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
-            d.b.h0.l.a.k(this.f56217g.getPageActivity(), this.f56216f);
+            d.b.h0.l.a.k(this.f56218g.getPageActivity(), this.f56217f);
         }
     }
 
@@ -196,7 +196,7 @@ public class b {
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(tbPageContext.getPageActivity());
         aVar.setButtonTextColor(R.color.CAM_X0305);
         aVar.setMessage(str);
-        aVar.setNegativeButton(R.string.cancel, new C1312b(aVar));
+        aVar.setNegativeButton(R.string.cancel, new C1313b(aVar));
         aVar.setPositiveButton(R.string.open_now, new c(aVar, i, tbPageContext, i2, str2, str3));
         aVar.create(tbPageContext);
         aVar.show();

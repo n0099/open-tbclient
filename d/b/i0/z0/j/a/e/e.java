@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
 import d.b.b.e.p.l;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.i0.x.b<d.b.i0.z0.j.a.c.d> {
     public int m;
     public CellTopicLinearLayout n;
@@ -37,7 +37,7 @@ public class e extends d.b.i0.x.b<d.b.i0.z0.j.a.c.d> {
         this.p = (TbImageView) m.findViewById(R.id.topic_special_thread_img);
         this.q = (TextView) m.findViewById(R.id.topic_special_thread_title);
         this.r = (TextView) m.findViewById(R.id.topic_special_thread_discuss);
-        this.p.setRadius(l.g(this.f62181g, R.dimen.tbds10));
+        this.p.setRadius(l.g(this.f62182g, R.dimen.tbds10));
         this.p.setConrers(15);
         this.p.setPlaceHolder(2);
         this.n.setTopicOnClickListener(this);
@@ -66,8 +66,8 @@ public class e extends d.b.i0.x.b<d.b.i0.z0.j.a.c.d> {
         if (dVar == null || dVar.i == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.i.A).param("topic_id", this.s.f63323g).param("obj_locate", this.s.f63322f));
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f62180f.getPageActivity()).createFromThreadCfg(this.s.i, null, "", 18005, true, false, false);
+        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.i.A).param("topic_id", this.s.f63324g).param("obj_locate", this.s.f63323f));
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f62181f.getPageActivity()).createFromThreadCfg(this.s.i, null, "", 18005, true, false, false);
         if (this.s.i.h0() == null) {
             createFromThreadCfg.setForumId(String.valueOf(this.s.i.c0()));
             createFromThreadCfg.setForumName(this.s.i.i0());
@@ -86,14 +86,14 @@ public class e extends d.b.i0.x.b<d.b.i0.z0.j.a.c.d> {
             return;
         }
         this.s = dVar;
-        if (dVar.f63321e) {
-            if (StringUtils.isNull(dVar.f63324h)) {
+        if (dVar.f63322e) {
+            if (StringUtils.isNull(dVar.f63325h)) {
                 this.o.setText(R.string.topic_special_title_default);
             } else {
-                this.o.setText(dVar.f63324h);
+                this.o.setText(dVar.f63325h);
             }
         }
-        this.o.setVisibility(dVar.f63321e ? 0 : 8);
+        this.o.setVisibility(dVar.f63322e ? 0 : 8);
         String str = null;
         if (!ListUtils.isEmpty(dVar.i.K0())) {
             Iterator<MediaData> it = dVar.i.K0().iterator();
@@ -126,6 +126,6 @@ public class e extends d.b.i0.x.b<d.b.i0.z0.j.a.c.d> {
             this.q.setVisibility(0);
             this.q.setText(dVar.i.x1());
         }
-        this.r.setText(String.format(this.f62181g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.i.Z0())));
+        this.r.setText(String.format(this.f62182g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.i.Z0())));
     }
 }

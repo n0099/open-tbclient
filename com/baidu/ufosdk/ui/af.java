@@ -6,10 +6,10 @@ import android.view.inputmethod.InputMethodManager;
 public final class af extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23053a;
+    public final /* synthetic */ FeedbackEditActivity f23054a;
 
     public af(FeedbackEditActivity feedbackEditActivity) {
-        this.f23053a = feedbackEditActivity;
+        this.f23054a = feedbackEditActivity;
     }
 
     public static Integer a() {
@@ -29,10 +29,10 @@ public final class af extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
-        this.f23053a.finish();
+        this.f23054a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f23053a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23053a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23053a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f23054a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23054a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23054a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -40,10 +40,10 @@ public final class af extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
-        if (this.f23053a.getCurrentFocus() == null || this.f23053a.getCurrentFocus().getWindowToken() == null) {
+        if (this.f23054a.getCurrentFocus() == null || this.f23054a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f23053a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23053a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f23054a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23054a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

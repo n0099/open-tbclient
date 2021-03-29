@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class AsyncTimeout extends Timeout {
     public static final long IDLE_TIMEOUT_MILLIS = TimeUnit.SECONDS.toMillis(60);
     public static final long IDLE_TIMEOUT_NANOS = TimeUnit.MILLISECONDS.toNanos(IDLE_TIMEOUT_MILLIS);
@@ -35,16 +35,12 @@ public class AsyncTimeout extends Timeout {
         public void run() {
             while (true) {
                 synchronized (AsyncTimeout.class) {
-                    try {
-                        AsyncTimeout awaitTimeout = AsyncTimeout.awaitTimeout();
-                        if (awaitTimeout != null) {
-                            if (awaitTimeout == AsyncTimeout.head) {
-                                AsyncTimeout.head = null;
-                                return;
-                            }
+                    AsyncTimeout awaitTimeout = AsyncTimeout.awaitTimeout();
+                    if (awaitTimeout != null) {
+                        if (awaitTimeout == AsyncTimeout.head) {
+                            AsyncTimeout.head = null;
+                            return;
                         }
-                    } catch (Throwable th) {
-                        throw th;
                     }
                 }
             }
@@ -97,9 +93,10 @@ public class AsyncTimeout extends Timeout {
                 new Watchdog().start();
             }
             long nanoTime = System.nanoTime();
-            if (j != 0 && z) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i != 0 && z) {
                 asyncTimeout.timeoutAt = Math.min(j, asyncTimeout.deadlineNanoTime() - nanoTime) + nanoTime;
-            } else if (j != 0) {
+            } else if (i != 0) {
                 asyncTimeout.timeoutAt = j + nanoTime;
             } else if (z) {
                 asyncTimeout.timeoutAt = asyncTimeout.deadlineNanoTime();

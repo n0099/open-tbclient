@@ -14,16 +14,16 @@ import org.webrtc.EglBase10;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f64681d = "a";
+    public static final String f64682d = "a";
 
     /* renamed from: a  reason: collision with root package name */
-    public EGLDisplay f64682a;
+    public EGLDisplay f64683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLContext f64683b;
+    public EGLContext f64684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EGLConfig f64684c;
+    public EGLConfig f64685c;
 
     public a(EGLContext eGLContext, int i) {
         this(eGLContext, i, false);
@@ -41,7 +41,7 @@ public final class a {
         if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
             throw new RuntimeException("invalid surface: " + obj);
         }
-        EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.f64682a, this.f64684c, obj, new int[]{12344}, 0);
+        EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.f64683a, this.f64685c, obj, new int[]{12344}, 0);
         a("eglCreateWindowSurface");
         if (eglCreateWindowSurface != null) {
             return eglCreateWindowSurface;
@@ -56,8 +56,8 @@ public final class a {
             iArr[15] = 1;
         }
         EGLConfig[] eGLConfigArr = new EGLConfig[1];
-        if (!EGL14.eglChooseConfig(this.f64682a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-            String str = f64681d;
+        if (!EGL14.eglChooseConfig(this.f64683a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+            String str = f64682d;
             Log.w(str, "unable to find RGB8888 / " + i2 + " EGLConfig");
             return null;
         }
@@ -65,36 +65,36 @@ public final class a {
     }
 
     public boolean d(EGLSurface eGLSurface) {
-        return this.f64683b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377));
+        return this.f64684b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377));
     }
 
     public void e(EGLSurface eGLSurface) {
-        if (this.f64682a == EGL14.EGL_NO_DISPLAY) {
-            Log.d(f64681d, "NOTE: makeCurrent w/o display");
+        if (this.f64683a == EGL14.EGL_NO_DISPLAY) {
+            Log.d(f64682d, "NOTE: makeCurrent w/o display");
         }
-        if (!EGL14.eglMakeCurrent(this.f64682a, eGLSurface, eGLSurface, this.f64683b)) {
+        if (!EGL14.eglMakeCurrent(this.f64683a, eGLSurface, eGLSurface, this.f64684b)) {
             throw new RuntimeException("eglMakeCurrent failed");
         }
     }
 
     public void f() {
-        EGLDisplay eGLDisplay = this.f64682a;
+        EGLDisplay eGLDisplay = this.f64683a;
         if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
             EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
             EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-            EGL14.eglDestroyContext(this.f64682a, this.f64683b);
+            EGL14.eglDestroyContext(this.f64683a, this.f64684b);
             EGL14.eglReleaseThread();
-            EGL14.eglTerminate(this.f64682a);
+            EGL14.eglTerminate(this.f64683a);
         }
-        this.f64682a = EGL14.EGL_NO_DISPLAY;
-        this.f64683b = EGL14.EGL_NO_CONTEXT;
-        this.f64684c = null;
+        this.f64683a = EGL14.EGL_NO_DISPLAY;
+        this.f64684b = EGL14.EGL_NO_CONTEXT;
+        this.f64685c = null;
     }
 
     public void finalize() throws Throwable {
         try {
-            if (this.f64682a != EGL14.EGL_NO_DISPLAY) {
-                Log.w(f64681d, "WARNING: EGLCore was not explicitly released -- state may be leaked");
+            if (this.f64683a != EGL14.EGL_NO_DISPLAY) {
+                Log.w(f64682d, "WARNING: EGLCore was not explicitly released -- state may be leaked");
                 f();
             }
         } finally {
@@ -103,59 +103,59 @@ public final class a {
     }
 
     public void g(EGLSurface eGLSurface) {
-        EGL14.eglDestroySurface(this.f64682a, eGLSurface);
+        EGL14.eglDestroySurface(this.f64683a, eGLSurface);
     }
 
     public void h(EGLSurface eGLSurface, long j) {
-        EGLExt.eglPresentationTimeANDROID(this.f64682a, eGLSurface, j);
+        EGLExt.eglPresentationTimeANDROID(this.f64683a, eGLSurface, j);
     }
 
     public boolean i(EGLSurface eGLSurface) {
-        return EGL14.eglSwapBuffers(this.f64682a, eGLSurface);
+        return EGL14.eglSwapBuffers(this.f64683a, eGLSurface);
     }
 
     public a(EGLContext eGLContext, int i, boolean z) {
         EGLDisplay eGLDisplay = EGL14.EGL_NO_DISPLAY;
-        this.f64682a = eGLDisplay;
-        this.f64683b = EGL14.EGL_NO_CONTEXT;
-        this.f64684c = null;
+        this.f64683a = eGLDisplay;
+        this.f64684b = EGL14.EGL_NO_CONTEXT;
+        this.f64685c = null;
         if (eGLDisplay == EGL14.EGL_NO_DISPLAY) {
             eGLContext = eGLContext == null ? EGL14.EGL_NO_CONTEXT : eGLContext;
             EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.f64682a = eglGetDisplay;
+            this.f64683a = eglGetDisplay;
             if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
                 int[] iArr = new int[2];
                 if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
                     if ((i & 2) != 0) {
-                        Log.d(f64681d, "Trying GLES 3");
+                        Log.d(f64682d, "Trying GLES 3");
                         EGLConfig c2 = c(i, 3, z);
                         if (c2 != null) {
-                            EGLContext eglCreateContext = EGL14.eglCreateContext(this.f64682a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
+                            EGLContext eglCreateContext = EGL14.eglCreateContext(this.f64683a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
                             if (EGL14.eglGetError() == 12288) {
-                                this.f64684c = c2;
-                                this.f64683b = eglCreateContext;
+                                this.f64685c = c2;
+                                this.f64684b = eglCreateContext;
                             }
                         }
                     }
-                    if (this.f64683b == EGL14.EGL_NO_CONTEXT) {
-                        Log.d(f64681d, "Trying GLES 2");
+                    if (this.f64684b == EGL14.EGL_NO_CONTEXT) {
+                        Log.d(f64682d, "Trying GLES 2");
                         EGLConfig c3 = c(i, 2, z);
                         if (c3 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.f64682a, c3, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.f64683a, c3, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
                             a("eglCreateContext");
-                            this.f64684c = c3;
-                            this.f64683b = eglCreateContext2;
+                            this.f64685c = c3;
+                            this.f64684b = eglCreateContext2;
                         } else {
                             throw new RuntimeException("Unable to find a suitable EGLConfig");
                         }
                     }
                     int[] iArr2 = new int[1];
-                    EGL14.eglQueryContext(this.f64682a, this.f64683b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
-                    String str = f64681d;
+                    EGL14.eglQueryContext(this.f64683a, this.f64684b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
+                    String str = f64682d;
                     Log.d(str, "EGLContext created, client version " + iArr2[0]);
                     return;
                 }
-                this.f64682a = null;
+                this.f64683a = null;
                 throw new RuntimeException("unable to initialize EGL14");
             }
             throw new RuntimeException("unable to get EGL14 display");

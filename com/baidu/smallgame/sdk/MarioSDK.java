@@ -12,63 +12,63 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MarioSDK {
     public static final String TAG = "MarioSDK";
     public AREngineDelegate mAREngineDelegate;
     public b mMarioInitListener;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public SurfaceHolder f11593a;
+        public SurfaceHolder f11594a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GLSurfaceView.Renderer f11594b;
+        public GLSurfaceView.Renderer f11595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArBridge.FirstFrameListener f11595c;
+        public ArBridge.FirstFrameListener f11596c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11596d;
+        public int f11597d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<DebugConsole> f11597e = new ArrayList();
+        public List<DebugConsole> f11598e = new ArrayList();
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f11598f;
+        public Context f11599f;
 
         public void f(DebugConsole debugConsole) {
             if (debugConsole == null) {
                 return;
             }
-            this.f11597e.add(debugConsole);
+            this.f11598e.add(debugConsole);
         }
 
         public List<DebugConsole> g() {
-            return this.f11597e;
+            return this.f11598e;
         }
 
         public void h(Context context) {
-            this.f11598f = context;
+            this.f11599f = context;
         }
 
         public void i(ArBridge.FirstFrameListener firstFrameListener) {
-            this.f11595c = firstFrameListener;
+            this.f11596c = firstFrameListener;
         }
 
         public void j(GLSurfaceView.Renderer renderer) {
-            this.f11594b = renderer;
+            this.f11595b = renderer;
         }
 
         public void k(SurfaceHolder surfaceHolder) {
-            this.f11593a = surfaceHolder;
+            this.f11594a = surfaceHolder;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
     }
@@ -83,18 +83,18 @@ public class MarioSDK {
             return null;
         }
         d.b.e0.a.a aVar2 = new d.b.e0.a.a();
-        if (aVar.f11593a != null) {
-            aVar2.q(aVar.f11593a);
+        if (aVar.f11594a != null) {
+            aVar2.q(aVar.f11594a);
         }
-        if (aVar.f11595c != null) {
-            aVar2.setFirstFrameListener(aVar.f11595c);
+        if (aVar.f11596c != null) {
+            aVar2.setFirstFrameListener(aVar.f11596c);
         }
-        aVar2.setRenderMode(aVar.f11596d);
-        if (aVar.f11598f != null) {
-            aVar2.p(aVar.f11598f);
+        aVar2.setRenderMode(aVar.f11597d);
+        if (aVar.f11599f != null) {
+            aVar2.p(aVar.f11599f);
         }
-        if (aVar.f11594b != null) {
-            aVar2.setRenderer(aVar.f11594b);
+        if (aVar.f11595b != null) {
+            aVar2.setRenderer(aVar.f11595b);
         }
         if (aVar.g() != null) {
             for (DebugConsole debugConsole : aVar.g()) {

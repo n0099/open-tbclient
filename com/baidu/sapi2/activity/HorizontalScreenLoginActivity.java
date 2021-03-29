@@ -24,32 +24,32 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
     public static class AndroidBug5497Workaround {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f10979a;
+        public final int f10980a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f10980b;
+        public View f10981b;
 
         /* renamed from: c  reason: collision with root package name */
-        public WebView f10981c;
+        public WebView f10982c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10982d;
+        public int f10983d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout.LayoutParams f10983e;
+        public FrameLayout.LayoutParams f10984e;
 
         public AndroidBug5497Workaround(Activity activity) {
             View childAt = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
-            this.f10980b = childAt;
+            this.f10981b = childAt;
             childAt.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     AndroidBug5497Workaround.this.b();
                 }
             });
-            this.f10983e = (FrameLayout.LayoutParams) this.f10980b.getLayoutParams();
-            this.f10981c = a((ViewGroup) this.f10980b);
-            this.f10979a = activity.getWindowManager().getDefaultDisplay().getWidth();
+            this.f10984e = (FrameLayout.LayoutParams) this.f10981b.getLayoutParams();
+            this.f10982c = a((ViewGroup) this.f10981b);
+            this.f10980a = activity.getWindowManager().getDefaultDisplay().getWidth();
         }
 
         public static void assistActivity(Activity activity) {
@@ -76,23 +76,23 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
             int a2 = a();
-            if (a2 != this.f10982d) {
-                int i = this.f10979a;
+            if (a2 != this.f10983d) {
+                int i = this.f10980a;
                 int i2 = i - a2;
                 int i3 = i / 4;
                 if (i2 > i3) {
-                    this.f10983e.height = i - i2;
+                    this.f10984e.height = i - i2;
                 } else {
-                    this.f10983e.height = i;
+                    this.f10984e.height = i;
                 }
-                this.f10980b.requestLayout();
+                this.f10981b.requestLayout();
                 if (i2 > i3) {
-                    if (this.f10981c.getUrl() != null && (this.f10981c.getUrl().endsWith("/sms_login_new") || this.f10981c.getUrl().contains("sms_login") || this.f10981c.getUrl().contains("act=bind_mobile"))) {
+                    if (this.f10982c.getUrl() != null && (this.f10982c.getUrl().endsWith("/sms_login_new") || this.f10982c.getUrl().contains("sms_login") || this.f10982c.getUrl().contains("act=bind_mobile"))) {
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
-                                    AndroidBug5497Workaround.this.f10981c.scrollTo(0, HorizontalScreenLoginActivity.D);
+                                    AndroidBug5497Workaround.this.f10982c.scrollTo(0, HorizontalScreenLoginActivity.D);
                                 } catch (Exception unused) {
                                 }
                             }
@@ -103,19 +103,19 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                AndroidBug5497Workaround.this.f10981c.scrollTo(0, 0);
+                                AndroidBug5497Workaround.this.f10982c.scrollTo(0, 0);
                             } catch (Exception unused) {
                             }
                         }
                     }, 200L);
                 }
-                this.f10982d = a2;
+                this.f10983d = a2;
             }
         }
 
         private int a() {
             Rect rect = new Rect();
-            this.f10980b.getWindowVisibleDisplayFrame(rect);
+            this.f10981b.getWindowVisibleDisplayFrame(rect);
             return rect.bottom - rect.top;
         }
     }

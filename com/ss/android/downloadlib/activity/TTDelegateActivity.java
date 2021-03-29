@@ -30,46 +30,46 @@ import d.o.a.e.a.d;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     /* renamed from: d  reason: collision with root package name */
-    public static d.o.a.d.m.a.a f38635d;
+    public static d.o.a.d.m.a.a f38636d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f38636a = null;
+    public Intent f38637a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38637b;
+    public boolean f38638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.o.a.b.a.c.b f38638c;
+    public d.o.a.b.a.c.b f38639c;
 
-    /* loaded from: classes6.dex */
-    public class b implements c.InterfaceC1817c {
+    /* loaded from: classes7.dex */
+    public class b implements c.InterfaceC1818c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f38642a;
+        public final /* synthetic */ d.o.a.b.a.c.b f38643a;
 
         public b(d.o.a.b.a.c.b bVar) {
-            this.f38642a = bVar;
+            this.f38643a = bVar;
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1817c
+        @Override // d.o.a.a.a.d.c.InterfaceC1818c
         public void a(DialogInterface dialogInterface) {
-            j.c.a().n("market_openapp_cancel", this.f38642a);
+            j.c.a().n("market_openapp_cancel", this.f38643a);
             dialogInterface.dismiss();
             d.q(TTDelegateActivity.this);
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1817c
+        @Override // d.o.a.a.a.d.c.InterfaceC1818c
         public void b(DialogInterface dialogInterface) {
-            g.b.j(this.f38642a);
+            g.b.j(this.f38643a);
             dialogInterface.dismiss();
             d.q(TTDelegateActivity.this);
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1817c
+        @Override // d.o.a.a.a.d.c.InterfaceC1818c
         public void c(DialogInterface dialogInterface) {
             d.q(TTDelegateActivity.this);
         }
@@ -108,7 +108,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         b();
-        this.f38636a = getIntent();
+        this.f38637a = getIntent();
         n.l(this);
         a();
     }
@@ -117,7 +117,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.f38636a = intent;
+        this.f38637a = intent;
         n.l(this);
         a();
     }
@@ -132,46 +132,46 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onStop() {
         DownloadInfo c2;
         super.onStop();
-        if (!this.f38637b || this.f38638c == null || (c2 = l.b(null).c(this.f38638c.a())) == null || c2.E() < c2.Q0() || isFinishing()) {
+        if (!this.f38638b || this.f38639c == null || (c2 = l.b(null).c(this.f38639c.a())) == null || c2.E() < c2.Q0() || isFinishing()) {
             return;
         }
         finish();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Activity> f38639a;
+        public WeakReference<Activity> f38640a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f38640b;
+        public final /* synthetic */ String f38641b;
 
         public a(String str) {
-            this.f38640b = str;
-            this.f38639a = new WeakReference<>(TTDelegateActivity.this);
+            this.f38641b = str;
+            this.f38640a = new WeakReference<>(TTDelegateActivity.this);
         }
 
         @Override // d.o.a.a.a.a.q
         public void a() {
-            i.a(this.f38640b);
-            d.q(this.f38639a.get());
+            i.a(this.f38641b);
+            d.q(this.f38640a.get());
         }
 
         @Override // d.o.a.a.a.a.q
         public void a(String str) {
-            i.c(this.f38640b, str);
-            d.q(this.f38639a.get());
+            i.c(this.f38641b, str);
+            d.q(this.f38640a.get());
         }
     }
 
     private void c() {
         String str;
-        long longExtra = this.f38636a.getLongExtra("model_id", 0L);
-        String stringExtra = this.f38636a.getStringExtra("message_text");
-        String stringExtra2 = this.f38636a.getStringExtra("positive_button_text");
-        String stringExtra3 = this.f38636a.getStringExtra("negative_button_text");
-        int intExtra = this.f38636a.getIntExtra("type", 0);
+        long longExtra = this.f38637a.getLongExtra("model_id", 0L);
+        String stringExtra = this.f38637a.getStringExtra("message_text");
+        String stringExtra2 = this.f38637a.getStringExtra("positive_button_text");
+        String stringExtra3 = this.f38637a.getStringExtra("negative_button_text");
+        int intExtra = this.f38637a.getIntExtra("type", 0);
         d.o.a.b.a.c.b u = c.g.e().u(longExtra);
         d.c cVar = new d.c(this);
         cVar.c(false);
@@ -197,8 +197,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f38637b = true;
-        this.f38638c = u;
+        this.f38638b = true;
+        this.f38639c = u;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("pause_optimise_type", str);
@@ -259,8 +259,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         cVar.c(false);
         cVar.a(p.a());
         cVar.d().show();
-        this.f38637b = true;
-        this.f38638c = u;
+        this.f38638b = true;
+        this.f38639c = u;
     }
 
     public static void a(d.o.a.b.a.c.a aVar) {
@@ -277,7 +277,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         Intent c2 = c(aVar);
         c2.addFlags(268435456);
         c2.putExtra("type", 9);
-        f38635d = aVar2;
+        f38636d = aVar2;
         if (n.a() != null) {
             n.a().startActivity(c2);
         }
@@ -376,16 +376,16 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     public void a() {
-        Intent intent = this.f38636a;
+        Intent intent = this.f38637a;
         if (intent == null) {
             return;
         }
         switch (intent.getIntExtra("type", 0)) {
             case 1:
-                b(this.f38636a.getStringExtra("permission_id_key"), this.f38636a.getStringArrayExtra("permission_content_key"));
+                b(this.f38637a.getStringExtra("permission_id_key"), this.f38637a.getStringArrayExtra("permission_content_key"));
                 break;
             case 2:
-                a(this.f38636a.getStringExtra("open_url"));
+                a(this.f38637a.getStringExtra("open_url"));
                 break;
             case 3:
             case 6:
@@ -393,30 +393,30 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 d.o.a.e.a.d.q(this);
                 break;
             case 4:
-                c(this.f38636a.getLongExtra("model_id", 0L));
+                c(this.f38637a.getLongExtra("model_id", 0L));
                 break;
             case 5:
-                b(this.f38636a.getLongExtra("model_id", 0L));
+                b(this.f38637a.getLongExtra("model_id", 0L));
                 break;
             case 7:
             case 8:
                 c();
                 break;
             case 9:
-                d.o.a.d.m.a.a aVar = f38635d;
+                d.o.a.d.m.a.a aVar = f38636d;
                 if (aVar != null) {
                     aVar.a();
                 }
                 d.o.a.e.a.d.q(this);
                 break;
             case 10:
-                d(this.f38636a.getLongExtra("app_info_id", 0L));
+                d(this.f38637a.getLongExtra("app_info_id", 0L));
                 break;
             case 11:
-                b(this.f38636a.getStringExtra("package_name"));
+                b(this.f38637a.getStringExtra("package_name"));
                 break;
         }
-        this.f38636a = null;
+        this.f38637a = null;
     }
 
     private void a(String str) {

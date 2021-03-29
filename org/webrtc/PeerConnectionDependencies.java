@@ -2,7 +2,7 @@ package org.webrtc;
 
 import javax.annotation.Nullable;
 import org.webrtc.PeerConnection;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class PeerConnectionDependencies {
     public final PeerConnection.Observer observer;
     public final SSLCertificateVerifier sslCertificateVerifier;

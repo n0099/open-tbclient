@@ -35,7 +35,7 @@ public class Decoder implements INoProGuard {
             wrapper.push(bArr.length);
             int i = 0;
             while (wrapper.getStatus() != DecoderJNI.a.DONE) {
-                int i2 = a.f26909a[wrapper.getStatus().ordinal()];
+                int i2 = a.f26910a[wrapper.getStatus().ordinal()];
                 if (i2 == 2) {
                     wrapper.push(0);
                 } else if (i2 != 4) {
@@ -104,7 +104,7 @@ public class Decoder implements INoProGuard {
                 }
                 this.buffer = null;
             }
-            int i = a.f26909a[this.decoder.getStatus().ordinal()];
+            int i = a.f26910a[this.decoder.getStatus().ordinal()];
             if (i == 1) {
                 return -1;
             }

@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NPSPackageManager {
     public static final String TAG = "NPS-NPSPackageManager";
     public static NPSPackageManager sInstance = new NPSPackageManager();
@@ -38,65 +38,65 @@ public class NPSPackageManager {
     public Map<String, BundleInfo> mPresetInfoMap = new HashMap();
     public Set<String> mInstallingSet = new CopyOnWriteArraySet();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9296e;
+        public final /* synthetic */ String f9297e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ IInstallCallback f9297f;
+        public final /* synthetic */ IInstallCallback f9298f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f9298g;
+        public final /* synthetic */ int f9299g;
 
         /* renamed from: com.baidu.nps.pm.manager.NPSPackageManager$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0112a extends ContentObserver {
-            public C0112a(Handler handler) {
+        public class C0113a extends ContentObserver {
+            public C0113a(Handler handler) {
                 super(handler);
             }
 
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 d.b.z.h.f a2 = i.a(uri);
-                if (a2.f64928b > 0 || a2.f64927a > 0) {
-                    a.this.f9297f.onProgress(a2.f64927a, a2.f64928b);
+                if (a2.f64929b > 0 || a2.f64928a > 0) {
+                    a.this.f9298f.onProgress(a2.f64928a, a2.f64929b);
                 }
             }
         }
 
         public a(String str, IInstallCallback iInstallCallback, int i) {
-            this.f9296e = str;
-            this.f9297f = iInstallCallback;
-            this.f9298g = i;
+            this.f9297e = str;
+            this.f9298f = iInstallCallback;
+            this.f9299g = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Uri e2 = i.e(this.f9296e);
-            C0112a c0112a = new C0112a(null);
-            ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(e2, false, c0112a);
-            int installBundle = NPSPackageManager.this.installBundle(this.f9296e, this.f9298g);
-            NPSPackageManager.this.mInstallingSet.remove(this.f9296e);
-            ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(c0112a);
-            if (this.f9297f != null) {
+            Uri e2 = i.e(this.f9297e);
+            C0113a c0113a = new C0113a(null);
+            ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(e2, false, c0113a);
+            int installBundle = NPSPackageManager.this.installBundle(this.f9297e, this.f9299g);
+            NPSPackageManager.this.mInstallingSet.remove(this.f9297e);
+            ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(c0113a);
+            if (this.f9298f != null) {
                 if (d.b.z.h.b.a()) {
                     Log.i(NPSPackageManager.TAG, "installBundle, retCode=" + installBundle);
                 }
-                this.f9297f.onResult(installBundle, "");
+                this.f9298f.onResult(installBundle, "");
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9301e;
+        public final /* synthetic */ String f9302e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.z.d.a.a f9302f;
+        public final /* synthetic */ d.b.z.d.a.a f9303f;
 
         /* loaded from: classes2.dex */
         public class a extends ContentObserver {
@@ -107,29 +107,29 @@ public class NPSPackageManager {
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 d.b.z.h.f a2 = i.a(uri);
-                if (a2.f64928b > 0 || a2.f64927a > 0) {
-                    b.this.f9302f.onProgress(a2.f64927a, a2.f64928b);
+                if (a2.f64929b > 0 || a2.f64928a > 0) {
+                    b.this.f9303f.onProgress(a2.f64928a, a2.f64929b);
                 }
             }
         }
 
         public b(String str, d.b.z.d.a.a aVar) {
-            this.f9301e = str;
-            this.f9302f = aVar;
+            this.f9302e = str;
+            this.f9303f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Uri d2 = i.d(this.f9301e);
+            Uri d2 = i.d(this.f9302e);
             a aVar = new a(null);
             ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(d2, false, aVar);
-            int downloadBundle = NPSPackageManager.this.downloadBundle(this.f9301e);
+            int downloadBundle = NPSPackageManager.this.downloadBundle(this.f9302e);
             ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(aVar);
-            this.f9302f.onResult(downloadBundle, "");
+            this.f9303f.onResult(downloadBundle, "");
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
         public c(NPSPackageManager nPSPackageManager) {
         }
@@ -140,22 +140,22 @@ public class NPSPackageManager {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class d extends ContentObserver {
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f9306e;
+            public final /* synthetic */ Uri f9307e;
 
             public a(Uri uri) {
-                this.f9306e = uri;
+                this.f9307e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NPSPackageManager.this.updateBundleInfos(this.f9306e);
+                NPSPackageManager.this.updateBundleInfos(this.f9307e);
             }
         }
 
@@ -169,7 +169,7 @@ public class NPSPackageManager {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -190,36 +190,36 @@ public class NPSPackageManager {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class f implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f9309e;
-
-        public f(NPSPackageManager nPSPackageManager, CountDownLatch countDownLatch) {
-            this.f9309e = countDownLatch;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            this.f9309e.countDown();
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ CountDownLatch f9310e;
 
-        public g(CountDownLatch countDownLatch) {
+        public f(NPSPackageManager nPSPackageManager, CountDownLatch countDownLatch) {
             this.f9310e = countDownLatch;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            NPSPackageManager.this.killProcessesWithPluginsRunning();
             this.f9310e.countDown();
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class g implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CountDownLatch f9311e;
+
+        public g(CountDownLatch countDownLatch) {
+            this.f9311e = countDownLatch;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            NPSPackageManager.this.killProcessesWithPluginsRunning();
+            this.f9311e.countDown();
         }
     }
 
@@ -382,7 +382,7 @@ public class NPSPackageManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void killProcessesWithPluginsRunning() {
-        Intent intent = new Intent(d.b.z.h.a.f64925a);
+        Intent intent = new Intent(d.b.z.h.a.f64926a);
         intent.setPackage(ContextHolder.getApplicationContext().getPackageName());
         ContextHolder.getApplicationContext().sendBroadcast(intent);
     }

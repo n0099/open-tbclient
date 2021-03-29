@@ -19,16 +19,16 @@ import java.util.List;
 public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BubbleListActivity f21636e;
+    public BubbleListActivity f21637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21637f;
+    public e f21638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<DressItemData> f21638g;
+    public List<DressItemData> f21639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<DressItemData> f21639h;
+    public List<DressItemData> f21640h;
     public c i;
     public int j;
     public boolean k;
@@ -53,35 +53,35 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
                         BubbleListHttpResponseMessage bubbleListHttpResponseMessage = (BubbleListHttpResponseMessage) responsedMessage;
-                        BubbleListModel.this.f21637f = bubbleListHttpResponseMessage.getRecommand();
-                        BubbleListModel.this.f21638g = bubbleListHttpResponseMessage.getBubbleList();
+                        BubbleListModel.this.f21638f = bubbleListHttpResponseMessage.getRecommand();
+                        BubbleListModel.this.f21639g = bubbleListHttpResponseMessage.getBubbleList();
                         BubbleListModel.this.k = bubbleListHttpResponseMessage.hasMore();
                         BubbleListModel.this.l = bubbleListHttpResponseMessage.isDefault();
                     } else if (responsedMessage instanceof BubbleListSocketResponseMessage) {
                         BubbleListSocketResponseMessage bubbleListSocketResponseMessage = (BubbleListSocketResponseMessage) responsedMessage;
-                        BubbleListModel.this.f21637f = bubbleListSocketResponseMessage.getRecommand();
-                        BubbleListModel.this.f21638g = bubbleListSocketResponseMessage.getBubbleList();
+                        BubbleListModel.this.f21638f = bubbleListSocketResponseMessage.getRecommand();
+                        BubbleListModel.this.f21639g = bubbleListSocketResponseMessage.getBubbleList();
                         BubbleListModel.this.k = bubbleListSocketResponseMessage.hasMore();
                         BubbleListModel.this.l = bubbleListSocketResponseMessage.isDefault();
                     }
-                    if (BubbleListModel.this.f21639h == null) {
-                        BubbleListModel.this.f21639h = new ArrayList();
+                    if (BubbleListModel.this.f21640h == null) {
+                        BubbleListModel.this.f21640h = new ArrayList();
                     }
                     if (BubbleListModel.this.j == 1) {
-                        BubbleListModel.this.f21639h.clear();
+                        BubbleListModel.this.f21640h.clear();
                         DressItemData dressItemData = new DressItemData();
                         dressItemData.setPropsId(0);
                         dressItemData.setInUse(BubbleListModel.this.l);
-                        BubbleListModel.this.f21639h.add(dressItemData);
+                        BubbleListModel.this.f21640h.add(dressItemData);
                     }
-                    if (BubbleListModel.this.f21638g != null) {
-                        BubbleListModel.this.f21639h.addAll(BubbleListModel.this.f21638g);
+                    if (BubbleListModel.this.f21639g != null) {
+                        BubbleListModel.this.f21640h.addAll(BubbleListModel.this.f21639g);
                     }
                 } else {
                     BubbleListModel.u(BubbleListModel.this);
                 }
                 if (BubbleListModel.this.i != null) {
-                    BubbleListModel.this.i.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleListModel.this.f21637f, BubbleListModel.this.f21639h);
+                    BubbleListModel.this.i.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleListModel.this.f21638f, BubbleListModel.this.f21640h);
                 }
             }
         }
@@ -101,11 +101,11 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
             }
             BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
             if (bubbleSetResponseMessage.getError() != 0) {
-                BubbleListModel.this.f21636e.showToast(bubbleSetResponseMessage.getErrorString());
+                BubbleListModel.this.f21637e.showToast(bubbleSetResponseMessage.getErrorString());
                 return;
             }
             BubbleListModel.this.K(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-            BubbleListModel.this.i.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleListModel.this.f21637f, BubbleListModel.this.f21639h);
+            BubbleListModel.this.i.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleListModel.this.f21638f, BubbleListModel.this.f21640h);
         }
     }
 
@@ -121,7 +121,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         this.l = false;
         this.n = new a(CmdConfigHttp.CMD_BUBBLE_LIST, 309031);
         this.o = new b(CmdConfigHttp.CMD_BUBBLE_SET);
-        this.f21636e = bubbleListActivity;
+        this.f21637e = bubbleListActivity;
         this.m = bubbleListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.n);
@@ -151,11 +151,11 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     }
 
     public final void K(int i) {
-        List<DressItemData> list = this.f21639h;
+        List<DressItemData> list = this.f21640h;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (DressItemData dressItemData : this.f21639h) {
+        for (DressItemData dressItemData : this.f21640h) {
             if (dressItemData != null) {
                 if (dressItemData.getPropsId() == i) {
                     dressItemData.setInUse(true);

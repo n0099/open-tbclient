@@ -2,7 +2,7 @@ package com.baidu.android.imrtc.utils;
 
 import android.util.Log;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LogUtils {
     public static String TAG = "rtcsdk";
 

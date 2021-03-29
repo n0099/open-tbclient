@@ -9,7 +9,7 @@ public class AdService {
     public static int instanceCount = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdView f8065a;
+    public AdView f8066a;
 
     public AdService(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, AdViewListener adViewListener) {
         this(context, viewGroup, layoutParams, adViewListener, AdSize.Banner, "");
@@ -17,11 +17,11 @@ public class AdService {
 
     private void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         try {
-            if (this.f8065a.getParent() != viewGroup) {
-                if (this.f8065a.getParent() != null) {
-                    ((ViewGroup) this.f8065a.getParent()).removeView(this.f8065a);
+            if (this.f8066a.getParent() != viewGroup) {
+                if (this.f8066a.getParent() != null) {
+                    ((ViewGroup) this.f8066a.getParent()).removeView(this.f8066a);
                 }
-                viewGroup.addView(this.f8065a, layoutParams);
+                viewGroup.addView(this.f8066a, layoutParams);
             }
         } catch (Exception e2) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e2);
@@ -34,17 +34,17 @@ public class AdService {
     }
 
     public void destroy() {
-        AdView adView = this.f8065a;
+        AdView adView = this.f8066a;
         if (adView != null) {
             adView.destroy();
-            this.f8065a = null;
+            this.f8066a = null;
         }
     }
 
     public AdService(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, AdViewListener adViewListener, AdSize adSize, String str) {
         if (context != null && viewGroup != null && layoutParams != null && adViewListener != null && adSize != null) {
             AdView adView = new AdView(context, false, adSize, str);
-            this.f8065a = adView;
+            this.f8066a = adView;
             adView.setListener(adViewListener);
             a(viewGroup, layoutParams);
             instanceCount++;

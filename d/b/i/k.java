@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import com.baidu.card.view.ForumEnterLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k extends h {
     public d.b.h0.r.q.a l;
     public ForumEnterLayout m;
     public final View.OnClickListener n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -49,13 +49,13 @@ public class k extends h {
 
     public void t() {
         if (d.b.h0.b.d.R()) {
-            int g2 = d.b.b.e.p.l.g(this.f51762f, R.dimen.M_H_X003);
-            int g3 = d.b.b.e.p.l.g(this.f51762f, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+            int g2 = d.b.b.e.p.l.g(this.f51763f, R.dimen.M_H_X003);
+            int g3 = d.b.b.e.p.l.g(this.f51763f, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
             r(g2);
             q(g3);
             return;
         }
-        int g4 = d.b.b.e.p.l.g(this.f51762f, R.dimen.tbds10);
+        int g4 = d.b.b.e.p.l.g(this.f51763f, R.dimen.tbds10);
         r(g4);
         q(0);
         v(this.m, g4, 0);
@@ -66,7 +66,7 @@ public class k extends h {
     /* renamed from: u */
     public void a(d.b.h0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f51761e.i());
+        this.m.setSourceForPb(this.f51762e.i());
         this.m.setData(aVar);
     }
 

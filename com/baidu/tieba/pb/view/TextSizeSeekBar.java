@@ -18,16 +18,16 @@ import java.util.ArrayList;
 public class TextSizeSeekBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20163e;
+    public int f20164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20164f;
+    public int f20165f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20165g;
+    public int f20166g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20166h;
+    public int f20167h;
     public int i;
     public int j;
     public Paint k;
@@ -67,20 +67,13 @@ public class TextSizeSeekBar extends View {
     public final void b(Canvas canvas) {
         this.k.setColor(this.r);
         this.k.setStrokeWidth(this.u);
-        int i = this.f20166h;
-        double d2 = i;
-        Double.isNaN(d2);
-        float f2 = (float) (d2 / 2.0d);
+        int i = this.f20167h;
         int i2 = this.j;
-        double d3 = this.f20163e;
-        double d4 = i;
-        Double.isNaN(d4);
-        Double.isNaN(d3);
-        canvas.drawLine(f2, i2, (float) (d3 - (d4 / 2.0d)), i2, this.k);
+        canvas.drawLine((float) (i / 2.0d), i2, (float) (this.f20164e - (i / 2.0d)), i2, this.k);
         this.k.setStrokeWidth(this.v);
         this.k.setStrokeCap(Paint.Cap.ROUND);
         for (int i3 = 0; i3 < 4; i3++) {
-            canvas.drawPoint((this.f20165g * i3) + (this.f20166h / 2), this.j, this.k);
+            canvas.drawPoint((this.f20166g * i3) + (this.f20167h / 2), this.j, this.k);
         }
     }
 
@@ -93,7 +86,7 @@ public class TextSizeSeekBar extends View {
             }
             this.k.setTextSize(this.l);
             this.k.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.o[i], (this.f20165g * i) + (this.f20166h / 2), this.j - this.w, this.k);
+            canvas.drawText(this.o[i], (this.f20166g * i) + (this.f20167h / 2), this.j - this.w, this.k);
         }
     }
 
@@ -105,7 +98,7 @@ public class TextSizeSeekBar extends View {
         this.k.setDither(true);
         this.k.setFilterBitmap(true);
         this.m = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
-        this.f20166h = dimensionPixelSize;
+        this.f20167h = dimensionPixelSize;
         this.i = dimensionPixelSize;
         this.l = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
         this.o = new String[]{context.getString(R.string.font_size_small), context.getString(R.string.font_size_mid), context.getString(R.string.font_size_big), context.getString(R.string.font_size_xlarge)};
@@ -157,20 +150,20 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.f20163e == 0 || this.f20164f == 0) {
-            this.f20163e = View.MeasureSpec.getSize(i);
+        if (this.f20164e == 0 || this.f20165f == 0) {
+            this.f20164e = View.MeasureSpec.getSize(i);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds176);
-            this.f20164f = dimensionPixelSize;
-            this.f20165g = (this.f20163e - this.f20166h) / 3;
+            this.f20165f = dimensionPixelSize;
+            this.f20166g = (this.f20164e - this.f20167h) / 3;
             this.j = dimensionPixelSize / 2;
             for (int i3 = 0; i3 < 4; i3++) {
-                int i4 = this.f20165g;
+                int i4 = this.f20166g;
                 int i5 = this.j;
                 int i6 = this.i;
-                this.t.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.f20166h, i5 + (i6 / 2)));
+                this.t.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.f20167h, i5 + (i6 / 2)));
             }
         }
-        setMeasuredDimension(this.f20163e, this.f20164f);
+        setMeasuredDimension(this.f20164e, this.f20165f);
     }
 
     @Override // android.view.View

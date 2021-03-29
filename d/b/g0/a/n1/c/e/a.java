@@ -40,25 +40,25 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a extends d.b.g0.a.n1.c.b {
-    public static final boolean l = k.f45050a;
+    public static final boolean l = k.f45051a;
     public static final long m = TimeUnit.MINUTES.toMillis(5);
     public static final Object n = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f45374f;
+    public final e f45375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Messenger f45375g;
+    public Messenger f45376g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f45376h;
+    public d f45377h;
     public ServiceConnection i;
     public final Deque<Long> j;
     public List<Runnable> k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements ServiceConnection {
         public b() {
         }
@@ -75,11 +75,11 @@ public final class a extends d.b.g0.a.n1.c.b {
                 }
                 return;
             }
-            a.this.f45375g = new Messenger(iBinder);
+            a.this.f45376g = new Messenger(iBinder);
             a aVar = a.this;
             aVar.L(13, aVar.B());
-            if (a.this.f45376h != null) {
-                a.this.f45376h.a();
+            if (a.this.f45377h != null) {
+                a.this.f45377h.a();
             }
             d.b.g0.a.n1.c.a.e().c();
         }
@@ -93,30 +93,30 @@ public final class a extends d.b.g0.a.n1.c.b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         boolean a(Message message);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<c> f45378a;
+        public WeakReference<c> f45379a;
 
         public e() {
             super(Looper.getMainLooper());
         }
 
         public final boolean a(Message message) {
-            WeakReference<c> weakReference = this.f45378a;
+            WeakReference<c> weakReference = this.f45379a;
             c cVar = weakReference != null ? weakReference.get() : null;
             if (cVar == null || !cVar.a(message)) {
                 return d.b.g0.a.w0.a.V().a(message);
@@ -381,14 +381,14 @@ public final class a extends d.b.g0.a.n1.c.b {
         public final void k(Message message) {
             Bundle bundle;
             d.b.b0.e.a aVar;
-            if (message == null || (bundle = (Bundle) message.obj) == null || (aVar = d.b.g0.a.i1.a.b().f44621d) == null) {
+            if (message == null || (bundle = (Bundle) message.obj) == null || (aVar = d.b.g0.a.i1.a.b().f44622d) == null) {
                 return;
             }
             aVar.onPayResult(d.b.g0.a.i1.a.a(bundle.getInt("_wxapi_baseresp_errcode")), bundle.getString("_wxapi_baseresp_errstr"));
         }
 
         public void l(c cVar) {
-            this.f45378a = new WeakReference<>(cVar);
+            this.f45379a = new WeakReference<>(cVar);
         }
 
         public final boolean m(PrefetchEvent prefetchEvent) {
@@ -402,7 +402,7 @@ public final class a extends d.b.g0.a.n1.c.b {
 
     public a(h hVar) {
         super(hVar);
-        this.f45374f = new e();
+        this.f45375f = new e();
         this.j = new ArrayDeque();
     }
 
@@ -412,7 +412,7 @@ public final class a extends d.b.g0.a.n1.c.b {
     }
 
     public boolean A() {
-        return this.f45375g != null;
+        return this.f45376g != null;
     }
 
     public final Bundle B() {
@@ -424,11 +424,11 @@ public final class a extends d.b.g0.a.n1.c.b {
     }
 
     public Handler D() {
-        return this.f45374f;
+        return this.f45375f;
     }
 
     public Messenger E() {
-        return this.f45375g;
+        return this.f45376g;
     }
 
     public final void F(String str) {
@@ -444,9 +444,9 @@ public final class a extends d.b.g0.a.n1.c.b {
 
     public synchronized void G() {
         this.i = null;
-        this.f45375g = null;
-        if (this.f45376h != null) {
-            this.f45376h.b();
+        this.f45376g = null;
+        if (this.f45377h != null) {
+            this.f45377h.b();
         }
         P();
         if (this.k != null) {
@@ -577,13 +577,13 @@ public final class a extends d.b.g0.a.n1.c.b {
     }
 
     public void y(d dVar, c cVar) {
-        this.f45376h = dVar;
-        this.f45374f.l(cVar);
+        this.f45377h = dVar;
+        this.f45375f.l(cVar);
         L(1, B());
-        if (this.f45376h == null || !A()) {
+        if (this.f45377h == null || !A()) {
             return;
         }
-        this.f45376h.a();
+        this.f45377h.a();
     }
 
     public final boolean z() {

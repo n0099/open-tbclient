@@ -8,31 +8,31 @@ import android.os.Bundle;
 public class b extends TimePickerDialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61145e;
+    public int f61146e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61146f;
+    public int f61147f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61147g;
+    public boolean f61148g;
 
     public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
         super(context, onTimeSetListener, i, i2, z);
-        this.f61145e = -1;
-        this.f61146f = -1;
-        this.f61147g = false;
-        this.f61145e = i;
-        this.f61146f = i2;
+        this.f61146e = -1;
+        this.f61147f = -1;
+        this.f61148g = false;
+        this.f61146e = i;
+        this.f61147f = i2;
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         int i2;
         if (i == -1) {
-            this.f61147g = true;
+            this.f61148g = true;
         } else {
-            int i3 = this.f61145e;
-            if (i3 >= 0 && (i2 = this.f61146f) >= 0) {
+            int i3 = this.f61146e;
+            if (i3 >= 0 && (i2 = this.f61147f) >= 0) {
                 updateTime(i3, i2);
             }
         }
@@ -43,10 +43,10 @@ public class b extends TimePickerDialog {
     public void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         updateTime(0, 0);
-        this.f61145e = bundle.getInt("hour_key");
+        this.f61146e = bundle.getInt("hour_key");
         int i = bundle.getInt("min_key");
-        this.f61146f = i;
-        updateTime(this.f61145e, i);
+        this.f61147f = i;
+        updateTime(this.f61146e, i);
     }
 
     @Override // android.app.TimePickerDialog, android.app.Dialog
@@ -60,15 +60,15 @@ public class b extends TimePickerDialog {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        bundle.putInt("hour_key", this.f61145e);
-        bundle.putInt("min_key", this.f61146f);
+        bundle.putInt("hour_key", this.f61146e);
+        bundle.putInt("min_key", this.f61147f);
         return bundle;
     }
 
     @Override // android.app.Dialog
     public void onStop() {
-        if (!this.f61147g) {
-            updateTime(this.f61145e, this.f61146f);
+        if (!this.f61148g) {
+            updateTime(this.f61146e, this.f61147f);
         }
         super.onStop();
     }
@@ -76,8 +76,8 @@ public class b extends TimePickerDialog {
     @Override // android.app.TimePickerDialog
     public void updateTime(int i, int i2) {
         super.updateTime(i, i2);
-        this.f61145e = i;
-        this.f61146f = i2;
-        this.f61147g = false;
+        this.f61146e = i;
+        this.f61147f = i2;
+        this.f61148g = false;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.apollon.utils;
 import android.util.Base64;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class EncodeUtils {
     public static boolean a(char c2) {
         return (c2 & 255) != c2;

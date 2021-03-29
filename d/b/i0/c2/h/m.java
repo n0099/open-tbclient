@@ -6,68 +6,68 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f52446a;
+    public Bitmap f52447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52447b;
+    public String f52448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52448c;
+    public String f52449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PostData f52449d;
+    public PostData f52450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52450e;
+    public int f52451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.h0.b1.m.a f52451f;
+    public d.b.h0.b1.m.a f52452f;
 
     public d.b.h0.b1.m.a a() {
-        return this.f52451f;
+        return this.f52452f;
     }
 
     public String b() {
-        return this.f52448c;
+        return this.f52449c;
     }
 
     public PostData c() {
-        return this.f52449d;
+        return this.f52450d;
     }
 
     public Bitmap d() {
-        return this.f52446a;
+        return this.f52447a;
     }
 
     public String e() {
-        return this.f52447b;
+        return this.f52448b;
     }
 
     public int f() {
-        return this.f52450e;
+        return this.f52451e;
     }
 
     public void g(d.b.h0.b1.m.a aVar) {
-        this.f52451f = aVar;
+        this.f52452f = aVar;
     }
 
     public void h(String str) {
-        this.f52448c = str;
+        this.f52449c = str;
     }
 
     public void i(PostData postData) {
-        this.f52449d = postData;
+        this.f52450d = postData;
     }
 
     public void j(Bitmap bitmap) {
-        this.f52446a = bitmap;
+        this.f52447a = bitmap;
     }
 
     public void k(String str) {
-        this.f52447b = str;
+        this.f52448b = str;
     }
 
     public void l(int i) {
-        this.f52450e = i;
+        this.f52451e = i;
     }
 }

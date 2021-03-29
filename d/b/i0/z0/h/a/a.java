@@ -12,14 +12,14 @@ import tbclient.Error;
 import tbclient.ExcFrsPage.DataRes;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements b, h {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Object> f63228e;
+    public List<Object> f63229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Object> f63229f;
+    public List<Object> f63230f;
 
     @Override // d.b.h0.g0.b.c
     public String getCacheKey() {
@@ -51,16 +51,16 @@ public class a implements b, h {
         }
         if (dataRes.thread_list != null) {
             ArrayList arrayList = new ArrayList();
-            this.f63228e = arrayList;
+            this.f63229e = arrayList;
             arrayList.addAll(excFrsPageResIdl.data.thread_list);
         }
         excFrsPageResIdl.data.has_more.intValue();
         excFrsPageResIdl.data.pn.intValue();
         if (excFrsPageResIdl.data.tag_list != null) {
-            this.f63229f = new ArrayList();
+            this.f63230f = new ArrayList();
             for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                 if (excellentTagInfo != null) {
-                    this.f63229f.add(excellentTagInfo);
+                    this.f63230f.add(excellentTagInfo);
                 }
             }
         }

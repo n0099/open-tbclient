@@ -47,13 +47,13 @@ public class c implements f, Runnable {
     public final d.o.a.e.b.j.a L;
 
     /* renamed from: e  reason: collision with root package name */
-    public Future f67089e;
+    public Future f67094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.o.a.e.b.n.a f67090f;
+    public final d.o.a.e.b.n.a f67095f;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f67092h;
+    public AtomicInteger f67097h;
     public volatile d.o.a.e.b.g.f j;
     public boolean k;
     public boolean l;
@@ -72,7 +72,7 @@ public class c implements f, Runnable {
     public volatile BaseException z;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f67091g = false;
+    public volatile boolean f67096g = false;
     public final ArrayList<d.o.a.e.b.k.b> i = new ArrayList<>();
     public volatile com.ss.android.socialbase.downloader.constants.i q = com.ss.android.socialbase.downloader.constants.i.RUN_STATUS_NONE;
     public volatile int E = 5;
@@ -98,23 +98,23 @@ public class c implements f, Runnable {
     public class b implements d.o.a.e.b.f.r {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f67094a;
+        public final /* synthetic */ AtomicBoolean f67099a;
 
         public b(AtomicBoolean atomicBoolean) {
-            this.f67094a = atomicBoolean;
+            this.f67099a = atomicBoolean;
         }
 
         @Override // d.o.a.e.b.f.r
         public void a() {
             synchronized (c.this) {
-                this.f67094a.set(true);
+                this.f67099a.set(true);
                 c.this.s();
             }
         }
     }
 
     public c(d.o.a.e.b.n.a aVar, Handler handler) {
-        this.f67090f = aVar;
+        this.f67095f = aVar;
         if (aVar != null) {
             this.s = aVar.H();
             this.t = aVar.B();
@@ -135,14 +135,14 @@ public class c implements f, Runnable {
     }
 
     public static com.ss.android.socialbase.downloader.model.b w(DownloadInfo downloadInfo, long j) {
-        b.C0502b c0502b = new b.C0502b(downloadInfo.c0());
-        c0502b.b(-1);
-        c0502b.c(0L);
-        c0502b.m(j);
-        c0502b.g(j);
-        c0502b.i(0L);
-        c0502b.k(downloadInfo.Q0() - j);
-        return c0502b.e();
+        b.C0503b c0503b = new b.C0503b(downloadInfo.c0());
+        c0503b.b(-1);
+        c0503b.c(0L);
+        c0503b.m(j);
+        c0503b.g(j);
+        c0503b.i(0L);
+        c0503b.k(downloadInfo.Q0() - j);
+        return c0503b.e();
     }
 
     public final void A(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws BaseException {
@@ -161,13 +161,13 @@ public class c implements f, Runnable {
         long j3 = 0;
         while (i2 < i) {
             long j4 = i2 == i + (-1) ? 0L : (j3 + j2) - 1;
-            b.C0502b c0502b = new b.C0502b(c0);
-            c0502b.b(i2);
-            c0502b.c(j3);
-            c0502b.m(j3);
-            c0502b.g(j3);
-            c0502b.i(j4);
-            com.ss.android.socialbase.downloader.model.b e2 = c0502b.e();
+            b.C0503b c0503b = new b.C0503b(c0);
+            c0503b.b(i2);
+            c0503b.c(j3);
+            c0503b.m(j3);
+            c0503b.g(j3);
+            c0503b.i(j4);
+            com.ss.android.socialbase.downloader.model.b e2 = c0503b.e();
             arrayList.add(e2);
             this.r.a(e2);
             j3 += j2;
@@ -261,12 +261,12 @@ public class c implements f, Runnable {
                     bVar.d(C);
                     if (this.s.G1() && this.A != null && (!this.s.w1() || this.G)) {
                         if (bVar.F() == 0) {
-                            this.i.add(new d.o.a.e.b.k.b(bVar, this.f67090f, this.A, this));
+                            this.i.add(new d.o.a.e.b.k.b(bVar, this.f67095f, this.A, this));
                         } else if (bVar.F() > 0) {
-                            this.i.add(new d.o.a.e.b.k.b(bVar, this.f67090f, this));
+                            this.i.add(new d.o.a.e.b.k.b(bVar, this.f67095f, this));
                         }
                     } else {
-                        this.i.add(new d.o.a.e.b.k.b(bVar, this.f67090f, this));
+                        this.i.add(new d.o.a.e.b.k.b(bVar, this.f67095f, this));
                     }
                 }
             }
@@ -331,7 +331,7 @@ public class c implements f, Runnable {
     }
 
     public void K(Future future) {
-        this.f67089e = future;
+        this.f67094e = future;
     }
 
     public final boolean L(int i, String str, String str2) {
@@ -381,7 +381,7 @@ public class c implements f, Runnable {
     }
 
     public d.o.a.e.b.n.a O() {
-        return this.f67090f;
+        return this.f67095f;
     }
 
     public void P(long j) {
@@ -400,25 +400,25 @@ public class c implements f, Runnable {
     }
 
     public final boolean R(BaseException baseException) {
-        AtomicInteger atomicInteger = this.f67092h;
+        AtomicInteger atomicInteger = this.f67097h;
         boolean z = true;
         if (atomicInteger != null) {
             if (atomicInteger.get() <= 0 || (baseException != null && baseException.getErrorCode() == 1070)) {
                 if (this.s.n3()) {
-                    this.f67092h.set(this.s.v());
-                    this.s.o3(this.f67092h.get());
+                    this.f67097h.set(this.s.v());
+                    this.s.o3(this.f67097h.get());
                 } else if (baseException != null && ((baseException.getErrorCode() == 1011 || (baseException.getCause() != null && (baseException.getCause() instanceof SSLHandshakeException))) && this.s.d())) {
-                    this.f67092h.set(this.s.B0());
-                    this.s.o3(this.f67092h.get());
+                    this.f67097h.set(this.s.B0());
+                    this.s.o3(this.f67097h.get());
                     this.s.C2(true);
                 } else {
-                    e(new BaseException(baseException.getErrorCode(), String.format("retry for exception, but current retry time : %s , retry Time %s all used, last error is %s", String.valueOf(this.f67092h), String.valueOf(this.s.B0()), baseException.getErrorMessage())));
+                    e(new BaseException(baseException.getErrorCode(), String.format("retry for exception, but current retry time : %s , retry Time %s all used, last error is %s", String.valueOf(this.f67097h), String.valueOf(this.s.B0()), baseException.getErrorMessage())));
                     return true;
                 }
                 z = false;
             }
             if (this.q != com.ss.android.socialbase.downloader.constants.i.RUN_STATUS_RETRY_DELAY && z) {
-                this.s.o3(this.f67092h.decrementAndGet());
+                this.s.o3(this.f67097h.decrementAndGet());
             }
             return false;
         }
@@ -440,7 +440,7 @@ public class c implements f, Runnable {
     }
 
     public Future U() {
-        return this.f67089e;
+        return this.f67094e;
     }
 
     public final void V() {
@@ -452,9 +452,9 @@ public class c implements f, Runnable {
         if (B0 < 0) {
             B0 = 0;
         }
-        AtomicInteger atomicInteger = this.f67092h;
+        AtomicInteger atomicInteger = this.f67097h;
         if (atomicInteger == null) {
-            this.f67092h = new AtomicInteger(B0);
+            this.f67097h = new AtomicInteger(B0);
         } else {
             atomicInteger.set(B0);
         }
@@ -509,7 +509,7 @@ public class c implements f, Runnable {
                                     } catch (Throwable th2) {
                                         th = th2;
                                         z = z3;
-                                        if (this.f67090f != null) {
+                                        if (this.f67095f != null) {
                                         }
                                         if (z) {
                                         }
@@ -530,8 +530,8 @@ public class c implements f, Runnable {
                                 th = th3;
                                 z = z3;
                                 z2 = false;
-                                if (this.f67090f != null) {
-                                    d.o.a.e.b.e.a.e(this.f67090f.O(), this.s, new BaseException(1003, d.o.a.e.b.l.e.Y(th, "checkTaskCache")), this.s.H0());
+                                if (this.f67095f != null) {
+                                    d.o.a.e.b.e.a.e(this.f67095f.O(), this.s, new BaseException(1003, d.o.a.e.b.l.e.Y(th, "checkTaskCache")), this.s.H0());
                                 }
                                 if (z) {
                                 }
@@ -550,8 +550,8 @@ public class c implements f, Runnable {
                         th = th4;
                         z = z2;
                         z2 = false;
-                        if (this.f67090f != null && this.s != null) {
-                            d.o.a.e.b.e.a.e(this.f67090f.O(), this.s, new BaseException(1003, d.o.a.e.b.l.e.Y(th, "checkTaskCache")), this.s.H0());
+                        if (this.f67095f != null && this.s != null) {
+                            d.o.a.e.b.e.a.e(this.f67095f.O(), this.s, new BaseException(1003, d.o.a.e.b.l.e.Y(th, "checkTaskCache")), this.s.H0());
                         }
                         if (z) {
                             if (!z2 || this.L.l("fix_file_exist_update_download_info")) {
@@ -587,7 +587,7 @@ public class c implements f, Runnable {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX WARN: Removed duplicated region for block: B:18:0x003b  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005a A[LOOP:0: B:24:0x005a->B:57:0x005a, LOOP_START] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x005a A[LOOP:0: B:24:0x005a->B:55:0x005a, LOOP_START] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -600,7 +600,7 @@ public class c implements f, Runnable {
         } catch (Throwable unused) {
         }
         try {
-            x N = this.f67090f.N();
+            x N = this.f67095f.N();
             if (N != null) {
                 if (N.a()) {
                     this.y.v();
@@ -612,7 +612,7 @@ public class c implements f, Runnable {
             }
         }
         if (W()) {
-            y O2 = this.f67090f.O();
+            y O2 = this.f67095f.O();
             DownloadInfo downloadInfo = this.s;
             BaseException baseException = new BaseException(1003, "task status is invalid");
             DownloadInfo downloadInfo2 = this.s;
@@ -726,14 +726,14 @@ public class c implements f, Runnable {
                     String str4 = O;
                     d.o.a.e.b.c.a.i(str4, "downloadInner: retry throwable for " + e4.a());
                     if (this.q != com.ss.android.socialbase.downloader.constants.i.RUN_STATUS_PAUSE) {
-                        if (this.f67092h != null && this.f67092h.get() > 0) {
-                            this.s.o3(this.f67092h.decrementAndGet());
+                        if (this.f67097h != null && this.f67097h.get() > 0) {
+                            this.s.o3(this.f67097h.decrementAndGet());
                             this.s.a3(5);
-                        } else if (this.f67092h != null) {
+                        } else if (this.f67097h != null) {
                             if (this.s.n3()) {
                                 this.s.a3(5);
-                                this.f67092h.set(this.s.B0());
-                                this.s.o3(this.f67092h.get());
+                                this.f67097h.set(this.s.B0());
+                                this.s.o3(this.f67097h.get());
                             } else {
                                 e(new BaseException(1018, String.format("retry for Throwable, but retry Time %s all used, last error is %s", String.valueOf(this.s.B0()), e4.a())));
                             }
@@ -816,7 +816,7 @@ public class c implements f, Runnable {
                         g0();
                         return;
                     } else {
-                        throw new BaseException((int) com.baidu.apollon.eventbus.f.f3618a, "chunkCount is 0");
+                        throw new BaseException((int) com.baidu.apollon.eventbus.f.f3619a, "chunkCount is 0");
                     }
                 } finally {
                 }
@@ -848,7 +848,8 @@ public class c implements f, Runnable {
                 if (w0 < j3) {
                     String str = O;
                     d.o.a.e.b.c.a.i(str, "checkSpaceOverflow: contentLength = " + d.o.a.e.b.l.e.a(j) + "MB, downloaded = " + d.o.a.e.b.l.e.a(length) + "MB, required = " + d.o.a.e.b.l.e.a(j3) + "MB, available = " + d.o.a.e.b.l.e.a(w0) + "MB");
-                    if (w0 > 0) {
+                    int i = (w0 > 0L ? 1 : (w0 == 0L ? 0 : -1));
+                    if (i > 0) {
                         int b2 = d2.b("space_fill_min_keep_mb", 100);
                         if (b2 > 0) {
                             j2 = w0 - (b2 * 1048576);
@@ -871,7 +872,7 @@ public class c implements f, Runnable {
                     } else if (d2.b("download_when_space_negative", 0) != 1) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("availableSpace ");
-                        sb.append(w0 == 0 ? "=" : "<");
+                        sb.append(i == 0 ? "=" : "<");
                         sb.append(" 0");
                         throw new BaseException(1052, sb.toString());
                     } else {
@@ -879,14 +880,17 @@ public class c implements f, Runnable {
                         d.o.a.e.b.l.e.C(f2);
                     }
                 }
-            } else if (w0 <= 0) {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("availableSpace ");
-                sb2.append(w0 == 0 ? "=" : "<");
-                sb2.append(" 0");
-                throw new BaseException(1052, sb2.toString());
-            } else if (w0 < j3) {
-                throw new com.ss.android.socialbase.downloader.exception.d(w0, j3);
+            } else {
+                int i2 = (w0 > 0L ? 1 : (w0 == 0L ? 0 : -1));
+                if (i2 <= 0) {
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("availableSpace ");
+                    sb2.append(i2 == 0 ? "=" : "<");
+                    sb2.append(" 0");
+                    throw new BaseException(1052, sb2.toString());
+                } else if (w0 < j3) {
+                    throw new com.ss.android.socialbase.downloader.exception.d(w0, j3);
+                }
             }
             f2.p(j);
             d.o.a.e.b.l.e.C(f2);
@@ -985,7 +989,7 @@ public class c implements f, Runnable {
         if (d.o.a.e.b.j.a.d(this.s.c0()).b("reset_retain_retry_times", 0) != 1 || this.M >= 3) {
             return;
         }
-        this.f67092h.set(this.s.e1() ? this.s.v() : this.s.B0());
+        this.f67097h.set(this.s.e1() ? this.s.v() : this.s.B0());
         this.M++;
     }
 
@@ -1030,7 +1034,7 @@ public class c implements f, Runnable {
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
-                y O2 = this.f67090f.O();
+                y O2 = this.f67095f.O();
                 DownloadInfo downloadInfo = this.s;
                 BaseException baseException = new BaseException(1014, d.o.a.e.b.l.e.Y(th, "removeDownloadRunnable"));
                 DownloadInfo downloadInfo2 = this.s;
@@ -1186,8 +1190,8 @@ public class c implements f, Runnable {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00cb A[Catch: all -> 0x0223, h -> 0x022a, BaseException -> 0x022c, TryCatch #2 {BaseException -> 0x022c, h -> 0x022a, all -> 0x0223, blocks: (B:6:0x0008, B:8:0x0021, B:10:0x0027, B:11:0x002c, B:13:0x0081, B:15:0x008e, B:16:0x00a0, B:18:0x00a9, B:20:0x00ad, B:24:0x00b9, B:30:0x00cb, B:31:0x00d1, B:32:0x00f6, B:33:0x00f7, B:35:0x00fd, B:36:0x0102, B:39:0x010a, B:41:0x010e, B:43:0x0114, B:46:0x011b, B:48:0x0121, B:49:0x0128, B:50:0x0129, B:52:0x012f, B:57:0x0138, B:58:0x0141, B:59:0x0142, B:60:0x0158, B:61:0x0159, B:65:0x0161, B:67:0x0165, B:69:0x016b, B:70:0x0172, B:71:0x0173, B:73:0x0183, B:75:0x018f, B:79:0x019b, B:82:0x01a0, B:83:0x01a5, B:84:0x01a6, B:86:0x01aa, B:88:0x01b6, B:90:0x01bd, B:93:0x01c8, B:96:0x01cf, B:98:0x01d9, B:100:0x01eb, B:103:0x01f6, B:104:0x021c, B:105:0x021d, B:91:0x01c2), top: B:114:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00d1 A[Catch: all -> 0x0223, h -> 0x022a, BaseException -> 0x022c, TryCatch #2 {BaseException -> 0x022c, h -> 0x022a, all -> 0x0223, blocks: (B:6:0x0008, B:8:0x0021, B:10:0x0027, B:11:0x002c, B:13:0x0081, B:15:0x008e, B:16:0x00a0, B:18:0x00a9, B:20:0x00ad, B:24:0x00b9, B:30:0x00cb, B:31:0x00d1, B:32:0x00f6, B:33:0x00f7, B:35:0x00fd, B:36:0x0102, B:39:0x010a, B:41:0x010e, B:43:0x0114, B:46:0x011b, B:48:0x0121, B:49:0x0128, B:50:0x0129, B:52:0x012f, B:57:0x0138, B:58:0x0141, B:59:0x0142, B:60:0x0158, B:61:0x0159, B:65:0x0161, B:67:0x0165, B:69:0x016b, B:70:0x0172, B:71:0x0173, B:73:0x0183, B:75:0x018f, B:79:0x019b, B:82:0x01a0, B:83:0x01a5, B:84:0x01a6, B:86:0x01aa, B:88:0x01b6, B:90:0x01bd, B:93:0x01c8, B:96:0x01cf, B:98:0x01d9, B:100:0x01eb, B:103:0x01f6, B:104:0x021c, B:105:0x021d, B:91:0x01c2), top: B:114:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00cb A[Catch: all -> 0x0222, h -> 0x0229, BaseException -> 0x022b, TryCatch #2 {BaseException -> 0x022b, h -> 0x0229, all -> 0x0222, blocks: (B:6:0x0008, B:8:0x0021, B:10:0x0027, B:11:0x002c, B:13:0x0081, B:15:0x008e, B:16:0x00a0, B:18:0x00a9, B:20:0x00ad, B:24:0x00b9, B:30:0x00cb, B:31:0x00d1, B:32:0x00f6, B:33:0x00f7, B:35:0x00fd, B:36:0x0102, B:39:0x010a, B:41:0x010e, B:43:0x0114, B:46:0x011b, B:48:0x0121, B:49:0x0128, B:50:0x0129, B:52:0x012f, B:57:0x0138, B:58:0x0141, B:59:0x0142, B:60:0x0158, B:61:0x0159, B:65:0x0161, B:67:0x0165, B:69:0x016b, B:70:0x0172, B:71:0x0173, B:73:0x0183, B:75:0x018f, B:79:0x019b, B:82:0x01a0, B:83:0x01a5, B:84:0x01a6, B:86:0x01aa, B:88:0x01b6, B:90:0x01bd, B:93:0x01c7, B:96:0x01ce, B:98:0x01d8, B:100:0x01ea, B:103:0x01f5, B:104:0x021b, B:105:0x021c, B:91:0x01c2), top: B:114:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00d1 A[Catch: all -> 0x0222, h -> 0x0229, BaseException -> 0x022b, TryCatch #2 {BaseException -> 0x022b, h -> 0x0229, all -> 0x0222, blocks: (B:6:0x0008, B:8:0x0021, B:10:0x0027, B:11:0x002c, B:13:0x0081, B:15:0x008e, B:16:0x00a0, B:18:0x00a9, B:20:0x00ad, B:24:0x00b9, B:30:0x00cb, B:31:0x00d1, B:32:0x00f6, B:33:0x00f7, B:35:0x00fd, B:36:0x0102, B:39:0x010a, B:41:0x010e, B:43:0x0114, B:46:0x011b, B:48:0x0121, B:49:0x0128, B:50:0x0129, B:52:0x012f, B:57:0x0138, B:58:0x0141, B:59:0x0142, B:60:0x0158, B:61:0x0159, B:65:0x0161, B:67:0x0165, B:69:0x016b, B:70:0x0172, B:71:0x0173, B:73:0x0183, B:75:0x018f, B:79:0x019b, B:82:0x01a0, B:83:0x01a5, B:84:0x01a6, B:86:0x01aa, B:88:0x01b6, B:90:0x01bd, B:93:0x01c7, B:96:0x01ce, B:98:0x01d8, B:100:0x01ea, B:103:0x01f5, B:104:0x021b, B:105:0x021c, B:91:0x01c2), top: B:114:0x0008 }] */
     @Override // d.o.a.e.b.k.f
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1200,7 +1204,7 @@ public class c implements f, Runnable {
         }
         try {
             d.o.a.e.b.n.b bVar = new d.o.a.e.b.n.b(str, iVar);
-            int i = bVar.f67196c;
+            int i = bVar.f67201c;
             String d2 = bVar.d();
             if (TextUtils.isEmpty(this.s.m0()) && !TextUtils.isEmpty(d2)) {
                 this.s.M2(d2);
@@ -1561,12 +1565,12 @@ public class c implements f, Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        d.o.a.e.b.g.d.N(this.f67090f, 3);
+        d.o.a.e.b.g.d.N(this.f67095f, 3);
         try {
             d.o.a.e.b.o.d.a().b();
             Y();
             d.o.a.e.b.o.d.a().c();
-            d.o.a.e.b.g.d.b0(this.f67090f, 3);
+            d.o.a.e.b.g.d.b0(this.f67095f, 3);
         } catch (Throwable th) {
             d.o.a.e.b.o.d.a().c();
             throw th;
@@ -1652,7 +1656,7 @@ public class c implements f, Runnable {
             String str = O;
             d.o.a.e.b.c.a.g(str, "reuseChunk retainLen:" + n + " chunkIndex:" + i);
             boolean z = false;
-            if (!bVar.s() && n > d.o.a.e.b.d.c.f66953f && this.s.F1()) {
+            if (!bVar.s() && n > d.o.a.e.b.d.c.f66958f && this.s.F1()) {
                 List<com.ss.android.socialbase.downloader.model.b> b2 = bVar.b(this.s.B(), this.s.Q0());
                 if (b2 != null) {
                     for (com.ss.android.socialbase.downloader.model.b bVar3 : b2) {
@@ -1754,15 +1758,15 @@ public class c implements f, Runnable {
 
     @Override // d.o.a.e.b.k.f
     public boolean a(BaseException baseException) {
-        if (this.N == null || !d.o.a.e.b.l.e.P0(baseException) || this.f67092h.get() >= this.s.B0()) {
+        if (this.N == null || !d.o.a.e.b.l.e.P0(baseException) || this.f67097h.get() >= this.s.B0()) {
             if (d.o.a.e.b.l.e.e0(baseException)) {
-                if (this.k && !this.f67091g) {
+                if (this.k && !this.f67096g) {
                     d.o.a.e.b.l.e.u(this.s);
-                    this.f67091g = true;
+                    this.f67096g = true;
                 }
                 return true;
             }
-            AtomicInteger atomicInteger = this.f67092h;
+            AtomicInteger atomicInteger = this.f67097h;
             if ((atomicInteger == null || atomicInteger.get() <= 0) && !this.s.W0()) {
                 if (baseException == null) {
                     return false;

@@ -3,27 +3,27 @@ package com.baidu.platform.comapi.wnplatform.o;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static o f10378a;
+    public static o f10379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10379b;
+    public String f10380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10380c;
+    public String f10381c;
 
     public static synchronized o a() {
         o oVar;
         synchronized (o.class) {
-            if (f10378a == null) {
-                f10378a = new o();
+            if (f10379a == null) {
+                f10379a = new o();
             }
-            oVar = f10378a;
+            oVar = f10379a;
         }
         return oVar;
     }
 
     public void b() {
-        this.f10380c = "";
-        this.f10379b = "";
+        this.f10381c = "";
+        this.f10380b = "";
     }
 }

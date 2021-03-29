@@ -49,7 +49,7 @@ public enum SerializerFeature {
         if (z) {
             return i | serializerFeature.mask;
         }
-        return i & (serializerFeature.mask ^ (-1));
+        return i & (~serializerFeature.mask);
     }
 
     public static boolean isEnabled(int i, SerializerFeature serializerFeature) {

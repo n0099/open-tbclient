@@ -27,25 +27,25 @@ public class f {
     public static final String A = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7886b;
+    public static String f7887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7887c;
+    public static String f7888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7888d;
+    public static String f7889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f7889e;
+    public static String f7890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f7890f;
+    public static int f7891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f7891g;
+    public static int f7892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f7892h;
+    public static int f7893h;
     public static int i;
     public static int j;
     public static int k;
@@ -58,7 +58,7 @@ public class f {
     public static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7885a = "02";
+    public static String f7886a = "02";
     public static String n = "baidu";
     public static String o = "baidu";
     public static String p = "";
@@ -100,7 +100,7 @@ public class f {
     public static Bundle b() {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f7885a);
+        bundle.putString("resid", f7886a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
@@ -145,9 +145,9 @@ public class f {
         if (context.getCacheDir() != null) {
             t = context.getCacheDir().getAbsolutePath();
         }
-        f7887c = Build.MODEL;
-        f7888d = "Android" + Build.VERSION.SDK;
-        f7886b = context.getPackageName();
+        f7888c = Build.MODEL;
+        f7889d = "Android" + Build.VERSION.SDK;
+        f7887b = context.getPackageName();
         c(context);
         d(context);
         e(context);
@@ -157,7 +157,7 @@ public class f {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
                 E = locationManager.isProviderEnabled("network") ? 1 : 0;
-                F.put("resid", AppMD5.encodeUrlParamsValue(f7885a));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f7886a));
                 Map<String, String> map2 = F;
                 str6 = AppMD5.encodeUrlParamsValue(m());
                 map2.put("channel", str6);
@@ -181,7 +181,7 @@ public class f {
                 format = String.format("%d,%d", Integer.valueOf(h()), obj);
             } catch (Exception unused) {
                 Log.w("baidumapsdk", "LocationManager error");
-                F.put("resid", AppMD5.encodeUrlParamsValue(f7885a));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f7886a));
                 Map<String, String> map7 = F;
                 str6 = AppMD5.encodeUrlParamsValue(m());
                 map7.put("channel", str6);
@@ -211,7 +211,7 @@ public class f {
                 aVar.a();
             }
         } catch (Throwable th) {
-            F.put(str6, AppMD5.encodeUrlParamsValue(f7885a));
+            F.put(str6, AppMD5.encodeUrlParamsValue(f7886a));
             F.put(str5, AppMD5.encodeUrlParamsValue(m()));
             F.put(str4, AppMD5.encodeUrlParamsValue(g()));
             F.put(obj2, AppMD5.encodeUrlParamsValue(i()));
@@ -225,16 +225,12 @@ public class f {
     }
 
     public static String c() {
-        Date date;
         if (F == null) {
             return null;
         }
-        long time = new Date().getTime() + (date.getSeconds() * 1000);
-        double d2 = time / 1000;
-        double d3 = time % 1000;
-        Double.isNaN(d3);
-        Double.isNaN(d2);
-        F.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf(d2 + (d3 / 1000.0d)))));
+        Date date = new Date();
+        long time = date.getTime() + (date.getSeconds() * 1000);
+        F.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf((time / 1000) + ((time % 1000) / 1000.0d)))));
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : F.entrySet()) {
             sb.append("&");
@@ -249,14 +245,14 @@ public class f {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             String apiVersion = VersionInfo.getApiVersion();
-            f7889e = apiVersion;
+            f7890e = apiVersion;
             if (apiVersion != null && !apiVersion.equals("")) {
-                f7889e = f7889e.replace('_', IStringUtil.EXTENSION_SEPARATOR);
+                f7890e = f7890e.replace('_', IStringUtil.EXTENSION_SEPARATOR);
             }
-            f7890f = packageInfo.versionCode;
+            f7891f = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException unused) {
-            f7889e = BuildConfig.VERSION_NAME;
-            f7890f = 1;
+            f7890e = BuildConfig.VERSION_NAME;
+            f7891f = 1;
         }
     }
 
@@ -272,8 +268,8 @@ public class f {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         Display defaultDisplay = windowManager != null ? windowManager.getDefaultDisplay() : null;
         if (defaultDisplay != null) {
-            f7891g = defaultDisplay.getWidth();
-            f7892h = defaultDisplay.getHeight();
+            f7892g = defaultDisplay.getWidth();
+            f7893h = defaultDisplay.getHeight();
             defaultDisplay.getMetrics(displayMetrics);
         }
         y = displayMetrics.density;
@@ -306,7 +302,7 @@ public class f {
         }
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f7885a);
+        bundle.putString("resid", f7886a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
@@ -334,23 +330,23 @@ public class f {
     }
 
     public static String g() {
-        return f7887c;
+        return f7888c;
     }
 
     public static int h() {
-        return f7891g;
+        return f7892g;
     }
 
     public static String i() {
-        return f7889e;
+        return f7890e;
     }
 
     public static int j() {
-        return f7892h;
+        return f7893h;
     }
 
     public static String k() {
-        return f7888d;
+        return f7889d;
     }
 
     public static int l() {

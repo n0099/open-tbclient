@@ -10,11 +10,11 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.k;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43563a = k.f45050a;
+    public static final boolean f43564a = k.f45051a;
 
     public c(@NonNull String str) {
     }
@@ -31,7 +31,7 @@ public abstract class c {
     }
 
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (f43563a) {
+        if (f43564a) {
             Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);

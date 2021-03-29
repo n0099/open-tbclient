@@ -29,28 +29,28 @@ import tbclient.PbPage.PbSortType;
 public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19762a;
+    public int f19763a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19763b;
+    public View f19764b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextLineView f19764c;
+    public TextLineView f19765c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextLineView f19765d;
+    public TextLineView f19766d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SortSwitchButton f19766e;
+    public SortSwitchButton f19767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19767f;
+    public TextView f19768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f19768g;
+    public View f19769g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f19769h;
+    public View f19770h;
     public View i;
     public TextLineView j;
     public View k;
@@ -141,8 +141,8 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (PbReplyTitleViewHolder.this.q != null && PbReplyTitleViewHolder.this.q.f52454f == o.l && customResponsedMessage != null && getTag() == PbReplyTitleViewHolder.this.r && (customResponsedMessage.getData() instanceof q0.d0)) {
-                ((q0.d0) customResponsedMessage.getData()).f52784c = PbReplyTitleViewHolder.this;
+            if (PbReplyTitleViewHolder.this.q != null && PbReplyTitleViewHolder.this.q.f52455f == o.l && customResponsedMessage != null && getTag() == PbReplyTitleViewHolder.this.r && (customResponsedMessage.getData() instanceof q0.d0)) {
+                ((q0.d0) customResponsedMessage.getData()).f52785c = PbReplyTitleViewHolder.this;
             }
         }
     }
@@ -156,14 +156,14 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (PbReplyTitleViewHolder.this.q == null || PbReplyTitleViewHolder.this.q.f52454f != o.m || customResponsedMessage == null || getTag() != PbReplyTitleViewHolder.this.s || !(customResponsedMessage.getData() instanceof q0.d0)) {
+            if (PbReplyTitleViewHolder.this.q == null || PbReplyTitleViewHolder.this.q.f52455f != o.m || customResponsedMessage == null || getTag() != PbReplyTitleViewHolder.this.s || !(customResponsedMessage.getData() instanceof q0.d0)) {
             }
         }
     }
 
     public PbReplyTitleViewHolder(TbPageContext tbPageContext, View view) {
         super(view);
-        this.f19762a = 3;
+        this.f19763a = 3;
         this.u = true;
         this.v = new a();
         this.w = new d();
@@ -172,11 +172,11 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return;
         }
-        this.f19763b = view;
+        this.f19764b = view;
         this.t = tbPageContext;
         view.setOnClickListener(new b(this));
         TextLineView textLineView = (TextLineView) view.findViewById(R.id.reply_title);
-        this.f19764c = textLineView;
+        this.f19765c = textLineView;
         textLineView.setOnClickListener(this.w);
         this.i = view.findViewById(R.id.reply_god_title_group);
         TextLineView textLineView2 = (TextLineView) view.findViewById(R.id.reply_god_title);
@@ -186,22 +186,22 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         this.k = view.findViewById(R.id.reply_all_title);
         this.m = (TextView) view.findViewById(R.id.reply_title_dynamic);
         TextLineView textLineView3 = (TextLineView) view.findViewById(R.id.floor_owner_reply);
-        this.f19765d = textLineView3;
+        this.f19766d = textLineView3;
         textLineView3.setOnClickListener(this.w);
         SortSwitchButton sortSwitchButton = (SortSwitchButton) view.findViewById(R.id.pb_sort_switch_btn);
-        this.f19766e = sortSwitchButton;
+        this.f19767e = sortSwitchButton;
         sortSwitchButton.setOnSwitchChangeListener(this.v);
-        this.f19766e.setVisibility(0);
-        this.f19767f = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
-        this.f19764c.setSelected(true);
-        this.f19765d.setSelected(false);
+        this.f19767e.setVisibility(0);
+        this.f19768f = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
+        this.f19765c.setSelected(true);
+        this.f19766d.setSelected(false);
         ArrayList arrayList = new ArrayList();
         this.n = arrayList;
-        arrayList.add(this.f19764c);
-        this.n.add(this.f19765d);
-        this.f19768g = view.findViewById(R.id.divider_with_reply_title);
-        this.f19769h = view.findViewById(R.id.divider_bottom);
-        this.f19766e.u(2);
+        arrayList.add(this.f19765c);
+        this.n.add(this.f19766d);
+        this.f19769g = view.findViewById(R.id.divider_with_reply_title);
+        this.f19770h = view.findViewById(R.id.divider_bottom);
+        this.f19767e.u(2);
         l(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -210,40 +210,40 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         if (oVar == null) {
             return;
         }
-        BdUniqueId bdUniqueId = oVar.f52454f;
+        BdUniqueId bdUniqueId = oVar.f52455f;
         if (bdUniqueId == o.m) {
             this.i.getContext();
-            if (TextUtils.isEmpty(oVar.f52453e)) {
+            if (TextUtils.isEmpty(oVar.f52454e)) {
                 this.l.setVisibility(0);
                 this.i.setVisibility(8);
-                this.f19764c.setVisibility(0);
-                this.f19764c.setSelected(false);
-                this.f19764c.setClickable(false);
-                this.f19764c.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
+                this.f19765c.setVisibility(0);
+                this.f19765c.setSelected(false);
+                this.f19765c.setClickable(false);
+                this.f19765c.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
             } else {
                 this.l.setVisibility(8);
-                this.f19764c.setVisibility(8);
+                this.f19765c.setVisibility(8);
                 this.i.setVisibility(0);
                 this.i.setOnClickListener(new c());
             }
-            this.f19766e.setVisibility(8);
-            this.f19765d.setVisibility(8);
-            this.f19769h.setVisibility(8);
+            this.f19767e.setVisibility(8);
+            this.f19766d.setVisibility(8);
+            this.f19770h.setVisibility(8);
         } else if (bdUniqueId == o.l) {
             this.i.setVisibility(8);
             this.l.setVisibility(0);
-            this.f19764c.setClickable(true);
-            this.f19764c.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-            this.f19765d.setVisibility(0);
-            i(oVar.f52456h);
+            this.f19765c.setClickable(true);
+            this.f19765c.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+            this.f19766d.setVisibility(0);
+            i(oVar.f52457h);
             if (oVar.k != null) {
-                this.f19766e.setVisibility(0);
+                this.f19767e.setVisibility(0);
                 int i = 0;
                 while (true) {
                     if (i >= oVar.k.size()) {
                         i = 0;
                         break;
-                    } else if (oVar.k.get(i) != null && oVar.f52455g == oVar.k.get(i).sort_type.intValue()) {
+                    } else if (oVar.k.get(i) != null && oVar.f52456g == oVar.k.get(i).sort_type.intValue()) {
                         break;
                     } else {
                         i++;
@@ -251,13 +251,13 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 }
                 k(oVar.k, i);
             }
-            this.f19769h.setVisibility(0);
+            this.f19770h.setVisibility(0);
         }
         if (this.u) {
-            this.f19769h.getLayoutParams().height = l.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            this.f19770h.getLayoutParams().height = l.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0207);
         } else {
-            this.f19769h.getLayoutParams().height = 0;
+            this.f19770h.getLayoutParams().height = 0;
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0205);
         }
         if (oVar.i) {
@@ -272,21 +272,21 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
 
     public void i(boolean z) {
         if (z) {
-            this.f19765d.setSelected(true);
-            this.f19764c.setSelected(false);
+            this.f19766d.setSelected(true);
+            this.f19765c.setSelected(false);
             return;
         }
-        this.f19765d.setSelected(false);
-        this.f19764c.setSelected(true);
+        this.f19766d.setSelected(false);
+        this.f19765c.setSelected(true);
     }
 
     public View j() {
-        return this.f19763b;
+        return this.f19764b;
     }
 
     public void k(List<PbSortType> list, int i) {
         if (ListUtils.isEmpty(list)) {
-            this.f19766e.setVisibility(8);
+            this.f19767e.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -296,34 +296,34 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             rVar.d(pbSortType.sort_name);
             arrayList.add(rVar);
         }
-        this.f19766e.setVisibility(0);
-        this.f19766e.setData(arrayList, i);
+        this.f19767e.setVisibility(0);
+        this.f19767e.setData(arrayList, i);
     }
 
     public void l(int i) {
-        if (this.f19762a != i) {
+        if (this.f19763a != i) {
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-            this.f19764c.b(i);
-            this.f19765d.b(i);
+            this.f19765c.b(i);
+            this.f19766d.b(i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105);
             o oVar = this.q;
-            if (oVar != null && oVar.f52454f == o.m) {
-                SkinManager.setViewTextColor(this.f19764c, R.color.CAM_X0107, 1);
+            if (oVar != null && oVar.f52455f == o.m) {
+                SkinManager.setViewTextColor(this.f19765c, R.color.CAM_X0107, 1);
             }
-            SkinManager.setViewTextColor(this.f19767f, R.color.CAM_X0107);
-            this.f19767f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-            this.f19766e.F();
-            SkinManager.setBackgroundColor(this.f19768g, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f19768f, R.color.CAM_X0107);
+            this.f19768f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
+            this.f19767e.F();
+            SkinManager.setBackgroundColor(this.f19769g, R.color.CAM_X0204);
             if (this.u) {
-                SkinManager.setBackgroundColor(this.f19769h, R.color.CAM_X0203);
+                SkinManager.setBackgroundColor(this.f19770h, R.color.CAM_X0203);
                 SkinManager.setBackgroundColor(this.l, R.color.CAM_X0207);
             } else {
                 SkinManager.setBackgroundColor(this.l, R.color.CAM_X0205);
             }
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
         }
-        this.f19762a = i;
+        this.f19763a = i;
     }
 
     public void m(BdUniqueId bdUniqueId) {
@@ -349,15 +349,15 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void q(BdUniqueId bdUniqueId) {
-        SortSwitchButton sortSwitchButton = this.f19766e;
+        SortSwitchButton sortSwitchButton = this.f19767e;
         if (sortSwitchButton != null) {
             sortSwitchButton.setListenerTag(bdUniqueId);
-            this.f19766e.setCommenId(bdUniqueId);
+            this.f19767e.setCommenId(bdUniqueId);
         }
     }
 
     public void r(int i) {
-        View view = this.f19763b;
+        View view = this.f19764b;
         if (view != null) {
             view.setVisibility(i);
         }

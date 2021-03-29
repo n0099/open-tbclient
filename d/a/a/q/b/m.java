@@ -6,27 +6,27 @@ import java.util.Collections;
 public class m extends a<PointF, PointF> {
 
     /* renamed from: g  reason: collision with root package name */
-    public final PointF f41303g;
+    public final PointF f41304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a<Float, Float> f41304h;
+    public final a<Float, Float> f41305h;
     public final a<Float, Float> i;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
-        this.f41303g = new PointF();
-        this.f41304h = aVar;
+        this.f41304g = new PointF();
+        this.f41305h = aVar;
         this.i = aVar2;
         l(f());
     }
 
     @Override // d.a.a.q.b.a
     public void l(float f2) {
-        this.f41304h.l(f2);
+        this.f41305h.l(f2);
         this.i.l(f2);
-        this.f41303g.set(this.f41304h.h().floatValue(), this.i.h().floatValue());
-        for (int i = 0; i < this.f41288a.size(); i++) {
-            this.f41288a.get(i).a();
+        this.f41304g.set(this.f41305h.h().floatValue(), this.i.h().floatValue());
+        for (int i = 0; i < this.f41289a.size(); i++) {
+            this.f41289a.get(i).a();
         }
     }
 
@@ -41,6 +41,6 @@ public class m extends a<PointF, PointF> {
     @Override // d.a.a.q.b.a
     /* renamed from: o */
     public PointF i(d.a.a.w.a<PointF> aVar, float f2) {
-        return this.f41303g;
+        return this.f41304g;
     }
 }

@@ -12,28 +12,28 @@ public class h {
     public static String C = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41514a = -100000000;
+    public static int f41515a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f41515b = (-100000000) - 200;
+    public static final int f41516b = (-100000000) - 200;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f41516c = (-100000000) - 211;
+    public static final int f41517c = (-100000000) - 211;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f41517d = (-100000000) - 213;
+    public static final int f41518d = (-100000000) - 213;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f41518e = (-100000000) - 214;
+    public static final int f41519e = (-100000000) - 214;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f41519f = (-100000000) - 221;
+    public static final int f41520f = (-100000000) - 221;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f41520g = (-100000000) - 230;
+    public static final int f41521g = (-100000000) - 230;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f41521h = (-100000000) - 232;
+    public static final int f41522h = (-100000000) - 232;
     public static final int i = (-100000000) - 233;
     public static final int j = (-100000000) - 234;
     public static final int k = (-100000000) - 235;
@@ -53,7 +53,7 @@ public class h {
     public static final int y = (-100000000) - 310;
     public static final int z = (-100000000) - 311;
     public static final int A = (-100000000) - 400;
-    public static int[] D = d.b.b.c.c.f41483a;
+    public static int[] D = d.b.b.c.c.f41484a;
     public static ArrayList<BasicNameValuePair> E = null;
 
     public static String a() {
@@ -92,7 +92,7 @@ public class h {
     }
 
     public static String i(int i2) {
-        int i3 = f41514a - i2;
+        int i3 = f41515a - i2;
         Application app = BdBaseApplication.getInst().getApp();
         if (i3 > -300 && i3 <= -200) {
             return app.getString(R.string.im_error_codec);

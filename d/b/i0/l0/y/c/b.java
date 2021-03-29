@@ -7,13 +7,13 @@ import d.b.b.j.e.n;
 public class b implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f56682f = BdUniqueId.gen();
+    public static final BdUniqueId f56683f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionPackageData f56683e;
+    public EmotionPackageData f56684e;
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f56682f;
+        return f56683f;
     }
 }

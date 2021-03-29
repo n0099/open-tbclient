@@ -51,16 +51,16 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public View.OnClickListener J;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13327e;
+    public int f13328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f13328f;
+    public TbPageContext f13329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBLottieAnimationView f13329g;
+    public TBLottieAnimationView f13330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f13330h;
+    public TextView f13331h;
     public TBLottieAnimationView i;
     public TextView j;
     public AgreeData k;
@@ -93,8 +93,8 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                 return;
             }
             e eVar = (e) customResponsedMessage.getData();
-            AgreeData agreeData = eVar.f53376b;
-            if (AgreeView.this.k == null || agreeData == null || AgreeView.this.l == null || AgreeView.this.k.isInPost || AgreeView.this.l.f53375a == eVar.f53375a) {
+            AgreeData agreeData = eVar.f53377b;
+            if (AgreeView.this.k == null || agreeData == null || AgreeView.this.l == null || AgreeView.this.k.isInPost || AgreeView.this.l.f53376a == eVar.f53376a) {
                 return;
             }
             String str = agreeData.nid;
@@ -127,7 +127,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                 return;
             }
             e eVar = (e) customResponsedMessage.getData();
-            AgreeData agreeData = eVar.f53376b;
+            AgreeData agreeData = eVar.f53377b;
             if (AgreeView.this.k == null || TextUtils.isEmpty(AgreeView.this.k.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !AgreeView.this.k.postId.equals(agreeData.postId) || AgreeView.this.k.isInThread) {
                 return;
             }
@@ -135,7 +135,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                 if (AgreeView.this.k.indexOfPic == agreeData.indexOfPic) {
                     return;
                 }
-            } else if (AgreeView.this.l.f53375a == eVar.f53375a) {
+            } else if (AgreeView.this.l.f53376a == eVar.f53376a) {
                 return;
             }
             AgreeView.this.x(agreeData);
@@ -166,7 +166,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
 
     public AgreeView(Context context) {
         super(context);
-        this.f13327e = 3;
+        this.f13328e = 3;
         this.s = R.raw.lottie_agree;
         this.t = R.raw.lottie_disagree;
         this.u = R.color.CAM_X0107;
@@ -203,9 +203,9 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public void g() {
         int g2 = l.g(getContext(), R.dimen.tbds120);
         removeAllViews();
-        w(this.f13329g);
+        w(this.f13330g);
         w(this.i);
-        w(this.f13330h);
+        w(this.f13331h);
         w(this.j);
         LinearLayout linearLayout = new LinearLayout(getContext());
         linearLayout.setOrientation(1);
@@ -215,11 +215,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         layoutParams.weight = 0.5f;
         linearLayout.setLayoutParams(layoutParams);
         addView(linearLayout);
-        linearLayout.addView(this.f13329g, new LinearLayout.LayoutParams(g2, g2));
-        this.f13330h.setTextSize(0, l.g(getContext(), R.dimen.T_X09));
+        linearLayout.addView(this.f13330g, new LinearLayout.LayoutParams(g2, g2));
+        this.f13331h.setTextSize(0, l.g(getContext(), R.dimen.T_X09));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.topMargin = -l.g(getContext(), R.dimen.tbds16);
-        linearLayout.addView(this.f13330h, layoutParams2);
+        linearLayout.addView(this.f13331h, layoutParams2);
         LinearLayout linearLayout2 = new LinearLayout(getContext());
         linearLayout2.setOrientation(1);
         linearLayout2.setGravity(1);
@@ -237,7 +237,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public TextView getAgreeNumView() {
-        return this.f13330h;
+        return this.f13331h;
     }
 
     public AgreeData getData() {
@@ -249,7 +249,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public TBLottieAnimationView getImgAgree() {
-        return this.f13329g;
+        return this.f13330g;
     }
 
     public TBLottieAnimationView getImgDisagree() {
@@ -274,19 +274,19 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public TbPageContext getTbPageContext() {
-        if (this.f13328f == null) {
+        if (this.f13329f == null) {
             Context context = getContext();
             if (context instanceof BaseActivity) {
-                this.f13328f = ((BaseActivity) context).getPageContext();
+                this.f13329f = ((BaseActivity) context).getPageContext();
             } else if (context instanceof BaseFragmentActivity) {
-                this.f13328f = ((BaseFragmentActivity) context).getPageContext();
+                this.f13329f = ((BaseFragmentActivity) context).getPageContext();
             }
         }
-        return this.f13328f;
+        return this.f13329f;
     }
 
     public TBLottieAnimationView getmImgAgree() {
-        return this.f13329g;
+        return this.f13330g;
     }
 
     public TBLottieAnimationView getmImgDisagree() {
@@ -297,19 +297,19 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         int g2 = l.g(getContext(), R.dimen.tbds104);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g2);
         layoutParams.gravity = 16;
-        this.f13329g.setLayoutParams(layoutParams);
-        this.f13330h.setTextSize(0, l.g(getContext(), R.dimen.tbfontsize34));
+        this.f13330g.setLayoutParams(layoutParams);
+        this.f13331h.setTextSize(0, l.g(getContext(), R.dimen.tbfontsize34));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         if (z) {
             layoutParams2.leftMargin = -l.g(getContext(), R.dimen.tbds24);
             int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            this.f13330h.setPadding(0, g3, g3 * 3, g3);
+            this.f13331h.setPadding(0, g3, g3 * 3, g3);
             this.E = true;
         } else {
             layoutParams2.leftMargin = -l.g(getContext(), R.dimen.tbds22);
         }
         layoutParams2.gravity = 16;
-        this.f13330h.setLayoutParams(layoutParams2);
+        this.f13331h.setLayoutParams(layoutParams2);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(g2, g2);
         layoutParams3.gravity = 16;
         if (!z) {
@@ -326,13 +326,13 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         layoutParams.gravity = 16;
         layoutParams.rightMargin = -g3;
         layoutParams.topMargin = l.g(getContext(), R.dimen.tbds_2);
-        this.f13329g.setLayoutParams(layoutParams);
-        this.f13330h.setTextSize(0, l.g(getContext(), R.dimen.tbfontsize34));
+        this.f13330g.setLayoutParams(layoutParams);
+        this.f13331h.setTextSize(0, l.g(getContext(), R.dimen.tbfontsize34));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 16;
         layoutParams2.rightMargin = l.g(getContext(), R.dimen.tbds6);
         layoutParams2.topMargin = l.g(getContext(), R.dimen.tbds_2);
-        this.f13330h.setLayoutParams(layoutParams2);
+        this.f13331h.setLayoutParams(layoutParams2);
         this.i.setVisibility(8);
         this.j.setVisibility(8);
     }
@@ -358,10 +358,10 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         }
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
         int i = baijiahaoData != null ? baijiahaoData.oriUgcType : 0;
-        int i2 = this.p.f50761a;
+        int i2 = this.p.f50762a;
         if (i2 != 1) {
             if (i2 == 2) {
-                StatisticItem param = new StatisticItem("c13271").param("obj_type", this.p.f50767g).param("obj_locate", this.p.f50768h).param(TiebaStatic.Params.OBJ_PARAM2, this.q).param("obj_id", this.p.i).param("obj_name", i).param("post_id", this.k.postId).param("nid", this.k.nid);
+                StatisticItem param = new StatisticItem("c13271").param("obj_type", this.p.f50768g).param("obj_locate", this.p.f50769h).param(TiebaStatic.Params.OBJ_PARAM2, this.q).param("obj_id", this.p.i).param("obj_name", i).param("post_id", this.k.postId).param("nid", this.k.nid);
                 a2 a2Var = this.w;
                 if (a2Var != null) {
                     param.param("tid", a2Var.o0()).param("nid", this.w.L0()).param("fid", this.w.c0()).param("card_type", this.x).param("ab_tag", this.w.T0).param("recom_source", this.w.R0).param("weight", this.w.S0).param("extra", this.w.U0);
@@ -422,7 +422,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                 TiebaStatic.log(param);
             }
         } else if (StringUtils.isNull(this.v)) {
-            StatisticItem param2 = new StatisticItem("c12003").param("obj_locate", this.p.f50762b).param("obj_param1", this.p.f50763c).param("obj_source", this.p.f50764d).param("obj_id", this.p.f50765e).param("obj_name", i).param("post_id", this.k.postId);
+            StatisticItem param2 = new StatisticItem("c12003").param("obj_locate", this.p.f50763b).param("obj_param1", this.p.f50764c).param("obj_source", this.p.f50765d).param("obj_id", this.p.f50766e).param("obj_name", i).param("post_id", this.k.postId);
             a2 a2Var2 = this.w;
             if (a2Var2 != null) {
                 param2.param("tid", a2Var2.o0()).param("nid", this.w.L0()).param("fid", this.w.c0()).param("card_type", this.x).param("ab_tag", this.w.T0).param("recom_source", this.w.R0).param("weight", this.w.S0).param("extra", this.w.U0);
@@ -456,8 +456,8 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                     param2.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData3.oriUgcVid);
                 }
             }
-            if (r(this.p.f50762b) && v(this.p.f50766f) != -1) {
-                param2.param(TiebaStatic.Params.OBJ_TO, v(this.p.f50766f));
+            if (r(this.p.f50763b) && v(this.p.f50767f) != -1) {
+                param2.param(TiebaStatic.Params.OBJ_TO, v(this.p.f50767f));
             }
             int i6 = this.A;
             if (i6 == 1 || i6 == 2) {
@@ -504,10 +504,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
 
     public final String l(AgreeData agreeData) {
         long j = agreeData != null ? agreeData.agreeNum : 0L;
-        if (j == 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i == 0) {
             return getContext().getString(R.string.c_agree);
         }
-        if (j > 0) {
+        if (i > 0) {
             return StringHelper.numFormatOverWanNa(j);
         }
         return "-" + StringHelper.numFormatOverWanNa(-j);
@@ -520,15 +521,15 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public final void n(Context context) {
         setOrientation(0);
         TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(context);
-        this.f13329g = tBLottieAnimationView;
+        this.f13330g = tBLottieAnimationView;
         tBLottieAnimationView.setId(R.id.img_agree);
-        this.f13329g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.f13329g.setOnClickListener(this.J);
-        this.f13329g.addAnimatorListener(this);
+        this.f13330g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.f13330g.setOnClickListener(this.J);
+        this.f13330g.addAnimatorListener(this);
         TextView textView = new TextView(context);
-        this.f13330h = textView;
+        this.f13331h = textView;
         textView.setTextSize(0, l.g(context, R.dimen.tbfontsize34));
-        this.f13330h.setOnClickListener(this.J);
+        this.f13331h.setOnClickListener(this.J);
         TBLottieAnimationView tBLottieAnimationView2 = new TBLottieAnimationView(context);
         this.i = tBLottieAnimationView2;
         tBLottieAnimationView2.setId(R.id.img_disagree);
@@ -542,7 +543,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.j.setOnClickListener(this.J);
         e eVar = new e();
         this.l = eVar;
-        eVar.f53375a = getPageId();
+        eVar.f53376a = getPageId();
         this.G = new d.b.h0.r.b0.a();
         o();
         setAgreeAnimationResource();
@@ -553,8 +554,8 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.C = linearLayout;
         linearLayout.setOrientation(0);
         addView(linearLayout);
-        linearLayout.addView(this.f13329g);
-        linearLayout.addView(this.f13330h);
+        linearLayout.addView(this.f13330g);
+        linearLayout.addView(this.f13331h);
         LinearLayout linearLayout2 = new LinearLayout(getContext());
         this.B = linearLayout2;
         linearLayout2.setOrientation(0);
@@ -602,11 +603,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         float f2 = i3;
         layoutParams.weight = f2;
         this.C.setLayoutParams(layoutParams);
-        this.f13329g.setLayoutParams(new LinearLayout.LayoutParams(i, i));
+        this.f13330g.setLayoutParams(new LinearLayout.LayoutParams(i, i));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 16;
         layoutParams2.leftMargin = i5;
-        this.f13330h.setLayoutParams(layoutParams2);
+        this.f13331h.setLayoutParams(layoutParams2);
         this.B.setGravity(i4);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(i2, -1);
         layoutParams3.weight = f2;
@@ -625,7 +626,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public void s() {
-        u(this.f13329g);
+        u(this.f13330g);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -647,7 +648,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public void setAgreeAnimationResource() {
-        SkinManager.setLottieAnimation(this.f13329g, this.s);
+        SkinManager.setLottieAnimation(this.f13330g, this.s);
         SkinManager.setLottieAnimation(this.i, this.t);
     }
 
@@ -691,7 +692,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
 
     public void setNormalColorResourceId(int i) {
         this.u = i;
-        setTextNormalColor(this.f13330h);
+        setTextNormalColor(this.f13331h);
         setTextNormalColor(this.j);
     }
 
@@ -722,11 +723,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public void t(int i) {
-        if (this.k == null || this.f13327e == i) {
+        if (this.k == null || this.f13328e == i) {
             return;
         }
-        this.f13327e = i;
-        SkinManager.setLottieAnimation(this.f13329g, this.s);
+        this.f13328e = i;
+        SkinManager.setLottieAnimation(this.f13330g, this.s);
         SkinManager.setLottieAnimation(this.i, this.t);
         y();
     }
@@ -737,14 +738,14 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         }
         if (!this.n || f.a(getContext())) {
             if (this.n || ViewHelper.checkUpIsLogin(getContext())) {
-                if (view != this.f13330h || this.E) {
+                if (view != this.f13331h || this.E) {
                     int i = 0;
-                    if (view.getId() != this.f13329g.getId() && (!this.E || view.getId() != this.f13330h.getId())) {
+                    if (view.getId() != this.f13330g.getId() && (!this.E || view.getId() != this.f13331h.getId())) {
                         if (view.getId() == this.i.getId()) {
                             this.i.cancelAnimation();
                             d.b.h0.r.q.e eVar = this.p;
                             if (eVar != null) {
-                                eVar.f50761a = 2;
+                                eVar.f50762a = 2;
                             }
                             AgreeData agreeData = this.k;
                             if (agreeData.hasAgree) {
@@ -783,10 +784,10 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                             this.G.c(this.k, i, getPageId(), this.n);
                         }
                     } else {
-                        this.f13329g.cancelAnimation();
+                        this.f13330g.cancelAnimation();
                         d.b.h0.r.q.e eVar5 = this.p;
                         if (eVar5 != null) {
-                            eVar5.f50761a = 1;
+                            eVar5.f50762a = 1;
                         }
                         AgreeData agreeData2 = this.k;
                         if (agreeData2.hasAgree) {
@@ -797,7 +798,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 y();
                                 d.b.h0.r.q.e eVar6 = this.p;
                                 if (eVar6 != null) {
-                                    eVar6.f50765e = 1;
+                                    eVar6.f50766e = 1;
                                 }
                                 i = 1;
                             } else {
@@ -808,7 +809,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 d.b.i0.q2.a.g().l(getTbPageContext());
                                 d.b.h0.r.q.e eVar7 = this.p;
                                 if (eVar7 != null) {
-                                    eVar7.f50765e = 0;
+                                    eVar7.f50766e = 0;
                                 }
                             }
                         } else {
@@ -819,7 +820,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                             d.b.i0.q2.a.g().l(getTbPageContext());
                             d.b.h0.r.q.e eVar8 = this.p;
                             if (eVar8 != null) {
-                                eVar8.f50765e = 0;
+                                eVar8.f50766e = 0;
                             }
                         }
                         d.b.h0.i0.c f3 = TbPageExtraHelper.f(this);
@@ -858,61 +859,61 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public void y() {
-        this.f13330h.setText(m(this.k));
+        this.f13331h.setText(m(this.k));
         AgreeData agreeData = this.k;
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 2) {
                 this.i.setProgress(0.0f);
-                this.f13329g.setProgress(1.0f);
-                this.f13330h.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                this.f13330g.setProgress(1.0f);
+                this.f13331h.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 setTextNormalColor(this.j);
                 return;
             }
-            this.f13329g.setProgress(0.0f);
+            this.f13330g.setProgress(0.0f);
             this.i.setProgress(1.0f);
-            setTextNormalColor(this.f13330h);
+            setTextNormalColor(this.f13331h);
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
             return;
         }
-        this.f13329g.setProgress(0.0f);
+        this.f13330g.setProgress(0.0f);
         this.i.setProgress(0.0f);
-        setTextNormalColor(this.f13330h);
+        setTextNormalColor(this.f13331h);
         setTextNormalColor(this.j);
     }
 
     public void z(boolean z) {
-        this.f13329g.setMinAndMaxProgress(0.0f, 1.0f);
+        this.f13330g.setMinAndMaxProgress(0.0f, 1.0f);
         this.i.setMinAndMaxProgress(0.0f, 1.0f);
-        this.f13330h.setText(m(this.k));
-        this.f13329g.clearColorFilter();
+        this.f13331h.setText(m(this.k));
+        this.f13330g.clearColorFilter();
         this.i.clearColorFilter();
         if (z) {
-            this.f13329g.playAnimation();
+            this.f13330g.playAnimation();
             this.i.cancelAnimation();
             this.i.setFrame(0);
         } else {
             this.i.playAnimation();
-            this.f13329g.cancelAnimation();
-            this.f13329g.setFrame(0);
+            this.f13330g.cancelAnimation();
+            this.f13330g.setFrame(0);
         }
         AgreeData agreeData = this.k;
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 2) {
-                this.f13330h.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                this.f13331h.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 setTextNormalColor(this.j);
                 return;
             }
-            setTextNormalColor(this.f13330h);
+            setTextNormalColor(this.f13331h);
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
             return;
         }
-        setTextNormalColor(this.f13330h);
+        setTextNormalColor(this.f13331h);
         setTextNormalColor(this.j);
     }
 
     public AgreeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13327e = 3;
+        this.f13328e = 3;
         this.s = R.raw.lottie_agree;
         this.t = R.raw.lottie_disagree;
         this.u = R.color.CAM_X0107;
@@ -927,7 +928,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
 
     public AgreeView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13327e = 3;
+        this.f13328e = 3;
         this.s = R.raw.lottie_agree;
         this.t = R.raw.lottie_disagree;
         this.u = R.color.CAM_X0107;

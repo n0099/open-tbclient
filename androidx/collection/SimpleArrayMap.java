@@ -233,7 +233,7 @@ public class SimpleArrayMap<K, V> {
                     return i4;
                 }
             }
-            return i3 ^ (-1);
+            return ~i3;
         }
         return binarySearchHashes;
     }
@@ -261,7 +261,7 @@ public class SimpleArrayMap<K, V> {
                     return i3;
                 }
             }
-            return i2 ^ (-1);
+            return ~i2;
         }
         return binarySearchHashes;
     }
@@ -313,7 +313,7 @@ public class SimpleArrayMap<K, V> {
             objArr[i3] = v;
             return v2;
         }
-        int i4 = indexOf ^ (-1);
+        int i4 = ~indexOf;
         if (i2 >= this.mHashes.length) {
             int i5 = 4;
             if (i2 >= 8) {

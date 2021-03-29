@@ -22,14 +22,14 @@ import java.io.FileReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f11758a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
+    public static final String[] f11759a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11759b = "";
+    public static String f11760b = "";
 
     public static void a(Context context) {
         try {
@@ -51,22 +51,22 @@ public final class f {
     public static synchronized String b(Context context) {
         synchronized (f.class) {
             try {
-                if (!TextUtils.isEmpty(f11759b)) {
-                    return f11759b;
+                if (!TextUtils.isEmpty(f11760b)) {
+                    return f11760b;
                 }
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                 String m = eVar.m();
                 if (!TextUtils.isEmpty(m)) {
                     String f2 = d.f(m);
                     if (!TextUtils.isEmpty(f2)) {
-                        f11759b = f2;
+                        f11760b = f2;
                         return f2;
                     }
                 }
                 String l = eVar.l();
                 if (!TextUtils.isEmpty(l)) {
                     eVar.b(new String(Base64.encode(a.a("30212102dicudiab".getBytes(), l.getBytes("UTF-8")), 10), "UTF-8"));
-                    f11759b = l;
+                    f11760b = l;
                     return l;
                 }
                 String i = i(context);
@@ -80,10 +80,10 @@ public final class f {
                 if (TextUtils.isEmpty(l2)) {
                     eVar.a(str);
                     eVar.b(str2);
-                    f11759b = str;
+                    f11760b = str;
                     return str;
                 }
-                f11759b = l2;
+                f11760b = l2;
                 return l2;
             } catch (Throwable unused) {
                 d.a();
@@ -93,12 +93,12 @@ public final class f {
     }
 
     public static String c(Context context) {
-        if (!TextUtils.isEmpty(f11759b)) {
-            return f11759b;
+        if (!TextUtils.isEmpty(f11760b)) {
+            return f11760b;
         }
         String h2 = h(context);
         if (!TextUtils.isEmpty(h2)) {
-            f11759b = h2;
+            f11760b = h2;
             return h2;
         }
         return b(context);
@@ -107,7 +107,7 @@ public final class f {
     public static String d(Context context) {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String string = eVar.f11729b.getString("sgud", "");
+            String string = eVar.f11730b.getString("sgud", "");
             if (TextUtils.isEmpty(string)) {
                 if (Build.VERSION.SDK_INT > 25) {
                     return "";
@@ -125,8 +125,8 @@ public final class f {
                 if (TextUtils.isEmpty(a2)) {
                     return "";
                 }
-                eVar.f11731d.putString("sgud", a2);
-                eVar.f11731d.commit();
+                eVar.f11732d.putString("sgud", a2);
+                eVar.f11732d.commit();
                 return a2;
             }
             return string;
@@ -136,9 +136,9 @@ public final class f {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0037 A[Catch: all -> 0x0090, TryCatch #1 {all -> 0x0090, blocks: (B:3:0x0002, B:11:0x0023, B:13:0x0037, B:16:0x0062, B:19:0x006e, B:10:0x0020), top: B:25:0x0002 }] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0037 A[Catch: all -> 0x0091, TryCatch #1 {all -> 0x0091, blocks: (B:3:0x0002, B:11:0x0023, B:13:0x0037, B:16:0x0062, B:19:0x006e, B:10:0x0020), top: B:25:0x0002 }] */
     /* JADX WARN: Removed duplicated region for block: B:15:0x0061 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0062 A[Catch: all -> 0x0090, TryCatch #1 {all -> 0x0090, blocks: (B:3:0x0002, B:11:0x0023, B:13:0x0037, B:16:0x0062, B:19:0x006e, B:10:0x0020), top: B:25:0x0002 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0062 A[Catch: all -> 0x0091, TryCatch #1 {all -> 0x0091, blocks: (B:3:0x0002, B:11:0x0023, B:13:0x0037, B:16:0x0062, B:19:0x006e, B:10:0x0020), top: B:25:0x0002 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -236,7 +236,7 @@ public final class f {
                 if (providerInfoArr != null && providerInfoArr.length > 0) {
                     ContentResolver contentResolver = context.getContentResolver();
                     boolean z = false;
-                    for (String str : f11758a) {
+                    for (String str : f11759a) {
                         String str2 = new String(a.a("30212102dicudiab".getBytes(), Base64.decode(str, 10), true), "UTF-8");
                         if (!TextUtils.isEmpty(str2)) {
                             boolean z2 = "sofire".equals(str2) ? true : z;

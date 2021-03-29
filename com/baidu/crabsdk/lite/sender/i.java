@@ -9,19 +9,19 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class i {
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0198 */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00a4: ARRAY_LENGTH  (r4v2 int A[REMOVE]) = (r8v0 byte[]))] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0197 */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00a3: ARRAY_LENGTH  (r4v2 int A[REMOVE]) = (r8v0 byte[]))] */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:100:0x017e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0186 A[Catch: Exception -> 0x0182, TryCatch #13 {Exception -> 0x0182, blocks: (B:65:0x017e, B:69:0x0186, B:71:0x018b, B:73:0x0190), top: B:100:0x017e }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x018b A[Catch: Exception -> 0x0182, TryCatch #13 {Exception -> 0x0182, blocks: (B:65:0x017e, B:69:0x0186, B:71:0x018b, B:73:0x0190), top: B:100:0x017e }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0190 A[Catch: Exception -> 0x0182, TRY_LEAVE, TryCatch #13 {Exception -> 0x0182, blocks: (B:65:0x017e, B:69:0x0186, B:71:0x018b, B:73:0x0190), top: B:100:0x017e }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x01a3 A[Catch: Exception -> 0x019f, TryCatch #6 {Exception -> 0x019f, blocks: (B:79:0x019b, B:83:0x01a3, B:85:0x01a8, B:87:0x01ad), top: B:96:0x019b }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01a8 A[Catch: Exception -> 0x019f, TryCatch #6 {Exception -> 0x019f, blocks: (B:79:0x019b, B:83:0x01a3, B:85:0x01a8, B:87:0x01ad), top: B:96:0x019b }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x01ad A[Catch: Exception -> 0x019f, TRY_LEAVE, TryCatch #6 {Exception -> 0x019f, blocks: (B:79:0x019b, B:83:0x01a3, B:85:0x01a8, B:87:0x01ad), top: B:96:0x019b }] */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x019b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0185 A[Catch: Exception -> 0x0181, TryCatch #13 {Exception -> 0x0181, blocks: (B:65:0x017d, B:69:0x0185, B:71:0x018a, B:73:0x018f), top: B:98:0x017d }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x018a A[Catch: Exception -> 0x0181, TryCatch #13 {Exception -> 0x0181, blocks: (B:65:0x017d, B:69:0x0185, B:71:0x018a, B:73:0x018f), top: B:98:0x017d }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x018f A[Catch: Exception -> 0x0181, TRY_LEAVE, TryCatch #13 {Exception -> 0x0181, blocks: (B:65:0x017d, B:69:0x0185, B:71:0x018a, B:73:0x018f), top: B:98:0x017d }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x01a2 A[Catch: Exception -> 0x019e, TryCatch #6 {Exception -> 0x019e, blocks: (B:79:0x019a, B:83:0x01a2, B:85:0x01a7, B:87:0x01ac), top: B:94:0x019a }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x01a7 A[Catch: Exception -> 0x019e, TryCatch #6 {Exception -> 0x019e, blocks: (B:79:0x019a, B:83:0x01a2, B:85:0x01a7, B:87:0x01ac), top: B:94:0x019a }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x01ac A[Catch: Exception -> 0x019e, TRY_LEAVE, TryCatch #6 {Exception -> 0x019e, blocks: (B:79:0x019a, B:83:0x01a2, B:85:0x01a7, B:87:0x01ac), top: B:94:0x019a }] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x019a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x017d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v24 */
     /* JADX WARN: Type inference failed for: r2v4 */
     /* JADX WARN: Type inference failed for: r2v5 */
@@ -45,7 +45,7 @@ public final class i {
         try {
             URL url = new URL(str2);
             if (com.baidu.crabsdk.lite.a.l != null) {
-                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4714a.get(str);
+                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
                 if (hashMap != null) {
                     Object obj = hashMap.get("domain_proxy");
                     openConnection = obj != null ? url.openConnection((Proxy) obj) : url.openConnection();

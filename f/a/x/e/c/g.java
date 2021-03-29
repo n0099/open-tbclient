@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class g<T> implements o<T>, f.a.t.b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ObservablePublish$InnerDisposable[] f67494h = new ObservablePublish$InnerDisposable[0];
+    public static final ObservablePublish$InnerDisposable[] f67499h = new ObservablePublish$InnerDisposable[0];
     public static final ObservablePublish$InnerDisposable[] i = new ObservablePublish$InnerDisposable[0];
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<g<T>> f67495e;
+    public final AtomicReference<g<T>> f67500e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<ObservablePublish$InnerDisposable<T>[]> f67496f;
+    public final AtomicReference<ObservablePublish$InnerDisposable<T>[]> f67501f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<f.a.t.b> f67497g;
+    public final AtomicReference<f.a.t.b> f67502g;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.observable.ObservablePublish$InnerDisposable<T>[]> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -26,7 +26,7 @@ public final class g<T> implements o<T>, f.a.t.b {
         ObservablePublish$InnerDisposable<T>[] observablePublish$InnerDisposableArr;
         ObservablePublish$InnerDisposable[] observablePublish$InnerDisposableArr2;
         do {
-            observablePublish$InnerDisposableArr = this.f67496f.get();
+            observablePublish$InnerDisposableArr = this.f67501f.get();
             int length = observablePublish$InnerDisposableArr.length;
             if (length == 0) {
                 return;
@@ -47,44 +47,44 @@ public final class g<T> implements o<T>, f.a.t.b {
                 return;
             }
             if (length == 1) {
-                observablePublish$InnerDisposableArr2 = f67494h;
+                observablePublish$InnerDisposableArr2 = f67499h;
             } else {
                 ObservablePublish$InnerDisposable[] observablePublish$InnerDisposableArr3 = new ObservablePublish$InnerDisposable[length - 1];
                 System.arraycopy(observablePublish$InnerDisposableArr, 0, observablePublish$InnerDisposableArr3, 0, i2);
                 System.arraycopy(observablePublish$InnerDisposableArr, i2 + 1, observablePublish$InnerDisposableArr3, i2, (length - i2) - 1);
                 observablePublish$InnerDisposableArr2 = observablePublish$InnerDisposableArr3;
             }
-        } while (!this.f67496f.compareAndSet(observablePublish$InnerDisposableArr, observablePublish$InnerDisposableArr2));
+        } while (!this.f67501f.compareAndSet(observablePublish$InnerDisposableArr, observablePublish$InnerDisposableArr2));
     }
 
     @Override // f.a.t.b
     public void dispose() {
-        ObservablePublish$InnerDisposable<T>[] observablePublish$InnerDisposableArr = this.f67496f.get();
+        ObservablePublish$InnerDisposable<T>[] observablePublish$InnerDisposableArr = this.f67501f.get();
         ObservablePublish$InnerDisposable<T>[] observablePublish$InnerDisposableArr2 = i;
-        if (observablePublish$InnerDisposableArr == observablePublish$InnerDisposableArr2 || this.f67496f.getAndSet(observablePublish$InnerDisposableArr2) == i) {
+        if (observablePublish$InnerDisposableArr == observablePublish$InnerDisposableArr2 || this.f67501f.getAndSet(observablePublish$InnerDisposableArr2) == i) {
             return;
         }
-        this.f67495e.compareAndSet(this, null);
-        DisposableHelper.dispose(this.f67497g);
+        this.f67500e.compareAndSet(this, null);
+        DisposableHelper.dispose(this.f67502g);
     }
 
     @Override // f.a.t.b
     public boolean isDisposed() {
-        return this.f67496f.get() == i;
+        return this.f67501f.get() == i;
     }
 
     @Override // f.a.o
     public void onComplete() {
-        this.f67495e.compareAndSet(this, null);
-        for (ObservablePublish$InnerDisposable<T> observablePublish$InnerDisposable : this.f67496f.getAndSet(i)) {
+        this.f67500e.compareAndSet(this, null);
+        for (ObservablePublish$InnerDisposable<T> observablePublish$InnerDisposable : this.f67501f.getAndSet(i)) {
             observablePublish$InnerDisposable.child.onComplete();
         }
     }
 
     @Override // f.a.o
     public void onError(Throwable th) {
-        this.f67495e.compareAndSet(this, null);
-        ObservablePublish$InnerDisposable<T>[] andSet = this.f67496f.getAndSet(i);
+        this.f67500e.compareAndSet(this, null);
+        ObservablePublish$InnerDisposable<T>[] andSet = this.f67501f.getAndSet(i);
         if (andSet.length != 0) {
             for (ObservablePublish$InnerDisposable<T> observablePublish$InnerDisposable : andSet) {
                 observablePublish$InnerDisposable.child.onError(th);
@@ -96,13 +96,13 @@ public final class g<T> implements o<T>, f.a.t.b {
 
     @Override // f.a.o
     public void onNext(T t) {
-        for (ObservablePublish$InnerDisposable<T> observablePublish$InnerDisposable : this.f67496f.get()) {
+        for (ObservablePublish$InnerDisposable<T> observablePublish$InnerDisposable : this.f67501f.get()) {
             observablePublish$InnerDisposable.child.onNext(t);
         }
     }
 
     @Override // f.a.o
     public void onSubscribe(f.a.t.b bVar) {
-        DisposableHelper.setOnce(this.f67497g, bVar);
+        DisposableHelper.setOnce(this.f67502g, bVar);
     }
 }

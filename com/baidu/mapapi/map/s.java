@@ -13,10 +13,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class s implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ TextureMapView f7096a;
+    public final /* synthetic */ TextureMapView f7097a;
 
     public s(TextureMapView textureMapView) {
-        this.f7096a = textureMapView;
+        this.f7097a = textureMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -35,35 +35,32 @@ public class s implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView;
         TextView textView2;
         ac acVar8;
-        acVar = this.f7096a.f7023b;
+        acVar = this.f7097a.f7024b;
         if (acVar != null) {
-            acVar2 = this.f7096a.f7023b;
+            acVar2 = this.f7097a.f7024b;
             if (acVar2.b() == null) {
                 return;
             }
-            acVar3 = this.f7096a.f7023b;
-            float f3 = acVar3.b().E().f7569a;
-            acVar4 = this.f7096a.f7023b;
-            if (f3 < acVar4.b().f7613b) {
-                acVar8 = this.f7096a.f7023b;
-                f3 = acVar8.b().f7613b;
+            acVar3 = this.f7097a.f7024b;
+            float f3 = acVar3.b().E().f7570a;
+            acVar4 = this.f7097a.f7024b;
+            if (f3 < acVar4.b().f7614b) {
+                acVar8 = this.f7097a.f7024b;
+                f3 = acVar8.b().f7614b;
             } else {
-                acVar5 = this.f7096a.f7023b;
-                if (f3 > acVar5.b().f7612a) {
-                    acVar6 = this.f7096a.f7023b;
-                    f3 = acVar6.b().f7612a;
+                acVar5 = this.f7097a.f7024b;
+                if (f3 > acVar5.b().f7613a) {
+                    acVar6 = this.f7097a.f7024b;
+                    f3 = acVar6.b().f7613a;
                 }
             }
-            f2 = this.f7096a.q;
+            f2 = this.f7097a.q;
             if (Math.abs(f2 - f3) > 0.0f) {
                 sparseArray = TextureMapView.p;
                 int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                double d2 = intValue;
-                acVar7 = this.f7096a.f7023b;
-                double d3 = acVar7.b().E().m;
-                Double.isNaN(d2);
-                imageView = this.f7096a.n;
-                int i = ((int) (d2 / d3)) / 2;
+                acVar7 = this.f7097a.f7024b;
+                imageView = this.f7097a.n;
+                int i = ((int) (intValue / acVar7.b().E().m)) / 2;
                 imageView.setPadding(i, 0, i, 0);
                 Object[] objArr = new Object[1];
                 if (intValue >= 1000) {
@@ -73,14 +70,14 @@ public class s implements com.baidu.mapsdkplatform.comapi.map.l {
                     objArr[0] = Integer.valueOf(intValue);
                     format = String.format(" %d米 ", objArr);
                 }
-                textView = this.f7096a.l;
+                textView = this.f7097a.l;
                 textView.setText(format);
-                textView2 = this.f7096a.m;
+                textView2 = this.f7097a.m;
                 textView2.setText(format);
-                this.f7096a.q = f3;
+                this.f7097a.q = f3;
             }
-            this.f7096a.b();
-            this.f7096a.requestLayout();
+            this.f7097a.b();
+            this.f7097a.requestLayout();
         }
     }
 

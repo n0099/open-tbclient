@@ -3,10 +3,10 @@ package com.baidu.mobads.openad.a;
 public class d extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8400a;
+    public String f8401a;
 
     public d(String str, String str2, String str3) {
         super(str, str2);
-        this.f8400a = str3;
+        this.f8401a = str3;
     }
 }

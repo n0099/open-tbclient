@@ -10,21 +10,21 @@ public class l extends com.kwad.sdk.core.network.d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.f f33809a;
+        public com.kwad.sdk.core.g.a.f f33810a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.c f33810b;
+        public com.kwad.sdk.core.g.a.c f33811b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f33811c;
+        public String f33812c;
     }
 
     public l(a aVar) {
         JSONArray jSONArray = new JSONArray();
-        com.kwad.sdk.utils.o.a(jSONArray, aVar.f33809a.toJson());
+        com.kwad.sdk.utils.o.a(jSONArray, aVar.f33810a.toJson());
         a("impInfo", jSONArray);
-        a("contentInfo", aVar.f33810b);
-        b("photoId", aVar.f33811c);
+        a("contentInfo", aVar.f33811b);
+        b("photoId", aVar.f33812c);
         b("appTag", ae.g(KsAdSDKImpl.get().getContext()));
     }
 

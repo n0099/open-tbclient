@@ -11,23 +11,23 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Uri f62667a;
+    public Uri f62668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62668b;
+    public String f62669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f62669c;
+    public Bundle f62670c;
 
     public e(String str) {
         g(str);
     }
 
     public Bundle a() {
-        if (this.f62669c == null) {
-            this.f62669c = new Bundle();
+        if (this.f62670c == null) {
+            this.f62670c = new Bundle();
         }
-        return this.f62669c;
+        return this.f62670c;
     }
 
     public String b(String str) {
@@ -35,40 +35,40 @@ public class e {
     }
 
     public String c(String str, String str2) {
-        Bundle bundle = this.f62669c;
+        Bundle bundle = this.f62670c;
         return bundle == null ? str2 : bundle.getString(str, str2);
     }
 
     public Uri d() {
-        return this.f62667a;
+        return this.f62668a;
     }
 
     public final boolean e() {
         try {
-            this.f62667a.getScheme();
-            this.f62667a.getHost();
-            String path = this.f62667a.getPath();
-            this.f62668b = path;
-            if (!TextUtils.isEmpty(path) && this.f62668b.endsWith("/")) {
-                this.f62668b = this.f62668b.substring(0, this.f62668b.length() - 1);
+            this.f62668a.getScheme();
+            this.f62668a.getHost();
+            String path = this.f62668a.getPath();
+            this.f62669b = path;
+            if (!TextUtils.isEmpty(path) && this.f62669b.endsWith("/")) {
+                this.f62669b = this.f62669b.substring(0, this.f62669b.length() - 1);
             }
-            Set<String> queryParameterNames = this.f62667a.getQueryParameterNames();
+            Set<String> queryParameterNames = this.f62668a.getQueryParameterNames();
             if (queryParameterNames == null || queryParameterNames.isEmpty()) {
                 return true;
             }
-            if (this.f62669c == null) {
-                this.f62669c = new Bundle();
+            if (this.f62670c == null) {
+                this.f62670c = new Bundle();
             }
             for (String str : queryParameterNames) {
-                String queryParameter = this.f62667a.getQueryParameter(str);
-                this.f62669c.putString(str, queryParameter);
+                String queryParameter = this.f62668a.getQueryParameter(str);
+                this.f62670c.putString(str, queryParameter);
                 if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
                     try {
                         JSONObject jSONObject = new JSONObject(queryParameter);
                         Iterator<String> keys = jSONObject.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();
-                            this.f62669c.putString(next, jSONObject.optString(next, ""));
+                            this.f62670c.putString(next, jSONObject.optString(next, ""));
                         }
                     } catch (Exception e2) {
                         if (BdLog.isDebugMode()) {
@@ -87,7 +87,7 @@ public class e {
     }
 
     public e f(Uri uri) {
-        this.f62667a = uri;
+        this.f62668a = uri;
         if (uri != null) {
             if (BdLog.isDebugMode()) {
                 BdLog.i("builder uri = " + uri);

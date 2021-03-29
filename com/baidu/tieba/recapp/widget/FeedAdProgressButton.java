@@ -24,16 +24,16 @@ import d.b.i0.r2.e0.a;
 public class FeedAdProgressButton extends View implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20902e;
+    public int f20903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20903f;
+    public int f20904f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20904g;
+    public int f20905g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20905h;
+    public int f20906h;
     public int i;
     public int j;
     public int k;
@@ -51,15 +51,15 @@ public class FeedAdProgressButton extends View implements a {
     public FeedAdProgressButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         int i = R.color.CAM_X0901;
-        this.f20902e = i;
-        this.f20903f = R.color.CAM_X0304;
-        this.f20904g = R.color.CAM_X0302;
-        this.f20905h = R.drawable.ad_download_progress_button_bg;
+        this.f20903e = i;
+        this.f20904f = R.color.CAM_X0304;
+        this.f20905g = R.color.CAM_X0302;
+        this.f20906h = R.drawable.ad_download_progress_button_bg;
         this.i = 0;
         this.j = SkinManager.getColor(i);
-        this.k = SkinManager.getColor(this.f20903f);
+        this.k = SkinManager.getColor(this.f20904f);
         this.n = 10.0f;
-        this.o = SkinManager.getColor(this.f20904g);
+        this.o = SkinManager.getColor(this.f20905g);
         this.q = 100;
         this.r = 0;
         this.u = 0;
@@ -68,10 +68,10 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // d.b.i0.r2.e0.a
     public void a() {
-        SkinManager.setBackgroundResource(this, this.f20905h);
-        this.j = SkinManager.getColor(this.f20902e);
-        this.k = SkinManager.getColor(this.f20903f);
-        this.o = SkinManager.getColor(this.f20904g);
+        SkinManager.setBackgroundResource(this, this.f20906h);
+        this.j = SkinManager.getColor(this.f20903e);
+        this.k = SkinManager.getColor(this.f20904f);
+        this.o = SkinManager.getColor(this.f20905g);
     }
 
     public final void b(Canvas canvas) {
@@ -114,10 +114,10 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // d.b.i0.r2.e0.a
     public void d() {
-        SkinManager.setBackgroundResource(this, this.f20905h);
-        this.j = SkinManager.getColor(this.f20902e);
-        this.k = SkinManager.getColor(this.f20903f);
-        this.o = SkinManager.getColor(this.f20904g);
+        SkinManager.setBackgroundResource(this, this.f20906h);
+        this.j = SkinManager.getColor(this.f20903e);
+        this.k = SkinManager.getColor(this.f20904f);
+        this.o = SkinManager.getColor(this.f20905g);
         postInvalidate();
     }
 
@@ -167,7 +167,7 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     public void setBackgroundSkin(@DrawableRes int i) {
-        this.f20905h = i;
+        this.f20906h = i;
     }
 
     @Override // d.b.i0.r2.e0.a
@@ -214,7 +214,7 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     public void setTextColorInitSkin(@ColorRes int i) {
-        this.f20903f = i;
+        this.f20904f = i;
     }
 
     @Override // d.b.i0.r2.e0.a
@@ -227,15 +227,15 @@ public class FeedAdProgressButton extends View implements a {
     public FeedAdProgressButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         int i2 = R.color.CAM_X0901;
-        this.f20902e = i2;
-        this.f20903f = R.color.CAM_X0304;
-        this.f20904g = R.color.CAM_X0302;
-        this.f20905h = R.drawable.ad_download_progress_button_bg;
+        this.f20903e = i2;
+        this.f20904f = R.color.CAM_X0304;
+        this.f20905g = R.color.CAM_X0302;
+        this.f20906h = R.drawable.ad_download_progress_button_bg;
         this.i = 0;
         this.j = SkinManager.getColor(i2);
-        this.k = SkinManager.getColor(this.f20903f);
+        this.k = SkinManager.getColor(this.f20904f);
         this.n = 10.0f;
-        this.o = SkinManager.getColor(this.f20904g);
+        this.o = SkinManager.getColor(this.f20905g);
         this.q = 100;
         this.r = 0;
         this.u = 0;

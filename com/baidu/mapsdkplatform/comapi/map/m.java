@@ -17,29 +17,29 @@ import org.webrtc.EglBase10;
 public class m extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f7650a;
+    public AtomicBoolean f7651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SurfaceTexture f7651b;
+    public SurfaceTexture f7652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f7652c;
+    public a f7653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EGL10 f7653d;
+    public EGL10 f7654d;
 
     /* renamed from: h  reason: collision with root package name */
-    public GL10 f7657h;
+    public GL10 f7658h;
     public final ac k;
 
     /* renamed from: e  reason: collision with root package name */
-    public EGLDisplay f7654e = EGL10.EGL_NO_DISPLAY;
+    public EGLDisplay f7655e = EGL10.EGL_NO_DISPLAY;
 
     /* renamed from: f  reason: collision with root package name */
-    public EGLContext f7655f = EGL10.EGL_NO_CONTEXT;
+    public EGLContext f7656f = EGL10.EGL_NO_CONTEXT;
 
     /* renamed from: g  reason: collision with root package name */
-    public EGLSurface f7656g = EGL10.EGL_NO_SURFACE;
+    public EGLSurface f7657g = EGL10.EGL_NO_SURFACE;
     public int i = 1;
     public boolean j = false;
 
@@ -49,44 +49,44 @@ public class m extends Thread {
     }
 
     public m(SurfaceTexture surfaceTexture, a aVar, AtomicBoolean atomicBoolean, ac acVar) {
-        this.f7651b = surfaceTexture;
-        this.f7652c = aVar;
-        this.f7650a = atomicBoolean;
+        this.f7652b = surfaceTexture;
+        this.f7653c = aVar;
+        this.f7651a = atomicBoolean;
         this.k = acVar;
     }
 
     private boolean a(int i, int i2, int i3, int i4, int i5, int i6) {
         EGL10 egl10 = (EGL10) EGLContext.getEGL();
-        this.f7653d = egl10;
+        this.f7654d = egl10;
         EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-        this.f7654e = eglGetDisplay;
+        this.f7655e = eglGetDisplay;
         if (eglGetDisplay == EGL10.EGL_NO_DISPLAY) {
-            throw new RuntimeException("eglGetdisplay failed : " + GLUtils.getEGLErrorString(this.f7653d.eglGetError()));
-        } else if (!this.f7653d.eglInitialize(eglGetDisplay, new int[2])) {
-            throw new RuntimeException("eglInitialize failed : " + GLUtils.getEGLErrorString(this.f7653d.eglGetError()));
+            throw new RuntimeException("eglGetdisplay failed : " + GLUtils.getEGLErrorString(this.f7654d.eglGetError()));
+        } else if (!this.f7654d.eglInitialize(eglGetDisplay, new int[2])) {
+            throw new RuntimeException("eglInitialize failed : " + GLUtils.getEGLErrorString(this.f7654d.eglGetError()));
         } else {
             EGLConfig[] eGLConfigArr = new EGLConfig[100];
             int[] iArr = new int[1];
-            if (!this.f7653d.eglChooseConfig(this.f7654e, new int[]{12352, 4, 12324, i, 12323, i2, 12322, i3, 12321, i4, 12325, i5, 12326, i6, 12344}, eGLConfigArr, 100, iArr) || iArr[0] <= 0) {
+            if (!this.f7654d.eglChooseConfig(this.f7655e, new int[]{12352, 4, 12324, i, 12323, i2, 12322, i3, 12321, i4, 12325, i5, 12326, i6, 12344}, eGLConfigArr, 100, iArr) || iArr[0] <= 0) {
                 return false;
             }
-            this.f7655f = this.f7653d.eglCreateContext(this.f7654e, eGLConfigArr[0], EGL10.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344});
-            EGLSurface eglCreateWindowSurface = this.f7653d.eglCreateWindowSurface(this.f7654e, eGLConfigArr[0], this.f7651b, null);
-            this.f7656g = eglCreateWindowSurface;
-            if (eglCreateWindowSurface == EGL10.EGL_NO_SURFACE || this.f7655f == EGL10.EGL_NO_CONTEXT) {
-                if (this.f7653d.eglGetError() == 12299) {
+            this.f7656f = this.f7654d.eglCreateContext(this.f7655e, eGLConfigArr[0], EGL10.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344});
+            EGLSurface eglCreateWindowSurface = this.f7654d.eglCreateWindowSurface(this.f7655e, eGLConfigArr[0], this.f7652b, null);
+            this.f7657g = eglCreateWindowSurface;
+            if (eglCreateWindowSurface == EGL10.EGL_NO_SURFACE || this.f7656f == EGL10.EGL_NO_CONTEXT) {
+                if (this.f7654d.eglGetError() == 12299) {
                     throw new RuntimeException("eglCreateWindowSurface returned EGL_BAD_NATIVE_WINDOW. ");
                 }
-                GLUtils.getEGLErrorString(this.f7653d.eglGetError());
+                GLUtils.getEGLErrorString(this.f7654d.eglGetError());
             }
-            EGL10 egl102 = this.f7653d;
-            EGLDisplay eGLDisplay = this.f7654e;
-            EGLSurface eGLSurface = this.f7656g;
-            if (egl102.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f7655f)) {
-                this.f7657h = (GL10) this.f7655f.getGL();
+            EGL10 egl102 = this.f7654d;
+            EGLDisplay eGLDisplay = this.f7655e;
+            EGLSurface eGLSurface = this.f7657g;
+            if (egl102.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f7656f)) {
+                this.f7658h = (GL10) this.f7656f.getGL();
                 return true;
             }
-            String eGLErrorString = GLUtils.getEGLErrorString(this.f7653d.eglGetError());
+            String eGLErrorString = GLUtils.getEGLErrorString(this.f7654d.eglGetError());
             throw new RuntimeException("eglMakeCurrent failed : " + eGLErrorString);
         }
     }
@@ -110,26 +110,26 @@ public class m extends Thread {
             a(8, 8, 8, 0, 24, 0);
         }
         MapRenderer.nativeInit(this.k.b().j);
-        MapRenderer.nativeResize(this.k.b().j, ac.f7585a, ac.f7586b);
+        MapRenderer.nativeResize(this.k.b().j, ac.f7586a, ac.f7587b);
     }
 
     private void e() {
-        EGLSurface eGLSurface = this.f7656g;
+        EGLSurface eGLSurface = this.f7657g;
         EGLSurface eGLSurface2 = EGL10.EGL_NO_SURFACE;
         if (eGLSurface != eGLSurface2) {
-            this.f7653d.eglMakeCurrent(this.f7654e, eGLSurface2, eGLSurface2, EGL10.EGL_NO_CONTEXT);
-            this.f7653d.eglDestroySurface(this.f7654e, this.f7656g);
-            this.f7656g = EGL10.EGL_NO_SURFACE;
+            this.f7654d.eglMakeCurrent(this.f7655e, eGLSurface2, eGLSurface2, EGL10.EGL_NO_CONTEXT);
+            this.f7654d.eglDestroySurface(this.f7655e, this.f7657g);
+            this.f7657g = EGL10.EGL_NO_SURFACE;
         }
-        EGLContext eGLContext = this.f7655f;
+        EGLContext eGLContext = this.f7656f;
         if (eGLContext != EGL10.EGL_NO_CONTEXT) {
-            this.f7653d.eglDestroyContext(this.f7654e, eGLContext);
-            this.f7655f = EGL10.EGL_NO_CONTEXT;
+            this.f7654d.eglDestroyContext(this.f7655e, eGLContext);
+            this.f7656f = EGL10.EGL_NO_CONTEXT;
         }
-        EGLDisplay eGLDisplay = this.f7654e;
+        EGLDisplay eGLDisplay = this.f7655e;
         if (eGLDisplay != EGL10.EGL_NO_DISPLAY) {
-            this.f7653d.eglTerminate(eGLDisplay);
-            this.f7654e = EGL10.EGL_NO_DISPLAY;
+            this.f7654d.eglTerminate(eGLDisplay);
+            this.f7655e = EGL10.EGL_NO_DISPLAY;
         }
     }
 
@@ -162,7 +162,7 @@ public class m extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         d();
-        while (this.f7652c != null) {
+        while (this.f7653c != null) {
             if (this.i != 1 || this.j) {
                 try {
                     synchronized (this) {
@@ -177,23 +177,23 @@ public class m extends Thread {
                 synchronized (this.k.b()) {
                     synchronized (this) {
                         if (!this.j) {
-                            this.i = this.f7652c.a();
+                            this.i = this.f7653c.a();
                         }
                     }
-                    if (this.k.b().f7618h != null) {
-                        for (l lVar : this.k.b().f7618h) {
+                    if (this.k.b().f7619h != null) {
+                        for (l lVar : this.k.b().f7619h) {
                             if (lVar != null) {
                                 ab I = this.k.b().I();
-                                if (this.f7657h == null) {
+                                if (this.f7658h == null) {
                                     return;
                                 }
                                 if (lVar != null) {
-                                    lVar.a(this.f7657h, I);
+                                    lVar.a(this.f7658h, I);
                                 }
                             }
                         }
                     }
-                    this.f7653d.eglSwapBuffers(this.f7654e, this.f7656g);
+                    this.f7654d.eglSwapBuffers(this.f7655e, this.f7657g);
                 }
             }
             if (this.j) {

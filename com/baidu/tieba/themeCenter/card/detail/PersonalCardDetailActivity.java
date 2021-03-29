@@ -102,7 +102,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50238a = true;
+            pageStayDurationItem.f50239a = true;
             pageStayDurationItem.i = String.valueOf(this.mCardId);
         }
         return pageStayDurationItem;
@@ -173,9 +173,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i == d.b.i0.i3.c.f56218a) {
+        if (i == d.b.i0.i3.c.f56219a) {
             d.b.i0.i3.b.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-        } else if (i == d.b.i0.i3.c.f56219b) {
+        } else if (i == d.b.i0.i3.c.f56220b) {
             d.b.i0.i3.b.c(getPageContext(), 6, str, i2);
         }
     }

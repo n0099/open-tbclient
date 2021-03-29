@@ -8,7 +8,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class EmotionResourceInfo {
     public static final String JSON_KEY_MAX_HOST_VER = "max_host_ver";
     public static final String JSON_KEY_MIN_HOST_VER = "min_host_ver";

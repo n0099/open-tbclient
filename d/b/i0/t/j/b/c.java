@@ -14,20 +14,20 @@ public class c extends d.b.b.j.e.a<d.b.i0.t.j.d.f, CardViewHolder<d.b.i0.t.j.h.b
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.j.d.f f60819e;
+        public final /* synthetic */ d.b.i0.t.j.d.f f60820e;
 
         public a(d.b.i0.t.j.d.f fVar) {
-            this.f60819e = fVar;
+            this.f60820e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.i0(this.f60819e);
+            c.this.i0(this.f60820e);
         }
     }
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.f.f60865f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.f.f60866f);
         this.m = tbPageContext;
     }
 

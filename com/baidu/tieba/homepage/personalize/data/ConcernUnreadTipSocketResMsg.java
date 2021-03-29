@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import d.b.i0.z0.g.j.e;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public e mData;
 

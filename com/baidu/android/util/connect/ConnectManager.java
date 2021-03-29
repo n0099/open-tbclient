@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.webkit.internal.ConectivityUtils;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ConnectManager {
     public static final boolean DEBUG = false;
     public static final String TAG = "ConnectManager";

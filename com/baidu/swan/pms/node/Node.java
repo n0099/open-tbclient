@@ -43,7 +43,7 @@ public enum Node {
         try {
             return paramsProvider.newInstance();
         } catch (IllegalAccessException | InstantiationException e2) {
-            if (f.f48888a) {
+            if (f.f48889a) {
                 e2.printStackTrace();
             }
             return null;

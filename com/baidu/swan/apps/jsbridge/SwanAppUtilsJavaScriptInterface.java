@@ -15,9 +15,9 @@ import d.b.g0.a.w0.c.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppUtilsJavaScriptInterface {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
     public static final String KEY_SHARE_FORCE_LIGHT_THEME = "forceLightTheme";
     public static final String KEY_SHARE_SNAPSHOT = "snapshot";
@@ -29,19 +29,19 @@ public class SwanAppUtilsJavaScriptInterface {
     public String mSource = "";
     public d.b.g0.a.e0.k.a mWebView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12230e;
+        public final /* synthetic */ String f12231e;
 
         public a(String str) {
-            this.f12230e = str;
+            this.f12231e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = this.f12230e;
+            String str = this.f12231e;
             if (!str.startsWith("javascript:")) {
                 str = "javascript:" + str;
             }
@@ -52,39 +52,39 @@ public class SwanAppUtilsJavaScriptInterface {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f12232a;
+        public final /* synthetic */ String f12233a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f12233b;
+        public final /* synthetic */ String f12234b;
 
         public b(String str, String str2) {
-            this.f12232a = str;
-            this.f12233b = str2;
+            this.f12233a = str;
+            this.f12234b = str2;
         }
 
         @Override // d.b.g0.a.w0.c.i.a
         public void a() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f12233b, String.valueOf(false));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f12234b, String.valueOf(false));
         }
 
         @Override // d.b.g0.a.w0.c.i.a
         public void b() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f12232a, String.valueOf(true));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f12233a, String.valueOf(true));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12235e;
+        public final /* synthetic */ String f12236e;
 
         public c(String str) {
-            this.f12235e = str;
+            this.f12236e = str;
         }
 
         @Override // java.lang.Runnable
@@ -92,7 +92,7 @@ public class SwanAppUtilsJavaScriptInterface {
             if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                 Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
             }
-            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f12235e);
+            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f12236e);
         }
     }
 

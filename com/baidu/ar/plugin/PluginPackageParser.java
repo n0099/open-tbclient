@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PluginPackageParser {
     public final Context mHostContext;
     public final PackageInfo mHostPackageInfo;

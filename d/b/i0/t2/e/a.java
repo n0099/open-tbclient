@@ -9,29 +9,29 @@ import tbclient.GetMoreMsg.MsgContent;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61125a = true;
+    public boolean f61126a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d> f61126b = null;
+    public ArrayList<d> f61127b = null;
 
     public ArrayList<d> a() {
-        return this.f61126b;
+        return this.f61127b;
     }
 
     public boolean b() {
-        return this.f61125a;
+        return this.f61126a;
     }
 
     public void c(DataRes dataRes) {
         if (dataRes != null) {
-            this.f61125a = dataRes.has_more.intValue() == 1;
+            this.f61126a = dataRes.has_more.intValue() == 1;
             List<MsgContent> list = dataRes.msg_content;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            this.f61126b = new ArrayList<>();
+            this.f61127b = new ArrayList<>();
             for (MsgContent msgContent : dataRes.msg_content) {
-                this.f61126b.add(new d(msgContent));
+                this.f61127b.add(new d(msgContent));
             }
         }
     }

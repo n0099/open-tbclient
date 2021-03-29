@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util.videoPreload;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public interface IVideoNeedPreload {
     boolean videoNeedPreload();
 }

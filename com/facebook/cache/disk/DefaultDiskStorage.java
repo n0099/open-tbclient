@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
     public static final String DEFAULT_DISK_STORAGE_VERSION_PREFIX = "v2";
@@ -114,7 +114,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class FileInfo {
         public final String resourceId;
         @FileType
@@ -157,7 +157,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";

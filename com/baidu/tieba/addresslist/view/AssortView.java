@@ -14,13 +14,13 @@ import d.b.h0.s.f.c;
 public class AssortView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f14638e;
+    public Paint f14639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14639f;
+    public int f14640f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f14640g;
+    public a f14641g;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -31,12 +31,12 @@ public class AssortView extends View {
 
     public AssortView(Context context) {
         super(context);
-        this.f14639f = -1;
+        this.f14640f = -1;
         a();
     }
 
     public final void a() {
-        this.f14638e = new Paint();
+        this.f14639e = new Paint();
     }
 
     @Override // android.view.View
@@ -49,19 +49,17 @@ public class AssortView extends View {
         super.onDraw(canvas);
         int height = getHeight();
         int width = getWidth();
-        double d2 = width;
-        Double.isNaN(d2);
-        float f2 = (float) (d2 / 48.0d);
-        String[] strArr = c.f51354a;
+        float f2 = (float) (width / 48.0d);
+        String[] strArr = c.f51355a;
         int length = height / strArr.length;
         int length2 = strArr.length;
         for (int i = 0; i < length2; i++) {
-            this.f14638e.setAntiAlias(true);
-            this.f14638e.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f14638e.setColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.f14638e.setTextSize(26.0f * f2);
-            canvas.drawText(c.f51354a[i], (width / 2.0f) - (this.f14638e.measureText(c.f51354a[i]) / 2.0f), (length * i) + length, this.f14638e);
-            this.f14638e.reset();
+            this.f14639e.setAntiAlias(true);
+            this.f14639e.setTypeface(Typeface.DEFAULT_BOLD);
+            this.f14639e.setColor(SkinManager.getColor(R.color.CAM_X0108));
+            this.f14639e.setTextSize(26.0f * f2);
+            canvas.drawText(c.f51355a[i], (width / 2.0f) - (this.f14639e.measureText(c.f51355a[i]) / 2.0f), (length * i) + length, this.f14639e);
+            this.f14639e.reset();
         }
     }
 
@@ -69,34 +67,34 @@ public class AssortView extends View {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
         float y = motionEvent.getY() / getHeight();
-        String[] strArr = c.f51354a;
+        String[] strArr = c.f51355a;
         int length = (int) (y * strArr.length);
         if (length >= 0 && length < strArr.length) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f14639f = length;
-                a aVar = this.f14640g;
+                this.f14640f = length;
+                a aVar = this.f14641g;
                 if (aVar != null) {
-                    aVar.f0(c.f51354a[length]);
+                    aVar.f0(c.f51355a[length]);
                 }
             } else if (action != 1) {
-                if (action == 2 && this.f14639f != length) {
-                    this.f14639f = length;
-                    a aVar2 = this.f14640g;
+                if (action == 2 && this.f14640f != length) {
+                    this.f14640f = length;
+                    a aVar2 = this.f14641g;
                     if (aVar2 != null) {
-                        aVar2.f0(c.f51354a[length]);
+                        aVar2.f0(c.f51355a[length]);
                     }
                 }
             } else {
-                a aVar3 = this.f14640g;
+                a aVar3 = this.f14641g;
                 if (aVar3 != null) {
                     aVar3.z0();
                 }
-                this.f14639f = -1;
+                this.f14640f = -1;
             }
         } else {
-            this.f14639f = -1;
-            a aVar4 = this.f14640g;
+            this.f14640f = -1;
+            a aVar4 = this.f14641g;
             if (aVar4 != null) {
                 aVar4.z0();
             }
@@ -105,18 +103,18 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.f14640g = aVar;
+        this.f14641g = aVar;
     }
 
     public AssortView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14639f = -1;
+        this.f14640f = -1;
         a();
     }
 
     public AssortView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14639f = -1;
+        this.f14640f = -1;
         a();
     }
 }

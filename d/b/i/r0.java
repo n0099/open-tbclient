@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.i.a;
 import tbclient.VideoInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class r0 extends h {
     public static final int v = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
     public static int w = d.b.b.e.p.l.k(TbadkCoreApplication.getInst());
@@ -25,7 +25,7 @@ public class r0 extends h {
     public int t;
     public d.b.i.v0.a u;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -33,14 +33,14 @@ public class r0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             r0 r0Var = r0.this;
-            a.InterfaceC1115a interfaceC1115a = r0Var.i;
-            if (interfaceC1115a != null) {
-                interfaceC1115a.a(r0Var.p);
+            a.InterfaceC1116a interfaceC1116a = r0Var.i;
+            if (interfaceC1116a != null) {
+                interfaceC1116a.a(r0Var.p);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements d.b.i.v0.a {
         public b() {
         }
@@ -177,8 +177,8 @@ public class r0 extends h {
         this.s = str;
     }
 
-    public void w(a.InterfaceC1115a interfaceC1115a) {
-        this.i = interfaceC1115a;
+    public void w(a.InterfaceC1116a interfaceC1116a) {
+        this.i = interfaceC1116a;
     }
 
     public void x(d.b.i.v0.a aVar) {

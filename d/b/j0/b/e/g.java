@@ -13,16 +13,16 @@ public class g implements Executor {
     public final String i;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63828f = false;
+    public boolean f63829f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63829g = false;
+    public boolean f63830g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63830h = -1;
+    public long f63831h = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f63827e = new LinkedBlockingQueue();
+    public final BlockingQueue<Runnable> f63828e = new LinkedBlockingQueue();
 
     public g(String str) {
         this.i = str;
@@ -35,16 +35,16 @@ public class g implements Executor {
     public void b(int i) throws IOException {
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (!this.f63829g) {
-            if (!this.f63828f) {
-                this.f63828f = true;
-                while (this.f63828f) {
+        if (!this.f63830g) {
+            if (!this.f63829f) {
+                this.f63829f = true;
+                while (this.f63829f) {
                     if (i == 0) {
                         try {
                             c(false, 0L).run();
                         } catch (InterruptedIOException | RuntimeException e2) {
-                            this.f63828f = false;
-                            this.f63829g = true;
+                            this.f63829f = false;
+                            this.f63830g = true;
                             throw e2;
                         }
                     } else {
@@ -62,9 +62,9 @@ public class g implements Executor {
         Runnable poll;
         try {
             if (!z) {
-                poll = this.f63827e.take();
+                poll = this.f63828e.take();
             } else {
-                poll = this.f63827e.poll(j, TimeUnit.NANOSECONDS);
+                poll = this.f63828e.poll(j, TimeUnit.NANOSECONDS);
             }
             if (poll != null) {
                 return poll;
@@ -82,7 +82,7 @@ public class g implements Executor {
     public void execute(Runnable runnable) throws RejectedExecutionException {
         if (runnable != null) {
             try {
-                this.f63827e.put(runnable);
+                this.f63828e.put(runnable);
                 return;
             } catch (InterruptedException e2) {
                 throw new RejectedExecutionException(e2);
@@ -92,6 +92,6 @@ public class g implements Executor {
     }
 
     public void quit() {
-        this.f63828f = false;
+        this.f63829f = false;
     }
 }

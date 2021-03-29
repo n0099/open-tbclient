@@ -6,11 +6,11 @@ import d.b.g0.a.k;
 import d.b.g0.a.r1.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43229a = k.f45050a;
+    public static final boolean f43230a = k.f45051a;
 
     public static boolean a() {
         String V;
@@ -21,7 +21,7 @@ public class d {
         }
         try {
         } catch (JSONException e2) {
-            if (f43229a) {
+            if (f43230a) {
                 e2.printStackTrace();
             }
         }

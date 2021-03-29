@@ -26,13 +26,13 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61677a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+    public String f61678a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f61678b;
+    public BdUniqueId f61679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f61679c;
+    public e f61680c;
 
     /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<c, Integer, d> {
@@ -83,8 +83,8 @@ public class f {
             }
             netWork.addPostData("new_vcode", "1");
             netWork.addPostData("content", cVar.m);
-            netWork.addPostData("fid", cVar.f61670e);
-            netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, cVar.f61671f);
+            netWork.addPostData("fid", cVar.f61671e);
+            netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, cVar.f61672f);
             netWork.addPostData("is_hide", "0");
             netWork.addPostData(IntentConfig.CALL_FROM, "2");
             netWork.addPostData("title", cVar.m);
@@ -92,7 +92,7 @@ public class f {
             netWork.addPostData("st_type", "notitle");
             netWork.addPostData("is_location", "2");
             Address h2 = d.b.b.e.i.a.l().h(false);
-            if (h2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.f61670e)) {
+            if (h2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.f61671e)) {
                 netWork.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
                 netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(h2.getLatitude()));
                 netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(h2.getLongitude()));
@@ -106,13 +106,13 @@ public class f {
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                 netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
-            netWork.addPostData("tbopen_app_key", cVar.f61666a);
-            netWork.addPostData("tbopen_app_icon", cVar.f61669d);
-            netWork.addPostData("tbopen_app_name", cVar.f61668c);
-            netWork.addPostData("share_abstract", cVar.f61673h);
+            netWork.addPostData("tbopen_app_key", cVar.f61667a);
+            netWork.addPostData("tbopen_app_icon", cVar.f61670d);
+            netWork.addPostData("tbopen_app_name", cVar.f61669c);
+            netWork.addPostData("share_abstract", cVar.f61674h);
             netWork.addPostData("share_image", str);
             netWork.addPostData("share_h5_url", cVar.k);
-            netWork.addPostData("share_swan_app_key", cVar.f61667b);
+            netWork.addPostData("share_swan_app_key", cVar.f61668b);
             netWork.addPostData("share_swan_path", cVar.l);
             String postNetData = netWork.postNetData();
             d dVar = new d();
@@ -120,8 +120,8 @@ public class f {
                 JSONObject jSONObject = new JSONObject(postNetData);
                 jSONObject.optString("msg");
                 jSONObject.optString("pre_msg");
-                dVar.f61675b = cVar.f61670e;
-                dVar.f61676c = jSONObject.optString("tid");
+                dVar.f61676b = cVar.f61671e;
+                dVar.f61677c = jSONObject.optString("tid");
                 jSONObject.optString("pid");
                 jSONObject.optString("video_id");
             } catch (Exception unused) {
@@ -136,7 +136,7 @@ public class f {
             if (errorData.error_code != 0 && !j.z()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.f61674a = errorData;
+            dVar.f61675a = errorData;
             try {
                 new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
             } catch (Exception unused2) {
@@ -145,9 +145,9 @@ public class f {
         }
 
         public String c(String str, String str2) {
-            String str3 = f.this.f61677a + str2;
+            String str3 = f.this.f61678a + str2;
             if (str != null) {
-                return f.this.f61677a + str + "/" + str2;
+                return f.this.f61678a + str + "/" + str2;
             }
             return str3;
         }
@@ -156,23 +156,23 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(d dVar) {
-            if (f.this.f61679c != null) {
-                f.this.f61679c.a(dVar);
+            if (f.this.f61680c != null) {
+                f.this.f61680c.a(dVar);
             }
         }
     }
 
     public f(BdUniqueId bdUniqueId) {
-        this.f61678b = bdUniqueId;
+        this.f61679b = bdUniqueId;
     }
 
     public void c(e eVar) {
-        this.f61679c = eVar;
+        this.f61680c = eVar;
     }
 
     public void d(c cVar) {
         b bVar = new b();
-        bVar.setTag(this.f61678b);
+        bVar.setTag(this.f61679b);
         bVar.execute(cVar);
     }
 }

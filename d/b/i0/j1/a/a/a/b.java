@@ -17,7 +17,7 @@ import d.b.h0.c.f;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.h0.c.a {
     @Override // d.b.h0.c.a, d.b.h0.c.d
     public f b(Object obj, HashMap<String, String> hashMap, String str) {
@@ -56,15 +56,15 @@ public class b extends d.b.h0.c.a {
                     alarmManager.cancel(broadcast);
                     broadcast.cancel();
                 }
-                fVar.f50059a = false;
+                fVar.f50060a = false;
             } else {
                 statisticItem.param("obj_type", "1");
                 BdToast.c(context, context.getString(R.string.interview_open_tip)).q();
                 alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
-                fVar.f50059a = true;
+                fVar.f50060a = true;
             }
             TiebaStatic.log(statisticItem);
-            aVar.l(fVar.f50059a);
+            aVar.l(fVar.f50060a);
         }
         return fVar;
     }

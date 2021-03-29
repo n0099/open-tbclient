@@ -2,7 +2,7 @@ package com.baidu.nps.interfa;
 
 import com.baidu.nps.pm.IBundleInfo;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IPackageGetter {
     void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback);
 

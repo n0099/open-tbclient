@@ -10,16 +10,16 @@ import d.b.b.e.p.k;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f50246d;
+    public static e f50247d;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50248b;
+    public int f50249b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50247a = false;
+    public boolean f50248a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50249c = false;
+    public boolean f50250c = false;
 
     /* loaded from: classes3.dex */
     public class a extends d.b.h0.k0.b {
@@ -44,7 +44,7 @@ public class e {
 
         @Override // d.b.h0.k0.b
         public int getMaxCost() {
-            return e.this.f50248b;
+            return e.this.f50249b;
         }
 
         @Override // d.b.h0.k0.b
@@ -54,49 +54,49 @@ public class e {
     }
 
     public static e b() {
-        if (f50246d == null) {
+        if (f50247d == null) {
             synchronized (e.class) {
-                if (f50246d == null) {
-                    f50246d = new e();
+                if (f50247d == null) {
+                    f50247d = new e();
                 }
             }
         }
-        return f50246d;
+        return f50247d;
     }
 
     public int c() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
             return d.b.h0.r.d0.b.i().j("page_stay_max_cost", 0);
         }
-        return this.f50248b;
+        return this.f50249b;
     }
 
     public boolean d() {
-        return this.f50247a;
+        return this.f50248a;
     }
 
     public boolean e() {
-        return this.f50249c;
+        return this.f50250c;
     }
 
     public void f(int i) {
-        this.f50248b = i;
-        d.b.h0.r.d0.b.i().u("page_stay_max_cost", this.f50248b);
+        this.f50249b = i;
+        d.b.h0.r.d0.b.i().u("page_stay_max_cost", this.f50249b);
     }
 
     public void g(boolean z) {
-        this.f50247a = z;
+        this.f50248a = z;
     }
 
     public void h(boolean z) {
-        this.f50249c = z;
+        this.f50250c = z;
     }
 
     public void i(Context context, d dVar, d.b.h0.k0.b bVar) {
         if (dVar == null || StringUtils.isNull(dVar.c())) {
             return;
         }
-        if (dVar.f50238a) {
+        if (dVar.f50239a) {
             if (bVar == null) {
                 bVar = new a(this);
             }

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static final boolean DEBUG = false;
     public static final int MAX_STRING_LENGTH = 256;

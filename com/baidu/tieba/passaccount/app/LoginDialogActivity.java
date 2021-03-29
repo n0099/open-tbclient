@@ -24,44 +24,44 @@ import d.b.b.e.m.e;
 import d.b.b.e.m.h;
 import d.b.h0.b.d;
 import d.b.h0.r.l.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LoginDialogActivity extends SuspendedActivity implements d.b.h0.t0.a {
     public ViewGroup contentView;
     public d.b.i0.a2.c.a dialogControl;
     public String dialogType;
     public String locate;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
-    public final a.InterfaceC1081a mReLoginCallback = new a();
+    public final a.InterfaceC1082a mReLoginCallback = new a();
     public String operator;
     public String phoneNum;
     public String searchUrl;
     public String shareModelJSONStr;
     public String sign;
 
-    /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC1081a {
+    /* loaded from: classes3.dex */
+    public class a implements a.InterfaceC1082a {
         public a() {
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1081a
+        @Override // d.b.h0.r.l.a.InterfaceC1082a
         public void a(String str, int i, String str2) {
             LoginDialogActivity.this.closeLoadingDialog();
             LoginDialogActivity.this.showToast(str2);
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1081a
+        @Override // d.b.h0.r.l.a.InterfaceC1082a
         public void b(String str) {
             LoginDialogActivity.this.showLoading();
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1081a
+        @Override // d.b.h0.r.l.a.InterfaceC1082a
         public void c(AccountData accountData) {
             LoginDialogActivity.this.closeLoadingDialog();
             LoginDialogActivity.this.onLoginSuccess(accountData);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -75,19 +75,19 @@ public class LoginDialogActivity extends SuspendedActivity implements d.b.h0.t0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f19408e;
+        public final /* synthetic */ AccountData f19409e;
 
         public c(AccountData accountData) {
-            this.f19408e = accountData;
+            this.f19409e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.h0.r.l.c.g(this.f19408e);
+            d.b.h0.r.l.c.g(this.f19409e);
             d.b.h0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }

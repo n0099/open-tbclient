@@ -30,29 +30,29 @@ public class e extends d {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47666a;
+        public static final /* synthetic */ int[] f47667a;
 
         static {
             int[] iArr = new int[SwanAppNetworkUtils.NetType.values().length];
-            f47666a = iArr;
+            f47667a = iArr;
             try {
                 iArr[SwanAppNetworkUtils.NetType.WIFI.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._2G.ordinal()] = 2;
+                f47667a[SwanAppNetworkUtils.NetType._2G.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._3G.ordinal()] = 3;
+                f47667a[SwanAppNetworkUtils.NetType._3G.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._4G.ordinal()] = 4;
+                f47667a[SwanAppNetworkUtils.NetType._4G.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._5G.ordinal()] = 5;
+                f47667a[SwanAppNetworkUtils.NetType._5G.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -68,7 +68,7 @@ public class e extends d {
     }
 
     private int f() {
-        int i = a.f47666a[SwanAppNetworkUtils.f().ordinal()];
+        int i = a.f47667a[SwanAppNetworkUtils.f().ordinal()];
         int i2 = 1;
         if (i != 1) {
             i2 = 2;
@@ -105,7 +105,7 @@ public class e extends d {
 
     public final String i() {
         try {
-            String string = Settings.Secure.getString(this.f47658b.getContentResolver(), "android_id");
+            String string = Settings.Secure.getString(this.f47659b.getContentResolver(), "android_id");
             return TextUtils.isEmpty(string) ? UUID.randomUUID().toString() : string;
         } catch (Exception unused) {
             return "";
@@ -132,13 +132,13 @@ public class e extends d {
             jSONObject3.put("os_version", d.b.g0.a.b0.c.g());
             jSONObject3.put("make", d.b.g0.a.b0.c.h());
             jSONObject3.put("model", d.b.g0.a.b0.c.f());
-            jSONObject3.put(KsMediaMeta.KSM_KEY_LANGUAGE, this.f47658b.getResources().getConfiguration().locale.getLanguage());
+            jSONObject3.put(KsMediaMeta.KSM_KEY_LANGUAGE, this.f47659b.getResources().getConfiguration().locale.getLanguage());
             jSONObject3.put("connection_type", f());
-            jSONObject3.put("carrier", l(this.f47658b));
-            jSONObject3.put("mac", k0.A(this.f47658b));
-            jSONObject3.put("screen_width", h0.m(this.f47658b));
-            jSONObject3.put("screen_height", h0.l(this.f47658b));
-            jSONObject3.put("screen_orientation", this.f47658b.getResources().getConfiguration().orientation);
+            jSONObject3.put("carrier", l(this.f47659b));
+            jSONObject3.put("mac", k0.A(this.f47659b));
+            jSONObject3.put("screen_width", h0.m(this.f47659b));
+            jSONObject3.put("screen_height", h0.l(this.f47659b));
+            jSONObject3.put("screen_orientation", this.f47659b.getResources().getConfiguration().orientation);
             jSONObject.put("device", jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("sid", this.i.b());
@@ -205,7 +205,7 @@ public class e extends d {
         if (TextUtils.isEmpty(this.u)) {
             try {
                 try {
-                    this.u = WebSettings.getDefaultUserAgent(this.f47658b);
+                    this.u = WebSettings.getDefaultUserAgent(this.f47659b);
                 } catch (Exception unused) {
                     this.u = "";
                 }

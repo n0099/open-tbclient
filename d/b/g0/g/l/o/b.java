@@ -5,19 +5,19 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48470a;
+    public int f48471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48471b = 0;
+    public int f48472b = 0;
     @V8JavascriptField
     public String errMsg;
 
     public b() {
-        this.f48470a = 0;
-        this.f48470a = 0 + 1;
+        this.f48471a = 0;
+        this.f48471a = 0 + 1;
     }
 
     public String toString() {
-        return "FileSystemJsCallBack" + this.f48471b;
+        return "FileSystemJsCallBack" + this.f48472b;
     }
 }

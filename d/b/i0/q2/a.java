@@ -16,39 +16,39 @@ import d.b.i0.e2.e;
 import d.b.i0.t3.h;
 import java.util.ArrayList;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f59598c;
+    public static a f59599c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59599a = 0;
+    public int f59600a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f59600b;
+    public e f59601b;
 
     /* renamed from: d.b.i0.q2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1489a implements h.g {
+    public class C1490a implements h.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f59601a;
+        public final /* synthetic */ TbPageContext f59602a;
 
-        public C1489a(TbPageContext tbPageContext) {
-            this.f59601a = tbPageContext;
+        public C1490a(TbPageContext tbPageContext) {
+            this.f59602a = tbPageContext;
         }
 
         @Override // d.b.i0.t3.h.g
         public void a(int i) {
-            if (a.this.f59600b == null) {
+            if (a.this.f59601b == null) {
                 return;
             }
-            a.this.f59600b.dismiss();
-            a.this.f59600b = null;
-            a.this.f59599a = i;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", a.this.f59599a));
-            a.this.o(this.f59601a);
+            a.this.f59601b.dismiss();
+            a.this.f59601b = null;
+            a.this.f59600a = i;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", a.this.f59600a));
+            a.this.o(this.f59602a);
         }
     }
 
@@ -56,25 +56,25 @@ public class a {
     public class b implements h.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f59603a;
+        public final /* synthetic */ TbPageContext f59604a;
 
         public b(TbPageContext tbPageContext) {
-            this.f59603a = tbPageContext;
+            this.f59604a = tbPageContext;
         }
 
         @Override // d.b.i0.t3.h.e
         public void onClick() {
-            if (a.this.f59600b == null) {
+            if (a.this.f59601b == null) {
                 return;
             }
-            a.this.f59600b.dismiss();
-            a.this.f59600b = null;
-            if (a.this.f59599a == 1 || a.this.f59599a == 2) {
-                a.this.h(this.f59603a);
+            a.this.f59601b.dismiss();
+            a.this.f59601b = null;
+            if (a.this.f59600a == 1 || a.this.f59600a == 2) {
+                a.this.h(this.f59604a);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
                 return;
             }
-            a.this.i(this.f59603a);
+            a.this.i(this.f59604a);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
         }
     }
@@ -86,12 +86,12 @@ public class a {
 
         @Override // d.b.i0.t3.h.d
         public void onClick() {
-            if (a.this.f59600b == null) {
+            if (a.this.f59601b == null) {
                 return;
             }
-            a.this.f59600b.dismiss();
-            a.this.f59600b = null;
-            if (a.this.f59599a != 1 && a.this.f59599a != 2) {
+            a.this.f59601b.dismiss();
+            a.this.f59601b = null;
+            if (a.this.f59600a != 1 && a.this.f59600a != 2) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
             } else {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_CANCEL));
@@ -100,14 +100,14 @@ public class a {
     }
 
     public static a g() {
-        if (f59598c == null) {
+        if (f59599c == null) {
             synchronized (a.class) {
-                if (f59598c == null) {
-                    f59598c = new a();
+                if (f59599c == null) {
+                    f59599c = new a();
                 }
             }
         }
-        return f59598c;
+        return f59599c;
     }
 
     public final void h(TbPageContext tbPageContext) {
@@ -207,11 +207,11 @@ public class a {
         hVar.w(0, g2, 0, g4);
         hVar.q(0, 0, 0, g3);
         hVar.p(true);
-        hVar.v(new C1489a(tbPageContext));
+        hVar.v(new C1490a(tbPageContext));
         e eVar = new e(tbPageContext.getContext(), hVar.j());
-        this.f59600b = eVar;
+        this.f59601b = eVar;
         eVar.a(0.7f);
-        g.j(this.f59600b, tbPageContext);
+        g.j(this.f59601b, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
 
@@ -221,7 +221,7 @@ public class a {
             return;
         }
         h hVar = new h(tbPageContext.getContext());
-        int i = this.f59599a;
+        int i = this.f59600a;
         if (i != 1 && i != 2) {
             hVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
             cVar = new h.c(tbPageContext.getContext().getString(R.string.go_score), hVar);
@@ -231,7 +231,7 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
-        hVar.r(this.f59599a);
+        hVar.r(this.f59600a);
         hVar.s(0);
         hVar.o(0);
         hVar.p(false);
@@ -244,10 +244,10 @@ public class a {
         hVar.u(new c());
         hVar.t(arrayList);
         e eVar = new e(tbPageContext.getContext(), hVar.j());
-        this.f59600b = eVar;
+        this.f59601b = eVar;
         eVar.a(0.7f);
-        g.j(this.f59600b, tbPageContext);
-        int i2 = this.f59599a;
+        g.j(this.f59601b, tbPageContext);
+        int i2 = this.f59600a;
         if (i2 != 1 && i2 != 2) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));
         } else {

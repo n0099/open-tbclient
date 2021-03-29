@@ -7,19 +7,19 @@ import java.lang.reflect.Type;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<? super T> f66116a;
+    public final Class<? super T> f66117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Type f66117b;
+    public final Type f66118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f66118c;
+    public final int f66119c;
 
     public a() {
         Type d2 = d(a.class);
-        this.f66117b = d2;
-        this.f66116a = (Class<? super T>) C$Gson$Types.k(d2);
-        this.f66118c = this.f66117b.hashCode();
+        this.f66118b = d2;
+        this.f66117a = (Class<? super T>) C$Gson$Types.k(d2);
+        this.f66119c = this.f66118b.hashCode();
     }
 
     public static <T> a<T> a(Class<T> cls) {
@@ -39,30 +39,30 @@ public class a<T> {
     }
 
     public final Class<? super T> c() {
-        return this.f66116a;
+        return this.f66117a;
     }
 
     public final Type e() {
-        return this.f66117b;
+        return this.f66118b;
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && C$Gson$Types.f(this.f66117b, ((a) obj).f66117b);
+        return (obj instanceof a) && C$Gson$Types.f(this.f66118b, ((a) obj).f66118b);
     }
 
     public final int hashCode() {
-        return this.f66118c;
+        return this.f66119c;
     }
 
     public final String toString() {
-        return C$Gson$Types.u(this.f66117b);
+        return C$Gson$Types.u(this.f66118b);
     }
 
     public a(Type type) {
         d.g.c.b.a.b(type);
         Type b2 = C$Gson$Types.b(type);
-        this.f66117b = b2;
-        this.f66116a = (Class<? super T>) C$Gson$Types.k(b2);
-        this.f66118c = this.f66117b.hashCode();
+        this.f66118b = b2;
+        this.f66117a = (Class<? super T>) C$Gson$Types.k(b2);
+        this.f66119c = this.f66118b.hashCode();
     }
 }

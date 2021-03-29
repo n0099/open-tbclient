@@ -35,16 +35,7 @@ public class SpatialRelationUtil {
     }
 
     public static boolean isCircleContainsPoint(LatLng latLng, int i, LatLng latLng2) {
-        if (latLng == null || i == 0 || latLng2 == null) {
-            return false;
-        }
-        double distance = DistanceUtil.getDistance(latLng, latLng2);
-        double d2 = i;
-        if (distance > d2) {
-            return false;
-        }
-        int i2 = (distance > d2 ? 1 : (distance == d2 ? 0 : -1));
-        return true;
+        return (latLng == null || i == 0 || latLng2 == null || DistanceUtil.getDistance(latLng, latLng2) > ((double) i)) ? false : true;
     }
 
     public static boolean isPolygonContainsPoint(List<LatLng> list, LatLng latLng) {

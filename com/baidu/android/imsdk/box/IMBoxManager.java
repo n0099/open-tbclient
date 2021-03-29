@@ -75,7 +75,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class IMBoxManager {
     public static final String TAG = "IMBoxManager";
 
@@ -296,7 +296,7 @@ public final class IMBoxManager {
         return PaManager.querySubscribedPaListSync(context);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0088  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0087  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

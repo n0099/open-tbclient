@@ -18,28 +18,28 @@ import java.util.LinkedList;
 public class e {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f49780h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+    public static final String f49781h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.b0.b f49781a;
+    public d.b.h0.b0.b f49782a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageFileInfo f49783c;
+    public ImageFileInfo f49784c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f49785e;
+    public d f49786e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f49786f;
+    public d f49787f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f49787g;
+    public d f49788g;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49782b = false;
+    public boolean f49783b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f49784d = new a();
+    public d f49785d = new a();
 
     /* loaded from: classes3.dex */
     public class a implements d {
@@ -52,13 +52,13 @@ public class e {
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.f49781a == null) {
-                e.this.f49781a = new d.b.h0.b0.b();
+            if (e.this.f49782a == null) {
+                e.this.f49782a = new d.b.h0.b0.b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            d.b.b.j.d.a c2 = e.this.f49781a.c(imageFileInfo, true);
+            d.b.b.j.d.a c2 = e.this.f49782a.c(imageFileInfo, true);
             if (c2 == null) {
                 Bitmap l = e.this.l(imageFileInfo);
                 if (l == null) {
@@ -107,9 +107,9 @@ public class e {
 
     public e() {
         b bVar = new b();
-        this.f49785e = bVar;
-        this.f49786f = bVar;
-        this.f49787g = new c();
+        this.f49786e = bVar;
+        this.f49787f = bVar;
+        this.f49788g = new c();
     }
 
     public static boolean k() {
@@ -178,23 +178,23 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        this.f49783c = imageFileInfo;
+        this.f49784c = imageFileInfo;
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
         boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
         if (imageFileInfo.isGif() || !(!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
             if (checkIsLongImage) {
-                dVar = this.f49786f;
+                dVar = this.f49787f;
                 str = "原始·长图";
             } else {
-                dVar = this.f49785e;
+                dVar = this.f49786e;
                 str = "原始·图";
             }
         } else if (checkIsLongImage) {
-            dVar = this.f49787g;
+            dVar = this.f49788g;
             str = "正常·长图";
         } else {
-            dVar = this.f49784d;
+            dVar = this.f49785d;
             str = "正常·图";
         }
         if (k()) {
@@ -235,11 +235,11 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.f49781a == null) {
-            this.f49781a = new d.b.h0.b0.b();
+        if (this.f49782a == null) {
+            this.f49782a = new d.b.h0.b0.b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.f49781a.f(imageFileInfo, true);
+            return this.f49782a.f(imageFileInfo, true);
         }
         if (imageFileInfo.getImageType() == 1 && (i = d.b.b.e.l.d.h().i(20)) != null) {
             try {
@@ -262,12 +262,12 @@ public class e {
     }
 
     public final String n(Bitmap bitmap, long j, int i) {
-        if (this.f49782b) {
-            ImageFileInfo imageFileInfo = this.f49783c;
+        if (this.f49783b) {
+            ImageFileInfo imageFileInfo = this.f49784c;
             if (imageFileInfo == null || TextUtils.isEmpty(imageFileInfo.getFilePath())) {
                 return "";
             }
-            return FileHelper.compressBitmapToFile(f49780h, q.c(this.f49783c.toCachedKey(false)) + h(this.f49783c.getFilePath()), bitmap, (float) j, i);
+            return FileHelper.compressBitmapToFile(f49781h, q.c(this.f49784c.toCachedKey(false)) + h(this.f49784c.getFilePath()), bitmap, (float) j, i);
         }
         return FileHelper.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }

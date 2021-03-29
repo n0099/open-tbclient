@@ -147,11 +147,11 @@ public class SessionMonitorEngine implements INoProGuard {
                     if (i != 3) {
                         return -1L;
                     }
-                    return bVar.f26942f;
+                    return bVar.f26943f;
                 }
-                return bVar.f26941e;
+                return bVar.f26942e;
             }
-            return bVar.f26943g;
+            return bVar.f26944g;
         }
         return -1L;
     }
@@ -159,7 +159,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public long getSearchButtonClickedTimeStamp() {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            return bVar.f26937a;
+            return bVar.f26938a;
         }
         return -1L;
     }
@@ -167,7 +167,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public JSONObject getWebViewTimeStamp() {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            return bVar.f26944h;
+            return bVar.f26945h;
         }
         return null;
     }
@@ -275,31 +275,31 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f26928a == null) {
-            aVar.f26928a = new a.C0284a(aVar, (byte) 0);
+        if (aVar.f26929a == null) {
+            aVar.f26929a = new a.C0285a(aVar, (byte) 0);
         }
         if (i == 9) {
-            aVar.f26928a.a();
-            aVar.f26928a.f26934f = true;
+            aVar.f26929a.a();
+            aVar.f26929a.f26935f = true;
         }
-        a.C0284a c0284a = aVar.f26928a;
-        if (c0284a.f26934f) {
+        a.C0285a c0285a = aVar.f26929a;
+        if (c0285a.f26935f) {
             switch (i) {
                 case 7:
-                    c0284a.f26929a = ((Boolean) obj).booleanValue();
+                    c0285a.f26930a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    c0284a.f26930b = ((Boolean) obj).booleanValue();
+                    c0285a.f26931b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    c0284a.f26931c = ((Long) obj).longValue();
+                    c0285a.f26932c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    c0284a.f26932d = ((Long) obj).longValue();
-                    aVar.f26928a.f26934f = true;
+                    c0285a.f26933d = ((Long) obj).longValue();
+                    aVar.f26929a.f26935f = true;
                     return;
                 case 11:
-                    c0284a.f26933e = ((Boolean) obj).booleanValue();
+                    c0285a.f26934e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -309,9 +309,9 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        a.C0284a c0284a = aVar.f26928a;
-        if (c0284a != null) {
-            aVar.f26928a.f26935g.put(str, Long.valueOf(j + (c0284a.f26935g.containsKey(str) ? aVar.f26928a.f26935g.get(str).longValue() : 0L)));
+        a.C0285a c0285a = aVar.f26929a;
+        if (c0285a != null) {
+            aVar.f26929a.f26936g.put(str, Long.valueOf(j + (c0285a.f26936g.containsKey(str) ? aVar.f26929a.f26936g.get(str).longValue() : 0L)));
         }
     }
 
@@ -328,12 +328,12 @@ public class SessionMonitorEngine implements INoProGuard {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
             if (i == 1) {
-                bVar.f26943g = j;
+                bVar.f26944g = j;
             } else if (i == 2) {
-                bVar.f26941e = j;
+                bVar.f26942e = j;
             } else if (i != 3) {
             } else {
-                bVar.f26942f = j;
+                bVar.f26943f = j;
             }
         }
     }
@@ -343,7 +343,7 @@ public class SessionMonitorEngine implements INoProGuard {
         if (bVar == null || TextUtils.isEmpty(str) || !str.startsWith("baiduboxapp://v1/browser/open") || !str.contains("isContainer=1")) {
             return;
         }
-        bVar.f26940d = System.currentTimeMillis();
+        bVar.f26941d = System.currentTimeMillis();
         Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: " + str);
     }
 
@@ -351,12 +351,12 @@ public class SessionMonitorEngine implements INoProGuard {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
             if (i == 1) {
-                bVar.f26937a = j;
+                bVar.f26938a = j;
             } else if (i == 2) {
-                bVar.f26938b = j;
+                bVar.f26939b = j;
             } else if (i != 3) {
             } else {
-                bVar.f26939c = j;
+                bVar.f26940c = j;
             }
         }
     }
@@ -364,14 +364,14 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordWebViewTimeStamp(String str, long j) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            if (bVar.f26944h == null) {
-                bVar.f26944h = new JSONObject();
+            if (bVar.f26945h == null) {
+                bVar.f26945h = new JSONObject();
             }
             try {
-                if (TextUtils.isEmpty(str) || bVar.f26944h.has(str)) {
+                if (TextUtils.isEmpty(str) || bVar.f26945h.has(str)) {
                     return;
                 }
-                bVar.f26944h.put(str, j);
+                bVar.f26945h.put(str, j);
             } catch (JSONException e2) {
                 Log.printStackTrace(e2);
             }
@@ -410,18 +410,18 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f26928a == null) {
-            aVar.f26928a = new a.C0284a(aVar, (byte) 0);
+        if (aVar.f26929a == null) {
+            aVar.f26929a = new a.C0285a(aVar, (byte) 0);
         }
-        a.C0284a c0284a = aVar.f26928a;
-        if (c0284a.f26931c == -1) {
-            c0284a.a();
+        a.C0285a c0285a = aVar.f26929a;
+        if (c0285a.f26932c == -1) {
+            c0285a.a();
         }
-        a.C0284a c0284a2 = aVar.f26928a;
-        if (c0284a2.f26934f) {
+        a.C0285a c0285a2 = aVar.f26929a;
+        if (c0285a2.f26935f) {
             return;
         }
-        c0284a2.f26934f = true;
+        c0285a2.f26935f = true;
     }
 
     public void updateCuidIfNeeded() {

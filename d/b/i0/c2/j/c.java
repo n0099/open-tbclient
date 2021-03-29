@@ -12,7 +12,7 @@ public class c {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
             return null;
         }
-        StatisticItem statisticItem = new StatisticItem(b.a.f52308a);
+        StatisticItem statisticItem = new StatisticItem(b.a.f52309a);
         int i = 0;
         int from = iBaseDialogData.getFrom();
         if (from == 0) {

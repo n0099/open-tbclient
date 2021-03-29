@@ -19,76 +19,76 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44882a = d.b.g0.a.k.f45050a;
+    public static final boolean f44883a = d.b.g0.a.k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44883b;
+    public static final boolean f44884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Timer f44884c;
+    public static Timer f44885c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f44885d;
+    public static String f44886d;
     @Deprecated
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d.b.g0.a.j1.b f44886e;
+    public static volatile d.b.g0.a.j1.b f44887e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f44887e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f44888e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44888f;
+        public final /* synthetic */ boolean f44889f;
 
         public a(d.b.g0.a.y0.e.b bVar, boolean z) {
-            this.f44887e = bVar;
-            this.f44888f = z;
+            this.f44888e = bVar;
+            this.f44889f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            i.h(this.f44887e, this.f44888f);
+            i.h(this.f44888e, this.f44889f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f44889e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f44890e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44890f;
+        public final /* synthetic */ String f44891f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f44891g;
+        public final /* synthetic */ boolean f44892g;
 
         public b(d.b.g0.a.y0.e.b bVar, String str, boolean z) {
-            this.f44889e = bVar;
-            this.f44890f = str;
-            this.f44891g = z;
+            this.f44890e = bVar;
+            this.f44891f = str;
+            this.f44892g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             HybridUbcFlow o = i.o("startup");
-            String S = TextUtils.isEmpty(this.f44889e.S()) ? "NA" : this.f44889e.S();
-            if (this.f44889e.F() == 1) {
+            String S = TextUtils.isEmpty(this.f44890e.S()) ? "NA" : this.f44890e.S();
+            if (this.f44890e.F() == 1) {
                 o.D(HybridUbcFlow.SubmitStrategy.NA_ONLY);
             }
             o.z("from", "swan");
             o.z("source", S);
-            o.y("appid", this.f44889e.G());
-            o.y("swan", d.b.g0.a.b2.b.g(this.f44889e.f0(), this.f44889e.F()));
+            o.y("appid", this.f44890e.G());
+            o.y("swan", d.b.g0.a.b2.b.g(this.f44890e.f0(), this.f44890e.F()));
             o.y("mobile", l.a());
-            long k = this.f44889e.k("box_cold_launch", -1L);
+            long k = this.f44890e.k("box_cold_launch", -1L);
             if (k < 0) {
                 k = d.b.g0.a.j1.c.a();
             }
@@ -96,19 +96,19 @@ public final class i {
                 o.y("box_cold_launch", String.valueOf(k));
             }
             o.y("net", SwanAppNetworkUtils.f().type);
-            o.y("appversion", this.f44889e.n1());
-            o.y("thirdversion", this.f44889e.o1());
-            o.z("from", this.f44889e.F() == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan");
-            o.y("scheme", this.f44889e.V());
+            o.y("appversion", this.f44890e.n1());
+            o.y("thirdversion", this.f44890e.o1());
+            o.z("from", this.f44890e.F() == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan");
+            o.y("scheme", this.f44890e.V());
             HashSet hashSet = new HashSet();
             hashSet.add("callback");
             hashSet.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-            String h2 = i0.h(this.f44890f, hashSet);
+            String h2 = i0.h(this.f44891f, hashSet);
             if (!TextUtils.isEmpty(h2) && h2.startsWith(File.separator)) {
                 h2 = h2.substring(1);
             }
             o.y("path", TextUtils.isEmpty(h2) ? "" : h2);
-            if (i.f44882a) {
+            if (i.f44883a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("PerformanceUbc path: ");
                 if (TextUtils.isEmpty(h2)) {
@@ -117,18 +117,18 @@ public final class i {
                 sb.append(h2);
                 Log.v("SwanAppPerformanceUBC", sb.toString());
             }
-            if (this.f44891g) {
+            if (this.f44892g) {
                 o.z("value", "arrive_success");
             }
-            o.y("launchid", this.f44889e.U());
-            if (this.f44889e.F() == 0) {
+            o.y("launchid", this.f44890e.U());
+            if (this.f44890e.F() == 0) {
                 o.w();
             }
-            d.b.g0.a.c0.c.h("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.f44889e);
+            d.b.g0.a.c0.c.h("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.f44890e);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c extends TimerTask {
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
@@ -136,7 +136,7 @@ public final class i {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class d extends d.b.g0.a.z1.k.e {
         public static int m = 35;
         public final String j;
@@ -149,9 +149,9 @@ public final class i {
 
         @Override // d.b.g0.a.z1.k.e
         public JSONObject f() {
-            this.f47252c = TextUtils.isEmpty(this.f47252c) ? "NA" : this.f47252c;
-            if (this.f47256g == null) {
-                this.f47256g = new JSONObject();
+            this.f47253c = TextUtils.isEmpty(this.f47253c) ? "NA" : this.f47253c;
+            if (this.f47257g == null) {
+                this.f47257g = new JSONObject();
             }
             try {
                 if (this.k != null) {
@@ -161,7 +161,7 @@ public final class i {
                             this.k.put("stacktrace", v);
                         }
                     }
-                    this.f47256g.put("info", this.k);
+                    this.f47257g.put("info", this.k);
                 }
             } catch (JSONException e2) {
                 if (d.b.g0.a.z1.k.e.i) {
@@ -172,44 +172,44 @@ public final class i {
         }
 
         public d g(String str) {
-            this.f47250a = str;
+            this.f47251a = str;
             return this;
         }
 
         public d h(String str) {
-            this.f47252c = str;
+            this.f47253c = str;
             return this;
         }
 
         public d i(String str) {
-            this.f47251b = str;
+            this.f47252b = str;
             return this;
         }
     }
 
     static {
         d.b.g0.a.w0.a.N().getSwitch("swan_performance_aligned_search_switch", false);
-        f44883b = false;
+        f44884b = false;
     }
 
     public static String c(d.b.g0.a.y0.e.b bVar) {
         String b0 = bVar.b0();
         if (TextUtils.isEmpty(b0)) {
-            if (TextUtils.isEmpty(f44885d)) {
-                f44885d = d.b.g0.a.t1.k.p0.c.c();
-                if (f44882a) {
-                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + f44885d);
+            if (TextUtils.isEmpty(f44886d)) {
+                f44886d = d.b.g0.a.t1.k.p0.c.c();
+                if (f44883a) {
+                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + f44886d);
                 }
-            } else if (f44882a) {
-                Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + f44885d);
+            } else if (f44883a) {
+                Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + f44886d);
             }
         } else {
-            f44885d = b0;
-            if (f44882a) {
-                Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + f44885d);
+            f44886d = b0;
+            if (f44883a) {
+                Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + f44886d);
             }
         }
-        return f44885d;
+        return f44886d;
     }
 
     public static synchronized HybridUbcFlow d(String str) {
@@ -221,15 +221,15 @@ public final class i {
     }
 
     public static d.b.g0.a.j1.b e() {
-        if (f44886e == null) {
+        if (f44887e == null) {
             synchronized (d.b.g0.a.j1.b.class) {
-                if (f44886e == null) {
-                    f44886e = new d.b.g0.a.j1.b();
-                    f(f44886e);
+                if (f44887e == null) {
+                    f44887e = new d.b.g0.a.j1.b();
+                    f(f44887e);
                 }
             }
         }
-        return f44886e;
+        return f44887e;
     }
 
     public static void f(d.b.g0.a.j1.b bVar) {
@@ -333,7 +333,7 @@ public final class i {
 
     public static void m() {
         Timer timer = new Timer();
-        f44884c = timer;
+        f44885c = timer;
         timer.schedule(new c(), 15000L);
     }
 
@@ -355,7 +355,7 @@ public final class i {
     }
 
     public static void onEvent(d dVar) {
-        if (f44882a) {
+        if (f44883a) {
             Log.i("SwanAppPerformanceUBC", "onEvent " + dVar);
         }
         d.b.g0.a.z1.b.j(dVar.j, dVar.f());
@@ -382,10 +382,10 @@ public final class i {
     }
 
     public static void s() {
-        Timer timer = f44884c;
+        Timer timer = f44885c;
         if (timer != null) {
             timer.cancel();
-            f44884c = null;
+            f44885c = null;
         }
     }
 }

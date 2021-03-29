@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends c {
     public String D = "";
     public String E = "";
@@ -40,6 +40,6 @@ public class e extends c {
     @Override // d.b.g0.a.a0.b.b, d.b.g0.a.e1.a
     public boolean isValid() {
         d.b.g0.a.a1.c.h.c cVar;
-        return (TextUtils.isEmpty(this.f43113g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.f43114g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true;
     }
 }

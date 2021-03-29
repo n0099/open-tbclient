@@ -19,28 +19,28 @@ import com.baidu.tieba.R;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48844a;
+    public Context f48845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaiduMap f48845b;
+    public BaiduMap f48846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Marker f48846c;
+    public Marker f48847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BitmapDescriptor f48847d;
+    public BitmapDescriptor f48848d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48848e;
+    public b f48849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LocationClient f48849f;
+    public LocationClient f48850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BDLocation f48850g;
+    public BDLocation f48851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48851h = false;
+    public boolean f48852h = false;
 
     /* loaded from: classes3.dex */
     public class a extends BDAbstractLocationListener {
@@ -53,21 +53,21 @@ public class c {
                 c.this.m();
                 return;
             }
-            c.this.f48845b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-            if (c.this.f48846c != null) {
-                c.this.f48846c.remove();
-                c.this.f48846c = null;
+            c.this.f48846b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
+            if (c.this.f48847c != null) {
+                c.this.f48847c.remove();
+                c.this.f48847c = null;
             }
-            MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(c.this.f48847d).anchor(0.5f, 0.5f);
+            MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(c.this.f48848d).anchor(0.5f, 0.5f);
             c cVar = c.this;
-            cVar.f48846c = (Marker) cVar.f48845b.addOverlay(anchor);
-            if (c.this.f48850g == null) {
+            cVar.f48847c = (Marker) cVar.f48846b.addOverlay(anchor);
+            if (c.this.f48851g == null) {
                 MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
-                if (c.this.f48848e != null) {
-                    c.this.f48848e.b(bDLocation);
+                if (c.this.f48849e != null) {
+                    c.this.f48849e.b(bDLocation);
                 }
             }
-            c.this.f48850g = bDLocation;
+            c.this.f48851g = bDLocation;
         }
     }
 
@@ -77,50 +77,50 @@ public class c {
     }
 
     public c(Context context, BaiduMap baiduMap) {
-        this.f48844a = context;
-        this.f48845b = baiduMap;
+        this.f48845a = context;
+        this.f48846b = baiduMap;
     }
 
     public BDLocation i() {
-        return this.f48850g;
+        return this.f48851g;
     }
 
     public final void j() {
-        if (this.f48849f == null) {
-            LocationClient locationClient = new LocationClient(this.f48844a.getApplicationContext());
-            this.f48849f = locationClient;
+        if (this.f48850f == null) {
+            LocationClient locationClient = new LocationClient(this.f48845a.getApplicationContext());
+            this.f48850f = locationClient;
             locationClient.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.f48849f.setLocOption(locationClientOption);
-            this.f48847d = BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_ding);
+            this.f48850f.setLocOption(locationClientOption);
+            this.f48848d = BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_ding);
         }
     }
 
     public void k(b bVar) {
-        this.f48848e = bVar;
+        this.f48849e = bVar;
     }
 
     public final void l() {
-        if (this.f48851h) {
+        if (this.f48852h) {
             return;
         }
         j();
-        LocationClient locationClient = this.f48849f;
+        LocationClient locationClient = this.f48850f;
         if (locationClient == null || locationClient.isStarted()) {
             return;
         }
-        this.f48849f.start();
-        this.f48851h = true;
+        this.f48850f.start();
+        this.f48852h = true;
     }
 
     public final void m() {
         LocationClient locationClient;
-        if (this.f48851h && (locationClient = this.f48849f) != null && locationClient.isStarted()) {
-            this.f48849f.stop();
-            this.f48851h = false;
+        if (this.f48852h && (locationClient = this.f48850f) != null && locationClient.isStarted()) {
+            this.f48850f.stop();
+            this.f48852h = false;
         }
     }
 

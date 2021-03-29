@@ -9,16 +9,16 @@ public class d implements n {
     public static final BdUniqueId k = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57016e;
+    public String f57017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57017f;
+    public String f57018f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57018g;
+    public String f57019g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57019h;
+    public String f57020h;
     public String i;
     public int j;
 
@@ -27,7 +27,7 @@ public class d implements n {
     }
 
     public String e() {
-        return this.f57017f;
+        return this.f57018f;
     }
 
     public String f() {
@@ -35,7 +35,7 @@ public class d implements n {
     }
 
     public String g() {
-        return this.f57018g;
+        return this.f57019g;
     }
 
     @Override // d.b.b.j.e.n
@@ -44,14 +44,14 @@ public class d implements n {
     }
 
     public String j() {
-        if (StringUtils.isNull(this.f57019h)) {
-            return this.f57018g;
+        if (StringUtils.isNull(this.f57020h)) {
+            return this.f57019g;
         }
-        return this.f57019h;
+        return this.f57020h;
     }
 
     public String k() {
-        return this.f57016e;
+        return this.f57017e;
     }
 
     public void l(int i) {
@@ -59,7 +59,7 @@ public class d implements n {
     }
 
     public void n(String str) {
-        this.f57017f = str;
+        this.f57018f = str;
     }
 
     public void o(String str) {
@@ -67,15 +67,15 @@ public class d implements n {
     }
 
     public void p(String str) {
-        this.f57018g = str;
+        this.f57019g = str;
     }
 
     public void q(String str) {
-        this.f57019h = str;
+        this.f57020h = str;
     }
 
     public void r(String str) {
-        this.f57016e = str;
+        this.f57017e = str;
     }
 
     public void s(User user, int i) {

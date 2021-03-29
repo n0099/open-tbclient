@@ -35,12 +35,12 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject = jSONObject.optJSONObject("page");
         c1 c1Var = new c1();
         this.pageInfo = c1Var;
-        c1Var.f57364g = optJSONObject.optInt("has_more") == 1;
-        this.pageInfo.f58780c = optJSONObject.optInt(Config.PACKAGE_NAME);
+        c1Var.f57365g = optJSONObject.optInt("has_more") == 1;
+        this.pageInfo.f58781c = optJSONObject.optInt(Config.PACKAGE_NAME);
         if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
             FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-            this.pageInfo.f58778a = frsPageAlaTabRequestMessage.getForumName();
-            this.pageInfo.f58779b = frsPageAlaTabRequestMessage.getForumId();
+            this.pageInfo.f58779a = frsPageAlaTabRequestMessage.getForumName();
+            this.pageInfo.f58780b = frsPageAlaTabRequestMessage.getForumId();
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
         if (optJSONArray.length() > 0) {

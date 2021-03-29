@@ -9,7 +9,7 @@ import d.b.b.e.d.l;
 import d.b.h0.r.q.g1;
 import d.b.h0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public g1 data;
     public int mErrCode;

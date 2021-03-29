@@ -10,15 +10,15 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f38563a;
+    public static final char[] f38564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f38564b;
+    public static final byte[] f38565b;
 
     static {
-        boolean z = f.f38519b;
-        f38563a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f38564b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 63, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, 0, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, ExifInterface.START_CODE, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+        boolean z = f.f38520b;
+        f38564a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        f38565b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 63, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, 0, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, ExifInterface.START_CODE, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
     public static String a(byte[] bArr) {
@@ -29,10 +29,10 @@ public final class c {
             int i4 = 16 - (i3 << 3);
             i |= (bArr[i2] << i4) & (255 << i4);
             if (i3 == 2 || i2 == bArr.length - 1) {
-                stringBuffer.append(f38563a[(16515072 & i) >>> 18]);
-                stringBuffer.append(f38563a[(258048 & i) >>> 12]);
-                stringBuffer.append(f38563a[(i & 4032) >>> 6]);
-                stringBuffer.append(f38563a[i & 63]);
+                stringBuffer.append(f38564a[(16515072 & i) >>> 18]);
+                stringBuffer.append(f38564a[(258048 & i) >>> 12]);
+                stringBuffer.append(f38564a[(i & 4032) >>> 6]);
+                stringBuffer.append(f38564a[i & 63]);
                 i = 0;
             }
         }
@@ -66,7 +66,7 @@ public final class c {
                 char charAt2 = str.charAt(i3 + 1);
                 char charAt3 = str.charAt(i3 + 2);
                 char charAt4 = str.charAt(i3 + 3);
-                byte[] bArr2 = f38564b;
+                byte[] bArr2 = f38565b;
                 int i5 = (bArr2[charAt] << 18) | (bArr2[charAt2] << StandardMessageCodec.LIST) | (bArr2[charAt3] << 6) | bArr2[charAt4];
                 bArr[i4] = (byte) ((i5 >> 16) & 255);
                 if (i3 < length - 4) {

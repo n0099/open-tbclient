@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class d implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Display f66171a;
+    public final Display f66172a;
     public volatile boolean i;
     public a l;
     public e m;
@@ -20,25 +20,25 @@ public class d implements SensorEventListener {
     public long o;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f66172b = new float[16];
+    public final float[] f66173b = new float[16];
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f66173c = new float[16];
+    public final float[] f66174c = new float[16];
 
     /* renamed from: d  reason: collision with root package name */
-    public float f66174d = -1.0f;
+    public float f66175d = -1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float[] f66175e = new float[16];
+    public final float[] f66176e = new float[16];
 
     /* renamed from: f  reason: collision with root package name */
-    public final float[] f66176f = new float[16];
+    public final float[] f66177f = new float[16];
 
     /* renamed from: g  reason: collision with root package name */
-    public final float[] f66177g = new float[16];
+    public final float[] f66178g = new float[16];
 
     /* renamed from: h  reason: collision with root package name */
-    public float f66178h = 1.0f;
+    public float f66179h = 1.0f;
     public final Object k = new Object();
     public volatile boolean p = true;
     public float[] q = new float[3];
@@ -50,9 +50,9 @@ public class d implements SensorEventListener {
     public d(e eVar, b bVar, Display display) {
         this.n = bVar;
         this.m = eVar;
-        this.f66171a = display;
+        this.f66172a = display;
         b(true);
-        Matrix.setIdentityM(this.f66175e, 0);
+        Matrix.setIdentityM(this.f66176e, 0);
     }
 
     public void a() {
@@ -82,7 +82,7 @@ public class d implements SensorEventListener {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x002c  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x003e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x003e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -91,7 +91,7 @@ public class d implements SensorEventListener {
         if (i + 16 > fArr.length) {
             throw new IllegalArgumentException("Not enough space to write the result");
         }
-        int rotation = this.f66171a.getRotation();
+        int rotation = this.f66172a.getRotation();
         if (rotation != 0) {
             if (rotation == 1) {
                 f2 = 90.0f;
@@ -100,34 +100,32 @@ public class d implements SensorEventListener {
             } else if (rotation == 3) {
                 f2 = 270.0f;
             }
-            if (f2 != this.f66174d) {
-                this.f66174d = f2;
-                Matrix.setRotateEulerM(this.f66173c, 0, 0.0f, 0.0f, -f2);
-                Matrix.setRotateEulerM(this.f66172b, 0, -90.0f, 0.0f, f2);
+            if (f2 != this.f66175d) {
+                this.f66175d = f2;
+                Matrix.setRotateEulerM(this.f66174c, 0, 0.0f, 0.0f, -f2);
+                Matrix.setRotateEulerM(this.f66173b, 0, -90.0f, 0.0f, f2);
             }
             synchronized (this.j) {
                 if (this.j.i()) {
-                    double seconds = TimeUnit.NANOSECONDS.toSeconds(this.n.a() - this.o);
-                    Double.isNaN(seconds);
-                    double[] e2 = this.j.e(seconds + 0.057999998331069946d);
+                    double[] e2 = this.j.e(TimeUnit.NANOSECONDS.toSeconds(this.n.a() - this.o) + 0.057999998331069946d);
                     for (int i2 = 0; i2 < fArr.length; i2++) {
-                        this.f66176f[i2] = (float) e2[i2];
+                        this.f66177f[i2] = (float) e2[i2];
                     }
-                    Matrix.multiplyMM(this.f66177g, 0, this.f66173c, 0, this.f66176f, 0);
-                    Matrix.multiplyMM(fArr, i, this.f66177g, 0, this.f66172b, 0);
-                    Matrix.setIdentityM(this.f66175e, 0);
-                    float[] fArr2 = this.f66175e;
-                    float f3 = this.f66178h;
+                    Matrix.multiplyMM(this.f66178g, 0, this.f66174c, 0, this.f66177f, 0);
+                    Matrix.multiplyMM(fArr, i, this.f66178g, 0, this.f66173b, 0);
+                    Matrix.setIdentityM(this.f66176e, 0);
+                    float[] fArr2 = this.f66176e;
+                    float f3 = this.f66179h;
                     Matrix.translateM(fArr2, 0, 0.0f, (-f3) * 0.075f, f3 * 0.08f);
-                    Matrix.multiplyMM(this.f66176f, 0, this.f66175e, 0, fArr, i);
-                    Matrix.translateM(fArr, i, this.f66176f, 0, 0.0f, this.f66178h * 0.075f, 0.0f);
+                    Matrix.multiplyMM(this.f66177f, 0, this.f66176e, 0, fArr, i);
+                    Matrix.translateM(fArr, i, this.f66177f, 0, 0.0f, this.f66179h * 0.075f, 0.0f);
                     return;
                 }
                 return;
             }
         }
         f2 = 0.0f;
-        if (f2 != this.f66174d) {
+        if (f2 != this.f66175d) {
         }
         synchronized (this.j) {
         }

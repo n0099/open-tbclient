@@ -43,7 +43,7 @@ public class StatusbarColorUtils {
             Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
             declaredField2.setAccessible(true);
             int i2 = declaredField2.getInt(layoutParams);
-            int i3 = z ? i | i2 : (i ^ (-1)) & i2;
+            int i3 = z ? i | i2 : (~i) & i2;
             if (i2 != i3) {
                 declaredField2.setInt(layoutParams, i3);
                 return true;
@@ -131,7 +131,7 @@ public class StatusbarColorUtils {
         if (z) {
             i = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
         } else {
-            i = (SYSTEM_UI_FLAG_LIGHT_STATUS_BAR ^ (-1)) & systemUiVisibility;
+            i = (~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) & systemUiVisibility;
         }
         if (i != systemUiVisibility) {
             view.setSystemUiVisibility(i);

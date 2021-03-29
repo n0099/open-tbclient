@@ -11,26 +11,26 @@ import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import d.b.b.e.p.j;
 import d.b.i0.g1.b.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.b.i0.g1.c.a {
     public LabelSettingModel mLabelSettingModel;
     public LabelSettingView mLabelSettingView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f18481a;
+        public static final /* synthetic */ int[] f18482a;
 
         static {
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f18481a = iArr;
+            f18482a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f18481a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f18482a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -38,7 +38,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
 
     @Override // d.b.i0.g1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i) {
-        int i2 = a.f18481a[labelRequestEnum.ordinal()];
+        int i2 = a.f18482a[labelRequestEnum.ordinal()];
         if (i2 != 1) {
             if (i2 == 2 && i == 0) {
                 d.b.h0.r.d0.b.i().s("set_recommend_label", true);

@@ -25,7 +25,7 @@ public class b extends d {
 
     public b(Context context, View view) {
         super(context, view);
-        this.f56186e = 5000;
+        this.f56187e = 5000;
     }
 
     public final void A0() {
@@ -91,7 +91,7 @@ public class b extends d {
 
     @Override // d.b.i0.i2.q.d
     public void P() {
-        if (this.q == this.f56189h) {
+        if (this.q == this.f56190h) {
             D0();
         }
     }

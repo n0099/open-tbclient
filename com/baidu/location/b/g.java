@@ -7,10 +7,10 @@ import android.os.Message;
 public class g extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6642a;
+    public final /* synthetic */ e f6643a;
 
     public g(e eVar) {
-        this.f6642a = eVar;
+        this.f6643a = eVar;
     }
 
     @Override // android.os.Handler
@@ -21,17 +21,17 @@ public class g extends Handler {
         if (com.baidu.location.f.isServing) {
             int i = message.what;
             if (i == 1) {
-                this.f6642a.e((Location) message.obj);
+                this.f6643a.e((Location) message.obj);
                 return;
             }
             if (i == 3) {
-                eVar = this.f6642a;
+                eVar = this.f6643a;
                 location = (Location) message.obj;
                 str = "&og=1";
             } else if (i != 4) {
                 return;
             } else {
-                eVar = this.f6642a;
+                eVar = this.f6643a;
                 location = (Location) message.obj;
                 str = "&og=2";
             }

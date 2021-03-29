@@ -8,17 +8,17 @@ import android.text.TextUtils;
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8197a;
+    public a f8198a;
 
     public b(a aVar) {
-        this.f8197a = aVar;
+        this.f8198a = aVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         a aVar;
         String action = intent.getAction();
-        if (TextUtils.isEmpty(action) || !"lp_close".equals(action) || (aVar = this.f8197a) == null) {
+        if (TextUtils.isEmpty(action) || !"lp_close".equals(action) || (aVar = this.f8198a) == null) {
             return;
         }
         aVar.a();

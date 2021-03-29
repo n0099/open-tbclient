@@ -6,20 +6,20 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class b2 extends BaseCardInfo {
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f50719e;
+    public a2 f50720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50720f;
+    public String f50721f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50721g;
+    public int f50722g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50722h;
+    public int f50723h;
     public int i;
 
     public b2(a2 a2Var) {
-        this.f50719e = a2Var;
+        this.f50720e = a2Var;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n

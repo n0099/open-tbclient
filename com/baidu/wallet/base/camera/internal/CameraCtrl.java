@@ -50,7 +50,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f23559a = new CameraCtrl();
+        public static CameraCtrl f23560a = new CameraCtrl();
     }
 
     private void doDestroy() {
@@ -90,7 +90,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     public static CameraCtrl getInstance() {
-        return a.f23559a;
+        return a.f23560a;
     }
 
     private Camera.Size getSimilarRatioSize(int i, int i2, List<Camera.Size> list, int i3) {
@@ -105,7 +105,8 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         Camera.Size size = null;
         sortSize(list);
         ListIterator<Camera.Size> listIterator = list.listIterator();
-        LogUtil.i(Tag, "sorted getSimilarRatioSize(" + i5 + i4 + ") ; expectRatio = " + f2);
+        String str = Tag;
+        LogUtil.i(str, "sorted getSimilarRatioSize(" + i5 + i4 + ") ; expectRatio = " + f2);
         while (true) {
             if (!listIterator.hasNext()) {
                 break;
@@ -116,16 +117,10 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 size = next;
                 break;
             }
-            double d3 = next.height;
             int i6 = next.width;
-            double d4 = i6;
-            Double.isNaN(d3);
-            Double.isNaN(d4);
-            double d5 = d3 / d4;
-            LogUtil.i(Tag, String.format("supported picture size:(%d,%d);ratio:%f", Integer.valueOf(i6), Integer.valueOf(next.height), Double.valueOf(d5)));
-            double d6 = f2;
-            Double.isNaN(d6);
-            double abs = Math.abs(d6 - d5);
+            double d3 = next.height / i6;
+            LogUtil.i(Tag, String.format("supported picture size:(%d,%d);ratio:%f", Integer.valueOf(i6), Integer.valueOf(next.height), Double.valueOf(d3)));
+            double abs = Math.abs(f2 - d3);
             if (d2 > abs && 400 < next.height) {
                 size = next;
                 d2 = abs;
@@ -174,7 +169,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             try {
                 this._cameraProxy = b.a();
                 if (-1 != i && isSupportMultiCamera()) {
-                    this._cameraProxy.f23566a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i));
+                    this._cameraProxy.f23567a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i));
                     Camera.Parameters d2 = this._cameraProxy.d();
                     focusMode = d2.getFocusMode();
                     if (!focusMode.equals("auto") && !focusMode.equals("macro")) {
@@ -211,7 +206,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                 Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                 if (method != null) {
                                     try {
-                                        method.invoke(this._cameraProxy.f23566a, Integer.valueOf(i4));
+                                        method.invoke(this._cameraProxy.f23567a, Integer.valueOf(i4));
                                         this._rotation = i4;
                                     } catch (Exception e2) {
                                         LogUtil.e(Tag, "", e2);

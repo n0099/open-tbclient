@@ -2,7 +2,7 @@ package com.baidu.android.lbspay.channelpay;
 
 import android.text.TextUtils;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PayDataBean implements Serializable {
     public static final long serialVersionUID = 1;
     public String appid;

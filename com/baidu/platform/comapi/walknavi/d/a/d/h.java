@@ -3,8 +3,8 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9985a;
+    public String f9986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9986b;
+    public String f9987b;
 }

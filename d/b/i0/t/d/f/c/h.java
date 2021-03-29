@@ -7,17 +7,17 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f60546a;
+    public a f60547a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SpecialLiveTabInfo> f60547b;
+    public List<SpecialLiveTabInfo> f60548b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60548c;
+    public boolean f60549c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaUserInfoData f60549d;
+    public AlaUserInfoData f60550d;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f60550e;
+    public i f60551e;
 }

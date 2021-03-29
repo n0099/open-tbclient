@@ -9,16 +9,16 @@ public class z1 extends a implements d.b.b.j.e.n {
     public a2 w;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50953e = false;
+    public boolean f50954e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50954f = false;
+    public boolean f50955f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50955g = false;
+    public boolean f50956g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50956h = false;
+    public boolean f50957h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -49,7 +49,7 @@ public class z1 extends a implements d.b.b.j.e.n {
         v0Var.m(n().L0());
         v0Var.j(this.w.d1);
         a2 a2Var2 = this.w;
-        v0Var.f50906g = a2Var2.e1;
+        v0Var.f50907g = a2Var2.e1;
         v0Var.o = a2Var2.T0;
         v0Var.j = a2Var2.S0;
         v0Var.l = a2Var2.U0;
@@ -129,16 +129,16 @@ public class z1 extends a implements d.b.b.j.e.n {
                 } else if (this.v) {
                     return a2.M2;
                 } else {
-                    if (this.f50953e) {
+                    if (this.f50954e) {
                         return a2.N2;
                     }
-                    if (this.f50954f) {
+                    if (this.f50955f) {
                         return a2.O2;
                     }
-                    if (this.f50955g) {
+                    if (this.f50956g) {
                         return a2.P2;
                     }
-                    if (this.f50956h) {
+                    if (this.f50957h) {
                         return a2.Q2;
                     }
                     if (this.i) {

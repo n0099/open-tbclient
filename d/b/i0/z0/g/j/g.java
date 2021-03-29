@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import d.b.i0.x.e0.p;
 import tbclient.ActiveCenter;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends d.b.i0.x.e0.b implements p {
     public static final BdUniqueId U = BdUniqueId.gen();
     public int S;

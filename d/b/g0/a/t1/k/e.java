@@ -8,25 +8,25 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.v1.c.i.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46302e;
+        public final /* synthetic */ CallbackHandler f46303e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46303f;
+        public final /* synthetic */ String f46304f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46304g;
+        public final /* synthetic */ String f46305g;
 
         public a(e eVar, CallbackHandler callbackHandler, String str, String str2) {
-            this.f46302e = callbackHandler;
-            this.f46303f = str;
-            this.f46304g = str2;
+            this.f46303e = callbackHandler;
+            this.f46304f = str;
+            this.f46305g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,11 +34,11 @@ public class e extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.o(hVar, this.f46302e, this.f46303f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f46303e, this.f46304f);
                 return;
             }
-            this.f46302e.handleSchemeDispatchCallback(this.f46303f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            d.b.g0.a.q0.a.b().e(this.f46304g);
+            this.f46303e.handleSchemeDispatchCallback(this.f46304f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            d.b.g0.a.q0.a.b().e(this.f46305g);
         }
     }
 

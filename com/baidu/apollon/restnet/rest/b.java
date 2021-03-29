@@ -4,29 +4,29 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3768b = "b";
+    public static final String f3769b = "b";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f3769c = false;
+    public static final boolean f3770c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3770a;
+    public String f3771a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3771d;
+    public String f3772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3772e;
+    public String f3773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3773f;
+    public String f3774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3774g;
+    public boolean f3775g;
 
     public b(Context context) {
         b(context);
@@ -49,22 +49,22 @@ public class b {
     }
 
     public String b() {
-        return this.f3771d;
+        return this.f3772d;
     }
 
     public String c() {
-        return this.f3772e;
+        return this.f3773e;
     }
 
     public String d() {
-        return this.f3773f;
+        return this.f3774f;
     }
 
     public String e() {
-        return this.f3770a;
+        return this.f3771a;
     }
 
     public boolean a() {
-        return this.f3774g;
+        return this.f3775g;
     }
 }

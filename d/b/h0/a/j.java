@@ -3,14 +3,14 @@ package d.b.h0.a;
 public class j extends h {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f49595e;
+    public long f49596e;
 
     public j(b bVar, long j) {
         super(bVar);
-        this.f49595e = j;
+        this.f49596e = j;
     }
 
     public long i() {
-        return this.f49595e;
+        return this.f49596e;
     }
 }

@@ -10,54 +10,54 @@ import com.kwad.sdk.draw.view.playend.DrawVideoTailFrame;
 public class a extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public DrawVideoTailFrame f34586b;
+    public DrawVideoTailFrame f34587b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public c f34587c;
+    public c f34588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f34588d = new f() { // from class: com.kwad.sdk.draw.b.c.a.1
+    public e f34589d = new f() { // from class: com.kwad.sdk.draw.b.c.a.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
             super.a();
-            if (a.this.f34587c == null || !a.this.f34587c.d()) {
+            if (a.this.f34588c == null || !a.this.f34588c.d()) {
                 a.this.e();
             } else {
-                a.this.f34586b.setVisibility(8);
+                a.this.f34587b.setVisibility(8);
             }
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f34586b.a();
-        this.f34586b.setVisibility(0);
+        this.f34587b.a();
+        this.f34587b.setVisibility(0);
     }
 
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.draw.a.b bVar = ((com.kwad.sdk.draw.a.a) this).f34521a;
-        this.f34587c = bVar.f34528g;
-        this.f34586b.a(bVar.f34524c);
-        this.f34586b.setAdBaseFrameLayout(((com.kwad.sdk.draw.a.a) this).f34521a.f34523b);
-        this.f34586b.setApkDownloadHelper(((com.kwad.sdk.draw.a.a) this).f34521a.f34525d);
-        this.f34586b.setVisibility(8);
-        this.f34586b.setAdInteractionListener(((com.kwad.sdk.draw.a.a) this).f34521a.f34522a);
-        ((com.kwad.sdk.draw.a.a) this).f34521a.f34526e.a(this.f34588d);
+        com.kwad.sdk.draw.a.b bVar = ((com.kwad.sdk.draw.a.a) this).f34522a;
+        this.f34588c = bVar.f34529g;
+        this.f34587b.a(bVar.f34525c);
+        this.f34587b.setAdBaseFrameLayout(((com.kwad.sdk.draw.a.a) this).f34522a.f34524b);
+        this.f34587b.setApkDownloadHelper(((com.kwad.sdk.draw.a.a) this).f34522a.f34526d);
+        this.f34587b.setVisibility(8);
+        this.f34587b.setAdInteractionListener(((com.kwad.sdk.draw.a.a) this).f34522a.f34523a);
+        ((com.kwad.sdk.draw.a.a) this).f34522a.f34527e.a(this.f34589d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.draw.a.a) this).f34521a.f34526e.b(this.f34588d);
-        this.f34586b.b();
+        ((com.kwad.sdk.draw.a.a) this).f34522a.f34527e.b(this.f34589d);
+        this.f34587b.b();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f34586b = (DrawVideoTailFrame) b(R.id.ksad_video_tail_frame);
+        this.f34587b = (DrawVideoTailFrame) b(R.id.ksad_video_tail_frame);
     }
 }

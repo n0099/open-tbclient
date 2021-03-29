@@ -105,7 +105,7 @@ public class b implements a {
             } else {
                 this.u = "";
             }
-            String optString2 = jSONObject.optString(a.f24246b);
+            String optString2 = jSONObject.optString(a.f24247b);
             if (!TextUtils.isEmpty(optString2) && t.matcher(optString2).matches()) {
                 this.v = optString2;
             } else {
@@ -125,13 +125,13 @@ public class b implements a {
                 this.x = "";
                 com.baidu.apollon.heartbeat.a.c().a("https://www.baifubao.com");
             }
-            String optString5 = jSONObject.optString(a.f24249e);
+            String optString5 = jSONObject.optString(a.f24250e);
             if (!TextUtils.isEmpty(optString5) && t.matcher(optString5).matches()) {
                 this.y = optString5;
             } else {
                 this.y = "";
             }
-            String optString6 = jSONObject.optString(a.f24250f);
+            String optString6 = jSONObject.optString(a.f24251f);
             if (!TextUtils.isEmpty(optString6) && t.matcher(optString6).matches()) {
                 this.z = optString6;
             } else {

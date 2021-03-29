@@ -15,7 +15,7 @@ import com.google.ar.core.ArCoreApk;
 import d.b.e0.a.a;
 import java.io.File;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class XRSessionAnchor {
     public static final String TAG = "XRSessionAnchor";
     public static final String apkinfo = "com.google.ar.core";

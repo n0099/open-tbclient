@@ -327,9 +327,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             int k = d.b.b.e.p.l.k(LogoActivity.this.getPageContext().getPageActivity());
             int i = d.b.b.e.p.l.i(LogoActivity.this.getPageContext().getPageActivity());
             if (!z2) {
-                double i2 = d.b.b.e.p.l.i(LogoActivity.this.getPageContext().getPageActivity());
-                Double.isNaN(i2);
-                i = (int) (i2 * 0.8125d);
+                i = (int) (d.b.b.e.p.l.i(LogoActivity.this.getPageContext().getPageActivity()) * 0.8125d);
             }
             LogoActivity.this.mTbAdController.getView().setLayoutParams(new RelativeLayout.LayoutParams(k, i));
             LogoActivity.this.mRootView.addView(LogoActivity.this.mTbAdController.getView());
@@ -1021,9 +1019,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             int k2 = d.b.b.e.p.l.k(getPageContext().getPageActivity());
             int i2 = d.b.b.e.p.l.i(getPageContext().getPageActivity());
             if (!z) {
-                double i3 = d.b.b.e.p.l.i(getPageContext().getPageActivity());
-                Double.isNaN(i3);
-                i2 = (int) (i3 * 0.8125d);
+                i2 = (int) (d.b.b.e.p.l.i(getPageContext().getPageActivity()) * 0.8125d);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mTbAdController.getView().getLayoutParams();
             layoutParams.width = k2;
@@ -1031,7 +1027,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             this.mTbAdController.getView().setLayoutParams(layoutParams);
         }
         d.b.h0.k.c cVar = this.besAdData;
-        if (cVar == null || (bVar = cVar.f50237c) == null) {
+        if (cVar == null || (bVar = cVar.f50238c) == null) {
             return;
         }
         bVar.a();

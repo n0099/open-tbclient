@@ -41,7 +41,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
         ArrayList<d> arrayList2 = get(i);
         ArrayList<String> arrayList3 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-            String a2 = a(arrayList2.get(i2).f41926b);
+            String a2 = a(arrayList2.get(i2).f41927b);
             if (!TextUtils.isEmpty(a2)) {
                 for (String str : a2.split(Part.CRLF)) {
                     if (size > 0) {
@@ -67,7 +67,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
         ArrayList<d> arrayList = get(i);
         ArrayList<String> arrayList2 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            String a2 = a(arrayList.get(i2).f41926b);
+            String a2 = a(arrayList.get(i2).f41927b);
             if (!TextUtils.isEmpty(a2)) {
                 for (String str : a2.split(Part.CRLF)) {
                     arrayList2.add(str);

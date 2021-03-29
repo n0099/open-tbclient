@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import d.b.g0.a.i2.k0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends d.b.g0.a.t.b.d {
     public b(@NonNull d.b.g0.a.t.b.b bVar) {
         super(bVar);
@@ -19,7 +19,7 @@ public class b extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-HandleException", "params = " + str);
         }
         if (k()) {
@@ -29,7 +29,7 @@ public class b extends d.b.g0.a.t.b.d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-HandleException", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-HandleException", "parse fail");
             }
             return bVar;
@@ -39,7 +39,7 @@ public class b extends d.b.g0.a.t.b.d {
         if (TextUtils.isEmpty(optString)) {
             return new d.b.g0.a.t.e.b(202, "code is required");
         }
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-HandleException", "code: " + optString + "msg: " + jSONObject.optString("msg"));
         }
         char c2 = 65535;
@@ -72,12 +72,12 @@ public class b extends d.b.g0.a.t.b.d {
             }
             if (k0.F(optString2) && k0.E()) {
                 d.b.g0.a.e0.f.k("skeleton", "5秒内未触发骨架屏移除");
-            } else if (d.b.g0.a.t.b.d.f45928c) {
+            } else if (d.b.g0.a.t.b.d.f45929c) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);
             }
             return new d.b.g0.a.t.e.b(0);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 e2.printStackTrace();
             }
             return new d.b.g0.a.t.e.b(202, "invalid json data: " + optString);

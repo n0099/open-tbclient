@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public DressItemData f21616e;
+    public DressItemData f21617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21617f;
+    public int f21618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21618g;
+    public int f21619g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21619h;
+    public b f21620h;
     public d.b.b.c.g.a i = new a(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
 
     /* loaded from: classes5.dex */
@@ -36,17 +36,17 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        BackgroundPreviewModel.this.f21616e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        BackgroundPreviewModel.this.f21617e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        BackgroundPreviewModel.this.f21616e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        BackgroundPreviewModel.this.f21617e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                if (BackgroundPreviewModel.this.f21619h != null) {
-                    if (BackgroundPreviewModel.this.f21616e != null) {
-                        BackgroundPreviewModel.this.f21616e.setPropsId(BackgroundPreviewModel.this.f21617f);
-                        BackgroundPreviewModel.this.f21616e.setInUse(BackgroundPreviewModel.this.f21618g == 1);
+                if (BackgroundPreviewModel.this.f21620h != null) {
+                    if (BackgroundPreviewModel.this.f21617e != null) {
+                        BackgroundPreviewModel.this.f21617e.setPropsId(BackgroundPreviewModel.this.f21618f);
+                        BackgroundPreviewModel.this.f21617e.setInUse(BackgroundPreviewModel.this.f21619g == 1);
                     }
-                    BackgroundPreviewModel.this.f21619h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.f21616e);
+                    BackgroundPreviewModel.this.f21620h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.f21617e);
                 }
             }
         }
@@ -58,8 +58,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public BackgroundPreviewModel(int i, int i2) {
-        this.f21617f = i;
-        this.f21618g = i2;
+        this.f21618f = i;
+        this.f21619g = i2;
         registerTask();
         registerListener(this.i);
     }
@@ -67,7 +67,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.f21617f);
+        backgroundGetRequestMessage.setPropId(this.f21618f);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -87,6 +87,6 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public void x(b bVar) {
-        this.f21619h = bVar;
+        this.f21620h = bVar;
     }
 }

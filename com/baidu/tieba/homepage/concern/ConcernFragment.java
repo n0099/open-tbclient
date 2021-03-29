@@ -42,27 +42,27 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConcernFragment extends BaseFragment implements o0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcernPageView f16972e;
+    public ConcernPageView f16973e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ConcernPageView.l f16973f;
+    public ConcernPageView.l f16974f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16975h;
+    public boolean f16976h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16974g = false;
+    public boolean f16975g = false;
     public CustomMessageListener i = new a(2001115);
     public final AntiHelper.k j = new b();
     public CustomMessageListener k = new c(2921414);
     public final CustomMessageListener l = new d(2001383);
     public final d.b.b.c.g.a m = new e(CmdConfigHttp.CMD_GET_MY_POST, 303111);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -74,21 +74,21 @@ public class ConcernFragment extends BaseFragment implements o0 {
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f13694c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(ConcernFragment.this.getUniqueId())) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f13695c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(ConcernFragment.this.getUniqueId())) {
                     return;
                 }
                 if (updateAttentionMessage.getData().k != null) {
                     if (AntiHelper.t(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().k, ConcernFragment.this.j) != null) {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                     }
-                } else if (updateAttentionMessage.getData().f13692a && updateAttentionMessage.getData().f13695d) {
+                } else if (updateAttentionMessage.getData().f13693a && updateAttentionMessage.getData().f13696d) {
                     l.K(ConcernFragment.this.getActivity(), R.string.attention_success);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements AntiHelper.k {
         public b() {
         }
@@ -104,7 +104,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -113,35 +113,35 @@ public class ConcernFragment extends BaseFragment implements o0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (ConcernFragment.this.f16972e != null) {
-                ConcernFragment.this.f16972e.G();
+            if (ConcernFragment.this.f16973e != null) {
+                ConcernFragment.this.f16973e.G();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostWriteCallBackData f16980e;
+            public final /* synthetic */ PostWriteCallBackData f16981e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f16981f;
+            public final /* synthetic */ long f16982f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ long f16982g;
+            public final /* synthetic */ long f16983g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ long f16983h;
+            public final /* synthetic */ long f16984h;
 
             public a(PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
-                this.f16980e = postWriteCallBackData;
-                this.f16981f = j;
-                this.f16982g = j2;
-                this.f16983h = j3;
+                this.f16981e = postWriteCallBackData;
+                this.f16982f = j;
+                this.f16983g = j2;
+                this.f16984h = j3;
             }
 
             @Override // java.lang.Runnable
@@ -151,8 +151,8 @@ public class ConcernFragment extends BaseFragment implements o0 {
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setProZone(this.f16980e.getProZone());
-                requestGetMyPostNetMessage.setParams(this.f16981f, this.f16982g, this.f16983h, k, i, f2, i2);
+                requestGetMyPostNetMessage.setProZone(this.f16981e.getProZone());
+                requestGetMyPostNetMessage.setParams(this.f16982f, this.f16983g, this.f16984h, k, i, f2, i2);
                 requestGetMyPostNetMessage.setCallFrom(1);
                 ConcernFragment.this.sendMessage(requestGetMyPostNetMessage);
             }
@@ -179,12 +179,12 @@ public class ConcernFragment extends BaseFragment implements o0 {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
                 w0 w0Var = new w0();
                 w0Var.G2(writeData);
-                ConcernFragment.this.f16972e.y(w0Var);
+                ConcernFragment.this.f16973e.y(w0Var);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends d.b.b.c.g.a {
         public e(int i, int i2) {
             super(i, i2);
@@ -251,7 +251,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
     }
 
     public void H0() {
-        this.f16972e.r();
+        this.f16973e.r();
     }
 
     public final void I0(int i, String str, GetMyPostResIdl getMyPostResIdl) {
@@ -279,7 +279,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
         builder.fname = d.b.i0.c3.q0.a.f().h();
         builder.fid = Long.valueOf(d.b.b.e.m.b.f(d.b.i0.c3.q0.a.f().h(), 0L));
         w0Var.Q2(builder.build(true));
-        this.f16972e.y(w0Var);
+        this.f16973e.y(w0Var);
     }
 
     public final void J0(User.Builder builder, User_Info user_Info) {
@@ -307,40 +307,40 @@ public class ConcernFragment extends BaseFragment implements o0 {
 
     @Override // d.b.i0.p0.o0
     public void K(b0 b0Var) {
-        ConcernPageView concernPageView = this.f16972e;
+        ConcernPageView concernPageView = this.f16973e;
         if (concernPageView != null) {
             concernPageView.setRecommendFrsNavigationAnimDispatcher(b0Var);
         }
     }
 
     public void K0(ConcernPageView.l lVar) {
-        this.f16973f = lVar;
-        this.f16972e.setCallback(lVar);
+        this.f16974f = lVar;
+        this.f16973e.setCallback(lVar);
     }
 
     public void L0(ScrollFragmentTabHost scrollFragmentTabHost) {
-        ConcernPageView concernPageView = this.f16972e;
+        ConcernPageView concernPageView = this.f16973e;
         if (concernPageView != null) {
             concernPageView.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     public void M0() {
-        ConcernPageView concernPageView = this.f16972e;
+        ConcernPageView concernPageView = this.f16973e;
         if (concernPageView != null) {
             concernPageView.J();
         }
     }
 
     public void N0(tbclient.Userlike.DataRes dataRes, boolean z) {
-        ConcernPageView concernPageView = this.f16972e;
+        ConcernPageView concernPageView = this.f16973e;
         if (concernPageView != null) {
             concernPageView.R(dataRes, z);
         }
     }
 
     public void O0(String str, int i) {
-        this.f16972e.S(str, i);
+        this.f16973e.S(str, i);
     }
 
     @Override // d.b.i0.p0.o0
@@ -350,7 +350,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
     @Override // d.b.i0.p0.o0
     public void b0() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.f16972e.D(TbadkCoreApplication.getInst().getSkinType());
+        this.f16973e.D(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
@@ -386,32 +386,32 @@ public class ConcernFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f16972e.D(i);
+        this.f16973e.D(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f16972e.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f16972e.getParent()).removeView(this.f16972e);
-            ConcernPageView.l lVar = this.f16973f;
+        if (this.f16973e.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f16973e.getParent()).removeView(this.f16973e);
+            ConcernPageView.l lVar = this.f16974f;
             if (lVar != null) {
-                this.f16972e.setCallback(lVar);
+                this.f16973e.setCallback(lVar);
             }
         }
-        this.f16972e.setPageUniqueId(getUniqueId());
-        if (this.f16974g) {
-            this.f16972e.x();
-            this.f16974g = false;
+        this.f16973e.setPageUniqueId(getUniqueId());
+        if (this.f16975g) {
+            this.f16973e.x();
+            this.f16975g = false;
         }
-        return this.f16972e;
+        return this.f16973e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.l);
-        this.f16972e.E();
-        this.f16974g = true;
+        this.f16973e.E();
+        this.f16975g = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -424,31 +424,31 @@ public class ConcernFragment extends BaseFragment implements o0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        this.f16972e.setTabInForeBackgroundState(true);
+        this.f16973e.setTabInForeBackgroundState(true);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.f16975h) {
-                ConcernPageView concernPageView = this.f16972e;
+            if (!this.f16976h) {
+                ConcernPageView concernPageView = this.f16973e;
                 if (concernPageView != null) {
                     concernPageView.s();
                 }
-                this.f16975h = true;
+                this.f16976h = true;
             }
-            this.f16972e.setViewForeground();
+            this.f16973e.setViewForeground();
             return;
         }
-        this.f16972e.H();
+        this.f16973e.H();
         H0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        ConcernPageView concernPageView = this.f16972e;
+        ConcernPageView concernPageView = this.f16973e;
         if (concernPageView != null) {
             concernPageView.F();
         }
@@ -466,15 +466,15 @@ public class ConcernFragment extends BaseFragment implements o0 {
 
     @Override // d.b.i0.p0.o0
     public void w() {
-        if (this.f16975h) {
-            this.f16972e.K();
+        if (this.f16976h) {
+            this.f16973e.K();
         }
     }
 
     @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
         ConcernPageView concernPageView = new ConcernPageView(context);
-        this.f16972e = concernPageView;
+        this.f16973e = concernPageView;
         concernPageView.x();
         registerListener(this.i);
         registerListener(this.k);

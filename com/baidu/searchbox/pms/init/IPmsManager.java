@@ -9,7 +9,7 @@ import com.baidu.searchbox.pms.download.DownloadOptions;
 import com.baidu.searchbox.pms.download.IDownloadManager;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IPmsManager {
     public static final IPmsManager EMPTY = new IPmsManager() { // from class: com.baidu.searchbox.pms.init.IPmsManager.1
         @Override // com.baidu.searchbox.pms.init.IPmsManager

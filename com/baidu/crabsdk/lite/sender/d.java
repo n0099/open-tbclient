@@ -17,7 +17,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class d {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x003b */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0060 */
@@ -28,7 +28,7 @@ public final class d {
     /* JADX WARN: Type inference failed for: r6v4 */
     /* JADX WARN: Type inference failed for: r6v5, types: [java.io.FileInputStream] */
     /* JADX WARN: Type inference failed for: r6v8, types: [java.io.FileInputStream] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0037 -> B:56:0x005f). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0037 -> B:54:0x005f). Please submit an issue!!! */
     public static byte[] a(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;

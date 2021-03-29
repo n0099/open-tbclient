@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MaskData implements Serializable {
     public static final int FALSE = 0;
     public static final long serialVersionUID = -7490208614712442860L;

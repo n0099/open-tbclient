@@ -5,37 +5,37 @@ import java.util.concurrent.CountDownLatch;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final CountDownLatch f65385a = new CountDownLatch(1);
+    public final CountDownLatch f65386a = new CountDownLatch(1);
 
     /* renamed from: b  reason: collision with root package name */
-    public long f65386b = -1;
+    public long f65387b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f65387c = -1;
+    public long f65388c = -1;
 
     public void a() {
-        if (this.f65386b == -1) {
-            this.f65386b = System.nanoTime();
+        if (this.f65387b == -1) {
+            this.f65387b = System.nanoTime();
             return;
         }
         throw new IllegalStateException();
     }
 
     public void b() {
-        if (this.f65387c == -1 && this.f65386b != -1) {
-            this.f65387c = System.nanoTime();
-            this.f65385a.countDown();
+        if (this.f65388c == -1 && this.f65387b != -1) {
+            this.f65388c = System.nanoTime();
+            this.f65386a.countDown();
             return;
         }
         throw new IllegalStateException();
     }
 
     public void c() {
-        if (this.f65387c == -1) {
-            long j = this.f65386b;
+        if (this.f65388c == -1) {
+            long j = this.f65387b;
             if (j != -1) {
-                this.f65387c = j - 1;
-                this.f65385a.countDown();
+                this.f65388c = j - 1;
+                this.f65386a.countDown();
                 return;
             }
         }

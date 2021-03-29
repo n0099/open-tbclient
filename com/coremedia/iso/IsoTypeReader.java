@@ -34,17 +34,13 @@ public final class IsoTypeReader {
     public static double readFixedPoint0230(ByteBuffer byteBuffer) {
         byte[] bArr = new byte[4];
         byteBuffer.get(bArr);
-        double d2 = 0 | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((bArr[2] << 8) & 65280) | (bArr[3] & 255);
-        Double.isNaN(d2);
-        return d2 / 1.073741824E9d;
+        return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 1.073741824E9d;
     }
 
     public static double readFixedPoint1616(ByteBuffer byteBuffer) {
         byte[] bArr = new byte[4];
         byteBuffer.get(bArr);
-        double d2 = 0 | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((bArr[2] << 8) & 65280) | (bArr[3] & 255);
-        Double.isNaN(d2);
-        return d2 / 65536.0d;
+        return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 65536.0d;
     }
 
     public static float readFixedPoint88(ByteBuffer byteBuffer) {

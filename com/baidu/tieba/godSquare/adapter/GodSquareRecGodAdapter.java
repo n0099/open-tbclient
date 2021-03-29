@@ -22,11 +22,11 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f16941a;
+        public b f16942a;
 
         public ViewHolder(GodSquareRecGodAdapter godSquareRecGodAdapter, b bVar) {
             super(bVar.m());
-            this.f16941a = bVar;
+            this.f16942a = bVar;
         }
     }
 
@@ -39,17 +39,17 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
-            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62210e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62211e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             if (view.getId() != GodSquareRecGodAdapter.this.n.m.getId()) {
                 if (view.getId() == GodSquareRecGodAdapter.this.n.m().getId() || view.getId() == GodSquareRecGodAdapter.this.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62210e.getUserId()));
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62211e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62210e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62211e.getUserId()));
         }
     }
 
@@ -75,7 +75,7 @@ public class GodSquareRecGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         b bVar;
-        if (viewHolder == null || (bVar = viewHolder.f16941a) == null) {
+        if (viewHolder == null || (bVar = viewHolder.f16942a) == null) {
             return null;
         }
         bVar.n(hVar);

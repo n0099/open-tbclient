@@ -14,17 +14,17 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.modelpay.PayResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelWXPay extends AbstractChannelPay {
     public static final int WX_PAY_CANCLE = -2;
     public static final int WX_PAY_FAILED = -1;
     public static final int WX_PAY_SUCCESS = 0;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelWXPay f2611a = new ChannelWXPay();
+        public static ChannelWXPay f2612a = new ChannelWXPay();
     }
 
     private PayReq genPayReq(PayDataBean payDataBean) {
@@ -40,7 +40,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     }
 
     public static ChannelWXPay getInstance() {
-        return a.f2611a;
+        return a.f2612a;
     }
 
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay

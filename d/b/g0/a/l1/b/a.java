@@ -14,45 +14,45 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45172a = k.f45050a;
+    public static final boolean f45173a = k.f45051a;
 
     /* renamed from: d.b.g0.a.l1.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class RunnableC0727a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static class RunnableC0728a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.l1.f.a f45173e;
+        public final /* synthetic */ d.b.g0.a.l1.f.a f45174e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f45174f;
+        public final /* synthetic */ boolean f45175f;
 
-        public RunnableC0727a(d.b.g0.a.l1.f.a aVar, boolean z) {
-            this.f45173e = aVar;
-            this.f45174f = z;
+        public RunnableC0728a(d.b.g0.a.l1.f.a aVar, boolean z) {
+            this.f45174e = aVar;
+            this.f45175f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.b(this.f45173e, this.f45174f);
+            a.b(this.f45174e, this.f45175f);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements d.b.g0.a.e0.n.b<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f45175a;
+        public final /* synthetic */ boolean f45176a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f45176b;
+        public final /* synthetic */ String f45177b;
 
         public b(boolean z, String str) {
-            this.f45175a = z;
-            this.f45176b = str;
+            this.f45176a = z;
+            this.f45177b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,22 +60,22 @@ public class a {
         /* renamed from: b */
         public void a(Boolean bool) {
             d.b.g0.a.l1.d.a.a("download plugin result = " + bool);
-            if (this.f45175a) {
-                d.b.g0.a.l1.e.a.a(this.f45176b, 2);
+            if (this.f45176a) {
+                d.b.g0.a.l1.e.a.a(this.f45177b, 2);
             }
         }
     }
 
     public static void b(d.b.g0.a.l1.f.a aVar, boolean z) {
         if (aVar != null && aVar.b()) {
-            String str = aVar.f45224g;
-            String str2 = aVar.f45223f;
+            String str = aVar.f45225g;
+            String str2 = aVar.f45224f;
             h p = d.b.g0.l.i.a.h().p(str, str2);
             if (p != null && !p.c()) {
                 d.b.g0.a.l1.d.a.a("plugin is new, not yet expired");
                 return;
             } else {
-                c.c(new d(str, str2, aVar.f45225h), new d.b.g0.a.l1.a.a(str, str2, new b(z, str)));
+                c.c(new d(str, str2, aVar.f45226h), new d.b.g0.a.l1.a.a(str, str2, new b(z, str)));
                 return;
             }
         }
@@ -160,10 +160,10 @@ public class a {
             JSONObject jSONObject2 = new JSONObject();
             for (d.b.g0.a.l1.f.a aVar : h2) {
                 if (aVar != null && aVar.b()) {
-                    String str2 = aVar.f45224g;
+                    String str2 = aVar.f45225g;
                     long c2 = c(d.b.g0.a.u0.d.k(str2), str2);
-                    long h3 = d.b.g0.a.b2.b.h(aVar.f45223f);
-                    File l = c2 > h3 ? d.b.g0.a.u0.d.l(str2, String.valueOf(c2)) : null;
+                    int i = (c2 > d.b.g0.a.b2.b.h(aVar.f45224f) ? 1 : (c2 == d.b.g0.a.b2.b.h(aVar.f45224f) ? 0 : -1));
+                    File l = i > 0 ? d.b.g0.a.u0.d.l(str2, String.valueOf(c2)) : null;
                     if (l == null) {
                         try {
                             str = aVar.i;
@@ -186,13 +186,13 @@ public class a {
                             jSONObject2.put(str2, jSONObject3);
                         }
                     }
-                    if (c2 > h3) {
+                    if (i > 0) {
                         try {
                             aVar = (d.b.g0.a.l1.f.a) aVar.clone();
                         } catch (CloneNotSupportedException e3) {
                             d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e3));
                         }
-                        aVar.f45223f = d.b.g0.a.b2.b.q(c2);
+                        aVar.f45224f = d.b.g0.a.b2.b.q(c2);
                     }
                     if (z) {
                         g(aVar, true);
@@ -214,7 +214,7 @@ public class a {
     public static String f(SwanAppConfigData swanAppConfigData, boolean z) {
         String str;
         if (swanAppConfigData == null) {
-            if (f45172a) {
+            if (f45173a) {
                 d.b.g0.a.l1.d.a.a("parse app.json is null");
             }
             return null;
@@ -227,24 +227,24 @@ public class a {
                 JSONObject jSONObject2 = new JSONObject();
                 for (d.b.g0.a.l1.f.a aVar : h2) {
                     if (aVar != null && aVar.b()) {
-                        String str2 = aVar.f45224g;
+                        String str2 = aVar.f45225g;
                         long c2 = c(d.b.g0.a.u0.d.k(str2), str2);
-                        long h4 = d.b.g0.a.b2.b.h(aVar.f45223f);
-                        File l = c2 > h4 ? d.b.g0.a.u0.d.l(str2, String.valueOf(c2)) : null;
+                        int i = (c2 > d.b.g0.a.b2.b.h(aVar.f45224f) ? 1 : (c2 == d.b.g0.a.b2.b.h(aVar.f45224f) ? 0 : -1));
+                        File l = i > 0 ? d.b.g0.a.u0.d.l(str2, String.valueOf(c2)) : null;
                         if (l == null) {
                             try {
                                 str = aVar.i;
-                                if (f45172a) {
+                                if (f45173a) {
                                     d.b.g0.a.l1.d.a.a("apply path inner swan app, name = " + str2);
                                 }
                             } catch (JSONException e2) {
-                                if (f45172a) {
+                                if (f45173a) {
                                     d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e2));
                                 }
                             }
                         } else {
                             str = l.getAbsolutePath();
-                            if (f45172a) {
+                            if (f45173a) {
                                 d.b.g0.a.l1.d.a.a("apply path in workspace, name = " + str2);
                             }
                         }
@@ -253,7 +253,7 @@ public class a {
                             File file = new File(str, aVar.j);
                             if (file.exists()) {
                                 String r = d.b.g0.p.d.r(file);
-                                if (f45172a) {
+                                if (f45173a) {
                                     d.b.g0.a.l1.d.a.a("pages info = " + r);
                                 }
                                 JSONObject jSONObject3 = new JSONObject();
@@ -261,15 +261,15 @@ public class a {
                                 jSONObject2.put(str2, jSONObject3);
                             }
                         }
-                        if (c2 > h4) {
+                        if (i > 0) {
                             try {
                                 aVar = (d.b.g0.a.l1.f.a) aVar.clone();
                             } catch (CloneNotSupportedException e3) {
-                                if (f45172a) {
+                                if (f45173a) {
                                     d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e3));
                                 }
                             }
-                            aVar.f45223f = d.b.g0.a.b2.b.q(c2);
+                            aVar.f45224f = d.b.g0.a.b2.b.q(c2);
                         }
                         if (z) {
                             g(aVar, true);
@@ -284,13 +284,13 @@ public class a {
             }
             return h3;
         }
-        if (f45172a) {
+        if (f45173a) {
             d.b.g0.a.l1.d.a.a("this swan app not apply on someone dynamic lib");
         }
         return null;
     }
 
     public static void g(d.b.g0.a.l1.f.a aVar, boolean z) {
-        ExecutorUtilsExt.postOnElastic(new RunnableC0727a(aVar, z), "requestDynamicLib", 2);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0728a(aVar, z), "requestDynamicLib", 2);
     }
 }

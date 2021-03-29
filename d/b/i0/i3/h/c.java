@@ -36,28 +36,28 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public DressupCenterActivity f56376a;
+    public DressupCenterActivity f56377a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f56377b;
+    public View f56378b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f56378c;
+    public BdListView f56379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f56379d;
+    public NavigationBar f56380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f56380e;
+    public NoNetworkView f56381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CoverFlowView<d.b.i0.i3.h.a> f56381f;
+    public CoverFlowView<d.b.i0.i3.h.a> f56382f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MemberRecommendView f56382g;
+    public MemberRecommendView f56383g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56383h;
+    public TextView f56384h;
     public d.b.i0.i3.h.b i;
     public int j;
 
@@ -86,16 +86,16 @@ public class c {
                 c.this.k();
             } else if (d2 == 2) {
                 TiebaStatic.log("c10264");
-                customMessage = new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(c.this.f56376a.getActivity()));
+                customMessage = new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(c.this.f56377a.getActivity()));
             } else if (d2 == 3) {
-                customMessage = new CustomMessage(2002001, new BubbleGroupActivityConfig(c.this.f56376a.getActivity()));
+                customMessage = new CustomMessage(2002001, new BubbleGroupActivityConfig(c.this.f56377a.getActivity()));
             } else if (d2 == 4) {
-                customMessage = new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(c.this.f56376a.getPageContext().getPageActivity()));
+                customMessage = new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(c.this.f56377a.getPageContext().getPageActivity()));
             } else if (d2 != 5) {
-                UrlManager.getInstance().dealOneLink(c.this.f56376a.getPageContext(), new String[]{c2});
+                UrlManager.getInstance().dealOneLink(c.this.f56377a.getPageContext(), new String[]{c2});
             } else {
                 TiebaStatic.log("c11611");
-                customMessage = new CustomMessage(2002001, new AvatarPendantActivityConfig(c.this.f56376a.getActivity()));
+                customMessage = new CustomMessage(2002001, new AvatarPendantActivityConfig(c.this.f56377a.getActivity()));
             }
             if (customMessage != null) {
                 MessageManager.getInstance().sendMessage(customMessage);
@@ -116,8 +116,8 @@ public class c {
 
     /* renamed from: d.b.i0.i3.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1318c implements d.b.h0.r.w.a {
-        public C1318c(c cVar) {
+    public class C1319c implements d.b.h0.r.w.a {
+        public C1319c(c cVar) {
         }
 
         @Override // d.b.h0.r.w.a
@@ -161,7 +161,7 @@ public class c {
         @Override // d.b.h0.r.w.b.d
         public void b(int i, String str) {
             TiebaStatic.log("c10262");
-            UrlManager.getInstance().dealOneLink(c.this.f56376a.getPageContext(), new String[]{str});
+            UrlManager.getInstance().dealOneLink(c.this.f56377a.getPageContext(), new String[]{str});
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -173,128 +173,128 @@ public class c {
 
     public c(DressupCenterActivity dressupCenterActivity) {
         this.j = 0;
-        this.f56376a = dressupCenterActivity;
+        this.f56377a = dressupCenterActivity;
         this.j = l.g(dressupCenterActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        View inflate = LayoutInflater.from(this.f56376a.getPageContext().getPageActivity()).inflate(R.layout.dressup_center_activity_layout, (ViewGroup) null);
-        this.f56377b = inflate;
-        this.f56376a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.f56377b.findViewById(R.id.view_navigation_bar);
-        this.f56379d = navigationBar;
+        View inflate = LayoutInflater.from(this.f56377a.getPageContext().getPageActivity()).inflate(R.layout.dressup_center_activity_layout, (ViewGroup) null);
+        this.f56378b = inflate;
+        this.f56377a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.f56378b.findViewById(R.id.view_navigation_bar);
+        this.f56380d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f56379d.setCenterTextTitle(this.f56376a.getPageContext().getString(R.string.dressup_center_title));
-        this.f56380e = (NoNetworkView) this.f56377b.findViewById(R.id.view_no_network);
-        this.f56378c = (BdListView) this.f56377b.findViewById(R.id.dress_listview);
-        this.f56381f = (CoverFlowView) this.f56377b.findViewById(R.id.dressup_center_coverflowview);
+        this.f56380d.setCenterTextTitle(this.f56377a.getPageContext().getString(R.string.dressup_center_title));
+        this.f56381e = (NoNetworkView) this.f56378b.findViewById(R.id.view_no_network);
+        this.f56379c = (BdListView) this.f56378b.findViewById(R.id.dress_listview);
+        this.f56382f = (CoverFlowView) this.f56378b.findViewById(R.id.dressup_center_coverflowview);
         j();
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f56377b.findViewById(R.id.dressup_center_recommend);
-        this.f56382g = memberRecommendView;
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f56378b.findViewById(R.id.dressup_center_recommend);
+        this.f56383g = memberRecommendView;
         memberRecommendView.setFromType(1);
-        this.i = new d.b.i0.i3.h.b(this.f56376a.getPageContext());
-        TextView textView = new TextView(this.f56376a.getActivity());
-        this.f56383h = textView;
-        textView.setHeight(l.g(this.f56376a.getActivity(), R.dimen.ds30));
-        this.f56378c.setAdapter((ListAdapter) this.i);
-        this.f56378c.setOnItemClickListener(new a());
+        this.i = new d.b.i0.i3.h.b(this.f56377a.getPageContext());
+        TextView textView = new TextView(this.f56377a.getActivity());
+        this.f56384h = textView;
+        textView.setHeight(l.g(this.f56377a.getActivity(), R.dimen.ds30));
+        this.f56379c.setAdapter((ListAdapter) this.i);
+        this.f56379c.setOnItemClickListener(new a());
     }
 
     public void d() {
-        this.f56376a.hideNetRefreshView(this.f56377b);
-        this.f56378c.setVisibility(0);
-        this.f56382g.setVisibility(0);
-        this.f56381f.setVisibility(0);
+        this.f56377a.hideNetRefreshView(this.f56378b);
+        this.f56379c.setVisibility(0);
+        this.f56383g.setVisibility(0);
+        this.f56382f.setVisibility(0);
     }
 
     public View e() {
-        return this.f56377b;
+        return this.f56378b;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void f() {
         d.b.i0.i3.h.b bVar;
-        this.f56376a.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.f56376a.getLayoutMode().j(this.f56377b);
-        NavigationBar navigationBar = this.f56379d;
+        this.f56377a.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+        this.f56377a.getLayoutMode().j(this.f56378b);
+        NavigationBar navigationBar = this.f56380d;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f56376a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            navigationBar.onChangeSkinType(this.f56377a.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        NoNetworkView noNetworkView = this.f56380e;
+        NoNetworkView noNetworkView = this.f56381e;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f56376a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            noNetworkView.c(this.f56377a.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        CoverFlowView<d.b.i0.i3.h.a> coverFlowView = this.f56381f;
+        CoverFlowView<d.b.i0.i3.h.a> coverFlowView = this.f56382f;
         if (coverFlowView != null && coverFlowView.getVisibility() == 0) {
-            this.f56381f.s();
+            this.f56382f.s();
         }
-        BdListView bdListView = this.f56378c;
+        BdListView bdListView = this.f56379c;
         if (bdListView != null && bdListView.getVisibility() == 0 && (bVar = this.i) != null) {
             bVar.notifyDataSetChanged();
         }
-        MemberRecommendView memberRecommendView = this.f56382g;
+        MemberRecommendView memberRecommendView = this.f56383g;
         if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
-            this.f56382g.d();
+            this.f56383g.d();
         }
-        SkinManager.setBackgroundColor(this.f56383h, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f56384h, R.color.CAM_X0204);
     }
 
     public final boolean g(List<d.b.i0.i3.h.a> list) {
         if (list != null && list.size() > 0) {
-            this.f56381f.setVisibility(0);
-            this.f56381f.setData(list);
+            this.f56382f.setVisibility(0);
+            this.f56382f.setData(list);
             return true;
         }
-        this.f56381f.setVisibility(8);
+        this.f56382f.setVisibility(8);
         return false;
     }
 
     public final void h(List<d.b.i0.i3.h.d> list, boolean z) {
         if (list != null && list.size() > 0) {
             if (z) {
-                this.f56378c.removeHeaderView(this.f56383h);
-                this.f56378c.addHeaderView(this.f56383h);
+                this.f56379c.removeHeaderView(this.f56384h);
+                this.f56379c.addHeaderView(this.f56384h);
             } else {
-                this.f56378c.removeHeaderView(this.f56383h);
+                this.f56379c.removeHeaderView(this.f56384h);
             }
-            this.f56378c.setVisibility(0);
+            this.f56379c.setVisibility(0);
             this.i.b(list);
             this.i.notifyDataSetChanged();
             return;
         }
-        this.f56378c.setVisibility(8);
+        this.f56379c.setVisibility(8);
     }
 
     public final boolean i(e eVar) {
         if (eVar != null && !StringUtils.isNull(eVar.c())) {
-            this.f56382g.setVisibility(0);
-            this.f56382g.e(eVar);
+            this.f56383g.setVisibility(0);
+            this.f56383g.e(eVar);
             return true;
         }
-        this.f56382g.setVisibility(8);
+        this.f56383g.setVisibility(8);
         return false;
     }
 
     public final void j() {
-        CoverFlowView<d.b.i0.i3.h.a> coverFlowView = this.f56381f;
+        CoverFlowView<d.b.i0.i3.h.a> coverFlowView = this.f56382f;
         if (coverFlowView == null) {
             return;
         }
-        coverFlowView.setCoverFlowFactory(new C1318c(this));
-        this.f56381f.setCallback(new d());
+        coverFlowView.setCoverFlowFactory(new C1319c(this));
+        this.f56382f.setCallback(new d());
     }
 
     public final void k() {
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f56376a.getPageContext().getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f56377a.getPageContext().getPageActivity());
         aVar.setMessageId(R.string.function_unavailable_tip);
         aVar.setPositiveButton(R.string.confirm, new b(this));
-        aVar.create(this.f56376a.getPageContext()).show();
+        aVar.create(this.f56377a.getPageContext()).show();
     }
 
     public void l() {
-        this.f56378c.setVisibility(8);
-        this.f56381f.setVisibility(8);
-        this.f56382g.setVisibility(8);
-        String string = this.f56376a.getPageContext().getResources().getString(R.string.no_data_text);
-        this.f56376a.setNetRefreshViewTopMargin(this.j);
-        this.f56376a.showNetRefreshView(this.f56377b, string, false);
+        this.f56379c.setVisibility(8);
+        this.f56382f.setVisibility(8);
+        this.f56383g.setVisibility(8);
+        String string = this.f56377a.getPageContext().getResources().getString(R.string.no_data_text);
+        this.f56377a.setNetRefreshViewTopMargin(this.j);
+        this.f56377a.showNetRefreshView(this.f56378b, string, false);
     }
 
     public void m(List<d.b.i0.i3.h.a> list, e eVar, List<d.b.i0.i3.h.d> list2, boolean z) {

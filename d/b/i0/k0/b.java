@@ -24,66 +24,66 @@ import java.util.regex.Pattern;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final KeyEvent f56420a = new KeyEvent(0, 67);
+    public static final KeyEvent f56421a = new KeyEvent(0, 67);
 
     /* loaded from: classes4.dex */
     public static class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f56421a;
+        public final /* synthetic */ EditText f56422a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f56422b;
+        public final /* synthetic */ Context f56423b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ t f56423c;
+        public final /* synthetic */ t f56424c;
 
         public a(EditText editText, Context context, t tVar) {
-            this.f56421a = editText;
-            this.f56422b = context;
-            this.f56423c = tVar;
+            this.f56422a = editText;
+            this.f56423b = context;
+            this.f56424c = tVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             if (aVar != null) {
-                int selectionStart = this.f56421a.getSelectionStart();
-                b.e(this.f56422b, this.f56421a, new SpannableStringBuilder(this.f56423c.b()), selectionStart < 0 ? 0 : selectionStart, aVar, this.f56423c.e());
+                int selectionStart = this.f56422a.getSelectionStart();
+                b.e(this.f56423b, this.f56422a, new SpannableStringBuilder(this.f56424c.b()), selectionStart < 0 ? 0 : selectionStart, aVar, this.f56424c.e());
             }
         }
     }
 
     /* renamed from: d.b.i0.k0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1321b extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public static class C1322b extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f56424a;
+        public final /* synthetic */ EditText f56425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f56425b;
+        public final /* synthetic */ Context f56426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f56426c;
+        public final /* synthetic */ SpannableStringBuilder f56427c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f56427d;
+        public final /* synthetic */ EmotionGroupType f56428d;
 
-        public C1321b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-            this.f56424a = editText;
-            this.f56425b = context;
-            this.f56426c = spannableStringBuilder;
-            this.f56427d = emotionGroupType;
+        public C1322b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
+            this.f56425a = editText;
+            this.f56426b = context;
+            this.f56427c = spannableStringBuilder;
+            this.f56428d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
-            super.onLoaded((C1321b) aVar, str, i);
+            super.onLoaded((C1322b) aVar, str, i);
             if (aVar != null) {
-                int selectionStart = this.f56424a.getSelectionStart();
-                b.e(this.f56425b, this.f56424a, this.f56426c, selectionStart < 0 ? 0 : selectionStart, aVar, this.f56427d);
+                int selectionStart = this.f56425a.getSelectionStart();
+                b.e(this.f56426b, this.f56425a, this.f56427c, selectionStart < 0 ? 0 : selectionStart, aVar, this.f56428d);
             }
         }
     }
@@ -92,26 +92,26 @@ public class b {
     public static class c extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f56428a;
+        public final /* synthetic */ SpannableStringBuilder f56429a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f56429b;
+        public final /* synthetic */ int f56430b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f56430c;
+        public final /* synthetic */ int f56431c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int[] f56431d;
+        public final /* synthetic */ int[] f56432d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f56432e;
+        public final /* synthetic */ f f56433e;
 
         public c(SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, f fVar) {
-            this.f56428a = spannableStringBuilder;
-            this.f56429b = i;
-            this.f56430c = i2;
-            this.f56431d = iArr;
-            this.f56432e = fVar;
+            this.f56429a = spannableStringBuilder;
+            this.f56430b = i;
+            this.f56431c = i2;
+            this.f56432d = iArr;
+            this.f56433e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,29 +123,27 @@ public class b {
             if (aVar != null) {
                 Bitmap p = aVar.p();
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-                double width = p.getWidth();
-                Double.isNaN(width);
-                int i2 = (int) (width * 0.5d);
-                bitmapDrawable.setBounds(0, 0, i2, i2);
+                int width = (int) (p.getWidth() * 0.5d);
+                bitmapDrawable.setBounds(0, 0, width, width);
                 bitmapDrawable.setGravity(119);
-                this.f56428a.setSpan(new d.b.b.j.b(bitmapDrawable, 1), this.f56429b, this.f56430c, 33);
-                int[] iArr = this.f56431d;
-                int i3 = iArr[0] - 1;
-                iArr[0] = i3;
-                if (i3 != 0 || (fVar2 = this.f56432e) == null) {
+                this.f56429a.setSpan(new d.b.b.j.b(bitmapDrawable, 1), this.f56430b, this.f56431c, 33);
+                int[] iArr = this.f56432d;
+                int i2 = iArr[0] - 1;
+                iArr[0] = i2;
+                if (i2 != 0 || (fVar2 = this.f56433e) == null) {
                     return;
                 }
-                fVar2.a(this.f56428a);
+                fVar2.a(this.f56429a);
                 return;
             }
-            this.f56428a.setSpan("", this.f56429b, this.f56430c, 33);
-            int[] iArr2 = this.f56431d;
-            int i4 = iArr2[0] - 1;
-            iArr2[0] = i4;
-            if (i4 != 0 || (fVar = this.f56432e) == null) {
+            this.f56429a.setSpan("", this.f56430b, this.f56431c, 33);
+            int[] iArr2 = this.f56432d;
+            int i3 = iArr2[0] - 1;
+            iArr2[0] = i3;
+            if (i3 != 0 || (fVar = this.f56433e) == null) {
                 return;
             }
-            fVar.a(this.f56428a);
+            fVar.a(this.f56429a);
         }
     }
 
@@ -153,76 +151,66 @@ public class b {
     public static class d extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f56433a;
+        public final /* synthetic */ Context f56434a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f56434b;
+        public final /* synthetic */ SpannableStringBuilder f56435b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f56435c;
+        public final /* synthetic */ int f56436c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f56436d;
+        public final /* synthetic */ int f56437d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f56437e;
+        public final /* synthetic */ int[] f56438e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f56438f;
+        public final /* synthetic */ f f56439f;
 
         public d(Context context, SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, f fVar) {
-            this.f56433a = context;
-            this.f56434b = spannableStringBuilder;
-            this.f56435c = i;
-            this.f56436d = i2;
-            this.f56437e = iArr;
-            this.f56438f = fVar;
+            this.f56434a = context;
+            this.f56435b = spannableStringBuilder;
+            this.f56436c = i;
+            this.f56437d = i2;
+            this.f56438e = iArr;
+            this.f56439f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             f fVar;
+            Bitmap p;
             f fVar2;
             super.onLoaded((d) aVar, str, i);
             if (aVar != null) {
-                Bitmap p = aVar.p();
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-                int dimensionPixelSize = this.f56433a.getResources().getDimensionPixelSize(R.dimen.ds80);
-                double width = p.getWidth();
-                double d2 = dimensionPixelSize;
-                Double.isNaN(d2);
-                double height = p.getHeight();
-                Double.isNaN(height);
-                Double.isNaN(width);
-                int i2 = (int) (width * ((d2 * 1.0d) / height));
-                double k = l.k(this.f56433a);
-                Double.isNaN(k);
-                if (i2 > k * 0.6d) {
-                    double width2 = p.getWidth();
-                    Double.isNaN(width2);
-                    i2 = (int) (width2 * 0.5d);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.p());
+                int dimensionPixelSize = this.f56434a.getResources().getDimensionPixelSize(R.dimen.ds80);
+                int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
+                if (width > l.k(this.f56434a) * 0.6d) {
+                    width = (int) (p.getWidth() * 0.5d);
                 }
-                bitmapDrawable.setBounds(0, 0, i2, dimensionPixelSize);
+                bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                 bitmapDrawable.setGravity(119);
-                this.f56434b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f56435c, this.f56436d, 33);
-                int[] iArr = this.f56437e;
-                int i3 = iArr[0] - 1;
-                iArr[0] = i3;
-                if (i3 != 0 || (fVar2 = this.f56438f) == null) {
+                this.f56435b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f56436c, this.f56437d, 33);
+                int[] iArr = this.f56438e;
+                int i2 = iArr[0] - 1;
+                iArr[0] = i2;
+                if (i2 != 0 || (fVar2 = this.f56439f) == null) {
                     return;
                 }
-                fVar2.a(this.f56434b);
+                fVar2.a(this.f56435b);
                 return;
             }
-            this.f56434b.setSpan("", this.f56435c, this.f56436d, 33);
-            int[] iArr2 = this.f56437e;
-            int i4 = iArr2[0] - 1;
-            iArr2[0] = i4;
-            if (i4 != 0 || (fVar = this.f56438f) == null) {
+            this.f56435b.setSpan("", this.f56436c, this.f56437d, 33);
+            int[] iArr2 = this.f56438e;
+            int i3 = iArr2[0] - 1;
+            iArr2[0] = i3;
+            if (i3 != 0 || (fVar = this.f56439f) == null) {
                 return;
             }
-            fVar.a(this.f56434b);
+            fVar.a(this.f56435b);
         }
     }
 
@@ -230,76 +218,66 @@ public class b {
     public static class e extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f56439a;
+        public final /* synthetic */ Context f56440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f56440b;
+        public final /* synthetic */ SpannableStringBuilder f56441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f56441c;
+        public final /* synthetic */ int f56442c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f56442d;
+        public final /* synthetic */ int f56443d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f56443e;
+        public final /* synthetic */ int[] f56444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f56444f;
+        public final /* synthetic */ f f56445f;
 
         public e(Context context, SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, f fVar) {
-            this.f56439a = context;
-            this.f56440b = spannableStringBuilder;
-            this.f56441c = i;
-            this.f56442d = i2;
-            this.f56443e = iArr;
-            this.f56444f = fVar;
+            this.f56440a = context;
+            this.f56441b = spannableStringBuilder;
+            this.f56442c = i;
+            this.f56443d = i2;
+            this.f56444e = iArr;
+            this.f56445f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             f fVar;
+            Bitmap p;
             f fVar2;
             super.onLoaded((e) aVar, str, i);
             if (aVar != null) {
-                Bitmap p = aVar.p();
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-                int dimensionPixelSize = this.f56439a.getResources().getDimensionPixelSize(R.dimen.ds80);
-                double width = p.getWidth();
-                double d2 = dimensionPixelSize;
-                Double.isNaN(d2);
-                double height = p.getHeight();
-                Double.isNaN(height);
-                Double.isNaN(width);
-                int i2 = (int) (width * ((d2 * 1.0d) / height));
-                double k = l.k(this.f56439a);
-                Double.isNaN(k);
-                if (i2 > k * 0.6d) {
-                    double width2 = p.getWidth();
-                    Double.isNaN(width2);
-                    i2 = (int) (width2 * 0.5d);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.p());
+                int dimensionPixelSize = this.f56440a.getResources().getDimensionPixelSize(R.dimen.ds80);
+                int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
+                if (width > l.k(this.f56440a) * 0.6d) {
+                    width = (int) (p.getWidth() * 0.5d);
                 }
-                bitmapDrawable.setBounds(0, 0, i2, dimensionPixelSize);
+                bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                 bitmapDrawable.setGravity(119);
-                this.f56440b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f56441c, this.f56442d, 33);
-                int[] iArr = this.f56443e;
-                int i3 = iArr[0] - 1;
-                iArr[0] = i3;
-                if (i3 != 0 || (fVar2 = this.f56444f) == null) {
+                this.f56441b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f56442c, this.f56443d, 33);
+                int[] iArr = this.f56444e;
+                int i2 = iArr[0] - 1;
+                iArr[0] = i2;
+                if (i2 != 0 || (fVar2 = this.f56445f) == null) {
                     return;
                 }
-                fVar2.a(this.f56440b);
+                fVar2.a(this.f56441b);
                 return;
             }
-            this.f56440b.setSpan("", this.f56441c, this.f56442d, 33);
-            int[] iArr2 = this.f56443e;
-            int i4 = iArr2[0] - 1;
-            iArr2[0] = i4;
-            if (i4 != 0 || (fVar = this.f56444f) == null) {
+            this.f56441b.setSpan("", this.f56442c, this.f56443d, 33);
+            int[] iArr2 = this.f56444e;
+            int i3 = iArr2[0] - 1;
+            iArr2[0] = i3;
+            if (i3 != 0 || (fVar = this.f56445f) == null) {
                 return;
             }
-            fVar.a(this.f56440b);
+            fVar.a(this.f56441b);
         }
     }
 
@@ -315,9 +293,9 @@ public class b {
         }
         int selectionStart = editText.getSelectionStart() - 1;
         if (selectionStart > 0 && selectionStart < text.length() && text.charAt(selectionStart) == 0) {
-            editText.onKeyDown(67, f56420a);
+            editText.onKeyDown(67, f56421a);
         }
-        editText.onKeyDown(67, f56420a);
+        editText.onKeyDown(67, f56421a);
         int selectionStart2 = editText.getSelectionStart();
         if (text != null) {
             editText.setSelection(selectionStart2);
@@ -333,7 +311,7 @@ public class b {
         if (e2 != EmotionGroupType.LOCAL && e2 != EmotionGroupType.USER_COLLECT && !b2.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
             editText.getText().insert(editText.getSelectionStart(), b2);
         } else if (b2 != null) {
-            d.b.b.e.l.d.h().k(b2, 20, new C1321b(editText, context, new SpannableStringBuilder(b2), e2), 0, 0, BdUniqueId.gen(), null, b2, Boolean.FALSE, null);
+            d.b.b.e.l.d.h().k(b2, 20, new C1322b(editText, context, new SpannableStringBuilder(b2), e2), 0, 0, BdUniqueId.gen(), null, b2, Boolean.FALSE, null);
         }
     }
 
@@ -360,7 +338,7 @@ public class b {
             }
             return;
         }
-        Matcher matcher = d.b.i0.k0.a.f56418a.matcher(spannableStringBuilder);
+        Matcher matcher = d.b.i0.k0.a.f56419a.matcher(spannableStringBuilder);
         while (matcher.find()) {
             String group = matcher.group();
             int start = matcher.start();
@@ -403,25 +381,15 @@ public class b {
         BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
         int width = p.getWidth();
         if (emotionGroupType == EmotionGroupType.LOCAL) {
-            double d2 = width;
-            Double.isNaN(d2);
-            int i2 = (int) (d2 * 0.5d);
+            int i2 = (int) (width * 0.5d);
             bitmapDrawable.setBounds(0, 0, i2, i2);
         } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith(SmallTailInfo.EMOTION_PREFIX)) {
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.ds80);
-            double width2 = p.getWidth();
-            double d3 = dimensionPixelSize;
-            Double.isNaN(d3);
-            double height = p.getHeight();
-            Double.isNaN(height);
-            Double.isNaN(width2);
-            int i3 = (int) (width2 * ((d3 * 1.0d) / height));
-            if (i3 > editText.getMeasuredWidth()) {
-                double width3 = p.getWidth();
-                Double.isNaN(width3);
-                i3 = (int) (width3 * 0.5d);
+            int width2 = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
+            if (width2 > editText.getMeasuredWidth()) {
+                width2 = (int) (p.getWidth() * 0.5d);
             }
-            bitmapDrawable.setBounds(0, 0, i3, dimensionPixelSize);
+            bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
         }
         bitmapDrawable.setGravity(119);
         spannableStringBuilder.setSpan(new d.b.i0.k0.d.a(bitmapDrawable, 1), 0, spannableStringBuilder.length(), 33);

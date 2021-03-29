@@ -11,7 +11,7 @@ public class a extends Thread {
 
     /* renamed from: d.b.h0.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1065a implements MessageQueue.IdleHandler {
+    public static class C1066a implements MessageQueue.IdleHandler {
         @Override // android.os.MessageQueue.IdleHandler
         public boolean queueIdle() {
             try {
@@ -29,7 +29,7 @@ public class a extends Thread {
     }
 
     public static void a() {
-        Looper.myQueue().addIdleHandler(new C1065a());
+        Looper.myQueue().addIdleHandler(new C1066a());
     }
 
     public final void b() {
@@ -38,11 +38,8 @@ public class a extends Thread {
         for (int i = 0; i < 1000000; i++) {
             f2 = f2 + 1.9509029f + 98.90882f + 1998.158f + 989.98895f + 1.1599002f + 16.2098f + 8899.087f + i;
         }
-        double nanoTime2 = System.nanoTime();
-        Double.isNaN(nanoTime2);
-        Double.isNaN(nanoTime);
         BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f2);
-        TbSingleton.getInstance().setCpuFlopsDuration((int) ((nanoTime2 - nanoTime) / 1000000.0d));
+        TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
         b.a();
     }
 

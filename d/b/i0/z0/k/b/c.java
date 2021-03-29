@@ -20,7 +20,7 @@ import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.k;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -28,7 +28,7 @@ public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public s p;
     public b0<k> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<k> {
         public a() {
         }
@@ -49,7 +49,7 @@ public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -64,7 +64,7 @@ public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
                     c.this.q.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 19, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -95,7 +95,7 @@ public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);
@@ -105,7 +105,7 @@ public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         threadCardViewHolder.b().p(this.q);
         t.b().a(kVar.L());
         d.b.i0.m.d.c().a(kVar.L());
-        d.b.i0.z0.g.m.a.c(kVar.f62196e, this.m, kVar.E());
+        d.b.i0.z0.g.m.a.c(kVar.f62197e, this.m, kVar.E());
         return threadCardViewHolder.a();
     }
 
@@ -133,7 +133,7 @@ public class c extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
             i = 1;
         }
         if (i != 0) {
-            d.b.i0.z0.g.m.a.a(kVar.f62196e, this.m, kVar.E(), i);
+            d.b.i0.z0.g.m.a.a(kVar.f62197e, this.m, kVar.E(), i);
         }
     }
 

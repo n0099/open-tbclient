@@ -11,7 +11,7 @@ import java.util.List;
 import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static void a(a2 a2Var, int i) {
         TiebaStatic.log(i != 1 ? null : d.b.i0.b3.a.n("c13692", a2Var, 3));

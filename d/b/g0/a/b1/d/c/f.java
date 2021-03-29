@@ -4,23 +4,23 @@ import com.alipay.sdk.widget.j;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43442c;
+    public String f43443c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43440a = 3;
+    public int f43441a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43441b = true;
+    public boolean f43442b = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43443d = j.j;
+    public String f43444d = j.j;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43444e = 60;
+    public int f43445e = 60;
 
     public static f a(JSONObject jSONObject) {
         f fVar = new f();
@@ -46,13 +46,13 @@ public class f {
                         i |= 2;
                     }
                 }
-                fVar.f43440a = i;
+                fVar.f43441a = i;
             }
-            fVar.f43441b = jSONObject.optBoolean("compressed", true);
+            fVar.f43442b = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
-            fVar.f43444e = optInt <= 60 ? optInt : 60;
-            fVar.f43443d = jSONObject.optString(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
-            fVar.f43442c = jSONObject.optString("cb");
+            fVar.f43445e = optInt <= 60 ? optInt : 60;
+            fVar.f43444d = jSONObject.optString(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
+            fVar.f43443c = jSONObject.optString("cb");
         }
         return fVar;
     }

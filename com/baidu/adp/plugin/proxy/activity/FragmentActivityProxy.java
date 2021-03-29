@@ -1602,13 +1602,13 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     public boolean proxyStopService(Intent intent) {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a c2 = stringExtra != null ? d.b.b.h.d.a().c(stringExtra) : null;
-        if (c2 != null && c2.f42206a != null) {
+        if (c2 != null && c2.f42207a != null) {
             if (d.b.b.h.d.a().b() == 1) {
                 d.b.b.h.d.a().e(stringExtra);
-                c2.f42206a.stopSelf();
+                c2.f42207a.stopSelf();
                 return true;
             }
-            c2.f42206a.onDestroy();
+            c2.f42207a.onDestroy();
             d.b.b.h.d.a().e(stringExtra);
             return true;
         }

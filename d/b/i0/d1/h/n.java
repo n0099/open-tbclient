@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.StrangeCleanSwitch;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f53811a = 1500;
+    public static int f53812a = 1500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f53812b = 500;
+    public static int f53813b = 500;
 
     public static void a() {
         String d2;
@@ -50,7 +50,7 @@ public class n {
     }
 
     public static int c() {
-        return d.b.h0.r.d0.b.i().j("key_max_stranger", f53811a);
+        return d.b.h0.r.d0.b.i().j("key_max_stranger", f53812a);
     }
 
     public static String d() {
@@ -107,7 +107,7 @@ public class n {
     }
 
     public static void f(int i) {
-        int i2 = f53812b;
+        int i2 = f53813b;
         if (i < i2) {
             i = i2;
         }

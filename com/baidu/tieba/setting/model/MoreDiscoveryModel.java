@@ -26,16 +26,16 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static final int GET_DATA_FROM_NET = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public UserData f20977e;
+    public UserData f20978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NicknameInfo f20978f;
+    public NicknameInfo f20979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f20979g;
+    public final Context f20980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f20980h;
+    public Handler f20981h;
     public d.b.i0.c3.j0.b i;
     public boolean j;
     public d.b.b.c.g.a k;
@@ -103,7 +103,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                     z = false;
                 }
                 if (z) {
-                    MoreDiscoveryModel.this.f20980h.post(new a());
+                    MoreDiscoveryModel.this.f20981h.post(new a());
                 }
             }
             MoreDiscoveryModel.this.j = false;
@@ -112,13 +112,13 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
 
     public MoreDiscoveryModel(MoreActivity moreActivity) {
         super(moreActivity.getPageContext());
-        this.f20980h = null;
+        this.f20981h = null;
         this.i = null;
         this.j = false;
         this.k = new a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.f20977e = null;
-        this.f20979g = moreActivity.getPageContext().getContext();
-        this.f20980h = new Handler(Looper.getMainLooper());
+        this.f20978e = null;
+        this.f20980g = moreActivity.getPageContext().getContext();
+        this.f20981h = new Handler(Looper.getMainLooper());
         this.i = new d.b.i0.c3.j0.b("profileStat");
         registerListener(this.k);
     }
@@ -183,7 +183,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         if (z3) {
             setErrorString(str);
         } else {
-            setErrorString(this.f20979g.getString(R.string.neterror));
+            setErrorString(this.f20980g.getString(R.string.neterror));
         }
         this.mLoadDataMode = 1;
         this.mLoadDataCallBack.c(Boolean.FALSE);
@@ -195,9 +195,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
         try {
             UserData userData = new UserData();
-            this.f20977e = userData;
+            this.f20978e = userData;
             userData.parserProtobuf(dataRes.user);
-            this.f20978f = dataRes.nickname_info;
+            this.f20979f = dataRes.nickname_info;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -209,9 +209,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
         try {
             UserData userData = new UserData();
-            this.f20977e = userData;
+            this.f20978e = userData;
             userData.parserProtobuf(profileHttpResponseMessage.GetUser());
-            this.f20978f = profileHttpResponseMessage.getNicknameInfo();
+            this.f20979f = profileHttpResponseMessage.getNicknameInfo();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -224,9 +224,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
         try {
             UserData userData = new UserData();
-            this.f20977e = userData;
+            this.f20978e = userData;
             userData.parserProtobuf(profileSocketResponseMessage.GetUser());
-            this.f20978f = profileSocketResponseMessage.getNicknameInfo();
+            this.f20979f = profileSocketResponseMessage.getNicknameInfo();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -255,11 +255,11 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     }
 
     public UserData getUser() {
-        return this.f20977e;
+        return this.f20978e;
     }
 
     public void setUser(UserData userData) {
-        this.f20977e = userData;
+        this.f20978e = userData;
     }
 
     public final l<byte[]> x() {
@@ -272,6 +272,6 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     }
 
     public NicknameInfo z() {
-        return this.f20978f;
+        return this.f20979f;
     }
 }

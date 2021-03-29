@@ -3,26 +3,26 @@ package com.baidu.mapapi.map;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7074a;
+    public final /* synthetic */ int f7075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7075b;
+    public final /* synthetic */ int f7076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f7076c;
+    public final /* synthetic */ int f7077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ HeatMap f7077d;
+    public final /* synthetic */ HeatMap f7078d;
 
     public i(HeatMap heatMap, int i, int i2, int i3) {
-        this.f7077d = heatMap;
-        this.f7074a = i;
-        this.f7075b = i2;
-        this.f7076c = i3;
+        this.f7078d = heatMap;
+        this.f7075a = i;
+        this.f7076b = i2;
+        this.f7077c = i3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f7077d.b(this.f7074a, this.f7075b, this.f7076c);
+        this.f7078d.b(this.f7075a, this.f7076b, this.f7077c);
     }
 }

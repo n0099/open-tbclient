@@ -5,5 +5,5 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d extends b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f67469e = new AtomicInteger();
+    public final AtomicInteger f67474e = new AtomicInteger();
 }

@@ -3,7 +3,7 @@ package com.baidu.android.imsdk;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ACCOUNT_ANON = 0;
     public static final int ACCOUNT_BAIDU = 1;

@@ -69,7 +69,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     }
 
     public FrsRequestData Y() {
-        return (FrsRequestData) this.f13969g;
+        return (FrsRequestData) this.f13970g;
     }
 
     public boolean Z() {
@@ -77,7 +77,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     }
 
     public void a0(FrsRequestData frsRequestData) {
-        this.f13969g = frsRequestData;
+        this.f13970g = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l

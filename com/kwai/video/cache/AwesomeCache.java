@@ -14,7 +14,7 @@ public class AwesomeCache {
     public static final int UPSTREAM_TYPE_FFURL = 1;
     public static final int UPSTREAM_TYPE_P2SP = 2;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface DataSourceType {
     }
 
@@ -35,7 +35,7 @@ public class AwesomeCache {
         public String url;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface UpstreamType {
     }
 

@@ -6,7 +6,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class DeferredReleaser {
     @Nullable
     public static DeferredReleaser sInstance;
@@ -23,7 +23,7 @@ public class DeferredReleaser {
     public final Set<Releasable> mPendingReleasables = new HashSet();
     public final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public interface Releasable {
         void release();
     }

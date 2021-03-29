@@ -18,13 +18,13 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppNetworkUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f12388a = k.f45050a;
+    public static final boolean f12389a = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -41,28 +41,28 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f12389c;
+        public final /* synthetic */ b f12390c;
 
         public a(b bVar) {
-            this.f12389c = bVar;
+            this.f12390c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.n1.a.b.c.b, d.b.g0.a.n1.a.b.c.c, d.b.g0.a.n1.a.b.c.a
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
             int i = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            b bVar2 = this.f12389c;
+            b bVar2 = this.f12390c;
             if (bVar2 != null) {
                 bVar2.onResult(i);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void onResult(int i);
     }
@@ -101,7 +101,7 @@ public class SwanAppNetworkUtils {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String d(int i, String str) {
-        if (f12388a) {
+        if (f12389a) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
         }
         switch (i) {
@@ -222,22 +222,22 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f12388a) {
+            if (f12389a) {
                 Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
-            if (f12388a) {
+            if (f12389a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f12388a) {
+        if (f12389a) {
             Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
         }
     }
 
     public static <T> void k(String str, String str2, ResponseCallback<T> responseCallback) {
-        if (f12388a) {
+        if (f12389a) {
             Log.d("postJsonRequest", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
         }
         if (TextUtils.isEmpty(str)) {

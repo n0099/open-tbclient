@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class DownsampleUtil {
     public static final int DEFAULT_SAMPLE_SIZE = 1;
     public static final float INTERVAL_ROUNDING = 0.33333334f;
@@ -67,10 +67,7 @@ public class DownsampleUtil {
         int i = 2;
         while (true) {
             double d2 = i;
-            double pow = Math.pow(d2, 2.0d);
-            Double.isNaN(d2);
-            Double.isNaN(d2);
-            if ((1.0d / d2) + ((1.0d / (pow - d2)) * 0.3333333432674408d) <= f2) {
+            if ((1.0d / d2) + ((1.0d / (Math.pow(d2, 2.0d) - d2)) * 0.3333333432674408d) <= f2) {
                 return i - 1;
             }
             i++;
@@ -85,10 +82,8 @@ public class DownsampleUtil {
         int i = 2;
         while (true) {
             int i2 = i * 2;
-            double d2 = i2;
-            Double.isNaN(d2);
-            double d3 = 1.0d / d2;
-            if (d3 + (0.3333333432674408d * d3) <= f2) {
+            double d2 = 1.0d / i2;
+            if (d2 + (0.3333333432674408d * d2) <= f2) {
                 return i;
             }
             i = i2;

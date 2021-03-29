@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UpdatesItemData extends AbstractImageProvider implements Serializable {
     public static final long serialVersionUID = -6859992224160576142L;
     public String authorId;

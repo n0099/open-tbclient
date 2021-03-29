@@ -90,8 +90,8 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
 
     /* renamed from: d.b.i0.c2.k.g.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1167b implements d.b.b.e.k.c<TbImageView> {
-        public C1167b() {
+    public class C1168b implements d.b.b.e.k.c<TbImageView> {
+        public C1168b() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -146,23 +146,23 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f53076e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f53077e;
 
         public c(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-            this.f53076e = pbCommenFloorItemViewHolder;
+            this.f53077e = pbCommenFloorItemViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != null && (view.getTag(R.id.tag_subpb_ban_display_keyboard) instanceof Boolean) && view.getTag(R.id.tag_subpb_ban_display_keyboard) == Boolean.TRUE && this.f53076e.a() != null) {
-                this.f53076e.a().setTag(R.id.tag_subpb_ban_display_keyboard, Boolean.TRUE);
+            if (view != null && (view.getTag(R.id.tag_subpb_ban_display_keyboard) instanceof Boolean) && view.getTag(R.id.tag_subpb_ban_display_keyboard) == Boolean.TRUE && this.f53077e.a() != null) {
+                this.f53077e.a().setTag(R.id.tag_subpb_ban_display_keyboard, Boolean.TRUE);
             }
-            b.this.s.onClick(this.f53076e.a());
+            b.this.s.onClick(this.f53077e.a());
             if (view != null) {
                 view.setTag(R.id.tag_subpb_ban_display_keyboard, null);
             }
-            if (this.f53076e.a() != null) {
-                this.f53076e.a().setTag(R.id.tag_subpb_ban_display_keyboard, null);
+            if (this.f53077e.a() != null) {
+                this.f53077e.a().setTag(R.id.tag_subpb_ban_display_keyboard, null);
             }
         }
     }
@@ -171,28 +171,28 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f53078e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f53079e;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostData f53080e;
+            public final /* synthetic */ PostData f53081e;
 
             public a(PostData postData) {
-                this.f53080e = postData;
+                this.f53081e = postData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 d dVar = d.this;
                 b bVar = b.this;
-                bVar.w.f53017b.a(null, bVar.o, this.f53080e, dVar.f53078e.m.getLayoutStrategy());
+                bVar.w.f53018b.a(null, bVar.o, this.f53081e, dVar.f53079e.m.getLayoutStrategy());
             }
         }
 
         public d(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-            this.f53078e = pbCommenFloorItemViewHolder;
+            this.f53079e = pbCommenFloorItemViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
@@ -200,7 +200,7 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
             PostData postData;
             if (view.getTag() instanceof SparseArray) {
                 SparseArray sparseArray = (SparseArray) view.getTag();
-                if (!(sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) == null || this.f53078e.f19530b == null || b.this.w == null) {
+                if (!(sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) == null || this.f53079e.f19531b == null || b.this.w == null) {
                     return;
                 }
                 d.b.b.e.m.e.a().postDelayed(new a(postData), 100L);
@@ -217,25 +217,25 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f53082e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f53083e;
 
         public e(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-            this.f53082e = pbCommenFloorItemViewHolder;
+            this.f53083e = pbCommenFloorItemViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder;
             AgreeView agreeView;
-            if (view == null || b.this.o == null || (pbCommenFloorItemViewHolder = this.f53082e) == null || (agreeView = pbCommenFloorItemViewHolder.C) == null || agreeView.getData() == null) {
+            if (view == null || b.this.o == null || (pbCommenFloorItemViewHolder = this.f53083e) == null || (agreeView = pbCommenFloorItemViewHolder.C) == null || agreeView.getData() == null) {
                 return;
             }
-            int i = view == this.f53082e.C.getImgAgree() ? 1 : 2;
+            int i = view == this.f53083e.C.getImgAgree() ? 1 : 2;
             String o0 = b.this.o.o0();
             if (StringUtils.isNull(o0) || "0".equals(o0)) {
                 o0 = b.this.o.L0();
             }
-            TiebaStatic.log(new StatisticItem("c13700").param("tid", o0).param("fid", b.this.o.c0()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.f53082e.C.getData().postId).param("obj_source", 1).param("obj_type", i));
+            TiebaStatic.log(new StatisticItem("c13700").param("tid", o0).param("fid", b.this.o.c0()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.f53083e.C.getData().postId).param("obj_source", 1).param("obj_type", i));
         }
     }
 
@@ -243,28 +243,28 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f53084e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f53085e;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostData f53086e;
+            public final /* synthetic */ PostData f53087e;
 
             public a(PostData postData) {
-                this.f53086e = postData;
+                this.f53087e = postData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 f fVar = f.this;
                 b bVar = b.this;
-                bVar.w.f53017b.a(null, bVar.o, this.f53086e, fVar.f53084e.m.getLayoutStrategy());
+                bVar.w.f53018b.a(null, bVar.o, this.f53087e, fVar.f53085e.m.getLayoutStrategy());
             }
         }
 
         public f(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-            this.f53084e = pbCommenFloorItemViewHolder;
+            this.f53085e = pbCommenFloorItemViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
@@ -272,7 +272,7 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
             PostData postData;
             if (view.getTag() instanceof SparseArray) {
                 SparseArray sparseArray = (SparseArray) view.getTag();
-                if (!(sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) == null || this.f53084e.f19530b == null || b.this.w == null) {
+                if (!(sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) == null || this.f53085e.f19531b == null || b.this.w == null) {
                     return;
                 }
                 d.b.b.e.m.e.a().postDelayed(new a(postData), 100L);
@@ -289,25 +289,25 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f53088e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f53089e;
 
         public g(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-            this.f53088e = pbCommenFloorItemViewHolder;
+            this.f53089e = pbCommenFloorItemViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder;
             AgreeView agreeView;
-            if (view == null || b.this.o == null || (pbCommenFloorItemViewHolder = this.f53088e) == null || (agreeView = pbCommenFloorItemViewHolder.k) == null || agreeView.getData() == null) {
+            if (view == null || b.this.o == null || (pbCommenFloorItemViewHolder = this.f53089e) == null || (agreeView = pbCommenFloorItemViewHolder.k) == null || agreeView.getData() == null) {
                 return;
             }
-            int i = view == this.f53088e.k.getImgAgree() ? 1 : 2;
+            int i = view == this.f53089e.k.getImgAgree() ? 1 : 2;
             String o0 = b.this.o.o0();
             if (StringUtils.isNull(o0) || "0".equals(o0)) {
                 o0 = b.this.o.L0();
             }
-            TiebaStatic.log(new StatisticItem("c13700").param("tid", o0).param("fid", b.this.o.c0()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.f53088e.k.getData().postId).param("obj_source", 1).param("obj_type", i));
+            TiebaStatic.log(new StatisticItem("c13700").param("tid", o0).param("fid", b.this.o.c0()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.f53089e.k.getData().postId).param("obj_source", 1).param("obj_type", i));
         }
     }
 
@@ -323,7 +323,7 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
         this.y = d.b.h0.b.d.S();
         this.z = false;
         this.A = new d.b.b.e.k.b<>(new a(), 6, 0);
-        this.B = new d.b.b.e.k.b<>(new C1167b(), 12, 0);
+        this.B = new d.b.b.e.k.b<>(new C1168b(), 12, 0);
         if (newSubPbActivity == null || newSubPbActivity.getSubPbModel() == null) {
             return;
         }
@@ -460,13 +460,13 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     }
 
     public final void o0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
-        if (pbCommenFloorItemViewHolder == null || pbCommenFloorItemViewHolder.f19530b == null) {
+        if (pbCommenFloorItemViewHolder == null || pbCommenFloorItemViewHolder.f19531b == null) {
             return;
         }
         if (StringHelper.equals(this.r, postData.D())) {
-            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.f19530b, R.color.CAM_X0313);
+            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.f19531b, R.color.CAM_X0313);
         } else {
-            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.f19530b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.f19531b, R.color.CAM_X0205);
         }
     }
 
@@ -485,7 +485,7 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     @Override // d.b.b.j.e.a
     /* renamed from: q0 */
     public PbCommenFloorItemViewHolder R(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f42357e).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f42358e).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false);
         ((ViewGroup) inflate.findViewById(R.id.pb_post_reply_container)).addView(LayoutInflater.from(inflate.getContext()).inflate(R.layout.pb_op_stragtery_default, (ViewGroup) null));
         PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder = new PbCommenFloorItemViewHolder(this.m.getPageContext(), inflate, this.x);
         pbCommenFloorItemViewHolder.f(true);
@@ -513,18 +513,18 @@ public class b extends d.b.i0.c2.k.g.e.a<PostData, PbCommenFloorItemViewHolder> 
     }
 
     public final void s0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        pbCommenFloorItemViewHolder.f19530b.setOnLongClickListener(this.v);
+        pbCommenFloorItemViewHolder.f19531b.setOnLongClickListener(this.v);
         d.b.i0.c2.k.a aVar = this.m;
         if (aVar == null || aVar.getPageContext().getOrignalPage() == null) {
             return;
         }
         d.b.i0.c2.k.e.z0.a eventController = this.m.getEventController();
         if (eventController != null) {
-            pbCommenFloorItemViewHolder.f19533e.setOnClickListener(eventController.f52994b);
-            pbCommenFloorItemViewHolder.l.setOnClickListener(eventController.f52994b);
-            pbCommenFloorItemViewHolder.F.setOnClickListener(eventController.f52994b);
-            pbCommenFloorItemViewHolder.F.getHeadView().setOnClickListener(eventController.f52994b);
-            pbCommenFloorItemViewHolder.m.setOnEmotionClickListener(eventController.f52997e);
+            pbCommenFloorItemViewHolder.f19534e.setOnClickListener(eventController.f52995b);
+            pbCommenFloorItemViewHolder.l.setOnClickListener(eventController.f52995b);
+            pbCommenFloorItemViewHolder.F.setOnClickListener(eventController.f52995b);
+            pbCommenFloorItemViewHolder.F.getHeadView().setOnClickListener(eventController.f52995b);
+            pbCommenFloorItemViewHolder.m.setOnEmotionClickListener(eventController.f52998e);
         }
         pbCommenFloorItemViewHolder.m.setOnLongClickListener(this.v);
         pbCommenFloorItemViewHolder.m.setOnImageClickListener(this.t);

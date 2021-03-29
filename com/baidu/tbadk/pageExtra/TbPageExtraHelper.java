@@ -30,10 +30,10 @@ import java.util.Stack;
 public class TbPageExtraHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13982a;
+    public static String f13983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f13983b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+    public static HashMap<String, String> f13984b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
         {
             put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "a028");
             put("52", "a075");
@@ -51,15 +51,15 @@ public class TbPageExtraHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f13984e;
+        public final /* synthetic */ String f13985e;
 
         public a(String str) {
-            this.f13984e = str;
+            this.f13985e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String unused = TbPageExtraHelper.f13982a = (String) TbPageExtraHelper.f13983b.get(this.f13984e);
+            String unused = TbPageExtraHelper.f13983a = (String) TbPageExtraHelper.f13984b.get(this.f13985e);
         }
     }
 
@@ -212,7 +212,7 @@ public class TbPageExtraHelper {
     }
 
     public static String m() {
-        return f13982a;
+        return f13983a;
     }
 
     public static boolean n() {
@@ -289,11 +289,11 @@ public class TbPageExtraHelper {
     }
 
     public static void u(String str) {
-        f13982a = str;
+        f13983a = str;
     }
 
     public static void v(String str) {
-        if (!StringUtil.isEmpty(str) && f13983b.containsKey(str)) {
+        if (!StringUtil.isEmpty(str) && f13984b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

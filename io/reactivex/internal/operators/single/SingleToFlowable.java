@@ -11,14 +11,14 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 public final class SingleToFlowable<T> extends e<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final s<? extends T> f68085f;
+    public final s<? extends T> f68090f;
 
     /* loaded from: classes7.dex */
     public static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements r<T> {
         public static final long serialVersionUID = 187782011903685568L;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f68086d;
+        public b f68091d;
 
         public SingleToFlowableObserver(c<? super T> cVar) {
             super(cVar);
@@ -27,7 +27,7 @@ public final class SingleToFlowable<T> extends e<T> {
         @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
         public void cancel() {
             super.cancel();
-            this.f68086d.dispose();
+            this.f68091d.dispose();
         }
 
         @Override // f.a.r
@@ -37,8 +37,8 @@ public final class SingleToFlowable<T> extends e<T> {
 
         @Override // f.a.r
         public void onSubscribe(b bVar) {
-            if (DisposableHelper.validate(this.f68086d, bVar)) {
-                this.f68086d = bVar;
+            if (DisposableHelper.validate(this.f68091d, bVar)) {
+                this.f68091d = bVar;
                 this.actual.onSubscribe(this);
             }
         }
@@ -50,11 +50,11 @@ public final class SingleToFlowable<T> extends e<T> {
     }
 
     public SingleToFlowable(s<? extends T> sVar) {
-        this.f68085f = sVar;
+        this.f68090f = sVar;
     }
 
     @Override // f.a.e
     public void c(c<? super T> cVar) {
-        this.f68085f.a(new SingleToFlowableObserver(cVar));
+        this.f68090f.a(new SingleToFlowableObserver(cVar));
     }
 }

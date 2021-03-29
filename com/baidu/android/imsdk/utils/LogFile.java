@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LogFile {
     public static final String TAG = "LogFile";
     public static LogFile mInstance;

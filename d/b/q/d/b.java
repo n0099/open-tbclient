@@ -3,7 +3,7 @@ package d.b.q.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f64265a;
+    public a f64266a;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -11,10 +11,10 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f64265a = aVar;
+        this.f64266a = aVar;
     }
 
     public d.b.q.d.a a() {
-        return this.f64265a.a();
+        return this.f64266a.a();
     }
 }

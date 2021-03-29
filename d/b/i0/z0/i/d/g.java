@@ -18,7 +18,7 @@ import d.b.i.u0.a;
 import d.b.i.y;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
@@ -27,7 +27,7 @@ public class g extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public s q;
     public b0<a2> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -41,7 +41,7 @@ public class g extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements w {
         public b() {
         }
@@ -56,7 +56,7 @@ public class g extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     g.this.r.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -102,11 +102,11 @@ public class g extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         threadCardViewHolder.b().p(this.r);
         d.b.i0.z0.i.b.e(z1Var, this.n);
         y yVar = (y) threadCardViewHolder.b().f();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.j.f4480h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.j.f4481h.getLayoutParams();
         layoutParams.width = z1Var.x;
         layoutParams.height = z1Var.y;
-        if (yVar.j.f4480h.getVisibility() != 8) {
-            yVar.j.f4480h.setLayoutParams(layoutParams);
+        if (yVar.j.f4481h.getVisibility() != 8) {
+            yVar.j.f4481h.setLayoutParams(layoutParams);
         }
         return threadCardViewHolder.a();
     }

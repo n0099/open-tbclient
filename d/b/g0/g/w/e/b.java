@@ -25,35 +25,35 @@ import okhttp3.Response;
 import org.json.JSONException;
 /* loaded from: classes3.dex */
 public class b extends d.b.g0.g.w.a {
-    public static final boolean m = k.f45050a;
+    public static final boolean m = k.f45051a;
     public long l;
 
     /* loaded from: classes3.dex */
     public class a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f48596a;
+        public final /* synthetic */ String f48597a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.w.b f48597b;
+        public final /* synthetic */ d.b.g0.g.w.b f48598b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f48598c;
+        public final /* synthetic */ boolean f48599c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a2.f.c f48599d;
+        public final /* synthetic */ d.b.g0.a.a2.f.c f48600d;
 
         public a(String str, d.b.g0.g.w.b bVar, boolean z, d.b.g0.a.a2.f.c cVar) {
-            this.f48596a = str;
-            this.f48597b = bVar;
-            this.f48598c = z;
-            this.f48599d = cVar;
+            this.f48597a = str;
+            this.f48598b = bVar;
+            this.f48599c = z;
+            this.f48600d = cVar;
         }
 
         @Override // d.b.g0.a.g1.m.a.b
         public void a(long j) {
-            b.this.F(this.f48596a, -1, "downloadFile:fail exceed max file size");
-            this.f48597b.cancelTag(b.this.f48586g);
+            b.this.F(this.f48597a, -1, "downloadFile:fail exceed max file size");
+            this.f48598b.cancelTag(b.this.f48587g);
         }
 
         @Override // d.b.g0.a.g1.m.a.b
@@ -66,13 +66,13 @@ public class b extends d.b.g0.g.w.a {
                         jSEvent.data = aVar;
                         b.this.dispatchEvent(jSEvent);
                     }
-                    if (this.f48598c && this.f48599d.h().a(j)) {
-                        b.this.F(this.f48596a, -1, "downloadFile:fail exceed max file size");
-                        this.f48597b.cancelTag(b.this.f48586g);
+                    if (this.f48599c && this.f48600d.h().a(j)) {
+                        b.this.F(this.f48597a, -1, "downloadFile:fail exceed max file size");
+                        this.f48598b.cancelTag(b.this.f48587g);
                     }
                 } else {
-                    b.this.F(this.f48596a, -1, "downloadFile:fail exceed max file size");
-                    this.f48597b.cancelTag(b.this.f48586g);
+                    b.this.F(this.f48597a, -1, "downloadFile:fail exceed max file size");
+                    this.f48598b.cancelTag(b.this.f48587g);
                 }
                 b.this.l = System.currentTimeMillis();
             }
@@ -80,43 +80,43 @@ public class b extends d.b.g0.g.w.a {
 
         @Override // d.b.g0.a.g1.m.a.b
         public void c(long j, long j2) {
-            b.this.F(this.f48596a, 0, "progress callback fail()");
-            this.f48597b.cancelTag(b.this.f48586g);
+            b.this.F(this.f48597a, 0, "progress callback fail()");
+            this.f48598b.cancelTag(b.this.f48587g);
         }
     }
 
     /* renamed from: d.b.g0.g.w.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0995b implements Callback {
+    public class C0996b implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f48601a;
+        public final /* synthetic */ String f48602a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f48602b;
+        public final /* synthetic */ String f48603b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48603c;
+        public final /* synthetic */ String f48604c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a2.f.c f48604d;
+        public final /* synthetic */ d.b.g0.a.a2.f.c f48605d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48605e;
+        public final /* synthetic */ boolean f48606e;
 
-        public C0995b(String str, String str2, String str3, d.b.g0.a.a2.f.c cVar, boolean z) {
-            this.f48601a = str;
-            this.f48602b = str2;
-            this.f48603c = str3;
-            this.f48604d = cVar;
-            this.f48605e = z;
+        public C0996b(String str, String str2, String str3, d.b.g0.a.a2.f.c cVar, boolean z) {
+            this.f48602a = str;
+            this.f48603b = str2;
+            this.f48604c = str3;
+            this.f48605d = cVar;
+            this.f48606e = z;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            b.this.F(this.f48601a, 0, iOException.getMessage());
+            b.this.F(this.f48602a, 0, iOException.getMessage());
             if (SwanAppNetworkUtils.h(null)) {
-                h.s(0, this.f48601a, 1, iOException.getMessage());
+                h.s(0, this.f48602a, 1, iOException.getMessage());
             }
         }
 
@@ -133,29 +133,29 @@ public class b extends d.b.g0.g.w.a {
                     e2.printStackTrace();
                 }
             }
-            if (TextUtils.isEmpty(this.f48602b)) {
-                W = g.A(response, this.f48603c);
+            if (TextUtils.isEmpty(this.f48603b)) {
+                W = g.A(response, this.f48604c);
             } else {
-                W = b.this.W(this.f48602b);
+                W = b.this.W(this.f48603b);
             }
             if (!TextUtils.isEmpty(W)) {
                 if (b.m) {
                     Log.d("DownloadTask", "the real file path is " + W);
                 }
-                if (TextUtils.isEmpty(this.f48602b)) {
-                    str = this.f48604d.b(W);
+                if (TextUtils.isEmpty(this.f48603b)) {
+                    str = this.f48605d.b(W);
                 } else {
-                    str = this.f48602b;
+                    str = this.f48603b;
                 }
                 if (TextUtils.isEmpty(str)) {
-                    b.this.F(this.f48601a, -1, "parse tmpFilePath from realFilePath fail");
+                    b.this.F(this.f48602a, -1, "parse tmpFilePath from realFilePath fail");
                     return;
                 }
                 int code = response.code();
                 String message = response.message();
                 c cVar = new c();
                 cVar.statusCode = code;
-                if (TextUtils.isEmpty(this.f48602b)) {
+                if (TextUtils.isEmpty(this.f48603b)) {
                     cVar.tempFilePath = str;
                 } else {
                     cVar.filePath = str;
@@ -165,33 +165,33 @@ public class b extends d.b.g0.g.w.a {
                 if (file.exists()) {
                     long length = file.length();
                     file.delete();
-                    if (this.f48605e) {
-                        this.f48604d.h().b(-length);
+                    if (this.f48606e) {
+                        this.f48605d.h().b(-length);
                     }
                 }
                 if (b.this.X(byteStream, file)) {
-                    if (this.f48605e) {
-                        this.f48604d.h().b(file.length());
+                    if (this.f48606e) {
+                        this.f48605d.h().b(file.length());
                     }
                     b.this.G(cVar);
                 } else {
-                    b.this.F(this.f48601a, -1, "downloadFile:fail abort");
+                    b.this.F(this.f48602a, -1, "downloadFile:fail abort");
                 }
                 d.b.g0.p.d.a(byteStream);
                 d.b.g0.p.d.a(response);
                 if (b.m) {
-                    Log.d("DownloadTask", "onResponse: respCode: " + code + ", url=" + this.f48601a + ", msg=" + message);
+                    Log.d("DownloadTask", "onResponse: respCode: " + code + ", url=" + this.f48602a + ", msg=" + message);
                 }
-                h.s(code, this.f48601a, 1, message);
+                h.s(code, this.f48602a, 1, message);
                 return;
             }
-            b.this.F(this.f48601a, -1, "downloadFile:filePath is invalid");
+            b.this.F(this.f48602a, -1, "downloadFile:filePath is invalid");
         }
     }
 
     public b(d.b.g0.g.i.b bVar, d.b.g0.g.e.d.c cVar) {
         super(bVar, cVar);
-        this.f48584e = 2;
+        this.f48585e = 2;
     }
 
     @Override // d.b.g0.g.w.a
@@ -205,7 +205,7 @@ public class b extends d.b.g0.g.w.a {
         d.b.g0.a.a2.f.c y = f.V().y();
         boolean e2 = y.e(str);
         h.w(httpUrl, 1);
-        bVar.a(request, Collections.singletonList(dVar), new C0995b(httpUrl, str, str2, y, e2));
+        bVar.a(request, Collections.singletonList(dVar), new C0996b(httpUrl, str, str2, y, e2));
     }
 
     @Nullable
@@ -272,7 +272,7 @@ public class b extends d.b.g0.g.w.a {
     }
 
     public void start() {
-        if (this.f48585f == null) {
+        if (this.f48586f == null) {
             return;
         }
         String C = C();
@@ -284,7 +284,7 @@ public class b extends d.b.g0.g.w.a {
             return;
         }
         d.b.g0.g.w.b V = d.b.g0.a.r1.e.y().V();
-        String B = this.f48585f.B("filePath");
+        String B = this.f48586f.B("filePath");
         if (!TextUtils.isEmpty(B)) {
             if (d.b.g0.p.d.o(B)) {
                 F(C, -1, "downloadFile:filePath is invalid");
@@ -304,8 +304,8 @@ public class b extends d.b.g0.g.w.a {
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        J(builder, this.f48585f.w("header"), hashMap, false);
-        builder.url(C).tag(this.f48586g).build();
+        J(builder, this.f48586f.w("header"), hashMap, false);
+        builder.url(C).tag(this.f48587g).build();
         String l = d.b.g0.p.d.l(C);
         this.l = 0L;
         d dVar = new d();

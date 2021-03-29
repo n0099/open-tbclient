@@ -4,18 +4,18 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.wallet.api.BaiduWalletDelegate;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaiduLBSPay {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduLBSPay f2529a = new BaiduLBSPay();
+        public static BaiduLBSPay f2530a = new BaiduLBSPay();
     }
 
     public static BaiduLBSPay getInstance() {
-        return a.f2529a;
+        return a.f2530a;
     }
 
     public void doCallFrontCashierPay(Activity activity, GetPayOrderListener getPayOrderListener, LBSPayBack lBSPayBack, Map<String, String> map, String str) {

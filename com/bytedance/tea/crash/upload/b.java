@@ -29,10 +29,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30512a = false;
+    public static boolean f30513a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.c.d.b.n.b f30513b;
+    public static d.c.d.b.n.b f30514b;
 
     /* loaded from: classes6.dex */
     public enum a {
@@ -42,16 +42,16 @@ public class b {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f30518d;
+        public final int f30519d;
 
         a(int i) {
-            this.f30518d = i;
+            this.f30519d = i;
         }
     }
 
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public enum EnumC0338b {
+    public enum EnumC0339b {
         NONE(0),
         MOBILE(1),
         MOBILE_2G(2),
@@ -61,10 +61,10 @@ public class b {
         
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f30526g;
+        public final int f30527g;
 
-        EnumC0338b(int i) {
-            this.f30526g = i;
+        EnumC0339b(int i) {
+            this.f30527g = i;
         }
     }
 
@@ -145,7 +145,7 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0111 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0111 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -158,8 +158,8 @@ public class b {
         HttpURLConnection httpURLConnection = null;
         GZIPInputStream gZIPInputStream2 = null;
         try {
-            if (f30513b != null) {
-                str = f30513b.a(str, bArr);
+            if (f30514b != null) {
+                str = f30514b.a(str, bArr);
             }
             LinkedList<Pair> linkedList = new LinkedList();
             if (z2) {

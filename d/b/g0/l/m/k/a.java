@@ -6,14 +6,14 @@ import java.util.Collection;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.l.k.d f49047a;
+    public d.b.g0.l.k.d f49048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.l.k.d f49048b;
+    public d.b.g0.l.k.d f49049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.l.k.b f49049c;
+    public d.b.g0.l.k.b f49050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Collection<i> f49050d;
+    public Collection<i> f49051d;
 }

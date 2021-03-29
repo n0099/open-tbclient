@@ -12,32 +12,32 @@ import org.json.JSONObject;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53606a;
+    public int f53607a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f53609d;
+    public int f53610d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53610e;
+    public int f53611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53611f;
+    public String f53612f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53612g;
+    public String f53613g;
     public String i;
     public BlockPopInfoData j;
     public int k;
     public String l;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FeedForumData> f53613h = new ArrayList();
+    public List<FeedForumData> f53614h = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53607b = 0;
+    public int f53608b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53608c = 0;
+    public int f53609c = 0;
 
     public w() {
         t("");
@@ -55,7 +55,7 @@ public class w {
     }
 
     public int c() {
-        return this.f53609d;
+        return this.f53610d;
     }
 
     public int d() {
@@ -67,31 +67,31 @@ public class w {
     }
 
     public List<FeedForumData> f() {
-        return this.f53613h;
+        return this.f53614h;
     }
 
     public String g() {
-        return this.f53611f;
+        return this.f53612f;
     }
 
     public String h() {
-        return this.f53612g;
+        return this.f53613g;
     }
 
     public int i() {
-        return this.f53610e;
+        return this.f53611e;
     }
 
     public int j() {
-        return this.f53607b;
+        return this.f53608b;
     }
 
     public int k() {
-        return this.f53608c;
+        return this.f53609c;
     }
 
     public int l() {
-        return this.f53606a;
+        return this.f53607a;
     }
 
     public final void m(JSONObject jSONObject) {
@@ -124,7 +124,7 @@ public class w {
                 feedForumData.setReason(jSONObject.optString("reason"));
                 feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                 feedForumData.setPos(jSONObject.optInt("pos", 0));
-                this.f53613h.add(feedForumData);
+                this.f53614h.add(feedForumData);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return;
@@ -150,8 +150,8 @@ public class w {
         }
         try {
             jSONObject.optInt("is_black", 0);
-            this.f53607b = jSONObject.optInt("like_num", 0);
-            this.f53608c = jSONObject.optInt("level_id", 0);
+            this.f53608b = jSONObject.optInt("like_num", 0);
+            this.f53609c = jSONObject.optInt("level_id", 0);
             v(jSONObject.optInt("is_like", 0));
             t(jSONObject.optString("level_name", ""));
             u(jSONObject.optInt("levelup_score", 0));
@@ -167,28 +167,28 @@ public class w {
     }
 
     public void r(int i) {
-        this.f53609d = i;
+        this.f53610d = i;
     }
 
     public void s(String str) {
-        this.f53611f = str;
+        this.f53612f = str;
     }
 
     public void t(String str) {
-        this.f53612g = str;
+        this.f53613g = str;
     }
 
     public void u(int i) {
-        this.f53610e = i;
+        this.f53611e = i;
     }
 
     public void v(int i) {
-        this.f53606a = i;
+        this.f53607a = i;
     }
 
     public void w(int i) {
         if (i >= 0) {
-            this.f53608c = i;
+            this.f53609c = i;
         }
     }
 }

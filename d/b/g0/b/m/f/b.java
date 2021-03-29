@@ -15,38 +15,38 @@ import java.util.Arrays;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47417a = k.f45050a;
+    public static final boolean f47418a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f47418b = {"BLA-AL00", "R7Plus"};
+    public static final String[] f47419b = {"BLA-AL00", "R7Plus"};
 
     /* loaded from: classes3.dex */
     public static class a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0911b f47419e;
+        public final /* synthetic */ InterfaceC0912b f47420e;
 
-        public a(InterfaceC0911b interfaceC0911b) {
-            this.f47419e = interfaceC0911b;
+        public a(InterfaceC0912b interfaceC0912b) {
+            this.f47420e = interfaceC0912b;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            InterfaceC0911b interfaceC0911b = this.f47419e;
-            if (interfaceC0911b != null) {
-                interfaceC0911b.onResult(i == -1);
+            InterfaceC0912b interfaceC0912b = this.f47420e;
+            if (interfaceC0912b != null) {
+                interfaceC0912b.onResult(i == -1);
             }
         }
     }
 
     /* renamed from: d.b.g0.b.m.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0911b {
+    public interface InterfaceC0912b {
         void onResult(boolean z);
     }
 
-    public static DialogInterface.OnClickListener a(InterfaceC0911b interfaceC0911b) {
-        return new a(interfaceC0911b);
+    public static DialogInterface.OnClickListener a(InterfaceC0912b interfaceC0912b) {
+        return new a(interfaceC0912b);
     }
 
     public static boolean b(Context context) {
@@ -65,7 +65,7 @@ public class b {
     }
 
     public static void d(Context context) {
-        if (!Arrays.asList(f47418b).contains(Build.MODEL)) {
+        if (!Arrays.asList(f47419b).contains(Build.MODEL)) {
             Intent intent = new Intent();
             intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
             int i = Build.VERSION.SDK_INT;
@@ -80,7 +80,7 @@ public class b {
                 context.startActivity(intent);
                 return;
             } catch (Exception e2) {
-                if (f47417a) {
+                if (f47418a) {
                     Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e2);
                 }
                 c(context);
@@ -90,14 +90,14 @@ public class b {
         c(context);
     }
 
-    public static void e(Context context, InterfaceC0911b interfaceC0911b) {
+    public static void e(Context context, InterfaceC0912b interfaceC0912b) {
         if (!(context instanceof Activity)) {
-            if (f47417a) {
+            if (f47418a) {
                 throw new IllegalArgumentException("context must be activity.");
             }
-        } else if (interfaceC0911b == null) {
+        } else if (interfaceC0912b == null) {
         } else {
-            DialogInterface.OnClickListener a2 = a(interfaceC0911b);
+            DialogInterface.OnClickListener a2 = a(interfaceC0912b);
             g.a aVar = new g.a(context);
             aVar.n(new d.b.g0.a.j2.g.a());
             g c2 = aVar.c();

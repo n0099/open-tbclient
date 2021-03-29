@@ -11,7 +11,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.d.c.e.c, OfficialRecommendLiveViewHo
     public d.b.i0.t.d.c.h.b n;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.c.f60324f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.c.f60325f);
         this.m = tbPageContext;
     }
 
@@ -28,11 +28,11 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.d.c.e.c, OfficialRecommendLiveViewHo
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.e.c cVar, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
         d.b.i0.t.d.c.h.b bVar;
-        if (officialRecommendLiveViewHolder == null || (bVar = officialRecommendLiveViewHolder.f14807a) == null) {
+        if (officialRecommendLiveViewHolder == null || (bVar = officialRecommendLiveViewHolder.f14808a) == null) {
             return null;
         }
         bVar.n(cVar);
-        officialRecommendLiveViewHolder.f14807a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        officialRecommendLiveViewHolder.f14808a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return officialRecommendLiveViewHolder.a();
     }
 }

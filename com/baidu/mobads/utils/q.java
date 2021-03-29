@@ -6,17 +6,17 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 public class q implements IXAdLogger {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile q f8554a;
+    public static volatile q f8555a;
 
     public static q a() {
-        if (f8554a == null) {
+        if (f8555a == null) {
             synchronized (q.class) {
-                if (f8554a == null) {
-                    f8554a = new q();
+                if (f8555a == null) {
+                    f8555a = new q();
                 }
             }
         }
-        return f8554a;
+        return f8555a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
@@ -42,7 +42,7 @@ public class q implements IXAdLogger {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
     public boolean isLoggable(String str, int i) {
-        return i >= com.baidu.mobads.constants.a.f8204b;
+        return i >= com.baidu.mobads.constants.a.f8205b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger

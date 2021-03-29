@@ -18,44 +18,44 @@ import org.json.JSONObject;
 public class MercatorModel {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f21411a;
+    public boolean f21412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.c f21412b;
+    public final a.c f21413b;
 
     /* loaded from: classes5.dex */
     public static class MercatorData extends OrmObject {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f21413e;
+        public String f21414e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f21414f;
+        public String f21415f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f21415g;
+        public String f21416g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f21416h;
+        public int f21417h;
         public long i;
 
         public MercatorData() {
         }
 
         public int s() {
-            return this.f21416h;
+            return this.f21417h;
         }
 
         public String t() {
-            return this.f21414f;
+            return this.f21415f;
         }
 
         public String u() {
-            return this.f21413e;
+            return this.f21414e;
         }
 
         public String v() {
-            return this.f21415g;
+            return this.f21416g;
         }
 
         public long w() {
@@ -63,10 +63,10 @@ public class MercatorModel {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.f21413e = str;
-            this.f21414f = str2;
-            this.f21415g = str3;
-            this.f21416h = i;
+            this.f21414e = str;
+            this.f21415f = str2;
+            this.f21416g = str3;
+            this.f21417h = i;
             this.i = j;
         }
     }
@@ -95,10 +95,10 @@ public class MercatorModel {
         @Override // d.b.b.e.i.a.c
         public void onLocationGeted(int i, String str, Address address) {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            if (i != 0 || address == null || inst == null || MercatorModel.this.f21411a) {
+            if (i != 0 || address == null || inst == null || MercatorModel.this.f21412a) {
                 return;
             }
-            MercatorModel.this.f21411a = true;
+            MercatorModel.this.f21412a = true;
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
             String locString = BDLocManager.getInstance(inst).getLocString();
@@ -116,7 +116,7 @@ public class MercatorModel {
             httpMessage.addParam("longitude", valueOf2);
             httpMessage.addParam("latitude", valueOf);
             MessageManager.getInstance().sendMessage(httpMessage);
-            MercatorModel.this.f21411a = false;
+            MercatorModel.this.f21412a = false;
         }
     }
 
@@ -124,7 +124,7 @@ public class MercatorModel {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final MercatorModel f21418a = new MercatorModel(null);
+        public static final MercatorModel f21419a = new MercatorModel(null);
     }
 
     public /* synthetic */ MercatorModel(a aVar) {
@@ -132,7 +132,7 @@ public class MercatorModel {
     }
 
     public static MercatorModel d() {
-        return b.f21418a;
+        return b.f21419a;
     }
 
     public static void g(MercatorData mercatorData) {
@@ -146,12 +146,12 @@ public class MercatorModel {
     }
 
     public void f() {
-        d.b.b.e.i.a.l().i(true, this.f21412b);
+        d.b.b.e.i.a.l().i(true, this.f21413b);
     }
 
     public MercatorModel() {
-        this.f21411a = false;
-        this.f21412b = new a();
+        this.f21412a = false;
+        this.f21413b = new a();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MERCATOR, TbConfig.SERVER_ADDRESS + TbConfig.MERCATOR_LOCATION_URL);
         tbHttpMessageTask.setResponsedClass(MercatorLocationResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

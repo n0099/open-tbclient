@@ -9,7 +9,7 @@ import tbclient.ForumRuleDetail.DataRes;
 public class d implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f58360e = BdUniqueId.gen();
+    public static BdUniqueId f58361e = BdUniqueId.gen();
 
     public void a(DataRes dataRes) {
         BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
@@ -27,6 +27,6 @@ public class d implements n {
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f58360e;
+        return f58361e;
     }
 }

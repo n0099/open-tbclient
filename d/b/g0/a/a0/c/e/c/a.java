@@ -9,7 +9,7 @@ import android.view.ViewParent;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a extends d.b.g0.a.a0.a.c.a<TextView, b> {
     public SwanAppComponentContainerView i;
     public TextView j;
@@ -48,7 +48,7 @@ public final class a extends d.b.g0.a.a0.a.c.a<TextView, b> {
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: e0 */
     public void R(@NonNull View view, @NonNull b bVar) {
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-CoverView", "renderAlpha");
         }
         if (bVar.n == null) {
@@ -64,7 +64,7 @@ public final class a extends d.b.g0.a.a0.a.c.a<TextView, b> {
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: f0 */
     public void S(@NonNull TextView textView, @NonNull b bVar) {
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-CoverView", "renderBackground");
         }
         if (bVar.n == null) {

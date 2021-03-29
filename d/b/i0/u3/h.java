@@ -7,25 +7,25 @@ import android.view.View;
 public abstract class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f61534a;
+    public Context f61535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61535b;
+    public View f61536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f61536c;
+    public View f61537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f61537d;
+    public a f61538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61538e = 4;
+    public int f61539e = 4;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f61539f = new Rect();
+    public Rect f61540f = new Rect();
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f61540g = new Rect();
+    public Rect f61541g = new Rect();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -33,14 +33,14 @@ public abstract class h {
     }
 
     public h(Context context, d.b.i0.u3.a aVar) {
-        this.f61534a = context;
+        this.f61535a = context;
     }
 
     public void a(View view, View view2) {
-        this.f61535b = view;
-        this.f61536c = view2;
+        this.f61536b = view;
+        this.f61537c = view2;
         if (view2 != null) {
-            view2.getGlobalVisibleRect(this.f61539f);
+            view2.getGlobalVisibleRect(this.f61540f);
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class h {
     public abstract void d();
 
     public void e(a aVar) {
-        this.f61537d = aVar;
+        this.f61538d = aVar;
     }
 
     public void f() {

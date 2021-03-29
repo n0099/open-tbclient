@@ -9,7 +9,7 @@ import java.util.HashMap;
 public final class ea {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ea f40434a;
+    public static volatile ea f40435a;
 
     /* renamed from: a  reason: collision with other field name */
     public int f308a;
@@ -27,7 +27,7 @@ public final class ea {
     public HashMap<ec, ed> f312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40435b;
+    public String f40436b;
 
     public ea(Context context) {
         HashMap<ec, ed> hashMap = new HashMap<>();
@@ -40,14 +40,14 @@ public final class ea {
     }
 
     public static ea a(Context context) {
-        if (f40434a == null) {
+        if (f40435a == null) {
             synchronized (ea.class) {
-                if (f40434a == null) {
-                    f40434a = new ea(context);
+                if (f40435a == null) {
+                    f40435a = new ea(context);
                 }
             }
         }
-        return f40434a;
+        return f40435a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,10 +111,10 @@ public final class ea {
     }
 
     public String b() {
-        return this.f40435b;
+        return this.f40436b;
     }
 
     public void b(String str) {
-        this.f40435b = str;
+        this.f40436b = str;
     }
 }

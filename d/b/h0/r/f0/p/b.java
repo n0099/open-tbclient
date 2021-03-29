@@ -6,16 +6,16 @@ import android.text.SpannableStringBuilder;
 public class b extends Editable.Factory {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f50544a;
+    public c f50545a;
 
     public b(c cVar) {
-        this.f50544a = cVar;
+        this.f50545a = cVar;
     }
 
     @Override // android.text.Editable.Factory
     public Editable newEditable(CharSequence charSequence) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        spannableStringBuilder.setSpan(this.f50544a, 0, charSequence.length(), 18);
+        spannableStringBuilder.setSpan(this.f50545a, 0, charSequence.length(), 18);
         return spannableStringBuilder;
     }
 }

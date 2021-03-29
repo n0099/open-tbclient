@@ -6,16 +6,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55473a;
+    public String f55474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55474b;
+    public int f55475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55475c;
+    public String f55476c;
 
     public boolean a() {
-        return !TextUtils.isEmpty(this.f55475c);
+        return !TextUtils.isEmpty(this.f55476c);
     }
 
     public void b(JSONObject jSONObject) {
@@ -23,10 +23,10 @@ public class b {
             return;
         }
         jSONObject.optString("pic");
-        this.f55473a = jSONObject.optString("url");
+        this.f55474a = jSONObject.optString("url");
         jSONObject.optInt("server_time");
-        this.f55474b = jSONObject.optInt("adid");
-        this.f55475c = jSONObject.optString("big_pic");
+        this.f55475b = jSONObject.optInt("adid");
+        this.f55476c = jSONObject.optString("big_pic");
         jSONObject.optString("small_pic");
     }
 }

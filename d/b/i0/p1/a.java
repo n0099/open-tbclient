@@ -21,37 +21,37 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<NpsPluginLoadingDialogActivity> f58782a;
+    public WeakReference<NpsPluginLoadingDialogActivity> f58783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58783b;
+    public int f58784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58784c;
+    public boolean f58785c;
 
     /* renamed from: d.b.i0.p1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1448a implements LiveNpsLoadingCallback {
-        public C1448a() {
+    public class C1449a implements LiveNpsLoadingCallback {
+        public C1449a() {
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingEnd(int i) {
-            a.this.f58784c = false;
+            a.this.f58785c = false;
             a.this.e();
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingProgress(long j, long j2) {
             BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
-            a.this.f58783b = (int) (j2 <= 0 ? 0.0f : (((float) j) * 100.0f) / ((float) j2));
+            a.this.f58784b = (int) (j2 <= 0 ? 0.0f : (((float) j) * 100.0f) / ((float) j2));
             a aVar = a.this;
             aVar.B(aVar.g());
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingStart() {
-            a.this.f58784c = true;
+            a.this.f58785c = true;
             a.this.l(TbadkCoreApplication.getInst());
         }
     }
@@ -60,15 +60,15 @@ public class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f58786a = new a(null);
+        public static final a f58787a = new a(null);
     }
 
-    public /* synthetic */ a(C1448a c1448a) {
+    public /* synthetic */ a(C1449a c1449a) {
         this();
     }
 
     public static a h() {
-        return b.f58786a;
+        return b.f58787a;
     }
 
     public boolean A() {
@@ -77,7 +77,7 @@ public class a {
 
     public void B(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
         if (npsPluginLoadingDialogActivity != null) {
-            npsPluginLoadingDialogActivity.setRoundProgress(this.f58783b);
+            npsPluginLoadingDialogActivity.setRoundProgress(this.f58784b);
         }
     }
 
@@ -85,7 +85,7 @@ public class a {
         NpsPluginLoadingDialogActivity g2 = g();
         if (g2 != null) {
             g2.finish();
-            this.f58782a = null;
+            this.f58783a = null;
         }
     }
 
@@ -98,7 +98,7 @@ public class a {
     }
 
     public final NpsPluginLoadingDialogActivity g() {
-        WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f58782a;
+        WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f58783a;
         if (weakReference != null) {
             return weakReference.get();
         }
@@ -106,16 +106,16 @@ public class a {
     }
 
     public boolean i() {
-        return this.f58784c;
+        return this.f58785c;
     }
 
     public void j() {
-        this.f58782a = null;
+        this.f58783a = null;
         LiveNPSPluginManager.getInstance().cancelLoading();
     }
 
     public void k(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
-        this.f58782a = new WeakReference<>(npsPluginLoadingDialogActivity);
+        this.f58783a = new WeakReference<>(npsPluginLoadingDialogActivity);
         B(npsPluginLoadingDialogActivity);
     }
 
@@ -288,9 +288,9 @@ public class a {
     }
 
     public a() {
-        this.f58783b = 0;
-        this.f58784c = false;
-        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1448a());
+        this.f58784b = 0;
+        this.f58785c = false;
+        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1449a());
         d.b.i0.l1.h.a.c(TbadkCoreApplication.getInst());
     }
 }

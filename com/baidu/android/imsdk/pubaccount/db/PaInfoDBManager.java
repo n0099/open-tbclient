@@ -25,12 +25,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PaInfoDBManager extends DBBase {
     public static final String TAG = "PaInfoDBManager";
     public static PaInfoDBManager mInstance;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class PaInfoListParse implements CursorParse {
         public List<PaInfo> paList = null;
 
@@ -55,7 +55,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class PaInfoParse implements CursorParse {
         public PaInfo info = null;
 
@@ -79,7 +79,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class PaidParse implements CursorParse {
         public ArrayList<Long> paList = null;
 
@@ -348,7 +348,7 @@ public class PaInfoDBManager extends DBBase {
     /* JADX WARN: Code restructure failed: missing block: B:51:0x015e, code lost:
         return;
      */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0163 A[Catch: all -> 0x0167, TryCatch #3 {, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001b, B:39:0x0141, B:50:0x015d, B:55:0x0163, B:56:0x0166), top: B:62:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0163 A[Catch: all -> 0x0167, TryCatch #3 {, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001b, B:39:0x0141, B:50:0x015d, B:55:0x0163, B:56:0x0166), top: B:60:0x0009 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -440,16 +440,16 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00c0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00bf, code lost:
         if (r11 != null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00c2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x00c1, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00d0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00cf, code lost:
         if (r11 == null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00d3, code lost:
         return r0;
      */
     /*

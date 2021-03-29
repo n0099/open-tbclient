@@ -16,31 +16,31 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42561b = "payChannel";
+    public static String f42562b = "payChannel";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42562c = "payType";
+    public static String f42563c = "payType";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f42563d;
+    public static volatile b f42564d;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f42564a;
+    public e f42565a;
 
     /* loaded from: classes2.dex */
     public class a extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.a.a f42565a;
+        public final /* synthetic */ d.b.c0.k.a.a f42566a;
 
         public a(b bVar, d.b.c0.k.a.a aVar) {
-            this.f42565a = aVar;
+            this.f42566a = aVar;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
             d.b.c0.k.h.a.f("7");
-            this.f42565a.b(th, str);
+            this.f42566a.b(th, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,17 +55,17 @@ public class b {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optJSONObject == null) {
                         d.b.c0.k.h.a.d("7", optInt2 + "", jSONObject.optString("msg"));
-                        d.b.c0.k.a.a aVar = this.f42565a;
+                        d.b.c0.k.a.a aVar = this.f42566a;
                         StringBuilder sb = new StringBuilder();
                         sb.append("msg = ");
                         sb.append(jSONObject.optString("msg"));
                         aVar.b(new com.baidu.poly.a.i.b(sb.toString()), "data is empty");
                     } else {
-                        this.f42565a.a(optJSONObject);
+                        this.f42566a.a(optJSONObject);
                     }
                 } else {
                     d.b.c0.k.h.a.d("7", optInt2 + "", jSONObject.optString("errmsg"));
-                    d.b.c0.k.a.a aVar2 = this.f42565a;
+                    d.b.c0.k.a.a aVar2 = this.f42566a;
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("errmsg = ");
                     sb2.append(jSONObject.optString("errmsg"));
@@ -77,26 +77,26 @@ public class b {
                 }
             } catch (JSONException e2) {
                 d.b.c0.k.h.a.d("7", null, null);
-                this.f42565a.b(e2, "error");
+                this.f42566a.b(e2, "error");
             }
         }
     }
 
     /* renamed from: d.b.c0.k.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0561b extends d.b.c0.k.a.a<String> {
+    public class C0562b extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.a.a f42566a;
+        public final /* synthetic */ d.b.c0.k.a.a f42567a;
 
-        public C0561b(d.b.c0.k.a.a aVar) {
-            this.f42566a = aVar;
+        public C0562b(d.b.c0.k.a.a aVar) {
+            this.f42567a = aVar;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
             d.b.c0.k.h.a.f("8");
-            this.f42566a.b(th, g.a().getResources().getString(h.common_error_tips));
+            this.f42567a.b(th, g.a().getResources().getString(h.common_error_tips));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,13 +107,13 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("errno", -1);
                 if (optInt == 0) {
-                    this.f42566a.a(b.this.i(jSONObject.optJSONObject("data")));
+                    this.f42567a.a(b.this.i(jSONObject.optJSONObject("data")));
                 } else {
                     StringBuilder sb = new StringBuilder();
                     sb.append(optInt);
                     sb.append("");
                     d.b.c0.k.h.a.d("8", sb.toString(), jSONObject.optString("msg"));
-                    d.b.c0.k.a.a aVar = this.f42566a;
+                    d.b.c0.k.a.a aVar = this.f42567a;
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("msg = ");
                     sb2.append(jSONObject.optString("msg"));
@@ -121,7 +121,7 @@ public class b {
                 }
             } catch (Throwable th) {
                 d.b.c0.k.h.a.d("8", null, null);
-                this.f42566a.b(th, g.a().getResources().getString(h.common_error_tips));
+                this.f42567a.b(th, g.a().getResources().getString(h.common_error_tips));
             }
         }
     }
@@ -130,16 +130,16 @@ public class b {
     public class c extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.a.a f42568a;
+        public final /* synthetic */ d.b.c0.k.a.a f42569a;
 
         public c(d.b.c0.k.a.a aVar) {
-            this.f42568a = aVar;
+            this.f42569a = aVar;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
             d.b.c0.k.h.a.f("8");
-            this.f42568a.b(th, str);
+            this.f42569a.b(th, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,13 +150,13 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("errno", -1);
                 if (optInt == 0) {
-                    this.f42568a.a(b.this.i(jSONObject.optJSONObject("data")));
+                    this.f42569a.a(b.this.i(jSONObject.optJSONObject("data")));
                 } else {
                     StringBuilder sb = new StringBuilder();
                     sb.append(optInt);
                     sb.append("");
                     d.b.c0.k.h.a.d("8", sb.toString(), jSONObject.optString("msg"));
-                    d.b.c0.k.a.a aVar = this.f42568a;
+                    d.b.c0.k.a.a aVar = this.f42569a;
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("msg = ");
                     sb2.append(jSONObject.optString("msg"));
@@ -168,7 +168,7 @@ public class b {
                 }
             } catch (Throwable th) {
                 d.b.c0.k.h.a.d("8", null, null);
-                this.f42568a.b(th, "error");
+                this.f42569a.b(th, "error");
             }
         }
     }
@@ -177,15 +177,15 @@ public class b {
     public class d extends d.b.c0.k.a.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c0.k.a.a f42570a;
+        public final /* synthetic */ d.b.c0.k.a.a f42571a;
 
         public d(b bVar, d.b.c0.k.a.a aVar) {
-            this.f42570a = aVar;
+            this.f42571a = aVar;
         }
 
         @Override // d.b.c0.k.a.a
         public void b(Throwable th, String str) {
-            this.f42570a.b(th, str);
+            this.f42571a.b(th, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -196,9 +196,9 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("errno", -1);
                 if (optInt == 0) {
-                    this.f42570a.a(jSONObject.optJSONObject("data"));
+                    this.f42571a.a(jSONObject.optJSONObject("data"));
                 } else {
-                    d.b.c0.k.a.a aVar = this.f42570a;
+                    d.b.c0.k.a.a aVar = this.f42571a;
                     StringBuilder sb = new StringBuilder();
                     sb.append("msg = ");
                     sb.append(jSONObject.optString("msg"));
@@ -209,30 +209,30 @@ public class b {
                     aVar.b(bVar, sb2.toString());
                 }
             } catch (Throwable th) {
-                this.f42570a.b(th, "error");
+                this.f42571a.b(th, "error");
             }
         }
     }
 
     public b(e eVar) {
-        this.f42564a = eVar;
+        this.f42565a = eVar;
     }
 
     public static b j() {
-        if (f42563d == null) {
+        if (f42564d == null) {
             synchronized (b.class) {
-                if (f42563d == null) {
-                    f42563d = new b(new f());
+                if (f42564d == null) {
+                    f42564d = new b(new f());
                 }
             }
         }
-        return f42563d;
+        return f42564d;
     }
 
     public d.b.c0.k.a.b a(Bundle bundle, d.b.c0.k.a.c cVar) {
         d.b.c0.k.a.b bVar = new d.b.c0.k.a.b();
         f(bVar, bundle);
-        bVar.e(f42562c, "android");
+        bVar.e(f42563c, "android");
         e(bundle, bVar, cVar);
         return bVar;
     }
@@ -247,7 +247,7 @@ public class b {
             }
         }
         e(bundle, bVar, k);
-        this.f42564a.a(d.b.c0.k.b.d.d(), k, bVar, new a(this, aVar));
+        this.f42565a.a(d.b.c0.k.b.d.d(), k, bVar, new a(this, aVar));
     }
 
     public void d(Bundle bundle, d.b.c0.k.a.a<Map<String, String>> aVar, String str) {
@@ -259,9 +259,9 @@ public class b {
                 bVar.e(str2, bundle.get(str2).toString());
             }
         }
-        bVar.e(f42561b, str);
+        bVar.e(f42562b, str);
         e(bundle, bVar, k);
-        this.f42564a.a(d.b.c0.k.b.d.f(), k, bVar, new C0561b(aVar));
+        this.f42565a.a(d.b.c0.k.b.d.f(), k, bVar, new C0562b(aVar));
     }
 
     public final void e(Bundle bundle, d.b.c0.k.a.b bVar, d.b.c0.k.a.c cVar) {
@@ -302,13 +302,13 @@ public class b {
                 bVar.e(str, bundle.get(str).toString());
             }
         }
-        this.f42564a.a(d.b.c0.k.b.d.h(), k, bVar, new d(this, aVar));
+        this.f42565a.a(d.b.c0.k.b.d.h(), k, bVar, new d(this, aVar));
     }
 
     public void h(Bundle bundle, d.b.c0.k.a.a<Map<String, String>> aVar) {
         d.b.c0.k.a.c k = k();
         d.b.c0.k.a.b a2 = a(bundle, k);
-        this.f42564a.a(d.b.c0.k.b.d.g(), k, a2, new c(aVar));
+        this.f42565a.a(d.b.c0.k.b.d.g(), k, a2, new c(aVar));
     }
 
     public final Map<String, String> i(JSONObject jSONObject) {

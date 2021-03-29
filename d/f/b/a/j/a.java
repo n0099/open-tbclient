@@ -19,19 +19,19 @@ public class a {
     public static int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66032a;
+    public String f66033a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66033b;
+    public String f66034b;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66036e;
+    public String f66037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66037f;
+    public String f66038f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66039h;
+    public int f66040h;
     public String i;
     public String j;
     public String k;
@@ -46,13 +46,13 @@ public class a {
     public static String y = d.f.b.a.c.d().provideQualifier();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66034c = "";
+    public String f66035c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66035d = -1;
+    public int f66036d = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66038g = "";
+    public String f66039g = "";
     public String r = "-1";
     public ArrayList<String> s = new ArrayList<>();
     public StringBuilder t = new StringBuilder();
@@ -70,22 +70,22 @@ public class a {
     public static a b() {
         a aVar = new a();
         Context provideContext = d.f.b.a.c.d().provideContext();
-        String str = aVar.f66038g;
+        String str = aVar.f66039g;
         if (str == null || str.length() == 0) {
             try {
                 PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
-                aVar.f66039h = packageInfo.versionCode;
-                aVar.f66038g = packageInfo.versionName;
+                aVar.f66040h = packageInfo.versionCode;
+                aVar.f66039g = packageInfo.versionName;
             } catch (Throwable th) {
                 Log.e("BlockInfo", "newInstance: ", th);
             }
         }
-        aVar.f66035d = B;
-        aVar.f66033b = z;
-        aVar.f66034c = A;
-        aVar.f66032a = y;
-        aVar.f66036e = d.f.b.a.c.d().provideUid();
-        aVar.f66037f = c.a();
+        aVar.f66036d = B;
+        aVar.f66034b = z;
+        aVar.f66035c = A;
+        aVar.f66033a = y;
+        aVar.f66037e = d.f.b.a.c.d().provideUid();
+        aVar.f66038f = c.a();
         aVar.i = d.f.b.a.c.d().provideNetworkType();
         aVar.j = String.valueOf(b.a());
         aVar.k = String.valueOf(b.c());
@@ -99,22 +99,22 @@ public class a {
         StringBuilder sb = this.t;
         sb.append("qua");
         sb.append(" = ");
-        sb.append(this.f66032a);
+        sb.append(this.f66033a);
         sb.append(Part.CRLF);
         StringBuilder sb2 = this.t;
         sb2.append(PushManager.APP_VERSION_NAME);
         sb2.append(" = ");
-        sb2.append(this.f66038g);
+        sb2.append(this.f66039g);
         sb2.append(Part.CRLF);
         StringBuilder sb3 = this.t;
         sb3.append(PushManager.APP_VERSION_CODE);
         sb3.append(" = ");
-        sb3.append(this.f66039h);
+        sb3.append(this.f66040h);
         sb3.append(Part.CRLF);
         StringBuilder sb4 = this.t;
         sb4.append("uid");
         sb4.append(" = ");
-        sb4.append(this.f66036e);
+        sb4.append(this.f66037e);
         sb4.append(Part.CRLF);
         StringBuilder sb5 = this.t;
         sb5.append("network");
@@ -124,22 +124,22 @@ public class a {
         StringBuilder sb6 = this.t;
         sb6.append("model");
         sb6.append(" = ");
-        sb6.append(this.f66033b);
+        sb6.append(this.f66034b);
         sb6.append(Part.CRLF);
         StringBuilder sb7 = this.t;
         sb7.append("api-level");
         sb7.append(" = ");
-        sb7.append(this.f66034c);
+        sb7.append(this.f66035c);
         sb7.append(Part.CRLF);
         StringBuilder sb8 = this.t;
         sb8.append("cpu-core");
         sb8.append(" = ");
-        sb8.append(this.f66035d);
+        sb8.append(this.f66036d);
         sb8.append(Part.CRLF);
         StringBuilder sb9 = this.t;
         sb9.append(VodClient.PARA_PROCESS);
         sb9.append(" = ");
-        sb9.append(this.f66037f);
+        sb9.append(this.f66038f);
         sb9.append(Part.CRLF);
         StringBuilder sb10 = this.t;
         sb10.append("freeMemory");

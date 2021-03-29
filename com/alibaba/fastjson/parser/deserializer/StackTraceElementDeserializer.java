@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 public class StackTraceElementDeserializer implements ObjectDeserializer {
     public static final StackTraceElementDeserializer instance = new StackTraceElementDeserializer();
 
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x01d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x01d0, code lost:
         return (T) new java.lang.StackTraceElement(r5, r7, r8, r9);
      */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer

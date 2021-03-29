@@ -22,29 +22,29 @@ import com.baidu.tieba.im.widget.ShareFromPBView;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.b.a.c<MsglistActivity<?>> {
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.e.h.a f53648b;
+    public d.b.b.e.h.a f53649b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.b.e.h.b f53649c;
+    public d.b.b.e.h.b f53650c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f53650d;
+    public long f53651d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Calendar f53651e;
+    public Calendar f53652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53652f;
+    public int f53653f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f53653g;
+    public long f53654g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53654h;
+    public TextView f53655h;
     public TbRichTextView i;
     public ChatVoiceView j;
     public GifView k;
@@ -57,7 +57,7 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
     public boolean r;
     public int s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnLongClickListener {
         public a() {
         }
@@ -65,12 +65,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 10, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 10, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -78,11 +78,11 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 15, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 15, eVar.f53653f, 0L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnLongClickListener {
         public c() {
         }
@@ -90,12 +90,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 15, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 15, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -103,24 +103,24 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 11, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 11, eVar.f53653f, 0L);
         }
     }
 
     /* renamed from: d.b.i0.d1.f.e$e  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1191e implements View.OnClickListener {
-        public View$OnClickListenerC1191e() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1192e implements View.OnClickListener {
+        public View$OnClickListenerC1192e() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 12, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 12, eVar.f53653f, 0L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements View.OnLongClickListener {
         public f() {
         }
@@ -128,12 +128,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 11, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 11, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnLongClickListener {
         public g() {
         }
@@ -141,12 +141,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 17, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 17, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements View.OnClickListener {
         public h() {
         }
@@ -171,7 +171,7 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements View.OnLongClickListener {
         public i() {
         }
@@ -179,12 +179,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 5, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 5, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j implements View.OnClickListener {
         public j() {
         }
@@ -192,11 +192,11 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 4, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 4, eVar.f53653f, 0L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k implements View.OnLongClickListener {
         public k() {
         }
@@ -204,12 +204,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 4, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 4, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l implements View.OnClickListener {
         public l() {
         }
@@ -217,11 +217,11 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 13, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 13, eVar.f53653f, 0L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m implements View.OnLongClickListener {
         public m() {
         }
@@ -229,12 +229,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 3, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 3, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class n implements View.OnClickListener {
         public n() {
         }
@@ -242,11 +242,11 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 7, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 7, eVar.f53653f, 0L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class o implements View.OnLongClickListener {
         public o() {
         }
@@ -254,12 +254,12 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             e eVar = e.this;
-            eVar.f53649c.onItemViewLongClick(view, 7, eVar.f53652f, 0L);
+            eVar.f53650c.onItemViewLongClick(view, 7, eVar.f53653f, 0L);
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class p implements View.OnClickListener {
         public p() {
         }
@@ -267,20 +267,20 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar = e.this;
-            eVar.f53648b.onItemViewClick(view, 10, eVar.f53652f, 0L);
+            eVar.f53649b.onItemViewClick(view, 10, eVar.f53653f, 0L);
         }
     }
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, int i2) {
         super(tbPageContext, i2);
-        this.f53648b = null;
-        this.f53649c = null;
-        this.f53652f = 0;
-        this.f53653g = 0L;
+        this.f53649b = null;
+        this.f53650c = null;
+        this.f53653f = 0;
+        this.f53654g = 0L;
         this.q = true;
         this.r = false;
-        this.f53650d = 0L;
-        this.f53651e = null;
+        this.f53651d = 0L;
+        this.f53652e = null;
         this.mContext = tbPageContext;
     }
 
@@ -290,7 +290,7 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
     }
 
     public void B(View view, ChatMessage chatMessage, String str) {
-        d.b.i0.d1.f.h.d(this.mContext.getContext(), view, this.p, chatMessage, this.f53653g, str);
+        d.b.i0.d1.f.h.d(this.mContext.getContext(), view, this.p, chatMessage, this.f53654g, str);
     }
 
     public void E(ChatMessage chatMessage, String str) {
@@ -317,15 +317,15 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(j2 * 1000);
-        Calendar calendar2 = this.f53651e;
-        if (calendar2 != null && calendar2.get(1) == calendar.get(1) && this.f53651e.get(6) == calendar.get(6)) {
+        Calendar calendar2 = this.f53652e;
+        if (calendar2 != null && calendar2.get(1) == calendar.get(1) && this.f53652e.get(6) == calendar.get(6)) {
             return d.b.b.e.p.k.getDateStringHm(calendar.getTime());
         }
         return d.b.b.e.p.k.getDateStringMdHm(calendar.getTime());
     }
 
     public void h() {
-        this.f53654h = (TextView) d(R.id.tex_msgitem_time);
+        this.f53655h = (TextView) d(R.id.tex_msgitem_time);
         TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.tex_msgitem_text);
         this.i = tbRichTextView;
         tbRichTextView.setLinkTextColor(-14845754);
@@ -367,7 +367,7 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         this.o.getContentBody().setClickable(true);
         this.o.getContentBody().setOnClickListener(new d());
         this.o.getTail().setClickable(true);
-        this.o.getTail().setOnClickListener(new View$OnClickListenerC1191e());
+        this.o.getTail().setOnClickListener(new View$OnClickListenerC1192e());
         this.o.getContentBody().setLongClickable(true);
         this.o.getContentBody().setOnLongClickListener(new f());
         Invite2GroupView invite2GroupView = this.l;
@@ -380,13 +380,13 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         if (j2 < 1000) {
             return false;
         }
-        long j3 = this.f53650d;
+        long j3 = this.f53651d;
         return j3 == 0 || j2 - j3 >= 180;
     }
 
     public void k(long j2) {
         Calendar calendar = Calendar.getInstance();
-        this.f53651e = calendar;
+        this.f53652e = calendar;
         calendar.setTimeInMillis(j2 * 1000);
     }
 
@@ -405,7 +405,7 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
     }
 
     public void o(long j2) {
-        this.f53650d = j2;
+        this.f53651d = j2;
     }
 
     public void q(boolean z) {
@@ -413,15 +413,15 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
     }
 
     public void r(d.b.b.e.h.a aVar) {
-        this.f53648b = aVar;
+        this.f53649b = aVar;
     }
 
     public void s(d.b.b.e.h.b bVar) {
-        this.f53649c = bVar;
+        this.f53650c = bVar;
     }
 
     public void u(int i2) {
-        this.f53652f = i2;
+        this.f53653f = i2;
     }
 
     public void v(View view, ChatMessage chatMessage) {
@@ -443,10 +443,10 @@ public class e extends d.b.b.a.c<MsglistActivity<?>> {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
         boolean i2 = i(chatMessage.getTime());
         if (!z && !i2) {
-            this.f53654h.setVisibility(8);
+            this.f53655h.setVisibility(8);
         } else {
-            this.f53654h.setVisibility(0);
-            this.f53654h.setText(f(chatMessage.getTime()));
+            this.f53655h.setVisibility(0);
+            this.f53655h.setText(f(chatMessage.getTime()));
         }
         if (z || !i2) {
             return;

@@ -3,32 +3,32 @@ package com.baidu.fsg.base.router;
 import android.content.Context;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocalRouter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5249a = "LocalRouter";
+    public static final String f5250a = "LocalRouter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static LocalRouter f5250b;
+    public static LocalRouter f5251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, RouterProvider> f5251c;
+    public HashMap<String, RouterProvider> f5252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f5252d;
+    public Context f5253d;
 
     public LocalRouter(Context context) {
-        this.f5251c = null;
-        this.f5252d = context;
-        this.f5251c = new HashMap<>();
+        this.f5252c = null;
+        this.f5253d = context;
+        this.f5252c = new HashMap<>();
     }
 
     public static synchronized LocalRouter getInstance() {
         LocalRouter localRouter;
         synchronized (LocalRouter.class) {
-            if (f5250b != null) {
-                localRouter = f5250b;
+            if (f5251b != null) {
+                localRouter = f5251b;
             } else {
                 throw new RuntimeException("Local Router must be init first");
             }
@@ -39,16 +39,16 @@ public class LocalRouter {
     public static synchronized LocalRouter init(Context context) {
         LocalRouter localRouter;
         synchronized (LocalRouter.class) {
-            if (f5250b == null) {
-                f5250b = new LocalRouter(context);
+            if (f5251b == null) {
+                f5251b = new LocalRouter(context);
             }
-            localRouter = f5250b;
+            localRouter = f5251b;
         }
         return localRouter;
     }
 
     public void a(String str, RouterProvider routerProvider) {
-        this.f5251c.put(str, routerProvider);
+        this.f5252c.put(str, routerProvider);
     }
 
     public void a(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
@@ -68,10 +68,10 @@ public class LocalRouter {
     }
 
     private RouterAction a(RouterRequest routerRequest) {
-        RouterProvider routerProvider = this.f5251c.get(routerRequest.getProvider());
+        RouterProvider routerProvider = this.f5252c.get(routerRequest.getProvider());
         ErrorAction errorAction = new ErrorAction();
         if (routerProvider == null) {
-            for (RouterProvider routerProvider2 : this.f5251c.values()) {
+            for (RouterProvider routerProvider2 : this.f5252c.values()) {
                 RouterAction findAction = routerProvider2.findAction(routerRequest.getAction());
                 if (findAction != null) {
                     return findAction;

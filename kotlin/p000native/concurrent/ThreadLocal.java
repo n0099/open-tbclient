@@ -15,6 +15,6 @@ import kotlin.annotation.AnnotationTarget;
 @Retention(RetentionPolicy.CLASS)
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
 /* renamed from: kotlin.native.concurrent.ThreadLocal  reason: invalid package */
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public @interface ThreadLocal {
 }

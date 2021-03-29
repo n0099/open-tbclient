@@ -32,19 +32,19 @@ public class b extends d.b.b.j.e.a<d.b.i0.p0.q1.c.a, ForumRuleDetailBottomVH> {
         if (forumRuleDetailBottomVH == null) {
             return;
         }
-        forumRuleDetailBottomVH.f16267b.setDefaultBgResource(R.drawable.img_default_100);
-        forumRuleDetailBottomVH.f16267b.W(aVar.a(), 10, false);
+        forumRuleDetailBottomVH.f16268b.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f16268b.W(aVar.a(), 10, false);
         String string = TbadkApplication.getInst().getResources().getString(R.string.forum_rules_bar_management_group);
-        EMTextView eMTextView = forumRuleDetailBottomVH.f16269d;
+        EMTextView eMTextView = forumRuleDetailBottomVH.f16270d;
         eMTextView.setText(aVar.e() + string);
-        forumRuleDetailBottomVH.f16271f.setDefaultBgResource(R.drawable.img_default_100);
-        forumRuleDetailBottomVH.f16271f.W(aVar.g(), 12, false);
-        forumRuleDetailBottomVH.f16272g.setText(aVar.f());
+        forumRuleDetailBottomVH.f16272f.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f16272f.W(aVar.g(), 12, false);
+        forumRuleDetailBottomVH.f16273g.setText(aVar.f());
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.n)) {
             forumRuleDetailBottomVH.b(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailBottomVH.f16273h.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.j()));
-            forumRuleDetailBottomVH.f16270e.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.j()));
+            forumRuleDetailBottomVH.f16274h.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.j()));
+            forumRuleDetailBottomVH.f16271e.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.j()));
         }
         forumRuleDetailBottomVH.c(TbadkCoreApplication.getInst().getSkinType());
     }

@@ -19,7 +19,7 @@ import d.b.i0.i1.i;
 import d.b.i0.x.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FocusListCardView extends BaseCardView<FocusListCard> {
     public View r;
     public TextView s;
@@ -30,32 +30,32 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public List<LinearLayout> x;
     public List<View> y;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FocusListCard f18646e;
+        public final /* synthetic */ FocusListCard f18647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18647f;
+        public final /* synthetic */ int f18648f;
 
         public a(FocusListCard focusListCard, int i) {
-            this.f18646e = focusListCard;
-            this.f18647f = i;
+            this.f18647e = focusListCard;
+            this.f18648f = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18646e.getFocusItemList().get(this.f18647f).f18602f)) {
+            if (TextUtils.isEmpty(this.f18647e.getFocusItemList().get(this.f18648f).f18603f)) {
                 return;
             }
             t.b().d(true);
-            e e2 = i.e(this.f18646e);
-            e2.c("obj_locate", this.f18647f + 1);
-            e2.a(TiebaStatic.Params.OBJ_URL, this.f18646e.getFocusItemList().get(this.f18647f).f18602f);
-            e2.d("obj_id", this.f18646e.getFocusItemList().get(this.f18647f).f18603g);
-            e2.b(this.f18646e);
-            v.c(FocusListCardView.this.m, this.f18646e.getFocusItemList().get(this.f18647f).f18602f);
+            e e2 = i.e(this.f18647e);
+            e2.c("obj_locate", this.f18648f + 1);
+            e2.a(TiebaStatic.Params.OBJ_URL, this.f18647e.getFocusItemList().get(this.f18648f).f18603f);
+            e2.d("obj_id", this.f18647e.getFocusItemList().get(this.f18648f).f18604g);
+            e2.b(this.f18647e);
+            v.c(FocusListCardView.this.m, this.f18647e.getFocusItemList().get(this.f18648f).f18603f);
         }
     }
 
@@ -102,7 +102,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         if (textView == null || aVar == null) {
             return;
         }
-        F(textView, aVar.f18600d, aVar.f18601e, R.color.CAM_X0308);
+        F(textView, aVar.f18601d, aVar.f18602e, R.color.CAM_X0308);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -135,10 +135,10 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                 TextView textView3 = (TextView) o(this.x.get(i), R.id.right);
                 ImageView imageView = (ImageView) o(this.x.get(i), R.id.rightIcon);
                 L(textView, textView2, textView3, focusListCard.getFocusItemList().get(i));
-                textView.setText(focusListCard.getFocusItemList().get(i).f18597a);
-                textView2.setText(focusListCard.getFocusItemList().get(i).f18598b);
-                textView3.setText(focusListCard.getFocusItemList().get(i).f18599c);
-                if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).f18602f)) {
+                textView.setText(focusListCard.getFocusItemList().get(i).f18598a);
+                textView2.setText(focusListCard.getFocusItemList().get(i).f18599b);
+                textView3.setText(focusListCard.getFocusItemList().get(i).f18600c);
+                if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).f18603f)) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView3.getLayoutParams();
                     layoutParams.setMargins(0, 0, 0, 0);
                     textView3.setLayoutParams(layoutParams);

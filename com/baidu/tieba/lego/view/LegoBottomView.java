@@ -10,22 +10,22 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.card.view.ButtonCardView;
 import d.b.i0.i1.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoBottomView extends RelativeLayout implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f18747e;
+    public ObjectAnimator f18748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f18748f;
+    public Runnable f18749f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18749g;
+    public boolean f18750g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18750h;
+    public boolean f18751h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animator.AnimatorListener {
         public a() {
         }
@@ -48,23 +48,23 @@ public class LegoBottomView extends RelativeLayout implements k {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            LegoBottomView.this.f18747e.start();
+            LegoBottomView.this.f18748e.start();
         }
     }
 
     public LegoBottomView(Context context) {
         super(context);
-        this.f18747e = null;
-        this.f18748f = null;
-        this.f18749g = false;
-        this.f18750h = false;
+        this.f18748e = null;
+        this.f18749f = null;
+        this.f18750g = false;
+        this.f18751h = false;
         d();
     }
 
@@ -77,21 +77,21 @@ public class LegoBottomView extends RelativeLayout implements k {
     }
 
     public void c() {
-        this.f18749g = false;
-        this.f18750h = false;
-        removeCallbacks(this.f18748f);
+        this.f18750g = false;
+        this.f18751h = false;
+        removeCallbacks(this.f18749f);
     }
 
     public final void d() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
-        this.f18747e = ofFloat;
+        this.f18748e = ofFloat;
         ofFloat.setDuration(1000L);
-        this.f18747e.addListener(new a());
-        this.f18748f = new b();
+        this.f18748e.addListener(new a());
+        this.f18749f = new b();
     }
 
     public boolean e() {
-        return this.f18749g;
+        return this.f18750g;
     }
 
     @Override // d.b.i0.i1.k
@@ -100,37 +100,37 @@ public class LegoBottomView extends RelativeLayout implements k {
             if (i == 1 || i == 2) {
                 setVisibility(8);
             }
-        } else if (getVisibility() == 0 || this.f18750h) {
+        } else if (getVisibility() == 0 || this.f18751h) {
         } else {
-            removeCallbacks(this.f18748f);
-            postDelayed(this.f18748f, 1000L);
+            removeCallbacks(this.f18749f);
+            postDelayed(this.f18749f, 1000L);
         }
     }
 
     public void setIsShow(boolean z) {
-        this.f18749g = z;
+        this.f18750g = z;
     }
 
     public void setIsVideoLandscape(boolean z) {
-        removeCallbacks(this.f18748f);
-        this.f18750h = z;
+        removeCallbacks(this.f18749f);
+        this.f18751h = z;
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18747e = null;
-        this.f18748f = null;
-        this.f18749g = false;
-        this.f18750h = false;
+        this.f18748e = null;
+        this.f18749f = null;
+        this.f18750g = false;
+        this.f18751h = false;
         d();
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f18747e = null;
-        this.f18748f = null;
-        this.f18749g = false;
-        this.f18750h = false;
+        this.f18748e = null;
+        this.f18749f = null;
+        this.f18750g = false;
+        this.f18751h = false;
         d();
     }
 }

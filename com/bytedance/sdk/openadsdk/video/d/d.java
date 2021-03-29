@@ -7,7 +7,7 @@ import android.content.ContextWrapper;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f30491a;
+    public static int f30492a;
 
     public static Activity a(Context context) {
         if (context == null) {

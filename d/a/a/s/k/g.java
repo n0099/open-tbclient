@@ -71,25 +71,25 @@ public class g extends d.a.a.s.k.a {
         a2.a(this);
         h(this.C);
         k r = layer.r();
-        if (r != null && (aVar2 = r.f41352a) != null) {
+        if (r != null && (aVar2 = r.f41353a) != null) {
             d.a.a.q.b.a<Integer, Integer> a3 = aVar2.a();
             this.F = a3;
             a3.a(this);
             h(this.F);
         }
-        if (r != null && (aVar = r.f41353b) != null) {
+        if (r != null && (aVar = r.f41354b) != null) {
             d.a.a.q.b.a<Integer, Integer> a4 = aVar.a();
             this.G = a4;
             a4.a(this);
             h(this.G);
         }
-        if (r != null && (bVar2 = r.f41354c) != null) {
+        if (r != null && (bVar2 = r.f41355c) != null) {
             d.a.a.q.b.a<Float, Float> a5 = bVar2.a();
             this.H = a5;
             a5.a(this);
             h(this.H);
         }
-        if (r == null || (bVar = r.f41355d) == null) {
+        if (r == null || (bVar = r.f41356d) == null) {
             return;
         }
         d.a.a.q.b.a<Float, Float> a6 = bVar.a();
@@ -114,7 +114,7 @@ public class g extends d.a.a.s.k.a {
             Path path = I.get(i).getPath();
             path.computeBounds(this.x, false);
             this.y.set(matrix);
-            this.y.preTranslate(0.0f, ((float) (-bVar.f41333g)) * d.a.a.v.f.e());
+            this.y.preTranslate(0.0f, ((float) (-bVar.f41334g)) * d.a.a.v.f.e());
             this.y.preScale(f2, f2);
             path.transform(this.y);
             if (bVar.k) {
@@ -150,15 +150,15 @@ public class g extends d.a.a.s.k.a {
     }
 
     public final void G(d.a.a.s.b bVar, Matrix matrix, d.a.a.s.c cVar, Canvas canvas) {
-        float f2 = ((float) bVar.f41329c) / 100.0f;
+        float f2 = ((float) bVar.f41330c) / 100.0f;
         float f3 = d.a.a.v.f.f(matrix);
-        String str = bVar.f41327a;
+        String str = bVar.f41328a;
         for (int i = 0; i < str.length(); i++) {
             d.a.a.s.d dVar = this.E.c().get(d.a.a.s.d.c(str.charAt(i), cVar.a(), cVar.c()));
             if (dVar != null) {
                 D(dVar, matrix, f2, bVar, canvas);
                 float b2 = ((float) dVar.b()) * f2 * d.a.a.v.f.e() * f3;
-                float f4 = bVar.f41331e / 10.0f;
+                float f4 = bVar.f41332e / 10.0f;
                 d.a.a.q.b.a<Float, Float> aVar = this.I;
                 if (aVar != null) {
                     f4 += aVar.h().floatValue();
@@ -174,15 +174,11 @@ public class g extends d.a.a.s.k.a {
         if (C == null) {
             return;
         }
-        String str = bVar.f41327a;
+        String str = bVar.f41328a;
         p B = this.D.B();
         if (B == null) {
             this.z.setTypeface(C);
-            Paint paint = this.z;
-            double d2 = bVar.f41329c;
-            double e2 = d.a.a.v.f.e();
-            Double.isNaN(e2);
-            paint.setTextSize((float) (d2 * e2));
+            this.z.setTextSize((float) (bVar.f41330c * d.a.a.v.f.e()));
             this.A.setTypeface(this.z.getTypeface());
             this.A.setTextSize(this.z.getTextSize());
             for (int i = 0; i < str.length(); i++) {
@@ -191,7 +187,7 @@ public class g extends d.a.a.s.k.a {
                 char[] cArr = this.w;
                 cArr[0] = charAt;
                 float measureText = this.z.measureText(cArr, 0, 1);
-                float f3 = bVar.f41331e / 10.0f;
+                float f3 = bVar.f41332e / 10.0f;
                 d.a.a.q.b.a<Float, Float> aVar = this.I;
                 if (aVar != null) {
                     f3 += aVar.h().floatValue();
@@ -225,9 +221,9 @@ public class g extends d.a.a.s.k.a {
         d.a.a.q.b.a<Integer, Integer> aVar3;
         d.a.a.q.b.a<Integer, Integer> aVar4;
         super.d(t, cVar);
-        if (t == d.a.a.j.f41179a && (aVar4 = this.F) != null) {
+        if (t == d.a.a.j.f41180a && (aVar4 = this.F) != null) {
             aVar4.m(cVar);
-        } else if (t == d.a.a.j.f41180b && (aVar3 = this.G) != null) {
+        } else if (t == d.a.a.j.f41181b && (aVar3 = this.G) != null) {
             aVar3.m(cVar);
         } else if (t == d.a.a.j.k && (aVar2 = this.H) != null) {
             aVar2.m(cVar);
@@ -244,7 +240,7 @@ public class g extends d.a.a.s.k.a {
             canvas.setMatrix(matrix);
         }
         d.a.a.s.b h2 = this.C.h();
-        d.a.a.s.c cVar = this.E.g().get(h2.f41328b);
+        d.a.a.s.c cVar = this.E.g().get(h2.f41329b);
         if (cVar == null) {
             canvas.restore();
             return;
@@ -253,7 +249,7 @@ public class g extends d.a.a.s.k.a {
         if (aVar != null) {
             this.z.setColor(aVar.h().intValue());
         } else {
-            this.z.setColor(h2.f41334h);
+            this.z.setColor(h2.f41335h);
         }
         d.a.a.q.b.a<Integer, Integer> aVar2 = this.G;
         if (aVar2 != null) {
@@ -268,15 +264,7 @@ public class g extends d.a.a.s.k.a {
         if (aVar3 != null) {
             this.A.setStrokeWidth(aVar3.h().floatValue());
         } else {
-            float f2 = d.a.a.v.f.f(matrix);
-            Paint paint = this.A;
-            double d2 = h2.j;
-            double e2 = d.a.a.v.f.e();
-            Double.isNaN(e2);
-            double d3 = d2 * e2;
-            double d4 = f2;
-            Double.isNaN(d4);
-            paint.setStrokeWidth((float) (d3 * d4));
+            this.A.setStrokeWidth((float) (h2.j * d.a.a.v.f.e() * d.a.a.v.f.f(matrix)));
         }
         if (this.D.l0()) {
             G(h2, matrix, cVar, canvas);

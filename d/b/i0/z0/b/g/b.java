@@ -30,15 +30,15 @@ import d.b.b.e.p.l;
 import d.b.b.j.e.n;
 import d.b.i0.c3.f0;
 import d.b.i0.z0.b.f.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener {
 
     /* renamed from: h  reason: collision with root package name */
-    public d f62804h;
+    public d f62805h;
     public boolean i;
     public LikeModel j;
     public f0 k;
-    public C1685b l;
+    public C1686b l;
     public d.b.h0.r.f0.m.b m;
     public d.b.h0.r.f0.m.b n;
     public TbPageContext<?> o;
@@ -55,16 +55,16 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     public final int[] z;
 
     /* renamed from: d.b.i0.z0.b.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1685b extends e implements f0.a {
+    /* loaded from: classes3.dex */
+    public class C1686b extends e implements f0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a f62805a;
+        public d.a f62806a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FollowUserButton f62806b;
+        public FollowUserButton f62807b;
 
-        public C1685b() {
+        public C1686b() {
         }
 
         @Override // d.b.i0.c3.f0.a
@@ -75,8 +75,8 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         @Override // d.b.i0.c3.f0.a
         public void b(String str, long j) {
             b.this.i = false;
-            b.this.o(this.f62806b, false);
-            this.f62805a.p(false);
+            b.this.o(this.f62807b, false);
+            this.f62806a.p(false);
         }
 
         @Override // d.b.b.a.e
@@ -90,14 +90,14 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                     l.L(b.this.o.getPageActivity(), b.this.j.getErrorString());
                     return;
                 }
-                b.this.o(this.f62806b, true);
-                this.f62805a.p(true);
+                b.this.o(this.f62807b, true);
+                this.f62806a.p(true);
             }
         }
 
         public void d(FollowUserButton followUserButton, d.a aVar) {
-            this.f62805a = aVar;
-            this.f62806b = followUserButton;
+            this.f62806a = aVar;
+            this.f62807b = followUserButton;
         }
     }
 
@@ -124,21 +124,21 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     public void c(n nVar) {
         if (nVar instanceof d) {
             d dVar = (d) nVar;
-            this.f62804h = dVar;
-            this.q.setText(dVar.f62795e);
+            this.f62805h = dVar;
+            this.q.setText(dVar.f62796e);
             for (int i = 0; i < 3; i++) {
-                this.r[i].W(this.f62804h.f62798h[i].e(), 10, false);
-                this.t[i].setText(this.f62804h.f62798h[i].f());
-                this.w[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f62804h.f62798h[i].g())}));
-                this.v[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f62804h.f62798h[i].a())}));
+                this.r[i].W(this.f62805h.f62799h[i].e(), 10, false);
+                this.t[i].setText(this.f62805h.f62799h[i].f());
+                this.w[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f62805h.f62799h[i].g())}));
+                this.v[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f62805h.f62799h[i].a())}));
                 this.x[i].setTag(Integer.valueOf(i));
-                o(this.x[i], this.f62804h.f62798h[i].o());
-                this.s[i].setVisibility(this.f62804h.f62796f ? 0 : 8);
-                ((LinearLayout.LayoutParams) this.t[i].getLayoutParams()).leftMargin = l.g(this.o.getPageActivity(), this.f62804h.f62796f ? R.dimen.tbds15 : R.dimen.tbds0);
-                if (!StringUtils.isNull(this.f62804h.f62798h[i].n()) && d.b.h0.b.d.D()) {
-                    this.u[i].setText(this.f62804h.f62798h[i].n());
-                } else if (!StringUtils.isNull(this.f62804h.f62798h[i].k()) && d.b.h0.b.d.C()) {
-                    this.u[i].setText(this.f62804h.f62798h[i].k());
+                o(this.x[i], this.f62805h.f62799h[i].o());
+                this.s[i].setVisibility(this.f62805h.f62797f ? 0 : 8);
+                ((LinearLayout.LayoutParams) this.t[i].getLayoutParams()).leftMargin = l.g(this.o.getPageActivity(), this.f62805h.f62797f ? R.dimen.tbds15 : R.dimen.tbds0);
+                if (!StringUtils.isNull(this.f62805h.f62799h[i].n()) && d.b.h0.b.d.D()) {
+                    this.u[i].setText(this.f62805h.f62799h[i].n());
+                } else if (!StringUtils.isNull(this.f62805h.f62799h[i].k()) && d.b.h0.b.d.C()) {
+                    this.u[i].setText(this.f62805h.f62799h[i].k());
                 } else {
                     this.u[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_desc));
                 }
@@ -155,7 +155,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         } else if (aVar == null || StringUtils.isNull(aVar.f()) || aVar.j() <= 0 || !ViewHelper.checkUpIsLogin(this.o.getPageActivity())) {
         } else {
             if (this.l == null) {
-                this.l = new C1685b();
+                this.l = new C1686b();
             }
             if (this.j == null) {
                 LikeModel likeModel = new LikeModel(this.o);
@@ -180,7 +180,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         } else if (aVar == null || StringUtils.isNull(aVar.f()) || aVar.j() <= 0 || !ViewHelper.checkUpIsLogin(this.o.getPageActivity())) {
         } else {
             if (this.l == null) {
-                this.l = new C1685b();
+                this.l = new C1686b();
             }
             if (this.k == null) {
                 f0 f0Var = new f0();
@@ -194,7 +194,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     }
 
     public d j() {
-        return this.f62804h;
+        return this.f62805h;
     }
 
     public final void k(View view) {
@@ -232,10 +232,10 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     }
 
     public void l(int i) {
-        if (this.f13655e == i) {
+        if (this.f13656e == i) {
             return;
         }
-        this.f13655e = i;
+        this.f13656e = i;
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0108);
         for (int i2 = 0; i2 < 3; i2++) {
             if (this.s[i2].getVisibility() == 0) {
@@ -255,16 +255,16 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     }
 
     public void n(int i, boolean z) {
-        if (this.f62804h == null) {
+        if (this.f62805h == null) {
             return;
         }
         if (z) {
             o(this.x[i], true);
-            this.f62804h.f62798h[i].p(true);
+            this.f62805h.f62799h[i].p(true);
             return;
         }
         o(this.x[i], false);
-        this.f62804h.f62798h[i].p(false);
+        this.f62805h.f62799h[i].p(false);
     }
 
     public final void o(FollowUserButton followUserButton, boolean z) {
@@ -278,12 +278,12 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f62804h == null || view == null) {
+        if (this.f62805h == null || view == null) {
             return;
         }
         int id = view.getId();
         int intValue = ((Integer) view.getTag()).intValue();
-        d.a aVar = this.f62804h.f62798h[intValue];
+        d.a aVar = this.f62805h.f62799h[intValue];
         if (view instanceof TBSpecificationBtn) {
             if (aVar.o()) {
                 i(aVar, this.x[intValue]);
@@ -291,8 +291,8 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             }
             h(aVar, this.x[intValue]);
             StatisticItem param = new StatisticItem("c13644").param("fid", aVar.j()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.p);
-            if (!StringUtils.isNull(this.f62804h.f62795e)) {
-                param = param.param("obj_name", this.f62804h.f62795e);
+            if (!StringUtils.isNull(this.f62805h.f62796e)) {
+                param = param.param("obj_name", this.f62805h.f62796e);
             }
             TiebaStatic.log(param);
         } else if (id == R.id.recommend_bar_info_1 || id == R.id.recommend_bar_info_2 || id == R.id.recommend_bar_info_3) {
@@ -306,8 +306,8 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             }
             this.o.sendMessage(new CustomMessage(2003000, callFrom));
             StatisticItem param2 = new StatisticItem("c13988").param("fid", aVar.j()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.p);
-            if (!StringUtils.isNull(this.f62804h.f62795e)) {
-                param2 = param2.param("obj_name", this.f62804h.f62795e);
+            if (!StringUtils.isNull(this.f62805h.f62796e)) {
+                param2 = param2.param("obj_name", this.f62805h.f62796e);
             }
             TiebaStatic.log(param2);
         }

@@ -13,7 +13,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequsetNetworkUtils extends BaseUtils {
     public static final String TAG = "RequsetNetworkUtils";
     public static ConnectivityManager mConnManager;
@@ -89,7 +89,7 @@ public class RequsetNetworkUtils extends BaseUtils {
                 case 14:
                 case 15:
                 case 17:
-                    str = g.f3873b;
+                    str = g.f3874b;
                     break;
                 case 13:
                 case 18:

@@ -8,7 +8,7 @@ import java.io.File;
 public class l implements d.b.g0.a.a2.f.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.a2.f.d f48463a;
+    public d.b.g0.a.a2.f.d f48464a;
 
     public l() {
         n.T(n.n(), n.r());
@@ -63,10 +63,10 @@ public class l implements d.b.g0.a.a2.f.c {
     @Override // d.b.g0.a.a2.f.c
     @NonNull
     public synchronized d.b.g0.a.a2.f.d h() {
-        if (this.f48463a == null) {
-            this.f48463a = new m();
+        if (this.f48464a == null) {
+            this.f48464a = new m();
         }
-        return this.f48463a;
+        return this.f48464a;
     }
 
     @Override // d.b.g0.a.a2.f.c

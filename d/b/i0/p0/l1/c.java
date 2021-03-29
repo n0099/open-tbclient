@@ -31,16 +31,16 @@ import tbclient.App;
 public class c implements NetModel.k {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsCommonTabFragment f57798e;
+    public FrsCommonTabFragment f57799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f57799f;
+    public d f57800f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsCommonTabRequestData f57800g;
+    public FrsCommonTabRequestData f57801g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrsCommonTabNetModel f57801h;
+    public FrsCommonTabNetModel f57802h;
     public boolean i;
     public FrsDynamicRequestData j;
     public FrsDynamicModel k;
@@ -57,7 +57,7 @@ public class c implements NetModel.k {
         if (frsCommonTabFragment == null) {
             return;
         }
-        this.f57798e = frsCommonTabFragment;
+        this.f57799e = frsCommonTabFragment;
         this.r = "FRS_GENERAL_TAB" + i2;
         if (i2 == 89) {
             this.i = true;
@@ -75,34 +75,34 @@ public class c implements NetModel.k {
         }
         this.i = false;
         FrsCommonTabRequestData frsCommonTabRequestData = new FrsCommonTabRequestData();
-        this.f57800g = frsCommonTabRequestData;
+        this.f57801g = frsCommonTabRequestData;
         frsCommonTabRequestData.fid = i;
         frsCommonTabRequestData.tabId = i2;
         frsCommonTabRequestData.isDefaultNavTab = i(i2) ? 1 : 0;
-        FrsCommonTabRequestData frsCommonTabRequestData2 = this.f57800g;
+        FrsCommonTabRequestData frsCommonTabRequestData2 = this.f57801g;
         frsCommonTabRequestData2.tabName = str;
         frsCommonTabRequestData2.isGeneralTab = i3;
-        FrsCommonTabNetModel frsCommonTabNetModel = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.f57800g);
-        this.f57801h = frsCommonTabNetModel;
+        FrsCommonTabNetModel frsCommonTabNetModel = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.f57801g);
+        this.f57802h = frsCommonTabNetModel;
         frsCommonTabNetModel.V(this);
-        this.f57801h.setUniqueId(frsCommonTabFragment.getUniqueId());
+        this.f57802h.setUniqueId(frsCommonTabFragment.getUniqueId());
     }
 
     public void a(a2 a2Var) {
         d dVar;
         ArrayList<n> arrayList;
-        if (a2Var == null || (dVar = this.f57799f) == null || (arrayList = dVar.f57804g) == null) {
+        if (a2Var == null || (dVar = this.f57800f) == null || (arrayList = dVar.f57805g) == null) {
             return;
         }
         if (ListUtils.isEmpty(arrayList)) {
-            this.f57799f.f57804g.add(a2Var);
+            this.f57800f.f57805g.add(a2Var);
         } else {
-            if (this.f57799f.f57804g.size() == 1 && (this.f57799f.f57804g.get(0) instanceof t)) {
-                this.f57799f.f57804g.remove(0);
+            if (this.f57800f.f57805g.size() == 1 && (this.f57800f.f57805g.get(0) instanceof t)) {
+                this.f57800f.f57805g.remove(0);
             }
-            this.f57799f.f57804g.add(0, a2Var);
+            this.f57800f.f57805g.add(0, a2Var);
         }
-        this.f57798e.V0(this.f57799f);
+        this.f57799e.V0(this.f57800f);
     }
 
     public final void b(List<n> list) {
@@ -120,15 +120,15 @@ public class c implements NetModel.k {
     }
 
     public final String c() {
-        int b2 = this.l ? 0 : d.b.i0.r2.a.b(this.f57799f.f57804g);
+        int b2 = this.l ? 0 : d.b.i0.r2.a.b(this.f57800f.f57805g);
         String d2 = this.l ? "" : d.b.i0.r2.b0.b.f().d(this.r);
-        d dVar = this.f57799f;
-        String e2 = d.b.i0.r2.a.e(dVar == null ? null : dVar.f57804g, this.l);
+        d dVar = this.f57800f;
+        String e2 = d.b.i0.r2.a.e(dVar == null ? null : dVar.f57805g, this.l);
         AdExtParam.a b3 = AdExtParam.a.b();
         b3.g(b2);
         b3.e(e2);
         b3.c(d2);
-        b3.f(this.f57798e.j);
+        b3.f(this.f57799e.j);
         return b3.a();
     }
 
@@ -137,7 +137,7 @@ public class c implements NetModel.k {
     }
 
     public d e() {
-        return this.f57799f;
+        return this.f57800f;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
@@ -152,12 +152,12 @@ public class c implements NetModel.k {
             } else if (mvcHttpResponsedMessage.getData() instanceof d.b.i0.p0.m1.a) {
                 d.b.i0.p0.m1.a aVar = (d.b.i0.p0.m1.a) mvcHttpResponsedMessage.getData();
                 d dVar2 = new d();
-                ArrayList<n> arrayList = aVar.f57899e;
-                dVar2.f57804g = arrayList;
-                dVar2.f57802e = aVar.f57901g;
-                dVar2.f57803f = aVar.f57900f;
+                ArrayList<n> arrayList = aVar.f57900e;
+                dVar2.f57805g = arrayList;
+                dVar2.f57803e = aVar.f57902g;
+                dVar2.f57804f = aVar.f57901f;
                 if (!ListUtils.isEmpty(arrayList)) {
-                    ArrayList<n> arrayList2 = dVar2.f57804g;
+                    ArrayList<n> arrayList2 = dVar2.f57805g;
                     n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
                     if (nVar instanceof a2) {
                         this.j.lastThreadId = d.b.b.e.m.b.f(((a2) nVar).o0(), 0L);
@@ -173,7 +173,7 @@ public class c implements NetModel.k {
             errorData.setError_code(this.p);
             errorData.setError_msg(this.q);
             if (this.p != 0) {
-                this.f57798e.onServerError(errorData);
+                this.f57799e.onServerError(errorData);
             }
         }
     }
@@ -185,14 +185,14 @@ public class c implements NetModel.k {
     }
 
     public boolean h() {
-        d dVar = this.f57799f;
-        return (dVar == null || ListUtils.isEmpty(dVar.f57804g)) ? false : true;
+        d dVar = this.f57800f;
+        return (dVar == null || ListUtils.isEmpty(dVar.f57805g)) ? false : true;
     }
 
     public final boolean i(int i) {
         FrsViewData frsViewData;
-        FrsCommonTabFragment frsCommonTabFragment = this.f57798e;
-        return (frsCommonTabFragment == null || (frsViewData = frsCommonTabFragment.f16196h) == null || frsViewData.mHeadLineDefaultNavTabId != i) ? false : true;
+        FrsCommonTabFragment frsCommonTabFragment = this.f57799e;
+        return (frsCommonTabFragment == null || (frsViewData = frsCommonTabFragment.f16197h) == null || frsViewData.mHeadLineDefaultNavTabId != i) ? false : true;
     }
 
     public boolean j() {
@@ -202,17 +202,17 @@ public class c implements NetModel.k {
     public void k(int i) {
         this.l = false;
         if (!this.i) {
-            if (this.f57801h.M()) {
+            if (this.f57802h.M()) {
                 return;
             }
             int i2 = this.n + 1;
             this.n = i2;
-            FrsCommonTabRequestData frsCommonTabRequestData = this.f57800g;
+            FrsCommonTabRequestData frsCommonTabRequestData = this.f57801g;
             frsCommonTabRequestData.pn = i2;
             frsCommonTabRequestData.sortType = i;
             frsCommonTabRequestData.lastThreadId = -1L;
             frsCommonTabRequestData.adExtParams = c();
-            this.f57801h.N();
+            this.f57802h.N();
         } else if (this.k.M()) {
         } else {
             if (TbImageHelper.getInstance().isShowBigImage()) {
@@ -225,12 +225,12 @@ public class c implements NetModel.k {
     }
 
     public void l(String str) {
-        d dVar = this.f57799f;
-        if (dVar == null || d.b.i0.i1.o.k.a.e(dVar.f57804g)) {
+        d dVar = this.f57800f;
+        if (dVar == null || d.b.i0.i1.o.k.a.e(dVar.f57805g)) {
             return;
         }
-        d.b.i0.r2.a.d(str, this.f57799f.f57804g);
-        this.f57798e.V0(this.f57799f);
+        d.b.i0.r2.a.d(str, this.f57800f.f57805g);
+        this.f57799e.V0(this.f57800f);
     }
 
     public final boolean m(d dVar) {
@@ -238,9 +238,9 @@ public class c implements NetModel.k {
             return false;
         }
         if (this.l) {
-            this.f57799f = dVar;
+            this.f57800f = dVar;
             this.m.clear();
-            Iterator<n> it = dVar.f57804g.iterator();
+            Iterator<n> it = dVar.f57805g.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof a2) {
@@ -253,24 +253,24 @@ public class c implements NetModel.k {
             if (d.b.i0.r0.a.d()) {
                 d.b.i0.r0.a aVar = this.s;
                 if (aVar != null) {
-                    aVar.b(this.f57799f.f57804g, this.l);
+                    aVar.b(this.f57800f.f57805g, this.l);
                 }
             } else {
-                g(dVar.o, this.f57799f.f57804g);
+                g(dVar.o, this.f57800f.f57805g);
             }
         } else {
-            d dVar2 = this.f57799f;
-            dVar2.f57802e = dVar.f57802e;
-            dVar2.f57803f.putAll(dVar.f57803f);
+            d dVar2 = this.f57800f;
+            dVar2.f57803e = dVar.f57803e;
+            dVar2.f57804f.putAll(dVar.f57804f);
             ArrayList arrayList = new ArrayList();
-            Iterator<n> it2 = dVar.f57804g.iterator();
+            Iterator<n> it2 = dVar.f57805g.iterator();
             while (it2.hasNext()) {
                 n next2 = it2.next();
                 if (next2 instanceof a2) {
                     a2 a2Var = (a2) next2;
                     String w12 = a2Var.w1();
                     if (!this.m.contains(w12)) {
-                        a2Var.D1 = this.f57798e.p;
+                        a2Var.D1 = this.f57799e.p;
                         arrayList.add(next2);
                         this.m.add(w12);
                     }
@@ -284,9 +284,9 @@ public class c implements NetModel.k {
             } else {
                 g(dVar.o, arrayList);
             }
-            this.f57799f.f57804g.addAll(arrayList);
+            this.f57800f.f57805g.addAll(arrayList);
         }
-        this.f57798e.V0(this.f57799f);
+        this.f57799e.V0(this.f57800f);
         return true;
     }
 
@@ -302,12 +302,12 @@ public class c implements NetModel.k {
             } else if (mvcSocketResponsedMessage.getData() instanceof d.b.i0.p0.m1.a) {
                 d.b.i0.p0.m1.a aVar = (d.b.i0.p0.m1.a) mvcSocketResponsedMessage.getData();
                 d dVar2 = new d();
-                ArrayList<n> arrayList = aVar.f57899e;
-                dVar2.f57804g = arrayList;
-                dVar2.f57802e = aVar.f57901g;
-                dVar2.f57803f = aVar.f57900f;
+                ArrayList<n> arrayList = aVar.f57900e;
+                dVar2.f57805g = arrayList;
+                dVar2.f57803e = aVar.f57902g;
+                dVar2.f57804f = aVar.f57901f;
                 if (!ListUtils.isEmpty(arrayList)) {
-                    ArrayList<n> arrayList2 = dVar2.f57804g;
+                    ArrayList<n> arrayList2 = dVar2.f57805g;
                     n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
                     if (nVar instanceof a2) {
                         this.j.lastThreadId = d.b.b.e.m.b.f(((a2) nVar).o0(), 0L);
@@ -323,7 +323,7 @@ public class c implements NetModel.k {
             errorData.setError_code(this.p);
             errorData.setError_msg(this.q);
             if (this.p != 0) {
-                this.f57798e.onServerError(errorData);
+                this.f57799e.onServerError(errorData);
             }
         }
     }
@@ -331,19 +331,19 @@ public class c implements NetModel.k {
     public void o(int i) {
         this.l = true;
         if (!this.i) {
-            if (this.f57801h.M()) {
+            if (this.f57802h.M()) {
                 return;
             }
             this.n = 1;
-            FrsCommonTabRequestData frsCommonTabRequestData = this.f57800g;
+            FrsCommonTabRequestData frsCommonTabRequestData = this.f57801g;
             frsCommonTabRequestData.pn = 1;
             frsCommonTabRequestData.sortType = i;
             long j = this.o;
             if (j >= 0) {
                 frsCommonTabRequestData.lastThreadId = j;
             }
-            this.f57800g.adExtParams = c();
-            this.f57801h.N();
+            this.f57801g.adExtParams = c();
+            this.f57802h.N();
         } else if (this.k.M()) {
         } else {
             if (TbImageHelper.getInstance().isShowBigImage()) {
@@ -365,7 +365,7 @@ public class c implements NetModel.k {
     }
 
     public void r(int i) {
-        FrsCommonTabRequestData frsCommonTabRequestData = this.f57800g;
+        FrsCommonTabRequestData frsCommonTabRequestData = this.f57801g;
         if (frsCommonTabRequestData != null) {
             frsCommonTabRequestData.tabType = i;
         }

@@ -17,7 +17,7 @@ import d.o.a.d.f.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static String j = "";
     public static String k = "";
@@ -25,43 +25,43 @@ public class a {
     public static volatile a m;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f66463c;
+    public Context f66464c;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f66465e;
+    public c f66466e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66461a = false;
+    public boolean f66462a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f66462b = false;
+    public volatile boolean f66463b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Pair<com.ss.android.downloadlib.a.c.b, d>> f66464d = new ArrayList();
+    public final List<Pair<com.ss.android.downloadlib.a.c.b, d>> f66465d = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<b> f66466f = new ArrayList();
+    public final List<b> f66467f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f66467g = new ServiceConnectionC1820a();
+    public final ServiceConnection f66468g = new ServiceConnectionC1821a();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66468h = "";
+    public String f66469h = "";
     public final Object i = new Object();
 
     /* renamed from: d.o.a.d.e$j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class ServiceConnectionC1820a implements ServiceConnection {
-        public ServiceConnectionC1820a() {
+    /* loaded from: classes7.dex */
+    public class ServiceConnectionC1821a implements ServiceConnection {
+        public ServiceConnectionC1821a() {
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             synchronized (a.this.i) {
                 a.this.d(false);
-                a.this.f66465e = c.a.a(iBinder);
+                a.this.f66466e = c.a.a(iBinder);
                 a.this.g();
-                for (b bVar : a.this.f66466f) {
+                for (b bVar : a.this.f66467f) {
                     bVar.a();
                 }
             }
@@ -71,15 +71,15 @@ public class a {
         public void onServiceDisconnected(ComponentName componentName) {
             synchronized (a.this.i) {
                 a.this.d(false);
-                a.this.f66465e = null;
-                for (b bVar : a.this.f66466f) {
+                a.this.f66466e = null;
+                for (b bVar : a.this.f66467f) {
                     bVar.b();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a();
 
@@ -120,24 +120,24 @@ public class a {
 
     public void c(com.ss.android.downloadlib.a.c.b bVar, d dVar) {
         synchronized (this.i) {
-            bVar.f38629e = l;
-            if (TextUtils.isEmpty(bVar.f38630f)) {
-                bVar.f38630f = this.f66468h;
+            bVar.f38630e = l;
+            if (TextUtils.isEmpty(bVar.f38631f)) {
+                bVar.f38631f = this.f66469h;
             }
-            if (this.f66465e != null) {
+            if (this.f66466e != null) {
                 try {
-                    this.f66465e.a(bVar, dVar);
+                    this.f66466e.a(bVar, dVar);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
-            } else if (h() || e(this.f66463c, this.f66461a)) {
-                this.f66464d.add(Pair.create(bVar, dVar));
+            } else if (h() || e(this.f66464c, this.f66462a)) {
+                this.f66465d.add(Pair.create(bVar, dVar));
             }
         }
     }
 
     public void d(boolean z) {
-        this.f66462b = z;
+        this.f66463b = z;
     }
 
     public boolean e(Context context, boolean z) {
@@ -148,41 +148,41 @@ public class a {
             k = d.o.a.e.a.h.b.b(s.optString("u"), optString);
             l = d.o.a.e.a.h.b.b(s.optString("w"), optString);
         }
-        this.f66461a = z;
+        this.f66462a = z;
         if (context != null) {
-            this.f66463c = context.getApplicationContext();
+            this.f66464c = context.getApplicationContext();
             if (TextUtils.isEmpty(l)) {
-                l = this.f66463c.getPackageName();
+                l = this.f66464c.getPackageName();
             }
-            if (this.f66465e != null || h()) {
+            if (this.f66466e != null || h()) {
                 return true;
             }
-            return this.f66463c.bindService(a(context), this.f66467g, 33);
+            return this.f66464c.bindService(a(context), this.f66468g, 33);
         }
         return true;
     }
 
     public void f() {
-        if (this.f66465e != null) {
-            this.f66463c.unbindService(this.f66467g);
-            this.f66465e = null;
+        if (this.f66466e != null) {
+            this.f66464c.unbindService(this.f66468g);
+            this.f66466e = null;
         }
-        this.f66466f.clear();
-        this.f66464d.clear();
+        this.f66467f.clear();
+        this.f66465d.clear();
     }
 
     public void g() {
-        for (Pair<com.ss.android.downloadlib.a.c.b, d> pair : this.f66464d) {
+        for (Pair<com.ss.android.downloadlib.a.c.b, d> pair : this.f66465d) {
             try {
-                this.f66465e.a((com.ss.android.downloadlib.a.c.b) pair.first, (d) pair.second);
+                this.f66466e.a((com.ss.android.downloadlib.a.c.b) pair.first, (d) pair.second);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
         }
-        this.f66464d.clear();
+        this.f66465d.clear();
     }
 
     public boolean h() {
-        return this.f66462b;
+        return this.f66463b;
     }
 }

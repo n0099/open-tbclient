@@ -9,13 +9,13 @@ import com.kwad.sdk.utils.p;
 public class n extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: d  reason: collision with root package name */
-    public SwipeLayout f32707d;
+    public SwipeLayout f32708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.a.b f32708e;
+    public com.kwad.sdk.contentalliance.home.a.b f32709e;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a f32705b = new d.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.1
+    public d.a f32706b = new d.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.1
         @Override // com.kwad.sdk.contentalliance.home.d.a
         public boolean a() {
             return false;
@@ -25,8 +25,8 @@ public class n extends com.kwad.sdk.contentalliance.home.e {
         public void b() {
             com.kwad.sdk.core.d.a.a("SwipeRightExitPresenter", "onRefresh()");
             p.a(n.this.o(), "再按一次返回键退出", 3000L);
-            if (n.this.f32708e != null) {
-                n.this.f32708e.a(3);
+            if (n.this.f32709e != null) {
+                n.this.f32709e.a(3);
             }
         }
 
@@ -41,14 +41,14 @@ public class n extends com.kwad.sdk.contentalliance.home.e {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.d f32706c = new com.kwad.sdk.contentalliance.home.d(this.f32705b);
+    public com.kwad.sdk.contentalliance.home.d f32707c = new com.kwad.sdk.contentalliance.home.d(this.f32706b);
 
     /* renamed from: f  reason: collision with root package name */
-    public SwipeLayout.a f32709f = new SwipeLayout.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.2
+    public SwipeLayout.a f32710f = new SwipeLayout.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.2
         @Override // com.kwad.sdk.contentalliance.home.swipe.SwipeLayout.a
         public void a() {
             com.kwad.sdk.core.d.a.a("SwipeRightExitPresenter", "onRightSwiped");
-            n.this.f32706c.a();
+            n.this.f32707c.a();
         }
 
         @Override // com.kwad.sdk.contentalliance.home.swipe.SwipeLayout.a
@@ -57,30 +57,30 @@ public class n extends com.kwad.sdk.contentalliance.home.e {
     };
 
     private void e() {
-        this.f32707d = (SwipeLayout) b(R.id.ksad_swipe);
+        this.f32708d = (SwipeLayout) b(R.id.ksad_swipe);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
         e();
-        com.kwad.sdk.contentalliance.home.a.i iVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a.f32770b;
+        com.kwad.sdk.contentalliance.home.a.i iVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a.f32771b;
         if (iVar != null) {
-            this.f32708e = iVar.c();
+            this.f32709e = iVar.c();
         }
-        SwipeLayout swipeLayout = this.f32707d;
+        SwipeLayout swipeLayout = this.f32708d;
         if (swipeLayout != null) {
-            swipeLayout.a(this.f32709f);
+            swipeLayout.a(this.f32710f);
         }
-        this.f32706c.a(((com.kwad.sdk.contentalliance.home.e) this).f32768a.m);
+        this.f32707c.a(((com.kwad.sdk.contentalliance.home.e) this).f32769a.m);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
-        SwipeLayout swipeLayout = this.f32707d;
-        if (swipeLayout == null || !swipeLayout.b(this.f32709f)) {
+        SwipeLayout swipeLayout = this.f32708d;
+        if (swipeLayout == null || !swipeLayout.b(this.f32710f)) {
             return;
         }
-        this.f32707d.c(this.f32709f);
+        this.f32708d.c(this.f32710f);
     }
 }

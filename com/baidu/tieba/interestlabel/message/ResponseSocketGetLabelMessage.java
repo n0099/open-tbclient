@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.i0.g1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
     public ResponseSocketGetLabelMessage() {
         super(309467);

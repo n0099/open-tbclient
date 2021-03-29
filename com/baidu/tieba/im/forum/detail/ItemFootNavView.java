@@ -32,20 +32,20 @@ import d.b.h0.r.s.a;
 import d.b.i0.c3.f0;
 import d.b.i0.c3.w;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ItemFootNavView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumDetailActivity f17955e;
+    public ForumDetailActivity f17956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f17956f;
+    public Context f17957f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f17957g;
+    public ViewGroup f17958g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17958h;
+    public TextView f17959h;
     public ImageView i;
     public ViewGroup j;
     public View k;
@@ -55,7 +55,7 @@ public class ItemFootNavView extends LinearLayout {
     public LikeModel o;
     public AntiHelper.k p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements AntiHelper.k {
         public a() {
         }
@@ -71,59 +71,59 @@ public class ItemFootNavView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f17960e;
+        public final /* synthetic */ ForumDetailActivity f17961e;
 
         public b(ForumDetailActivity forumDetailActivity) {
-            this.f17960e = forumDetailActivity;
+            this.f17961e = forumDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ItemFootNavView.this.q(this.f17960e);
+            ItemFootNavView.this.q(this.f17961e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f17962e;
+        public final /* synthetic */ ForumDetailActivity f17963e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17963f;
+        public final /* synthetic */ String f17964f;
 
         public c(ForumDetailActivity forumDetailActivity, String str) {
-            this.f17962e = forumDetailActivity;
-            this.f17963f = str;
+            this.f17963e = forumDetailActivity;
+            this.f17964f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(ItemFootNavView.this.f17956f, "detail_enter_forum", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            TiebaStatic.eventStat(ItemFootNavView.this.f17957f, "detail_enter_forum", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             if (ItemFootNavView.this.m) {
-                this.f17962e.finish();
+                this.f17963e.finish();
                 return;
             }
-            this.f17962e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17962e.getPageContext().getPageActivity()).createNormalCfg(this.f17963f, BarDetailForDirSwitch.BAR_DETAIL_DIR)));
-            if (this.f17962e == null || !ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(this.f17962e.getFromType())) {
+            this.f17963e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17963e.getPageContext().getPageActivity()).createNormalCfg(this.f17964f, BarDetailForDirSwitch.BAR_DETAIL_DIR)));
+            if (this.f17963e == null || !ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(this.f17963e.getFromType())) {
                 return;
             }
-            TiebaStatic.eventStat(ItemFootNavView.this.f17955e.getPageContext().getPageActivity(), "squae_introduce_entry", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            TiebaStatic.eventStat(ItemFootNavView.this.f17956e.getPageContext().getPageActivity(), "squae_introduce_entry", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.b.a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f17965a;
+        public final /* synthetic */ ForumDetailActivity f17966a;
 
         public d(ForumDetailActivity forumDetailActivity) {
-            this.f17965a = forumDetailActivity;
+            this.f17966a = forumDetailActivity;
         }
 
         @Override // d.b.b.a.e
@@ -133,7 +133,7 @@ public class ItemFootNavView extends LinearLayout {
                 ItemFootNavView.this.r(true);
             } else if (!AntiHelper.m(ItemFootNavView.this.o.getErrorCode(), ItemFootNavView.this.o.getErrorString())) {
                 if (ItemFootNavView.this.o.getErrorCode() != 0) {
-                    this.f17965a.showToast(ItemFootNavView.this.o.getErrorString());
+                    this.f17966a.showToast(ItemFootNavView.this.o.getErrorString());
                     return;
                 }
                 w wVar = (w) obj;
@@ -149,25 +149,25 @@ public class ItemFootNavView extends LinearLayout {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
                         return;
                     } else {
-                        AntiHelper.t(this.f17965a.getPageContext().getPageActivity(), ItemFootNavView.this.o.F(), ItemFootNavView.this.p);
+                        AntiHelper.t(this.f17966a.getPageContext().getPageActivity(), ItemFootNavView.this.o.F(), ItemFootNavView.this.p);
                         return;
                     }
                 }
-                ForumDetailActivity forumDetailActivity = this.f17965a;
+                ForumDetailActivity forumDetailActivity = this.f17966a;
                 forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.neterror));
-            } else if (AntiHelper.t(this.f17965a.getPageContext().getPageActivity(), ItemFootNavView.this.o.F(), ItemFootNavView.this.p) != null) {
+            } else if (AntiHelper.t(this.f17966a.getPageContext().getPageActivity(), ItemFootNavView.this.o.F(), ItemFootNavView.this.p) != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f17967e;
+        public final /* synthetic */ BaseActivity f17968e;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements f0.a {
             public a() {
             }
@@ -181,7 +181,7 @@ public class ItemFootNavView extends LinearLayout {
                     BdToast.h(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
                     return;
                 }
-                BaseActivity baseActivity = e.this.f17967e;
+                BaseActivity baseActivity = e.this.f17968e;
                 baseActivity.showToast(baseActivity.getPageContext().getString(R.string.unlike_failure));
             }
 
@@ -202,7 +202,7 @@ public class ItemFootNavView extends LinearLayout {
         }
 
         public e(BaseActivity baseActivity) {
-            this.f17967e = baseActivity;
+            this.f17968e = baseActivity;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -215,7 +215,7 @@ public class ItemFootNavView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements a.e {
         public f() {
         }
@@ -257,12 +257,12 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     public void l(Context context) {
-        this.f17956f = context;
+        this.f17957f = context;
         LayoutInflater.from(context).inflate(R.layout.forum_detail_foot_nav, (ViewGroup) this, true);
         setOrientation(1);
         setVisibility(8);
-        this.f17957g = (ViewGroup) findViewById(R.id.fn_care_box);
-        this.f17958h = (TextView) findViewById(R.id.fn_care_btn);
+        this.f17958g = (ViewGroup) findViewById(R.id.fn_care_box);
+        this.f17959h = (TextView) findViewById(R.id.fn_care_btn);
         this.i = (ImageView) findViewById(R.id.icon_brief_care);
         this.j = (ViewGroup) findViewById(R.id.fn_enter_box);
         this.k = findViewById(R.id.foot_line);
@@ -285,7 +285,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     public final void p(boolean z) {
-        View inflate = LayoutInflater.from(this.f17956f).inflate(R.layout.forum_detail_attention_toast, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f17957f).inflate(R.layout.forum_detail_attention_toast, (ViewGroup) null);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.attention_icon);
         TextView textView = (TextView) inflate.findViewById(R.id.attention_title);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0111);
@@ -296,32 +296,32 @@ public class ItemFootNavView extends LinearLayout {
             imageView.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_tips_attention_cancel));
             textView.setText(R.string.unfollow_title);
         }
-        Toast toast = new Toast(this.f17956f);
+        Toast toast = new Toast(this.f17957f);
         toast.setView(inflate);
         toast.setGravity(17, 0, 0);
         toast.setDuration(1000);
         toast.show();
         if (z) {
-            this.f17955e.saveAcceptNotify(true);
+            this.f17956e.saveAcceptNotify(true);
         } else {
-            this.f17955e.saveAcceptNotify(false);
+            this.f17956e.saveAcceptNotify(false);
         }
-        this.f17955e.setSwitch(z);
-        this.f17955e.setMsgManageVisibility(z);
+        this.f17956e.setSwitch(z);
+        this.f17956e.setMsgManageVisibility(z);
     }
 
     public final void q(ForumDetailActivity forumDetailActivity) {
         if (forumDetailActivity == null || forumDetailActivity.checkUpIsLogin()) {
-            int intValue = ((Integer) this.f17957g.getTag()).intValue();
+            int intValue = ((Integer) this.f17958g.getTag()).intValue();
             if (intValue == 0) {
                 k(forumDetailActivity, this.m);
             } else if (intValue == 1) {
                 if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.getFromType())) {
-                    TiebaStatic.eventStat(this.f17955e.getPageContext().getPageActivity(), "squae_introduce_focus", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f17956e.getPageContext().getPageActivity(), "squae_introduce_focus", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
                 }
                 j(forumDetailActivity, this.m);
             }
-            TiebaStatic.eventStat(this.f17956f, intValue == 1 ? "detail_care_add" : "detail_care_cancel", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            TiebaStatic.eventStat(this.f17957f, intValue == 1 ? "detail_care_add" : "detail_care_cancel", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
         }
     }
 
@@ -330,17 +330,17 @@ public class ItemFootNavView extends LinearLayout {
         if (z) {
             SkinManager.setImageResource(this.i, R.drawable.icon_pop_pass);
             i = R.string.relate_forum_is_followed;
-            this.f17957g.setTag(0);
+            this.f17958g.setTag(0);
         } else {
             SkinManager.setImageResource(this.i, R.drawable.icon_brief_attention);
             i = R.string.attention;
-            this.f17957g.setTag(1);
+            this.f17958g.setTag(1);
         }
-        this.f17958h.setText(this.f17956f.getResources().getString(i));
+        this.f17959h.setText(this.f17957f.getResources().getString(i));
     }
 
     public void setData(RecommendForumInfo recommendForumInfo, ForumDetailActivity forumDetailActivity) {
-        this.f17955e = forumDetailActivity;
+        this.f17956e = forumDetailActivity;
         if (recommendForumInfo == null) {
             return;
         }
@@ -348,7 +348,7 @@ public class ItemFootNavView extends LinearLayout {
         this.l = recommendForumInfo;
         String str = recommendForumInfo.forum_name;
         r(recommendForumInfo.is_like.intValue() == 1);
-        this.f17957g.setOnClickListener(new b(forumDetailActivity));
+        this.f17958g.setOnClickListener(new b(forumDetailActivity));
         this.j.setOnClickListener(new c(forumDetailActivity, str));
         setVisibility(0);
     }

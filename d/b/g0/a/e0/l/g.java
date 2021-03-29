@@ -12,25 +12,25 @@ import androidx.annotation.Nullable;
 import d.b.g0.a.i2.v;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends c {
     public boolean A0 = true;
     public String y0;
     public JSONObject z0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44025e;
+        public final /* synthetic */ JSONObject f44026e;
 
         public a(JSONObject jSONObject) {
-            this.f44025e = jSONObject;
+            this.f44026e = jSONObject;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.g0.a.z0.f.V().N(new d.b.g0.a.l1.c.c.b(g.this.y0, this.f44025e.toString(), g.this.z0.optString("slaveId")).a());
+            d.b.g0.a.z0.f.V().N(new d.b.g0.a.l1.c.c.b(g.this.y0, this.f44026e.toString(), g.this.z0.optString("slaveId")).a());
             g.this.A0 = false;
         }
     }
@@ -59,11 +59,7 @@ public class g extends c {
         if (optJSONObject == null) {
             return;
         }
-        long optLong = optJSONObject.optLong("fee");
-        Locale locale = Locale.CHINA;
-        double d2 = optLong;
-        Double.isNaN(d2);
-        ((TextView) view.findViewById(d.b.g0.a.f.id_swan_app_plugin_money)).setText(String.format(locale, "%.2f", Double.valueOf((d2 * 1.0d) / 100.0d)));
+        ((TextView) view.findViewById(d.b.g0.a.f.id_swan_app_plugin_money)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
         TextView textView2 = (TextView) view.findViewById(d.b.g0.a.f.id_swan_app_plugin_service_name);
         d.b.g0.l.k.h f2 = d.b.g0.a.l1.g.b.f(this.z0.optString("pluginProvider"));
         if (f2 != null) {
@@ -131,7 +127,7 @@ public class g extends c {
             return false;
         }
         d.b.g0.a.l1.c.c.a aVar = new d.b.g0.a.l1.c.c.a(jSONObject.optString("componentId"));
-        aVar.f45194a = this.z0.optString("slaveId");
+        aVar.f45195a = this.z0.optString("slaveId");
         aVar.b();
         return false;
     }

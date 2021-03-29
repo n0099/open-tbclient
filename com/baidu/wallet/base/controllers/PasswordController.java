@@ -33,25 +33,25 @@ import java.util.Random;
 public final class PasswordController {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PasswordController f23587a;
+    public static PasswordController f23588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IPwdListener f23588b;
+    public IPwdListener f23589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IPwdListener f23589c;
+    public IPwdListener f23590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IPwdListener f23590d;
+    public IPwdListener f23591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IPwdListener f23591e;
+    public IPwdListener f23592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaiduPay.IBindCardCallback f23592f;
+    public BaiduPay.IBindCardCallback f23593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoginBackListenerProxy f23593g;
+    public LoginBackListenerProxy f23594g;
 
     /* loaded from: classes5.dex */
     public interface IPwdListener {
@@ -61,10 +61,10 @@ public final class PasswordController {
     }
 
     public static PasswordController getPassWordInstance() {
-        if (f23587a == null) {
-            f23587a = new PasswordController();
+        if (f23588a == null) {
+            f23588a = new PasswordController();
         }
-        return f23587a;
+        return f23588a;
     }
 
     public static String getSeed() {
@@ -107,14 +107,14 @@ public final class PasswordController {
     }
 
     public void checkPwdFail(int i, String str) {
-        IPwdListener iPwdListener = this.f23588b;
+        IPwdListener iPwdListener = this.f23589b;
         if (iPwdListener != null) {
             iPwdListener.onFail(i, str);
         }
     }
 
     public void checkPwdForSp(Context context, Map<String, String> map, IPwdListener iPwdListener) {
-        this.f23588b = iPwdListener;
+        this.f23589b = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.mFrom = 1;
         pwdRequest.mRequestType = 2;
@@ -134,35 +134,35 @@ public final class PasswordController {
     }
 
     public void checkPwdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23588b;
+        IPwdListener iPwdListener = this.f23589b;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23588b = null;
+            this.f23589b = null;
         }
     }
 
     public void clearBindCardCallback() {
-        this.f23592f = null;
+        this.f23593f = null;
     }
 
     public void clearCheckPwdListener() {
-        this.f23588b = null;
+        this.f23589b = null;
     }
 
     public void clearEditPwdCallBack() {
-        this.f23590d = null;
+        this.f23591d = null;
     }
 
     public void clearForgetPasswdCallback() {
-        this.f23591e = null;
+        this.f23592e = null;
     }
 
     public void clearSetPwdListener() {
-        this.f23589c = null;
+        this.f23590c = null;
     }
 
     public void editPwd(Context context, IPwdListener iPwdListener) {
-        this.f23590d = iPwdListener;
+        this.f23591d = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.mFrom = 2;
         pwdRequest.mRequestType = 1;
@@ -175,17 +175,17 @@ public final class PasswordController {
     }
 
     public void editPwdFail(int i, String str) {
-        IPwdListener iPwdListener = this.f23590d;
+        IPwdListener iPwdListener = this.f23591d;
         if (iPwdListener != null) {
             iPwdListener.onFail(i, str);
         }
     }
 
     public void editPwdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23590d;
+        IPwdListener iPwdListener = this.f23591d;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23590d = null;
+            this.f23591d = null;
         }
     }
 
@@ -199,7 +199,7 @@ public final class PasswordController {
             forgetPasswdFailed();
             return;
         }
-        this.f23591e = iPwdListener;
+        this.f23592e = iPwdListener;
         if (PayDataCache.getInstance().hasBondCards()) {
             if (PayRequestCache.getInstance().isPaying()) {
                 createBindRequest = new BindFastRequest();
@@ -227,32 +227,32 @@ public final class PasswordController {
     }
 
     public void forgetPasswdFailed() {
-        IPwdListener iPwdListener = this.f23591e;
+        IPwdListener iPwdListener = this.f23592e;
         if (iPwdListener != null) {
             iPwdListener.onFail(-1, "");
         }
     }
 
     public void forgetPasswdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23591e;
+        IPwdListener iPwdListener = this.f23592e;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23591e = null;
+            this.f23592e = null;
         }
     }
 
     public void setPassByUserFail(String str) {
-        BaiduPay.IBindCardCallback iBindCardCallback = this.f23592f;
+        BaiduPay.IBindCardCallback iBindCardCallback = this.f23593f;
         if (iBindCardCallback != null) {
             iBindCardCallback.onChangeFailed(str);
         }
     }
 
     public void setPassByUserSucceed(String str) {
-        BaiduPay.IBindCardCallback iBindCardCallback = this.f23592f;
+        BaiduPay.IBindCardCallback iBindCardCallback = this.f23593f;
         if (iBindCardCallback != null) {
             iBindCardCallback.onChangeSucceed(null);
-            this.f23592f = null;
+            this.f23593f = null;
         }
     }
 
@@ -263,7 +263,7 @@ public final class PasswordController {
     public void setPwd(Context context, boolean z, IPwdListener iPwdListener, PayRequestCache.BindCategory bindCategory) {
         PwdRequest pwdRequest;
         if (iPwdListener != null) {
-            this.f23589c = iPwdListener;
+            this.f23590c = iPwdListener;
         }
         BeanRequestBase beanRequestFromCache = PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
         if (z && (beanRequestFromCache instanceof PwdRequest)) {
@@ -285,17 +285,17 @@ public final class PasswordController {
     }
 
     public void setPwdFail(int i, String str) {
-        IPwdListener iPwdListener = this.f23589c;
+        IPwdListener iPwdListener = this.f23590c;
         if (iPwdListener != null) {
             iPwdListener.onFail(i, str);
         }
     }
 
     public void setPwdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23589c;
+        IPwdListener iPwdListener = this.f23590c;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23589c = null;
+            this.f23590c = null;
         }
     }
 
@@ -304,7 +304,7 @@ public final class PasswordController {
     }
 
     public void checkPwdFromH5(Context context, String str, String str2, IPwdListener iPwdListener, String str3) {
-        this.f23588b = iPwdListener;
+        this.f23589b = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.serviceType = str3;
         pwdRequest.mFrom = 1;
@@ -328,7 +328,7 @@ public final class PasswordController {
             return;
         }
         if (PayDataCache.getInstance().hasBondCards()) {
-            this.f23592f = iBindCardCallback;
+            this.f23593f = iBindCardCallback;
             String string = bundle != null ? bundle.getString(Constants.BDL_KEY_FROM) : null;
             PayRequestCache.BindCategory valueOf = string != null ? PayRequestCache.BindCategory.valueOf(string) : null;
             if (valueOf == null) {
@@ -356,7 +356,7 @@ public final class PasswordController {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, IPwdListener iPwdListener, String str2) {
-        this.f23588b = iPwdListener;
+        this.f23589b = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.serviceType = str2;
         pwdRequest.mFrom = 1;
@@ -375,11 +375,11 @@ public final class PasswordController {
     }
 
     public void checkPwd(final Context context, final String str, final IPwdListener iPwdListener, final String str2) {
-        this.f23593g = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.controllers.PasswordController.1
+        this.f23594g = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.controllers.PasswordController.1
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i, String str3) {
                 if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(PasswordController.this.f23593g);
+                    WalletLoginHelper.getInstance().onlyLogin(PasswordController.this.f23594g);
                 } else {
                     PasswordController.this.checkPwdFail(i, str3);
                 }
@@ -390,7 +390,7 @@ public final class PasswordController {
                 PasswordController.this.a(context, str, iPwdListener, str2);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23593g);
+        WalletLoginHelper.getInstance().login(this.f23594g);
     }
 
     @SuppressLint({"DefaultLocale"})

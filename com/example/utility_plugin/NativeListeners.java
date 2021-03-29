@@ -224,7 +224,7 @@ public class NativeListeners {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 AgreeData agreeData;
-                if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f53376b) == null) {
+                if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f53377b) == null) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
@@ -390,7 +390,7 @@ public class NativeListeners {
                 if (customResponsedMessage == null) {
                     return;
                 }
-                b.f50415c = b.f50416d;
+                b.f50416c = b.f50417d;
                 HashMap hashMap = new HashMap();
                 hashMap.put("uniqueKey", "AnimateToBarEntryForumSquare");
                 NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
@@ -440,7 +440,7 @@ public class NativeListeners {
     }
 
     public final void dealBeforeAttachNotification(String str) {
-        if ("AnimateToBarEntryForumSquare".equals(str) && b.f50415c == b.f50417e) {
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.f50416c == b.f50418e) {
             d.b.b.e.m.e.a().postDelayed(new Runnable(this) { // from class: com.example.utility_plugin.NativeListeners.25
                 @Override // java.lang.Runnable
                 public void run() {
@@ -772,8 +772,8 @@ public class NativeListeners {
             wVar.v(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
             d.b.i0.c3.q0.e eVar = new d.b.i0.c3.q0.e();
-            eVar.f53593a = d.b.b.e.m.b.f(str2, 0L);
-            eVar.f53594b = true;
+            eVar.f53594a = d.b.b.e.m.b.f(str2, 0L);
+            eVar.f53595b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, eVar));
             return null;
         } else if (c2 == 1) {

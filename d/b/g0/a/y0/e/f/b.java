@@ -3,35 +3,35 @@ package d.b.g0.a.y0.e.f;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import d.b.g0.a.i2.q0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class b<ValueT> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ValueT f47099a;
+    public final ValueT f47100a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f47100e;
+        public final /* synthetic */ c f47101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47101f;
+        public final /* synthetic */ String f47102f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f47102g;
+        public final /* synthetic */ Object f47103g;
 
         public a(c cVar, String str, Object obj) {
-            this.f47100e = cVar;
-            this.f47101f = str;
-            this.f47102g = obj;
+            this.f47101e = cVar;
+            this.f47102f = str;
+            this.f47103g = obj;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: d.b.g0.a.y0.e.f.b */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            b.this.e(this.f47100e.z(), this.f47101f, this.f47102g);
+            b.this.e(this.f47101e.z(), this.f47102f, this.f47103g);
         }
     }
 
@@ -40,7 +40,7 @@ public abstract class b<ValueT> {
     }
 
     public ValueT a(c cVar, String str) {
-        return b(cVar, str, this.f47099a);
+        return b(cVar, str, this.f47100a);
     }
 
     public ValueT b(c cVar, String str, ValueT valuet) {
@@ -62,6 +62,6 @@ public abstract class b<ValueT> {
     public abstract void e(Bundle bundle, String str, ValueT valuet);
 
     public b(ValueT valuet) {
-        this.f47099a = valuet;
+        this.f47100a = valuet;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.crabsdk.b;
 
 import android.os.Environment;
 import android.os.StatFs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class r {
     public static String a() {
         try {

@@ -13,35 +13,35 @@ import org.json.JSONObject;
 public class t1 {
 
     /* renamed from: a */
-    public static String f40035a = "https://pp.xdplt.com/";
+    public static String f40036a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f40036b = f40035a + "behavior?";
+    public static final String f40037b = f40036a + "behavior?";
 
     /* renamed from: c */
-    public static final String f40037c = f40035a + "report?";
+    public static final String f40038c = f40036a + "report?";
 
     /* renamed from: d */
-    public static String f40038d = "https://cd.xdplt.com/";
+    public static String f40039d = "https://cd.xdplt.com/";
 
     /* renamed from: e */
-    public static String f40039e = "jy/da?";
+    public static String f40040e = "jy/da?";
 
     /* renamed from: f */
-    public static String f40040f = "?";
+    public static String f40041f = "?";
 
     /* renamed from: g */
-    public static String f40041g = "jy/da?";
+    public static String f40042g = "jy/da?";
 
     /* renamed from: h */
-    public static String f40042h = "jy/da?";
+    public static String f40043h = "jy/da?";
     public static String i = "jy/da?";
 
     public static /* synthetic */ void a(s1 s1Var) {
         String str;
         if (s1Var != null) {
-            str = s1Var.f40027c;
-            if (TextUtils.isEmpty(str) || s1Var.f40025a == null || TextUtils.isEmpty(s1Var.f40026b)) {
+            str = s1Var.f40028c;
+            if (TextUtils.isEmpty(str) || s1Var.f40026a == null || TextUtils.isEmpty(s1Var.f40027b)) {
                 return;
             }
             X1.a(new r1(s1Var));
@@ -53,8 +53,8 @@ public class t1 {
             try {
                 if (jSONObject.length() != 0) {
                     D d2 = new D();
-                    d2.f39654c = jSONObject.optString("traceid", "");
-                    d2.f39653b = jSONObject.optString("pid", "");
+                    d2.f39655c = jSONObject.optString("traceid", "");
+                    d2.f39654b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -63,7 +63,7 @@ public class t1 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(d2.f39654c);
+                                info.setTraceid(d2.f39655c);
                                 info.setPid(d2.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString(TrackLoadSettingsAtom.TYPE, ""));
@@ -125,7 +125,7 @@ public class t1 {
                             }
                         }
                     }
-                    d2.f39652a = arrayList;
+                    d2.f39653a = arrayList;
                     return d2;
                 }
             } catch (Exception unused) {
@@ -135,8 +135,8 @@ public class t1 {
     }
 
     public static /* synthetic */ void a(s1 s1Var, HashMap hashMap) {
-        if (s1Var.f40026b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(V1.d(s1Var.f40025a)));
+        if (s1Var.f40027b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(V1.d(s1Var.f40026a)));
         }
     }
 }

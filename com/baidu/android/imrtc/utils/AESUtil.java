@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class AESUtil {
     public static final String ALGORITHM_NAME = "AES";
     public static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";

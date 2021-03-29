@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import rx.subjects.PublishSubject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RxBus {
     public static final boolean DEBUG = false;
     public static final String TAG = "RxBus";
@@ -19,7 +19,7 @@ public class RxBus {
     public ConcurrentHashMap<Object, ConcurrentHashMap<Class, List<j>>> mSubscribers = new ConcurrentHashMap<>();
     public final c<Object, Object> mRxBusSubject = new c<>(PublishSubject.L());
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Remover implements k {
         public boolean isUnsubscribed;
         public k mSubscription;
@@ -47,7 +47,7 @@ public class RxBus {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class TagKeeperOperator<T> implements d.b<T, T> {
         public final Object tag;
         public final Class<T> type;

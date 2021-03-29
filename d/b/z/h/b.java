@@ -1,15 +1,15 @@
 package d.b.z.h;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64926a = false;
+    public static boolean f64927a = false;
 
     public static boolean a() {
-        return f64926a;
+        return f64927a;
     }
 
     public static void b(boolean z) {
-        f64926a = z;
+        f64927a = z;
     }
 }

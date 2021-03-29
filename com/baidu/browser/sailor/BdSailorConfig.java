@@ -2,9 +2,9 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BdSailorConfig implements INoProGuard {
-    public static final int BUILTIN_WEBKIT$25688051 = BdWebkitManager.a.f4328c;
+    public static final int BUILTIN_WEBKIT$25688051 = BdWebkitManager.a.f4329c;
     public static final String KEY_ADBLOCK_RULES = "adblock_rules";
     public static final String KEY_ANTI_HIJACK_SERVER = "29_5";
     public static final String KEY_ANTI_HIJACK_WHITE_LIST = "29_6";

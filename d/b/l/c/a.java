@@ -3,7 +3,7 @@ package d.b.l.c;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     @Inject(force = false)
     public static c a() {

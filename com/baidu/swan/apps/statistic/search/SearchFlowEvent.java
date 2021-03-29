@@ -1,23 +1,23 @@
 package com.baidu.swan.apps.statistic.search;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SearchFlowEvent {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12650a;
+    public String f12651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12651b;
+    public long f12652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12652c;
+    public String f12653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12653d;
+    public String f12654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EventType f12654e;
+    public EventType f12655e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum EventType {
         START,
         NORMAL,
@@ -25,22 +25,22 @@ public class SearchFlowEvent {
     }
 
     public SearchFlowEvent(String str) {
-        this.f12650a = str;
-        this.f12651b = System.currentTimeMillis();
-        this.f12654e = EventType.NORMAL;
-        this.f12652c = "";
-        this.f12653d = "";
+        this.f12651a = str;
+        this.f12652b = System.currentTimeMillis();
+        this.f12655e = EventType.NORMAL;
+        this.f12653c = "";
+        this.f12654d = "";
     }
 
     public String toString() {
-        return "Event: id=" + this.f12650a + ", timestamp=" + this.f12651b + ", data=" + this.f12652c + ", extData=" + this.f12653d + ", eventType=" + this.f12654e.toString();
+        return "Event: id=" + this.f12651a + ", timestamp=" + this.f12652b + ", data=" + this.f12653c + ", extData=" + this.f12654d + ", eventType=" + this.f12655e.toString();
     }
 
     public SearchFlowEvent(String str, long j, String str2, String str3, EventType eventType) {
-        this.f12650a = str;
-        this.f12651b = j;
-        this.f12652c = str2;
-        this.f12653d = str3;
-        this.f12654e = eventType;
+        this.f12651a = str;
+        this.f12652b = j;
+        this.f12653c = str2;
+        this.f12654d = str3;
+        this.f12655e = eventType;
     }
 }

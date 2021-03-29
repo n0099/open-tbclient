@@ -20,64 +20,64 @@ import com.heytap.mcssdk.mode.Message;
 import java.io.IOException;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientUpdater f55134a;
+    public ClientUpdater f55135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IClientUpdaterCallback f55135b;
+    public IClientUpdaterCallback f55136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ClientUpdateInfo f55136c;
+    public volatile ClientUpdateInfo f55137c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55137d;
+    public String f55138d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55138e;
+    public boolean f55139e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f55139f;
+    public Handler f55140f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f55140g = new RunnableC1262a();
+    public Runnable f55141g = new RunnableC1263a();
 
     /* renamed from: d.b.i0.h1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class RunnableC1262a implements Runnable {
-        public RunnableC1262a() {
+    /* loaded from: classes3.dex */
+    public class RunnableC1263a implements Runnable {
+        public RunnableC1263a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f55136c != null && "1".equals(a.this.f55136c.mStatus) && TbConfig.COULD_UPDATE) {
+            if (a.this.f55137c != null && "1".equals(a.this.f55137c.mStatus) && TbConfig.COULD_UPDATE) {
                 VersionData versionData = new VersionData();
-                versionData.setForceUpdate(Integer.parseInt(a.this.f55136c.mIsForceUpdate));
+                versionData.setForceUpdate(Integer.parseInt(a.this.f55137c.mIsForceUpdate));
                 versionData.setStrategy(0);
-                versionData.setNewVersion(a.this.f55136c.mVername);
-                versionData.setNewVersionCode(Integer.parseInt(a.this.f55136c.mVercode));
-                versionData.setNewFile(a.this.f55136c.mPackageName + a.this.f55136c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                versionData.setHasNewVer(Integer.parseInt(a.this.f55136c.mStatus));
-                versionData.setNewVersionDesc(a.this.f55136c.mChangelog);
-                versionData.setUrl(a.this.f55136c.mDownurl);
-                versionData.setSize(a.this.f55136c.mSize);
-                versionData.setPatch(a.this.f55136c.mPatchDownUrl);
-                versionData.setPatchSize(a.this.f55136c.mPatchSize);
-                versionData.setTiebaIconUrl(a.this.f55136c.mIconUrl);
-                versionData.setApkMD5RSA(a.this.f55136c.mSignMd5);
+                versionData.setNewVersion(a.this.f55137c.mVername);
+                versionData.setNewVersionCode(Integer.parseInt(a.this.f55137c.mVercode));
+                versionData.setNewFile(a.this.f55137c.mPackageName + a.this.f55137c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                versionData.setHasNewVer(Integer.parseInt(a.this.f55137c.mStatus));
+                versionData.setNewVersionDesc(a.this.f55137c.mChangelog);
+                versionData.setUrl(a.this.f55137c.mDownurl);
+                versionData.setSize(a.this.f55137c.mSize);
+                versionData.setPatch(a.this.f55137c.mPatchDownUrl);
+                versionData.setPatchSize(a.this.f55137c.mPatchSize);
+                versionData.setTiebaIconUrl(a.this.f55137c.mIconUrl);
+                versionData.setApkMD5RSA(a.this.f55137c.mSignMd5);
                 TbadkCoreApplication.getInst().setVersionData(versionData);
                 TbadkCoreApplication.getInst().refreshNewVersion(true);
                 if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
                     if (versionData.forceUpdate()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.f55136c, a.this.f55137d)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.f55137c, a.this.f55138d)));
                         return;
                     }
                     Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
                     Long valueOf2 = Long.valueOf(new Date().getTime());
-                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || a.this.f55138e) && versionData.getStrategy() == 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.f55136c, a.this.f55137d)));
+                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || a.this.f55139e) && versionData.getStrategy() == 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.f55137c, a.this.f55138d)));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
                     }
                 }
@@ -85,18 +85,18 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements IClientUpdaterCallback {
         public b() {
         }
 
         @Override // com.baidu.clientupdate.IClientUpdaterCallback
         public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
-            if (clientUpdateInfo == null || TextUtils.isEmpty(a.this.f55137d)) {
+            if (clientUpdateInfo == null || TextUtils.isEmpty(a.this.f55138d)) {
                 return;
             }
-            a.this.f55136c = clientUpdateInfo;
-            a.this.f55139f.post(a.this.f55140g);
+            a.this.f55137c = clientUpdateInfo;
+            a.this.f55140f.post(a.this.f55141g);
         }
 
         @Override // com.baidu.clientupdate.IClientUpdaterCallback
@@ -114,43 +114,43 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(Message.RULE)) == null || (optJSONObject2 = optJSONObject.optJSONObject("custom")) == null) {
                 return;
             }
-            a.this.f55137d = optJSONObject2.optString("apk_MD5_RSA");
+            a.this.f55138d = optJSONObject2.optString("apk_MD5_RSA");
         }
     }
 
     public a(boolean z) {
-        this.f55138e = z;
+        this.f55139e = z;
         ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
-        this.f55134a = clientUpdater;
+        this.f55135a = clientUpdater;
         clientUpdater.setUseCFG(false);
-        this.f55134a.setUseRSA(false);
-        this.f55134a.setFileProvider("com.baidu.tieba.fileprovider");
-        this.f55135b = new b();
-        this.f55139f = new Handler(Looper.getMainLooper());
+        this.f55135a.setUseRSA(false);
+        this.f55135a.setFileProvider("com.baidu.tieba.fileprovider");
+        this.f55136b = new b();
+        this.f55140f = new Handler(Looper.getMainLooper());
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.f55139f.removeCallbacks(this.f55140g);
+        this.f55140f.removeCallbacks(this.f55141g);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: i */
     public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
-        this.f55134a.setOsName(Info.PASSWORD);
-        this.f55134a.setTypeId("0");
-        this.f55134a.setFrom("tieba");
-        this.f55134a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
-        this.f55134a.addParamValue("tieba_versionname", TbConfig.getVersion());
-        this.f55134a.checkUpdate(this.f55135b);
+        this.f55135a.setOsName(Info.PASSWORD);
+        this.f55135a.setTypeId("0");
+        this.f55135a.setFrom("tieba");
+        this.f55135a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
+        this.f55135a.addParamValue("tieba_versionname", TbConfig.getVersion());
+        this.f55135a.checkUpdate(this.f55136b);
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        this.f55139f.removeCallbacks(this.f55140g);
+        this.f55140f.removeCallbacks(this.f55141g);
     }
 }

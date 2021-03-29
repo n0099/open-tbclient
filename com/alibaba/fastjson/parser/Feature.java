@@ -32,7 +32,7 @@ public enum Feature {
         if (z) {
             return i | feature.mask;
         }
-        return i & (feature.mask ^ (-1));
+        return i & (~feature.mask);
     }
 
     public static boolean isEnabled(int i, Feature feature) {

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import d.b.g0.a.t1.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i extends a {
     public i(j jVar) {
         super(jVar, "/swanAPI/canvas/update");
@@ -19,7 +19,7 @@ public class i extends a {
             d.b.g0.a.c0.c.b("SwanAppCanvas", "update action parse model is null");
             return false;
         }
-        String str = k.f43112f;
+        String str = k.f43113f;
         d.b.g0.a.e1.d.a.a aVar = k.l;
         if (!TextUtils.isEmpty(str) && aVar != null && aVar.i()) {
             d.b.g0.a.a0.c.d.a aVar2 = (d.b.g0.a.a0.c.d.a) d.b.g0.a.a0.d.a.a(k);
@@ -31,7 +31,7 @@ public class i extends a {
             d.b.g0.a.a0.b.c G = aVar2.G(k);
             boolean a2 = G.a();
             if (!a2) {
-                d.b.g0.a.c0.c.b("SwanAppCanvas", "update canvas fail: " + G.f43116b);
+                d.b.g0.a.c0.c.b("SwanAppCanvas", "update canvas fail: " + G.f43117b);
             }
             j(unitedSchemeEntity, callbackHandler, a2);
             return a2;

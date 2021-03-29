@@ -8,102 +8,102 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49330g = false;
+    public boolean f49331g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f49324a = new JSONArray();
+    public JSONArray f49325a = new JSONArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Integer> f49325b = new SparseArray<>();
+    public SparseArray<Integer> f49326b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f49326c = new ArrayList<>();
+    public ArrayList<String> f49327c = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public long f49327d = 0;
+    public long f49328d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f49328e = 0;
+    public long f49329e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49329f = "0";
+    public String f49330f = "0";
 
     public final void a(JSONObject jSONObject) {
-        this.f49324a.put(jSONObject);
+        this.f49325a.put(jSONObject);
     }
 
     public boolean b(int i) {
-        return this.f49324a.toString().getBytes().length >= i;
+        return this.f49325a.toString().getBytes().length >= i;
     }
 
     public void c() {
-        this.f49325b.clear();
-        this.f49326c.clear();
-        this.f49324a = null;
+        this.f49326b.clear();
+        this.f49327c.clear();
+        this.f49325a = null;
     }
 
     public String d() {
-        return this.f49329f;
+        return this.f49330f;
     }
 
     public JSONArray e() {
-        return this.f49324a;
+        return this.f49325a;
     }
 
     public final ArrayList f() {
-        return this.f49326c;
+        return this.f49327c;
     }
 
     public final SparseArray<Integer> g() {
-        return this.f49325b;
+        return this.f49326b;
     }
 
     public long h() {
-        return this.f49328e;
+        return this.f49329e;
     }
 
     public long i() {
-        return this.f49327d;
+        return this.f49328d;
     }
 
     public JSONArray j() {
-        return this.f49324a;
+        return this.f49325a;
     }
 
     public boolean k() {
-        return this.f49324a.length() == 0;
+        return this.f49325a.length() == 0;
     }
 
     public boolean l() {
-        return this.f49330g;
+        return this.f49331g;
     }
 
     public final void m(String str) {
-        if (this.f49326c.contains(str)) {
+        if (this.f49327c.contains(str)) {
             return;
         }
-        this.f49326c.add(str);
+        this.f49327c.add(str);
     }
 
     public final void n(int i, int i2) {
-        this.f49325b.put(i, Integer.valueOf(i2));
+        this.f49326b.put(i, Integer.valueOf(i2));
     }
 
     public final void o(long j, long j2) {
-        long j3 = this.f49327d;
+        long j3 = this.f49328d;
         if ((j < j3 || j3 == 0) && j != 0) {
-            this.f49327d = j;
+            this.f49328d = j;
         }
-        if (j2 > this.f49328e) {
-            this.f49328e = j2;
+        if (j2 > this.f49329e) {
+            this.f49329e = j2;
         }
     }
 
     public void p(String str) {
-        this.f49329f = str;
+        this.f49330f = str;
     }
 
     public void q(boolean z) {
-        this.f49330g = z;
+        this.f49331g = z;
     }
 }

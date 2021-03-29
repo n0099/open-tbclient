@@ -22,28 +22,28 @@ public class a {
 
     /* renamed from: d.b.h0.s.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class View$OnClickListenerC1098a implements View.OnClickListener {
+    public static class View$OnClickListenerC1099a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51370e;
+        public final /* synthetic */ TbPageContext f51371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int[] f51371f;
+        public final /* synthetic */ int[] f51372f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f51372g;
+        public final /* synthetic */ d.b.h0.r.s.a f51373g;
 
-        public View$OnClickListenerC1098a(TbPageContext tbPageContext, int[] iArr, d.b.h0.r.s.a aVar) {
-            this.f51370e = tbPageContext;
-            this.f51371f = iArr;
-            this.f51372g = aVar;
+        public View$OnClickListenerC1099a(TbPageContext tbPageContext, int[] iArr, d.b.h0.r.s.a aVar) {
+            this.f51371e = tbPageContext;
+            this.f51372f = iArr;
+            this.f51373g = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.c(this.f51370e);
-            this.f51371f[0] = 1;
-            this.f51372g.dismiss();
+            a.c(this.f51371e);
+            this.f51372f[0] = 1;
+            this.f51373g.dismiss();
         }
     }
 
@@ -51,20 +51,20 @@ public class a {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f51373e;
+        public final /* synthetic */ int[] f51374e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f51374f;
+        public final /* synthetic */ d.b.h0.r.s.a f51375f;
 
         public b(int[] iArr, d.b.h0.r.s.a aVar) {
-            this.f51373e = iArr;
-            this.f51374f = aVar;
+            this.f51374e = iArr;
+            this.f51375f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f51373e[0] = 2;
-            this.f51374f.dismiss();
+            this.f51374e[0] = 2;
+            this.f51375f.dismiss();
         }
     }
 
@@ -72,21 +72,21 @@ public class a {
     public static class c implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f51375e;
+        public final /* synthetic */ int f51376e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int[] f51376f;
+        public final /* synthetic */ int[] f51377f;
 
         public c(int i, int[] iArr) {
-            this.f51375e = i;
-            this.f51376f = iArr;
+            this.f51376e = i;
+            this.f51377f = iArr;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             StatisticItem statisticItem = new StatisticItem("c13673");
-            statisticItem.param("obj_source", this.f51375e);
-            statisticItem.param("obj_type", this.f51376f[0]);
+            statisticItem.param("obj_source", this.f51376e);
+            statisticItem.param("obj_type", this.f51377f[0]);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -184,7 +184,7 @@ public class a {
         CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
         aVar.setContentView(customPushPremissionDialogView);
         int[] iArr = {-1};
-        customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View$OnClickListenerC1098a(tbPageContext, iArr, aVar));
+        customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View$OnClickListenerC1099a(tbPageContext, iArr, aVar));
         customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, aVar));
         aVar.setOnDismissListener(new c(i, iArr));
         if (j > 0) {

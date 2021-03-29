@@ -7,21 +7,21 @@ import d.b.g0.a.c2.e.a;
 import d.b.g0.a.t.b.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends d.b.g0.a.t.b.d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b {
 
         /* renamed from: d.b.g0.a.t.c.m.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0828a implements a.c {
+        /* loaded from: classes2.dex */
+        public class C0829a implements a.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ k f46170a;
+            public final /* synthetic */ k f46171a;
 
-            public C0828a(k kVar) {
-                this.f46170a = kVar;
+            public C0829a(k kVar) {
+                this.f46171a = kVar;
             }
 
             @Override // d.b.g0.a.c2.e.a.c
@@ -30,10 +30,10 @@ public class d extends d.b.g0.a.t.b.d {
                 try {
                     jSONObject.put("direction", f2);
                     jSONObject.put("accuracy", d.b.g0.a.c2.e.a.h(i));
-                    this.f46170a.d(d.this, jSONObject);
+                    this.f46171a.d(d.this, jSONObject);
                 } catch (JSONException e2) {
                     d.b.g0.a.c0.c.b("Api-Compass", "handle compass,json error，" + e2.toString());
-                    this.f46170a.f(d.this, "Json error");
+                    this.f46171a.f(d.this, "Json error");
                 }
             }
         }
@@ -47,7 +47,7 @@ public class d extends d.b.g0.a.t.b.d {
             k kVar = new k("compassChange", jSONObject, str);
             d.b.g0.a.c2.e.a i = d.b.g0.a.c2.e.a.i();
             i.l(d.this.h());
-            i.o(new C0828a(kVar));
+            i.o(new C0829a(kVar));
             d.b.g0.a.c0.c.g("Api-Compass", "start listen compass");
             i.p();
             kVar.b(d.this);
@@ -60,14 +60,14 @@ public class d extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-Compass", "start listen compass");
         }
         return i(str, true, new a());
     }
 
     public d.b.g0.a.t.e.b s() {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-Compass", "stop accelerometer");
         }
         d.b.g0.a.c0.c.g("Api-Compass", "stop listen compass");

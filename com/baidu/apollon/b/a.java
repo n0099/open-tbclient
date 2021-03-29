@@ -6,42 +6,42 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Set<c>> f3504a;
+    public final Map<String, Set<c>> f3505a;
 
     /* renamed from: com.baidu.apollon.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0059a {
+    /* loaded from: classes.dex */
+    public static class C0060a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f3505a = new a();
+        public static final a f3506a = new a();
     }
 
     public static a a() {
-        return C0059a.f3505a;
+        return C0060a.f3506a;
     }
 
     public void b() {
-        this.f3504a.clear();
+        this.f3505a.clear();
     }
 
     public a() {
-        this.f3504a = new HashMap();
+        this.f3505a = new HashMap();
     }
 
     public Set<c> a(String str) {
-        Set<c> set = this.f3504a.get(str);
+        Set<c> set = this.f3505a.get(str);
         return set == null ? Collections.emptySet() : set;
     }
 
     public a a(@NonNull String str, @NonNull Set<String> set) {
-        if (this.f3504a.get(str) == null) {
-            this.f3504a.put(str, new HashSet());
+        if (this.f3505a.get(str) == null) {
+            this.f3505a.put(str, new HashSet());
         }
-        Set<c> set2 = this.f3504a.get(str);
+        Set<c> set2 = this.f3505a.get(str);
         for (String str2 : set) {
             set2.add(new c(str2));
         }

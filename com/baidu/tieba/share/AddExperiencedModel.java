@@ -19,16 +19,16 @@ public class AddExperiencedModel extends BdBaseModel {
     public static String USELESS_FORUM_ID = "24981790";
 
     /* renamed from: e  reason: collision with root package name */
-    public c f21102e;
+    public c f21103e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ContriInfo f21103f;
+    public ContriInfo f21104f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f21104g;
+    public Runnable f21105g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f21105h;
+    public HttpMessageListener f21106h;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -37,8 +37,8 @@ public class AddExperiencedModel extends BdBaseModel {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (AddExperiencedModel.this.f21102e != null) {
-                AddExperiencedModel.this.f21102e.a(AddExperiencedModel.this.f21103f);
+            if (AddExperiencedModel.this.f21103e != null) {
+                AddExperiencedModel.this.f21103e.a(AddExperiencedModel.this.f21104f);
             }
         }
     }
@@ -53,8 +53,8 @@ public class AddExperiencedModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                AddExperiencedModel.this.f21103f = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                e.a().postDelayed(AddExperiencedModel.this.f21104g, 2000L);
+                AddExperiencedModel.this.f21104f = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                e.a().postDelayed(AddExperiencedModel.this.f21105g, 2000L);
             }
         }
     }
@@ -66,10 +66,10 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f21104g = new a();
-        this.f21105h = new b(CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
+        this.f21105g = new a();
+        this.f21106h = new b(CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
         registerTask();
-        registerListener(this.f21105h);
+        registerListener(this.f21106h);
     }
 
     public static boolean x(String str) {
@@ -87,7 +87,7 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        e.a().removeCallbacks(this.f21104g);
+        e.a().removeCallbacks(this.f21105g);
     }
 
     public final void registerTask() {

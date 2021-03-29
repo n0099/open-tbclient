@@ -2,10 +2,10 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 import d.b.j.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class InternalDeviceIdApis {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class TargetPackageCuidV270Info {
         public String iscChannelCuid;
         public String upcChannelCuid;

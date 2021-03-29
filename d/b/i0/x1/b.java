@@ -18,39 +18,39 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements d.b.h0.v.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.x1.e.b f62332a;
+        public final /* synthetic */ d.b.i0.x1.e.b f62333a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f62333b;
+        public final /* synthetic */ String f62334b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.x1.f.a f62334c;
+        public final /* synthetic */ d.b.i0.x1.f.a f62335c;
 
         /* renamed from: d.b.i0.x1.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1656a extends BdAsyncTask<Void, Void, Boolean> {
+        /* loaded from: classes3.dex */
+        public class C1657a extends BdAsyncTask<Void, Void, Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadData f62335a;
+            public final /* synthetic */ DownloadData f62336a;
 
-            public C1656a(DownloadData downloadData) {
-                this.f62335a = downloadData;
+            public C1657a(DownloadData downloadData) {
+                this.f62336a = downloadData;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                FileHelper.deleteFileOrDir(new File(a.this.f62333b));
-                if (b.g(this.f62335a.getPath(), a.this.f62334c)) {
+                FileHelper.deleteFileOrDir(new File(a.this.f62334b));
+                if (b.g(this.f62336a.getPath(), a.this.f62335c)) {
                     a aVar = a.this;
-                    return Boolean.valueOf(b.f(aVar.f62334c, aVar.f62333b));
+                    return Boolean.valueOf(b.f(aVar.f62335c, aVar.f62334b));
                 }
                 return Boolean.FALSE;
             }
@@ -60,33 +60,33 @@ public class b {
             public void onPostExecute(Boolean bool) {
                 if (bool.booleanValue()) {
                     a aVar = a.this;
-                    aVar.f62332a.onSuccess(aVar.f62333b);
+                    aVar.f62333a.onSuccess(aVar.f62334b);
                     return;
                 }
-                a.this.f62332a.onFail("fail to download");
+                a.this.f62333a.onFail("fail to download");
             }
         }
 
         public a(d.b.i0.x1.e.b bVar, String str, d.b.i0.x1.f.a aVar) {
-            this.f62332a = bVar;
-            this.f62333b = str;
-            this.f62334c = aVar;
+            this.f62333a = bVar;
+            this.f62334b = str;
+            this.f62335c = aVar;
         }
 
         @Override // d.b.h0.v.c
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-            if (this.f62332a != null) {
+            if (this.f62333a != null) {
                 String str2 = "faile to download:";
                 if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
                     str2 = "faile to download:" + downloadData.getUrl();
                 }
-                this.f62332a.onFail(str2);
+                this.f62333a.onFail(str2);
             }
         }
 
         @Override // d.b.h0.v.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            new C1656a(downloadData).execute(new Void[0]);
+            new C1657a(downloadData).execute(new Void[0]);
         }
 
         @Override // d.b.h0.v.c
@@ -96,7 +96,7 @@ public class b {
 
         @Override // d.b.h0.v.c
         public void onFileUpdateProgress(DownloadData downloadData) {
-            d.b.i0.x1.e.b bVar = this.f62332a;
+            d.b.i0.x1.e.b bVar = this.f62333a;
             if (bVar != null) {
                 bVar.onProgress(downloadData.getProcess());
             }
@@ -110,28 +110,28 @@ public class b {
 
     public static void c(d.b.i0.x1.f.a aVar, d.b.i0.x1.e.b bVar) {
         List<d.b.i0.x1.f.b> list;
-        if (aVar == null || (list = aVar.f62371e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f62370d)) {
+        if (aVar == null || (list = aVar.f62372e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f62371d)) {
             if (bVar != null) {
                 bVar.onFail("group data null");
                 return;
             }
             return;
         }
-        a aVar2 = new a(bVar, c.f62338c + aVar.f62367a + "/", aVar);
-        new File(c.f62338c).mkdirs();
-        d(aVar, c.f62338c, aVar2);
+        a aVar2 = new a(bVar, c.f62339c + aVar.f62368a + "/", aVar);
+        new File(c.f62339c).mkdirs();
+        d(aVar, c.f62339c, aVar2);
     }
 
     public static void d(d.b.i0.x1.f.a aVar, String str, d.b.h0.v.c cVar) {
-        if (aVar == null || TextUtils.isEmpty(aVar.f62370d)) {
+        if (aVar == null || TextUtils.isEmpty(aVar.f62371d)) {
             if (cVar != null) {
                 cVar.onFileDownloadFailed(null, 0, "data is null");
                 return;
             }
             return;
         }
-        String str2 = aVar.f62367a + ".zip";
-        DownloadData downloadData = new DownloadData(aVar.f62367a, str2, Uri.encode(aVar.f62370d, "-![.:/,%?&=]"), cVar);
+        String str2 = aVar.f62368a + ".zip";
+        DownloadData downloadData = new DownloadData(aVar.f62368a, str2, Uri.encode(aVar.f62371d, "-![.:/,%?&=]"), cVar);
         downloadData.setPath(str + str2);
         d.b.h0.v.d.j().k(downloadData);
     }
@@ -160,10 +160,10 @@ public class b {
         if (file.exists() && file2.exists()) {
             return true;
         }
-        if (new File(str + aVar.f62369c).exists()) {
+        if (new File(str + aVar.f62370c).exists()) {
             Bitmap bitmap = null;
             try {
-                bitmap = BitmapFactory.decodeFile(str + aVar.f62369c);
+                bitmap = BitmapFactory.decodeFile(str + aVar.f62370c);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
@@ -188,7 +188,7 @@ public class b {
                         ZipEntry nextEntry = zipInputStream2.getNextEntry();
                         if (nextEntry != null) {
                             if (!nextEntry.isDirectory()) {
-                                String str2 = ".emotions/" + aVar.f62367a;
+                                String str2 = ".emotions/" + aVar.f62368a;
                                 FileHelper.saveFile(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName(), zipInputStream2);
                             }
                         } else {

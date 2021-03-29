@@ -25,7 +25,7 @@ public interface KsContentPage {
         @KsAdSdkApi
         @Keep
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes.dex */
+        /* loaded from: classes6.dex */
         public @interface MaterialType {
             public static final int AD = 2;
             public static final int CONTENT = 1;

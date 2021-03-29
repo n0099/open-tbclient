@@ -17,8 +17,9 @@ public final class SingleProducer<T> extends AtomicBoolean implements f {
 
     @Override // h.f
     public void request(long j) {
-        if (j >= 0) {
-            if (j != 0 && compareAndSet(false, true)) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
+            if (i != 0 && compareAndSet(false, true)) {
                 j<? super T> jVar = this.child;
                 if (jVar.isUnsubscribed()) {
                     return;

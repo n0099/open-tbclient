@@ -11,62 +11,62 @@ import kotlin.jvm.functions.Function4;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Boolean> f66219a = new HashMap<>();
+    public HashMap<String, Boolean> f66220a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Bitmap> f66220b = new HashMap<>();
+    public HashMap<String, Bitmap> f66221b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f66221c = new HashMap<>();
+    public HashMap<String, String> f66222c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, TextPaint> f66222d = new HashMap<>();
+    public HashMap<String, TextPaint> f66223d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, StaticLayout> f66223e = new HashMap<>();
+    public HashMap<String, StaticLayout> f66224e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, Function2<Canvas, Integer, Boolean>> f66224f = new HashMap<>();
+    public HashMap<String, Function2<Canvas, Integer, Boolean>> f66225f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> f66225g = new HashMap<>();
+    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> f66226g = new HashMap<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f66226h;
+    public boolean f66227h;
 
     public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
-        return this.f66224f;
+        return this.f66225f;
     }
 
     public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
-        return this.f66225g;
+        return this.f66226g;
     }
 
     public final HashMap<String, Boolean> c() {
-        return this.f66219a;
+        return this.f66220a;
     }
 
     public final HashMap<String, Bitmap> d() {
-        return this.f66220b;
+        return this.f66221b;
     }
 
     public final HashMap<String, StaticLayout> e() {
-        return this.f66223e;
+        return this.f66224e;
     }
 
     public final HashMap<String, String> f() {
-        return this.f66221c;
+        return this.f66222c;
     }
 
     public final HashMap<String, TextPaint> g() {
-        return this.f66222d;
+        return this.f66223d;
     }
 
     public final boolean h() {
-        return this.f66226h;
+        return this.f66227h;
     }
 
     public final void i(boolean z) {
-        this.f66226h = z;
+        this.f66227h = z;
     }
 }

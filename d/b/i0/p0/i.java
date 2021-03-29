@@ -6,12 +6,12 @@ import java.util.HashMap;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Drawable> f57599a = new HashMap<>();
+    public HashMap<String, Drawable> f57600a = new HashMap<>();
 
     public void a() {
-        if (this.f57599a.isEmpty()) {
+        if (this.f57600a.isEmpty()) {
             return;
         }
-        this.f57599a.clear();
+        this.f57600a.clear();
     }
 }

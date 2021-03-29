@@ -21,25 +21,25 @@ import tbclient.FrsTabInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f58068a;
+    public View f58069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsFragment f58069b;
+    public FrsFragment f58070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f58070c;
+    public TextView f58071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrsTabSortSwitchButton f58071d;
+    public FrsTabSortSwitchButton f58072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58072e;
+    public String f58073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58073f;
+    public int f58074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsTabSortSwitchButton.e f58074g = new a();
+    public FrsTabSortSwitchButton.e f58075g = new a();
 
     /* loaded from: classes4.dex */
     public class a implements FrsTabSortSwitchButton.e {
@@ -51,28 +51,28 @@ public class b {
             boolean z = false;
             if (!d.b.i0.p0.b.e().g() && !d.b.i0.p0.a.h().j()) {
                 if (!j.A()) {
-                    b.this.f58069b.showToast(R.string.neterror);
+                    b.this.f58070b.showToast(R.string.neterror);
                     return false;
-                } else if (b.this.f58069b.M() != null && b.this.f58069b.x0() != null) {
+                } else if (b.this.f58070b.M() != null && b.this.f58070b.x0() != null) {
                     z = true;
-                    if (b.this.f58073f == i) {
+                    if (b.this.f58074f == i) {
                         return true;
                     }
-                    b.this.f58069b.M().J0(b.this.f58071d.v(b.this.f58073f));
-                    b.this.f58073f = i;
-                    if (b.this.f58073f != 7) {
+                    b.this.f58070b.M().J0(b.this.f58072d.v(b.this.f58074f));
+                    b.this.f58074f = i;
+                    if (b.this.f58074f != 7) {
                         c0.c();
                         e.a();
                     } else {
                         e.b();
                     }
-                    b.this.f58069b.M().F0(b.this.f58071d.v(b.this.f58073f));
+                    b.this.f58070b.M().F0(b.this.f58072d.v(b.this.f58074f));
                     if (d.m()) {
-                        d.b.h0.b.g.a.f(b.this.f58071d.v(b.this.f58073f));
+                        d.b.h0.b.g.a.f(b.this.f58072d.v(b.this.f58074f));
                     }
-                    b.this.f58069b.M().I0(true);
-                    b.this.f58069b.x0().K1();
-                    b.this.f58069b.M().H0(true);
+                    b.this.f58070b.M().I0(true);
+                    b.this.f58070b.x0().K1();
+                    b.this.f58070b.M().H0(true);
                     b.this.f();
                 }
             }
@@ -81,57 +81,57 @@ public class b {
     }
 
     public b(FrsFragment frsFragment, RelativeLayout relativeLayout) {
-        this.f58073f = -1;
+        this.f58074f = -1;
         if (frsFragment == null || relativeLayout == null) {
             return;
         }
-        this.f58069b = frsFragment;
+        this.f58070b = frsFragment;
         View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-        this.f58068a = inflate;
+        this.f58069a = inflate;
         inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-        this.f58070c = (TextView) this.f58068a.findViewById(R.id.sort_tab_sort_name);
-        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.f58068a.findViewById(R.id.sort_tab_switch_btn);
-        this.f58071d = frsTabSortSwitchButton;
-        frsTabSortSwitchButton.setOnSwitchChangeListener(this.f58074g);
-        this.f58073f = this.f58071d.getState();
+        this.f58071c = (TextView) this.f58069a.findViewById(R.id.sort_tab_sort_name);
+        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.f58069a.findViewById(R.id.sort_tab_switch_btn);
+        this.f58072d = frsTabSortSwitchButton;
+        frsTabSortSwitchButton.setOnSwitchChangeListener(this.f58075g);
+        this.f58074f = this.f58072d.getState();
         i();
     }
 
     public final void f() {
         StatisticItem statisticItem = new StatisticItem("c11437");
-        statisticItem.param("obj_type", this.f58071d.v(this.f58073f));
-        statisticItem.param("fid", this.f58072e);
+        statisticItem.param("obj_type", this.f58072d.v(this.f58074f));
+        statisticItem.param("fid", this.f58073e);
         TiebaStatic.log(statisticItem);
     }
 
     public void g(int i) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f58071d;
+        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f58072d;
         if (frsTabSortSwitchButton != null) {
             frsTabSortSwitchButton.s(i);
-            this.f58073f = this.f58071d.getState();
+            this.f58074f = this.f58072d.getState();
         }
     }
 
     public FrsTabSortSwitchButton h() {
-        return this.f58071d;
+        return this.f58072d;
     }
 
     public void i() {
-        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f58071d;
+        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f58072d;
         if (frsTabSortSwitchButton != null) {
             frsTabSortSwitchButton.C();
         }
-        SkinManager.setViewTextColor(this.f58070c, R.color.CAM_X0108);
+        SkinManager.setViewTextColor(this.f58071c, R.color.CAM_X0108);
     }
 
     public void j(List<FrsTabInfo> list) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f58071d;
+        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f58072d;
         if (frsTabSortSwitchButton != null) {
             frsTabSortSwitchButton.setData(list);
         }
     }
 
     public void k(String str) {
-        this.f58072e = str;
+        this.f58073e = str;
     }
 }

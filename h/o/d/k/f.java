@@ -5,46 +5,46 @@ import java.util.Iterator;
 public abstract class f<E> extends g<E> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f67963g = Integer.getInteger("sparse.shift", 0).intValue();
+    public static final int f67968g = Integer.getInteger("sparse.shift", 0).intValue();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final long f67964h;
+    public static final long f67969h;
     public static final int i;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f67965e;
+    public final long f67970e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final E[] f67966f;
+    public final E[] f67971f;
 
     static {
-        int b2 = f0.f67967a.b(Object[].class);
+        int b2 = f0.f67972a.b(Object[].class);
         if (4 == b2) {
-            i = f67963g + 2;
+            i = f67968g + 2;
         } else if (8 == b2) {
-            i = f67963g + 3;
+            i = f67968g + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        f67964h = f0.f67967a.a(Object[].class) + (32 << (i - f67963g));
+        f67969h = f0.f67972a.a(Object[].class) + (32 << (i - f67968g));
     }
 
     public f(int i2) {
         int b2 = i.b(i2);
-        this.f67965e = b2 - 1;
-        this.f67966f = (E[]) new Object[(b2 << f67963g) + 64];
+        this.f67970e = b2 - 1;
+        this.f67971f = (E[]) new Object[(b2 << f67968g) + 64];
     }
 
     public final long a(long j) {
-        return b(j, this.f67965e);
+        return b(j, this.f67970e);
     }
 
     public final long b(long j, long j2) {
-        return f67964h + ((j & j2) << i);
+        return f67969h + ((j & j2) << i);
     }
 
     public final E c(E[] eArr, long j) {
-        return (E) f0.f67967a.e(eArr, j);
+        return (E) f0.f67972a.e(eArr, j);
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
@@ -57,19 +57,19 @@ public abstract class f<E> extends g<E> {
     }
 
     public final E d(long j) {
-        return e(this.f67966f, j);
+        return e(this.f67971f, j);
     }
 
     public final E e(E[] eArr, long j) {
-        return (E) f0.f67967a.f(eArr, j);
+        return (E) f0.f67972a.f(eArr, j);
     }
 
     public final void f(E[] eArr, long j, E e2) {
-        f0.f67967a.j(eArr, j, e2);
+        f0.f67972a.j(eArr, j, e2);
     }
 
     public final void g(E[] eArr, long j, E e2) {
-        f0.f67967a.h(eArr, j, e2);
+        f0.f67972a.h(eArr, j, e2);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

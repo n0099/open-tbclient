@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.utils;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.player.BDPlayerConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BdVideoLog {
     public static final boolean DEBUG_DEBUG = true;
     public static final boolean DEBUG_ERROR = true;
@@ -14,7 +14,7 @@ public final class BdVideoLog {
     public static final String LOG_TAG = "videoplayer";
 
     /* renamed from: com.baidu.searchbox.player.utils.BdVideoLog$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel;
 
@@ -44,7 +44,7 @@ public final class BdVideoLog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum LogLevel {
         DEBUG,
         ERROR,

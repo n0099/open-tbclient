@@ -14,11 +14,11 @@ public class PagerSnapHelper extends SnapHelper {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public d f14958c;
+    public d f14959c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f14959d;
+    public d f14960d;
 
     /* loaded from: classes4.dex */
     public class a extends LinearSmoothScroller {
@@ -39,7 +39,7 @@ public class PagerSnapHelper extends SnapHelper {
         @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
         public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
             PagerSnapHelper pagerSnapHelper = PagerSnapHelper.this;
-            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14961a.getLayoutManager(), view);
+            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14962a.getLayoutManager(), view);
             int i = calculateDistanceToFinalSnap[0];
             int i2 = calculateDistanceToFinalSnap[1];
             int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
@@ -124,27 +124,27 @@ public class PagerSnapHelper extends SnapHelper {
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     public LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-            return new a(this.f14961a.getContext());
+            return new a(this.f14962a.getContext());
         }
         return null;
     }
 
     @NonNull
     public final d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        d dVar = this.f14959d;
-        if (dVar == null || dVar.f60668a != layoutManager) {
-            this.f14959d = d.a(layoutManager);
+        d dVar = this.f14960d;
+        if (dVar == null || dVar.f60669a != layoutManager) {
+            this.f14960d = d.a(layoutManager);
         }
-        return this.f14959d;
+        return this.f14960d;
     }
 
     @NonNull
     public final d e(@NonNull RecyclerView.LayoutManager layoutManager) {
-        d dVar = this.f14958c;
-        if (dVar == null || dVar.f60668a != layoutManager) {
-            this.f14958c = d.b(layoutManager);
+        d dVar = this.f14959c;
+        if (dVar == null || dVar.f60669a != layoutManager) {
+            this.f14959c = d.b(layoutManager);
         }
-        return this.f14958c;
+        return this.f14959c;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper

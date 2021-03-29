@@ -6,11 +6,11 @@ import d.b.g0.a.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48027a = k.f45050a;
+    public static final boolean f48028a = k.f45051a;
 
     public boolean a() {
         d.b.g0.a.w0.a.N().getSwitch("game_bdtls_switcher", false);
-        if (f48027a) {
+        if (f48028a) {
             d.b.g0.a.c0.c.g("BDTLS", "isBdtlsSwitch=false");
         }
         return false;

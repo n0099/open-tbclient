@@ -1,5 +1,5 @@
 package com.facebook.cache.common;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public interface CacheEventListener {
 
     /* loaded from: classes6.dex */

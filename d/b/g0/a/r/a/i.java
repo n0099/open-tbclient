@@ -2,7 +2,7 @@ package d.b.g0.a.r.a;
 
 import android.content.Context;
 import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i extends SwanAppSimpleH5Widget {
     public i(Context context) {
         super(context);

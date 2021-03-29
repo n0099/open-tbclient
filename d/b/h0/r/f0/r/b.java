@@ -11,13 +11,13 @@ import d.b.b.j.e.n;
 public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50573a;
+    public Context f50574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<T, V> f50574b;
+    public a<T, V> f50575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f50575c;
+    public BdUniqueId f50576c;
 
     /* loaded from: classes3.dex */
     public interface a<T extends n, V extends BdBaseViewPagerAdapter.a> {
@@ -25,16 +25,16 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     }
 
     public b(Context context, BdUniqueId bdUniqueId) {
-        this.f50573a = context;
-        this.f50575c = bdUniqueId;
+        this.f50574a = context;
+        this.f50576c = bdUniqueId;
     }
 
     public a<T, V> a() {
-        return this.f50574b;
+        return this.f50575b;
     }
 
     public BdUniqueId b() {
-        return this.f50575c;
+        return this.f50576c;
     }
 
     public abstract V c(ViewGroup viewGroup);
@@ -45,6 +45,6 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     public abstract View e(ViewGroup viewGroup, V v, T t);
 
     public void f(a<T, V> aVar) {
-        this.f50574b = aVar;
+        this.f50575b = aVar;
     }
 }

@@ -11,18 +11,18 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67097b = 0;
+    public int f67102b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<c> f67096a = new SparseArray<>();
+    public volatile SparseArray<c> f67101a = new SparseArray<>();
 
     public List<Integer> a() {
         ArrayList arrayList;
         synchronized (d.class) {
             f();
             arrayList = new ArrayList();
-            for (int i = 0; i < this.f67096a.size(); i++) {
-                c cVar = this.f67096a.get(this.f67096a.keyAt(i));
+            for (int i = 0; i < this.f67101a.size(); i++) {
+                c cVar = this.f67101a.get(this.f67101a.keyAt(i));
                 if (cVar != null) {
                     arrayList.add(Integer.valueOf(cVar.S()));
                 }
@@ -32,7 +32,7 @@ public class d {
     }
 
     public void b(int i, long j) {
-        c cVar = this.f67096a.get(i);
+        c cVar = this.f67101a.get(i);
         if (cVar != null) {
             cVar.P(j);
         }
@@ -41,13 +41,13 @@ public class d {
     public void c(c cVar) {
         cVar.T();
         synchronized (d.class) {
-            if (this.f67097b >= 500) {
+            if (this.f67102b >= 500) {
                 f();
-                this.f67097b = 0;
+                this.f67102b = 0;
             } else {
-                this.f67097b++;
+                this.f67102b++;
             }
-            this.f67096a.put(cVar.S(), cVar);
+            this.f67101a.put(cVar.S(), cVar);
         }
         d.o.a.e.b.n.a O = cVar.O();
         try {
@@ -89,8 +89,8 @@ public class d {
     public boolean d(int i) {
         synchronized (d.class) {
             boolean z = false;
-            if (this.f67096a != null && this.f67096a.size() > 0) {
-                c cVar = this.f67096a.get(i);
+            if (this.f67101a != null && this.f67101a.size() > 0) {
+                c cVar = this.f67101a.get(i);
                 if (cVar != null && cVar.Q()) {
                     z = true;
                 }
@@ -103,11 +103,11 @@ public class d {
     public c e(int i) {
         synchronized (d.class) {
             f();
-            c cVar = this.f67096a.get(i);
+            c cVar = this.f67101a.get(i);
             if (cVar != null) {
                 cVar.M();
                 i(cVar);
-                this.f67096a.remove(i);
+                this.f67101a.remove(i);
                 return cVar;
             }
             return null;
@@ -117,16 +117,16 @@ public class d {
     public final void f() {
         try {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f67096a.size(); i++) {
-                int keyAt = this.f67096a.keyAt(i);
-                if (!this.f67096a.get(keyAt).Q()) {
+            for (int i = 0; i < this.f67101a.size(); i++) {
+                int keyAt = this.f67101a.keyAt(i);
+                if (!this.f67101a.get(keyAt).Q()) {
                     arrayList.add(Integer.valueOf(keyAt));
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 Integer num = (Integer) arrayList.get(i2);
                 if (num != null) {
-                    this.f67096a.remove(num.intValue());
+                    this.f67101a.remove(num.intValue());
                 }
             }
         } catch (Throwable th) {
@@ -141,12 +141,12 @@ public class d {
         synchronized (d.class) {
             try {
                 if (d.o.a.e.b.l.a.a(524288)) {
-                    int indexOfValue = this.f67096a.indexOfValue(cVar);
+                    int indexOfValue = this.f67101a.indexOfValue(cVar);
                     if (indexOfValue >= 0) {
-                        this.f67096a.removeAt(indexOfValue);
+                        this.f67101a.removeAt(indexOfValue);
                     }
                 } else {
-                    this.f67096a.remove(cVar.S());
+                    this.f67101a.remove(cVar.S());
                 }
             }
         }
@@ -155,11 +155,11 @@ public class d {
     public void h(int i) {
         synchronized (d.class) {
             f();
-            c cVar = this.f67096a.get(i);
+            c cVar = this.f67101a.get(i);
             if (cVar != null) {
                 cVar.z();
                 i(cVar);
-                this.f67096a.remove(i);
+                this.f67101a.remove(i);
             }
         }
     }

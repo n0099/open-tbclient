@@ -8,16 +8,16 @@ import android.webkit.WebView;
 public final class a extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f22926a = "InjectedChromeClient";
+    public final String f22927a = "InjectedChromeClient";
 
     /* renamed from: b  reason: collision with root package name */
-    public b f22927b;
+    public b f22928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22928c;
+    public boolean f22929c;
 
     public a(String str, Class cls) {
-        this.f22927b = new b(str, cls);
+        this.f22928b = new b(str, cls);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -28,17 +28,17 @@ public final class a extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public final boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        jsPromptResult.confirm(this.f22927b.a(webView, str2));
+        jsPromptResult.confirm(this.f22928b.a(webView, str2));
         return true;
     }
 
     @Override // android.webkit.WebChromeClient
     public final void onProgressChanged(WebView webView, int i) {
         if (i <= 25) {
-            this.f22928c = false;
-        } else if (!this.f22928c) {
-            webView.loadUrl(this.f22927b.a());
-            this.f22928c = true;
+            this.f22929c = false;
+        } else if (!this.f22929c) {
+            webView.loadUrl(this.f22928b.a());
+            this.f22929c = true;
             com.baidu.ufosdk.f.c.a("InjectedChromeClient --> inject js interface completely on progress " + i);
         }
         super.onProgressChanged(webView, i);

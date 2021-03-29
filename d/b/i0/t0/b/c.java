@@ -6,27 +6,27 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61005a;
+    public int f61006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<i0> f61006b;
+    public List<i0> f61007b;
 
     public int a() {
-        return this.f61005a;
+        return this.f61006a;
     }
 
     public List<i0> b() {
-        return this.f61006b;
+        return this.f61007b;
     }
 
     public void c(int i) {
-        this.f61005a = i;
+        this.f61006a = i;
     }
 
     public void d(String str) {
     }
 
     public void e(List<i0> list) {
-        this.f61006b = list;
+        this.f61007b = list;
     }
 }

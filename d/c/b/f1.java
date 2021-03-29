@@ -27,28 +27,28 @@ public final class f1 {
     public static String l;
 
     /* renamed from: b  reason: collision with root package name */
-    public g1 f64984b;
+    public g1 f64985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64985c;
+    public boolean f64986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j1 f64986d;
+    public j1 f64987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f64987e;
+    public final Context f64988e;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, String> f64989g;
+    public Map<String, String> f64990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Long f64990h;
+    public Long f64991h;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ReentrantLock f64983a = new ReentrantLock();
+    public final ReentrantLock f64984a = new ReentrantLock();
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f64988f = new AtomicBoolean(false);
+    public AtomicBoolean f64989f = new AtomicBoolean(false);
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -68,15 +68,15 @@ public final class f1 {
     }
 
     public f1(Context context) {
-        this.f64987e = context;
+        this.f64988e = context;
         g1 a2 = h1.a(context);
-        this.f64984b = a2;
+        this.f64985b = a2;
         if (a2 != null) {
-            this.f64985c = a2.a(context);
+            this.f64986c = a2.a(context);
         } else {
-            this.f64985c = false;
+            this.f64986c = false;
         }
-        this.f64986d = new j1(context);
+        this.f64987d = new j1(context);
     }
 
     public static void d(@Nullable c.a aVar) {
@@ -123,15 +123,15 @@ public final class f1 {
     public final Pair<String, Boolean> a(Context context) {
         Boolean bool;
         g1.a b2;
-        g1 g1Var = this.f64984b;
+        g1 g1Var = this.f64985b;
         String str = null;
         if (g1Var == null || (b2 = g1Var.b(context)) == null) {
             bool = null;
         } else {
-            str = b2.f64995a;
-            bool = Boolean.valueOf(b2.f64996b);
+            str = b2.f64996a;
+            bool = Boolean.valueOf(b2.f64997b);
             if (b2 instanceof a1.c) {
-                this.f64990h = Long.valueOf(((a1.c) b2).f64949c);
+                this.f64991h = Long.valueOf(((a1.c) b2).f64950c);
             }
         }
         return new Pair<>(str, bool);
@@ -145,7 +145,7 @@ public final class f1 {
         if (r2 == false) goto L21;
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0063, code lost:
-        r5.f64983a.unlock();
+        r5.f64984a.unlock();
      */
     @Nullable
     @WorkerThread
@@ -153,16 +153,16 @@ public final class f1 {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Map<String, String> b(long j2) {
-        if (this.f64985c) {
+        if (this.f64986c) {
             c();
             String str = j;
             y0.c(str, "Oaid#getOaid timeoutMills=" + j2);
-            if (this.f64989g == null) {
+            if (this.f64990g == null) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 boolean z = false;
                 try {
                     try {
-                        z = this.f64983a.tryLock(j2, TimeUnit.MILLISECONDS);
+                        z = this.f64984a.tryLock(j2, TimeUnit.MILLISECONDS);
                         String str2 = j;
                         y0.e(str2, "Oaid#getOaid locked=" + z + ", took " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
                     } catch (InterruptedException e2) {
@@ -170,20 +170,20 @@ public final class f1 {
                     }
                 } catch (Throwable th) {
                     if (z) {
-                        this.f64983a.unlock();
+                        this.f64984a.unlock();
                     }
                     throw th;
                 }
             }
             String str3 = j;
-            y0.c(str3, "Oaid#getOaid return apiMap=" + this.f64989g);
-            return this.f64989g;
+            y0.c(str3, "Oaid#getOaid return apiMap=" + this.f64990g);
+            return this.f64990g;
         }
         return null;
     }
 
     public void c() {
-        if (this.f64988f.compareAndSet(false, true)) {
+        if (this.f64989f.compareAndSet(false, true)) {
             g(new a());
         }
     }
@@ -191,17 +191,17 @@ public final class f1 {
     public final void j() {
         y0.e(j, "Oaid#initOaid");
         try {
-            this.f64983a.lock();
+            this.f64984a.lock();
             y0.e(j, "Oaid#initOaid exec");
-            i1 a2 = this.f64986d.a();
+            i1 a2 = this.f64987d.a();
             String str = j;
             y0.e(str, "Oaid#initOaid fetch=" + a2);
             if (a2 != null) {
-                l = a2.f65012a;
-                this.f64989g = a2.b();
+                l = a2.f65013a;
+                this.f64990g = a2.b();
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            Pair<String, Boolean> a3 = a(this.f64987e);
+            Pair<String, Boolean> a3 = a(this.f64988e);
             long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
             i1 i1Var = null;
             String str2 = null;
@@ -209,8 +209,8 @@ public final class f1 {
                 int i2 = -1;
                 int i3 = 1;
                 if (a2 != null) {
-                    str2 = a2.f65013b;
-                    i2 = a2.f65017f.intValue() + 1;
+                    str2 = a2.f65014b;
+                    i2 = a2.f65018f.intValue() + 1;
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = UUID.randomUUID().toString();
@@ -219,18 +219,18 @@ public final class f1 {
                 if (i2 > 0) {
                     i3 = i2;
                 }
-                i1 i1Var2 = new i1((String) a3.first, str3, (Boolean) a3.second, Long.valueOf(elapsedRealtime2), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i3), this.f64990h);
-                this.f64986d.b(i1Var2);
+                i1 i1Var2 = new i1((String) a3.first, str3, (Boolean) a3.second, Long.valueOf(elapsedRealtime2), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i3), this.f64991h);
+                this.f64987d.b(i1Var2);
                 i1Var = i1Var2;
             }
             if (i1Var != null) {
-                l = i1Var.f65012a;
-                this.f64989g = i1Var.b();
+                l = i1Var.f65013a;
+                this.f64990g = i1Var.b();
             }
             String str4 = j;
             y0.e(str4, "Oaid#initOaid oaidModel=" + i1Var);
         } finally {
-            this.f64983a.unlock();
+            this.f64984a.unlock();
             d(new c.a(l));
         }
     }

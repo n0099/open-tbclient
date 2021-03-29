@@ -40,15 +40,15 @@ public class TransmitSelectAdapter extends d.b.b.j.e.a<c, TransmitSelectViewHold
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22319a;
+        public TextView f22320a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f22320b;
+        public ImageView f22321b;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.f22319a = (TextView) view.findViewById(R.id.select_by_self);
-            this.f22320b = (ImageView) view.findViewById(R.id.add_icon);
+            this.f22320a = (TextView) view.findViewById(R.id.select_by_self);
+            this.f22321b = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
@@ -60,7 +60,7 @@ public class TransmitSelectAdapter extends d.b.b.j.e.a<c, TransmitSelectViewHold
         @Override // d.b.b.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if (!j.z()) {
-                l.K(TransmitSelectAdapter.this.f42357e, R.string.neterror);
+                l.K(TransmitSelectAdapter.this.f42358e, R.string.neterror);
             }
             TiebaStatic.log(new StatisticItem("c12053"));
             if (!ListUtils.isEmpty(TransmitSelectAdapter.this.n)) {
@@ -141,7 +141,7 @@ public class TransmitSelectAdapter extends d.b.b.j.e.a<c, TransmitSelectViewHold
     }
 
     public final void u0() {
-        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f42357e, 25005, this.n);
+        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f42358e, 25005, this.n);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
     }
@@ -150,12 +150,12 @@ public class TransmitSelectAdapter extends d.b.b.j.e.a<c, TransmitSelectViewHold
     @Override // d.b.b.j.e.a
     /* renamed from: v0 */
     public TransmitSelectViewHolder R(ViewGroup viewGroup) {
-        return new TransmitSelectViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
+        return new TransmitSelectViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
     }
 
     public View w0(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        SkinManager.setViewTextColor(transmitSelectViewHolder.f22319a, R.color.CAM_X0302);
-        SkinManager.setImageResource(transmitSelectViewHolder.f22320b, R.drawable.icon_post_add_ba_n);
+        SkinManager.setViewTextColor(transmitSelectViewHolder.f22320a, R.color.CAM_X0302);
+        SkinManager.setImageResource(transmitSelectViewHolder.f22321b, R.drawable.icon_post_add_ba_n);
         return view;
     }
 }

@@ -6,10 +6,10 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.swan.apps.IAudioListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IAudioService extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IAudioService {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioService";
         public static final int TRANSACTION_getDuration = 2;
@@ -23,7 +23,7 @@ public interface IAudioService extends IInterface {
         public static final int TRANSACTION_stop = 5;
         public static final int TRANSACTION_unregisterListener = 10;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements IAudioService {
             public IBinder mRemote;
 

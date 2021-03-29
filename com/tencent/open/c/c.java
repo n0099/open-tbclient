@@ -10,13 +10,13 @@ import com.tencent.open.web.security.SecureJsInterface;
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39273a;
+    public static boolean f39274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KeyEvent f39274b;
+    public KeyEvent f39275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.tencent.open.web.security.a f39275c;
+    public com.tencent.open.web.security.a f39276c;
 
     public c(Context context) {
         super(context);
@@ -25,8 +25,8 @@ public class c extends b {
     @Override // android.webkit.WebView, android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         int unicodeChar;
-        f.b("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + f39273a);
-        if (!f39273a) {
+        f.b("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + f39274a);
+        if (!f39274a) {
             return super.dispatchKeyEvent(keyEvent);
         }
         if (keyEvent.getAction() == 0) {
@@ -39,12 +39,12 @@ public class c extends b {
                         }
                         if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
                             KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                            this.f39274b = keyEvent2;
+                            this.f39275b = keyEvent2;
                             return super.dispatchKeyEvent(keyEvent2);
                         }
                         return super.dispatchKeyEvent(keyEvent);
                     }
-                    com.tencent.open.web.security.a.f39341b = true;
+                    com.tencent.open.web.security.a.f39342b = true;
                     return super.dispatchKeyEvent(keyEvent);
                 }
                 return super.dispatchKeyEvent(keyEvent);
@@ -60,20 +60,20 @@ public class c extends b {
         InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
         f.a("openSDK_LOG.SecureWebView", "-->onCreateInputConnection, inputConn is " + onCreateInputConnection);
         if (onCreateInputConnection != null) {
-            f39273a = true;
+            f39274a = true;
             com.tencent.open.web.security.a aVar = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
-            this.f39275c = aVar;
+            this.f39276c = aVar;
             return aVar;
         }
-        f39273a = false;
+        f39274a = false;
         return onCreateInputConnection;
     }
 
     @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         int unicodeChar;
-        f.b("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + f39273a);
-        if (!f39273a) {
+        f.b("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + f39274a);
+        if (!f39274a) {
             return super.onKeyDown(i, keyEvent);
         }
         if (keyEvent.getAction() == 0) {
@@ -86,12 +86,12 @@ public class c extends b {
                         }
                         if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
                             KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                            this.f39274b = keyEvent2;
-                            return super.onKeyDown(keyEvent2.getKeyCode(), this.f39274b);
+                            this.f39275b = keyEvent2;
+                            return super.onKeyDown(keyEvent2.getKeyCode(), this.f39275b);
                         }
                         return super.onKeyDown(i, keyEvent);
                     }
-                    com.tencent.open.web.security.a.f39341b = true;
+                    com.tencent.open.web.security.a.f39342b = true;
                     return super.onKeyDown(i, keyEvent);
                 }
                 return super.onKeyDown(i, keyEvent);

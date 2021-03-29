@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends h<JSONObject> {
     public final Context l;
 
@@ -25,7 +25,7 @@ public class d extends h<JSONObject> {
         if (y != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", y.f45739f);
+                jSONObject.put("ma_id", y.f45740f);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

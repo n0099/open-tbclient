@@ -11,7 +11,7 @@ import com.baidu.tbadk.widget.layout.GridImageLayout;
 import com.baidu.tieba.R;
 import d.b.i.a;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class o extends h {
     public NewGridImageLayout l;
     public d.b.h0.r.q.a m;
@@ -19,7 +19,7 @@ public class o extends h {
     public String o;
     public int p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -27,24 +27,24 @@ public class o extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar = o.this;
-            a.InterfaceC1115a interfaceC1115a = oVar.i;
-            if (interfaceC1115a != null) {
-                interfaceC1115a.a(oVar.m);
+            a.InterfaceC1116a interfaceC1116a = oVar.i;
+            if (interfaceC1116a != null) {
+                interfaceC1116a.a(oVar.m);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements a.b {
         public b() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             if (o.this.m != null && o.this.m.n() != null && !o.this.f().booleanValue()) {
                 d.b.i0.x.m.a(o.this.m.n().o0());
-                d.b.i0.x.m.l(o.this.l.f4494f, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(o.this.l.f4495g, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(o.this.l.f4495f, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(o.this.l.f4496g, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -56,8 +56,8 @@ public class o extends h {
         this.l = new NewGridImageLayout(context);
     }
 
-    public void A(a.InterfaceC1115a interfaceC1115a) {
-        this.i = interfaceC1115a;
+    public void A(a.InterfaceC1116a interfaceC1116a) {
+        this.i = interfaceC1116a;
     }
 
     public void B(boolean z) {

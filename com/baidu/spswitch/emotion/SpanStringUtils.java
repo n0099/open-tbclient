@@ -13,12 +13,12 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.spswitch.utils.UIUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SpanStringUtils {
     public static final int IMAGE_SPACING = 5;
     public static final String TAG = "SpanStringUtils";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CenterImageSpan extends ImageSpan {
         public CenterImageSpan(Context context, Bitmap bitmap) {
             super(context, bitmap);
@@ -44,7 +44,7 @@ public class SpanStringUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CenterImageSpanEditText extends ImageSpan {
         public CenterImageSpanEditText(Context context, Bitmap bitmap) {
             super(context, bitmap);

@@ -11,60 +11,60 @@ public class e {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile e f65843e;
+    public static volatile e f65844e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f65844a;
+    public Context f65845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<com.bytedance.tea.crash.c, c> f65845b = new HashMap();
+    public Map<com.bytedance.tea.crash.c, c> f65846b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public b f65846c;
+    public b f65847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f65847d;
+    public d f65848d;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f65848a;
+        public static final /* synthetic */ int[] f65849a;
 
         static {
             int[] iArr = new int[com.bytedance.tea.crash.c.values().length];
-            f65848a = iArr;
+            f65849a = iArr;
             try {
                 iArr[com.bytedance.tea.crash.c.JAVA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f65848a[com.bytedance.tea.crash.c.ANR.ordinal()] = 2;
+                f65849a[com.bytedance.tea.crash.c.ANR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f65848a[com.bytedance.tea.crash.c.CUSTOM_JAVA.ordinal()] = 3;
+                f65849a[com.bytedance.tea.crash.c.CUSTOM_JAVA.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
     public e(@NonNull Context context) {
-        this.f65844a = context;
-        this.f65846c = new b(context);
-        this.f65847d = new d(this.f65844a);
+        this.f65845a = context;
+        this.f65847c = new b(context);
+        this.f65848d = new d(this.f65845a);
     }
 
     public static e c() {
-        if (f65843e != null) {
-            return f65843e;
+        if (f65844e != null) {
+            return f65844e;
         }
         throw new IllegalArgumentException("CrashContextAssembly not init");
     }
 
     public static void d(Context context) {
-        if (f65843e == null) {
-            f65843e = new e(context);
+        if (f65844e == null) {
+            f65844e = new e(context);
         }
     }
 
@@ -75,20 +75,20 @@ public class e {
 
     @Nullable
     public final c b(com.bytedance.tea.crash.c cVar) {
-        c cVar2 = this.f65845b.get(cVar);
+        c cVar2 = this.f65846b.get(cVar);
         if (cVar2 != null) {
             return cVar2;
         }
-        int i = a.f65848a[cVar.ordinal()];
+        int i = a.f65849a[cVar.ordinal()];
         if (i == 1) {
-            cVar2 = new g(this.f65844a, this.f65846c, this.f65847d);
+            cVar2 = new g(this.f65845a, this.f65847c, this.f65848d);
         } else if (i == 2) {
-            cVar2 = new d.c.d.b.h.a.a(this.f65844a, this.f65846c, this.f65847d);
+            cVar2 = new d.c.d.b.h.a.a(this.f65845a, this.f65847c, this.f65848d);
         } else if (i == 3) {
-            cVar2 = new f(this.f65844a, this.f65846c, this.f65847d);
+            cVar2 = new f(this.f65845a, this.f65847c, this.f65848d);
         }
         if (cVar2 != null) {
-            this.f65845b.put(cVar, cVar2);
+            this.f65846b.put(cVar, cVar2);
         }
         return cVar2;
     }

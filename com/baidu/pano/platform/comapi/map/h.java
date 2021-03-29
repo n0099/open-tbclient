@@ -7,14 +7,14 @@ import java.util.TimerTask;
 public class h extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f9495a;
+    public final /* synthetic */ int f9496a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f9496b;
+    public final /* synthetic */ e f9497b;
 
     public h(e eVar, int i) {
-        this.f9496b = eVar;
-        this.f9495a = i;
+        this.f9497b = eVar;
+        this.f9496a = i;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -26,54 +26,54 @@ public class h extends TimerTask {
         Handler handler;
         Handler handler2;
         com.baidu.pano.platform.c.a aVar5;
-        float c2 = this.f9496b.c();
-        int i = this.f9495a;
+        float c2 = this.f9497b.c();
+        int i = this.f9496a;
         if (1 == i) {
             if (c2 > 40.0f) {
-                aVar5 = this.f9496b.f9485a;
+                aVar5 = this.f9497b.f9486a;
                 c2 = aVar5.a();
             } else {
-                this.f9496b.k();
+                this.f9497b.k();
                 return;
             }
         } else if (2 == i) {
             if (c2 > 20.0f) {
-                aVar4 = this.f9496b.f9485a;
+                aVar4 = this.f9497b.f9486a;
                 c2 = aVar4.a();
             } else {
-                this.f9496b.k();
+                this.f9497b.k();
                 return;
             }
         } else if (3 == i) {
             if (c2 < 60.0f) {
-                aVar3 = this.f9496b.f9485a;
+                aVar3 = this.f9497b.f9486a;
                 c2 = aVar3.a();
             } else {
-                this.f9496b.k();
+                this.f9497b.k();
                 return;
             }
         } else if (4 == i) {
             if (c2 > 20.0f) {
-                aVar2 = this.f9496b.f9485a;
+                aVar2 = this.f9497b.f9486a;
                 c2 = aVar2.a();
             } else {
-                this.f9496b.k();
+                this.f9497b.k();
                 return;
             }
         } else if (5 == i) {
             if (c2 > 40.0f) {
-                aVar = this.f9496b.f9485a;
+                aVar = this.f9497b.f9486a;
                 c2 = aVar.a();
             } else {
-                this.f9496b.k();
+                this.f9497b.k();
                 return;
             }
         }
-        handler = this.f9496b.o;
+        handler = this.f9497b.o;
         Message obtainMessage = handler.obtainMessage();
         obtainMessage.what = 1002;
         obtainMessage.arg1 = (int) c2;
-        handler2 = this.f9496b.o;
+        handler2 = this.f9497b.o;
         handler2.sendMessage(obtainMessage);
     }
 }

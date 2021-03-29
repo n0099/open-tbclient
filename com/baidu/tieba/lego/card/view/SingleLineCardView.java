@@ -23,7 +23,7 @@ import d.b.i0.i1.o.f;
 import d.b.i0.i1.o.j.c;
 import d.b.i0.i1.o.k.b;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public LinearLayout r;
     public View s;
@@ -33,20 +33,20 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public MoreButton w;
     public ImageView x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f18690e;
+        public final /* synthetic */ SingleLineCard f18691e;
 
         public a(SingleLineCard singleLineCard) {
-            this.f18690e = singleLineCard;
+            this.f18691e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.e(this.f18690e).a(TiebaStatic.Params.OBJ_URL, this.f18690e.getScheme()).c("obj_locate", SingleLineCardView.this.getStatPosition()).b(this.f18690e);
-            v.c(SingleLineCardView.this.m, this.f18690e.getScheme());
+            i.e(this.f18691e).a(TiebaStatic.Params.OBJ_URL, this.f18691e.getScheme()).c("obj_locate", SingleLineCardView.this.getStatPosition()).b(this.f18691e);
+            v.c(SingleLineCardView.this.m, this.f18691e.getScheme());
         }
     }
 

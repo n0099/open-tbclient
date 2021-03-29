@@ -9,29 +9,29 @@ public enum NetworkType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38343a;
+    public int f38344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38344b;
+    public int f38345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38345c;
+    public String f38346c;
 
     NetworkType(int i, int i2, String str) {
-        this.f38343a = i;
-        this.f38344b = i2;
-        this.f38345c = str;
+        this.f38344a = i;
+        this.f38345b = i2;
+        this.f38346c = str;
     }
 
     public final int getConnValue() {
-        return this.f38343a;
+        return this.f38344a;
     }
 
     public final String getNameValue() {
-        return this.f38345c;
+        return this.f38346c;
     }
 
     public final int getPermValue() {
-        return this.f38344b;
+        return this.f38345b;
     }
 }

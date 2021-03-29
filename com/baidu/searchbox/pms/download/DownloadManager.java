@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.download;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadManager {
     public static IDownloadManager sDownloadManager;
 

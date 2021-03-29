@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class AbstractChannelPay implements IChannelPay {
     public WeakReference<Context> mContext;
     public boolean mNotifyOnError;

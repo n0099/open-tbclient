@@ -19,28 +19,28 @@ import java.util.concurrent.Executor;
 public class i implements h.a, k, n.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f35540a = Log.isLoggable(Engine.TAG, 2);
+    public static final boolean f35541a = Log.isLoggable(Engine.TAG, 2);
 
     /* renamed from: b  reason: collision with root package name */
-    public final p f35541b;
+    public final p f35542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final m f35542c;
+    public final m f35543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.a.h f35543d;
+    public final com.kwad.sdk.glide.load.engine.a.h f35544d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f35544e;
+    public final b f35545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final v f35545f;
+    public final v f35546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f35546g;
+    public final c f35547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a f35547h;
+    public final a f35548h;
     public final com.kwad.sdk.glide.load.engine.a i;
 
     @VisibleForTesting
@@ -48,30 +48,30 @@ public class i implements h.a, k, n.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final DecodeJob.d f35548a;
+        public final DecodeJob.d f35549a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Pools.Pool<DecodeJob<?>> f35549b = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC0409a<DecodeJob<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.a.1
+        public final Pools.Pool<DecodeJob<?>> f35550b = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC0410a<DecodeJob<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0409a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0410a
             /* renamed from: a */
             public DecodeJob<?> b() {
                 a aVar = a.this;
-                return new DecodeJob<>(aVar.f35548a, aVar.f35549b);
+                return new DecodeJob<>(aVar.f35549a, aVar.f35550b);
             }
         });
 
         /* renamed from: c  reason: collision with root package name */
-        public int f35550c;
+        public int f35551c;
 
         public a(DecodeJob.d dVar) {
-            this.f35548a = dVar;
+            this.f35549a = dVar;
         }
 
         public <R> DecodeJob<R> a(com.kwad.sdk.glide.e eVar, Object obj, l lVar, com.kwad.sdk.glide.load.c cVar, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, h hVar, Map<Class<?>, com.kwad.sdk.glide.load.h<?>> map, boolean z, boolean z2, boolean z3, com.kwad.sdk.glide.load.e eVar2, DecodeJob.a<R> aVar) {
-            DecodeJob decodeJob = (DecodeJob) com.kwad.sdk.glide.g.j.a(this.f35549b.acquire());
-            int i3 = this.f35550c;
-            this.f35550c = i3 + 1;
+            DecodeJob decodeJob = (DecodeJob) com.kwad.sdk.glide.g.j.a(this.f35550b.acquire());
+            int i3 = this.f35551c;
+            this.f35551c = i3 + 1;
             return decodeJob.a(eVar, obj, lVar, cVar, i, i2, cls, cls2, priority, hVar, map, z, z2, z3, eVar2, aVar, i3);
         }
     }
@@ -81,41 +81,41 @@ public class i implements h.a, k, n.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.engine.b.a f35552a;
+        public final com.kwad.sdk.glide.load.engine.b.a f35553a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.engine.b.a f35553b;
+        public final com.kwad.sdk.glide.load.engine.b.a f35554b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.engine.b.a f35554c;
+        public final com.kwad.sdk.glide.load.engine.b.a f35555c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.engine.b.a f35555d;
+        public final com.kwad.sdk.glide.load.engine.b.a f35556d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final k f35556e;
+        public final k f35557e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Pools.Pool<j<?>> f35557f = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC0409a<j<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.b.1
+        public final Pools.Pool<j<?>> f35558f = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC0410a<j<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0409a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0410a
             /* renamed from: a */
             public j<?> b() {
                 b bVar = b.this;
-                return new j<>(bVar.f35552a, bVar.f35553b, bVar.f35554c, bVar.f35555d, bVar.f35556e, bVar.f35557f);
+                return new j<>(bVar.f35553a, bVar.f35554b, bVar.f35555c, bVar.f35556d, bVar.f35557e, bVar.f35558f);
             }
         });
 
         public b(com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, k kVar) {
-            this.f35552a = aVar;
-            this.f35553b = aVar2;
-            this.f35554c = aVar3;
-            this.f35555d = aVar4;
-            this.f35556e = kVar;
+            this.f35553a = aVar;
+            this.f35554b = aVar2;
+            this.f35555c = aVar3;
+            this.f35556d = aVar4;
+            this.f35557e = kVar;
         }
 
         public <R> j<R> a(com.kwad.sdk.glide.load.c cVar, boolean z, boolean z2, boolean z3, boolean z4) {
-            return ((j) com.kwad.sdk.glide.g.j.a(this.f35557f.acquire())).a(cVar, z, z2, z3, z4);
+            return ((j) com.kwad.sdk.glide.g.j.a(this.f35558f.acquire())).a(cVar, z, z2, z3, z4);
         }
     }
 
@@ -123,28 +123,28 @@ public class i implements h.a, k, n.a {
     public static class c implements DecodeJob.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final a.InterfaceC0416a f35559a;
+        public final a.InterfaceC0417a f35560a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile com.kwad.sdk.glide.load.engine.a.a f35560b;
+        public volatile com.kwad.sdk.glide.load.engine.a.a f35561b;
 
-        public c(a.InterfaceC0416a interfaceC0416a) {
-            this.f35559a = interfaceC0416a;
+        public c(a.InterfaceC0417a interfaceC0417a) {
+            this.f35560a = interfaceC0417a;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.DecodeJob.d
         public com.kwad.sdk.glide.load.engine.a.a a() {
-            if (this.f35560b == null) {
+            if (this.f35561b == null) {
                 synchronized (this) {
-                    if (this.f35560b == null) {
-                        this.f35560b = this.f35559a.a();
+                    if (this.f35561b == null) {
+                        this.f35561b = this.f35560a.a();
                     }
-                    if (this.f35560b == null) {
-                        this.f35560b = new com.kwad.sdk.glide.load.engine.a.b();
+                    if (this.f35561b == null) {
+                        this.f35561b = new com.kwad.sdk.glide.load.engine.a.b();
                     }
                 }
             }
-            return this.f35560b;
+            return this.f35561b;
         }
     }
 
@@ -152,44 +152,44 @@ public class i implements h.a, k, n.a {
     public class d {
 
         /* renamed from: b  reason: collision with root package name */
-        public final j<?> f35562b;
+        public final j<?> f35563b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final com.kwad.sdk.glide.request.g f35563c;
+        public final com.kwad.sdk.glide.request.g f35564c;
 
         public d(com.kwad.sdk.glide.request.g gVar, j<?> jVar) {
-            this.f35563c = gVar;
-            this.f35562b = jVar;
+            this.f35564c = gVar;
+            this.f35563b = jVar;
         }
 
         public void a() {
             synchronized (i.this) {
-                this.f35562b.c(this.f35563c);
+                this.f35563b.c(this.f35564c);
             }
         }
     }
 
     @VisibleForTesting
-    public i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC0416a interfaceC0416a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, p pVar, m mVar, com.kwad.sdk.glide.load.engine.a aVar5, b bVar, a aVar6, v vVar, boolean z) {
-        this.f35543d = hVar;
-        this.f35546g = new c(interfaceC0416a);
+    public i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC0417a interfaceC0417a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, p pVar, m mVar, com.kwad.sdk.glide.load.engine.a aVar5, b bVar, a aVar6, v vVar, boolean z) {
+        this.f35544d = hVar;
+        this.f35547g = new c(interfaceC0417a);
         com.kwad.sdk.glide.load.engine.a aVar7 = aVar5 == null ? new com.kwad.sdk.glide.load.engine.a(z) : aVar5;
         this.i = aVar7;
         aVar7.a(this);
-        this.f35542c = mVar == null ? new m() : mVar;
-        this.f35541b = pVar == null ? new p() : pVar;
-        this.f35544e = bVar == null ? new b(aVar, aVar2, aVar3, aVar4, this) : bVar;
-        this.f35547h = aVar6 == null ? new a(this.f35546g) : aVar6;
-        this.f35545f = vVar == null ? new v() : vVar;
+        this.f35543c = mVar == null ? new m() : mVar;
+        this.f35542b = pVar == null ? new p() : pVar;
+        this.f35545e = bVar == null ? new b(aVar, aVar2, aVar3, aVar4, this) : bVar;
+        this.f35548h = aVar6 == null ? new a(this.f35547g) : aVar6;
+        this.f35546f = vVar == null ? new v() : vVar;
         hVar.a(this);
     }
 
-    public i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC0416a interfaceC0416a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, boolean z) {
-        this(hVar, interfaceC0416a, aVar, aVar2, aVar3, aVar4, null, null, null, null, null, null, z);
+    public i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC0417a interfaceC0417a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, boolean z) {
+        this(hVar, interfaceC0417a, aVar, aVar2, aVar3, aVar4, null, null, null, null, null, null, z);
     }
 
     private n<?> a(com.kwad.sdk.glide.load.c cVar) {
-        s<?> a2 = this.f35543d.a(cVar);
+        s<?> a2 = this.f35544d.a(cVar);
         if (a2 == null) {
             return null;
         }
@@ -225,12 +225,12 @@ public class i implements h.a, k, n.a {
     }
 
     public synchronized <R> d a(com.kwad.sdk.glide.e eVar, Object obj, com.kwad.sdk.glide.load.c cVar, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, h hVar, Map<Class<?>, com.kwad.sdk.glide.load.h<?>> map, boolean z, boolean z2, com.kwad.sdk.glide.load.e eVar2, boolean z3, boolean z4, boolean z5, boolean z6, com.kwad.sdk.glide.request.g gVar, Executor executor) {
-        long a2 = f35540a ? com.kwad.sdk.glide.g.f.a() : 0L;
-        l a3 = this.f35542c.a(obj, cVar, i, i2, map, cls, cls2, eVar2);
+        long a2 = f35541a ? com.kwad.sdk.glide.g.f.a() : 0L;
+        l a3 = this.f35543c.a(obj, cVar, i, i2, map, cls, cls2, eVar2);
         n<?> a4 = a(a3, z3);
         if (a4 != null) {
             gVar.a(a4, DataSource.MEMORY_CACHE);
-            if (f35540a) {
+            if (f35541a) {
                 a("Loaded resource from active resources", a2, a3);
             }
             return null;
@@ -238,25 +238,25 @@ public class i implements h.a, k, n.a {
         n<?> b2 = b(a3, z3);
         if (b2 != null) {
             gVar.a(b2, DataSource.MEMORY_CACHE);
-            if (f35540a) {
+            if (f35541a) {
                 a("Loaded resource from cache", a2, a3);
             }
             return null;
         }
-        j<?> a5 = this.f35541b.a(a3, z6);
+        j<?> a5 = this.f35542b.a(a3, z6);
         if (a5 != null) {
             a5.a(gVar, executor);
-            if (f35540a) {
+            if (f35541a) {
                 a("Added to existing load", a2, a3);
             }
             return new d(gVar, a5);
         }
-        j<R> a6 = this.f35544e.a(a3, z3, z4, z5, z6);
-        DecodeJob<R> a7 = this.f35547h.a(eVar, obj, a3, cVar, i, i2, cls, cls2, priority, hVar, map, z, z2, z6, eVar2, a6);
-        this.f35541b.a((com.kwad.sdk.glide.load.c) a3, (j<?>) a6);
+        j<R> a6 = this.f35545e.a(a3, z3, z4, z5, z6);
+        DecodeJob<R> a7 = this.f35548h.a(eVar, obj, a3, cVar, i, i2, cls, cls2, priority, hVar, map, z, z2, z6, eVar2, a6);
+        this.f35542b.a((com.kwad.sdk.glide.load.c) a3, (j<?>) a6);
         a6.a(gVar, executor);
         a6.b(a7);
-        if (f35540a) {
+        if (f35541a) {
             a("Started new load", a2, a3);
         }
         return new d(gVar, a6);
@@ -266,15 +266,15 @@ public class i implements h.a, k, n.a {
     public synchronized void a(com.kwad.sdk.glide.load.c cVar, n<?> nVar) {
         this.i.a(cVar);
         if (nVar.f()) {
-            this.f35543d.b(cVar, nVar);
+            this.f35544d.b(cVar, nVar);
         } else {
-            this.f35545f.a(nVar);
+            this.f35546f.a(nVar);
         }
     }
 
     @Override // com.kwad.sdk.glide.load.engine.k
     public synchronized void a(j<?> jVar, com.kwad.sdk.glide.load.c cVar) {
-        this.f35541b.b(cVar, jVar);
+        this.f35542b.b(cVar, jVar);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.k
@@ -285,7 +285,7 @@ public class i implements h.a, k, n.a {
                 this.i.a(cVar, nVar);
             }
         }
-        this.f35541b.b(cVar, jVar);
+        this.f35542b.b(cVar, jVar);
     }
 
     public void a(s<?> sVar) {
@@ -297,6 +297,6 @@ public class i implements h.a, k, n.a {
 
     @Override // com.kwad.sdk.glide.load.engine.a.h.a
     public void b(@NonNull s<?> sVar) {
-        this.f35545f.a(sVar);
+        this.f35546f.a(sVar);
     }
 }

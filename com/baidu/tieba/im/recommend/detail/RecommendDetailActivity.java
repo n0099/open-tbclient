@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
 import d.b.b.e.p.l;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.d, BdSwitchView.b {
     public static final String RECOMMEND_DETAIL_URL = "c/u/user/bigvip";
     public RecommendDetailModel mModel;
@@ -19,7 +19,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     public String mUserName;
     public d.b.i0.d1.q.a.b mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -30,7 +30,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }

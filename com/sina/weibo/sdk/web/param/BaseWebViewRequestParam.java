@@ -7,14 +7,14 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.web.BaseWebViewRequestData;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseWebViewRequestParam {
     public BaseWebViewRequestData baseData;
     public Context context;
     public String transaction;
 
     /* renamed from: com.sina.weibo.sdk.web.param.BaseWebViewRequestParam$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$sina$weibo$sdk$web$WebRequestType;
 
@@ -36,7 +36,7 @@ public abstract class BaseWebViewRequestParam {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface ExtraTaskCallback {
         void onComplete(String str);
 

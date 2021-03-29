@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DialogRecordDBManager extends DBBase {
     public static final String TAG = "DialogRecordDBManager";
     public static DialogRecordDBManager mInstance;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Parse implements CursorParse {
         public int count;
         public List<DialogRecord> result = null;
@@ -79,8 +79,8 @@ public class DialogRecordDBManager extends DBBase {
         return addBatch(linkedList);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:75:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0164  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x015d  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0162  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

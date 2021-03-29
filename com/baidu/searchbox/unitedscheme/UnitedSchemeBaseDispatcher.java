@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static final String ACTION_KEY = "action";
     public static final boolean DEBUG = false;
@@ -17,7 +17,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public static final String TAG = "UnitedSchemeBaseDispatcher";
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap = new HashMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 

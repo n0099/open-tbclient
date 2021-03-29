@@ -8,43 +8,43 @@ import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b extends d.b.g0.a.a0.a.b.a<SimpleDraweeView, c> {
     public d.b.g0.a.a0.c.e.b.a i;
     public SwanAppComponentContainerView j;
     public SimpleDraweeView k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends BaseControllerListener<ImageInfo> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f43124a;
+        public final /* synthetic */ boolean f43125a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SimpleDraweeView f43125b;
+        public final /* synthetic */ SimpleDraweeView f43126b;
 
         public a(boolean z, SimpleDraweeView simpleDraweeView) {
-            this.f43124a = z;
-            this.f43125b = simpleDraweeView;
+            this.f43125a = z;
+            this.f43126b = simpleDraweeView;
         }
 
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
         public void onFailure(String str, Throwable th) {
             super.onFailure(str, th);
-            if (!this.f43124a || b.this.i == null) {
+            if (!this.f43125a || b.this.i == null) {
                 return;
             }
-            b.this.i.a(0, this.f43125b, null);
+            b.this.i.a(0, this.f43126b, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
         public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
             super.onFinalImageSet(str, (String) imageInfo, animatable);
-            if (!this.f43124a || b.this.i == null) {
+            if (!this.f43125a || b.this.i == null) {
                 return;
             }
-            b.this.i.a(1, this.f43125b, null);
+            b.this.i.a(1, this.f43126b, null);
         }
     }
 

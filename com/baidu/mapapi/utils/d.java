@@ -22,22 +22,22 @@ public final class d implements ServiceConnection {
             thread2 = b.v;
             thread2.interrupt();
         }
-        str = b.f7393c;
+        str = b.f7394c;
         Log.d(str, "onServiceConnected " + componentName);
         try {
-            aVar2 = b.f7394d;
+            aVar2 = b.f7395d;
             if (aVar2 != null) {
-                com.baidu.mapframework.open.aidl.a unused = b.f7394d = null;
+                com.baidu.mapframework.open.aidl.a unused = b.f7395d = null;
             }
-            com.baidu.mapframework.open.aidl.a unused2 = b.f7394d = a.AbstractBinderC0095a.a(iBinder);
-            aVar3 = b.f7394d;
+            com.baidu.mapframework.open.aidl.a unused2 = b.f7395d = a.AbstractBinderC0096a.a(iBinder);
+            aVar3 = b.f7395d;
             aVar3.a(new e(this));
         } catch (RemoteException e2) {
-            str2 = b.f7393c;
+            str2 = b.f7394c;
             Log.d(str2, "getComOpenClient ", e2);
-            aVar = b.f7394d;
+            aVar = b.f7395d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused3 = b.f7394d = null;
+                com.baidu.mapframework.open.aidl.a unused3 = b.f7395d = null;
             }
         }
     }
@@ -46,11 +46,11 @@ public final class d implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         String str;
         com.baidu.mapframework.open.aidl.a aVar;
-        str = b.f7393c;
+        str = b.f7394c;
         Log.d(str, "onServiceDisconnected " + componentName);
-        aVar = b.f7394d;
+        aVar = b.f7395d;
         if (aVar != null) {
-            com.baidu.mapframework.open.aidl.a unused = b.f7394d = null;
+            com.baidu.mapframework.open.aidl.a unused = b.f7395d = null;
             boolean unused2 = b.u = false;
         }
     }

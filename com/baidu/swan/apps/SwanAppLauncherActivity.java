@@ -13,13 +13,13 @@ import d.b.g0.a.i2.u;
 import d.b.g0.a.k;
 import d.b.g0.a.r1.d;
 import d.b.g0.a.y0.e.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppLauncherActivity extends Activity {
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static final String SWAN_APP_LAUNCH_ACTION = "com.baidu.searchbox.action.aiapps.LAUNCH";
     public static final String TAG = "SwanAppLauncherActivity";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }

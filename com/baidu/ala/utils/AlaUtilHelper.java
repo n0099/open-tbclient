@@ -11,7 +11,7 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import com.baidu.tbadk.widget.TbImageView;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaUtilHelper {
     public static String getNavBarOverride() {
         try {

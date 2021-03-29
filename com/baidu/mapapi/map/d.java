@@ -8,10 +8,10 @@ import java.util.concurrent.locks.Lock;
 public class d implements ai {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f7065a;
+    public final /* synthetic */ BaiduMap f7066a;
 
     public d(BaiduMap baiduMap) {
-        this.f7065a = baiduMap;
+        this.f7066a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.ai
@@ -21,22 +21,22 @@ public class d implements ai {
         TileOverlay tileOverlay;
         Lock lock3;
         TileOverlay tileOverlay2;
-        lock = this.f7065a.G;
+        lock = this.f7066a.G;
         lock.lock();
         try {
-            tileOverlay = this.f7065a.D;
+            tileOverlay = this.f7066a.D;
             if (tileOverlay != null) {
-                tileOverlay2 = this.f7065a.D;
+                tileOverlay2 = this.f7066a.D;
                 Tile a2 = tileOverlay2.a(i, i2, i3);
                 if (a2 != null) {
                     return a2.toBundle();
                 }
             }
-            lock3 = this.f7065a.G;
+            lock3 = this.f7066a.G;
             lock3.unlock();
             return null;
         } finally {
-            lock2 = this.f7065a.G;
+            lock2 = this.f7066a.G;
             lock2.unlock();
         }
     }

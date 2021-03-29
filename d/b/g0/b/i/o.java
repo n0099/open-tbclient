@@ -28,7 +28,7 @@ public class o extends d.b.g0.a.v1.c.i.b {
             @Override // d.b.g0.a.i2.u0.b
             /* renamed from: a */
             public void onCallback(d.b.g0.a.v1.c.e eVar) {
-                if (d.b.g0.a.v1.c.b.f46747f) {
+                if (d.b.g0.a.v1.c.b.f46748f) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("ListPreparation result: ");
                     sb.append(eVar == null ? StringUtil.NULL_STRING : eVar);
@@ -44,7 +44,7 @@ public class o extends d.b.g0.a.v1.c.i.b {
                     oVar.i(new c());
                 } else {
                     o oVar2 = o.this;
-                    oVar2.i(new b.C0865b());
+                    oVar2.i(new b.C0866b());
                 }
                 b.this.d();
             }
@@ -172,7 +172,7 @@ public class o extends d.b.g0.a.v1.c.i.b {
         Context context = this.m;
         if (context instanceof Activity) {
             d.b.g0.b.i.a.G((Activity) context, jSONObject);
-        } else if (d.b.g0.a.v1.c.b.f46747f) {
+        } else if (d.b.g0.a.v1.c.b.f46748f) {
             Log.d("SearchBoxAuthorize", Log.getStackTraceString(new Exception("context is not activity.")));
         }
         return super.n(jSONObject);
@@ -183,7 +183,7 @@ public class o extends d.b.g0.a.v1.c.i.b {
         String[] strArr;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", G().f45739f);
+            jSONObject.put("ma_id", G().f45740f);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(com.alipay.sdk.cons.b.f1858h, G().B());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());

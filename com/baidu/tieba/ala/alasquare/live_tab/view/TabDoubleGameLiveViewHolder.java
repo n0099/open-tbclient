@@ -6,10 +6,10 @@ import d.b.i0.t.d.c.h.e;
 public class TabDoubleGameLiveViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f14810a;
+    public e f14811a;
 
     public TabDoubleGameLiveViewHolder(e eVar) {
         super(eVar.m());
-        this.f14810a = eVar;
+        this.f14811a = eVar;
     }
 }

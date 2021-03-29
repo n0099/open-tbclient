@@ -24,7 +24,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     public final int mVersion;
 
     @VisibleForTesting
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class State {
         @Nullable
         public final DiskStorage delegate;

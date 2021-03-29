@@ -17,67 +17,67 @@ import d.b.i0.c2.k.e.x0.g;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f53302a;
+    public LinearLayout f53303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EMTextView f53303b;
+    public EMTextView f53304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f53304c;
+    public BdTypeRecyclerView f53305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f53305d;
+    public View f53306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.c2.k.c.b f53306e;
+    public d.b.i0.c2.k.c.b f53307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f53307f;
+    public g f53308f;
 
     public c(TbPageContext<?> tbPageContext) {
         b(tbPageContext.getPageActivity());
-        d.b.i0.c2.k.c.b bVar = new d.b.i0.c2.k.c.b(tbPageContext, this.f53304c);
-        this.f53306e = bVar;
-        this.f53307f = new g(this.f53304c, bVar);
+        d.b.i0.c2.k.c.b bVar = new d.b.i0.c2.k.c.b(tbPageContext, this.f53305c);
+        this.f53307e = bVar;
+        this.f53308f = new g(this.f53305c, bVar);
         c();
     }
 
     public View a() {
-        return this.f53302a;
+        return this.f53303a;
     }
 
     public final void b(Context context) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.recom_thread_info_layout, (ViewGroup) null);
-        this.f53302a = linearLayout;
-        this.f53303b = (EMTextView) linearLayout.findViewById(R.id.tv_title);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f53302a.findViewById(R.id.pb_recom_info_list);
-        this.f53304c = bdTypeRecyclerView;
+        this.f53303a = linearLayout;
+        this.f53304b = (EMTextView) linearLayout.findViewById(R.id.tv_title);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f53303a.findViewById(R.id.pb_recom_info_list);
+        this.f53305c = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        this.f53304c.setFadingEdgeLength(0);
-        this.f53304c.setOverScrollMode(2);
+        this.f53305c.setFadingEdgeLength(0);
+        this.f53305c.setOverScrollMode(2);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        this.f53304c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        this.f53304c.setNestedScrollingEnabled(false);
-        this.f53305d = new View(context);
+        this.f53305c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+        this.f53305c.setNestedScrollingEnabled(false);
+        this.f53306d = new View(context);
     }
 
     public void c() {
-        SkinManager.setBackgroundColor(this.f53302a, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f53303b, R.color.CAM_X0105);
-        this.f53306e.c();
+        SkinManager.setBackgroundColor(this.f53303a, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.f53304b, R.color.CAM_X0105);
+        this.f53307e.c();
     }
 
     public void d(int i) {
-        this.f53304c.y(this.f53305d);
-        this.f53305d.setLayoutParams(new ViewGroup.LayoutParams(1, i));
-        this.f53304c.r(this.f53305d);
+        this.f53305c.y(this.f53306d);
+        this.f53306d.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+        this.f53305c.r(this.f53306d);
     }
 
     public void e(boolean z) {
-        this.f53304c.setNestedScrollingEnabled(z);
+        this.f53305c.setNestedScrollingEnabled(z);
     }
 
     public void f(d.b.i0.c2.h.e eVar) {
-        this.f53307f.k(eVar);
+        this.f53308f.k(eVar);
     }
 }

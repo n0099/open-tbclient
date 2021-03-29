@@ -35,8 +35,8 @@ public class a extends com.baidu.mobads.production.a {
 
     /* renamed from: com.baidu.mobads.nativecpu.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0107a extends d {
-        public C0107a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
+    public class C0108a extends d {
+        public C0108a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
             super(context, activity, slotType);
         }
 
@@ -129,11 +129,11 @@ public class a extends com.baidu.mobads.production.a {
             l();
             Context applicationContext = getApplicationContext();
             Activity activity = getActivity();
-            l lVar = new l(this.f8438f, this);
-            C0107a c0107a = new C0107a(applicationContext, activity, IXAdConstants4PDK.SlotType.SLOT_TYPE_CPU);
-            this.k = c0107a;
-            k kVar = new k(this.f8438f, activity, c0107a.d(), null, lVar, getAdResponseInfo(), null);
-            c a2 = c.a(this.f8438f, "com.baidu.mobads.container.nativecpu.interfaces.RCPUAdProd");
+            l lVar = new l(this.f8439f, this);
+            C0108a c0108a = new C0108a(applicationContext, activity, IXAdConstants4PDK.SlotType.SLOT_TYPE_CPU);
+            this.k = c0108a;
+            k kVar = new k(this.f8439f, activity, c0108a.d(), null, lVar, getAdResponseInfo(), null);
+            c a2 = c.a(this.f8439f, "com.baidu.mobads.container.nativecpu.interfaces.RCPUAdProd");
             this.z = a2;
             this.A = a2.a(new Class[]{IXAdContainerContext.class, String.class}, kVar, this.I);
             s();
@@ -192,7 +192,7 @@ public class a extends com.baidu.mobads.production.a {
     @Override // com.baidu.mobads.production.a
     public void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
         try {
-            a(this.f8438f);
+            a(this.f8439f);
             setAdResponseInfo(new com.baidu.mobads.vo.c("{'ad':[{'id':99999999,'url':'http://127.0.0.1', type='CPUNative'}],'n':1}"));
         } catch (Throwable th) {
             this.J.d(th);

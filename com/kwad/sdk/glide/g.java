@@ -22,30 +22,30 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class g implements i {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.request.f f35188d = com.kwad.sdk.glide.request.f.b(Bitmap.class).i();
+    public static final com.kwad.sdk.glide.request.f f35189d = com.kwad.sdk.glide.request.f.b(Bitmap.class).i();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.request.f f35189e = com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.resource.d.c.class).i();
+    public static final com.kwad.sdk.glide.request.f f35190e = com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.resource.d.c.class).i();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.request.f f35190f = com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f35537c).a(Priority.LOW).b(true);
+    public static final com.kwad.sdk.glide.request.f f35191f = com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f35538c).a(Priority.LOW).b(true);
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f35191a;
+    public final c f35192a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f35192b;
+    public final Context f35193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.c.h f35193c;
+    public final com.kwad.sdk.glide.c.h f35194c;
     @GuardedBy("this")
 
     /* renamed from: g  reason: collision with root package name */
-    public final m f35194g;
+    public final m f35195g;
     @GuardedBy("this")
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f35195h;
+    public final l f35196h;
     @GuardedBy("this")
     public final o i;
     public final Runnable j;
@@ -60,17 +60,17 @@ public class g implements i {
         @GuardedBy("RequestManager.this")
 
         /* renamed from: b  reason: collision with root package name */
-        public final m f35198b;
+        public final m f35199b;
 
         public a(m mVar) {
-            this.f35198b = mVar;
+            this.f35199b = mVar;
         }
 
         @Override // com.kwad.sdk.glide.c.c.a
         public void a(boolean z) {
             if (z) {
                 synchronized (g.this) {
-                    this.f35198b.d();
+                    this.f35199b.d();
                 }
             }
         }
@@ -86,15 +86,15 @@ public class g implements i {
             @Override // java.lang.Runnable
             public void run() {
                 g gVar = g.this;
-                gVar.f35193c.a(gVar);
+                gVar.f35194c.a(gVar);
             }
         };
         this.k = new Handler(Looper.getMainLooper());
-        this.f35191a = cVar;
-        this.f35193c = hVar;
-        this.f35195h = lVar;
-        this.f35194g = mVar;
-        this.f35192b = context;
+        this.f35192a = cVar;
+        this.f35194c = hVar;
+        this.f35196h = lVar;
+        this.f35195g = mVar;
+        this.f35193b = context;
         this.l = dVar.a(context.getApplicationContext(), new a(mVar));
         if (k.c()) {
             this.k.post(this.j);
@@ -108,7 +108,7 @@ public class g implements i {
     }
 
     private void c(@NonNull j<?> jVar) {
-        if (b(jVar) || this.f35191a.a(jVar) || jVar.b() == null) {
+        if (b(jVar) || this.f35192a.a(jVar) || jVar.b() == null) {
             return;
         }
         com.kwad.sdk.glide.request.c b2 = jVar.b();
@@ -119,7 +119,7 @@ public class g implements i {
     @NonNull
     @CheckResult
     public <ResourceType> f<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new f<>(this.f35191a, this, cls, this.f35192b);
+        return new f<>(this.f35192a, this, cls, this.f35193b);
     }
 
     @NonNull
@@ -129,7 +129,7 @@ public class g implements i {
     }
 
     public synchronized void a() {
-        this.f35194g.a();
+        this.f35195g.a();
     }
 
     public synchronized void a(@Nullable j<?> jVar) {
@@ -141,7 +141,7 @@ public class g implements i {
 
     public synchronized void a(@NonNull j<?> jVar, @NonNull com.kwad.sdk.glide.request.c cVar) {
         this.i.a(jVar);
-        this.f35194g.a(cVar);
+        this.f35195g.a(cVar);
     }
 
     public synchronized void a(@NonNull com.kwad.sdk.glide.request.f fVar) {
@@ -150,11 +150,11 @@ public class g implements i {
 
     @NonNull
     public <T> h<?, T> b(Class<T> cls) {
-        return this.f35191a.e().a(cls);
+        return this.f35192a.e().a(cls);
     }
 
     public synchronized void b() {
-        this.f35194g.b();
+        this.f35195g.b();
     }
 
     public synchronized boolean b(@NonNull j<?> jVar) {
@@ -162,7 +162,7 @@ public class g implements i {
         if (b2 == null) {
             return true;
         }
-        if (this.f35194g.b(b2)) {
+        if (this.f35195g.b(b2)) {
             this.i.b(jVar);
             jVar.a((com.kwad.sdk.glide.request.c) null);
             return true;
@@ -189,17 +189,17 @@ public class g implements i {
             a(jVar);
         }
         this.i.b();
-        this.f35194g.c();
-        this.f35193c.b(this);
-        this.f35193c.b(this.l);
+        this.f35195g.c();
+        this.f35194c.b(this);
+        this.f35194c.b(this.l);
         this.k.removeCallbacks(this.j);
-        this.f35191a.b(this);
+        this.f35192a.b(this);
     }
 
     @NonNull
     @CheckResult
     public f<Bitmap> f() {
-        return a(Bitmap.class).a((com.kwad.sdk.glide.request.a<?>) f35188d);
+        return a(Bitmap.class).a((com.kwad.sdk.glide.request.a<?>) f35189d);
     }
 
     @NonNull
@@ -217,6 +217,6 @@ public class g implements i {
     }
 
     public synchronized String toString() {
-        return super.toString() + "{tracker=" + this.f35194g + ", treeNode=" + this.f35195h + "}";
+        return super.toString() + "{tracker=" + this.f35195g + ", treeNode=" + this.f35196h + "}";
     }
 }

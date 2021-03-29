@@ -10,22 +10,22 @@ import tbclient.User;
 public class a implements d.b.i0.c2.g.c.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public UserInfo f52347e;
+    public UserInfo f52348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ExcellentPbThreadInfo f52348f;
+    public ExcellentPbThreadInfo f52349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Post> f52349g;
+    public List<Post> f52350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<User> f52350h;
+    public List<User> f52351h;
 
     public a(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
-        this.f52347e = userInfo;
-        this.f52348f = excellentPbThreadInfo;
-        this.f52349g = list;
-        this.f52350h = list2;
+        this.f52348e = userInfo;
+        this.f52349f = excellentPbThreadInfo;
+        this.f52350g = list;
+        this.f52351h = list2;
     }
 
     @Override // d.b.i0.c2.g.c.a
@@ -40,28 +40,28 @@ public class a implements d.b.i0.c2.g.c.a {
 
     @Override // d.b.i0.c2.g.c.a
     public List<Post> getPostList() {
-        return this.f52349g;
+        return this.f52350g;
     }
 
     @Override // d.b.i0.c2.g.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
-        return this.f52348f;
+        return this.f52349f;
     }
 
     @Override // d.b.i0.c2.g.c.a
     public UserInfo getUserInfo() {
-        return this.f52347e;
+        return this.f52348e;
     }
 
     @Override // d.b.i0.c2.g.c.a
     public List<User> getUserList() {
-        return this.f52350h;
+        return this.f52351h;
     }
 
     @Override // d.b.i0.c2.g.c.a
     public boolean isEmpty() {
         List<ExcContent> list;
-        ExcellentPbThreadInfo excellentPbThreadInfo = this.f52348f;
+        ExcellentPbThreadInfo excellentPbThreadInfo = this.f52349f;
         return excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0;
     }
 }

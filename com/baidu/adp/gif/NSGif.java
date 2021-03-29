@@ -9,36 +9,36 @@ import d.b.b.e.p.i;
 public class NSGif implements d.b.b.d.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f2133e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String f2134e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f2134f = h.f().k("nsgif_jni", 2, new b());
+    public static boolean f2135f = h.f().k("nsgif_jni", 2, new b());
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2135a;
+    public int f2136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f2136b;
+    public final int f2137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f2137c;
+    public final int f2138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f2138d;
+    public final int f2139d;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f2139e;
+        public final /* synthetic */ int f2140e;
 
         public a(int i) {
-            this.f2139e = i;
+            this.f2140e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            NSGif.nativeDestroy(this.f2139e);
+            NSGif.nativeDestroy(this.f2140e);
         }
     }
 
@@ -46,19 +46,19 @@ public class NSGif implements d.b.b.d.b {
     public static class b extends i {
         @Override // d.b.b.e.p.i
         public void a(boolean z) {
-            NSGif.f2134f = z;
+            NSGif.f2135f = z;
         }
     }
 
     public NSGif(int i) {
-        this.f2135a = i;
-        this.f2136b = nativeGetWidth(i);
-        this.f2137c = nativeGetHeight(i);
-        this.f2138d = nativeGetFrameCount(i);
+        this.f2136a = i;
+        this.f2137b = nativeGetWidth(i);
+        this.f2138c = nativeGetHeight(i);
+        this.f2139d = nativeGetFrameCount(i);
     }
 
     public static NSGif e(String str) {
-        int nativeCreate = nativeCreate(f2133e, str);
+        int nativeCreate = nativeCreate(f2134e, str);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
         }
@@ -66,7 +66,7 @@ public class NSGif implements d.b.b.d.b {
     }
 
     public static NSGif f(byte[] bArr, int i, int i2) {
-        int nativeCreate = nativeCreate(f2133e, bArr, i, i2);
+        int nativeCreate = nativeCreate(f2134e, bArr, i, i2);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
         }
@@ -95,7 +95,7 @@ public class NSGif implements d.b.b.d.b {
 
     @Override // d.b.b.d.b
     public int a(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.f2135a, i);
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.f2136a, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -104,7 +104,7 @@ public class NSGif implements d.b.b.d.b {
 
     @Override // d.b.b.d.b
     public boolean b(int i) {
-        return nativeDecodeFrame(this.f2135a, i);
+        return nativeDecodeFrame(this.f2136a, i);
     }
 
     @Override // d.b.b.d.b
@@ -112,16 +112,16 @@ public class NSGif implements d.b.b.d.b {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.f2135a, bitmap);
+        return nativeWriteTo(this.f2136a, bitmap);
     }
 
     @Override // d.b.b.d.b
     public void close() {
-        int i = this.f2135a;
+        int i = this.f2136a;
         if (i == 0) {
             return;
         }
-        this.f2135a = 0;
+        this.f2136a = 0;
         d.b.b.e.m.h.a().c(new a(i));
     }
 
@@ -135,16 +135,16 @@ public class NSGif implements d.b.b.d.b {
 
     @Override // d.b.b.d.b
     public int getFrameCount() {
-        return this.f2138d;
+        return this.f2139d;
     }
 
     @Override // d.b.b.d.b
     public int getHeight() {
-        return this.f2137c;
+        return this.f2138c;
     }
 
     @Override // d.b.b.d.b
     public int getWidth() {
-        return this.f2136b;
+        return this.f2137b;
     }
 }

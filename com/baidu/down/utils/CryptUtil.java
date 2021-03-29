@@ -3,7 +3,7 @@ package com.baidu.down.utils;
 import android.content.Context;
 import android.util.Base64;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CryptUtil {
     static {
         System.loadLibrary("AsyncSdk_v1");

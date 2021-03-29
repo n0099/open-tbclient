@@ -12,7 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class BitmapUtil {
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
     public static final int ARGB_4444_BYTES_PER_PIXEL = 2;

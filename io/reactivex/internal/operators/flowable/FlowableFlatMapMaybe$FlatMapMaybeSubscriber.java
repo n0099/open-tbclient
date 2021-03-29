@@ -95,90 +95,90 @@ public final class FlowableFlatMapMaybe$FlatMapMaybeSubscriber<T, R> extends Ato
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0075, code lost:
-        if (r9 != r5) goto L67;
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0077, code lost:
+        if (r13 != 0) goto L66;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0079, code lost:
-        if (r15.cancelled == false) goto L39;
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x007b, code lost:
+        if (r17.cancelled == false) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x007b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x007d, code lost:
         clear();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x007e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0080, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x0081, code lost:
-        if (r15.delayErrors != false) goto L46;
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0083, code lost:
+        if (r17.delayErrors != false) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x008b, code lost:
-        if (r15.errors.get() == null) goto L46;
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x008d, code lost:
+        if (r17.errors.get() == null) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x008d, code lost:
-        r1 = r15.errors.terminate();
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x008f, code lost:
+        r2 = r17.errors.terminate();
         clear();
-        r0.onError(r1);
+        r1.onError(r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x0099, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x009b, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x009e, code lost:
-        if (r1.get() != 0) goto L63;
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00a0, code lost:
+        if (r2.get() != 0) goto L62;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00a0, code lost:
-        r5 = true;
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a2, code lost:
+        r6 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x00a2, code lost:
-        r5 = false;
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00a4, code lost:
+        r6 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00a3, code lost:
-        r6 = r2.get();
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00a5, code lost:
+        r7 = r3.get();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x00a9, code lost:
-        if (r6 == null) goto L62;
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00ab, code lost:
+        if (r7 == null) goto L61;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x00af, code lost:
-        if (r6.isEmpty() == false) goto L53;
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b1, code lost:
+        if (r7.isEmpty() == false) goto L52;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00b1, code lost:
-        r11 = true;
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00b3, code lost:
+        r12 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x00b2, code lost:
-        if (r5 == false) goto L67;
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00b4, code lost:
+        if (r6 == false) goto L66;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x00b4, code lost:
-        if (r11 == false) goto L67;
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00b6, code lost:
+        if (r12 == false) goto L66;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00b6, code lost:
-        r1 = r15.errors.terminate();
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00b8, code lost:
+        r2 = r17.errors.terminate();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x00bc, code lost:
-        if (r1 == null) goto L60;
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00be, code lost:
+        if (r2 == null) goto L59;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00be, code lost:
-        r0.onError(r1);
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00c0, code lost:
+        r1.onError(r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x00c2, code lost:
-        r0.onComplete();
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00c4, code lost:
+        r1.onComplete();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x00c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00c7, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x00c8, code lost:
-        if (r9 == 0) goto L72;
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00ca, code lost:
+        if (r10 == 0) goto L71;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x00ca, code lost:
-        f.a.x.i.b.e(r15.requested, r9);
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x00cc, code lost:
+        f.a.x.i.b.e(r17.requested, r10);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x00d4, code lost:
-        if (r15.maxConcurrency == Integer.MAX_VALUE) goto L72;
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00d6, code lost:
+        if (r17.maxConcurrency == Integer.MAX_VALUE) goto L71;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x00d6, code lost:
-        r15.s.request(r9);
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00d8, code lost:
+        r17.s.request(r10);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x00db, code lost:
-        r4 = addAndGet(-r4);
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00dd, code lost:
+        r5 = addAndGet(-r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:?, code lost:
         return;
      */
     /*
@@ -194,7 +194,8 @@ public final class FlowableFlatMapMaybe$FlatMapMaybeSubscriber<T, R> extends Ato
             long j2 = 0;
             while (true) {
                 boolean z = false;
-                if (j2 == j) {
+                int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i2 == 0) {
                     break;
                 } else if (this.cancelled) {
                     clear();

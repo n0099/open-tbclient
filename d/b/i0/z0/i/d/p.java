@@ -18,7 +18,7 @@ import d.b.i.k0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
@@ -26,7 +26,7 @@ public class p extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public s p;
     public b0<a2> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<a2> {
         public a() {
         }
@@ -40,7 +40,7 @@ public class p extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b {
         public b(p pVar) {
         }
@@ -59,7 +59,7 @@ public class p extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }
@@ -74,7 +74,7 @@ public class p extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     p.this.q.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

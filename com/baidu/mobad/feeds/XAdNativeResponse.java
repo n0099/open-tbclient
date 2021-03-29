@@ -39,28 +39,28 @@ import org.json.JSONObject;
 public class XAdNativeResponse implements NativeResponse {
 
     /* renamed from: a  reason: collision with root package name */
-    public IXAdInstanceInfo f8032a;
+    public IXAdInstanceInfo f8033a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f8033b;
+    public e f8034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8034c;
+    public boolean f8035c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IXAdFeedsRequestParameters f8035d;
+    public IXAdFeedsRequestParameters f8036d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IXAdContainer f8036e;
+    public IXAdContainer f8037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NativeResponse.AdInteractionListener f8037f;
+    public NativeResponse.AdInteractionListener f8038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NativeResponse.AdPrivacyListener f8038g;
+    public NativeResponse.AdPrivacyListener f8039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IXAdURIUitls f8039h;
+    public IXAdURIUitls f8040h;
 
     /* loaded from: classes2.dex */
     public class ResponseInvocationHandlerImp implements InvocationHandler {
@@ -74,38 +74,38 @@ public class XAdNativeResponse implements NativeResponse {
                 return null;
             }
             if (name.equals("onShow")) {
-                if (XAdNativeResponse.this.f8038g != null) {
-                    XAdNativeResponse.this.f8038g.onADPermissionShow();
+                if (XAdNativeResponse.this.f8039g != null) {
+                    XAdNativeResponse.this.f8039g.onADPermissionShow();
                 }
-            } else if (name.equals("onDismiss") && XAdNativeResponse.this.f8038g != null) {
-                XAdNativeResponse.this.f8038g.onADPermissionClose();
+            } else if (name.equals("onDismiss") && XAdNativeResponse.this.f8039g != null) {
+                XAdNativeResponse.this.f8039g.onADPermissionClose();
             }
             return null;
         }
     }
 
     public XAdNativeResponse(IXAdInstanceInfo iXAdInstanceInfo, e eVar, IXAdFeedsRequestParameters iXAdFeedsRequestParameters, IXAdContainer iXAdContainer) {
-        this.f8034c = false;
-        this.f8032a = iXAdInstanceInfo;
-        this.f8033b = eVar;
-        this.f8036e = iXAdContainer;
-        if (this.f8032a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload()) {
-            this.f8034c = true;
+        this.f8035c = false;
+        this.f8033a = iXAdInstanceInfo;
+        this.f8034b = eVar;
+        this.f8037e = iXAdContainer;
+        if (this.f8033a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload()) {
+            this.f8035c = true;
         }
-        this.f8035d = iXAdFeedsRequestParameters;
-        this.f8039h = XAdSDKFoundationFacade.getInstance().getURIUitls();
+        this.f8036d = iXAdFeedsRequestParameters;
+        this.f8040h = XAdSDKFoundationFacade.getInstance().getURIUitls();
     }
 
     public AdLogInfo getAdLogInfo() {
         AdLogInfo adLogInfo = new AdLogInfo();
-        IXAdFeedsRequestParameters iXAdFeedsRequestParameters = this.f8035d;
+        IXAdFeedsRequestParameters iXAdFeedsRequestParameters = this.f8036d;
         if (iXAdFeedsRequestParameters != null) {
             adLogInfo.setAdPlaceId(iXAdFeedsRequestParameters.getAdPlacementId());
         }
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         if (iXAdInstanceInfo != null) {
             adLogInfo.setQk(iXAdInstanceInfo.getQueryKey());
-            adLogInfo.setVideoUrl(this.f8032a.getVideoUrl());
+            adLogInfo.setVideoUrl(this.f8033a.getVideoUrl());
         }
         return adLogInfo;
     }
@@ -117,10 +117,10 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getAdMaterialType() {
-        if (this.f8032a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO) {
+        if (this.f8033a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO) {
             return NativeResponse.MaterialType.VIDEO.getValue();
         }
-        if (this.f8032a.getCreativeType() == IXAdInstanceInfo.CreativeType.HTML) {
+        if (this.f8033a.getCreativeType() == IXAdInstanceInfo.CreativeType.HTML) {
             return NativeResponse.MaterialType.HTML.getValue();
         }
         return NativeResponse.MaterialType.NORMAL.getValue();
@@ -128,32 +128,32 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getAppPackage() {
-        return this.f8032a.getAppPackageName();
+        return this.f8033a.getAppPackageName();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getAppPermissionLink() {
         JSONObject originJsonObject;
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         return (iXAdInstanceInfo == null || (originJsonObject = iXAdInstanceInfo.getOriginJsonObject()) == null) ? "" : originJsonObject.optString("permission_link", "");
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getAppPrivacyLink() {
         JSONObject originJsonObject;
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         return (iXAdInstanceInfo == null || (originJsonObject = iXAdInstanceInfo.getOriginJsonObject()) == null) ? "" : originJsonObject.optString("privacy_link", "");
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public long getAppSize() {
-        return this.f8032a.getAppSize();
+        return this.f8033a.getAppSize();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getAppVersion() {
         JSONObject originJsonObject;
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         return (iXAdInstanceInfo == null || (originJsonObject = iXAdInstanceInfo.getOriginJsonObject()) == null) ? "" : originJsonObject.optString("app_version", "");
     }
 
@@ -164,47 +164,47 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getBrandName() {
-        return this.f8032a.getAppName();
+        return this.f8033a.getAppName();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getContainerHeight() {
-        return this.f8032a.getAdContainerHeight();
+        return this.f8033a.getAdContainerHeight();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getContainerSizeType() {
-        return this.f8032a.getAdContainerSizeType();
+        return this.f8033a.getAdContainerSizeType();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getContainerWidth() {
-        return this.f8032a.getAdContainerWidth();
+        return this.f8033a.getAdContainerWidth();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getDesc() {
-        return this.f8032a.getDescription();
+        return this.f8033a.getDescription();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getDownloadStatus() {
         IXAdContainer iXAdContainer;
-        if (!this.f8034c || (iXAdContainer = this.f8036e) == null || iXAdContainer.getAdContainerContext() == null) {
+        if (!this.f8035c || (iXAdContainer = this.f8037e) == null || iXAdContainer.getAdContainerContext() == null) {
             return -1;
         }
-        return c.a(this.f8036e.getAdContainerContext().getApplicationContext()).a(this.f8036e.getAdContainerContext().getApplicationContext(), getAppPackage());
+        return c.a(this.f8037e.getAdContainerContext().getApplicationContext()).a(this.f8037e.getAdContainerContext().getApplicationContext(), getAppPackage());
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getDuration() {
-        return this.f8032a.getVideoDuration();
+        return this.f8033a.getVideoDuration();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getECPMLevel() {
         JSONObject originJsonObject;
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         return (iXAdInstanceInfo == null || (originJsonObject = iXAdInstanceInfo.getOriginJsonObject()) == null) ? "" : originJsonObject.optString("bidlayer", "");
     }
 
@@ -215,36 +215,36 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getHtmlSnippet() {
-        return this.f8032a.getHtmlSnippet();
+        return this.f8033a.getHtmlSnippet();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getIconUrl() {
-        String iconUrl = this.f8032a.getIconUrl();
-        return (iconUrl == null || iconUrl.equals("")) ? this.f8032a.getMainPictureUrl() : iconUrl;
+        String iconUrl = this.f8033a.getIconUrl();
+        return (iconUrl == null || iconUrl.equals("")) ? this.f8033a.getMainPictureUrl() : iconUrl;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getImageUrl() {
-        return this.f8032a.getMainPictureUrl();
+        return this.f8033a.getMainPictureUrl();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getMainPicHeight() {
-        return this.f8032a.getMainMaterialHeight();
+        return this.f8033a.getMainMaterialHeight();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getMainPicWidth() {
-        return this.f8032a.getMainMaterialWidth();
+        return this.f8033a.getMainMaterialWidth();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public NativeResponse.MaterialType getMaterialType() {
-        if (this.f8032a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO) {
+        if (this.f8033a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO) {
             return NativeResponse.MaterialType.VIDEO;
         }
-        if (this.f8032a.getCreativeType() == IXAdInstanceInfo.CreativeType.HTML) {
+        if (this.f8033a.getCreativeType() == IXAdInstanceInfo.CreativeType.HTML) {
             return NativeResponse.MaterialType.HTML;
         }
         return NativeResponse.MaterialType.NORMAL;
@@ -253,7 +253,7 @@ public class XAdNativeResponse implements NativeResponse {
     @Override // com.baidu.mobad.feeds.NativeResponse
     public List<String> getMultiPicUrls() {
         try {
-            JSONArray optJSONArray = this.f8032a.getOriginJsonObject().optJSONArray("morepics");
+            JSONArray optJSONArray = this.f8033a.getOriginJsonObject().optJSONArray("morepics");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return null;
             }
@@ -271,38 +271,38 @@ public class XAdNativeResponse implements NativeResponse {
     }
 
     public String getMute() {
-        return this.f8032a.getMute();
+        return this.f8033a.getMute();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getPublisher() {
         JSONObject originJsonObject;
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         return (iXAdInstanceInfo == null || (originJsonObject = iXAdInstanceInfo.getOriginJsonObject()) == null) ? "" : originJsonObject.optString("publisher", "");
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public int getStyleType() {
-        return this.f8032a.getFeedAdStyleType();
+        return this.f8033a.getFeedAdStyleType();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getTitle() {
-        return this.f8032a.getTitle();
+        return this.f8033a.getTitle();
     }
 
     public String getUniqueId() {
-        return this.f8032a.getUniqueId();
+        return this.f8033a.getUniqueId();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getVideoUrl() {
-        return this.f8032a.getVideoUrl();
+        return this.f8033a.getVideoUrl();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public WebView getWebView() {
-        return (WebView) this.f8036e.getAdView();
+        return (WebView) this.f8037e.getAdView();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -313,7 +313,7 @@ public class XAdNativeResponse implements NativeResponse {
     public void handleClickDownloadDirect(View view) {
         if (supportDownloadDirect()) {
             try {
-                XAdInstanceInfo xAdInstanceInfo = (XAdInstanceInfo) ((XAdInstanceInfo) this.f8032a).clone();
+                XAdInstanceInfo xAdInstanceInfo = (XAdInstanceInfo) ((XAdInstanceInfo) this.f8033a).clone();
                 xAdInstanceInfo.setAction("");
                 a(view, -1, xAdInstanceInfo);
             } catch (Exception unused) {
@@ -323,48 +323,48 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public boolean isAdAvailable(Context context) {
-        return this.f8033b.a(context, this.f8032a, this.f8035d);
+        return this.f8034b.a(context, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public boolean isAutoPlay() {
-        return this.f8032a.getOriginJsonObject().optInt("auto_play", 0) == 1;
+        return this.f8033a.getOriginJsonObject().optInt("auto_play", 0) == 1;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public boolean isDownloadApp() {
-        return this.f8034c;
+        return this.f8035c;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public boolean isNonWifiAutoPlay() {
         try {
-            return this.f8032a.getOriginJsonObject().optInt("auto_play_non_wifi", 1) == 1;
+            return this.f8033a.getOriginJsonObject().optInt("auto_play_non_wifi", 1) == 1;
         } catch (Throwable unused) {
             return true;
         }
     }
 
     public boolean isVideoMuted() {
-        return this.f8032a.isVideoMuted();
+        return this.f8033a.isVideoMuted();
     }
 
     public void onADExposed() {
-        NativeResponse.AdInteractionListener adInteractionListener = this.f8037f;
+        NativeResponse.AdInteractionListener adInteractionListener = this.f8038f;
         if (adInteractionListener != null) {
             adInteractionListener.onADExposed();
         }
     }
 
     public void onADStatusChanged() {
-        NativeResponse.AdInteractionListener adInteractionListener = this.f8037f;
+        NativeResponse.AdInteractionListener adInteractionListener = this.f8038f;
         if (adInteractionListener != null) {
             adInteractionListener.onADStatusChanged();
         }
     }
 
     public void onAdClick() {
-        NativeResponse.AdInteractionListener adInteractionListener = this.f8037f;
+        NativeResponse.AdInteractionListener adInteractionListener = this.f8038f;
         if (adInteractionListener != null) {
             adInteractionListener.onAdClick();
         }
@@ -372,41 +372,41 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onClickAd(Context context) {
-        this.f8033b.d(context, this.f8032a, this.f8035d);
+        this.f8034b.d(context, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onClose(Context context, int i) {
-        this.f8033b.a(context, i, this.f8032a, this.f8035d);
+        this.f8034b.a(context, i, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onComplete(Context context) {
-        this.f8033b.c(context, this.f8032a, this.f8035d);
+        this.f8034b.c(context, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onError(Context context, int i, int i2) {
-        this.f8033b.a(context, i, i2, this.f8032a);
+        this.f8034b.a(context, i, i2, this.f8033a);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onFullScreen(Context context, int i) {
-        this.f8033b.b(context, i, this.f8032a, this.f8035d);
+        this.f8034b.b(context, i, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onStart(Context context) {
-        this.f8033b.b(context, this.f8032a, this.f8035d);
+        this.f8034b.b(context, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void pauseAppDownload() {
         IXAdContainer iXAdContainer;
-        if (!this.f8034c || (iXAdContainer = this.f8036e) == null || iXAdContainer.getAdContainerContext() == null) {
+        if (!this.f8035c || (iXAdContainer = this.f8037e) == null || iXAdContainer.getAdContainerContext() == null) {
             return;
         }
-        c.a(this.f8036e.getAdContainerContext().getApplicationContext()).a(getAppPackage());
+        c.a(this.f8037e.getAdContainerContext().getApplicationContext()).a(getAppPackage());
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -414,7 +414,7 @@ public class XAdNativeResponse implements NativeResponse {
         Class<?> cls;
         q a2 = q.a();
         try {
-            Activity activity = this.f8036e.getAdContainerContext().getActivity();
+            Activity activity = this.f8037e.getAdContainerContext().getActivity();
             DexClassLoader d2 = b.d();
             Object obj = null;
             if (d2 == null) {
@@ -430,12 +430,12 @@ public class XAdNativeResponse implements NativeResponse {
             if (cls != null) {
                 Method declaredMethod = cls.getDeclaredMethod("createVerPerDialog", Context.class, String.class);
                 declaredMethod.setAccessible(true);
-                obj = declaredMethod.invoke(null, activity, this.f8032a.getOriginJsonObject().getString("permission_link"));
+                obj = declaredMethod.invoke(null, activity, this.f8033a.getOriginJsonObject().getString("permission_link"));
             }
             Object obj2 = obj;
             Class<?> a3 = r.a("com.style.widget.OnDialogListener", d2);
             Object newProxyInstance = Proxy.newProxyInstance(a3.getClassLoader(), new Class[]{a3}, new ResponseInvocationHandlerImp());
-            if (this.f8038g != null && obj2 != null) {
+            if (this.f8039g != null && obj2 != null) {
                 r.a("com.style.widget.VerifyPerDialog", obj2, d2, "setOnDialogListener", new Class[]{a3}, newProxyInstance);
             }
             if (obj2 == null || cls == null) {
@@ -450,67 +450,67 @@ public class XAdNativeResponse implements NativeResponse {
     }
 
     public void preloadVideoMaterial() {
-        this.f8033b.e(this.f8032a);
+        this.f8034b.e(this.f8033a);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void privacyClick() {
-        String optString = this.f8032a.getOriginJsonObject().optString("privacy_link");
+        String optString = this.f8033a.getOriginJsonObject().optString("privacy_link");
         if (TextUtils.isEmpty(optString)) {
             return;
         }
-        a(optString, this.f8038g);
+        a(optString, this.f8039g);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void recordImpression(View view) {
-        this.f8033b.a(view, this.f8032a, this.f8035d);
+        this.f8034b.a(view, this.f8033a, this.f8036d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void registerViewForInteraction(View view, NativeResponse.AdInteractionListener adInteractionListener) {
         recordImpression(view);
-        this.f8037f = adInteractionListener;
+        this.f8038f = adInteractionListener;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void resumeAppDownload() {
         IXAdContainer iXAdContainer;
-        if (!this.f8034c || (iXAdContainer = this.f8036e) == null || iXAdContainer.getAdContainerContext() == null) {
+        if (!this.f8035c || (iXAdContainer = this.f8037e) == null || iXAdContainer.getAdContainerContext() == null) {
             return;
         }
-        Context applicationContext = this.f8036e.getAdContainerContext().getApplicationContext();
-        String prodType = this.f8036e.getAdContainerContext().getAdProdInfo() != null ? this.f8036e.getAdContainerContext().getAdProdInfo().getProdType() : "";
+        Context applicationContext = this.f8037e.getAdContainerContext().getApplicationContext();
+        String prodType = this.f8037e.getAdContainerContext().getAdProdInfo() != null ? this.f8037e.getAdContainerContext().getAdProdInfo().getProdType() : "";
         c a2 = c.a(applicationContext);
-        IXAdInstanceInfo iXAdInstanceInfo = this.f8032a;
+        IXAdInstanceInfo iXAdInstanceInfo = this.f8033a;
         a2.a(applicationContext, iXAdInstanceInfo, prodType, "ac_" + prodType);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void setAdPrivacyListener(NativeResponse.AdPrivacyListener adPrivacyListener) {
-        this.f8038g = adPrivacyListener;
+        this.f8039g = adPrivacyListener;
     }
 
     public void setIsDownloadApp(boolean z) {
-        this.f8034c = z;
+        this.f8035c = z;
     }
 
     public boolean supportDownloadDirect() {
-        return this.f8032a.getAction().equals("video") && this.f8032a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload() && this.f8032a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
+        return this.f8033a.getAction().equals("video") && this.f8033a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload() && this.f8033a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void unionLogoClick() {
-        a(this.f8039h.replaceURLWithSupportProtocol("http://union.baidu.com/"), this.f8037f);
+        a(this.f8040h.replaceURLWithSupportProtocol("http://union.baidu.com/"), this.f8038f);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void handleClick(View view, int i) {
-        a(view, i, this.f8032a);
+        a(view, i, this.f8033a);
     }
 
     private void a(String str, Object obj) {
-        Activity activity = this.f8036e.getAdContainerContext().getActivity();
+        Activity activity = this.f8037e.getAdContainerContext().getActivity();
         if (activity != null) {
             Intent intent = new Intent(activity, AppActivity.getActivityClass());
             intent.putExtra("privacy_link", str);
@@ -522,7 +522,7 @@ public class XAdNativeResponse implements NativeResponse {
                     ((NativeResponse.AdPrivacyListener) obj).onADPrivacyClick();
                 }
             }
-            this.f8033b.dispatchEvent(new com.baidu.mobads.openad.a.b("AdStartLp"));
+            this.f8034b.dispatchEvent(new com.baidu.mobads.openad.a.b("AdStartLp"));
         }
     }
 
@@ -553,43 +553,43 @@ public class XAdNativeResponse implements NativeResponse {
                 }
                 z2 = false;
             }
-            if (this.f8035d.getAPPConfirmPolicy() == 3) {
+            if (this.f8036d.getAPPConfirmPolicy() == 3) {
                 iXAdInstanceInfo.setActionOnlyWifi(false);
-                this.f8033b.a(view, iXAdInstanceInfo, i, this.f8035d);
+                this.f8034b.a(view, iXAdInstanceInfo, i, this.f8036d);
                 return;
-            } else if (this.f8035d.getAPPConfirmPolicy() == 4) {
-                this.f8032a.setActionOnlyWifi(false);
-                this.f8033b.a(view, iXAdInstanceInfo, i, this.f8035d);
+            } else if (this.f8036d.getAPPConfirmPolicy() == 4) {
+                this.f8033a.setActionOnlyWifi(false);
+                this.f8034b.a(view, iXAdInstanceInfo, i, this.f8036d);
                 return;
-            } else if (this.f8035d.getAPPConfirmPolicy() == 2) {
+            } else if (this.f8036d.getAPPConfirmPolicy() == 2) {
                 if (z2) {
-                    this.f8032a.setActionOnlyWifi(false);
-                    this.f8033b.a(view, this.f8032a, i, this.f8035d);
+                    this.f8033a.setActionOnlyWifi(false);
+                    this.f8034b.a(view, this.f8033a, i, this.f8036d);
                     return;
                 }
                 a(view, i);
                 return;
-            } else if (this.f8035d.getAPPConfirmPolicy() == 1) {
+            } else if (this.f8036d.getAPPConfirmPolicy() == 1) {
                 if (!XAdSDKFoundationFacade.getInstance().getSystemUtils().isWifiConnected(context).booleanValue() && z && !z2) {
                     a(view, i);
                     return;
                 }
-                this.f8032a.setActionOnlyWifi(false);
-                this.f8033b.a(view, iXAdInstanceInfo, i, this.f8035d);
+                this.f8033a.setActionOnlyWifi(false);
+                this.f8034b.a(view, iXAdInstanceInfo, i, this.f8036d);
                 return;
             } else {
                 return;
             }
         }
-        this.f8033b.a(view, this.f8032a, i, this.f8035d);
+        this.f8034b.a(view, this.f8033a, i, this.f8036d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
         if (!XAdSDKFoundationFacade.getInstance().getSystemUtils().isWifiConnected(context).booleanValue()) {
-            this.f8032a.setActionOnlyWifi(false);
+            this.f8033a.setActionOnlyWifi(false);
         } else {
-            this.f8032a.setActionOnlyWifi(true);
+            this.f8033a.setActionOnlyWifi(true);
         }
     }
 
@@ -608,9 +608,9 @@ public class XAdNativeResponse implements NativeResponse {
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     dialogInterface.dismiss();
                     XAdNativeResponse.this.a(context);
-                    XAdNativeResponse.this.f8033b.a(view, XAdNativeResponse.this.f8032a, i, XAdNativeResponse.this.f8035d);
+                    XAdNativeResponse.this.f8034b.a(view, XAdNativeResponse.this.f8033a, i, XAdNativeResponse.this.f8036d);
                     XAdNativeResponse xAdNativeResponse = XAdNativeResponse.this;
-                    xAdNativeResponse.a(context, "confirmed", 0, xAdNativeResponse.f8032a);
+                    xAdNativeResponse.a(context, "confirmed", 0, xAdNativeResponse.f8033a);
                 }
             });
             builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobad.feeds.XAdNativeResponse.2
@@ -618,7 +618,7 @@ public class XAdNativeResponse implements NativeResponse {
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     dialogInterface.dismiss();
                     XAdNativeResponse xAdNativeResponse = XAdNativeResponse.this;
-                    xAdNativeResponse.a(context, QueryResponse.Options.CANCEL, 1, xAdNativeResponse.f8032a);
+                    xAdNativeResponse.a(context, QueryResponse.Options.CANCEL, 1, xAdNativeResponse.f8033a);
                 }
             });
             builder.create().show();
@@ -636,10 +636,10 @@ public class XAdNativeResponse implements NativeResponse {
         hashMap.put("prod", "feed");
         hashMap.put("downType", String.valueOf(i));
         hashMap.put("dl_type", "ac_feed");
-        IXAdFeedsRequestParameters iXAdFeedsRequestParameters = this.f8035d;
+        IXAdFeedsRequestParameters iXAdFeedsRequestParameters = this.f8036d;
         if (iXAdFeedsRequestParameters != null) {
             hashMap.put("apid", iXAdFeedsRequestParameters.getAdPlacementId());
-            hashMap.put("confirmPolicy", "" + this.f8035d.getAPPConfirmPolicy());
+            hashMap.put("confirmPolicy", "" + this.f8036d.getAPPConfirmPolicy());
         }
         a.a().a(context.getApplicationContext(), 1046, iXAdInstanceInfo, hashMap);
     }

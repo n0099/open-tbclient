@@ -6,12 +6,12 @@ import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.Hottopic.DataReq;
 import tbclient.Hottopic.HottopicReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestHotTopicMessage extends NetMessage {
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17619common;
+    public CommonReq f17620common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -32,7 +32,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f68528common = getCommon();
+            builder.f68533common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.scr_w = getScrW();
@@ -61,7 +61,7 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f17619common;
+        return this.f17620common;
     }
 
     public Long getFid() {
@@ -113,7 +113,7 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17619common = commonReq;
+        this.f17620common = commonReq;
     }
 
     public void setFid(Long l) {

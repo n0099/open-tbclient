@@ -82,13 +82,13 @@ public class e extends d.b.h0.w.e implements y.d {
     public final d.b.b.a.e M;
 
     /* renamed from: f  reason: collision with root package name */
-    public WriteImagesInfo f51576f;
+    public WriteImagesInfo f51577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51577g;
+    public String f51578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SpanGroupManager f51578h;
+    public SpanGroupManager f51579h;
     public VoiceData$VoiceModel i;
     public String j;
     public LocationModel k;
@@ -188,8 +188,8 @@ public class e extends d.b.h0.w.e implements y.d {
 
     /* renamed from: d.b.h0.w.w.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1110e implements NewWriteModel.g {
-        public C1110e() {
+    public class C1111e implements NewWriteModel.g {
+        public C1111e() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -260,8 +260,8 @@ public class e extends d.b.h0.w.e implements y.d {
 
     public e(EditorTools editorTools) {
         super(editorTools);
-        this.f51576f = new WriteImagesInfo();
-        this.f51577g = "";
+        this.f51577f = new WriteImagesInfo();
+        this.f51578g = "";
         this.l = null;
         this.m = null;
         this.q = null;
@@ -272,7 +272,7 @@ public class e extends d.b.h0.w.e implements y.d {
         this.I = true;
         this.J = new a();
         this.K = new b();
-        this.L = new C1110e();
+        this.L = new C1111e();
         this.M = new g();
         this.H = editorTools;
     }
@@ -283,13 +283,13 @@ public class e extends d.b.h0.w.e implements y.d {
 
     public boolean B() {
         LinkedList<ImageFileInfo> chosedFiles;
-        WriteImagesInfo writeImagesInfo = this.f51576f;
+        WriteImagesInfo writeImagesInfo = this.f51577f;
         return (writeImagesInfo == null || (chosedFiles = writeImagesInfo.getChosedFiles()) == null || chosedFiles.isEmpty()) ? false : true;
     }
 
     public boolean C() {
-        if (StringUtils.isNull(this.f51577g)) {
-            WriteImagesInfo writeImagesInfo = this.f51576f;
+        if (StringUtils.isNull(this.f51578g)) {
+            WriteImagesInfo writeImagesInfo = this.f51577f;
             if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
                 VoiceData$VoiceModel voiceData$VoiceModel = this.i;
                 if (voiceData$VoiceModel == null || StringUtils.isNull(voiceData$VoiceModel.getId())) {
@@ -324,10 +324,10 @@ public class e extends d.b.h0.w.e implements y.d {
         locationModel.I(this.J);
         this.k.J(this.K);
         if (bundle != null) {
-            this.f51576f.parseJson(bundle.getString("write_images"));
+            this.f51577f.parseJson(bundle.getString("write_images"));
             this.j = bundle.getString(WriteActivityConfig.PHOTO_NAME);
         }
-        WriteImagesInfo writeImagesInfo = this.f51576f;
+        WriteImagesInfo writeImagesInfo = this.f51577f;
         if (writeImagesInfo != null) {
             writeImagesInfo.setMaxImagesAllowed(this.z ? 1 : 9);
         }
@@ -337,33 +337,33 @@ public class e extends d.b.h0.w.e implements y.d {
         if (!this.k.v() && a() != null) {
             a().A(new d.b.h0.w.a(20, 8, null));
         }
-        WriteImagesInfo writeImagesInfo2 = this.f51576f;
-        if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.f51576f.getChosedFiles().size() <= 0) {
+        WriteImagesInfo writeImagesInfo2 = this.f51577f;
+        if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.f51577f.getChosedFiles().size() <= 0) {
             return;
         }
         EditorTools a2 = a();
-        a2.A(new d.b.h0.w.a(2, 10, this.f51576f.getChosedFiles().size() + ""));
+        a2.A(new d.b.h0.w.a(2, 10, this.f51577f.getChosedFiles().size() + ""));
     }
 
     public void G(WriteData writeData) {
         if (writeData == null) {
             return;
         }
-        this.f51576f = new WriteImagesInfo();
+        this.f51577f = new WriteImagesInfo();
         if (writeData.getWriteImagesInfo() != null) {
-            this.f51576f.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.f51576f;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f51576f.getChosedFiles().size() > 0) {
+            this.f51577f.copyFrom(writeData.getWriteImagesInfo());
+            WriteImagesInfo writeImagesInfo = this.f51577f;
+            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f51577f.getChosedFiles().size() > 0) {
                 EditorTools a2 = a();
-                a2.A(new d.b.h0.w.a(2, 10, this.f51576f.getChosedFiles().size() + ""));
+                a2.A(new d.b.h0.w.a(2, 10, this.f51577f.getChosedFiles().size() + ""));
             }
         }
-        WriteImagesInfo writeImagesInfo2 = this.f51576f;
+        WriteImagesInfo writeImagesInfo2 = this.f51577f;
         if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
             a().A(new d.b.h0.w.a(2, 10, null));
         }
         String content = writeData.getContent();
-        this.f51577g = content;
+        this.f51578g = content;
         a0(content);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
     }
@@ -378,7 +378,7 @@ public class e extends d.b.h0.w.e implements y.d {
                 if (intent == null || !intent.hasExtra(AlbumActivityConfig.LAST_ALBUM_ID)) {
                     return;
                 }
-                this.f51576f.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
+                this.f51577f.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
             } else if (i != 12006) {
             } else {
                 if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
@@ -492,7 +492,7 @@ public class e extends d.b.h0.w.e implements y.d {
     }
 
     public void K(Bundle bundle) {
-        WriteImagesInfo writeImagesInfo = this.f51576f;
+        WriteImagesInfo writeImagesInfo = this.f51577f;
         if (writeImagesInfo != null) {
             bundle.putString("write_images", writeImagesInfo.toJsonString());
         }
@@ -511,7 +511,7 @@ public class e extends d.b.h0.w.e implements y.d {
         if (this.l.T() == null) {
             return;
         }
-        this.l.setSpanGroupManager(this.f51578h);
+        this.l.setSpanGroupManager(this.f51579h);
         boolean z = true;
         if (this.D) {
             this.l.T().setCanNoForum(true);
@@ -525,14 +525,14 @@ public class e extends d.b.h0.w.e implements y.d {
             this.l.T().setVForumName("");
         }
         this.l.T().setIsBJHPost(this.z);
-        this.l.T().setWriteImagesInfo(this.f51576f);
+        this.l.T().setWriteImagesInfo(this.f51577f);
         this.l.T().setVideoInfo(this.y);
-        this.l.Z(this.f51576f.size() > 0);
+        this.l.Z(this.f51577f.size() > 0);
         WriteData T = this.l.T();
         LocationModel locationModel = this.k;
         T.setHasLocationData((locationModel == null || !locationModel.v()) ? false : false);
         if (str == null) {
-            this.l.T().setContent(this.f51577g);
+            this.l.T().setContent(this.f51578g);
         }
         VoiceData$VoiceModel voiceData$VoiceModel = this.i;
         if (voiceData$VoiceModel != null) {
@@ -618,7 +618,7 @@ public class e extends d.b.h0.w.e implements y.d {
         this.l.Z(false);
         this.i = null;
         this.y = null;
-        this.f51576f.clear();
+        this.f51577f.clear();
     }
 
     public void T() {
@@ -635,9 +635,9 @@ public class e extends d.b.h0.w.e implements y.d {
         if (T == null) {
             T = new WriteData(1);
             T.setThreadId(str);
-            T.setWriteImagesInfo(this.f51576f);
+            T.setWriteImagesInfo(this.f51577f);
         }
-        T.setContent(this.f51577g);
+        T.setContent(this.f51578g);
         T.setVideoInfo(this.y);
         T.setVoiceModel(this.i);
         y.p(str, T);
@@ -735,8 +735,8 @@ public class e extends d.b.h0.w.e implements y.d {
             imageFileInfo.setFilePath(tVar.b());
             imageFileInfo.width = tVar.g();
             imageFileInfo.height = tVar.a();
-            this.f51576f.addChooseFile(imageFileInfo);
-            this.f51576f.updateQuality();
+            this.f51577f.addChooseFile(imageFileInfo);
+            this.f51577f.updateQuality();
         }
     }
 
@@ -793,9 +793,9 @@ public class e extends d.b.h0.w.e implements y.d {
     }
 
     public void l() {
-        WriteImagesInfo writeImagesInfo = this.f51576f;
+        WriteImagesInfo writeImagesInfo = this.f51577f;
         if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
-            this.f51576f.clear();
+            this.f51577f.clear();
         }
         VideoInfo videoInfo = this.y;
         if (videoInfo != null && videoInfo.isAvaliable()) {
@@ -805,8 +805,8 @@ public class e extends d.b.h0.w.e implements y.d {
         t0(null);
         a().A(new d.b.h0.w.a(2, 6, null));
         a().A(new d.b.h0.w.a(33, 6, null));
-        if (!StringUtils.isNull(this.f51577g)) {
-            this.f51577g = "";
+        if (!StringUtils.isNull(this.f51578g)) {
+            this.f51578g = "";
         }
         a0("");
         this.l.f0(null);
@@ -828,7 +828,7 @@ public class e extends d.b.h0.w.e implements y.d {
     }
 
     public void m0(String str) {
-        this.f51577g = str;
+        this.f51578g = str;
     }
 
     public final void n() {
@@ -894,15 +894,15 @@ public class e extends d.b.h0.w.e implements y.d {
             c0();
             a().A(new d.b.h0.w.a(39, -1, this.y));
         }
-        if (writeData.getWriteImagesInfo() != null && this.f51576f.size() == 0) {
-            this.f51576f.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.f51576f;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f51576f.getChosedFiles().size() > 0) {
+        if (writeData.getWriteImagesInfo() != null && this.f51577f.size() == 0) {
+            this.f51577f.copyFrom(writeData.getWriteImagesInfo());
+            WriteImagesInfo writeImagesInfo = this.f51577f;
+            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f51577f.getChosedFiles().size() > 0) {
                 EditorTools a2 = a();
-                a2.A(new d.b.h0.w.a(2, 10, this.f51576f.getChosedFiles().size() + ""));
+                a2.A(new d.b.h0.w.a(2, 10, this.f51577f.getChosedFiles().size() + ""));
             }
         }
-        WriteImagesInfo writeImagesInfo2 = this.f51576f;
+        WriteImagesInfo writeImagesInfo2 = this.f51577f;
         if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
             a().A(new d.b.h0.w.a(2, 10, null));
         }
@@ -912,9 +912,9 @@ public class e extends d.b.h0.w.e implements y.d {
             }
             this.i.copy(writeData.getVoiceModel());
         }
-        if (!k.isEmpty(writeData.getContent()) && k.isEmpty(this.f51577g)) {
+        if (!k.isEmpty(writeData.getContent()) && k.isEmpty(this.f51578g)) {
             String content = writeData.getContent();
-            this.f51577g = content;
+            this.f51578g = content;
             a0(content);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
@@ -954,13 +954,13 @@ public class e extends d.b.h0.w.e implements y.d {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.setTempFile(true);
-        this.f51576f.addChooseFile(imageFileInfo);
-        this.f51576f.updateQuality();
+        this.f51577f.addChooseFile(imageFileInfo);
+        this.f51577f.updateQuality();
         z(false, null);
     }
 
     public void q0(SpanGroupManager spanGroupManager) {
-        this.f51578h = spanGroupManager;
+        this.f51579h = spanGroupManager;
     }
 
     public TbPageContext r() {
@@ -1023,9 +1023,9 @@ public class e extends d.b.h0.w.e implements y.d {
         if (intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
             return;
         }
-        this.f51576f.parseJson(stringExtra);
-        this.f51576f.updateQuality();
-        if (this.f51576f.getChosedFiles() != null) {
+        this.f51577f.parseJson(stringExtra);
+        this.f51577f.updateQuality();
+        if (this.f51577f.getChosedFiles() != null) {
             z(false, null);
         }
     }
@@ -1035,14 +1035,14 @@ public class e extends d.b.h0.w.e implements y.d {
     }
 
     public WriteImagesInfo y() {
-        return this.f51576f;
+        return this.f51577f;
     }
 
     public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
         pbEditorData.setEditorType(0);
-        pbEditorData.setContent(this.f51577g);
-        pbEditorData.setWriteImagesInfo(this.f51576f);
+        pbEditorData.setContent(this.f51578g);
+        pbEditorData.setWriteImagesInfo(this.f51577f);
         pbEditorData.setVoiceModel(this.i);
         PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
         ForumData forumData = this.o;

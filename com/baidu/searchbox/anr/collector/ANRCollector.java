@@ -21,7 +21,7 @@ public class ANRCollector {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x009f */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1 */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.io.BufferedReader] */
@@ -119,7 +119,7 @@ public class ANRCollector {
         return getMainTraceFromFile("/data/anr/traces.txt");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

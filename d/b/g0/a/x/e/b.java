@@ -3,7 +3,7 @@ package d.b.g0.a.x.e;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends d.b.g0.a.a0.b.b {
     public String n;
 

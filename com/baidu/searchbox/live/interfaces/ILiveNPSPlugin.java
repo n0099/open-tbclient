@@ -10,7 +10,7 @@ import com.baidu.searchbox.live.interfaces.entry.ILiveMediaEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveShowEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveYuYinEntry;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface ILiveNPSPlugin {
     public static final String PARAMS_ROOM_ID = "roomId";
     public static final String PARAMS_SCHEME = "scheme";

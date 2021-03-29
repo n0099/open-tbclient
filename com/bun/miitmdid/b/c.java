@@ -11,18 +11,18 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f27076a = new HashMap();
+    public Map<String, String> f27077a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f27076a.isEmpty()) {
-            this.f27076a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-            this.f27076a.put("sv", sysParamters.a().c());
-            this.f27076a.put(IXAdRequestInfo.TEST_MODE, sysParamters.a().d());
-            this.f27076a.put("mf", sysParamters.a().e());
-            this.f27076a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f27077a.isEmpty()) {
+            this.f27077a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+            this.f27077a.put("sv", sysParamters.a().c());
+            this.f27077a.put(IXAdRequestInfo.TEST_MODE, sysParamters.a().d());
+            this.f27077a.put("mf", sysParamters.a().e());
+            this.f27077a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f27076a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
-        return this.f27076a;
+        this.f27077a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
+        return this.f27077a;
     }
 
     public boolean a(boolean z, String str, String str2, String str3, String str4) {

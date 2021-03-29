@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.HotTopic;
 import tbclient.RecomTopicList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63275f = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
+    public String f63276f = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
 
     public void B(HotTopic hotTopic) {
         if (hotTopic == null) {

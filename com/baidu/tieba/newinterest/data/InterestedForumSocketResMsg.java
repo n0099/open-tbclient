@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import d.b.i0.y1.c.c;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public c pageData;
 

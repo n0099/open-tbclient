@@ -6,14 +6,14 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4684a;
+    public static String f4685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4685b;
+    public static Context f4686b;
 
     public static String a(String str) {
         byte b2;
@@ -54,22 +54,22 @@ public final class h {
     }
 
     public static void b(Context context) {
-        if (f4685b == null) {
-            f4685b = context;
+        if (f4686b == null) {
+            f4686b = context;
         }
     }
 
     public static String c() {
-        String str = f4684a;
+        String str = f4685a;
         if (str != null) {
             return str;
         }
         try {
-            f4684a = a(Settings.Secure.getString(f4685b.getContentResolver(), "android_id"));
+            f4685a = a(Settings.Secure.getString(f4686b.getContentResolver(), "android_id"));
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e2);
-            f4684a = "N/A";
+            f4685a = "N/A";
         }
-        return f4684a;
+        return f4685a;
     }
 }

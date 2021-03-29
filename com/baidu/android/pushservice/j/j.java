@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
     public static long a(Context context) {
         return context.getSharedPreferences("push_client_self_info", 4).getLong("token_save_time", System.currentTimeMillis());

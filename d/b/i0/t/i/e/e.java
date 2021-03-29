@@ -160,8 +160,8 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         this.p.getCommentContainer().setOnClickListener(this);
         this.p.hideDisagree();
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 2;
-        eVar.f50768h = 2;
+        eVar.f50763b = 2;
+        eVar.f50769h = 2;
         this.p.setAgreeStatisticData(eVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -170,8 +170,8 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         this.q.setShareReportFrom(1);
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.text_bottom_2);
         this.x = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13535f.setOnClickListener(this);
-        this.x.f13535f.getCommentContainer().setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this);
+        this.x.f13536f.getCommentContainer().setOnClickListener(this);
         this.x.setFrom(2);
         this.x.setShareReportFrom(1);
         this.x.setSourceFromForPb(3);
@@ -427,7 +427,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
     @Override // d.b.i0.x.b
     @SuppressLint({"ResourceAsColor"})
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             y(tbPageContext, i);
             d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.B);
             a2.h(R.string.J_X06);
@@ -448,7 +448,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             this.w.onChangeSkinType(l(), TbadkCoreApplication.getInst().getSkinType());
             this.F.setPlaceHolder(3);
             this.p.onChangeSkinType();
-            this.f62179e = i;
+            this.f62180e = i;
             ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.x;
             if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {
                 this.x.f();
@@ -469,7 +469,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         if (d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) {
             return;
         }
-        if (view != this.B && view != this.p.getCommentContainer() && view != this.z && view != this.x.f13535f.getCommentContainer() && view != this.q.getCommentContainer() && view != this.M) {
+        if (view != this.B && view != this.p.getCommentContainer() && view != this.z && view != this.x.f13536f.getCommentContainer() && view != this.q.getCommentContainer() && view != this.M) {
             if (view.getId() == R.id.video_container) {
                 if (i() != null) {
                     i().a(view, this.o);
@@ -488,7 +488,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         }
         T(b(), (a2) this.o);
         if (this.o != 0) {
-            if (view == this.p.getCommentContainer() || view == this.x.f13535f.getCommentContainer()) {
+            if (view == this.p.getCommentContainer() || view == this.x.f13536f.getCommentContainer()) {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 2);
                 statisticItem.param("obj_type", 5);

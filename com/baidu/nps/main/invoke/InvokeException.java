@@ -1,5 +1,5 @@
 package com.baidu.nps.main.invoke;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class InvokeException extends RuntimeException {
     public int mErrCode;
     public String mErrMsg;

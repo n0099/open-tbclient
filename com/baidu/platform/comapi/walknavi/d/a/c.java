@@ -6,22 +6,22 @@ import com.baidu.platform.comapi.walknavi.d.a.d.b;
 public class c implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9959a;
+    public final /* synthetic */ b f9960a;
 
     public c(b bVar) {
-        this.f9959a = bVar;
+        this.f9960a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.d.b.a
     public void a(boolean z, boolean z2) {
         b.a aVar;
-        this.f9959a.k = z2;
+        this.f9960a.k = z2;
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("download so finished");
         if (z) {
-            this.f9959a.f();
+            this.f9960a.f();
             return;
         }
-        aVar = this.f9959a.f9950g;
+        aVar = this.f9960a.f9951g;
         aVar.b("download so failed");
     }
 
@@ -29,7 +29,7 @@ public class c implements b.a {
     public void a(int i) {
         b.a aVar;
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("so progress: " + i);
-        aVar = this.f9959a.f9950g;
+        aVar = this.f9960a.f9951g;
         aVar.a(i / 2);
     }
 }

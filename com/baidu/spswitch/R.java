@@ -1,8 +1,8 @@
 package com.baidu.spswitch;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class anim {
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
@@ -29,7 +29,7 @@ public final class R {
         public static final int wallet_base_slide_to_right = 0x7f010135;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class attr {
         public static final int actionBarDivider = 0x7f040033;
         public static final int actionBarItemBackground = 0x7f040034;
@@ -386,14 +386,14 @@ public final class R {
         public static final int windowNoTitle = 0x7f04052b;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
         public static final int abc_allow_stacked_button_bar = 0x7f050001;
         public static final int abc_config_actionMenuItemAllCaps = 0x7f050002;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class color {
         public static final int abc_background_cache_hint_selector_material_dark = 0x7f06011b;
         public static final int abc_background_cache_hint_selector_material_light = 0x7f06011c;
@@ -510,7 +510,7 @@ public final class R {
         public static final int white = 0x7f060a6c;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class dimen {
         public static final int abc_action_bar_content_inset_material = 0x7f07003c;
         public static final int abc_action_bar_content_inset_with_nav = 0x7f07003d;
@@ -668,7 +668,7 @@ public final class R {
         public static final int window_horizontal_padding = 0x7f070827;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080088;
         public static final int abc_action_bar_item_background_material = 0x7f080089;
@@ -792,7 +792,7 @@ public final class R {
         public static final int tooltip_frame_light = 0x7f08191c;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class id {
         public static final int FILL = 0x7f090007;
         public static final int STROKE = 0x7f090011;
@@ -928,7 +928,7 @@ public final class R {
         public static final int wrap_content = 0x7f092710;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
         public static final int abc_config_activityShortDur = 0x7f0a0001;
@@ -939,7 +939,7 @@ public final class R {
         public static final int status_bar_notification_info_maxnum = 0x7f0a0019;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class layout {
         public static final int abc_action_bar_title_item = 0x7f0c0000;
         public static final int abc_action_bar_up_container = 0x7f0c0001;
@@ -991,7 +991,7 @@ public final class R {
         public static final int support_simple_spinner_dropdown_item = 0x7f0c06e9;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int abc_action_bar_home_description = 0x7f0f003d;
         public static final int abc_action_bar_up_description = 0x7f0f003e;
@@ -1061,7 +1061,7 @@ public final class R {
         public static final int status_bar_notification_info_overflow = 0x7f0f11f4;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class style {
         public static final int AlertDialog_AppCompat = 0x7f100001;
         public static final int AlertDialog_AppCompat_Light = 0x7f100002;
@@ -1428,7 +1428,7 @@ public final class R {
         public static final int toast_animation = 0x7f10035b;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class styleable {
         public static final int AbsSpinner_entriesArray = 0x00000000;
         public static final int ActionBarLayout_android_layout_gravity = 0x00000000;

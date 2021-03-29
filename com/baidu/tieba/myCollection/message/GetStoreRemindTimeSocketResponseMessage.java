@@ -7,7 +7,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetStoreRemindTime.DataRes;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMessage {
     public List<String> timeList;
 

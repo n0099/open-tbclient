@@ -264,7 +264,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.E(addTextToImage, f.f42002b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.E(addTextToImage, f.f42003b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);

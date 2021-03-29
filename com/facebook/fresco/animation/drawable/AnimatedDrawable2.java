@@ -13,7 +13,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.frame.DropFramesFrameScheduler;
 import com.facebook.fresco.animation.frame.FrameScheduler;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableWithCaches {
     public static final int DEFAULT_FRAME_SCHEDULING_DELAY_MS = 8;
     public static final int DEFAULT_FRAME_SCHEDULING_OFFSET_MS = 0;

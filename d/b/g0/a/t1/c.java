@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements ISchemeIoc {
     @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
     public void doStatistic(String str, String str2) {

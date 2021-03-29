@@ -8,9 +8,9 @@ public class a extends com.kwad.sdk.contentalliance.home.e {
         if (a2 == null) {
             return;
         }
-        com.kwad.sdk.contentalliance.home.c.a(a2.a(((com.kwad.sdk.contentalliance.home.e) this).f32768a.f32773e));
+        com.kwad.sdk.contentalliance.home.c.a(a2.a(((com.kwad.sdk.contentalliance.home.e) this).f32769a.f32774e));
         com.kwad.sdk.entry.a.b();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a;
-        fVar.f32771c.setInitStartPosition(fVar.j);
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a;
+        fVar.f32772c.setInitStartPosition(fVar.j);
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
 import d.b.b.e.p.l;
 import d.b.h0.r.u.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.i0.x.b<d.b.i0.z0.j.b.c.a> {
     public static final int D = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     public RelativeLayout A;
@@ -153,7 +153,7 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.j.b.c.a> {
             if (aVar.W == 0) {
                 this.r.setText("NEW");
             } else {
-                this.r.setText(String.format(this.f62180f.getString(R.string.topic_partake_default), StringHelper.numberUniformFormat(aVar.W)));
+                this.r.setText(String.format(this.f62181f.getString(R.string.topic_partake_default), StringHelper.numberUniformFormat(aVar.W)));
             }
             if (aVar.Z == null) {
                 this.x.setVisibility(8);
@@ -171,7 +171,7 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.j.b.c.a> {
             int g4 = l.g(b(), R.dimen.tbds16);
             layoutParams2.addRule(1, R.id.cell_topic_icon);
             layoutParams2.setMargins(g3, 0, g4, 0);
-            this.q.setTextSize(0, l.g(this.f62181g, R.dimen.tbds40));
+            this.q.setTextSize(0, l.g(this.f62182g, R.dimen.tbds40));
             c a2 = c.a(this.q);
             a2.n(R.color.CAM_X0105);
             a2.s(R.string.F_X01);
@@ -187,7 +187,7 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.j.b.c.a> {
         if (str.length() > 14) {
             str = str.substring(0, 13) + StringHelper.STRING_MORE;
         }
-        this.q.setText(String.format(this.f62180f.getString(R.string.daily_topic_name), str));
+        this.q.setText(String.format(this.f62181f.getString(R.string.daily_topic_name), str));
         if (StringUtils.isNull(aVar.X)) {
             this.t.setVisibility(8);
             this.w.setUserColor(R.color.CAM_X0109);

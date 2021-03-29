@@ -13,10 +13,10 @@ import java.util.Map;
 public class c implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29895a;
+    public Context f29896a;
 
     private Context c() {
-        Context context = this.f29895a;
+        Context context = this.f29896a;
         return context == null ? p.a() : context;
     }
 
@@ -28,7 +28,7 @@ public class c implements com.bytedance.sdk.openadsdk.multipro.a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f29895a = context;
+        this.f29896a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a

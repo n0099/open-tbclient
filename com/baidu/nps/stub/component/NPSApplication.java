@@ -36,7 +36,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NPSApplication extends Application {
     public LayoutInflater mInflater;
     public Application mOriginalApplication;

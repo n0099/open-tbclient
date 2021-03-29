@@ -3,7 +3,7 @@ package d.b.i0.i1.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import d.b.i0.i1.p.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a {
     d.b.i0.i1.s.a a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

@@ -7,32 +7,30 @@ import d.o.a.d.j;
 import d.o.a.d.n.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public DownloadInfo f66563e;
+    public DownloadInfo f66564e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements e {
         public a(b bVar, d.o.a.b.a.c.b bVar2) {
         }
     }
 
     public b(DownloadInfo downloadInfo) {
-        this.f66563e = downloadInfo;
+        this.f66564e = downloadInfo;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         d.o.a.b.a.c.b c2;
-        if (this.f66563e == null || (c2 = c.g.e().c(this.f66563e)) == null) {
+        if (this.f66564e == null || (c2 = c.g.e().c(this.f66564e)) == null) {
             return;
         }
         j.c.a().o("cleanspace_task", c2);
-        double Q0 = this.f66563e.Q0();
-        Double.isNaN(Q0);
-        long longValue = Double.valueOf((d.o.a.d.n.e.a(this.f66563e.c0()) + 1.0d) * Q0).longValue() - this.f66563e.E();
+        long longValue = Double.valueOf((d.o.a.d.n.e.a(this.f66564e.c0()) + 1.0d) * this.f66564e.Q0()).longValue() - this.f66564e.E();
         long d2 = k.d(0L);
         if (n.v() != null) {
             n.v().e();
@@ -53,11 +51,11 @@ public class b implements Runnable {
                 e2.printStackTrace();
             }
             j.c.a().u("cleanspace_download_after_quite_clean", jSONObject, c2);
-            d.o.a.e.b.g.a.l(n.a()).z(this.f66563e.c0());
+            d.o.a.e.b.g.a.l(n.a()).z(this.f66564e.c0());
         } else if (n.v() != null) {
             c2.u0(false);
             d.a().e(c2.a(), new a(this, c2));
-            if (n.v().a(this.f66563e.c0(), this.f66563e.T0(), true, longValue)) {
+            if (n.v().a(this.f66564e.c0(), this.f66564e.T0(), true, longValue)) {
                 c2.y0(true);
             }
         } else {

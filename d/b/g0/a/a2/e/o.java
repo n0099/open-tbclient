@@ -9,7 +9,7 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class o extends a0 {
     public o(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/getStorageInfoSync");
@@ -31,7 +31,7 @@ public class o extends a0 {
             return true;
         } catch (JSONException e2) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 e2.printStackTrace();
             }
             return false;

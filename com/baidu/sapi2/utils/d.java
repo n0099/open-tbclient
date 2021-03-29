@@ -7,26 +7,26 @@ import com.baidu.sofire.ac.FH;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11449a = "SafeService";
+    public static final String f11450a = "SafeService";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f11450b = 120;
+    public static final int f11451b = 120;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f11451c = 122;
+    public static final int f11452c = 122;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f11452d = 1;
+    public static final int f11453d = 1;
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f11453a = new d();
+        public static d f11454a = new d();
     }
 
     public static d a() {
-        return b.f11453a;
+        return b.f11454a;
     }
 
     public d() {
@@ -37,7 +37,7 @@ public class d {
             FH.init(context, str, str2, iArr);
             return true;
         } catch (Throwable th) {
-            Log.e(f11449a, "init()", th.toString());
+            Log.e(f11450a, "init()", th.toString());
             return false;
         }
     }

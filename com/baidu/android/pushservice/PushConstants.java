@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice;
 
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class PushConstants {
     public static final int BDUSS_ACTION_IGNORE = 0;
     public static final int BDUSS_ACTION_SIGN_IN = 1;

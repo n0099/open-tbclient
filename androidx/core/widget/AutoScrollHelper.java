@@ -192,14 +192,15 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
 
     private float computeTargetVelocity(int i, float f2, float f3, float f4) {
         float edgeValue = getEdgeValue(this.mRelativeEdges[i], f3, this.mMaximumEdges[i], f2);
-        if (edgeValue == 0.0f) {
+        int i2 = (edgeValue > 0.0f ? 1 : (edgeValue == 0.0f ? 0 : -1));
+        if (i2 == 0) {
             return 0.0f;
         }
         float f5 = this.mRelativeVelocity[i];
         float f6 = this.mMinimumVelocity[i];
         float f7 = this.mMaximumVelocity[i];
         float f8 = f5 * f4;
-        if (edgeValue > 0.0f) {
+        if (i2 > 0) {
             return constrain(edgeValue * f8, f6, f7);
         }
         return -constrain((-edgeValue) * f8, f6, f7);

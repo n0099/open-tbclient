@@ -20,67 +20,67 @@ import java.util.zip.ZipInputStream;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f42004a;
+    public static h f42005a;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42005a;
+        public String f42006a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42006b;
+        public String f42007b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f42007c;
+        public StringBuilder f42008c;
 
         /* renamed from: d  reason: collision with root package name */
-        public i f42008d;
+        public i f42009d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42009e = false;
+        public boolean f42010e = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.f42005a = str;
-            this.f42006b = str2;
-            this.f42007c = sb;
-            this.f42008d = iVar;
+            this.f42006a = str;
+            this.f42007b = str2;
+            this.f42008c = sb;
+            this.f42009d = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Object doInBackground(Object... objArr) {
-            boolean i = h.this.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f42005a, this.f42007c);
-            this.f42009e = i;
+            boolean i = h.this.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f42006a, this.f42008c);
+            this.f42010e = i;
             if (i) {
                 return null;
             }
-            h.this.d(this.f42006b, "".getBytes(), this.f42007c);
+            h.this.d(this.f42007b, "".getBytes(), this.f42008c);
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.f42007c.length() > 0) {
+            if (this.f42008c.length() > 0) {
                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                bdStatisticsManager.error("so", "load_" + this.f42005a + ".so", "", -9101, this.f42007c.toString(), new Object[0]);
+                bdStatisticsManager.error("so", "load_" + this.f42006a + ".so", "", -9101, this.f42008c.toString(), new Object[0]);
             }
-            i iVar = this.f42008d;
+            i iVar = this.f42009d;
             if (iVar != null) {
-                iVar.a(this.f42009e);
+                iVar.a(this.f42010e);
             }
         }
     }
 
     public static h f() {
         h hVar;
-        h hVar2 = f42004a;
+        h hVar2 = f42005a;
         if (hVar2 == null) {
             synchronized (h.class) {
-                if (f42004a == null) {
-                    f42004a = new h();
+                if (f42005a == null) {
+                    f42005a = new h();
                 }
-                hVar = f42004a;
+                hVar = f42005a;
             }
             return hVar;
         }
@@ -200,10 +200,10 @@ public class h {
     }
 
     public final String h(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5556g + File.separator + "lib" + str + ".so";
+        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5557g + File.separator + "lib" + str + ".so";
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0122 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0121 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r4v4 */
@@ -394,7 +394,7 @@ public class h {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x00a1  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x009e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

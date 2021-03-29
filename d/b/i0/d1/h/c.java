@@ -18,19 +18,19 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f53776a;
+    public static c f53777a;
 
     public static synchronized c h() {
         c cVar;
         synchronized (c.class) {
-            if (f53776a == null) {
-                f53776a = new c();
+            if (f53777a == null) {
+                f53777a = new c();
             }
-            cVar = f53776a;
+            cVar = f53777a;
         }
         return cVar;
     }
@@ -173,7 +173,7 @@ public class c {
         return linkedHashMap;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:48:0x010e A[EXC_TOP_SPLITTER, LOOP:0: B:48:0x010e->B:26:0x0114, LOOP_START, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x010e A[EXC_TOP_SPLITTER, LOOP:0: B:47:0x010e->B:26:0x0114, LOOP_START, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

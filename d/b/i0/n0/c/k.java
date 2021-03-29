@@ -33,7 +33,7 @@ public class k extends d.b.i0.p0.k<l, ManagerApplyViewHolder> {
             if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                 k.this.y0(TbadkCoreApplication.getCurrentAccountInfo());
             } else {
-                UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(k.this.f42357e), new String[]{tag.toString()});
+                UrlManager.getInstance().dealOneLink((TbPageContext) d.b.b.a.j.a(k.this.f42358e), new String[]{tag.toString()});
             }
         }
     }
@@ -60,41 +60,41 @@ public class k extends d.b.i0.p0.k<l, ManagerApplyViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: w0 */
     public ManagerApplyViewHolder R(ViewGroup viewGroup) {
-        return new ManagerApplyViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.frs_member_manager_apply, (ViewGroup) null));
+        return new ManagerApplyViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.frs_member_manager_apply, (ViewGroup) null));
     }
 
     public View x0(int i, View view, ViewGroup viewGroup, l lVar, ManagerApplyViewHolder managerApplyViewHolder) {
         super.X(i, view, viewGroup, lVar, managerApplyViewHolder);
         if (lVar != null && !lVar.f() && managerApplyViewHolder != null) {
             if (lVar.f()) {
-                managerApplyViewHolder.f15939d.setVisibility(8);
+                managerApplyViewHolder.f15940d.setVisibility(8);
                 return view;
             }
-            if (managerApplyViewHolder.f15940e != this.r) {
-                SkinManager.setViewTextColor(managerApplyViewHolder.f15937b, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(managerApplyViewHolder.f15936a, R.color.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(managerApplyViewHolder.f15938c, R.drawable.frs_member_manito_bg);
+            if (managerApplyViewHolder.f15941e != this.r) {
+                SkinManager.setViewTextColor(managerApplyViewHolder.f15938b, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(managerApplyViewHolder.f15937a, R.color.CAM_X0105, 1);
+                SkinManager.setBackgroundResource(managerApplyViewHolder.f15939c, R.drawable.frs_member_manito_bg);
             }
             int e2 = lVar.e();
             if (e2 > 0) {
-                managerApplyViewHolder.f15937b.setText(String.format(this.f42357e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(e2)));
-                managerApplyViewHolder.f15938c.setTag(y, lVar.a());
-                managerApplyViewHolder.f15938c.setOnClickListener(this.x);
-                managerApplyViewHolder.f15938c.setEnabled(true);
-                managerApplyViewHolder.f15938c.setClickable(true);
+                managerApplyViewHolder.f15938b.setText(String.format(this.f42358e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(e2)));
+                managerApplyViewHolder.f15939c.setTag(y, lVar.a());
+                managerApplyViewHolder.f15939c.setOnClickListener(this.x);
+                managerApplyViewHolder.f15939c.setEnabled(true);
+                managerApplyViewHolder.f15939c.setClickable(true);
             } else {
-                managerApplyViewHolder.f15937b.setText(this.f42357e.getResources().getString(R.string.apply_no_left_tip));
-                managerApplyViewHolder.f15938c.setEnabled(false);
-                managerApplyViewHolder.f15938c.setClickable(false);
+                managerApplyViewHolder.f15938b.setText(this.f42358e.getResources().getString(R.string.apply_no_left_tip));
+                managerApplyViewHolder.f15939c.setEnabled(false);
+                managerApplyViewHolder.f15939c.setClickable(false);
             }
-            managerApplyViewHolder.f15937b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            managerApplyViewHolder.f15940e = this.r;
+            managerApplyViewHolder.f15938b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            managerApplyViewHolder.f15941e = this.r;
         }
         return view;
     }
 
     public final void y0(AccountData accountData) {
-        d.b.b.a.f<?> a2 = d.b.b.a.j.a(this.f42357e);
+        d.b.b.a.f<?> a2 = d.b.b.a.j.a(this.f42358e);
         Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
         if (this.w == null) {
             this.w = new d.b.h0.s.i.b(pageActivity);

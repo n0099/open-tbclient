@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ChannelManager {
     public static boolean DEBUG = AppConfig.isDebug();
     public static final String KEY_CHANNEL = "channel";
@@ -167,14 +167,14 @@ public class ChannelManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x003c, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x003d, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003f, code lost:
         android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0056, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -197,29 +197,29 @@ public class ChannelManager {
                 } catch (Exception e2) {
                     e = e2;
                 }
-            } catch (Throwable th) {
+            } catch (IOException e3) {
+                if (DEBUG) {
+                    Log.e(TAG, "readLastChannelFromRaw", e3);
+                }
                 try {
                     openRawResource.close();
                     bufferedReader.close();
-                } catch (Exception e3) {
-                    if (DEBUG) {
-                        Log.e(TAG, "readLastChannelFromRaw", e3);
-                    }
+                } catch (Exception e4) {
+                    e = e4;
                 }
-                throw th;
             }
-        } catch (IOException e4) {
-            if (DEBUG) {
-                Log.e(TAG, "readLastChannelFromRaw", e4);
-            }
+            return str;
+        } catch (Throwable th) {
             try {
                 openRawResource.close();
                 bufferedReader.close();
             } catch (Exception e5) {
-                e = e5;
+                if (DEBUG) {
+                    Log.e(TAG, "readLastChannelFromRaw", e5);
+                }
             }
+            throw th;
         }
-        return str;
     }
 
     private void saveCannelToCache() {

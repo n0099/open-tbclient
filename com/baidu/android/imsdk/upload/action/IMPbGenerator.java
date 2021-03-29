@@ -22,7 +22,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class IMPbGenerator {
     public static final int MAX_ALL_LENGTH = 800;
     public static final int MAX_CRASH_LENGTH = 300;

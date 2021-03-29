@@ -34,20 +34,20 @@ import d.b.i0.u3.l.j;
 import d.b.i0.u3.u.a;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d, AbsListView.OnScrollListener {
+public class ImageListFragment extends BaseFragment implements d.InterfaceC1616d, AbsListView.OnScrollListener {
     public j H;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragmentActivity f22245e;
+    public BaseFragmentActivity f22246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.u3.l.e f22246f;
+    public d.b.i0.u3.l.e f22247f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.u3.l.c f22247g;
+    public d.b.i0.u3.l.c f22248g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.e.f f22248h;
+    public d.b.h0.e.f f22249h;
     public View i;
     public RelativeLayout j;
     public ImageView k;
@@ -81,13 +81,13 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ImageListFragment.this.f22247g == null) {
+            if (ImageListFragment.this.f22248g == null) {
                 return;
             }
-            int l = ImageListFragment.this.f22247g.l();
-            if (ImageListFragment.this.f22247g.D() < l) {
-                if (ImageListFragment.this.f22246f != null) {
-                    ImageListFragment.this.f22246f.T(ImageListFragment.this.getPageContext());
+            int l = ImageListFragment.this.f22248g.l();
+            if (ImageListFragment.this.f22248g.D() < l) {
+                if (ImageListFragment.this.f22247f != null) {
+                    ImageListFragment.this.f22247f.T(ImageListFragment.this.getPageContext());
                     return;
                 }
                 return;
@@ -104,12 +104,12 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ImageListFragment.this.f22247g == null) {
+            if (ImageListFragment.this.f22248g == null) {
                 return;
             }
             if (ImageListFragment.this.H == null || !ImageListFragment.this.H.i()) {
                 if (view == ImageListFragment.this.n) {
-                    ImageListFragment.this.o.k(ImageListFragment.this.f22247g.e(), ImageListFragment.this.f22247g.h());
+                    ImageListFragment.this.o.k(ImageListFragment.this.f22248g.e(), ImageListFragment.this.f22248g.h());
                     ImageListFragment.this.o.n(ImageListFragment.this.t == null ? ImageListFragment.this.s : ImageListFragment.this.t);
                     ImageListFragment.this.n.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null), (Drawable) null);
                     return;
@@ -165,21 +165,21 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
 
         @Override // d.b.i0.u3.l.g
         public void a(int i, MediaFileInfo mediaFileInfo) {
-            if (ImageListFragment.this.f22247g == null || ImageListFragment.this.f22247g.m() == null || !ImageListFragment.this.f22247g.m().isFromQRCode() || !(mediaFileInfo instanceof ImageFileInfo)) {
-                if (mediaFileInfo == null || ImageListFragment.this.f22247g == null) {
+            if (ImageListFragment.this.f22248g == null || ImageListFragment.this.f22248g.m() == null || !ImageListFragment.this.f22248g.m().isFromQRCode() || !(mediaFileInfo instanceof ImageFileInfo)) {
+                if (mediaFileInfo == null || ImageListFragment.this.f22248g == null) {
                     return;
                 }
                 if (mediaFileInfo instanceof ImageFileInfo) {
-                    ImageListFragment.this.f22247g.y((ImageFileInfo) mediaFileInfo);
-                    if (ImageListFragment.this.f22246f != null) {
-                        ImageListFragment.this.f22246f.P(1);
+                    ImageListFragment.this.f22248g.y((ImageFileInfo) mediaFileInfo);
+                    if (ImageListFragment.this.f22247f != null) {
+                        ImageListFragment.this.f22247f.P(1);
                         return;
                     }
                     return;
                 }
                 boolean z = mediaFileInfo instanceof VideoFileInfo;
-            } else if (ImageListFragment.this.f22246f != null) {
-                ImageListFragment.this.f22246f.l((ImageFileInfo) mediaFileInfo);
+            } else if (ImageListFragment.this.f22247f != null) {
+                ImageListFragment.this.f22247f.l((ImageFileInfo) mediaFileInfo);
             }
         }
     }
@@ -192,15 +192,15 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         @Override // d.b.i0.u3.u.a.f
         public void onItemClick(int i, d.b.h0.e.a aVar) {
             List<MediaFileInfo> d2;
-            if (ImageListFragment.this.f22247g == null || aVar == null) {
+            if (ImageListFragment.this.f22248g == null || aVar == null) {
                 return;
             }
             String b2 = aVar.b();
             String g2 = aVar.g();
-            if (b2 == null || b2.equals(ImageListFragment.this.f22247g.h()) || (d2 = ImageListFragment.this.f22247g.d(b2)) == null) {
+            if (b2 == null || b2.equals(ImageListFragment.this.f22248g.h()) || (d2 = ImageListFragment.this.f22248g.d(b2)) == null) {
                 return;
             }
-            ImageListFragment.this.f22247g.x(b2);
+            ImageListFragment.this.f22248g.x(b2);
             ImageListFragment.this.q.m(d2);
             ImageListFragment.this.n.setText(g2);
             ImageListFragment.this.p.smoothScrollToPosition(0);
@@ -214,35 +214,35 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
 
         @Override // d.b.i0.u3.l.h
         public boolean a(int i, MediaFileInfo mediaFileInfo) {
-            if (mediaFileInfo == null || ImageListFragment.this.f22245e == null || ImageListFragment.this.f22247g == null || ImageListFragment.this.f22246f == null) {
+            if (mediaFileInfo == null || ImageListFragment.this.f22246e == null || ImageListFragment.this.f22248g == null || ImageListFragment.this.f22247f == null) {
                 return true;
             }
             if (mediaFileInfo instanceof ImageFileInfo) {
                 ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
                 if (d.b.i0.u3.s.b.a(imageFileInfo)) {
-                    ImageListFragment.this.f22245e.showToast(R.string.album_choose_image_low_quality_tip);
+                    ImageListFragment.this.f22246e.showToast(R.string.album_choose_image_low_quality_tip);
                     return false;
                 }
-                if (ImageListFragment.this.f22247g.n(imageFileInfo)) {
-                    ImageListFragment.this.f22246f.i(imageFileInfo);
+                if (ImageListFragment.this.f22248g.n(imageFileInfo)) {
+                    ImageListFragment.this.f22247f.i(imageFileInfo);
                 } else {
-                    ImageListFragment.this.f22246f.c(imageFileInfo);
+                    ImageListFragment.this.f22247f.c(imageFileInfo);
                 }
-                ImageListFragment.this.f22247g.w(null);
+                ImageListFragment.this.f22248g.w(null);
                 ImageListFragment.this.q.notifyDataSetChanged();
                 ImageListFragment.this.j1();
                 return true;
             } else if (mediaFileInfo instanceof VideoFileInfo) {
-                if (ImageListFragment.this.f22247g.o()) {
-                    ImageListFragment.this.f22245e.showToast(R.string.album_choose_switch_tip);
+                if (ImageListFragment.this.f22248g.o()) {
+                    ImageListFragment.this.f22246e.showToast(R.string.album_choose_switch_tip);
                     return true;
                 }
                 VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
                 if (ImageListFragment.this.U0(videoFileInfo) && ImageListFragment.this.T0(videoFileInfo)) {
-                    ImageListFragment.this.f22247g.w(videoFileInfo);
-                    ImageListFragment.this.f22247g.b();
+                    ImageListFragment.this.f22248g.w(videoFileInfo);
+                    ImageListFragment.this.f22248g.b();
                     ImageListFragment.this.q.notifyDataSetChanged();
-                    ImageListFragment.this.f22246f.h();
+                    ImageListFragment.this.f22247f.h();
                 }
                 return true;
             } else {
@@ -264,11 +264,11 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
             if (gVar == null) {
                 gVar = new d.b.h0.e.g();
             }
-            if (ImageListFragment.this.f22247g != null && ImageListFragment.this.q != null) {
-                ImageListFragment.this.f22247g.z(gVar);
-                String h2 = ImageListFragment.this.f22247g.h();
-                ImageListFragment.this.f22247g.x(h2);
-                ImageListFragment.this.q.m(ImageListFragment.this.f22247g.d(h2));
+            if (ImageListFragment.this.f22248g != null && ImageListFragment.this.q != null) {
+                ImageListFragment.this.f22248g.z(gVar);
+                String h2 = ImageListFragment.this.f22248g.h();
+                ImageListFragment.this.f22248g.x(h2);
+                ImageListFragment.this.q.m(ImageListFragment.this.f22248g.d(h2));
                 if (ImageListFragment.this.p != null) {
                     ImageListFragment.this.p.smoothScrollToPosition(0);
                 }
@@ -287,7 +287,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     public final boolean T0(VideoFileInfo videoFileInfo) {
         VideoFileInfo e2 = j.e(videoFileInfo.videoPath);
         if (e2 != null && Math.max(e2.videoWidth, e2.videoHeight) > 4096) {
-            this.f22245e.showToast(R.string.album_choose_video_resolution_tip);
+            this.f22246e.showToast(R.string.album_choose_video_resolution_tip);
             return false;
         }
         return true;
@@ -296,14 +296,14 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     public final boolean U0(VideoFileInfo videoFileInfo) {
         int i2 = videoFileInfo != null ? videoFileInfo.videoDuration : 0;
         if (i2 < 3000 || i2 > 600000) {
-            this.f22245e.showToast(R.string.album_choose_video_time_tip);
+            this.f22246e.showToast(R.string.album_choose_video_time_tip);
             return false;
         }
         return true;
     }
 
     public View V0() {
-        d.b.i0.u3.l.e eVar = this.f22246f;
+        d.b.i0.u3.l.e eVar = this.f22247f;
         return (eVar == null || eVar.o() != 1) ? this.l : this.k;
     }
 
@@ -328,19 +328,19 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     }
 
     public void a1() {
-        if (this.f22248h == null) {
-            this.f22248h = new d.b.h0.e.f(getPageContext().getPageActivity());
+        if (this.f22249h == null) {
+            this.f22249h = new d.b.h0.e.f(getPageContext().getPageActivity());
         }
-        d.b.i0.u3.l.e eVar = this.f22246f;
-        this.f22248h.h((eVar == null || !eVar.e()) ? 2 : 0, new i());
+        d.b.i0.u3.l.e eVar = this.f22247f;
+        this.f22249h.h((eVar == null || !eVar.e()) ? 2 : 0, new i());
     }
 
     public final void b1() {
         d.b.i0.u3.l.e eVar;
-        if (this.f22247g == null && (eVar = this.f22246f) != null) {
-            this.f22247g = eVar.p();
+        if (this.f22248g == null && (eVar = this.f22247f) != null) {
+            this.f22248g = eVar.p();
         }
-        d.b.i0.u3.l.c cVar = this.f22247g;
+        d.b.i0.u3.l.c cVar = this.f22248g;
         if (cVar == null) {
             return;
         }
@@ -349,7 +349,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         } else {
             a1();
         }
-        e1(this.f22247g.s());
+        e1(this.f22248g.s());
     }
 
     public void c1(int i2, boolean z) {
@@ -378,7 +378,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     }
 
     public void e1(boolean z) {
-        BaseFragmentActivity baseFragmentActivity = this.f22245e;
+        BaseFragmentActivity baseFragmentActivity = this.f22246e;
         if (baseFragmentActivity == null || this.v == null) {
             return;
         }
@@ -393,7 +393,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     }
 
     public void f1(d.b.i0.u3.l.e eVar) {
-        this.f22246f = eVar;
+        this.f22247f = eVar;
     }
 
     public void g1(NavigationBar navigationBar) {
@@ -413,21 +413,21 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         this.y.h(true);
     }
 
-    /* JADX WARN: Type inference failed for: r0v7, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v7, types: [boolean, int] */
     public final void j1() {
         String string;
         int i2;
-        d.b.i0.u3.l.c cVar = this.f22247g;
+        d.b.i0.u3.l.c cVar = this.f22248g;
         if (cVar == null || this.m == null) {
             return;
         }
         if (cVar.p()) {
-            ?? p = this.f22247g.p();
-            string = this.f22245e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf((int) p), 1});
+            ?? p = this.f22248g.p();
+            string = this.f22246e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf((int) p), 1});
             i2 = p;
         } else {
-            int count = ListUtils.getCount(this.f22247g.g());
-            string = this.f22245e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.f22247g.l())});
+            int count = ListUtils.getCount(this.f22248g.g());
+            string = this.f22246e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.f22248g.l())});
             i2 = count;
         }
         this.m.setText(string);
@@ -441,7 +441,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         SkinManager.setBackgroundColor(this.w, R.color.CAM_X0204, i2);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0105, i2);
         if (this.l != null && this.k != null) {
-            d.b.i0.u3.l.e eVar = this.f22246f;
+            d.b.i0.u3.l.e eVar = this.f22247f;
             if (eVar != null && eVar.o() == 1) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0105, null);
                 this.l.setVisibility(8);
@@ -461,7 +461,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         if (noDataView != null) {
             noDataView.f(getPageContext(), i2);
         }
-        d.b.i0.u3.l.c cVar = this.f22247g;
+        d.b.i0.u3.l.c cVar = this.f22248g;
         if (cVar != null) {
             e1(cVar.s());
         }
@@ -471,21 +471,21 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-        this.f22245e = baseFragmentActivity;
-        if (this.f22246f == null) {
+        this.f22246e = baseFragmentActivity;
+        if (this.f22247f == null) {
             if (baseFragmentActivity instanceof AlbumFloatActivity) {
-                this.f22246f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
+                this.f22247f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
             } else if (baseFragmentActivity instanceof AlbumActivity) {
-                this.f22246f = ((AlbumActivity) baseFragmentActivity).albumView;
+                this.f22247f = ((AlbumActivity) baseFragmentActivity).albumView;
             }
         }
-        d.b.i0.u3.l.e eVar = this.f22246f;
+        d.b.i0.u3.l.e eVar = this.f22247f;
         if (eVar != null) {
-            this.f22247g = eVar.p();
+            this.f22248g = eVar.p();
         }
         d.b.i0.u3.l.d.f().d(this);
-        this.f22248h = new d.b.h0.e.f(this.f22245e);
-        d.b.i0.u3.u.a aVar = new d.b.i0.u3.u.a(this.f22245e);
+        this.f22249h = new d.b.h0.e.f(this.f22246e);
+        d.b.i0.u3.u.a aVar = new d.b.i0.u3.u.a(this.f22246e);
         this.o = aVar;
         aVar.setOnDismissListener(this.D);
         this.o.l(this.F);
@@ -494,17 +494,17 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-        this.f22245e = baseFragmentActivity;
-        if (this.f22246f == null) {
+        this.f22246e = baseFragmentActivity;
+        if (this.f22247f == null) {
             if (baseFragmentActivity instanceof AlbumFloatActivity) {
-                this.f22246f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
+                this.f22247f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
             } else if (baseFragmentActivity instanceof AlbumActivity) {
-                this.f22246f = ((AlbumActivity) baseFragmentActivity).albumView;
+                this.f22247f = ((AlbumActivity) baseFragmentActivity).albumView;
             }
         }
-        d.b.i0.u3.l.e eVar = this.f22246f;
+        d.b.i0.u3.l.e eVar = this.f22247f;
         if (eVar != null) {
-            this.f22247g = eVar.p();
+            this.f22248g = eVar.p();
         }
         View inflate = layoutInflater.inflate(R.layout.album_image_list_view, (ViewGroup) null);
         this.i = inflate;
@@ -519,21 +519,21 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.next_step);
         this.m = tBSpecificationBtn;
         tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-        this.m.getStyleConfig().k(l.g(this.f22245e, R.dimen.tbds25));
-        this.f22247g.x(d.b.h0.e.a.f50119f);
-        this.n.setText(this.f22245e.getPageContext().getString(R.string.album_all_media));
-        if (this.f22247g.m() != null) {
-            this.v.setVisibility(this.f22247g.m().isEnableChooseOriginalImg() ? 0 : 4);
+        this.m.getStyleConfig().k(l.g(this.f22246e, R.dimen.tbds25));
+        this.f22248g.x(d.b.h0.e.a.f50120f);
+        this.n.setText(this.f22246e.getPageContext().getString(R.string.album_all_media));
+        if (this.f22248g.m() != null) {
+            this.v.setVisibility(this.f22248g.m().isEnableChooseOriginalImg() ? 0 : 4);
         }
-        if (this.f22247g.m() != null && this.f22247g.m().isFromQRCode()) {
+        if (this.f22248g.m() != null && this.f22248g.m().isFromQRCode()) {
             this.u.setVisibility(8);
         }
-        this.r = NoDataViewFactory.a(this.f22245e.getPageContext().getPageActivity(), this.j, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.b(R.string.album_list_no_data, R.string.album_list_no_data_1), null);
+        this.r = NoDataViewFactory.a(this.f22246e.getPageContext().getPageActivity(), this.j, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.b(R.string.album_list_no_data, R.string.album_list_no_data_1), null);
         TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.i.findViewById(R.id.gv_image_list);
         this.p = transparentHeadGridView;
         transparentHeadGridView.setSelector(R.color.transparent);
-        this.q = new d.b.i0.u3.l.i(this.f22245e, this.f22247g);
-        if (this.f22247g.m() != null && this.f22247g.m().isFromQRCode()) {
+        this.q = new d.b.i0.u3.l.i(this.f22246e, this.f22248g);
+        if (this.f22248g.m() != null && this.f22248g.m().isFromQRCode()) {
             this.q.v(false);
         } else {
             this.q.v(true);
@@ -545,10 +545,10 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         this.q.q(this.z);
         this.q.o(this.C);
         this.q.p(this.B);
-        this.m.setOnClickListener(this.f22245e);
-        this.k.setOnClickListener(this.f22245e);
-        this.l.setOnClickListener(this.f22245e);
-        this.v.setOnClickListener(this.f22245e);
+        this.m.setOnClickListener(this.f22246e);
+        this.k.setOnClickListener(this.f22246e);
+        this.l.setOnClickListener(this.f22246e);
+        this.v.setOnClickListener(this.f22246e);
         this.n.setOnClickListener(this.A);
         this.u.setOnClickListener(this.A);
         j1();
@@ -567,11 +567,11 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.b.h0.e.f fVar = this.f22248h;
+        d.b.h0.e.f fVar = this.f22249h;
         if (fVar != null) {
             fVar.c();
         }
-        BaseFragmentActivity baseFragmentActivity = this.f22245e;
+        BaseFragmentActivity baseFragmentActivity = this.f22246e;
         if (baseFragmentActivity != null) {
             baseFragmentActivity.closeLoadingDialog();
         }
@@ -638,7 +638,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC1615d
         b1();
     }
 
-    @Override // d.b.i0.u3.l.d.InterfaceC1615d
+    @Override // d.b.i0.u3.l.d.InterfaceC1616d
     public void z(boolean z) {
         w();
     }

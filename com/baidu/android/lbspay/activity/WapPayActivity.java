@@ -28,7 +28,7 @@ import com.baidu.wallet.base.widget.WalletBaseEmptyView;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WapPayActivity extends LBSBaseActivity implements View.OnClickListener {
     public static final String BAIDUSCHEME = "baiduwalletjuhe";
     public static final String CLOSE_VIEW_METHOD = "close_view";
@@ -53,7 +53,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
     public SafeWebView mWebView;
     public String title;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class OnPageCancelListener implements DialogInterface.OnCancelListener {
         public OnPageCancelListener() {
         }
@@ -63,11 +63,11 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends SafeWebView.SafeChromeClient {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2582b;
+        public boolean f2583b;
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, final JsResult jsResult) {
@@ -120,10 +120,10 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i) {
             if (i <= 25) {
-                this.f2582b = false;
-            } else if (!this.f2582b) {
+                this.f2583b = false;
+            } else if (!this.f2583b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
-                this.f2582b = true;
+                this.f2583b = true;
             }
             if (i == 100) {
                 WapPayActivity wapPayActivity = WapPayActivity.this;
@@ -136,11 +136,11 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
-            if (!this.f2582b) {
+            if (!this.f2583b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             super.onReceivedTitle(webView, str);
-            this.f2582b = true;
+            this.f2583b = true;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -151,19 +151,19 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b extends SafeWebView.SafeWebViewClient {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2596b;
+        public boolean f2597b;
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            if (!this.f2596b) {
+            if (!this.f2597b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             super.doUpdateVisitedHistory(webView, str, z);
-            this.f2596b = true;
+            this.f2597b = true;
         }
 
         @Override // android.webkit.WebViewClient
@@ -177,12 +177,12 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             LogUtil.logd("url=" + str);
-            if (!this.f2596b) {
+            if (!this.f2597b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             WalletGlobalUtils.safeDismissDialog(WapPayActivity.this, -2);
             super.onPageFinished(webView, str);
-            this.f2596b = false;
+            this.f2597b = false;
             WapPayActivity wapPayActivity = WapPayActivity.this;
             if (!wapPayActivity.finishedError && !TextUtils.isEmpty(wapPayActivity.title) && !WapPayActivity.this.title.startsWith("http") && !WapPayActivity.this.title.contains("错误") && !WapPayActivity.this.title.contains("error")) {
                 WapPayActivity wapPayActivity2 = WapPayActivity.this;
@@ -202,7 +202,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             LogUtil.logd("url=" + str);
             WapPayActivity wapPayActivity = WapPayActivity.this;
             wapPayActivity.titleBar.setTitle(wapPayActivity.mLoadingTitle);
-            if (!this.f2596b) {
+            if (!this.f2597b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             if (str.contains(WapPayActivity.PAGE_URL)) {
@@ -242,7 +242,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             } else {
                 WalletGlobalUtils.safeShowDialog(WapPayActivity.this, -2, "");
                 super.onPageStarted(webView, str, bitmap);
-                this.f2596b = true;
+                this.f2597b = true;
             }
         }
 

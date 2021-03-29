@@ -164,7 +164,7 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface Mode {
     }
 
@@ -457,13 +457,13 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface TabGravity {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface TabIndicatorGravity {
     }
 
@@ -703,8 +703,9 @@ public class TabLayout extends HorizontalScrollView {
                 float textSize = this.textView.getTextSize();
                 int lineCount = this.textView.getLineCount();
                 int maxLines = TextViewCompat.getMaxLines(this.textView);
-                if (f2 != textSize || (maxLines >= 0 && i3 != maxLines)) {
-                    if (TabLayout.this.mode == 1 && f2 > textSize && lineCount == 1 && ((layout = this.textView.getLayout()) == null || approximateLineWidth(layout, 0, f2) > (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight())) {
+                int i4 = (f2 > textSize ? 1 : (f2 == textSize ? 0 : -1));
+                if (i4 != 0 || (maxLines >= 0 && i3 != maxLines)) {
+                    if (TabLayout.this.mode == 1 && i4 > 0 && lineCount == 1 && ((layout = this.textView.getLayout()) == null || approximateLineWidth(layout, 0, f2) > (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight())) {
                         z = false;
                     }
                     if (z) {

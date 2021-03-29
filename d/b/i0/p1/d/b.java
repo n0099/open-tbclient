@@ -14,15 +14,15 @@ public class b implements LiveRealAuthService {
     public class a implements ICertification.CertificationCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveRealAuthCallback f58789a;
+        public final /* synthetic */ LiveRealAuthCallback f58790a;
 
         public a(b bVar, LiveRealAuthCallback liveRealAuthCallback) {
-            this.f58789a = liveRealAuthCallback;
+            this.f58790a = liveRealAuthCallback;
         }
 
         @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
         public void onResult(int i, Map<String, Object> map) {
-            LiveRealAuthCallback liveRealAuthCallback = this.f58789a;
+            LiveRealAuthCallback liveRealAuthCallback = this.f58790a;
             if (liveRealAuthCallback != null) {
                 liveRealAuthCallback.onRealAuthResult(i, map);
             }

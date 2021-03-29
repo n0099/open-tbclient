@@ -18,7 +18,7 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatche
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import h.d;
 import h.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
 

@@ -8,13 +8,13 @@ public class k implements com.kwad.sdk.core.c<o.a> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(o.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "photoPlaySecond", aVar.f34056a);
-        com.kwad.sdk.utils.o.a(jSONObject, "itemClickType", aVar.f34057b);
-        com.kwad.sdk.utils.o.a(jSONObject, "itemCloseType", aVar.f34058c);
-        com.kwad.sdk.utils.o.a(jSONObject, "elementType", aVar.f34059d);
-        com.kwad.sdk.utils.o.a(jSONObject, "payload", aVar.f34061f);
-        com.kwad.sdk.utils.o.a(jSONObject, "deeplinkType", aVar.f34062g);
-        com.kwad.sdk.utils.o.a(jSONObject, "downloadSource", aVar.f34063h);
+        com.kwad.sdk.utils.o.a(jSONObject, "photoPlaySecond", aVar.f34057a);
+        com.kwad.sdk.utils.o.a(jSONObject, "itemClickType", aVar.f34058b);
+        com.kwad.sdk.utils.o.a(jSONObject, "itemCloseType", aVar.f34059c);
+        com.kwad.sdk.utils.o.a(jSONObject, "elementType", aVar.f34060d);
+        com.kwad.sdk.utils.o.a(jSONObject, "payload", aVar.f34062f);
+        com.kwad.sdk.utils.o.a(jSONObject, "deeplinkType", aVar.f34063g);
+        com.kwad.sdk.utils.o.a(jSONObject, "downloadSource", aVar.f34064h);
         com.kwad.sdk.utils.o.a(jSONObject, "isPackageChanged", aVar.i);
         com.kwad.sdk.utils.o.a(jSONObject, "installedFrom", aVar.j);
         com.kwad.sdk.utils.o.a(jSONObject, "downloadFailedReason", aVar.k);
@@ -33,13 +33,13 @@ public class k implements com.kwad.sdk.core.c<o.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f34056a = jSONObject.optInt("photoPlaySecond");
-        aVar.f34057b = jSONObject.optInt("itemClickType");
-        aVar.f34058c = jSONObject.optInt("itemCloseType");
-        aVar.f34059d = jSONObject.optInt("elementType");
-        aVar.f34061f = jSONObject.optString("payload");
-        aVar.f34062g = jSONObject.optInt("deeplinkType");
-        aVar.f34063h = jSONObject.optInt("downloadSource");
+        aVar.f34057a = jSONObject.optInt("photoPlaySecond");
+        aVar.f34058b = jSONObject.optInt("itemClickType");
+        aVar.f34059c = jSONObject.optInt("itemCloseType");
+        aVar.f34060d = jSONObject.optInt("elementType");
+        aVar.f34062f = jSONObject.optString("payload");
+        aVar.f34063g = jSONObject.optInt("deeplinkType");
+        aVar.f34064h = jSONObject.optInt("downloadSource");
         aVar.i = jSONObject.optInt("isPackageChanged");
         aVar.j = jSONObject.optString("installedFrom");
         aVar.k = jSONObject.optString("downloadFailedReason");

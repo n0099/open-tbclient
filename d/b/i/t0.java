@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class t0 extends h {
     public TbPageContext l;
     public int m;
     public VoteView n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.q.a f51822e;
+        public final /* synthetic */ d.b.h0.r.q.a f51823e;
 
         public a(d.b.h0.r.q.a aVar) {
-            this.f51822e = aVar;
+            this.f51823e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ThreadCardUtils.jumpToPB(this.f51822e, (Context) t0.this.l.getPageActivity(), t0.this.m, false);
+            ThreadCardUtils.jumpToPB(this.f51823e, (Context) t0.this.l.getPageActivity(), t0.this.m, false);
         }
     }
 

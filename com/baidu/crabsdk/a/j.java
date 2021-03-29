@@ -2,20 +2,20 @@ package com.baidu.crabsdk.a;
 
 import android.os.Handler;
 import d.b.n.a.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f4658a = new g("loop");
+    public static g f4659a = new g("loop");
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f4659b = new g("writelog");
+    public static g f4660b = new g("writelog");
 
     public static Handler a() {
-        return f4658a.a();
+        return f4659a.a();
     }
 
     public static Handler b() {
-        return f4659b.a();
+        return f4660b.a();
     }
 }

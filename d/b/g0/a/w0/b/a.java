@@ -27,34 +27,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements d.b.g0.l.b {
 
     /* renamed from: d.b.g0.a.w0.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0870a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0871a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f46852e;
+        public final /* synthetic */ Set f46853e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.l.m.i.f f46853f;
+        public final /* synthetic */ d.b.g0.l.m.i.f f46854f;
 
         /* renamed from: d.b.g0.a.w0.b.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0871a extends d.b.g0.a.e0.p.a {
+        /* loaded from: classes2.dex */
+        public class C0872a extends d.b.g0.a.e0.p.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AtomicInteger f46854a;
+            public final /* synthetic */ AtomicInteger f46855a;
 
-            public C0871a(AtomicInteger atomicInteger) {
-                this.f46854a = atomicInteger;
+            public C0872a(AtomicInteger atomicInteger) {
+                this.f46855a = atomicInteger;
             }
 
             @Override // d.b.g0.a.e0.p.a
             public void c() {
-                if (this.f46854a.get() == 0) {
-                    g.a().c(RunnableC0870a.this.f46853f);
+                if (this.f46855a.get() == 0) {
+                    g.a().c(RunnableC0871a.this.f46854f);
                 }
             }
 
@@ -62,30 +62,30 @@ public class a implements d.b.g0.l.b {
             public void d(d.b.g0.l.k.a aVar) {
                 int i;
                 super.d(aVar);
-                if (aVar == null || (i = aVar.f48913a) == 1010 || i == 1015) {
+                if (aVar == null || (i = aVar.f48914a) == 1010 || i == 1015) {
                     return;
                 }
-                this.f46854a.incrementAndGet();
+                this.f46855a.incrementAndGet();
             }
 
             @Override // d.b.g0.a.e0.p.a
             public void f() {
-                if (this.f46854a.get() == 0) {
-                    g.a().c(RunnableC0870a.this.f46853f);
+                if (this.f46855a.get() == 0) {
+                    g.a().c(RunnableC0871a.this.f46854f);
                 }
             }
         }
 
-        public RunnableC0870a(a aVar, Set set, d.b.g0.l.m.i.f fVar) {
-            this.f46852e = set;
-            this.f46853f = fVar;
+        public RunnableC0871a(a aVar, Set set, d.b.g0.l.m.i.f fVar) {
+            this.f46853e = set;
+            this.f46854f = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList arrayList = new ArrayList();
             AtomicInteger atomicInteger = new AtomicInteger(0);
-            for (String str : this.f46852e) {
+            for (String str : this.f46853e) {
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new b.a(str, 0));
                 }
@@ -93,27 +93,27 @@ public class a implements d.b.g0.l.b {
             if (arrayList.isEmpty()) {
                 return;
             }
-            d.b.g0.a.e0.h.a.a.b(arrayList, "3", new C0871a(atomicInteger));
+            d.b.g0.a.e0.h.a.a.b(arrayList, "3", new C0872a(atomicInteger));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a2.g.b f46856e;
+        public final /* synthetic */ d.b.g0.a.a2.g.b f46857e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46857f;
+        public final /* synthetic */ JSONObject f46858f;
 
         public b(a aVar, d.b.g0.a.a2.g.b bVar, JSONObject jSONObject) {
-            this.f46856e = bVar;
-            this.f46857f = jSONObject;
+            this.f46857e = bVar;
+            this.f46858f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.g1.o.a.h().r(this.f46856e, this.f46857f);
+            d.b.g0.a.g1.o.a.h().r(this.f46857e, this.f46858f);
         }
     }
 
@@ -144,7 +144,7 @@ public class a implements d.b.g0.l.b {
 
     @Override // d.b.g0.l.b
     public boolean isDebug() {
-        return k.f45050a;
+        return k.f45051a;
     }
 
     @Override // d.b.g0.l.b
@@ -223,7 +223,7 @@ public class a implements d.b.g0.l.b {
         if (fVar == null || (b2 = fVar.b()) == null || b2.size() <= 0) {
             return;
         }
-        ExecutorUtilsExt.postOnElastic(new RunnableC0870a(this, b2, fVar), "preloadPkg", 2);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0871a(this, b2, fVar), "preloadPkg", 2);
     }
 
     @Override // d.b.g0.l.b

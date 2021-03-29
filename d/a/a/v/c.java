@@ -12,10 +12,10 @@ public class c extends a implements Choreographer.FrameCallback {
     public d.a.a.d n;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f41439g = 1.0f;
+    public float f41440g = 1.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41440h = false;
+    public boolean f41441h = false;
     public long i = 0;
     public float j = 0.0f;
     public int k = 0;
@@ -29,7 +29,7 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public void B(float f2) {
-        this.f41439g = f2;
+        this.f41440g = f2;
     }
 
     public final void C() {
@@ -76,7 +76,7 @@ public class c extends a implements Choreographer.FrameCallback {
                 d();
                 this.k++;
                 if (getRepeatMode() == 2) {
-                    this.f41440h = !this.f41440h;
+                    this.f41441h = !this.f41441h;
                     v();
                 } else {
                     this.j = o() ? l() : m();
@@ -157,7 +157,7 @@ public class c extends a implements Choreographer.FrameCallback {
         if (dVar == null) {
             return Float.MAX_VALUE;
         }
-        return (1.0E9f / dVar.h()) / Math.abs(this.f41439g);
+        return (1.0E9f / dVar.h()) / Math.abs(this.f41440g);
     }
 
     public float l() {
@@ -179,7 +179,7 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float n() {
-        return this.f41439g;
+        return this.f41440g;
     }
 
     public final boolean o() {
@@ -216,10 +216,10 @@ public class c extends a implements Choreographer.FrameCallback {
     @Override // android.animation.ValueAnimator
     public void setRepeatMode(int i) {
         super.setRepeatMode(i);
-        if (i == 2 || !this.f41440h) {
+        if (i == 2 || !this.f41441h) {
             return;
         }
-        this.f41440h = false;
+        this.f41441h = false;
         v();
     }
 

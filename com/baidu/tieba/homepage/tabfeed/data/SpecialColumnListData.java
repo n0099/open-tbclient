@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SpecialColumnListData extends d.b.h0.r.q.a implements Parcelable {
     public static final int MAX_SIZE = 3;
     public List<SpecialColumnItemData> mListData;
@@ -19,7 +19,7 @@ public class SpecialColumnListData extends d.b.h0.r.q.a implements Parcelable {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR = new a();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SpecialColumnListData> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

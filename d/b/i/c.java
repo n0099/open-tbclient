@@ -2,31 +2,31 @@ package d.b.i;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout.LayoutParams f51767e;
+    public RelativeLayout.LayoutParams f51768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51768f;
+    public int f51769f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f51769g;
+    public View f51770g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k0 f51770h;
+    public k0 f51771h;
 
     public View b() {
-        return this.f51769g;
+        return this.f51770g;
     }
 
     public int c() {
-        return this.f51768f;
+        return this.f51769f;
     }
 
     public RelativeLayout.LayoutParams d() {
-        return this.f51767e;
+        return this.f51768e;
     }
 
     public void e() {
@@ -36,18 +36,18 @@ public class c {
     }
 
     public void g(View view) {
-        this.f51769g = view;
+        this.f51770g = view;
     }
 
     public void h(int i) {
-        this.f51768f = i;
+        this.f51769f = i;
     }
 
     public void i(RelativeLayout.LayoutParams layoutParams) {
-        this.f51767e = layoutParams;
+        this.f51768e = layoutParams;
     }
 
     public void j(k0 k0Var) {
-        this.f51770h = k0Var;
+        this.f51771h = k0Var;
     }
 }

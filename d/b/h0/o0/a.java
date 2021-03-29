@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f50372a = false;
+    public static boolean f50373a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f50373b = "";
+    public static String f50374b = "";
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00db */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0043 */
@@ -38,8 +38,8 @@ public class a {
     /* JADX WARN: Type inference failed for: r8v4, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r8v9 */
     public static String a(File file) {
-        if (f50372a) {
-            return "hasSend_" + f50373b;
+        if (f50373a) {
+            return "hasSend_" + f50374b;
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
         if (file.length() > 3145728 || !TbadkCoreApplication.isLogin()) {
@@ -61,8 +61,8 @@ public class a {
                         String postMultiNetData = netWork.postMultiNetData();
                         if (postMultiNetData != null && !postMultiNetData.isEmpty()) {
                             String string = new JSONObject(postMultiNetData).getString("url");
-                            f50373b = string;
-                            f50372a = true;
+                            f50374b = string;
+                            f50373a = true;
                             try {
                                 fileInputStream2.close();
                             } catch (IOException e2) {
@@ -142,9 +142,9 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:92:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:90:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

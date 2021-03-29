@@ -12,7 +12,7 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.e.e, TabDoubleGameLiveViewHolder
     public boolean o;
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.e.f60327g);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.e.e.f60328g);
         this.o = false;
         this.m = tbPageContext;
     }
@@ -32,11 +32,11 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.e.e, TabDoubleGameLiveViewHolder
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.e.e eVar, TabDoubleGameLiveViewHolder tabDoubleGameLiveViewHolder) {
         d.b.i0.t.d.c.h.e eVar2;
-        if (tabDoubleGameLiveViewHolder == null || (eVar2 = tabDoubleGameLiveViewHolder.f14810a) == null) {
+        if (tabDoubleGameLiveViewHolder == null || (eVar2 = tabDoubleGameLiveViewHolder.f14811a) == null) {
             return null;
         }
         eVar2.n(eVar);
-        tabDoubleGameLiveViewHolder.f14810a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        tabDoubleGameLiveViewHolder.f14811a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return tabDoubleGameLiveViewHolder.a();
     }
 

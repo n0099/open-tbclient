@@ -3,24 +3,24 @@ package d.b.i0.c2;
 public class e<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f52316a;
+    public int f52317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f52317b;
+    public T f52318b;
 
     public T a() {
-        return this.f52317b;
+        return this.f52318b;
     }
 
     public int b() {
-        return this.f52316a;
+        return this.f52317a;
     }
 
     public void c(T t) {
-        this.f52317b = t;
+        this.f52318b = t;
     }
 
     public void d(int i) {
-        this.f52316a = i;
+        this.f52317a = i;
     }
 }

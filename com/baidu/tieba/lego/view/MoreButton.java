@@ -8,26 +8,26 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import d.b.i0.c3.v;
 import d.b.i0.i1.o.j.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MoreButton extends TextView {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18753e;
+        public final /* synthetic */ TbPageContext f18754e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18754f;
+        public final /* synthetic */ c f18755f;
 
         public a(TbPageContext tbPageContext, c cVar) {
-            this.f18753e = tbPageContext;
-            this.f18754f = cVar;
+            this.f18754e = tbPageContext;
+            this.f18755f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.c(this.f18753e, this.f18754f.d());
+            v.c(this.f18754e, this.f18755f.d());
         }
     }
 

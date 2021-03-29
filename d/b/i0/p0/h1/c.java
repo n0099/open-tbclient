@@ -12,22 +12,22 @@ public class c extends BaseCardInfo {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57564e;
+    public String f57565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57565f;
+    public String f57566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57566g;
+    public String f57567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57567h;
+    public String f57568h;
     public List<MediaData> i;
     public int j;
     public boolean k = false;
 
     public String g() {
-        return this.f57566g;
+        return this.f57567g;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
@@ -36,15 +36,15 @@ public class c extends BaseCardInfo {
     }
 
     public String j() {
-        return this.f57565f;
+        return this.f57566f;
     }
 
     public String n() {
-        return this.f57564e;
+        return this.f57565e;
     }
 
     public String o() {
-        return this.f57567h;
+        return this.f57568h;
     }
 
     public boolean s() {
@@ -63,10 +63,10 @@ public class c extends BaseCardInfo {
         if (adInfo == null) {
             return;
         }
-        this.f57564e = adInfo.portrait;
-        this.f57565f = adInfo.ad_name;
-        this.f57566g = adInfo.ad_desc;
-        this.f57567h = adInfo.ad_url;
+        this.f57565e = adInfo.portrait;
+        this.f57566f = adInfo.ad_name;
+        this.f57567g = adInfo.ad_desc;
+        this.f57568h = adInfo.ad_url;
         this.j = adInfo.show_rule.intValue();
         if (adInfo.media != null) {
             this.i = new ArrayList();

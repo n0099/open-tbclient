@@ -18,22 +18,22 @@ import java.util.List;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11220c = "SapiScheme";
+    public static final String f11221c = "SapiScheme";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11221d = "3.0.5";
+    public static final String f11222d = "3.0.5";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f11222e = 2;
+    public static final int f11223e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11223f = "3.0.5";
+    public static final String f11224f = "3.0.5";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11224g = "com.baidu.passport.securitycenter";
+    public static final String f11225g = "com.baidu.passport.securitycenter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f11225h = "baiduppscapp";
+    public static final String f11226h = "baiduppscapp";
     public static final String i = "otp";
     public static final int j = 0;
     public static final int k = 1;
@@ -44,15 +44,15 @@ public class a {
     public static final String p = "achieve_sc_app_data";
 
     /* renamed from: a  reason: collision with root package name */
-    public SapiWebView.InvokeScAppCallback.InvokeScAppResult f11226a;
+    public SapiWebView.InvokeScAppCallback.InvokeScAppResult f11227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f11227b;
+    public b f11228b;
 
     public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
         PackageInfo packageInfo;
         try {
-            packageInfo = context.getPackageManager().getPackageInfo(f11224g, 0);
+            packageInfo = context.getPackageManager().getPackageInfo(f11225g, 0);
         } catch (PackageManager.NameNotFoundException unused) {
             packageInfo = null;
         }
@@ -69,24 +69,24 @@ public class a {
     }
 
     public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-        this.f11226a = invokeScAppResult;
+        this.f11227a = invokeScAppResult;
         a aVar = new a();
-        if (!aVar.a((Context) activity, f11224g)) {
-            this.f11226a.setInvokeResult(a(b.f11229b, b.f11231d));
+        if (!aVar.a((Context) activity, f11225g)) {
+            this.f11227a.setInvokeResult(a(b.f11230b, b.f11232d));
             return;
         }
         try {
             aVar.a(activity, aVar.a(str, str2, list));
         } catch (Exception unused) {
-            this.f11226a.setInvokeResult(a(b.f11228a, b.f11230c));
+            this.f11227a.setInvokeResult(a(b.f11229a, b.f11231c));
         }
     }
 
     public void a(int i2, int i3, Intent intent) {
-        if (this.f11226a == null) {
+        if (this.f11227a == null) {
             return;
         }
-        this.f11226a.setInvokeResult(intent != null ? intent.getExtras().getString(p) : null);
+        this.f11227a.setInvokeResult(intent != null ? intent.getExtras().getString(p) : null);
     }
 
     private String a(String str, String str2, List<PassNameValuePair> list) {
@@ -121,9 +121,9 @@ public class a {
 
     private String a(int i2, String str) {
         b bVar = new b();
-        this.f11227b = bVar;
+        this.f11228b = bVar;
         bVar.setResultCode(i2);
-        this.f11227b.setResultMsg(str);
-        return this.f11227b.a();
+        this.f11228b.setResultMsg(str);
+        return this.f11228b.a();
     }
 }

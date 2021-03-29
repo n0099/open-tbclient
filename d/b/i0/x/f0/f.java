@@ -27,12 +27,12 @@ public class f extends d.b.i0.x.b<e> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -51,7 +51,7 @@ public class f extends d.b.i0.x.b<e> {
         } else {
             this.m.setVisibility(8);
         }
-        this.n.setText(eVar.f62232e);
+        this.n.setText(eVar.f62233e);
         o(null, TbadkCoreApplication.getInst().getSkinType());
     }
 }

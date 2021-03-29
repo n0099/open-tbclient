@@ -10,50 +10,50 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28279a;
+    public int f28280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28280b;
+    public String f28281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f28281c;
+    public d f28282c;
 
     public e(@NonNull c cVar) {
-        this.f28279a = cVar.a();
-        this.f28280b = cVar.b();
-        this.f28281c = cVar.c();
+        this.f28280a = cVar.a();
+        this.f28281b = cVar.b();
+        this.f28282c = cVar.c();
     }
 
     public int a() {
-        return (int) this.f28281c.c();
+        return (int) this.f28282c.c();
     }
 
     public int b() {
-        return (int) this.f28281c.f();
+        return (int) this.f28282c.f();
     }
 
     public int c() {
-        return (int) this.f28281c.d();
+        return (int) this.f28282c.d();
     }
 
     public int d() {
-        return (int) this.f28281c.e();
+        return (int) this.f28282c.e();
     }
 
     public float e() {
-        return this.f28281c.g();
+        return this.f28282c.g();
     }
 
     public String f() {
-        return this.f28279a == 0 ? this.f28280b : "";
+        return this.f28280a == 0 ? this.f28281b : "";
     }
 
     public int g() {
-        return a(this.f28281c.j());
+        return a(this.f28282c.j());
     }
 
     public int h() {
-        String i = this.f28281c.i();
+        String i = this.f28282c.i();
         if (CustomDialogData.POS_LEFT.equals(i)) {
             return 2;
         }
@@ -64,35 +64,35 @@ public class e {
     }
 
     public String i() {
-        return this.f28279a == 2 ? this.f28280b : "";
+        return this.f28280a == 2 ? this.f28281b : "";
     }
 
     public String j() {
-        return this.f28279a == 1 ? this.f28280b : "";
+        return this.f28280a == 1 ? this.f28281b : "";
     }
 
     public int k() {
-        return this.f28281c.h();
+        return this.f28282c.h();
     }
 
     public float l() {
-        return this.f28281c.a();
+        return this.f28282c.a();
     }
 
     public int m() {
-        return a(this.f28281c.l());
+        return a(this.f28282c.l());
     }
 
     public float n() {
-        return this.f28281c.b();
+        return this.f28282c.b();
     }
 
     public boolean o() {
-        return this.f28281c.o();
+        return this.f28282c.o();
     }
 
     public int p() {
-        String m = this.f28281c.m();
+        String m = this.f28282c.m();
         if (!TextUtils.isEmpty(m) && !m.equals("none")) {
             if (m.equals("normal")) {
                 return 1;
@@ -103,7 +103,7 @@ public class e {
             if (m.equals("video")) {
                 return 4;
             }
-            if ("slide".equals(this.f28281c.n())) {
+            if ("slide".equals(this.f28282c.n())) {
                 return 2;
             }
         }
@@ -111,7 +111,7 @@ public class e {
     }
 
     public int q() {
-        return a(this.f28281c.k());
+        return a(this.f28282c.k());
     }
 
     private int a(String str) {

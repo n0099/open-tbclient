@@ -40,31 +40,31 @@ public class i {
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f66889a;
+    public Activity f66894a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66890b;
+    public Context f66895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66891c;
+    public String f66896c;
     public String c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f66892d;
+    public List<String> f66897d;
     public int[] d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66893e;
+    public String f66898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66894f;
+    public String f66899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66895g;
+    public String f66900g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f66896h;
+    public List<com.ss.android.socialbase.downloader.model.c> f66901h;
     public d.o.a.e.b.f.b m;
     public d.o.a.e.b.f.b n;
     public String o;
@@ -92,12 +92,12 @@ public class i {
     public boolean b0 = true;
 
     public i(@NonNull Context context, @NonNull String str) {
-        this.f66890b = context.getApplicationContext();
-        this.f66891c = str;
+        this.f66895b = context.getApplicationContext();
+        this.f66896c = str;
     }
 
     public Activity A() {
-        return this.f66889a;
+        return this.f66894a;
     }
 
     public d.o.a.e.b.f.b A0() {
@@ -187,7 +187,7 @@ public class i {
     }
 
     public i J(String str) {
-        this.f66893e = str;
+        this.f66898e = str;
         return this;
     }
 
@@ -196,7 +196,7 @@ public class i {
     }
 
     public i K(List<com.ss.android.socialbase.downloader.model.c> list) {
-        this.f66896h = list;
+        this.f66901h = list;
         return this;
     }
 
@@ -239,7 +239,7 @@ public class i {
     }
 
     public List<String> P() {
-        return this.f66892d;
+        return this.f66897d;
     }
 
     public String P0() {
@@ -263,7 +263,7 @@ public class i {
     }
 
     public Context S() {
-        return this.f66890b;
+        return this.f66895b;
     }
 
     public int S0() {
@@ -276,12 +276,12 @@ public class i {
     }
 
     public i U(String str) {
-        this.f66894f = str;
+        this.f66899f = str;
         return this;
     }
 
     public i V(List<String> list) {
-        this.f66892d = list;
+        this.f66897d = list;
         return this;
     }
 
@@ -296,7 +296,7 @@ public class i {
     }
 
     public i Y(@NonNull String str) {
-        this.f66895g = str;
+        this.f66900g = str;
         return this;
     }
 
@@ -310,7 +310,7 @@ public class i {
     }
 
     public String a0() {
-        return this.f66891c;
+        return this.f66896c;
     }
 
     public String b() {
@@ -345,7 +345,7 @@ public class i {
     }
 
     public String e0() {
-        return this.f66893e;
+        return this.f66898e;
     }
 
     public int f() {
@@ -380,7 +380,7 @@ public class i {
     }
 
     public String i0() {
-        return this.f66895g;
+        return this.f66900g;
     }
 
     public boolean j() {
@@ -415,11 +415,11 @@ public class i {
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> m0() {
-        return this.f66896h;
+        return this.f66901h;
     }
 
     public String n() {
-        return this.f66894f;
+        return this.f66899f;
     }
 
     public i n0(String str) {

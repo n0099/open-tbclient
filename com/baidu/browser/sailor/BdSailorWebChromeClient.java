@@ -17,7 +17,7 @@ import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebStorage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebChromeClient implements INoProGuard {
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0023, code lost:
         if ((r2 instanceof android.app.Activity) != false) goto L4;

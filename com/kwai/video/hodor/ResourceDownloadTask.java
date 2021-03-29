@@ -75,7 +75,7 @@ public class ResourceDownloadTask extends AbstractHodorTask {
     };
     public TaskInfo mTaskInfo = new TaskInfo();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface ResourceDirEvictStrategy {
     }
 
@@ -86,7 +86,7 @@ public class ResourceDownloadTask extends AbstractHodorTask {
         void onTaskStatusChanged(TaskInfo taskInfo);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface SaveMode {
     }
 

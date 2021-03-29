@@ -17,16 +17,16 @@ public interface l extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0492a implements l {
+        public static class C0493a implements l {
 
             /* renamed from: a  reason: collision with root package name */
-            public static l f38826a;
+            public static l f38827a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38827b;
+            public IBinder f38828b;
 
-            public C0492a(IBinder iBinder) {
-                this.f38827b = iBinder;
+            public C0493a(IBinder iBinder) {
+                this.f38828b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -41,7 +41,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f38827b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38828b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo);
                     } else {
                         obtain2.readException();
@@ -54,7 +54,7 @@ public interface l extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38827b;
+                return this.f38828b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -69,7 +69,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f38827b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f38828b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -93,7 +93,7 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C0492a(iBinder);
+            return new C0493a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -124,7 +124,7 @@ public interface l extends IInterface {
         }
 
         public static l a() {
-            return C0492a.f38826a;
+            return C0493a.f38827a;
         }
     }
 }

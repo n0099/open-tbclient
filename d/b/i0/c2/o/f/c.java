@@ -27,20 +27,20 @@ public class c extends d.b.b.j.e.a<u, VideoPbEnterForumViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
     public VideoPbEnterForumViewHolder R(ViewGroup viewGroup) {
-        FrameLayout frameLayout = new FrameLayout(this.f42357e);
-        CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f42357e);
-        cardForumHeadLayout.setPadding(l.g(this.f42357e, R.dimen.tbds32), 0, 0, 0);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(this.f42357e, R.dimen.tbds156));
-        layoutParams.leftMargin = l.g(this.f42357e, R.dimen.tbds44);
-        layoutParams.rightMargin = l.g(this.f42357e, R.dimen.tbds44);
-        layoutParams.bottomMargin = l.g(this.f42357e, R.dimen.tbds76);
+        FrameLayout frameLayout = new FrameLayout(this.f42358e);
+        CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f42358e);
+        cardForumHeadLayout.setPadding(l.g(this.f42358e, R.dimen.tbds32), 0, 0, 0);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(this.f42358e, R.dimen.tbds156));
+        layoutParams.leftMargin = l.g(this.f42358e, R.dimen.tbds44);
+        layoutParams.rightMargin = l.g(this.f42358e, R.dimen.tbds44);
+        layoutParams.bottomMargin = l.g(this.f42358e, R.dimen.tbds76);
         frameLayout.addView(cardForumHeadLayout, layoutParams);
         return new VideoPbEnterForumViewHolder(frameLayout);
     }
 
     public View i0(int i, View view, ViewGroup viewGroup, u uVar, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
         if (uVar != null) {
-            videoPbEnterForumViewHolder.setData(uVar.f52477e);
+            videoPbEnterForumViewHolder.setData(uVar.f52478e);
         }
         videoPbEnterForumViewHolder.b();
         return view;

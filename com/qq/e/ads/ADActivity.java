@@ -13,12 +13,12 @@ import com.qq.e.comm.util.StringUtil;
 public class ADActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public ACTD f38004a;
+    public ACTD f38005a;
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onActivityResult(i, i2, intent);
         }
@@ -26,7 +26,7 @@ public class ADActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onBackPressed();
         }
@@ -35,7 +35,7 @@ public class ADActivity extends Activity {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onConfigurationChanged(configuration);
         }
@@ -57,7 +57,7 @@ public class ADActivity extends Activity {
                     if (!StringUtil.isEmpty(str2) && !StringUtil.isEmpty(string)) {
                         if (GDTADManager.getInstance().initWith(getApplicationContext(), string)) {
                             ACTD activityDelegate = pOFactory.getActivityDelegate(str2, this);
-                            this.f38004a = activityDelegate;
+                            this.f38005a = activityDelegate;
                             if (activityDelegate == null) {
                                 str = "Init ADActivity Delegate return null,delegateName" + str2;
                             }
@@ -71,7 +71,7 @@ public class ADActivity extends Activity {
         } catch (Throwable th) {
             GDTLogger.e("Init ADActivity Delegate Faile,DelegateName:" + str2, th);
         }
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onBeforeCreate(bundle);
         } else {
@@ -86,7 +86,7 @@ public class ADActivity extends Activity {
         } catch (Exception e3) {
             GDTLogger.report("onCreate ADActivity err", e3);
         }
-        ACTD actd2 = this.f38004a;
+        ACTD actd2 = this.f38005a;
         if (actd2 != null) {
             actd2.onAfterCreate(bundle);
         }
@@ -95,7 +95,7 @@ public class ADActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onDestroy();
         }
@@ -103,7 +103,7 @@ public class ADActivity extends Activity {
 
     @Override // android.app.Activity
     public void onPause() {
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onPause();
         }
@@ -113,7 +113,7 @@ public class ADActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onResume();
         }
@@ -121,7 +121,7 @@ public class ADActivity extends Activity {
 
     @Override // android.app.Activity
     public void onStop() {
-        ACTD actd = this.f38004a;
+        ACTD actd = this.f38005a;
         if (actd != null) {
             actd.onStop();
         }

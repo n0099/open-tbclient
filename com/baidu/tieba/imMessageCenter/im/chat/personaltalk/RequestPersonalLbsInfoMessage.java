@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.SetLocation.DataReq;
 import protobuf.SetLocation.SetLocationReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestPersonalLbsInfoMessage extends TbSocketMessage {
     public String lat;
     public String lng;

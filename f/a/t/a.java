@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public final class a implements b, f.a.x.a.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public g<b> f67466e;
+    public g<b> f67471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f67467f;
+    public volatile boolean f67472f;
 
     @Override // f.a.x.a.a
     public boolean a(b bVar) {
@@ -25,13 +25,13 @@ public final class a implements b, f.a.x.a.a {
     @Override // f.a.x.a.a
     public boolean b(b bVar) {
         f.a.x.b.a.b(bVar, "d is null");
-        if (!this.f67467f) {
+        if (!this.f67472f) {
             synchronized (this) {
-                if (!this.f67467f) {
-                    g<b> gVar = this.f67466e;
+                if (!this.f67472f) {
+                    g<b> gVar = this.f67471e;
                     if (gVar == null) {
                         gVar = new g<>();
-                        this.f67466e = gVar;
+                        this.f67471e = gVar;
                     }
                     gVar.a(bVar);
                     return true;
@@ -45,14 +45,14 @@ public final class a implements b, f.a.x.a.a {
     @Override // f.a.x.a.a
     public boolean c(b bVar) {
         f.a.x.b.a.b(bVar, "Disposable item is null");
-        if (this.f67467f) {
+        if (this.f67472f) {
             return false;
         }
         synchronized (this) {
-            if (this.f67467f) {
+            if (this.f67472f) {
                 return false;
             }
-            g<b> gVar = this.f67466e;
+            g<b> gVar = this.f67471e;
             if (gVar != null && gVar.e(bVar)) {
                 return true;
             }
@@ -89,35 +89,35 @@ public final class a implements b, f.a.x.a.a {
 
     @Override // f.a.t.b
     public void dispose() {
-        if (this.f67467f) {
+        if (this.f67472f) {
             return;
         }
         synchronized (this) {
-            if (this.f67467f) {
+            if (this.f67472f) {
                 return;
             }
-            this.f67467f = true;
-            g<b> gVar = this.f67466e;
-            this.f67466e = null;
+            this.f67472f = true;
+            g<b> gVar = this.f67471e;
+            this.f67471e = null;
             d(gVar);
         }
     }
 
     public int e() {
-        if (this.f67467f) {
+        if (this.f67472f) {
             return 0;
         }
         synchronized (this) {
-            if (this.f67467f) {
+            if (this.f67472f) {
                 return 0;
             }
-            g<b> gVar = this.f67466e;
+            g<b> gVar = this.f67471e;
             return gVar != null ? gVar.g() : 0;
         }
     }
 
     @Override // f.a.t.b
     public boolean isDisposed() {
-        return this.f67467f;
+        return this.f67472f;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.android.common.others.java;
 
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ReflectionUtils {
     public static final boolean DEBUG = false;
     public static final String TAG = "ReflectionUtils";

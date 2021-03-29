@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.sofire.g.t;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class THReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, final Intent intent) {
@@ -22,10 +22,10 @@ public class THReceiver extends BroadcastReceiver {
                         new StringBuilder().append(intent.toString());
                         b.a();
                         System.currentTimeMillis();
-                        if (r.f7663a.equals(intent.getStringExtra("t"))) {
+                        if (r.f7664a.equals(intent.getStringExtra("t"))) {
                             String stringExtra = intent.getStringExtra("c");
                             Intent intent2 = new Intent();
-                            intent2.putExtra("t", r.f7663a);
+                            intent2.putExtra("t", r.f7664a);
                             intent2.putExtra("c", stringExtra);
                             a.a(context, intent2);
                         }

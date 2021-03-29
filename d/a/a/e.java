@@ -23,23 +23,23 @@ import java.util.zip.ZipInputStream;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, l<d.a.a.d>> f41134a = new HashMap();
+    public static final Map<String, l<d.a.a.d>> f41135a = new HashMap();
 
     /* loaded from: classes.dex */
     public static class a implements h<Throwable> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41135a;
+        public final /* synthetic */ String f41136a;
 
         public a(String str) {
-            this.f41135a = str;
+            this.f41136a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.a.h
         /* renamed from: a */
         public void onResult(Throwable th) {
-            e.f41134a.remove(this.f41135a);
+            e.f41135a.remove(this.f41136a);
         }
     }
 
@@ -47,21 +47,21 @@ public class e {
     public static class b implements Callable<k<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41136e;
+        public final /* synthetic */ Context f41137e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41137f;
+        public final /* synthetic */ String f41138f;
 
         public b(Context context, String str) {
-            this.f41136e = context;
-            this.f41137f = str;
+            this.f41137e = context;
+            this.f41138f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public k<d.a.a.d> call() {
-            return e.e(this.f41136e, this.f41137f);
+            return e.e(this.f41137e, this.f41138f);
         }
     }
 
@@ -69,21 +69,21 @@ public class e {
     public static class c implements Callable<k<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41138e;
+        public final /* synthetic */ Context f41139e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f41139f;
+        public final /* synthetic */ int f41140f;
 
         public c(Context context, int i) {
-            this.f41138e = context;
-            this.f41139f = i;
+            this.f41139e = context;
+            this.f41140f = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public k<d.a.a.d> call() {
-            return e.l(this.f41138e, this.f41139f);
+            return e.l(this.f41139e, this.f41140f);
         }
     }
 
@@ -91,44 +91,44 @@ public class e {
     public static class d implements Callable<k<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InputStream f41140e;
+        public final /* synthetic */ InputStream f41141e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41141f;
+        public final /* synthetic */ String f41142f;
 
         public d(InputStream inputStream, String str) {
-            this.f41140e = inputStream;
-            this.f41141f = str;
+            this.f41141e = inputStream;
+            this.f41142f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public k<d.a.a.d> call() {
-            return e.g(this.f41140e, this.f41141f);
+            return e.g(this.f41141e, this.f41142f);
         }
     }
 
     /* renamed from: d.a.a.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class CallableC0525e implements Callable<k<d.a.a.d>> {
+    public static class CallableC0526e implements Callable<k<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsonReader f41142e;
+        public final /* synthetic */ JsonReader f41143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41143f;
+        public final /* synthetic */ String f41144f;
 
-        public CallableC0525e(JsonReader jsonReader, String str) {
-            this.f41142e = jsonReader;
-            this.f41143f = str;
+        public CallableC0526e(JsonReader jsonReader, String str) {
+            this.f41143e = jsonReader;
+            this.f41144f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public k<d.a.a.d> call() {
-            return e.j(this.f41142e, this.f41143f);
+            return e.j(this.f41143e, this.f41144f);
         }
     }
 
@@ -136,10 +136,10 @@ public class e {
     public static class f implements Callable<k<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.a.d f41144e;
+        public final /* synthetic */ d.a.a.d f41145e;
 
         public f(d.a.a.d dVar) {
-            this.f41144e = dVar;
+            this.f41145e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,7 +147,7 @@ public class e {
         /* renamed from: a */
         public k<d.a.a.d> call() {
             Log.d("Gabe", "call\treturning from cache");
-            return new k<>(this.f41144e);
+            return new k<>(this.f41145e);
         }
     }
 
@@ -155,20 +155,20 @@ public class e {
     public static class g implements h<d.a.a.d> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41145a;
+        public final /* synthetic */ String f41146a;
 
         public g(String str) {
-            this.f41145a = str;
+            this.f41146a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.a.h
         /* renamed from: a */
         public void onResult(d.a.a.d dVar) {
-            if (this.f41145a != null) {
-                d.a.a.s.g.b().c(this.f41145a, dVar);
+            if (this.f41146a != null) {
+                d.a.a.s.g.b().c(this.f41146a, dVar);
             }
-            e.f41134a.remove(this.f41145a);
+            e.f41135a.remove(this.f41146a);
         }
     }
 
@@ -177,13 +177,13 @@ public class e {
         if (a2 != null) {
             return new l<>(new f(a2));
         }
-        if (f41134a.containsKey(str)) {
-            return f41134a.get(str);
+        if (f41135a.containsKey(str)) {
+            return f41135a.get(str);
         }
         l<d.a.a.d> lVar = new l<>(callable);
         lVar.h(new g(str));
         lVar.g(new a(str));
-        f41134a.put(str, lVar);
+        f41135a.put(str, lVar);
         return lVar;
     }
 
@@ -235,7 +235,7 @@ public class e {
     }
 
     public static l<d.a.a.d> i(JsonReader jsonReader, @Nullable String str) {
-        return b(str, new CallableC0525e(jsonReader, str));
+        return b(str, new CallableC0526e(jsonReader, str));
     }
 
     @WorkerThread

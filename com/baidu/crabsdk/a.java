@@ -4,34 +4,34 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static OnAnrCrashListener P = null;
     public static OnCrashExceedListener Q = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4634a = "";
+    public static String f4635a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4635b = "alpha";
+    public static String f4636b = "alpha";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4636c = null;
+    public static String f4637c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4637d = "UNSET";
+    public static String f4638d = "UNSET";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4638e = 10;
+    public static int f4639e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f4639f = 5;
+    public static int f4640f = 5;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f4640g = 10;
+    public static int f4641g = 10;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f4641h = 200;
+    public static int f4642h = 200;
     public static boolean i = true;
     public static int j = 50;
     public static long k = 10800000;

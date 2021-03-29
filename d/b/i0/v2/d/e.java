@@ -21,7 +21,7 @@ import com.sina.weibo.sdk.utils.Utility;
 public class e extends d.b.i0.v2.d.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareEntity f62061h;
+    public ShareEntity f62062h;
     public d.b.i0.v2.e.b i;
     public WbShareHandler j;
     public WbShareCallback k;
@@ -48,11 +48,11 @@ public class e extends d.b.i0.v2.d.a {
             if (aVar != null) {
                 Bitmap p = aVar.p();
                 e eVar = e.this;
-                eVar.L(eVar.f62061h, p);
+                eVar.L(eVar.f62062h, p);
                 return;
             }
             e eVar2 = e.this;
-            eVar2.L(eVar2.f62061h, null);
+            eVar2.L(eVar2.f62062h, null);
         }
     }
 
@@ -64,7 +64,7 @@ public class e extends d.b.i0.v2.d.a {
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f62051b = activity;
+        this.f62052b = activity;
         this.i = bVar;
         this.k = wbShareCallback;
         WbShareHandler wbShareHandler = new WbShareHandler(activity);
@@ -112,12 +112,12 @@ public class e extends d.b.i0.v2.d.a {
     }
 
     public final TextObject G() {
-        if (this.f62061h == null) {
+        if (this.f62062h == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = C(this.f62061h.n());
-        textObject.text = C(this.f62061h.topic) + C(this.f62061h.b());
+        textObject.title = C(this.f62062h.n());
+        textObject.text = C(this.f62062h.topic) + C(this.f62062h.b());
         return textObject;
     }
 
@@ -169,7 +169,7 @@ public class e extends d.b.i0.v2.d.a {
     }
 
     public final void L(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.f62061h != null && this.j != null && (this.f62051b instanceof Activity)) {
+        if (this.f62062h != null && this.j != null && (this.f62052b instanceof Activity)) {
             WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
             if (!TextUtils.isEmpty(shareEntity.b()) || !TextUtils.isEmpty(shareEntity.topic)) {
                 weiboMultiMessage.textObject = G();
@@ -194,25 +194,25 @@ public class e extends d.b.i0.v2.d.a {
     @Override // d.b.i0.v2.e.a
     public void a(ShareEntity shareEntity, d.b.i0.v2.e.b bVar) {
         if (shareEntity != null && this.j != null) {
-            this.f62061h = shareEntity;
+            this.f62062h = shareEntity;
             this.i = bVar;
             d.b.b.j.d.a o = o(shareEntity);
             if (o != null && o.p() != null) {
-                L(this.f62061h, o.p());
+                L(this.f62062h, o.p());
                 return;
             }
             String e2 = shareEntity.e();
             if (n(shareEntity.h())) {
-                L(this.f62061h, g(shareEntity.h()));
+                L(this.f62062h, g(shareEntity.h()));
                 return;
             } else if (!TextUtils.isEmpty(e2) && (e2.startsWith("http://") || e2.startsWith("https://"))) {
                 d.b.b.e.l.d.h().k(e2, 10, this.l, 0, 0, h(), new Object[0]);
                 return;
             } else if (m(shareEntity.d())) {
-                L(this.f62061h, f(shareEntity.d()));
+                L(this.f62062h, f(shareEntity.d()));
                 return;
             } else {
-                L(this.f62061h, d());
+                L(this.f62062h, d());
                 return;
             }
         }

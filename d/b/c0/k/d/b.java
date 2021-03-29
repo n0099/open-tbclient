@@ -5,31 +5,31 @@ import android.widget.ImageView;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f42579b;
+    public static b f42580b;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42580a;
+    public c f42581a;
 
     public b(c cVar) {
-        this.f42580a = cVar;
+        this.f42581a = cVar;
     }
 
     public static void a(c cVar) {
-        if (f42579b == null) {
+        if (f42580b == null) {
             synchronized (b.class) {
-                if (f42579b == null) {
-                    f42579b = new b(cVar);
+                if (f42580b == null) {
+                    f42580b = new b(cVar);
                 }
             }
         }
     }
 
     public static b c() {
-        return f42579b;
+        return f42580b;
     }
 
     public void b(ImageView imageView, String str) {
-        c cVar = this.f42580a;
+        c cVar = this.f42581a;
         if (cVar != null) {
             cVar.a(imageView, str);
         }

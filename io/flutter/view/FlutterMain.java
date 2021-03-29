@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class FlutterMain {
     public static boolean isRunningInRobolectricTest = false;
 

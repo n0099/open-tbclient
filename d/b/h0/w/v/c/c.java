@@ -12,34 +12,34 @@ import d.b.h0.w.v.d.d;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51556a = -1;
+    public int f51557a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f51557b;
+    public final View f51558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f51558c;
+    public final int f51559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f51559d;
+    public final boolean f51560d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.w.v.a f51560e;
+    public d.b.h0.w.v.a f51561e;
 
     public c(View view) {
-        this.f51557b = view;
-        this.f51558c = d.b.h0.w.v.d.c.a(view.getContext());
-        this.f51559d = d.c((Activity) view.getContext());
+        this.f51558b = view;
+        this.f51559c = d.b.h0.w.v.d.c.a(view.getContext());
+        this.f51560d = d.c((Activity) view.getContext());
     }
 
     public final d.b.h0.w.v.a a(View view) {
-        d.b.h0.w.v.a aVar = this.f51560e;
+        d.b.h0.w.v.a aVar = this.f51561e;
         if (aVar != null) {
             return aVar;
         }
         if (view instanceof d.b.h0.w.v.a) {
             d.b.h0.w.v.a aVar2 = (d.b.h0.w.v.a) view;
-            this.f51560e = aVar2;
+            this.f51561e = aVar2;
             return aVar2;
         } else if (!(view instanceof ViewGroup)) {
             return null;
@@ -52,7 +52,7 @@ public class c {
                 }
                 d.b.h0.w.v.a a2 = a(viewGroup.getChildAt(i));
                 if (a2 != null) {
-                    this.f51560e = a2;
+                    this.f51561e = a2;
                     return a2;
                 }
                 i++;
@@ -62,31 +62,31 @@ public class c {
 
     @TargetApi(16)
     public void b(int i, int i2) {
-        if (this.f51559d && Build.VERSION.SDK_INT >= 16 && this.f51557b.getFitsSystemWindows()) {
+        if (this.f51560d && Build.VERSION.SDK_INT >= 16 && this.f51558b.getFitsSystemWindows()) {
             Rect rect = new Rect();
-            this.f51557b.getWindowVisibleDisplayFrame(rect);
+            this.f51558b.getWindowVisibleDisplayFrame(rect);
             i2 = rect.bottom - rect.top;
         }
         Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
         if (i2 < 0) {
             return;
         }
-        int i3 = this.f51556a;
+        int i3 = this.f51557a;
         if (i3 < 0) {
-            this.f51556a = i2;
+            this.f51557a = i2;
             return;
         }
         int i4 = i3 - i2;
         if (i4 == 0) {
             Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-        } else if (Math.abs(i4) == this.f51558c) {
+        } else if (Math.abs(i4) == this.f51559c) {
             Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
         } else {
-            this.f51556a = i2;
-            d.b.h0.w.v.a a2 = a(this.f51557b);
+            this.f51557a = i2;
+            d.b.h0.w.v.a a2 = a(this.f51558b);
             if (a2 == null) {
                 Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-            } else if (Math.abs(i4) < d.b.h0.w.v.d.b.f(this.f51557b.getContext())) {
+            } else if (Math.abs(i4) < d.b.h0.w.v.d.b.f(this.f51558b.getContext())) {
                 Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
             } else if (i4 > 0) {
                 a2.handleHide();

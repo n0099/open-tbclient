@@ -18,30 +18,30 @@ import com.baidu.tieba.R;
 public class c extends ItemizedOverlay {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f10269b;
+    public View f10270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f10270c;
+    public TextView f10271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f10271d;
+    public ImageView f10272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f10272e;
+    public Context f10273e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f10273a = new c();
+        public static final c f10274a = new c();
     }
 
     public static c b() {
-        return a.f10273a;
+        return a.f10274a;
     }
 
     public void a(Context context, int[] iArr, int[] iArr2, int[] iArr3) {
-        this.f10272e = context;
+        this.f10273e = context;
         Bundle bundle = new Bundle();
         removeAll();
         for (int i = 0; i < iArr.length; i++) {
@@ -75,20 +75,20 @@ public class c extends ItemizedOverlay {
     private BitmapDescriptor a(Context context, int i) {
         try {
             View inflate = ((Activity) context).getLayoutInflater().inflate(R.array.S_O_X004, (ViewGroup) null);
-            this.f10269b = inflate;
-            this.f10270c = (TextView) inflate.findViewById(R.dimen.abc_text_size_caption_material);
-            this.f10271d = (ImageView) this.f10269b.findViewById(R.dimen.abc_text_size_button_material);
+            this.f10270b = inflate;
+            this.f10271c = (TextView) inflate.findViewById(R.dimen.abc_text_size_caption_material);
+            this.f10272d = (ImageView) this.f10270b.findViewById(R.dimen.abc_text_size_button_material);
             if (com.baidu.platform.comapi.wnplatform.a.a().h() == 2) {
-                TextView textView = this.f10270c;
+                TextView textView = this.f10271c;
                 textView.setText(i + "");
             } else {
-                this.f10270c.setText("途");
+                this.f10271c.setText("途");
             }
-            this.f10269b.setDrawingCacheEnabled(true);
-            this.f10269b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.f10269b.layout(0, 0, this.f10269b.getMeasuredWidth(), this.f10269b.getMeasuredHeight());
-            this.f10269b.buildDrawingCache();
-            return BitmapDescriptorFactory.fromBitmap(this.f10269b.getDrawingCache());
+            this.f10270b.setDrawingCacheEnabled(true);
+            this.f10270b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.f10270b.layout(0, 0, this.f10270b.getMeasuredWidth(), this.f10270b.getMeasuredHeight());
+            this.f10270b.buildDrawingCache();
+            return BitmapDescriptorFactory.fromBitmap(this.f10270b.getDrawingCache());
         } catch (Exception unused) {
             return null;
         }

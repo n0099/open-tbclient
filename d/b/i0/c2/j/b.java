@@ -8,23 +8,23 @@ import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 public abstract class b<D extends IBaseDialogData> implements g<D> {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f52495e;
+    public TbPageContext<?> f52496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f52496f;
+    public ViewGroup f52497f;
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f52495e = tbPageContext;
-        this.f52496f = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(b(), (ViewGroup) null, false);
+        this.f52496e = tbPageContext;
+        this.f52497f = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(b(), (ViewGroup) null, false);
         a();
     }
 
     public TbPageContext<?> d() {
-        return this.f52495e;
+        return this.f52496e;
     }
 
     @Override // d.b.i0.c2.j.g
     public ViewGroup getViewGroup() {
-        return this.f52496f;
+        return this.f52497f;
     }
 }

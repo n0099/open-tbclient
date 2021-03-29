@@ -6,7 +6,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UaParam {
     public String mEnUa;
     public String mUa;

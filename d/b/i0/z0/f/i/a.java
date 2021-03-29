@@ -31,17 +31,17 @@ import d.b.i0.z0.f.b;
 import d.b.i0.z0.f.c;
 import d.b.i0.z0.f.d.d;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements c, View.OnClickListener, f {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f63019e;
+    public TbPageContext f63020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LowFlowsActivity f63020f;
+    public LowFlowsActivity f63021f;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f63022h;
+    public d f63023h;
     public String i;
     public String j;
     public View m;
@@ -60,15 +60,15 @@ public class a implements c, View.OnClickListener, f {
     public RelativeLayout z;
     public String k = "";
     public int l = 3;
-    public AppBarLayout.OnOffsetChangedListener A = new C1697a();
+    public AppBarLayout.OnOffsetChangedListener A = new C1698a();
 
     /* renamed from: g  reason: collision with root package name */
-    public b f63021g = new d.b.i0.z0.f.g.a(this);
+    public b f63022g = new d.b.i0.z0.f.g.a(this);
 
     /* renamed from: d.b.i0.z0.f.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1697a implements AppBarLayout.OnOffsetChangedListener {
-        public C1697a() {
+    /* loaded from: classes3.dex */
+    public class C1698a implements AppBarLayout.OnOffsetChangedListener {
+        public C1698a() {
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
@@ -103,8 +103,8 @@ public class a implements c, View.OnClickListener, f {
     }
 
     public a(TbPageContext tbPageContext) {
-        this.f63019e = tbPageContext;
-        this.f63020f = (LowFlowsActivity) tbPageContext.getPageActivity();
+        this.f63020e = tbPageContext;
+        this.f63021f = (LowFlowsActivity) tbPageContext.getPageActivity();
         m();
         k();
     }
@@ -119,15 +119,15 @@ public class a implements c, View.OnClickListener, f {
         View view;
         LowFlowsActivity lowFlowsActivity;
         View view2 = this.v;
-        if (view2 != null && view2.getParent() != null && (lowFlowsActivity = this.f63020f) != null) {
+        if (view2 != null && view2.getParent() != null && (lowFlowsActivity = this.f63021f) != null) {
             lowFlowsActivity.hideLoadingView(this.v);
             this.v.setVisibility(8);
         }
-        if (this.f63020f == null || (view = this.w) == null) {
+        if (this.f63021f == null || (view = this.w) == null) {
             return;
         }
         view.setVisibility(0);
-        this.f63020f.showNetRefreshView(this.w, "");
+        this.f63021f.showNetRefreshView(this.w, "");
     }
 
     @Override // d.b.h0.m.f
@@ -135,7 +135,7 @@ public class a implements c, View.OnClickListener, f {
     }
 
     public final BdUniqueId h() {
-        TbPageContext tbPageContext = this.f63019e;
+        TbPageContext tbPageContext = this.f63020e;
         if (tbPageContext != null) {
             return tbPageContext.getUniqueId();
         }
@@ -152,24 +152,24 @@ public class a implements c, View.OnClickListener, f {
 
     public View j() {
         TbPageContext tbPageContext;
-        if (this.m == null && (tbPageContext = this.f63019e) != null) {
+        if (this.m == null && (tbPageContext = this.f63020e) != null) {
             this.m = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.activity_low_flows, (ViewGroup) null);
         }
         return this.m;
     }
 
     public final void k() {
-        TbPageContext tbPageContext = this.f63019e;
+        TbPageContext tbPageContext = this.f63020e;
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        this.f63019e.getPageActivity().setContentView(j());
+        this.f63020e.getPageActivity().setContentView(j());
         this.n = (ImageView) j().findViewById(R.id.header_img);
         this.o = (ImageView) j().findViewById(R.id.header_shadow);
         this.p = (NavigationBar) j().findViewById(R.id.lf_navigation_bar);
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) j().findViewById(R.id.more_treasure_trove_content);
         this.q = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f63019e.getPageActivity()));
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f63020e.getPageActivity()));
         this.q.setFadingEdgeLength(0);
         n(this.i);
         AppBarLayout appBarLayout = (AppBarLayout) j().findViewById(R.id.lf_app_bar_layout);
@@ -179,22 +179,22 @@ public class a implements c, View.OnClickListener, f {
         this.v = j().findViewById(R.id.net_loading_view);
         this.w = j().findViewById(R.id.net_refresh_view);
         l();
-        d dVar = new d(this.f63019e, this.q);
-        this.f63022h = dVar;
+        d dVar = new d(this.f63020e, this.q);
+        this.f63023h = dVar;
         dVar.e(h());
-        this.f63022h.d(this);
+        this.f63023h.d(this);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void l() {
-        TbPageContext tbPageContext = this.f63019e;
+        TbPageContext tbPageContext = this.f63020e;
         if (tbPageContext != null) {
             int g2 = l.g(tbPageContext.getPageActivity(), R.dimen.M_H_X008);
-            this.z = new RelativeLayout(this.f63019e.getPageActivity());
+            this.z = new RelativeLayout(this.f63020e.getPageActivity());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             this.z.setPadding(0, g2, 0, g2);
             this.z.setLayoutParams(layoutParams);
-            this.y = new TextView(this.f63019e.getPageActivity());
+            this.y = new TextView(this.f63020e.getPageActivity());
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
             this.y.setLayoutParams(layoutParams2);
@@ -208,7 +208,7 @@ public class a implements c, View.OnClickListener, f {
     public void loadData() {
         LowFlowsActivity lowFlowsActivity;
         View view = this.w;
-        if (view != null && view.getParent() != null && (lowFlowsActivity = this.f63020f) != null) {
+        if (view != null && view.getParent() != null && (lowFlowsActivity = this.f63021f) != null) {
             lowFlowsActivity.hideNetRefreshView(this.w);
             this.w.setVisibility(8);
         }
@@ -217,15 +217,15 @@ public class a implements c, View.OnClickListener, f {
             this.q.setVisibility(8);
         }
         View view2 = this.v;
-        if (view2 != null && this.f63020f != null) {
+        if (view2 != null && this.f63021f != null) {
             view2.setVisibility(0);
-            this.f63020f.showLoadingView(this.v);
+            this.f63021f.showLoadingView(this.v);
         }
         ImageView imageView = this.o;
         if (imageView != null && imageView.getVisibility() == 0) {
             this.o.setVisibility(8);
         }
-        b bVar = this.f63021g;
+        b bVar = this.f63022g;
         if (bVar != null) {
             bVar.c(h(), this.i, this.j, this.k);
         }
@@ -233,8 +233,8 @@ public class a implements c, View.OnClickListener, f {
 
     public final void m() {
         Intent intent;
-        TbPageContext tbPageContext = this.f63019e;
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null || (intent = this.f63019e.getPageActivity().getIntent()) == null) {
+        TbPageContext tbPageContext = this.f63020e;
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null || (intent = this.f63020e.getPageActivity().getIntent()) == null) {
             return;
         }
         this.i = intent.getStringExtra(LowFlowsActivityConfig.TAB_CODE);
@@ -277,7 +277,7 @@ public class a implements c, View.OnClickListener, f {
             d.b.h0.r.u.c a4 = d.b.h0.r.u.c.a(this.y);
             a4.r(R.dimen.T_X08);
             a4.n(R.color.CAM_X0109);
-            d dVar = this.f63022h;
+            d dVar = this.f63023h;
             if (dVar != null) {
                 dVar.b();
             }
@@ -287,17 +287,17 @@ public class a implements c, View.OnClickListener, f {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f63019e == null || view.getId() != R.id.navigationBarGoBack || this.f63019e.getPageActivity() == null) {
+        if (this.f63020e == null || view.getId() != R.id.navigationBarGoBack || this.f63020e.getPageActivity() == null) {
             return;
         }
-        this.f63019e.getPageActivity().finish();
+        this.f63020e.getPageActivity().finish();
     }
 
     @Override // d.b.i0.z0.f.c
     public void setData(List<n> list) {
         View view = this.v;
-        if (view != null && this.f63020f != null && view.getParent() != null) {
-            this.f63020f.hideLoadingView(this.v);
+        if (view != null && this.f63021f != null && view.getParent() != null) {
+            this.f63021f.hideLoadingView(this.v);
             this.v.setVisibility(8);
         }
         BdTypeRecyclerView bdTypeRecyclerView = this.q;
@@ -313,7 +313,7 @@ public class a implements c, View.OnClickListener, f {
                 ((z1) nVar).n().a2 = this.i;
             }
         }
-        d dVar = this.f63022h;
+        d dVar = this.f63023h;
         if (dVar != null) {
             dVar.c(list);
         }

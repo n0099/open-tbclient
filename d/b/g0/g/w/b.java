@@ -13,21 +13,21 @@ import okhttp3.Request;
 public class b extends HttpManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f48595a;
+    public static volatile b f48596a;
 
     public b() {
         super(d.b.g0.a.w0.a.c());
     }
 
     public static b c() {
-        if (f48595a == null) {
+        if (f48596a == null) {
             synchronized (b.class) {
-                if (f48595a == null) {
-                    f48595a = new b();
+                if (f48596a == null) {
+                    f48596a = new b();
                 }
             }
         }
-        return f48595a;
+        return f48596a;
     }
 
     public static b d() {
@@ -66,9 +66,9 @@ public class b extends HttpManager {
         d.b.g0.g.z.a.a G = e.y().G();
         OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
         int i = 60000;
-        if (G != null && (aVar = G.f48694b) != null) {
-            i = aVar.f45768a;
-            newBuilder.connectTimeout(aVar.f45769b, TimeUnit.MILLISECONDS);
+        if (G != null && (aVar = G.f48695b) != null) {
+            i = aVar.f45769a;
+            newBuilder.connectTimeout(aVar.f45770b, TimeUnit.MILLISECONDS);
             newBuilder.addNetworkInterceptor(new d.b.g0.a.g1.m.d());
         }
         long j = i;

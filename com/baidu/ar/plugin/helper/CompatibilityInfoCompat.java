@@ -1,7 +1,7 @@
 package com.baidu.ar.plugin.helper;
 
 import com.baidu.ar.plugin.reflect.FieldUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CompatibilityInfoCompat {
     public static Class sClass;
     public static Object sDefaultCompatibilityInfo;

@@ -7,17 +7,17 @@ import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f10288a = null;
+    public a f10289a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10289b = 1;
+    public int f10290b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f10290c;
+    public Handler f10291c;
 
     public b() {
         c cVar = new c(this);
-        this.f10290c = cVar;
+        this.f10291c = cVar;
         MessageCenter.registMessage(4099, cVar);
         b();
     }
@@ -32,8 +32,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f10290c = null;
-        this.f10288a = null;
+        this.f10291c = null;
+        this.f10289a = null;
         MessageCenter.registMessage(4099, null);
     }
 
@@ -43,7 +43,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(a aVar) {
-        this.f10288a = aVar;
+        this.f10289a = aVar;
     }
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
@@ -51,7 +51,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public int a(int i, int i2, int i3, byte[] bArr) {
-        a aVar = this.f10288a;
+        a aVar = this.f10289a;
         if (aVar != null) {
             aVar.a();
         }

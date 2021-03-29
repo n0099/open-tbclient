@@ -17,29 +17,29 @@ import d.b.g0.a.v1.c.h;
 import d.b.g0.a.v1.c.i.b;
 import d.b.g0.a.z0.f;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43741e;
+        public final /* synthetic */ CallbackHandler f43742e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43742f;
+        public final /* synthetic */ String f43743f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f43743g;
+        public final /* synthetic */ SwanAppActionBar f43744g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f43744h;
+        public final /* synthetic */ float f43745h;
 
         public a(b bVar, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, float f2) {
-            this.f43741e = callbackHandler;
-            this.f43742f = str;
-            this.f43743g = swanAppActionBar;
-            this.f43744h = f2;
+            this.f43742e = callbackHandler;
+            this.f43743f = str;
+            this.f43744g = swanAppActionBar;
+            this.f43745h = f2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,37 +47,37 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (!c.h(hVar)) {
-                c.o(hVar, this.f43741e, this.f43742f);
-            } else if (this.f43743g.getRightMenu() == null) {
-                this.f43741e.handleSchemeDispatchCallback(this.f43742f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                c.o(hVar, this.f43742e, this.f43743f);
+            } else if (this.f43744g.getRightMenu() == null) {
+                this.f43742e.handleSchemeDispatchCallback(this.f43743f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             } else {
-                this.f43743g.setRightMenuAlpha(this.f43744h);
-                this.f43741e.handleSchemeDispatchCallback(this.f43742f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f43744g.setRightMenuAlpha(this.f43745h);
+                this.f43742e.handleSchemeDispatchCallback(this.f43743f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
 
     /* renamed from: d.b.g0.a.c1.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0630b implements d.b.g0.a.i2.u0.b<h<b.e>> {
+    /* loaded from: classes2.dex */
+    public class C0631b implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43745e;
+        public final /* synthetic */ CallbackHandler f43746e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43746f;
+        public final /* synthetic */ String f43747f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f43747g;
+        public final /* synthetic */ boolean f43748g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f43748h;
+        public final /* synthetic */ SwanAppActionBar f43749h;
 
-        public C0630b(CallbackHandler callbackHandler, String str, boolean z, SwanAppActionBar swanAppActionBar) {
-            this.f43745e = callbackHandler;
-            this.f43746f = str;
-            this.f43747g = z;
-            this.f43748h = swanAppActionBar;
+        public C0631b(CallbackHandler callbackHandler, String str, boolean z, SwanAppActionBar swanAppActionBar) {
+            this.f43746e = callbackHandler;
+            this.f43747f = str;
+            this.f43748g = z;
+            this.f43749h = swanAppActionBar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,15 +85,15 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (!c.h(hVar)) {
-                c.o(hVar, this.f43745e, this.f43746f);
+                c.o(hVar, this.f43746e, this.f43747f);
                 return;
             }
-            if (this.f43747g) {
-                b.this.p(this.f43748h);
+            if (this.f43748g) {
+                b.this.p(this.f43749h);
             } else {
-                b.this.m(this.f43748h);
+                b.this.m(this.f43749h);
             }
-            this.f43745e.handleSchemeDispatchCallback(this.f43746f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f43746e.handleSchemeDispatchCallback(this.f43747f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
@@ -182,7 +182,7 @@ public class b extends a0 {
     }
 
     public final void o(e eVar, Context context, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, boolean z) {
-        eVar.R().g(context, "scope_hide_menu", new C0630b(callbackHandler, str, z, swanAppActionBar));
+        eVar.R().g(context, "scope_hide_menu", new C0631b(callbackHandler, str, z, swanAppActionBar));
     }
 
     public final boolean p(SwanAppActionBar swanAppActionBar) {

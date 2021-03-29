@@ -162,7 +162,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public boolean mIsFromCDN = true;
     public int imgIndex = 0;
     public PostData postData = null;
-    public a.InterfaceC1064a mMarkDoneCallBack = null;
+    public a.InterfaceC1065a mMarkDoneCallBack = null;
     public o0 forbidUserCallback = null;
     public o0 deleteReplayCallback = null;
     public boolean mIsPaused = false;
@@ -238,26 +238,26 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public class c implements WriteTipBubbleController.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f19879a;
+        public final /* synthetic */ View f19880a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.w.w.h f19880b;
+        public final /* synthetic */ d.b.h0.w.w.h f19881b;
 
         public c(View view, d.b.h0.w.w.h hVar) {
-            this.f19879a = view;
-            this.f19880b = hVar;
+            this.f19880a = view;
+            this.f19881b = hVar;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
         public void a(View view, String str) {
-            this.f19879a.performClick();
-            this.f19880b.p();
-            this.f19880b.s().i().setText(str);
-            Editable text = this.f19880b.s().i().getText();
+            this.f19880a.performClick();
+            this.f19881b.p();
+            this.f19881b.s().i().setText(str);
+            Editable text = this.f19881b.s().i().getText();
             if (TextUtils.isEmpty(text)) {
                 return;
             }
-            this.f19880b.s().i().setSelection(text.length());
+            this.f19881b.s().i().setSelection(text.length());
         }
     }
 
@@ -290,16 +290,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.i0.c2.h.q f19884e;
+            public final /* synthetic */ d.b.i0.c2.h.q f19885e;
 
             public a(d.b.i0.c2.h.q qVar) {
-                this.f19884e = qVar;
+                this.f19885e = qVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 NewSubPbActivity.this.needOpenEditor = false;
-                NewSubPbActivity.this.openEditor(this.f19884e.i(), false);
+                NewSubPbActivity.this.openEditor(this.f19885e.i(), false);
             }
         }
 
@@ -370,11 +370,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     /* loaded from: classes5.dex */
-    public class e implements a.InterfaceC1064a {
+    public class e implements a.InterfaceC1065a {
         public e() {
         }
 
-        @Override // d.b.h0.h.a.InterfaceC1064a
+        @Override // d.b.h0.h.a.InterfaceC1065a
         public void a(boolean z, boolean z2, String str) {
             if (z) {
                 if (NewSubPbActivity.this.mMarkModel != null) {
@@ -460,14 +460,14 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public class f0 implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f19890e;
+        public final /* synthetic */ int f19891e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f19891f;
+        public final /* synthetic */ int f19892f;
 
         public f0(int i, int i2) {
-            this.f19890e = i;
-            this.f19891f = i2;
+            this.f19891e = i;
+            this.f19892f = i2;
         }
 
         @Override // java.lang.Runnable
@@ -475,7 +475,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             if (NewSubPbActivity.this.mSubPbView == null || NewSubPbActivity.this.mSubPbView.G() == null) {
                 return;
             }
-            NewSubPbActivity.this.mSubPbView.G().setSelectionFromTop(this.f19890e, NewSubPbActivity.this.mSubPbView.I() - this.f19891f);
+            NewSubPbActivity.this.mSubPbView.G().setSelectionFromTop(this.f19891e, NewSubPbActivity.this.mSubPbView.I() - this.f19892f);
         }
     }
 
@@ -546,13 +546,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 int loadDataMode = NewSubPbActivity.this.mPostManageModel.getLoadDataMode();
                 if (loadDataMode == 0) {
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    NewSubPbActivity.this.finishDelPost(bVar, (bVar.f21383e != 1002 || bVar.f21384f) ? true : true);
+                    NewSubPbActivity.this.finishDelPost(bVar, (bVar.f21384e != 1002 || bVar.f21385f) ? true : true);
                     return;
                 } else if (loadDataMode != 1) {
                     return;
                 } else {
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                    NewSubPbActivity.this.mSubPbView.z(1, dVar.f21386a, dVar.f21387b, true);
+                    NewSubPbActivity.this.mSubPbView.z(1, dVar.f21387a, dVar.f21388b, true);
                     return;
                 }
             }
@@ -648,18 +648,18 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         public class a implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SparseArray f19899e;
+            public final /* synthetic */ SparseArray f19900e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f19900f;
+            public final /* synthetic */ int f19901f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ boolean f19901g;
+            public final /* synthetic */ boolean f19902g;
 
             public a(SparseArray sparseArray, int i, boolean z) {
-                this.f19899e = sparseArray;
-                this.f19900f = i;
-                this.f19901g = z;
+                this.f19900e = sparseArray;
+                this.f19901f = i;
+                this.f19902g = z;
             }
 
             @Override // d.b.h0.r.s.a.e
@@ -668,7 +668,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     aVar.dismiss();
                 }
                 if (NewSubPbActivity.this.deleteReplayCallback != null) {
-                    NewSubPbActivity.this.deleteReplayCallback.a(new Object[]{this.f19899e.get(R.id.tag_del_post_id), Integer.valueOf(this.f19900f), Boolean.valueOf(this.f19901g), this.f19899e.get(R.id.tag_del_post_type)});
+                    NewSubPbActivity.this.deleteReplayCallback.a(new Object[]{this.f19900e.get(R.id.tag_del_post_id), Integer.valueOf(this.f19901f), Boolean.valueOf(this.f19902g), this.f19900e.get(R.id.tag_del_post_type)});
                 }
             }
         }
@@ -688,14 +688,14 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.i0.c2.k.e.z0.c f19903e;
+            public final /* synthetic */ d.b.i0.c2.k.e.z0.c f19904e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ PostData f19904f;
+            public final /* synthetic */ PostData f19905f;
 
             public c(d.b.i0.c2.k.e.z0.c cVar, PostData postData) {
-                this.f19903e = cVar;
-                this.f19904f = postData;
+                this.f19904e = cVar;
+                this.f19905f = postData;
             }
 
             @Override // java.lang.Runnable
@@ -703,7 +703,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 d.b.i0.c2.k.e.c cVar = new d.b.i0.c2.k.e.c(new d.b.h0.b1.m.a());
                 cVar.j(d.b.b.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
                 cVar.o(TbConfig.getPostLineSpace(), 1.0f);
-                this.f19903e.f53017b.a(null, NewSubPbActivity.this.mSubPbModel.T().l(), this.f19904f, cVar);
+                this.f19904e.f53018b.a(null, NewSubPbActivity.this.mSubPbModel.T().l(), this.f19905f, cVar);
             }
         }
 
@@ -937,11 +937,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, NewSubPbActivity.this.mSaveImageUrl));
                                                                         } else {
                                                                             d.a aVar = new d.a();
-                                                                            aVar.f49685a = NewSubPbActivity.this.mSaveImageUrl;
+                                                                            aVar.f49686a = NewSubPbActivity.this.mSaveImageUrl;
                                                                             if (NewSubPbActivity.this.mEmotionInfo.memeInfo.pck_id.intValue() >= 0) {
                                                                                 str4 = "" + NewSubPbActivity.this.mEmotionInfo.memeInfo.pck_id;
                                                                             }
-                                                                            aVar.f49686b = str4;
+                                                                            aVar.f49687b = str4;
                                                                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                                                                         }
                                                                         NewSubPbActivity.this.mSaveBdImage = null;
@@ -1123,18 +1123,18 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public class i0 implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f19906e;
+        public final /* synthetic */ int f19907e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f19907f;
+        public final /* synthetic */ int f19908f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f19908g;
+        public final /* synthetic */ int f19909g;
 
         public i0(int i, int i2, int i3) {
-            this.f19906e = i;
-            this.f19907f = i2;
-            this.f19908g = i3;
+            this.f19907e = i;
+            this.f19908f = i2;
+            this.f19909g = i3;
         }
 
         @Override // java.lang.Runnable
@@ -1142,7 +1142,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             if (NewSubPbActivity.this.mSubPbView == null || NewSubPbActivity.this.mSubPbView.G() == null) {
                 return;
             }
-            NewSubPbActivity.this.mSubPbView.G().setSelectionFromTop(this.f19906e, NewSubPbActivity.this.mSubPbView.I() + (this.f19907f - this.f19908g));
+            NewSubPbActivity.this.mSubPbView.G().setSelectionFromTop(this.f19907e, NewSubPbActivity.this.mSubPbView.I() + (this.f19908f - this.f19909g));
         }
     }
 
@@ -1385,8 +1385,8 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 d.b.i0.n3.a aVar = (d.b.i0.n3.a) customResponsedMessage.getData();
                 NewSubPbActivity.this.mSubPbView.R();
                 SparseArray<Object> sparseArray = (SparseArray) NewSubPbActivity.this.mExtra;
-                DataRes dataRes = aVar.f57156a;
-                if (aVar.f57158c == 0 && dataRes != null) {
+                DataRes dataRes = aVar.f57157a;
+                if (aVar.f57159c == 0 && dataRes != null) {
                     z = d.b.b.e.m.b.d(dataRes.is_mute, 0) == 1;
                     sparseArray.put(R.id.tag_user_mute_visible, Boolean.TRUE);
                     sparseArray.put(R.id.tag_user_mute_msg, dataRes.mute_confirm);
@@ -1571,12 +1571,12 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, NewSubPbActivity.this.mSaveImageUrl));
                 } else {
                     d.a aVar = new d.a();
-                    aVar.f49685a = NewSubPbActivity.this.mSaveImageUrl;
+                    aVar.f49686a = NewSubPbActivity.this.mSaveImageUrl;
                     String str = "";
                     if (NewSubPbActivity.this.mEmotionInfo.memeInfo.pck_id.intValue() >= 0) {
                         str = "" + NewSubPbActivity.this.mEmotionInfo.memeInfo.pck_id;
                     }
-                    aVar.f49686b = str;
+                    aVar.f49687b = str;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, aVar));
                 }
             } else if (i == 1) {
@@ -1702,32 +1702,32 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public class q implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f19922a;
+        public final /* synthetic */ SparseArray f19923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f19923b;
+        public final /* synthetic */ boolean f19924b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f19924c;
+        public final /* synthetic */ String f19925c;
 
         public q(SparseArray sparseArray, boolean z, String str) {
-            this.f19922a = sparseArray;
-            this.f19923b = z;
-            this.f19924c = str;
+            this.f19923a = sparseArray;
+            this.f19924b = z;
+            this.f19925c = str;
         }
 
         @Override // d.b.h0.r.s.b.c
         public void a(d.b.h0.r.s.b bVar, int i, View view) {
             if (i == 0) {
-                String str = this.f19922a.get(R.id.tag_user_mute_mute_username) instanceof String ? (String) this.f19922a.get(R.id.tag_user_mute_mute_username) : "";
-                String str2 = this.f19922a.get(R.id.tag_user_mute_thread_id) instanceof String ? (String) this.f19922a.get(R.id.tag_user_mute_thread_id) : "";
-                String str3 = this.f19922a.get(R.id.tag_user_mute_post_id) instanceof String ? (String) this.f19922a.get(R.id.tag_user_mute_post_id) : "";
-                String str4 = this.f19922a.get(R.id.tag_user_mute_msg) instanceof String ? (String) this.f19922a.get(R.id.tag_user_mute_msg) : "";
-                String str5 = this.f19922a.get(R.id.tag_user_mute_mute_nameshow) instanceof String ? (String) this.f19922a.get(R.id.tag_user_mute_mute_nameshow) : "";
+                String str = this.f19923a.get(R.id.tag_user_mute_mute_username) instanceof String ? (String) this.f19923a.get(R.id.tag_user_mute_mute_username) : "";
+                String str2 = this.f19923a.get(R.id.tag_user_mute_thread_id) instanceof String ? (String) this.f19923a.get(R.id.tag_user_mute_thread_id) : "";
+                String str3 = this.f19923a.get(R.id.tag_user_mute_post_id) instanceof String ? (String) this.f19923a.get(R.id.tag_user_mute_post_id) : "";
+                String str4 = this.f19923a.get(R.id.tag_user_mute_msg) instanceof String ? (String) this.f19923a.get(R.id.tag_user_mute_msg) : "";
+                String str5 = this.f19923a.get(R.id.tag_user_mute_mute_nameshow) instanceof String ? (String) this.f19923a.get(R.id.tag_user_mute_mute_nameshow) : "";
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
-                userMuteAddAndDelCustomMessage.setData(this.f19923b, this.f19924c, str, str2, str3, 1, str4, NewSubPbActivity.this.MESSAGE_ID_NEWSUB_PB);
+                userMuteAddAndDelCustomMessage.setData(this.f19924b, this.f19925c, str, str2, str3, 1, str4, NewSubPbActivity.this.MESSAGE_ID_NEWSUB_PB);
                 userMuteAddAndDelCustomMessage.setTag(NewSubPbActivity.this.MESSAGE_ID_NEWSUB_PB);
-                NewSubPbActivity.this.showUserMuteDialog(this.f19923b, userMuteAddAndDelCustomMessage, str4, str, str5);
+                NewSubPbActivity.this.showUserMuteDialog(this.f19924b, userMuteAddAndDelCustomMessage, str4, str, str5);
             }
             bVar.e();
         }
@@ -1746,7 +1746,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            d.b.h0.b1.m.f.b(NewSubPbActivity.this.getPageContext(), aVar.f49978a, aVar.f49979b, aVar.f49980c);
+            d.b.h0.b1.m.f.b(NewSubPbActivity.this.getPageContext(), aVar.f49979a, aVar.f49980b, aVar.f49981c);
         }
     }
 
@@ -2078,16 +2078,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public class z implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f19934e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f19935e;
 
         public z(UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-            this.f19934e = userMuteAddAndDelCustomMessage;
+            this.f19935e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             NewSubPbActivity.this.mSubPbView.A0();
-            MessageManager.getInstance().sendMessage(this.f19934e);
+            MessageManager.getInstance().sendMessage(this.f19935e);
             aVar.dismiss();
         }
     }
@@ -2116,16 +2116,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (this.mMsgData == null) {
             d.b.i0.c3.h0.e eVar = new d.b.i0.c3.h0.e();
             this.mMsgData = eVar;
-            eVar.f53375a = this.mOnlyDisagreeId;
+            eVar.f53376a = this.mOnlyDisagreeId;
         }
         d.b.h0.r.q.e eVar2 = new d.b.h0.r.q.e();
-        eVar2.f50762b = 12;
-        eVar2.f50768h = 9;
-        eVar2.f50767g = 3;
+        eVar2.f50763b = 12;
+        eVar2.f50769h = 9;
+        eVar2.f50768g = 3;
         if (getSubPbModel() != null) {
-            eVar2.f50766f = getSubPbModel().Y();
+            eVar2.f50767f = getSubPbModel().Y();
         }
-        eVar2.f50761a = 2;
+        eVar2.f50762a = 2;
         int i2 = 1;
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 5) {
@@ -2196,28 +2196,16 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 return x2.s();
             }
             if (x2.getHeight() * x2.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double threadImageMaxWidth = TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth();
-                double height = x2.getHeight() * x2.getWidth();
-                Double.isNaN(threadImageMaxWidth);
-                Double.isNaN(height);
-                double sqrt = Math.sqrt(threadImageMaxWidth / height);
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (x2.getHeight() * x2.getWidth()));
                 sb.append(BigImageLoaderProc.NCDN_PER);
-                double width = x2.getWidth();
-                Double.isNaN(width);
-                sb.append(String.valueOf((int) (width * sqrt)));
+                sb.append(String.valueOf((int) (x2.getWidth() * sqrt)));
                 sb.append("&height=");
-                double height2 = x2.getHeight();
-                Double.isNaN(height2);
-                sb.append(String.valueOf((int) (height2 * sqrt)));
+                sb.append(String.valueOf((int) (x2.getHeight() * sqrt)));
             } else {
-                double threadImageMaxWidth2 = TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth();
-                double width2 = x2.getWidth() / x2.getHeight();
-                Double.isNaN(threadImageMaxWidth2);
-                Double.isNaN(width2);
-                double sqrt2 = Math.sqrt(threadImageMaxWidth2 / width2);
+                double width = x2.getWidth() / x2.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
                 sb.append(BigImageLoaderProc.NCDN_PER);
-                Double.isNaN(width2);
-                sb.append(String.valueOf((int) (width2 * sqrt2)));
+                sb.append(String.valueOf((int) (width * sqrt2)));
                 sb.append("&height=");
                 sb.append(String.valueOf((int) sqrt2));
             }
@@ -2671,14 +2659,14 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             return;
         }
         int i2 = 0;
-        this.mSubPbView.z(0, bVar.f21379a, bVar.f21380b, z2);
-        if (bVar.f21379a) {
-            int i3 = bVar.f21382d;
+        this.mSubPbView.z(0, bVar.f21380a, bVar.f21381b, z2);
+        if (bVar.f21380a) {
+            int i3 = bVar.f21383d;
             if (i3 == 1) {
                 if (this.mSubPbView.G() instanceof BdTypeListView) {
                     List<d.b.b.j.e.n> data = ((BdTypeListView) this.mSubPbView.G()).getData();
                     if (!ListUtils.isEmpty(data)) {
-                        while (i2 < data.size() && (!(data.get(i2) instanceof PostData) || !bVar.f21385g.equals(((PostData) data.get(i2)).D()))) {
+                        while (i2 < data.size() && (!(data.get(i2) instanceof PostData) || !bVar.f21386g.equals(((PostData) data.get(i2)).D()))) {
                             i2++;
                         }
                         if (i2 < data.size()) {
@@ -2688,7 +2676,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     }
                 }
             } else if (i3 == 2) {
-                this.mSubPbModel.Q(bVar.f21385g);
+                this.mSubPbModel.Q(bVar.f21386g);
                 this.mSubPbView.F0(this.mSubPbModel.T(), this.mSubPbModel.f0(), this.mSubPbModel.e0() != null, false);
                 if (this.mSubPbModel.m0()) {
                     this.mSubPbModel.z0(false);
@@ -3087,7 +3075,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         this.mSubPbView.r(this.mIsFromSchema);
         d.b.h0.r.f0.c cVar2 = new d.b.h0.r.f0.c();
         this.mToastMute = cVar2;
-        cVar2.f50483a = 1000L;
+        cVar2.f50484a = 1000L;
         registerListener(this.mUserMuteCheckListener);
         registerListener(this.mUserMuteAddListener);
         registerListener(this.mUserMuteDelListener);
@@ -3167,9 +3155,9 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (z2) {
             if (!TextUtils.isEmpty(str)) {
                 d.b.h0.t.l lVar = new d.b.h0.t.l();
-                lVar.f51481a = str;
-                lVar.f51482b = 3;
-                lVar.f51483c = "2";
+                lVar.f51482a = str;
+                lVar.f51483b = 3;
+                lVar.f51484c = "2";
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016493, lVar));
             }
         } else {

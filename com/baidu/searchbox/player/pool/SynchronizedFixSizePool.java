@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.pool;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class SynchronizedFixSizePool<T extends IPoolItem> extends FixSizePool<T> {
     public final Object mLock;
 

@@ -58,8 +58,8 @@ public class q extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 } else if (view.getId() == R.id.img_disagree) {
                     d.b.i0.p0.j2.a.b(a2Var, 13, q.this.i, d.b.i0.p0.j2.d.J0, q.this.i0());
                 } else if (view instanceof TbImageView) {
-                    if (q.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) q.this.A.f62183a).booleanValue()) {
+                    if (q.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) q.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, q.this.i, d.b.i0.p0.j2.d.J0, q.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, q.this.i, d.b.i0.p0.j2.d.J0, q.this.i0());
@@ -79,8 +79,8 @@ public class q extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 if (view.getId() == R.id.card_divider_tv) {
                     d.b.i0.p0.m2.l.a(d.b.i0.p0.j2.d.J0, a2Var.V0());
                 } else if (view instanceof TbImageView) {
-                    if (q.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) q.this.A.f62183a).booleanValue()) {
+                    if (q.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) q.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 1);
                         } else {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 3);
@@ -109,16 +109,16 @@ public class q extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
     public class b implements d.b.b.j.e.w {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i.n f58034e;
+        public final /* synthetic */ d.b.i.n f58035e;
 
         public b(d.b.i.n nVar) {
-            this.f58034e = nVar;
+            this.f58035e = nVar;
         }
 
         @Override // d.b.b.j.e.w
         public void f(View view, d.b.b.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if ((nVar instanceof z1) && (view.getTag() instanceof ThreadCardViewHolder)) {
-                if ((d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) && !this.f58034e.u()) {
+                if ((d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) && !this.f58035e.u()) {
                     a2 a2Var = ((z1) nVar).w;
                     if (a2Var == null) {
                         return;
@@ -147,7 +147,7 @@ public class q extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     q.this.A.a(threadCardViewHolder.a(), a2Var2);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var2, view.getContext(), q.this.z, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

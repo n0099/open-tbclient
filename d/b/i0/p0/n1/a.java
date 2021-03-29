@@ -10,7 +10,7 @@ import d.b.i0.p0.n2.d;
 public class a implements d.b.i0.p0.n1.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.p0.q2.b f57934a;
+    public d.b.i0.p0.q2.b f57935a;
 
     @Override // d.b.i0.p0.n1.e.a
     public d a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
@@ -41,8 +41,8 @@ public class a implements d.b.i0.p0.n1.e.a {
             return null;
         }
         b bVar = new b(frsFragment, null, null, i);
-        this.f57934a = bVar;
+        this.f57935a = bVar;
         bVar.L(frsFragment.r2());
-        return this.f57934a;
+        return this.f57935a;
     }
 }

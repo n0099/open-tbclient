@@ -12,7 +12,7 @@ import com.vivo.push.PushClientConstants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         String message;
@@ -45,7 +45,7 @@ public final class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
-            jSONObject.put("appKey", com.baidu.crabsdk.a.f4637d);
+            jSONObject.put("appKey", com.baidu.crabsdk.a.f4638d);
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.a());
             jSONObject.put("uname", t.g());
@@ -66,7 +66,7 @@ public final class j {
             jSONObject.put("curPage", a.i());
             jSONObject.put("locale", i.b());
             jSONObject.put("cuid", h.c());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f4635b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f4636b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

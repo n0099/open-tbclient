@@ -15,41 +15,41 @@ public class MobRewardVideoImpl {
     public static String activityName;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f8141b;
+    public static Class<?> f8142b;
     public static IXRewardVideoAdContainer mAdContainer;
     public static IXAdContainerContext mContext;
     public static boolean mVideoPlaying;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f8142a;
+    public Activity f8143a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f8143c;
+    public Object f8144c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method[] f8144d = null;
+    public Method[] f8145d = null;
 
     public MobRewardVideoImpl(Activity activity) {
-        this.f8142a = activity;
+        this.f8143a = activity;
     }
 
     private void a(Bundle bundle) {
         DexClassLoader d2 = com.baidu.mobads.g.b.d();
         try {
             if (d2 == null) {
-                f8141b = a("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity");
+                f8142b = a("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity");
             } else {
-                f8141b = Class.forName("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity", true, d2);
+                f8142b = Class.forName("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity", true, d2);
             }
-            this.f8144d = f8141b.getDeclaredMethods();
-            this.f8143c = f8141b.getConstructor(Activity.class, IXAdContainerContext.class, IXRewardVideoAdContainer.class).newInstance(this.f8142a, mContext, mAdContainer);
+            this.f8145d = f8142b.getDeclaredMethods();
+            this.f8144c = f8142b.getConstructor(Activity.class, IXAdContainerContext.class, IXRewardVideoAdContainer.class).newInstance(this.f8143a, mContext, mAdContainer);
         } catch (Exception unused) {
         }
         a(MissionEvent.MESSAGE_CREATE, bundle);
     }
 
     private Method b(String str) {
-        Method[] methodArr = this.f8144d;
+        Method[] methodArr = this.f8145d;
         if (methodArr == null) {
             return null;
         }
@@ -136,9 +136,9 @@ public class MobRewardVideoImpl {
             Method b2 = b(str);
             if (b2 != null) {
                 if (objArr != null && objArr.length != 0) {
-                    return ((Boolean) b2.invoke(this.f8143c, objArr)).booleanValue();
+                    return ((Boolean) b2.invoke(this.f8144c, objArr)).booleanValue();
                 }
-                return ((Boolean) b2.invoke(this.f8143c, new Object[0])).booleanValue();
+                return ((Boolean) b2.invoke(this.f8144c, new Object[0])).booleanValue();
             }
         } catch (Exception e2) {
             com.baidu.mobads.utils.q.a().d(e2);
@@ -150,7 +150,7 @@ public class MobRewardVideoImpl {
         com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
         Class<?> cls = null;
         try {
-            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f8142a), this.f8142a.getFilesDir().getAbsolutePath(), null, MobRewardVideoImpl.class.getClassLoader()));
+            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f8143a), this.f8143a.getFilesDir().getAbsolutePath(), null, MobRewardVideoImpl.class.getClassLoader()));
         } catch (Exception e2) {
             a2.e(e2);
         }
@@ -169,10 +169,10 @@ public class MobRewardVideoImpl {
             Method b2 = b(str);
             if (b2 != null) {
                 if (objArr != null && objArr.length != 0) {
-                    b2.invoke(this.f8143c, objArr);
+                    b2.invoke(this.f8144c, objArr);
                     return;
                 }
-                b2.invoke(this.f8143c, new Object[0]);
+                b2.invoke(this.f8144c, new Object[0]);
             }
         } catch (Exception e2) {
             com.baidu.mobads.utils.q.a().d(e2);

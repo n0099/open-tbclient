@@ -3,7 +3,7 @@ package d.b.i0.u3.s;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f61698a;
+    public static long f61699a;
 
     public static long a(CharSequence charSequence) {
         double d2 = 0.0d;
@@ -18,9 +18,9 @@ public class a {
 
     public static boolean b() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - f61698a;
+        long j = currentTimeMillis - f61699a;
         if (0 >= j || j >= 1000) {
-            f61698a = currentTimeMillis;
+            f61699a = currentTimeMillis;
             return false;
         }
         return true;

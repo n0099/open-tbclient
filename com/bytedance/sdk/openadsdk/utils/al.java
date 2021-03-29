@@ -37,25 +37,25 @@ import org.json.JSONObject;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f30380a = -1.0f;
+    public static float f30381a = -1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f30381b = -1;
+    public static int f30382b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f30382c = -1.0f;
+    public static float f30383c = -1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f30383d = -1;
+    public static int f30384d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f30384e = -1;
+    public static int f30385e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static WindowManager f30385f;
+    public static WindowManager f30386f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f30386g;
+    public static float f30387g;
 
     static {
         a(com.bytedance.sdk.openadsdk.core.p.a());
@@ -63,36 +63,36 @@ public class al {
 
     public static void a(Context context) {
         Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
-        f30385f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
+        f30386f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
         if (a2 == null) {
             return;
         }
         if (b()) {
             DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-            f30380a = displayMetrics.density;
-            f30381b = displayMetrics.densityDpi;
-            f30382c = displayMetrics.scaledDensity;
-            f30383d = displayMetrics.widthPixels;
-            f30384e = displayMetrics.heightPixels;
+            f30381a = displayMetrics.density;
+            f30382b = displayMetrics.densityDpi;
+            f30383c = displayMetrics.scaledDensity;
+            f30384d = displayMetrics.widthPixels;
+            f30385e = displayMetrics.heightPixels;
         }
         if (context == null || context.getResources() == null || context.getResources().getConfiguration() == null) {
             return;
         }
         if (context.getResources().getConfiguration().orientation == 1) {
-            int i = f30383d;
-            int i2 = f30384e;
+            int i = f30384d;
+            int i2 = f30385e;
             if (i > i2) {
-                f30383d = i2;
-                f30384e = i;
+                f30384d = i2;
+                f30385e = i;
                 return;
             }
             return;
         }
-        int i3 = f30383d;
-        int i4 = f30384e;
+        int i3 = f30384d;
+        int i4 = f30385e;
         if (i3 < i4) {
-            f30383d = i4;
-            f30384e = i3;
+            f30384d = i4;
+            f30385e = i3;
         }
     }
 
@@ -102,22 +102,22 @@ public class al {
 
     public static int c(Context context) {
         a(context);
-        return f30383d;
+        return f30384d;
     }
 
     public static int d(Context context) {
         a(context);
-        return f30384e;
+        return f30385e;
     }
 
     public static float e(Context context) {
         a(context);
-        return f30380a;
+        return f30381a;
     }
 
     public static int f(Context context) {
         a(context);
-        return f30381b;
+        return f30382b;
     }
 
     public static void g(View view) {
@@ -162,7 +162,7 @@ public class al {
     }
 
     public static boolean b() {
-        return f30380a < 0.0f || f30381b < 0 || f30382c < 0.0f || f30383d < 0 || f30384e < 0;
+        return f30381a < 0.0f || f30382b < 0 || f30383c < 0.0f || f30384d < 0 || f30385e < 0;
     }
 
     public static int b(Context context, float f2) {
@@ -232,11 +232,11 @@ public class al {
         if (context == null) {
             return null;
         }
-        if (f30385f == null) {
-            f30385f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
+        if (f30386f == null) {
+            f30386f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
         }
         int[] iArr = new int[2];
-        WindowManager windowManager = f30385f;
+        WindowManager windowManager = f30386f;
         if (windowManager != null) {
             Display defaultDisplay = windowManager.getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -305,17 +305,17 @@ public class al {
             return;
         }
         try {
-            if (Build.VERSION.SDK_INT >= 28 && f30386g == 0.0f) {
+            if (Build.VERSION.SDK_INT >= 28 && f30387g == 0.0f) {
                 WindowInsets rootWindowInsets = view.getRootWindowInsets();
                 DisplayCutout displayCutout = rootWindowInsets != null ? rootWindowInsets.getDisplayCutout() : null;
                 if (displayCutout != null) {
-                    f30386g = displayCutout.getSafeInsetTop();
+                    f30387g = displayCutout.getSafeInsetTop();
                 }
             }
-            if (f30386g == 0.0f) {
+            if (f30387g == 0.0f) {
                 return;
             }
-            float max = Math.max(i(view.getContext()), f30386g);
+            float max = Math.max(i(view.getContext()), f30387g);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;

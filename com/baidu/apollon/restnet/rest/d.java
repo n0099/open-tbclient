@@ -1,7 +1,7 @@
 package com.baidu.apollon.restnet.rest;
 
 import com.baidu.apollon.restnet.http.HttpDefines;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
     com.baidu.apollon.restnet.http.a a();
 

@@ -1,5 +1,5 @@
 package com.baidu.smallgame.sdk.gpuimage.graphics;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public enum Drawable2d$Prefab {
     TRIANGLE,
     RECTANGLE,

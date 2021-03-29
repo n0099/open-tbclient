@@ -27,7 +27,7 @@ import d.b.i0.e1.a.c.e;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class InviteFriendListActivity extends BaseActivity<InviteFriendListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener {
     public static final int MAX_INVITED_COUNT = 100;
     public boolean isFromInviteChat;
@@ -41,7 +41,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     public CustomMessageListener friendListResponsedMessageListener = new b(2001184);
     public final d.b.b.c.g.c mListener = new d(205002);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -56,7 +56,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -84,7 +84,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements DialogInterface.OnCancelListener {
         public c() {
         }
@@ -97,10 +97,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.b.c.g.c {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -227,7 +227,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
         } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
         } else {
-            TbCheckBox tbCheckBox = ((c.a) tag).f54326d;
+            TbCheckBox tbCheckBox = ((c.a) tag).f54327d;
             tbCheckBox.setChecked(!tbCheckBox.d());
         }
     }

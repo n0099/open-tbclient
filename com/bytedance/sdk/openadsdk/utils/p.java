@@ -22,33 +22,33 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30441a;
+        public String f30442a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30442b;
+        public String f30443b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30443c;
+        public String f30444c;
 
         public a(String str, String str2, String str3) {
-            this.f30441a = str;
-            this.f30442b = str2;
-            this.f30443c = str3;
+            this.f30442a = str;
+            this.f30443b = str2;
+            this.f30444c = str3;
         }
 
         public boolean equals(Object obj) {
             String str;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                String str2 = this.f30441a;
-                return str2 != null && str2.equals(aVar.f30441a) && (str = this.f30443c) != null && str.equals(aVar.f30443c);
+                String str2 = this.f30442a;
+                return str2 != null && str2.equals(aVar.f30442a) && (str = this.f30444c) != null && str.equals(aVar.f30444c);
             }
             return super.equals(obj);
         }
 
         public String toString() {
             try {
-                return "<" + this.f30441a + " name=\"" + this.f30442b + "\" path=\"" + this.f30443c + "\" />";
+                return "<" + this.f30442a + " name=\"" + this.f30443b + "\" path=\"" + this.f30444c + "\" />";
             } catch (Throwable unused) {
                 return super.toString();
             }

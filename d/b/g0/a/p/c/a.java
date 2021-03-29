@@ -1,7 +1,7 @@
 package d.b.g0.a.p.c;
 
 import android.content.res.Resources;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
     public boolean a() {
         return d.b.g0.a.a2.g.h.a().getBoolean("PREFS_NIGHT_MODE", false);

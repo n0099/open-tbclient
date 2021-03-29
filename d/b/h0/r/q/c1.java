@@ -5,33 +5,33 @@ import tbclient.PbPage.NewsInfo;
 public class c1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50734a;
+    public String f50735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50735b;
+    public String f50736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50736c;
+    public int f50737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50737d;
+    public String f50738d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50738e;
+    public String f50739e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50739f;
+    public String f50740f;
 
     public void a(NewsInfo newsInfo) {
         if (newsInfo == null) {
             return;
         }
-        this.f50734a = newsInfo.news_link;
-        this.f50735b = newsInfo.summary;
+        this.f50735a = newsInfo.news_link;
+        this.f50736b = newsInfo.summary;
         newsInfo.position.intValue();
-        this.f50736c = newsInfo.news_type.intValue();
-        this.f50737d = newsInfo.news_icon;
-        this.f50738e = newsInfo.subtitle;
-        this.f50739f = newsInfo.button_text;
+        this.f50737c = newsInfo.news_type.intValue();
+        this.f50738d = newsInfo.news_icon;
+        this.f50739e = newsInfo.subtitle;
+        this.f50740f = newsInfo.button_text;
     }
 }

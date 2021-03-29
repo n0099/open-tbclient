@@ -28,18 +28,18 @@ public class b extends d.b.i0.x.b<d.b.i0.o0.c.a> {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f57250a;
+        public View f57251a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f57251b;
+        public TextView f57252b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f57252c;
+        public ImageView f57253c;
 
         /* renamed from: d.b.i0.o0.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnLongClickListenerC1368a implements View.OnLongClickListener {
-            public View$OnLongClickListenerC1368a(b bVar) {
+        public class View$OnLongClickListenerC1369a implements View.OnLongClickListener {
+            public View$OnLongClickListenerC1369a(b bVar) {
             }
 
             @Override // android.view.View.OnLongClickListener
@@ -56,16 +56,16 @@ public class b extends d.b.i0.x.b<d.b.i0.o0.c.a> {
 
         /* renamed from: d.b.i0.o0.d.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC1369b implements View.OnClickListener {
-            public View$OnClickListenerC1369b(b bVar) {
+        public class View$OnClickListenerC1370b implements View.OnClickListener {
+            public View$OnClickListenerC1370b(b bVar) {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.f57251b.getText() == null || StringUtils.isNull(a.this.f57251b.getText().toString())) {
+                if (a.this.f57252b.getText() == null || StringUtils.isNull(a.this.f57252b.getText().toString())) {
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921021, a.this.f57251b.getText().toString()));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921021, a.this.f57252b.getText().toString()));
             }
         }
 
@@ -76,42 +76,42 @@ public class b extends d.b.i0.x.b<d.b.i0.o0.c.a> {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.f57251b.getText() == null) {
+                if (a.this.f57252b.getText() == null) {
                     return;
                 }
-                e.b(a.this.f57251b.getText().toString());
+                e.b(a.this.f57252b.getText().toString());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
             }
         }
 
         public a() {
             View inflate = LayoutInflater.from(b.this.l().getPageActivity()).inflate(R.layout.forum_search_history_info_item, (ViewGroup) null);
-            this.f57250a = inflate;
-            this.f57251b = (TextView) inflate.findViewById(R.id.content);
-            this.f57252c = (ImageView) this.f57250a.findViewById(R.id.delete);
+            this.f57251a = inflate;
+            this.f57252b = (TextView) inflate.findViewById(R.id.content);
+            this.f57253c = (ImageView) this.f57251a.findViewById(R.id.delete);
             c();
-            this.f57251b.setOnLongClickListener(new View$OnLongClickListenerC1368a(b.this));
-            this.f57251b.setOnClickListener(new View$OnClickListenerC1369b(b.this));
-            this.f57252c.setOnClickListener(new c(b.this));
+            this.f57252b.setOnLongClickListener(new View$OnLongClickListenerC1369a(b.this));
+            this.f57252b.setOnClickListener(new View$OnClickListenerC1370b(b.this));
+            this.f57253c.setOnClickListener(new c(b.this));
         }
 
         public View b() {
-            return this.f57250a;
+            return this.f57251a;
         }
 
         public void c() {
-            SkinManager.setViewTextColor(this.f57251b, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f57251b, R.drawable.search_history_item_bg);
-            SkinManager.setImageResource(this.f57252c, R.drawable.del_search_btn);
+            SkinManager.setViewTextColor(this.f57252b, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f57252b, R.drawable.search_history_item_bg);
+            SkinManager.setImageResource(this.f57253c, R.drawable.del_search_btn);
         }
 
         public void d(boolean z) {
             if (z) {
-                this.f57252c.setVisibility(0);
-                SkinManager.setImageResource(this.f57252c, R.drawable.del_search_btn);
+                this.f57253c.setVisibility(0);
+                SkinManager.setImageResource(this.f57253c, R.drawable.del_search_btn);
                 return;
             }
-            this.f57252c.setVisibility(4);
+            this.f57253c.setVisibility(4);
         }
     }
 
@@ -192,9 +192,9 @@ public class b extends d.b.i0.x.b<d.b.i0.o0.c.a> {
             a aVar2 = this.n.get(i);
             if (aVar2 != null) {
                 aVar2.d(false);
-                aVar2.f57251b.setText(aVar.g().get(i));
+                aVar2.f57252b.setText(aVar.g().get(i));
             }
         }
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

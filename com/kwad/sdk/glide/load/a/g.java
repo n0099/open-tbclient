@@ -8,32 +8,32 @@ import java.io.InputStream;
 public final class g extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f35255a;
+    public static final byte[] f35256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f35256b;
+    public static final int f35257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f35257c;
+    public static final int f35258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte f35258d;
+    public final byte f35259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35259e;
+    public int f35260e;
 
     static {
         byte[] bArr = {-1, ExifInterface.MARKER_APP1, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
-        f35255a = bArr;
+        f35256a = bArr;
         int length = bArr.length;
-        f35256b = length;
-        f35257c = length + 2;
+        f35257b = length;
+        f35258c = length + 2;
     }
 
     public g(InputStream inputStream, int i) {
         super(inputStream);
         if (i >= -1 && i <= 8) {
-            this.f35258d = (byte) i;
+            this.f35259d = (byte) i;
             return;
         }
         throw new IllegalArgumentException("Cannot add invalid orientation: " + i);
@@ -52,10 +52,10 @@ public final class g extends FilterInputStream {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() {
         int i;
-        int i2 = this.f35259e;
-        int read = (i2 < 2 || i2 > (i = f35257c)) ? super.read() : i2 == i ? this.f35258d : f35255a[i2 - 2] & 255;
+        int i2 = this.f35260e;
+        int read = (i2 < 2 || i2 > (i = f35258c)) ? super.read() : i2 == i ? this.f35259d : f35256a[i2 - 2] & 255;
         if (read != -1) {
-            this.f35259e++;
+            this.f35260e++;
         }
         return read;
     }
@@ -63,22 +63,22 @@ public final class g extends FilterInputStream {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(@NonNull byte[] bArr, int i, int i2) {
         int i3;
-        int i4 = this.f35259e;
-        int i5 = f35257c;
+        int i4 = this.f35260e;
+        int i5 = f35258c;
         if (i4 > i5) {
             i3 = super.read(bArr, i, i2);
         } else if (i4 == i5) {
-            bArr[i] = this.f35258d;
+            bArr[i] = this.f35259d;
             i3 = 1;
         } else if (i4 < 2) {
             i3 = super.read(bArr, i, 2 - i4);
         } else {
             int min = Math.min(i5 - i4, i2);
-            System.arraycopy(f35255a, this.f35259e - 2, bArr, i, min);
+            System.arraycopy(f35256a, this.f35260e - 2, bArr, i, min);
             i3 = min;
         }
         if (i3 > 0) {
-            this.f35259e += i3;
+            this.f35260e += i3;
         }
         return i3;
     }
@@ -92,7 +92,7 @@ public final class g extends FilterInputStream {
     public long skip(long j) {
         long skip = super.skip(j);
         if (skip > 0) {
-            this.f35259e = (int) (this.f35259e + skip);
+            this.f35260e = (int) (this.f35260e + skip);
         }
         return skip;
     }

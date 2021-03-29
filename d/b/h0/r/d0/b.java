@@ -19,32 +19,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f50454f;
+    public static b f50455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static ContentResolver f50455g;
+    public static ContentResolver f50456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<String, String> f50456h;
+    public static HashMap<String, String> f50457h;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50457a;
+    public String f50458a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f50458b;
+    public SharedPreferences f50459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50459c;
+    public String f50460c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50461e = null;
+    public String f50462e = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f50460d = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Object> f50461d = new ConcurrentHashMap<>();
 
     /* loaded from: classes3.dex */
     public class a implements MessageQueue.IdleHandler {
@@ -60,23 +60,23 @@ public class b {
 
     /* renamed from: d.b.h0.r.d0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1072b extends BdAsyncTask<Void, Void, Void> {
+    public class C1073b extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Uri f50463a;
+        public final /* synthetic */ Uri f50464a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f50464b;
+        public final /* synthetic */ ContentValues f50465b;
 
-        public C1072b(Uri uri, ContentValues contentValues) {
-            this.f50463a = uri;
-            this.f50464b = contentValues;
+        public C1073b(Uri uri, ContentValues contentValues) {
+            this.f50464a = uri;
+            this.f50465b = contentValues;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            b.this.E(this.f50463a, this.f50464b);
+            b.this.E(this.f50464a, this.f50465b);
             return null;
         }
     }
@@ -85,39 +85,39 @@ public class b {
     public class c extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Uri f50466a;
+        public final /* synthetic */ Uri f50467a;
 
         public c(Uri uri) {
-            this.f50466a = uri;
+            this.f50467a = uri;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            b.this.f(this.f50466a);
+            b.this.f(this.f50467a);
             return null;
         }
     }
 
     public b() {
         HashMap<String, String> hashMap = new HashMap<>();
-        f50456h = hashMap;
-        hashMap.put(d.b.h0.r.d0.a.f50446a, "settings");
-        f50456h.put(d.b.h0.r.d0.a.f50447b, "remote_settings");
-        f50456h.put(d.b.h0.r.d0.a.f50448c, "bdservice_settings");
-        f50456h.put(d.b.h0.r.d0.a.f50449d, d.b.h0.r.d0.a.f50452g);
-        f50456h.put(d.b.h0.r.d0.a.f50450e, d.b.h0.r.d0.a.f50453h);
-        f50456h.put(d.b.h0.r.d0.a.f50451f, d.b.h0.r.d0.a.i);
-        f50455g = TbadkCoreApplication.getInst().getContentResolver();
+        f50457h = hashMap;
+        hashMap.put(d.b.h0.r.d0.a.f50447a, "settings");
+        f50457h.put(d.b.h0.r.d0.a.f50448b, "remote_settings");
+        f50457h.put(d.b.h0.r.d0.a.f50449c, "bdservice_settings");
+        f50457h.put(d.b.h0.r.d0.a.f50450d, d.b.h0.r.d0.a.f50453g);
+        f50457h.put(d.b.h0.r.d0.a.f50451e, d.b.h0.r.d0.a.f50454h);
+        f50457h.put(d.b.h0.r.d0.a.f50452f, d.b.h0.r.d0.a.i);
+        f50456g = TbadkCoreApplication.getInst().getContentResolver();
     }
 
     public static synchronized b i() {
         b bVar;
         synchronized (b.class) {
-            if (f50454f == null) {
-                f50454f = new b();
+            if (f50455f == null) {
+                f50455f = new b();
             }
-            bVar = f50454f;
+            bVar = f50455f;
         }
         return bVar;
     }
@@ -136,11 +136,11 @@ public class b {
     public void B(String str) {
         if (c(str)) {
             C(str);
-        } else if (this.f50460d.containsKey(str)) {
-            this.f50460d.remove(str);
+        } else if (this.f50461d.containsKey(str)) {
+            this.f50461d.remove(str);
         } else {
             SharedPreferences n = n();
-            this.f50458b = n;
+            this.f50459b = n;
             EditorHelper.remove(n, str);
         }
     }
@@ -151,7 +151,7 @@ public class b {
 
     public void D(Uri uri, ContentValues contentValues) {
         if (l.B()) {
-            new C1072b(uri, contentValues).execute(new Void[0]);
+            new C1073b(uri, contentValues).execute(new Void[0]);
         } else {
             E(uri, contentValues);
         }
@@ -159,7 +159,7 @@ public class b {
 
     public final void E(Uri uri, ContentValues contentValues) {
         try {
-            f50455g.insert(uri, contentValues);
+            f50456g.insert(uri, contentValues);
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }
@@ -179,15 +179,15 @@ public class b {
 
     public void d() {
         SharedPreferences.Editor edit;
-        if (this.f50460d.isEmpty()) {
+        if (this.f50461d.isEmpty()) {
             return;
         }
         SharedPreferences n = n();
-        this.f50458b = n;
+        this.f50459b = n;
         if (n == null || (edit = n.edit()) == null) {
             return;
         }
-        for (Map.Entry<String, Object> entry : this.f50460d.entrySet()) {
+        for (Map.Entry<String, Object> entry : this.f50461d.entrySet()) {
             if (entry != null) {
                 String valueOf = String.valueOf(entry.getKey());
                 Object value = entry.getValue();
@@ -209,7 +209,7 @@ public class b {
         } else {
             edit.commit();
         }
-        this.f50460d.clear();
+        this.f50461d.clear();
     }
 
     public void e(Uri uri) {
@@ -222,7 +222,7 @@ public class b {
 
     public final void f(Uri uri) {
         try {
-            f50455g.delete(uri, null, null);
+            f50456g.delete(uri, null, null);
         } catch (SecurityException e2) {
             BdLog.detailException(e2);
         }
@@ -241,25 +241,25 @@ public class b {
                 return z;
             }
         }
-        Object obj = this.f50460d.get(str);
+        Object obj = this.f50461d.get(str);
         if (obj instanceof Boolean) {
             return ((Boolean) obj).booleanValue();
         }
         SharedPreferences n = n();
-        this.f50458b = n;
+        this.f50459b = n;
         return n.getBoolean(str, z);
     }
 
     public String h() {
-        if (this.f50461e == null) {
+        if (this.f50462e == null) {
             String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
             if ("com.baidu.tieba".equals(packageName)) {
-                this.f50461e = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.f50462e = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.f50461e = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.f50462e = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.f50461e;
+        return this.f50462e;
     }
 
     public int j(String str, int i) {
@@ -275,12 +275,12 @@ public class b {
                 return i;
             }
         }
-        Object obj = this.f50460d.get(str);
+        Object obj = this.f50461d.get(str);
         if (obj instanceof Integer) {
             return ((Integer) obj).intValue();
         }
         SharedPreferences n = n();
-        this.f50458b = n;
+        this.f50459b = n;
         return n.getInt(str, i);
     }
 
@@ -297,12 +297,12 @@ public class b {
                 return j;
             }
         }
-        Object obj = this.f50460d.get(str);
+        Object obj = this.f50461d.get(str);
         if (obj instanceof Long) {
             return ((Long) obj).longValue();
         }
         SharedPreferences n = n();
-        this.f50458b = n;
+        this.f50459b = n;
         try {
             return n.getLong(str, j);
         } catch (ClassCastException e3) {
@@ -312,7 +312,7 @@ public class b {
     }
 
     public final String l() {
-        String str = d.b.h0.r.d0.a.f50446a;
+        String str = d.b.h0.r.d0.a.f50447a;
         ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
@@ -331,17 +331,17 @@ public class b {
     }
 
     public synchronized SharedPreferences n() {
-        if (this.f50459c == null || this.f50459c.length() == 0) {
-            if (this.f50457a == null || this.f50457a.length() == 0) {
-                this.f50457a = l();
+        if (this.f50460c == null || this.f50460c.length() == 0) {
+            if (this.f50458a == null || this.f50458a.length() == 0) {
+                this.f50458a = l();
             }
-            if (f50456h.containsKey(this.f50457a)) {
-                this.f50459c = f50456h.get(this.f50457a);
+            if (f50457h.containsKey(this.f50458a)) {
+                this.f50460c = f50457h.get(this.f50458a);
             } else {
-                this.f50459c = "settings";
+                this.f50460c = "settings";
             }
         }
-        return TbadkCoreApplication.getInst().getSharedPreferences(this.f50459c, 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(this.f50460c, 0);
     }
 
     public String o(String str, String str2) {
@@ -349,18 +349,18 @@ public class b {
             String q = q(str);
             return q != null ? q : str2;
         }
-        Object obj = this.f50460d.get(str);
+        Object obj = this.f50461d.get(str);
         if (obj instanceof String) {
             return (String) obj;
         }
         SharedPreferences n = n();
-        this.f50458b = n;
+        this.f50459b = n;
         return n.getString(str, str2);
     }
 
     public String p(Uri uri) {
         try {
-            return f50455g.getType(uri);
+            return f50456g.getType(uri);
         } catch (SecurityException e2) {
             BdLog.detailException(e2);
             return null;
@@ -375,7 +375,7 @@ public class b {
         if (c(str)) {
             return false;
         }
-        return this.f50460d.containsKey(str) || n().contains(str);
+        return this.f50461d.containsKey(str) || n().contains(str);
     }
 
     public void s(String str, boolean z) {
@@ -385,7 +385,7 @@ public class b {
             t(str, Boolean.valueOf(z));
         } else {
             SharedPreferences n = n();
-            this.f50458b = n;
+            this.f50459b = n;
             SharedPreferences.Editor edit = n.edit();
             edit.putBoolean(str, z);
             edit.commit();
@@ -396,7 +396,7 @@ public class b {
         if (str == null || obj == null) {
             return;
         }
-        this.f50460d.put(str, obj);
+        this.f50461d.put(str, obj);
         Looper.myQueue().addIdleHandler(new a());
     }
 
@@ -407,7 +407,7 @@ public class b {
             t(str, Integer.valueOf(i));
         } else {
             SharedPreferences n = n();
-            this.f50458b = n;
+            this.f50459b = n;
             SharedPreferences.Editor edit = n.edit();
             edit.putInt(str, i);
             edit.commit();
@@ -421,7 +421,7 @@ public class b {
             t(str, Long.valueOf(j));
         } else {
             SharedPreferences n = n();
-            this.f50458b = n;
+            this.f50459b = n;
             SharedPreferences.Editor edit = n.edit();
             edit.putLong(str, j);
             edit.commit();
@@ -437,7 +437,7 @@ public class b {
             t(str, str2);
         } else {
             SharedPreferences n = n();
-            this.f50458b = n;
+            this.f50459b = n;
             SharedPreferences.Editor edit = n.edit();
             edit.putString(str, str2);
             edit.commit();

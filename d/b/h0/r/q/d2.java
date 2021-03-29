@@ -8,23 +8,23 @@ import tbclient.FrsPage.TopNotice;
 public class d2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50759a = null;
+    public String f50760a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50760b = null;
+    public String f50761b = null;
 
     public String a() {
-        return this.f50759a;
+        return this.f50760a;
     }
 
     public String b() {
-        return this.f50760b;
+        return this.f50761b;
     }
 
     public void c(JSONObject jSONObject) {
         try {
-            this.f50759a = jSONObject.getString("title");
-            this.f50760b = jSONObject.getString("title_link");
+            this.f50760a = jSONObject.getString("title");
+            this.f50761b = jSONObject.getString("title_link");
             jSONObject.getString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.getInt("id");
         } catch (JSONException e2) {
@@ -36,8 +36,8 @@ public class d2 {
         if (topNotice == null) {
             return;
         }
-        this.f50759a = topNotice.title;
-        this.f50760b = topNotice.title_link;
+        this.f50760a = topNotice.title;
+        this.f50761b = topNotice.title_link;
         String str = topNotice.author;
         topNotice.id.intValue();
     }

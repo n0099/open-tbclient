@@ -10,27 +10,27 @@ import java.lang.ref.WeakReference;
 public class b extends ImageSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Drawable> f49816e;
+    public WeakReference<Drawable> f49817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49817f;
+    public int f49818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49818g;
+    public int f49819g;
 
     public b(Drawable drawable, int i) {
         super(drawable);
-        this.f49817f = 0;
-        this.f49818g = 1;
-        this.f49818g = i;
+        this.f49818f = 0;
+        this.f49819g = 1;
+        this.f49819g = i;
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f49816e;
+        WeakReference<Drawable> weakReference = this.f49817e;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.f49816e = new WeakReference<>(drawable2);
+            this.f49817e = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
@@ -42,9 +42,9 @@ public class b extends ImageSpan {
         if (a2 == null) {
             return;
         }
-        int i6 = this.f49818g;
+        int i6 = this.f49819g;
         float f3 = i6 != 0 ? i6 != 1 ? i6 != 2 ? 0.0f : 0.2f : 0.15f : 0.1f;
-        float height = f3 != 0.0f ? ((i4 - i5) + (a2.getBounds().height() * f3)) - this.f49817f : 0.0f;
+        float height = f3 != 0.0f ? ((i4 - i5) + (a2.getBounds().height() * f3)) - this.f49818f : 0.0f;
         canvas.save();
         canvas.translate(a2.getBounds().width() * 0.15f, height);
         super.draw(canvas, charSequence, i, i2, f2, i3, i4, i5, paint);

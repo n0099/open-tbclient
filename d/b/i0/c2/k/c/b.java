@@ -12,55 +12,55 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f52501a;
+    public TbPageContext<?> f52502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f52502b = new ArrayList();
+    public List<d.b.b.j.e.a> f52503b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f52503c;
+    public BdTypeRecyclerView f52504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f52504d;
+    public c f52505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f52505e;
+    public d f52506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f52506f;
+    public e f52507f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f52507g;
+    public f f52508g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f52508h;
+    public g f52509h;
     public h i;
 
     public b(TbPageContext<?> tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f52503c = bdTypeRecyclerView;
-        this.f52501a = tbPageContext;
+        this.f52504c = bdTypeRecyclerView;
+        this.f52502a = tbPageContext;
         a();
         d(bdTypeRecyclerView);
-        bdTypeRecyclerView.a(this.f52502b);
+        bdTypeRecyclerView.a(this.f52503b);
     }
 
     public final void a() {
-        this.f52506f = new e(this.f52501a, k.x0);
-        this.f52505e = new d(this.f52501a, k.y0);
-        this.f52504d = new c(this.f52501a, k.z0);
-        this.f52507g = new f(this.f52501a, k.w0);
-        this.f52508h = new g(this.f52501a, k.B0);
-        this.i = new h(this.f52501a, l.V);
-        this.f52502b.add(this.f52506f);
-        this.f52502b.add(this.f52505e);
-        this.f52502b.add(this.f52504d);
-        this.f52502b.add(this.f52507g);
-        this.f52502b.add(this.f52508h);
-        this.f52502b.add(this.i);
+        this.f52507f = new e(this.f52502a, k.x0);
+        this.f52506e = new d(this.f52502a, k.y0);
+        this.f52505d = new c(this.f52502a, k.z0);
+        this.f52508g = new f(this.f52502a, k.w0);
+        this.f52509h = new g(this.f52502a, k.B0);
+        this.i = new h(this.f52502a, l.V);
+        this.f52503b.add(this.f52507f);
+        this.f52503b.add(this.f52506e);
+        this.f52503b.add(this.f52505d);
+        this.f52503b.add(this.f52508g);
+        this.f52503b.add(this.f52509h);
+        this.f52503b.add(this.i);
     }
 
     public void b() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f52503c;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f52504c;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
@@ -71,15 +71,15 @@ public class b {
     }
 
     public final void d(s sVar) {
-        this.f52506f.n0(sVar);
-        this.f52505e.n0(sVar);
-        this.f52504d.n0(sVar);
-        this.f52507g.n0(sVar);
-        this.f52508h.n0(sVar);
+        this.f52507f.n0(sVar);
+        this.f52506e.n0(sVar);
+        this.f52505d.n0(sVar);
+        this.f52508g.n0(sVar);
+        this.f52509h.n0(sVar);
         this.i.q0(sVar);
     }
 
     public void e(List<n> list) {
-        this.f52503c.setData(list);
+        this.f52504c.setData(list);
     }
 }

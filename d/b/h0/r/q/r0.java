@@ -5,33 +5,33 @@ import android.content.Context;
 public class r0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50872a;
+    public Context f50873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50873b = null;
+    public String f50874b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50874c;
+    public String f50875c;
 
     public r0(Context context, String str) {
-        this.f50874c = null;
-        this.f50872a = context;
-        this.f50874c = str;
+        this.f50875c = null;
+        this.f50873a = context;
+        this.f50875c = str;
     }
 
     public Context a() {
-        return this.f50872a;
+        return this.f50873a;
     }
 
     public String b() {
-        return this.f50874c;
+        return this.f50875c;
     }
 
     public String c() {
-        return this.f50873b;
+        return this.f50874b;
     }
 
     public void d(String str) {
-        this.f50873b = str;
+        this.f50874b = str;
     }
 }

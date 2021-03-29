@@ -16,44 +16,44 @@ public class a {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f34787a;
+        public static final /* synthetic */ int[] f34788a;
 
         static {
             int[] iArr = new int[FeedType.values().length];
-            f34787a = iArr;
+            f34788a = iArr;
             try {
                 iArr[FeedType.FEED_TYPE_TEXT_IMMERSE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f34787a[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
+                f34788a[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f34787a[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
+                f34788a[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f34787a[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
+                f34788a[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f34787a[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
+                f34788a[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f34787a[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
+                f34788a[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f34787a[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
+                f34788a[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
     public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType) {
-        switch (AnonymousClass1.f34787a[feedType.ordinal()]) {
+        switch (AnonymousClass1.f34788a[feedType.ordinal()]) {
             case 1:
                 return new g(context);
             case 2:
@@ -91,7 +91,7 @@ public class a {
     }
 
     public static com.kwad.sdk.feed.widget.base.a b(Context context, FeedType feedType) {
-        switch (AnonymousClass1.f34787a[feedType.ordinal()]) {
+        switch (AnonymousClass1.f34788a[feedType.ordinal()]) {
             case 1:
                 return new g(context);
             case 2:
@@ -113,7 +113,7 @@ public class a {
     }
 
     public static com.kwad.sdk.feed.widget.base.a c(Context context, FeedType feedType) {
-        int i = AnonymousClass1.f34787a[feedType.ordinal()];
+        int i = AnonymousClass1.f34788a[feedType.ordinal()];
         if (i != 2) {
             if (i != 3) {
                 com.kwad.sdk.core.d.a.d("KSFeedFactory", "getVideoView type is unknown:" + feedType);

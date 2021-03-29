@@ -19,7 +19,13 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
     }
 
     public void call(j<? super T> jVar) {
-        this.state.b(new CachedObservable$ReplayProducer<>(jVar, this.state));
-        throw null;
+        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(jVar, this.state);
+        this.state.c(cachedObservable$ReplayProducer);
+        jVar.add(cachedObservable$ReplayProducer);
+        jVar.setProducer(cachedObservable$ReplayProducer);
+        if (get() || !compareAndSet(false, true)) {
+            return;
+        }
+        this.state.d();
     }
 }

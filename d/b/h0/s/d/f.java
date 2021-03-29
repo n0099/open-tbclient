@@ -11,27 +11,27 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f51285c;
+    public static f f51286c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f51286a = b();
+    public a f51287a = b();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51287b;
+    public String f51288b;
 
     public static f c() {
-        if (f51285c == null) {
+        if (f51286c == null) {
             synchronized (f.class) {
-                if (f51285c == null) {
-                    f51285c = new f();
+                if (f51286c == null) {
+                    f51286c = new f();
                 }
             }
         }
-        return f51285c;
+        return f51286c;
     }
 
     public void a(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             aVar.b(tbPageContext, viewGroup);
         }
@@ -46,7 +46,7 @@ public class f {
     }
 
     public int d() {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             return aVar.f();
         }
@@ -54,7 +54,7 @@ public class f {
     }
 
     public int e() {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             return aVar.c();
         }
@@ -62,11 +62,11 @@ public class f {
     }
 
     public String f() {
-        return this.f51287b;
+        return this.f51288b;
     }
 
     public boolean g() {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             return aVar.a();
         }
@@ -74,25 +74,25 @@ public class f {
     }
 
     public void h(boolean z) {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             aVar.g(z);
         }
     }
 
     public void i(int i, int i2) {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             aVar.d(i, i2);
         }
     }
 
     public void j(String str) {
-        this.f51287b = str;
+        this.f51288b = str;
     }
 
     public NavigationBarCoverTip k(Activity activity, ViewGroup viewGroup) {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             return aVar.i(activity, viewGroup);
         }
@@ -100,7 +100,7 @@ public class f {
     }
 
     public Dialog l(TbPageContext tbPageContext, d.b.h0.b1.o.a.d.e eVar) {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             return aVar.h(tbPageContext, eVar);
         }
@@ -108,7 +108,7 @@ public class f {
     }
 
     public void m() {
-        a aVar = this.f51286a;
+        a aVar = this.f51287a;
         if (aVar != null) {
             aVar.e();
         }

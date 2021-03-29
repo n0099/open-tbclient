@@ -5,7 +5,7 @@ import com.facebook.imagepipeline.common.BytesRange;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class FetchState {
     public final Consumer<EncodedImage> mConsumer;
     public final ProducerContext mContext;

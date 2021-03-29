@@ -3,8 +3,8 @@ package d.b.i0.p0.m2;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57916a;
+    public String f57917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57917b;
+    public String f57918b;
 }

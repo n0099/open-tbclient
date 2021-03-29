@@ -89,29 +89,29 @@ public class a implements KeyboardEventLayout.a {
     public ImageView Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public SubPbView f53028a;
+    public SubPbView f53029a;
     public LinearLayout a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f53029b;
+    public LinearLayout f53030b;
     public HeadImageView b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f53030c;
+    public View f53031c;
     public View c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdTypeListView f53031d;
+    public BdTypeListView f53032d;
     public b0 d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.c2.p.e f53032e;
+    public d.b.i0.c2.p.e f53033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewSubPbActivity f53033f;
+    public NewSubPbActivity f53034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f53034g;
+    public NoNetworkView f53035g;
     public SubPbModel g0;
     public d.b.i0.c2.k.g.c i0;
     public RelativeLayout j;
@@ -121,7 +121,7 @@ public class a implements KeyboardEventLayout.a {
     public View r;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f53035h = null;
+    public NoDataView f53036h = null;
     public View.OnClickListener i = null;
     public NavigationBar k = null;
     public View m = null;
@@ -151,13 +151,13 @@ public class a implements KeyboardEventLayout.a {
     public boolean h0 = true;
     public boolean j0 = d.b.h0.b.d.S();
     public d.b.i0.c2.i.c m0 = new d.b.i0.c2.i.c(new f());
-    public AdapterView.OnItemLongClickListener n0 = new C1165a();
+    public AdapterView.OnItemLongClickListener n0 = new C1166a();
     public AdapterView.OnItemClickListener o0 = new b();
 
     /* renamed from: d.b.i0.c2.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1165a implements AdapterView.OnItemLongClickListener {
-        public C1165a() {
+    public class C1166a implements AdapterView.OnItemLongClickListener {
+        public C1166a() {
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -166,7 +166,7 @@ public class a implements KeyboardEventLayout.a {
             PostData postData = (PostData) ListUtils.getItem(a.this.U, i);
             if (view != null && view.getTag() != null) {
                 if (a.this.d0 == null) {
-                    a.this.d0 = new b0(a.this.f53033f.getPageContext(), a.this.M);
+                    a.this.d0 = new b0(a.this.f53034f.getPageContext(), a.this.M);
                 }
                 a.this.d0.l();
                 try {
@@ -200,8 +200,8 @@ public class a implements KeyboardEventLayout.a {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.f53033f != null && ViewHelper.checkUpIsLogin(a.this.f53033f.getPageContext().getPageActivity())) {
-                if ((a.this.f53033f.mReplyPrivacyController != null && a.this.g0 != null && a.this.g0.R() != null && !a.this.f53033f.mReplyPrivacyController.checkPrivacyBeforeInvokeEditor(a.this.g0.R().replyPrivateFlag)) || a.this.g0 == null || a.this.S == null) {
+            if (a.this.f53034f != null && ViewHelper.checkUpIsLogin(a.this.f53034f.getPageContext().getPageActivity())) {
+                if ((a.this.f53034f.mReplyPrivacyController != null && a.this.g0 != null && a.this.g0.R() != null && !a.this.f53034f.mReplyPrivacyController.checkPrivacyBeforeInvokeEditor(a.this.g0.R().replyPrivateFlag)) || a.this.g0 == null || a.this.S == null) {
                     return;
                 }
                 a.this.I0();
@@ -231,7 +231,7 @@ public class a implements KeyboardEventLayout.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f53033f.finish();
+            a.this.f53034f.finish();
         }
     }
 
@@ -239,19 +239,19 @@ public class a implements KeyboardEventLayout.a {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f53039e;
+        public final /* synthetic */ int f53040e;
 
         public d(int i) {
-            this.f53039e = i;
+            this.f53040e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int headerViewsCount = this.f53039e + a.this.f53031d.getHeaderViewsCount();
+            int headerViewsCount = this.f53040e + a.this.f53032d.getHeaderViewsCount();
             if (headerViewsCount >= 1) {
                 headerViewsCount--;
             }
-            a.this.f53031d.setSelection(headerViewsCount);
+            a.this.f53032d.setSelection(headerViewsCount);
         }
     }
 
@@ -263,9 +263,9 @@ public class a implements KeyboardEventLayout.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.I != null) {
-                a.this.f53028a.g();
+                a.this.f53029a.g();
             } else {
-                a.this.f53033f.finish();
+                a.this.f53034f.finish();
             }
         }
     }
@@ -301,7 +301,7 @@ public class a implements KeyboardEventLayout.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.K != null && (a.this.K instanceof Dialog)) {
-                d.b.b.e.m.g.b(a.this.K, a.this.f53033f.getPageContext());
+                d.b.b.e.m.g.b(a.this.K, a.this.f53034f.getPageContext());
             }
             SparseArray sparseArray = (SparseArray) view.getTag();
             if (sparseArray == null) {
@@ -319,7 +319,7 @@ public class a implements KeyboardEventLayout.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.K != null && (a.this.K instanceof Dialog)) {
-                d.b.b.e.m.g.b(a.this.K, a.this.f53033f.getPageContext());
+                d.b.b.e.m.g.b(a.this.K, a.this.f53034f.getPageContext());
             }
             SparseArray sparseArray = (SparseArray) view.getTag();
             if (sparseArray == null || a.this.Q == null) {
@@ -333,22 +333,22 @@ public class a implements KeyboardEventLayout.a {
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f53045e;
+        public final /* synthetic */ boolean f53046e;
 
         public i(boolean z) {
-            this.f53045e = z;
+            this.f53046e = z;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.K != null && (a.this.K instanceof Dialog)) {
-                d.b.b.e.m.g.b(a.this.K, a.this.f53033f.getPageContext());
+                d.b.b.e.m.g.b(a.this.K, a.this.f53034f.getPageContext());
             }
             SparseArray<Object> sparseArray = (SparseArray) view.getTag();
             if (sparseArray == null) {
                 return;
             }
-            a.this.f53033f.handleMuteClick(this.f53045e, (String) sparseArray.get(R.id.tag_user_mute_mute_userid), sparseArray);
+            a.this.f53034f.handleMuteClick(this.f53046e, (String) sparseArray.get(R.id.tag_user_mute_mute_userid), sparseArray);
         }
     }
 
@@ -356,16 +356,16 @@ public class a implements KeyboardEventLayout.a {
     public class j implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f53047e;
+        public final /* synthetic */ SparseArray f53048e;
 
         public j(SparseArray sparseArray) {
-            this.f53047e = sparseArray;
+            this.f53048e = sparseArray;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             if (a.this.R != null) {
-                a.this.R.a(new Object[]{this.f53047e.get(R.id.tag_del_post_id), this.f53047e.get(R.id.tag_manage_user_identity), this.f53047e.get(R.id.tag_del_post_is_self), this.f53047e.get(R.id.tag_del_post_type)});
+                a.this.R.a(new Object[]{this.f53048e.get(R.id.tag_del_post_id), this.f53048e.get(R.id.tag_manage_user_identity), this.f53048e.get(R.id.tag_del_post_is_self), this.f53048e.get(R.id.tag_del_post_type)});
             }
             aVar.dismiss();
         }
@@ -386,15 +386,15 @@ public class a implements KeyboardEventLayout.a {
     public class l implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f53049e;
+        public final /* synthetic */ boolean f53050e;
 
         public l(boolean z) {
-            this.f53049e = z;
+            this.f53050e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f53031d.setEnabled(this.f53049e);
+            a.this.f53032d.setEnabled(this.f53050e);
         }
     }
 
@@ -410,12 +410,12 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public a(NewSubPbActivity newSubPbActivity, View.OnClickListener onClickListener) {
-        this.f53028a = null;
-        this.f53030c = null;
-        this.f53031d = null;
-        this.f53032e = null;
-        this.f53033f = null;
-        this.f53034g = null;
+        this.f53029a = null;
+        this.f53031c = null;
+        this.f53032d = null;
+        this.f53033e = null;
+        this.f53034f = null;
+        this.f53035g = null;
         this.j = null;
         this.r = null;
         this.C = null;
@@ -426,59 +426,59 @@ public class a implements KeyboardEventLayout.a {
         this.X = null;
         this.Y = null;
         this.Z = null;
-        this.f53033f = newSubPbActivity;
+        this.f53034f = newSubPbActivity;
         this.M = onClickListener;
-        this.f53028a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
-        this.f53030c = LayoutInflater.from(this.f53033f.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
-        this.f53029b = (LinearLayout) this.f53028a.findViewById(R.id.navigation_bar_group);
-        this.X = (RelativeLayout) this.f53028a.findViewById(R.id.subpb_editor_tool_comment);
-        TextView textView = (TextView) this.f53028a.findViewById(R.id.subpb_editor_tool_comment_reply_text);
+        this.f53029a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
+        this.f53031c = LayoutInflater.from(this.f53034f.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
+        this.f53030b = (LinearLayout) this.f53029a.findViewById(R.id.navigation_bar_group);
+        this.X = (RelativeLayout) this.f53029a.findViewById(R.id.subpb_editor_tool_comment);
+        TextView textView = (TextView) this.f53029a.findViewById(R.id.subpb_editor_tool_comment_reply_text);
         this.W = textView;
         textView.setOnClickListener(this.M);
-        this.Y = (ImageView) this.f53028a.findViewById(R.id.subpb_editor_tool_more_img);
-        ImageView imageView = (ImageView) this.f53028a.findViewById(R.id.subpb_editor_tool_emotion_img);
+        this.Y = (ImageView) this.f53029a.findViewById(R.id.subpb_editor_tool_more_img);
+        ImageView imageView = (ImageView) this.f53029a.findViewById(R.id.subpb_editor_tool_emotion_img);
         this.Z = imageView;
         imageView.setOnClickListener(this.M);
         this.Y.setOnClickListener(this.M);
-        this.f53034g = (NoNetworkView) this.f53028a.findViewById(R.id.view_no_network);
+        this.f53035g = (NoNetworkView) this.f53029a.findViewById(R.id.view_no_network);
         V();
         U();
-        this.j = (RelativeLayout) this.f53028a.findViewById(R.id.sub_pb_body_layout);
-        this.f53031d = (BdTypeListView) this.f53028a.findViewById(R.id.new_sub_pb_list);
-        ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f53033f.getPageContext().getPageActivity()).inflate(R.layout.thread_skin_layout, (ViewGroup) null);
+        this.j = (RelativeLayout) this.f53029a.findViewById(R.id.sub_pb_body_layout);
+        this.f53032d = (BdTypeListView) this.f53029a.findViewById(R.id.new_sub_pb_list);
+        ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f53034f.getPageContext().getPageActivity()).inflate(R.layout.thread_skin_layout, (ViewGroup) null);
         this.A = threadSkinView;
-        this.f53031d.addHeaderView(threadSkinView);
-        this.f53031d.addHeaderView(this.f53030c);
+        this.f53032d.addHeaderView(threadSkinView);
+        this.f53032d.addHeaderView(this.f53031c);
         this.J = new TextView(newSubPbActivity.getActivity());
         this.J.setLayoutParams(new AbsListView.LayoutParams(-1, 20));
-        this.f53031d.x(this.J, 0);
-        this.f53028a.setTopView(this.J);
-        this.f53028a.setNavigationView(this.f53029b);
-        this.f53028a.setListView(this.f53031d);
-        this.f53028a.setContentView(this.j);
-        d.b.i0.c2.k.g.d dVar = new d.b.i0.c2.k.g.d(this.f53033f.getPageContext());
+        this.f53032d.x(this.J, 0);
+        this.f53029a.setTopView(this.J);
+        this.f53029a.setNavigationView(this.f53030b);
+        this.f53029a.setListView(this.f53032d);
+        this.f53029a.setContentView(this.j);
+        d.b.i0.c2.k.g.d dVar = new d.b.i0.c2.k.g.d(this.f53034f.getPageContext());
         this.C = dVar;
         dVar.v();
         this.H = this.C.b();
-        this.f53031d.setNextPage(this.C);
+        this.f53032d.setNextPage(this.C);
         this.C.z(this.M);
-        this.f53031d.setOnItemClickListener(this.o0);
-        this.f53031d.setOnItemLongClickListener(this.n0);
-        this.f53031d.setOnTouchListener(this.m0);
+        this.f53032d.setOnItemClickListener(this.o0);
+        this.f53032d.setOnItemLongClickListener(this.n0);
+        this.f53032d.setOnTouchListener(this.m0);
         d.b.i0.c2.p.e eVar = new d.b.i0.c2.p.e(newSubPbActivity.getPageContext());
-        this.f53032e = eVar;
+        this.f53033e = eVar;
         eVar.n();
-        this.f53032e.b(this.k0);
-        this.f53032e.I(TbadkCoreApplication.getInst().getSkinType());
-        this.P = (ProgressBar) this.f53028a.findViewById(R.id.progress);
-        this.l0 = (MaskView) this.f53028a.findViewById(R.id.mask_view);
-        this.c0 = this.f53028a.findViewById(R.id.view_comment_top_line);
-        this.a0 = (LinearLayout) this.f53028a.findViewById(R.id.pb_editer_tool_comment_layout);
-        HeadImageView headImageView = (HeadImageView) this.f53028a.findViewById(R.id.pb_editor_tool_comment_user_image);
+        this.f53033e.b(this.k0);
+        this.f53033e.I(TbadkCoreApplication.getInst().getSkinType());
+        this.P = (ProgressBar) this.f53029a.findViewById(R.id.progress);
+        this.l0 = (MaskView) this.f53029a.findViewById(R.id.mask_view);
+        this.c0 = this.f53029a.findViewById(R.id.view_comment_top_line);
+        this.a0 = (LinearLayout) this.f53029a.findViewById(R.id.pb_editer_tool_comment_layout);
+        HeadImageView headImageView = (HeadImageView) this.f53029a.findViewById(R.id.pb_editor_tool_comment_user_image);
         this.b0 = headImageView;
         headImageView.setVisibility(0);
         this.b0.setIsRound(true);
-        this.b0.setBorderWidth(d.b.b.e.p.l.g(this.f53033f, R.dimen.L_X01));
+        this.b0.setBorderWidth(d.b.b.e.p.l.g(this.f53034f, R.dimen.L_X01));
         this.b0.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.b0.setDefaultBgResource(0);
         this.b0.setDefaultResource(R.color.CAM_X0205);
@@ -486,17 +486,17 @@ public class a implements KeyboardEventLayout.a {
             this.b0.W(TbadkCoreApplication.getCurrentAccountInfo().getAvatar(), 12, false);
         }
         e0(TbadkCoreApplication.getInst().getSkinType());
-        View view = this.f53030c;
+        View view = this.f53031c;
         if (view != null) {
             view.setVisibility(4);
         }
-        View a2 = d.b.h0.d.b.b().a(this.f53033f.getActivity(), 4);
+        View a2 = d.b.h0.d.b.b().a(this.f53034f.getActivity(), 4);
         this.r = a2;
         if (a2 != null) {
             a2.setVisibility(8);
             this.o.addView(this.r, 3);
         }
-        d.b.i0.c2.k.g.c cVar = new d.b.i0.c2.k.g.c(this.f53033f, this.f53031d);
+        d.b.i0.c2.k.g.c cVar = new d.b.i0.c2.k.g.c(this.f53034f, this.f53032d);
         this.i0 = cVar;
         cVar.f(this.O);
         this.i0.d(this.M);
@@ -513,7 +513,7 @@ public class a implements KeyboardEventLayout.a {
 
     public void A0() {
         if (this.B == null) {
-            this.B = new d.b.h0.r.f0.a(this.f53033f.getPageContext());
+            this.B = new d.b.h0.r.f0.a(this.f53034f.getPageContext());
         }
         this.B.h(true);
     }
@@ -527,7 +527,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void B0(int i2) {
-        W(NoDataViewFactory.e.d(null, this.f53033f.getResources().getString(R.string.refresh_view_title_text)));
+        W(NoDataViewFactory.e.d(null, this.f53034f.getResources().getString(R.string.refresh_view_title_text)));
         this.X.setVisibility(8);
     }
 
@@ -539,7 +539,7 @@ public class a implements KeyboardEventLayout.a {
         if (z) {
             W(NoDataViewFactory.e.d("", str));
         } else {
-            W(NoDataViewFactory.e.d(str, this.f53033f.getPageContext().getString(R.string.refresh_view_title_text)));
+            W(NoDataViewFactory.e.d(str, this.f53034f.getPageContext().getString(R.string.refresh_view_title_text)));
         }
         this.X.setVisibility(8);
     }
@@ -554,23 +554,23 @@ public class a implements KeyboardEventLayout.a {
             bVar.e();
             this.N = null;
         }
-        d.b.h0.r.s.b bVar2 = new d.b.h0.r.s.b(this.f53033f.getPageContext().getPageActivity());
+        d.b.h0.r.s.b bVar2 = new d.b.h0.r.s.b(this.f53034f.getPageContext().getPageActivity());
         this.N = bVar2;
         if (z) {
-            bVar2.j(new String[]{this.f53033f.getPageContext().getString(R.string.save_to_emotion)}, cVar);
+            bVar2.j(new String[]{this.f53034f.getPageContext().getString(R.string.save_to_emotion)}, cVar);
         } else {
-            bVar2.j(new String[]{this.f53033f.getPageContext().getString(R.string.save_to_emotion), this.f53033f.getPageContext().getString(R.string.save_to_local)}, cVar);
+            bVar2.j(new String[]{this.f53034f.getPageContext().getString(R.string.save_to_emotion), this.f53034f.getPageContext().getString(R.string.save_to_local)}, cVar);
         }
-        this.N.c(this.f53033f.getPageContext());
+        this.N.c(this.f53034f.getPageContext());
         this.N.m();
     }
 
     public View E() {
-        return this.f53030c;
+        return this.f53031c;
     }
 
     public void E0() {
-        this.f53031d.setNextPage(this.C);
+        this.f53032d.setNextPage(this.C);
         this.C.O();
     }
 
@@ -586,16 +586,16 @@ public class a implements KeyboardEventLayout.a {
         if (qVar == null) {
             return;
         }
-        if (this.h0 && (view = this.f53030c) != null) {
+        if (this.h0 && (view = this.f53031c) != null) {
             view.setVisibility(8);
-            this.f53031d.removeHeaderView(this.f53030c);
+            this.f53032d.removeHeaderView(this.f53031c);
             this.e0 = 1;
         }
         this.V = qVar;
         if (qVar.i() != null) {
             this.V.i().h0 = true;
         }
-        View view2 = this.f53030c;
+        View view2 = this.f53031c;
         if (view2 != null) {
             view2.setVisibility(0);
         }
@@ -608,17 +608,17 @@ public class a implements KeyboardEventLayout.a {
             int z3 = qVar.i().z();
             this.T = z3;
             if (z3 > 0) {
-                this.k.setCenterTextTitle(String.format(this.f53033f.getResources().getString(R.string.subpb_floor_reply), Integer.valueOf(this.T)));
-                NewSubPbActivity newSubPbActivity = this.f53033f;
+                this.k.setCenterTextTitle(String.format(this.f53034f.getResources().getString(R.string.subpb_floor_reply), Integer.valueOf(this.T)));
+                NewSubPbActivity newSubPbActivity = this.f53034f;
                 if (newSubPbActivity != null) {
                     this.W.setText(newSubPbActivity.getReplyHint());
                 }
             } else {
-                this.k.setCenterTextTitle(this.f53033f.getResources().getString(R.string.local_floor_reply));
+                this.k.setCenterTextTitle(this.f53034f.getResources().getString(R.string.local_floor_reply));
             }
-            String str = this.f53033f.isFromPb() ? "PB" : null;
+            String str = this.f53034f.isFromPb() ? "PB" : null;
             if (qVar.i().K() != null) {
-                this.A.setData(this.f53033f.getPageContext(), qVar.i().K(), d.b.i0.c3.j0.a.a("PB", "c0132", qVar.d().getId(), qVar.d().getName(), qVar.l().o0(), str));
+                this.A.setData(this.f53034f.getPageContext(), qVar.i().K(), d.b.i0.c3.j0.a.a("PB", "c0132", qVar.d().getId(), qVar.d().getName(), qVar.l().o0(), str));
             } else {
                 this.A.setData(null, null, null);
             }
@@ -639,8 +639,8 @@ public class a implements KeyboardEventLayout.a {
         } else {
             int size = this.U.size() - p0;
             j0(size);
-            int firstVisiblePosition = this.f53031d.getFirstVisiblePosition() - size;
-            View childAt = this.f53031d.getChildAt(0);
+            int firstVisiblePosition = this.f53032d.getFirstVisiblePosition() - size;
+            View childAt = this.f53032d.getChildAt(0);
             i3 = size;
             i4 = firstVisiblePosition;
             i5 = childAt == null ? 0 : childAt.getTop();
@@ -648,12 +648,12 @@ public class a implements KeyboardEventLayout.a {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(this.U);
         if (ListUtils.isEmpty(this.U)) {
-            this.f53031d.setNextPage(null);
+            this.f53032d.setNextPage(null);
             if (this.h0) {
                 arrayList.add(0, new d.b.i0.c2.k.g.f.a());
             }
         } else {
-            this.f53031d.setNextPage(this.C);
+            this.f53032d.setNextPage(this.C);
         }
         d.b.i0.c2.k.g.f.b bVar = new d.b.i0.c2.k.g.f.b();
         bVar.e(qVar.m());
@@ -661,21 +661,21 @@ public class a implements KeyboardEventLayout.a {
         if (this.h0) {
             arrayList.add(0, qVar.i());
         }
-        NewSubPbActivity newSubPbActivity2 = this.f53033f;
+        NewSubPbActivity newSubPbActivity2 = this.f53034f;
         if (newSubPbActivity2 != null && newSubPbActivity2.getSubPbModel() != null) {
-            this.l0.setVisibility(this.f53033f.getSubPbModel().k0() ? 0 : 8);
+            this.l0.setVisibility(this.f53034f.getSubPbModel().k0() ? 0 : 8);
         }
         this.i0.e(this.V.l(), arrayList);
         y(qVar, qVar.i(), qVar.e(), qVar.f(), i2, z);
         if (i3 > 0) {
-            this.f53031d.setSelectionFromTop(i4, i5);
-        } else if (z2 && !d.b.b.e.p.k.isEmpty(this.f53033f.getSubPbModel().U())) {
-            String U = this.f53033f.getSubPbModel().U();
+            this.f53032d.setSelectionFromTop(i4, i5);
+        } else if (z2 && !d.b.b.e.p.k.isEmpty(this.f53034f.getSubPbModel().U())) {
+            String U = this.f53034f.getSubPbModel().U();
             int i6 = 0;
             while (true) {
                 if (i6 < arrayList.size()) {
                     if ((arrayList.get(i6) instanceof PostData) && U.equals(((PostData) arrayList.get(i6)).D())) {
-                        this.f53031d.post(new d(i6));
+                        this.f53032d.post(new d(i6));
                         break;
                     }
                     i6++;
@@ -685,16 +685,16 @@ public class a implements KeyboardEventLayout.a {
             }
         }
         if (this.V.j() > 1) {
-            this.f53031d.setPullRefresh(this.f53032e);
-            this.f53028a.setEnableDragExit(false);
+            this.f53032d.setPullRefresh(this.f53033e);
+            this.f53029a.setEnableDragExit(false);
             return;
         }
-        this.f53031d.setPullRefresh(null);
-        this.f53028a.setEnableDragExit(true);
+        this.f53032d.setPullRefresh(null);
+        this.f53029a.setEnableDragExit(true);
     }
 
     public ListView G() {
-        return this.f53031d;
+        return this.f53032d;
     }
 
     public boolean G0() {
@@ -729,8 +729,8 @@ public class a implements KeyboardEventLayout.a {
             } else {
                 this.r.setVisibility(0);
                 d.b.h0.d.a aVar = new d.b.h0.d.a();
-                aVar.f50085a = metaData.getAlaUserData();
-                aVar.f50086b = 4;
+                aVar.f50086a = metaData.getAlaUserData();
+                aVar.f50087b = 4;
                 this.r.setTag(aVar);
             }
         }
@@ -761,7 +761,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void I0() {
-        BdTypeListView bdTypeListView = this.f53031d;
+        BdTypeListView bdTypeListView = this.f53032d;
         if (bdTypeListView != null) {
             this.f0 = bdTypeListView.getLastVisiblePosition();
         }
@@ -804,7 +804,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public View P() {
-        return this.f53028a;
+        return this.f53029a;
     }
 
     public final SpannableStringBuilder Q(String str, String str2) {
@@ -814,7 +814,7 @@ public class a implements KeyboardEventLayout.a {
             return spannableStringBuilder;
         }
         arrayList.add(new m.a(str, R.drawable.pic_smalldot_title));
-        return d.b.i0.x.m.h(this.f53033f.getActivity(), str2, arrayList, true);
+        return d.b.i0.x.m.h(this.f53034f.getActivity(), str2, arrayList, true);
     }
 
     public void R() {
@@ -825,12 +825,12 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void S() {
-        NoDataView noDataView = this.f53035h;
+        NoDataView noDataView = this.f53036h;
         if (noDataView != null) {
             noDataView.setVisibility(8);
-            this.f53031d.setVisibility(0);
+            this.f53032d.setVisibility(0);
             this.X.setVisibility(0);
-            this.f53028a.setOnTouchListener(null);
+            this.f53029a.setOnTouchListener(null);
         }
     }
 
@@ -842,47 +842,47 @@ public class a implements KeyboardEventLayout.a {
         if (hVar.u()) {
             this.W.setText(R.string.draft_to_send);
         } else {
-            this.W.setText(this.f53033f.getReplyHint());
+            this.W.setText(this.f53034f.getReplyHint());
         }
     }
 
     public void U() {
-        LinearLayout linearLayout = (LinearLayout) this.f53030c.findViewById(R.id.subpb_head_user_info_root);
+        LinearLayout linearLayout = (LinearLayout) this.f53031c.findViewById(R.id.subpb_head_user_info_root);
         this.o = linearLayout;
         linearLayout.setOnClickListener(this.M);
-        HeadImageView headImageView = (HeadImageView) this.f53030c.findViewById(R.id.photo);
+        HeadImageView headImageView = (HeadImageView) this.f53031c.findViewById(R.id.photo);
         this.p = headImageView;
-        headImageView.setRadius(d.b.b.e.p.l.g(this.f53033f.getActivity(), R.dimen.tbds45));
+        headImageView.setRadius(d.b.b.e.p.l.g(this.f53034f.getActivity(), R.dimen.tbds45));
         this.p.setClickable(false);
-        this.q = (TextView) this.f53030c.findViewById(R.id.user_name);
-        ImageView imageView = (ImageView) this.f53030c.findViewById(R.id.user_rank);
+        this.q = (TextView) this.f53031c.findViewById(R.id.user_name);
+        ImageView imageView = (ImageView) this.f53031c.findViewById(R.id.user_rank);
         this.s = imageView;
         imageView.setVisibility(8);
-        this.t = (TextView) this.f53030c.findViewById(R.id.floor_owner);
-        TextView textView = (TextView) this.f53030c.findViewById(R.id.see_subject);
+        this.t = (TextView) this.f53031c.findViewById(R.id.floor_owner);
+        TextView textView = (TextView) this.f53031c.findViewById(R.id.see_subject);
         this.n = textView;
         textView.setOnClickListener(this.M);
-        this.u = (TextView) this.f53030c.findViewById(R.id.floor);
-        this.v = (TextView) this.f53030c.findViewById(R.id.time);
-        EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.f53030c.findViewById(R.id.content_text);
+        this.u = (TextView) this.f53031c.findViewById(R.id.floor);
+        this.v = (TextView) this.f53031c.findViewById(R.id.time);
+        EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.f53031c.findViewById(R.id.content_text);
         this.w = ellipsizeRichTextView;
         ellipsizeRichTextView.setOnClickListener(this.M);
         SkinManager.setViewTextColor(this.w, R.color.CAM_X0105);
         this.w.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         this.w.setLineSpacing(0.0f, 1.25f);
-        TbImageView tbImageView = (TbImageView) this.f53030c.findViewById(R.id.sub_pb_image);
+        TbImageView tbImageView = (TbImageView) this.f53031c.findViewById(R.id.sub_pb_image);
         this.x = tbImageView;
         tbImageView.setOnClickListener(this.M);
-        this.z = (TextView) this.f53030c.findViewById(R.id.advert);
-        this.y = (PlayVoiceBntNew) this.f53030c.findViewById(R.id.voice_btn);
-        this.f53030c.setOnTouchListener(this.m0);
-        this.f53030c.setOnClickListener(this.M);
+        this.z = (TextView) this.f53031c.findViewById(R.id.advert);
+        this.y = (PlayVoiceBntNew) this.f53031c.findViewById(R.id.voice_btn);
+        this.f53031c.setOnTouchListener(this.m0);
+        this.f53031c.setOnClickListener(this.M);
     }
 
     public void V() {
-        int g2 = d.b.b.e.p.l.g(this.f53033f.getPageContext().getPageActivity(), R.dimen.ds88);
-        int g3 = d.b.b.e.p.l.g(this.f53033f.getPageContext().getPageActivity(), R.dimen.ds2);
-        NavigationBar navigationBar = (NavigationBar) this.f53028a.findViewById(R.id.view_navigation_bar);
+        int g2 = d.b.b.e.p.l.g(this.f53034f.getPageContext().getPageActivity(), R.dimen.ds88);
+        int g3 = d.b.b.e.p.l.g(this.f53034f.getPageContext().getPageActivity(), R.dimen.ds2);
+        NavigationBar navigationBar = (NavigationBar) this.f53029a.findViewById(R.id.view_navigation_bar);
         this.k = navigationBar;
         this.m = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e());
         ImageView backImageView = this.k.getBackImageView();
@@ -905,19 +905,19 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public final void W(NoDataViewFactory.e eVar) {
-        NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f53033f.getPageContext().getString(R.string.refresh_view_button_text), this.i));
-        if (this.f53035h == null) {
-            Activity pageActivity = this.f53033f.getPageContext().getPageActivity();
-            this.f53035h = NoDataViewFactory.a(pageActivity, this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, d.b.b.e.p.l.g(pageActivity, R.dimen.ds250)), eVar, a2);
+        NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f53034f.getPageContext().getString(R.string.refresh_view_button_text), this.i));
+        if (this.f53036h == null) {
+            Activity pageActivity = this.f53034f.getPageContext().getPageActivity();
+            this.f53036h = NoDataViewFactory.a(pageActivity, this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, d.b.b.e.p.l.g(pageActivity, R.dimen.ds250)), eVar, a2);
         }
-        this.f53031d.setVisibility(8);
+        this.f53032d.setVisibility(8);
         this.P.setVisibility(8);
         this.S.w();
-        SkinManager.setBackgroundColor(this.f53035h, R.color.CAM_X0201);
-        this.f53035h.setClickable(true);
-        this.f53035h.setTextOption(eVar);
-        this.f53035h.f(this.f53033f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.f53035h.setVisibility(0);
+        SkinManager.setBackgroundColor(this.f53036h, R.color.CAM_X0201);
+        this.f53036h.setClickable(true);
+        this.f53036h.setTextOption(eVar);
+        this.f53036h.f(this.f53034f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.f53036h.setVisibility(0);
     }
 
     public void X(d.b.h0.w.w.h hVar) {
@@ -932,7 +932,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public boolean Y() {
-        return this.f53028a.e();
+        return this.f53029a.e();
     }
 
     public final boolean Z(boolean z) {
@@ -959,7 +959,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void b0() {
-        SubPbView subPbView = this.f53028a;
+        SubPbView subPbView = this.f53029a;
         if (subPbView != null) {
             subPbView.f();
         }
@@ -976,19 +976,19 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void e0(int i2) {
-        this.f53033f.getLayoutMode().k(i2 == 1);
-        this.f53033f.getLayoutMode().j(this.f53028a);
-        this.f53033f.getLayoutMode().j(this.f53030c);
-        SkinManager.setBackgroundColor(this.f53028a, R.color.CAM_X0201);
+        this.f53034f.getLayoutMode().k(i2 == 1);
+        this.f53034f.getLayoutMode().j(this.f53029a);
+        this.f53034f.getLayoutMode().j(this.f53031c);
+        SkinManager.setBackgroundColor(this.f53029a, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-        this.k.onChangeSkinType(this.f53033f.getPageContext(), i2);
+        this.k.onChangeSkinType(this.f53034f.getPageContext(), i2);
         WebPManager.setPureDrawable(this.l, R.drawable.icon_pure_topbar_close44, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
         TextView textView = this.n;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.goto_see_subject_color);
         }
-        this.f53034g.c(this.f53033f.getPageContext(), i2);
-        this.f53033f.getLayoutMode().j(this.H);
+        this.f53035g.c(this.f53034f.getPageContext(), i2);
+        this.f53034f.getLayoutMode().j(this.H);
         SkinManager.setViewTextColor(this.w, R.color.CAM_X0105);
         this.w.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         d.b.h0.w.w.h hVar = this.S;
@@ -1008,20 +1008,20 @@ public class a implements KeyboardEventLayout.a {
         }
         this.W.setAlpha(0.95f);
         if (this.D != null) {
-            d.b.h0.s0.a.a(this.f53033f.getPageContext(), this.D);
+            d.b.h0.s0.a.a(this.f53034f.getPageContext(), this.D);
         }
         d.b.i0.c2.k.g.c cVar = this.i0;
         if (cVar != null) {
             cVar.c();
         }
-        this.f53033f.getLayoutMode().j(this.F);
+        this.f53034f.getLayoutMode().j(this.F);
         SkinManager.setBackgroundColor(this.c0, R.color.CAM_X0203);
         this.b0.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.a0.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(d.b.b.e.p.l.g(this.f53033f, R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
+        this.a0.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(d.b.b.e.p.l.g(this.f53034f, R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
     }
 
     public void f0() {
-        if (this.f53033f.isPaused()) {
+        if (this.f53034f.isPaused()) {
         }
     }
 
@@ -1042,31 +1042,29 @@ public class a implements KeyboardEventLayout.a {
                 i4 = R.string.del_thread_confirm;
             }
         }
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f53033f.getPageContext().getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f53034f.getPageContext().getPageActivity());
         this.L = aVar;
         aVar.setMessageId(i4);
         this.L.setYesButtonTag(sparseArray);
         this.L.setPositiveButton(R.string.dialog_ok, new j(sparseArray));
         this.L.setNegativeButton(R.string.dialog_cancel, new k(this));
         this.L.setCancelable(true);
-        this.L.create(this.f53033f.getPageContext());
+        this.L.create(this.f53034f.getPageContext());
         this.L.show();
     }
 
     public void h0(SparseArray<Object> sparseArray, boolean z) {
         boolean z2 = true;
         if (this.K == null) {
-            Dialog dialog = new Dialog(this.f53033f.getPageContext().getPageActivity(), R.style.common_alert_dialog);
+            Dialog dialog = new Dialog(this.f53034f.getPageContext().getPageActivity(), R.style.common_alert_dialog);
             this.K = dialog;
             dialog.setCanceledOnTouchOutside(true);
             this.K.setCancelable(true);
-            this.F = LayoutInflater.from(this.f53033f.getPageContext().getPageActivity()).inflate(R.layout.forum_manage_dialog, (ViewGroup) null);
-            this.f53033f.getLayoutMode().j(this.F);
+            this.F = LayoutInflater.from(this.f53034f.getPageContext().getPageActivity()).inflate(R.layout.forum_manage_dialog, (ViewGroup) null);
+            this.f53034f.getLayoutMode().j(this.F);
             this.K.setContentView(this.F);
             WindowManager.LayoutParams attributes = this.K.getWindow().getAttributes();
-            double k2 = d.b.b.e.p.l.k(this.f53033f.getPageContext().getPageActivity());
-            Double.isNaN(k2);
-            attributes.width = (int) (k2 * 0.9d);
+            attributes.width = (int) (d.b.b.e.p.l.k(this.f53034f.getPageContext().getPageActivity()) * 0.9d);
             this.K.getWindow().setAttributes(attributes);
         }
         TextView textView = (TextView) this.K.findViewById(R.id.del_post_btn);
@@ -1141,7 +1139,7 @@ public class a implements KeyboardEventLayout.a {
             sparseArray4.put(i16, sparseArray.get(i16));
             textView3.setOnClickListener(new i(z));
         }
-        d.b.b.e.m.g.j(this.K, this.f53033f.getPageContext());
+        d.b.b.e.m.g.j(this.K, this.f53034f.getPageContext());
     }
 
     public void i0(View view) {
@@ -1177,7 +1175,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void l0() {
-        this.f53031d.setVisibility(0);
+        this.f53032d.setVisibility(0);
         this.P.setVisibility(8);
         this.C.f();
     }
@@ -1192,14 +1190,14 @@ public class a implements KeyboardEventLayout.a {
 
     public void o0(f.g gVar) {
         this.k0 = gVar;
-        d.b.i0.c2.p.e eVar = this.f53032e;
+        d.b.i0.c2.p.e eVar = this.f53033e;
         if (eVar != null) {
             eVar.b(gVar);
         }
     }
 
     public void p0() {
-        this.f53031d.setVisibility(0);
+        this.f53032d.setVisibility(0);
         this.P.setVisibility(8);
         this.C.P();
     }
@@ -1218,11 +1216,11 @@ public class a implements KeyboardEventLayout.a {
         this.k.isShowBottomLine(true);
         this.k.setBottomLineHeight(3);
         this.k.setStatusBarVisibility(8);
-        this.I = new BlankView(this.f53033f.getPageContext().getPageActivity());
-        this.f53029b.addView(this.I, 0, new LinearLayout.LayoutParams(-1, d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds160)));
+        this.I = new BlankView(this.f53034f.getPageContext().getPageActivity());
+        this.f53030b.addView(this.I, 0, new LinearLayout.LayoutParams(-1, d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds160)));
         this.I.setVisibility(0);
         this.I.setOnClickListener(new c());
-        this.f53028a.setBlankView(this.I);
+        this.f53029a.setBlankView(this.I);
     }
 
     public void r0(TbRichTextView.w wVar) {
@@ -1230,8 +1228,8 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void s() {
-        v0(this.f53033f);
-        this.f53031d.setNextPage(this.C);
+        v0(this.f53034f);
+        this.f53032d.setNextPage(this.C);
     }
 
     public void s0(View.OnLongClickListener onLongClickListener) {
@@ -1262,7 +1260,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void u0(AbsListView.OnScrollListener onScrollListener) {
-        this.f53031d.setOnScrollListener(onScrollListener);
+        this.f53032d.setOnScrollListener(onScrollListener);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x00a4  */
@@ -1441,13 +1439,13 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void v0(BdListView.p pVar) {
-        this.f53031d.setOnSrollToBottomListener(pVar);
+        this.f53032d.setOnSrollToBottomListener(pVar);
     }
 
     public void w() {
         MorePopupWindow morePopupWindow = this.E;
         if (morePopupWindow != null) {
-            d.b.b.e.m.g.d(morePopupWindow, this.f53033f.getPageContext().getPageActivity());
+            d.b.b.e.m.g.d(morePopupWindow, this.f53034f.getPageContext().getPageActivity());
         }
         d.b.h0.r.s.b bVar = this.G;
         if (bVar != null) {
@@ -1459,7 +1457,7 @@ public class a implements KeyboardEventLayout.a {
         }
         Dialog dialog = this.K;
         if (dialog != null) {
-            d.b.b.e.m.g.b(dialog, this.f53033f.getPageContext());
+            d.b.b.e.m.g.b(dialog, this.f53034f.getPageContext());
         }
         ProgressBar progressBar = this.P;
         if (progressBar != null) {
@@ -1476,7 +1474,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public final void x(boolean z) {
-        BdTypeListView bdTypeListView = this.f53031d;
+        BdTypeListView bdTypeListView = this.f53032d;
         if (bdTypeListView != null) {
             if (!z) {
                 bdTypeListView.setEnabled(z);
@@ -1501,15 +1499,15 @@ public class a implements KeyboardEventLayout.a {
             this.x.setVisibility(8);
         }
         d.b.i0.c3.h0.i u = postData.u();
-        if (u != null && u.f53384a) {
+        if (u != null && u.f53385a) {
             this.z.setVisibility(0);
         } else {
             this.z.setVisibility(8);
         }
-        SparseArray<Object> sparseArray = (SparseArray) this.f53030c.getTag();
+        SparseArray<Object> sparseArray = (SparseArray) this.f53031c.getTag();
         if (sparseArray == null) {
             sparseArray = new SparseArray<>();
-            this.f53030c.setTag(sparseArray);
+            this.f53031c.setTag(sparseArray);
         }
         sparseArray.clear();
         sparseArray.put(R.id.tag_clip_board, postData);
@@ -1526,7 +1524,7 @@ public class a implements KeyboardEventLayout.a {
             }
         }
         this.v.setText(StringHelper.getFormatTime(postData.Q()));
-        String format = String.format(this.f53033f.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.z()));
+        String format = String.format(this.f53034f.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.z()));
         if (qVar.l() != null && qVar.l().x2()) {
             this.u.setText((CharSequence) null);
         } else {
@@ -1590,11 +1588,11 @@ public class a implements KeyboardEventLayout.a {
             progressBar.setVisibility(8);
         }
         if (z && z2) {
-            NewSubPbActivity newSubPbActivity = this.f53033f;
+            NewSubPbActivity newSubPbActivity = this.f53034f;
             newSubPbActivity.showToast(newSubPbActivity.getResources().getString(R.string.delete_success));
         } else if (str == null || !z2) {
         } else {
-            this.f53033f.showToast(str);
+            this.f53034f.showToast(str);
         }
     }
 
@@ -1619,7 +1617,7 @@ public class a implements KeyboardEventLayout.a {
         ArrayList arrayList = new ArrayList(ListUtils.subList(this.U, 0, i2));
         ListUtils.add(arrayList, postData2);
         ListUtils.add(arrayList, postData);
-        this.f53031d.smoothScrollToPosition(this.f0 + 2);
-        this.f53031d.setNextPage(null);
+        this.f53032d.smoothScrollToPosition(this.f0 + 2);
+        this.f53032d.setNextPage(null);
     }
 }

@@ -20,16 +20,16 @@ import d.b.b.e.m.e;
 public class BdTopToast extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f22025e;
+    public View f22026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BottomShadowLinearLayout f22026f;
+    public BottomShadowLinearLayout f22027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f22027g;
+    public ImageView f22028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f22028h;
+    public TextView f22029h;
     public Animation i;
     public Animation j;
     public Runnable k;
@@ -82,13 +82,13 @@ public class BdTopToast extends LinearLayout {
     public final void d() {
         setOrientation(1);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.f22025e = new View(getContext());
-            addView(this.f22025e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+            this.f22026e = new View(getContext());
+            addView(this.f22026e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.f22026f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-        this.f22027g = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.f22028h = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.f22027f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.f22028g = (ImageView) findViewById(R.id.bd_top_toast_icon);
+        this.f22029h = (TextView) findViewById(R.id.bd_top_toast_content);
         e();
     }
 
@@ -101,15 +101,15 @@ public class BdTopToast extends LinearLayout {
     }
 
     public void f() {
-        SkinManager.setBackgroundColor(this.f22025e, R.color.CAM_X0207);
+        SkinManager.setBackgroundColor(this.f22026e, R.color.CAM_X0207);
         if (this.m) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22027g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-            SkinManager.setViewTextColor(this.f22028h, R.color.CAM_X0302);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22028g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
+            SkinManager.setViewTextColor(this.f22029h, R.color.CAM_X0302);
         } else {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22027g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-            SkinManager.setViewTextColor(this.f22028h, R.color.CAM_X0301);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22028g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
+            SkinManager.setViewTextColor(this.f22029h, R.color.CAM_X0301);
         }
-        this.f22026f.b();
+        this.f22027f.b();
     }
 
     public final void g() {
@@ -118,7 +118,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast h(String str) {
-        this.f22028h.setText(str);
+        this.f22029h.setText(str);
         return this;
     }
 

@@ -6,13 +6,13 @@ import java.io.File;
 public class d implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f65782e;
+    public final c f65783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f65783f = false;
+    public volatile boolean f65784f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f65784g = new a();
+    public Runnable f65785g = new a();
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -21,15 +21,15 @@ public class d implements Runnable {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f65783f = false;
+            d.this.f65784f = false;
         }
     }
 
     public d(c cVar) {
-        this.f65782e = cVar;
+        this.f65783e = cVar;
         a();
         h.a(2L);
-        d.c.d.b.h.g.a().b(4500L, this.f65784g);
+        d.c.d.b.h.g.a().b(4500L, this.f65785g);
         d.c.d.b.h.g.a().c(5000L, this, 40, 5000L);
     }
 
@@ -50,7 +50,7 @@ public class d implements Runnable {
     public void run() {
         String str;
         int i;
-        if (this.f65783f) {
+        if (this.f65784f) {
             return;
         }
         if (c()) {
@@ -60,8 +60,8 @@ public class d implements Runnable {
             str = null;
             i = 100;
         }
-        if (this.f65782e.e(i, str, 25)) {
-            this.f65783f = true;
+        if (this.f65783e.e(i, str, 25)) {
+            this.f65784f = true;
         }
     }
 }

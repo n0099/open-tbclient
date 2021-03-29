@@ -10,7 +10,7 @@ import d.b.g0.a.k;
 import d.b.g0.l.k.d;
 /* loaded from: classes3.dex */
 public class a extends l {
-    public static final boolean o = k.f45050a;
+    public static final boolean o = k.f45051a;
 
     public a(b<Exception> bVar) {
         super(bVar);
@@ -46,9 +46,9 @@ public class a extends l {
             return aVar;
         }
         d.b.g0.a.l0.h.a aVar2 = new d.b.g0.a.l0.h.a();
-        aVar2.f45153a = bVar.j;
-        aVar2.f45154b = bVar.f48916a;
-        aVar2.f45155c = bVar.m;
+        aVar2.f45154a = bVar.j;
+        aVar2.f45155b = bVar.f48917a;
+        aVar2.f45156c = bVar.m;
         if (d.b.g0.a.l0.b.a(1, aVar2) == null) {
             if (o) {
                 Log.i("SwanGameUpdateCoreCallback", "小游戏Extension包解压成功");
@@ -72,8 +72,8 @@ public class a extends l {
             aVar.c("小游戏GameCore包 Framework null");
             return aVar;
         }
-        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48916a, dVar.m, 1);
-        d.b.g0.p.d.g(dVar.f48916a);
+        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48917a, dVar.m, 1);
+        d.b.g0.p.d.g(dVar.f48917a);
         if (c2.c()) {
             if (o) {
                 Log.d("SwanGameUpdateCoreCallback", "小游戏GameCore解压成功");

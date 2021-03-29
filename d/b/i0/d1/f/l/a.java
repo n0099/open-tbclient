@@ -18,23 +18,23 @@ import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
 
     /* renamed from: d.b.i0.d1.f.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1195a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1196a {
         boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(String str, List<CommonMsgPojo> list);
 
         void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         boolean a(String str);
     }
@@ -93,12 +93,12 @@ public abstract class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC1195a interfaceC1195a) {
+    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC1196a interfaceC1196a) {
         ImMessageCenterPojo imMessageCenterPojo2;
         boolean z2;
         String str;
         boolean z3;
-        InterfaceC1195a interfaceC1195a2 = interfaceC1195a;
+        InterfaceC1196a interfaceC1196a2 = interfaceC1196a;
         String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
         int customType = groupMsgData.getGroupInfo().getCustomType();
         int userType = groupMsgData.getGroupInfo().getUserType();
@@ -123,7 +123,7 @@ public abstract class a {
             if (pulled_msgId < chatMessage.getMsgId()) {
                 pulled_msgId = chatMessage.getMsgId();
             }
-            if (interfaceC1195a2 == null || !interfaceC1195a2.a(chatMessage, imMessageCenterPojo2)) {
+            if (interfaceC1196a2 == null || !interfaceC1196a2.a(chatMessage, imMessageCenterPojo2)) {
                 chatMessage.setLocalData(new MsgLocalData());
                 chatMessage.getLocalData().setStatus((short) 3);
                 CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
@@ -140,7 +140,7 @@ public abstract class a {
                 if (commonMsgPojo == null || commonMsgPojo.getRid() < commonMsgPojo2.getRid()) {
                     commonMsgPojo = commonMsgPojo2;
                 }
-                interfaceC1195a2 = interfaceC1195a;
+                interfaceC1196a2 = interfaceC1196a;
             }
         }
         if (commonMsgPojo != null) {

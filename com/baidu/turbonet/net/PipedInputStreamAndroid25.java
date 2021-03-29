@@ -7,18 +7,18 @@ import java.io.InterruptedIOException;
 public class PipedInputStreamAndroid25 extends InputStream {
 
     /* renamed from: h  reason: collision with root package name */
-    public Thread f22798h;
+    public Thread f22799h;
     public Thread i;
     public byte[] j;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22795e = false;
+    public boolean f22796e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f22796f = false;
+    public volatile boolean f22797f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22797g = false;
+    public boolean f22798g = false;
     public int k = -1;
     public int l = 0;
 
@@ -43,7 +43,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f22796f = true;
+        this.f22797f = true;
         synchronized (this) {
             this.k = -1;
         }
@@ -63,9 +63,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     public final void o() throws IOException {
-        if (this.f22797g) {
-            if (!this.f22795e && !this.f22796f) {
-                Thread thread = this.f22798h;
+        if (this.f22798g) {
+            if (!this.f22796e && !this.f22797f) {
+                Thread thread = this.f22799h;
                 if (thread != null && !thread.isAlive()) {
                     throw new IOException("Read end dead");
                 }
@@ -110,15 +110,15 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     @Override // java.io.InputStream
     public synchronized int read() throws IOException {
-        if (this.f22797g) {
-            if (!this.f22796f) {
-                if (this.i != null && !this.i.isAlive() && !this.f22795e && this.k < 0) {
+        if (this.f22798g) {
+            if (!this.f22797f) {
+                if (this.i != null && !this.i.isAlive() && !this.f22796e && this.k < 0) {
                     throw new IOException("Write end dead");
                 }
-                this.f22798h = Thread.currentThread();
+                this.f22799h = Thread.currentThread();
                 int i = 2;
                 while (this.k < 0) {
-                    if (this.f22795e) {
+                    if (this.f22796e) {
                         return -1;
                     }
                     if (this.i != null && !this.i.isAlive() && i - 1 < 0) {
@@ -151,8 +151,8 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x003f  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0053 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x000a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0053 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x000a A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -207,7 +207,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     public synchronized void t() {
-        this.f22795e = true;
+        this.f22796e = true;
         notifyAll();
     }
 

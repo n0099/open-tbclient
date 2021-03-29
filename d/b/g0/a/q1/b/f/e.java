@@ -28,73 +28,73 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import d.b.g0.a.g;
 import d.b.g0.a.q1.b.f.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static View f45675a = null;
+    public static View f45676a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Runnable f45676b = null;
+    public static Runnable f45677b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static View f45677c = null;
+    public static View f45678c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f45678d = false;
+    public static boolean f45679d = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45679e;
+        public final /* synthetic */ View f45680e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f45680f;
+        public final /* synthetic */ View f45681f;
 
         /* renamed from: d.b.g0.a.q1.b.f.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class animation.Animation$AnimationListenerC0769a implements Animation.AnimationListener {
+        /* loaded from: classes2.dex */
+        public class animation.Animation$AnimationListenerC0770a implements Animation.AnimationListener {
 
             /* renamed from: d.b.g0.a.q1.b.f.e$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class RunnableC0770a implements Runnable {
-                public RunnableC0770a() {
+            /* loaded from: classes2.dex */
+            public class RunnableC0771a implements Runnable {
+                public RunnableC0771a() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.f45679e.getParent() != null) {
-                        ((ViewGroup) a.this.f45679e.getParent()).removeView(a.this.f45679e);
+                    if (a.this.f45680e.getParent() != null) {
+                        ((ViewGroup) a.this.f45680e.getParent()).removeView(a.this.f45680e);
                     }
                 }
             }
 
             /* renamed from: d.b.g0.a.q1.b.f.e$a$a$b */
-            /* loaded from: classes3.dex */
+            /* loaded from: classes2.dex */
             public class b implements Runnable {
                 public b() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    View view = a.this.f45680f;
-                    if (view == null || view.getParent() == null || !(a.this.f45680f.getParent() instanceof ViewGroup)) {
+                    View view = a.this.f45681f;
+                    if (view == null || view.getParent() == null || !(a.this.f45681f.getParent() instanceof ViewGroup)) {
                         return;
                     }
-                    ((ViewGroup) a.this.f45680f.getParent()).removeView(a.this.f45680f);
+                    ((ViewGroup) a.this.f45681f.getParent()).removeView(a.this.f45681f);
                 }
             }
 
-            public animation.Animation$AnimationListenerC0769a() {
+            public animation.Animation$AnimationListenerC0770a() {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (a.this.f45679e.getParent() instanceof ViewGroup) {
-                    a.this.f45679e.post(new RunnableC0770a());
+                if (a.this.f45680e.getParent() instanceof ViewGroup) {
+                    a.this.f45680e.post(new RunnableC0771a());
                 }
-                View view = a.this.f45680f;
+                View view = a.this.f45681f;
                 if (view != null) {
                     view.post(new b());
                 }
@@ -110,76 +110,76 @@ public class e {
         }
 
         public a(View view, View view2) {
-            this.f45679e = view;
-            this.f45680f = view2;
+            this.f45680e = view;
+            this.f45681f = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f45679e.getContext(), d.b.g0.a.a.aiapps_toast_exit);
-            loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0769a());
-            this.f45679e.startAnimation(loadAnimation);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f45680e.getContext(), d.b.g0.a.a.aiapps_toast_exit);
+            loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0770a());
+            this.f45680e.startAnimation(loadAnimation);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45684e;
+        public final /* synthetic */ View f45685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f45685f;
+        public final /* synthetic */ Context f45686f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f45686g;
+        public final /* synthetic */ View f45687g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FrameLayout.LayoutParams f45687h;
+        public final /* synthetic */ FrameLayout.LayoutParams f45688h;
         public final /* synthetic */ Animation i;
 
         public b(View view, Context context, View view2, FrameLayout.LayoutParams layoutParams, Animation animation) {
-            this.f45684e = view;
-            this.f45685f = context;
-            this.f45686g = view2;
-            this.f45687h = layoutParams;
+            this.f45685e = view;
+            this.f45686f = context;
+            this.f45687g = view2;
+            this.f45688h = layoutParams;
             this.i = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.f45678d && this.f45684e != null) {
-                if (e.f45677c != null && (e.f45677c.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) e.f45677c.getParent()).removeView(e.f45677c);
+            if (e.f45679d && this.f45685e != null) {
+                if (e.f45678c != null && (e.f45678c.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) e.f45678c.getParent()).removeView(e.f45678c);
                 }
-                Context context = this.f45685f;
+                Context context = this.f45686f;
                 if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                     return;
                 }
-                FrameLayout frameLayout = new FrameLayout(this.f45685f);
+                FrameLayout frameLayout = new FrameLayout(this.f45686f);
                 frameLayout.setClickable(true);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.topMargin = d.b.g0.a.q1.b.f.d.c(this.f45685f);
-                View view = this.f45684e;
+                layoutParams.topMargin = d.b.g0.a.q1.b.f.d.c(this.f45686f);
+                View view = this.f45685e;
                 if (view instanceof ViewGroup) {
                     ((ViewGroup) view).addView(frameLayout, layoutParams);
-                    View unused = e.f45677c = frameLayout;
+                    View unused = e.f45678c = frameLayout;
                 }
             }
-            if (e.f45675a != null && (e.f45675a.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) e.f45675a.getParent()).removeView(e.f45675a);
+            if (e.f45676a != null && (e.f45676a.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) e.f45676a.getParent()).removeView(e.f45676a);
             }
-            Context context2 = this.f45685f;
+            Context context2 = this.f45686f;
             if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
                 return;
             }
-            ((ViewGroup) this.f45684e).addView(this.f45686g, this.f45687h);
-            this.f45686g.startAnimation(this.i);
-            View unused2 = e.f45675a = this.f45686g;
+            ((ViewGroup) this.f45685e).addView(this.f45687g, this.f45688h);
+            this.f45687g.startAnimation(this.i);
+            View unused2 = e.f45676a = this.f45687g;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
@@ -187,34 +187,13 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class d implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a f45688e;
-
-        public d(d.a aVar) {
-            this.f45688e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            d.a aVar = this.f45688e;
-            if (aVar != null) {
-                aVar.a();
-            }
-            e.h();
-        }
-    }
-
-    /* renamed from: d.b.g0.a.q1.b.f.e$e  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class View$OnClickListenerC0771e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ d.a f45689e;
 
-        public View$OnClickListenerC0771e(d.a aVar) {
+        public d(d.a aVar) {
             this.f45689e = aVar;
         }
 
@@ -228,24 +207,45 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* renamed from: d.b.g0.a.q1.b.f.e$e  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class View$OnClickListenerC0772e implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a f45690e;
+
+        public View$OnClickListenerC0772e(d.a aVar) {
+            this.f45690e = aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            d.a aVar = this.f45690e;
+            if (aVar != null) {
+                aVar.a();
+            }
+            e.h();
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static class f implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45690e;
+        public final /* synthetic */ View f45691e;
 
         public f(View view) {
-            this.f45690e = view;
+            this.f45691e = view;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f45690e.setAlpha(d.b.g0.a.w0.a.z().a() ? 0.5f : 0.2f);
+                this.f45691e.setAlpha(d.b.g0.a.w0.a.z().a() ? 0.5f : 0.2f);
                 return false;
             } else if (action != 2) {
-                this.f45690e.setAlpha(1.0f);
+                this.f45691e.setAlpha(1.0f);
                 return false;
             } else {
                 return false;
@@ -271,21 +271,21 @@ public class e {
         view2.setClickable(true);
         if (view instanceof ViewGroup) {
             view.post(new b(view, context, view2, layoutParams, animation));
-            if (f45676b == null) {
-                f45676b = new c();
+            if (f45677b == null) {
+                f45677b = new c();
             }
-            view.postDelayed(f45676b, i * 1000);
+            view.postDelayed(f45677b, i * 1000);
         }
     }
 
     public static synchronized void h() {
         synchronized (e.class) {
-            if (f45675a != null) {
-                f45675a.post(new a(f45675a, f45677c));
-                f45675a.removeCallbacks(f45676b);
-                f45675a = null;
-                f45676b = null;
-                f45677c = null;
+            if (f45676a != null) {
+                f45676a.post(new a(f45676a, f45678c));
+                f45676a.removeCallbacks(f45677b);
+                f45676a = null;
+                f45677b = null;
+                f45678c = null;
             }
         }
     }
@@ -339,7 +339,7 @@ public class e {
 
     public static void k(Activity activity, CharSequence charSequence, int i, boolean z) {
         Resources resources = activity.getResources();
-        f45678d = z;
+        f45679d = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_highloading_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(d.b.g0.a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(d.b.g0.a.f.highLoading_progress_toast_title);
@@ -354,7 +354,7 @@ public class e {
 
     public static void l(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
         Resources resources = activity.getResources();
-        f45678d = z;
+        f45679d = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_highlight_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(d.b.g0.a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(d.b.g0.a.f.highlight_toast_text);
@@ -432,7 +432,7 @@ public class e {
                 textView.setText(charSequence3);
                 ((ImageView) linearLayout.findViewById(d.b.g0.a.f.clickable_toast_icon_view)).setImageDrawable(resources.getDrawable(d.b.g0.a.e.aiapps_clickable_toast_icon));
             }
-            findViewById.setOnClickListener(new View$OnClickListenerC0771e(aVar));
+            findViewById.setOnClickListener(new View$OnClickListenerC0772e(aVar));
             findViewById.setOnTouchListener(new f(textView));
         } else {
             findViewById.setVisibility(8);

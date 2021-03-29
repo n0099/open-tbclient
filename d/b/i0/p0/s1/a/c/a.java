@@ -16,20 +16,20 @@ import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f58529a;
+    public l<byte[]> f58530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f58530b;
+    public c f58531b;
 
     /* renamed from: d.b.i0.p0.s1.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1437a extends f0<GameForumGuideTabResIdl> {
+    public class C1438a extends f0<GameForumGuideTabResIdl> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f58531a;
+        public final /* synthetic */ String f58532a;
 
-        public C1437a(String str) {
-            this.f58531a = str;
+        public C1438a(String str) {
+            this.f58532a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,8 +38,8 @@ public class a {
         public GameForumGuideTabResIdl doInBackground() {
             Wire wire = new Wire(new Class[0]);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            l lVar = a.this.f58529a;
-            byte[] bArr = (byte[]) lVar.get(currentAccount + this.f58531a);
+            l lVar = a.this.f58530a;
+            byte[] bArr = (byte[]) lVar.get(currentAccount + this.f58532a);
             if (bArr == null || bArr.length == 0) {
                 return null;
             }
@@ -67,8 +67,8 @@ public class a {
             List<e> a2 = d.b.i0.p0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
             List<d.b.b.j.e.n> b2 = d.b.i0.p0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
             boolean z = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
-            if (a.this.f58530b != null) {
-                a.this.f58530b.a(a2, b2, z);
+            if (a.this.f58531b != null) {
+                a.this.f58531b.a(a2, b2, z);
             }
         }
     }
@@ -79,15 +79,15 @@ public class a {
     }
 
     public a() {
-        this.f58529a = null;
-        this.f58529a = BdCacheService.l().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.f58530a = null;
+        this.f58530a = BdCacheService.l().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
     public void c(String str) {
-        if (this.f58529a == null || str == null) {
+        if (this.f58530a == null || str == null) {
             return;
         }
-        h0.b(new C1437a(str), new b());
+        h0.b(new C1438a(str), new b());
     }
 
     public void d(String str, byte[] bArr, boolean z) {
@@ -96,16 +96,16 @@ public class a {
         }
         if (z) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            l<byte[]> lVar = this.f58529a;
+            l<byte[]> lVar = this.f58530a;
             lVar.e(currentAccount + str, bArr, 604800000L);
             return;
         }
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        l<byte[]> lVar2 = this.f58529a;
+        l<byte[]> lVar2 = this.f58530a;
         lVar2.i(currentAccount2 + str, bArr, 604800000L);
     }
 
     public void e(c cVar) {
-        this.f58530b = cVar;
+        this.f58531b = cVar;
     }
 }

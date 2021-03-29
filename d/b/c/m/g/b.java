@@ -8,57 +8,57 @@ public class b {
     }
 
     public void b(@NonNull a aVar) {
-        aVar.f42531a = 2;
+        aVar.f42532a = 2;
         d.b.c.m.b.a(aVar, "image");
     }
 
     public void c(@NonNull a aVar, int i) {
-        aVar.f42531a = 7;
+        aVar.f42532a = 7;
         d.b.c.m.b.b(aVar, i);
     }
 
     public void d(@NonNull a aVar) {
-        aVar.f42531a = 5;
+        aVar.f42532a = 5;
         d.b.c.m.b.d(aVar);
     }
 
     public void e(@NonNull a aVar) {
-        aVar.f42531a = 2;
+        aVar.f42532a = 2;
         d.b.c.m.b.a(aVar, "button");
     }
 
     public void f(@NonNull a aVar) {
         if (a(aVar)) {
-            aVar.f42531a = 34;
+            aVar.f42532a = 34;
             d.b.c.m.b.c(aVar);
         }
     }
 
     public void g(@NonNull a aVar) {
         if (a(aVar)) {
-            aVar.f42531a = 32;
+            aVar.f42532a = 32;
             d.b.c.m.b.c(aVar);
         }
     }
 
     public void h(@NonNull a aVar) {
         if (a(aVar)) {
-            aVar.f42531a = 33;
+            aVar.f42532a = 33;
             d.b.c.m.b.c(aVar);
         }
     }
 
     public void i(@NonNull a aVar) {
-        aVar.f42531a = 3;
+        aVar.f42532a = 3;
         d.b.c.m.b.e(aVar);
         if (a(aVar)) {
-            aVar.f42531a = 31;
+            aVar.f42532a = 31;
             d.b.c.m.b.f(aVar);
         }
     }
 
     public void j(@NonNull a aVar) {
-        aVar.f42531a = 2;
+        aVar.f42532a = 2;
         d.b.c.m.b.a(aVar, "title");
     }
 

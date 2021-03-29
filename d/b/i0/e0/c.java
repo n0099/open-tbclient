@@ -16,10 +16,10 @@ import java.util.Map;
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54219a;
+    public boolean f54220a;
 
     public c(boolean z) {
-        this.f54219a = z;
+        this.f54220a = z;
         setPriority(4);
     }
 
@@ -37,7 +37,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb;
         l<String> c2 = BdCacheService.l().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.f54219a) {
+        if (this.f54220a) {
             String str2 = c2.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -78,8 +78,8 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         d.b.b.e.j.a.e eVar = new d.b.b.e.j.a.e();
         d.b.b.e.j.a.c cVar = new d.b.b.e.j.a.c(eVar);
         eVar.b().s(str4);
-        cVar.d(-1, -1, -1);
-        byte[] bArr = eVar.c().f41803h;
+        cVar.e(-1, -1, -1);
+        byte[] bArr = eVar.c().f41804h;
         if (bArr != null) {
             try {
                 str = new String(bArr, "UTF-8");
@@ -145,17 +145,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
             }
         } else if (eVar.a() != null) {
-            message = eVar.a().f41784h;
+            message = eVar.a().f41785h;
         } else {
             StringBuilder sb4 = new StringBuilder();
             List<d.b.b.e.j.a.d> d2 = eVar.d();
             if (d2 != null) {
                 for (d.b.b.e.j.a.d dVar : d2) {
-                    if (dVar != null && !TextUtils.isEmpty(dVar.f41784h)) {
+                    if (dVar != null && !TextUtils.isEmpty(dVar.f41785h)) {
                         if (sb4.length() > 0) {
                             sb4.append(",");
                         }
-                        sb4.append(dVar.f41784h);
+                        sb4.append(dVar.f41785h);
                     }
                 }
             }

@@ -15,7 +15,7 @@ import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.spswitch.emotion.view.PopupEmotionManager;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GlobalOnItemClickListenerManager {
     public static final String DELETE_EMOTION = "[delete]";
     public static final int EDIT_CONTENT_DELETE_INTERVAL = 60;

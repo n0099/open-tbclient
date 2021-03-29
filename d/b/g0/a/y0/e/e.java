@@ -13,14 +13,14 @@ import d.b.g0.a.k;
 import d.b.g0.a.y0.e.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class e<SelfT extends e<SelfT>> extends d.b.g0.a.y0.e.f.c<SelfT> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f47089h = k.f45050a;
+    public static final boolean f47090h = k.f45051a;
 
     /* renamed from: g  reason: collision with root package name */
-    public Pair<String, JSONObject> f47090g;
+    public Pair<String, JSONObject> f47091g;
 
     public SelfT A0(boolean z) {
         return (SelfT) q("swan_app_independent", z);
@@ -105,26 +105,26 @@ public abstract class e<SelfT extends e<SelfT>> extends d.b.g0.a.y0.e.f.c<SelfT>
 
     public JSONObject L() {
         String V = V();
-        Pair<String, JSONObject> pair = this.f47090g;
+        Pair<String, JSONObject> pair = this.f47091g;
         if (pair != null && TextUtils.equals((CharSequence) pair.first, V)) {
-            return (JSONObject) this.f47090g.second;
+            return (JSONObject) this.f47091g.second;
         }
-        this.f47090g = null;
+        this.f47091g = null;
         if (TextUtils.isEmpty(V)) {
-            this.f47090g = null;
+            this.f47091g = null;
             return null;
         }
         String queryParameter = Uri.parse(V).getQueryParameter("_baiduboxapp");
         if (!TextUtils.isEmpty(queryParameter)) {
             try {
-                this.f47090g = new Pair<>(V, new JSONObject(queryParameter).optJSONObject("ext"));
+                this.f47091g = new Pair<>(V, new JSONObject(queryParameter).optJSONObject("ext"));
             } catch (JSONException e2) {
-                if (f47089h) {
+                if (f47090h) {
                     e2.printStackTrace();
                 }
             }
         }
-        Pair<String, JSONObject> pair2 = this.f47090g;
+        Pair<String, JSONObject> pair2 = this.f47091g;
         if (pair2 == null) {
             return null;
         }

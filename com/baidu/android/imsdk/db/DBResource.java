@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DBResource {
     public static final String TAG = "DBManager";
     public static Context mContext;

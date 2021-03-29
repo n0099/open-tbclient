@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
 import d.b.i0.v1.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static final String ACTION_NAME = "com.baidu.tieba.broadcast.collectupdate";
 

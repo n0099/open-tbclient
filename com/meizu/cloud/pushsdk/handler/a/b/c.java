@@ -22,50 +22,50 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageV3 f37805a;
+    public MessageV3 f37806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37806b;
+    public String f37807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37807c;
+    public int f37808c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37808d;
+    public int f37809d;
 
     public c(Parcel parcel) {
-        this.f37805a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
-        this.f37806b = parcel.readString();
-        this.f37807c = parcel.readInt();
-        this.f37808d = parcel.readInt();
+        this.f37806a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
+        this.f37807b = parcel.readString();
+        this.f37808c = parcel.readInt();
+        this.f37809d = parcel.readInt();
     }
 
     public c(MessageV3 messageV3) {
-        this.f37805a = messageV3;
+        this.f37806a = messageV3;
     }
 
     public MessageV3 a() {
-        return this.f37805a;
+        return this.f37806a;
     }
 
     public void a(int i) {
-        this.f37807c = i;
+        this.f37808c = i;
     }
 
     public void a(String str) {
-        this.f37806b = str;
+        this.f37807b = str;
     }
 
     public int b() {
-        return this.f37807c;
+        return this.f37808c;
     }
 
     public void b(int i) {
-        this.f37808d = i;
+        this.f37809d = i;
     }
 
     public int c() {
-        return this.f37808d;
+        return this.f37809d;
     }
 
     @Override // android.os.Parcelable
@@ -74,14 +74,14 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationState{messageV3=" + this.f37805a + ", notificationPkg='" + this.f37806b + "', notificationId='" + this.f37807c + "', state='" + this.f37808d + "'}";
+        return "NotificationState{messageV3=" + this.f37806a + ", notificationPkg='" + this.f37807b + "', notificationId='" + this.f37808c + "', state='" + this.f37809d + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f37805a, i);
-        parcel.writeString(this.f37806b);
-        parcel.writeInt(this.f37807c);
-        parcel.writeInt(this.f37808d);
+        parcel.writeParcelable(this.f37806a, i);
+        parcel.writeString(this.f37807b);
+        parcel.writeInt(this.f37808c);
+        parcel.writeInt(this.f37809d);
     }
 }

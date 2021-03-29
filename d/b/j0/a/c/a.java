@@ -10,7 +10,7 @@ import android.os.Process;
 import androidx.multidex.MultiDex;
 import com.baidu.turbonet.base.BuildConfig;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static String a(Context context) {
         try {

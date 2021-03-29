@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.n1;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static void a(String str, Object obj, int i) {
         if (obj instanceof n1) {

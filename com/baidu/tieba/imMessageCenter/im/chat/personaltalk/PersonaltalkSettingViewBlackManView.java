@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18228e;
+    public TextView f18229e;
 
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -19,7 +19,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.f18228e = (TextView) findViewById(R.id.black_man_text);
+        this.f18229e = (TextView) findViewById(R.id.black_man_text);
     }
 
     public void setSex(int i) {
@@ -31,7 +31,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
         } else {
             string = getResources().getString(R.string.she);
         }
-        this.f18228e.setText(getResources().getString(R.string.in_black_desc_1, string));
+        this.f18229e.setText(getResources().getString(R.string.in_black_desc_1, string));
     }
 
     public PersonaltalkSettingViewBlackManView(Context context) {

@@ -15,20 +15,20 @@ import org.json.JSONObject;
 public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f34879c;
+    public SceneImpl f34880c;
 
     public d(SceneImpl sceneImpl) {
-        this.f34879c = sceneImpl;
+        this.f34880c = sceneImpl;
     }
 
     @Override // com.kwad.sdk.lib.b.b
     public i<g, AdResultData> a() {
         final h.a aVar = new h.a();
-        f fVar = new f(this.f34879c);
-        fVar.f33651b = this.f34879c.getPageScene();
-        fVar.f33652c = 100L;
-        aVar.f33784a.add(fVar);
-        aVar.f33785b = new com.kwad.sdk.core.g.a.c();
+        f fVar = new f(this.f34880c);
+        fVar.f33652b = this.f34880c.getPageScene();
+        fVar.f33653c = 100L;
+        aVar.f33785a.add(fVar);
+        aVar.f33786b = new com.kwad.sdk.core.g.a.c();
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.feed.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.i
@@ -36,7 +36,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(d.this.f34879c);
+                AdResultData adResultData = new AdResultData(d.this.f34880c);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -59,7 +59,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
 
     @Override // com.kwad.sdk.lib.b.b
     public boolean a(int i) {
-        return i != com.kwad.sdk.core.network.f.f33874g.k;
+        return i != com.kwad.sdk.core.network.f.f33875g.k;
     }
 
     @Override // com.kwad.sdk.lib.b.b
@@ -78,7 +78,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
         }
         ArrayList arrayList = new ArrayList(d2.size());
         for (AdTemplate adTemplate : d2) {
-            adTemplate.mAdScene = this.f34879c;
+            adTemplate.mAdScene = this.f34880c;
             arrayList.add(adTemplate);
         }
         a.a().e();

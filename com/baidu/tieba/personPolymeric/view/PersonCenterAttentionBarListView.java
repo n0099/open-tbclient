@@ -20,16 +20,16 @@ import java.util.List;
 public class PersonCenterAttentionBarListView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20465e;
+    public Context f20466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f20466f;
+    public c f20467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20467g;
+    public TextView f20468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListViewPager f20468h;
+    public ListViewPager f20469h;
     public View i;
     public View j;
     public d.b.b.e.k.b<PersonCommonForumItemView> k;
@@ -74,7 +74,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         @Override // d.b.b.e.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
-            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f20465e);
+            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f20466e);
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -98,10 +98,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (PersonCenterAttentionBarListView.this.f20466f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f20466f.f55273e)) {
+            if (PersonCenterAttentionBarListView.this.f20467f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f20467f.f55274e)) {
                 return 0;
             }
-            return PersonCenterAttentionBarListView.this.f20466f.f55273e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f20466f.f55273e.size() / 4 : (PersonCenterAttentionBarListView.this.f20466f.f55273e.size() / 4) + 1;
+            return PersonCenterAttentionBarListView.this.f20467f.f55274e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f20467f.f55274e.size() / 4 : (PersonCenterAttentionBarListView.this.f20467f.f55274e.size() / 4) + 1;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -110,7 +110,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             if (ListUtils.isEmpty(e2)) {
                 return null;
             }
-            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f20465e);
+            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f20466e);
             personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.k);
             personCommonForumCardView.setData(e2);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
@@ -137,14 +137,14 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     }
 
     public final List<f> e(int i) {
-        c cVar = this.f20466f;
-        if (cVar == null || ListUtils.isEmpty(cVar.f55273e)) {
+        c cVar = this.f20467f;
+        if (cVar == null || ListUtils.isEmpty(cVar.f55274e)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i2 = i * 4;
         for (int i3 = i2; i3 < i2 + 4; i3++) {
-            f fVar = (f) ListUtils.getItem(this.f20466f.f55273e, i3);
+            f fVar = (f) ListUtils.getItem(this.f20467f.f55274e, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -153,13 +153,13 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     }
 
     public final void f(Context context) {
-        this.f20465e = context;
+        this.f20466e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.person_info_common_forum_layout, this);
         this.i = inflate;
-        this.f20467g = (TextView) inflate.findViewById(R.id.common_forum_title);
-        this.f20468h = (ListViewPager) this.i.findViewById(R.id.common_forum_viewpager);
+        this.f20468g = (TextView) inflate.findViewById(R.id.common_forum_title);
+        this.f20469h = (ListViewPager) this.i.findViewById(R.id.common_forum_viewpager);
         this.j = this.i.findViewById(R.id.divider_line);
-        this.f20468h.setOffscreenPageLimit(1);
+        this.f20469h.setOffscreenPageLimit(1);
     }
 
     public int getLayout() {

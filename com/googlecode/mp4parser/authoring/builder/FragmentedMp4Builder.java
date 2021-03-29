@@ -72,22 +72,22 @@ public class FragmentedMp4Builder implements Mp4Builder {
     public class a implements Comparator<Track> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map f31027e;
+        public final /* synthetic */ Map f31028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f31028f;
+        public final /* synthetic */ int f31029f;
 
         public a(FragmentedMp4Builder fragmentedMp4Builder, Map map, int i) {
-            this.f31027e = map;
-            this.f31028f = i;
+            this.f31028e = map;
+            this.f31029f = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Track track, Track track2) {
-            long j = ((long[]) this.f31027e.get(track))[this.f31028f];
-            long j2 = ((long[]) this.f31027e.get(track2))[this.f31028f];
+            long j = ((long[]) this.f31028e.get(track))[this.f31029f];
+            long j2 = ((long[]) this.f31028e.get(track2))[this.f31029f];
             long[] sampleDurations = track.getSampleDurations();
             long[] sampleDurations2 = track2.getSampleDurations();
             long j3 = 0;
@@ -98,16 +98,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             for (int i2 = 1; i2 < j2; i2++) {
                 j4 += sampleDurations2[i2 - 1];
             }
-            double d2 = j3;
-            double timescale = track.getTrackMetaData().getTimescale();
-            Double.isNaN(d2);
-            Double.isNaN(timescale);
-            double d3 = d2 / timescale;
-            double d4 = j4;
-            double timescale2 = track2.getTrackMetaData().getTimescale();
-            Double.isNaN(d4);
-            Double.isNaN(timescale2);
-            return (int) ((d3 - (d4 / timescale2)) * 100.0d);
+            return (int) (((j3 / track.getTrackMetaData().getTimescale()) - (j4 / track2.getTrackMetaData().getTimescale())) * 100.0d);
         }
     }
 
@@ -115,19 +106,19 @@ public class FragmentedMp4Builder implements Mp4Builder {
     public class b implements Box {
 
         /* renamed from: e  reason: collision with root package name */
-        public Container f31029e;
+        public Container f31030e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f31030f = -1;
+        public long f31031f = -1;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f31032h;
+        public final /* synthetic */ long f31033h;
         public final /* synthetic */ long i;
         public final /* synthetic */ Track j;
         public final /* synthetic */ int k;
 
         public b(long j, long j2, Track track, int i) {
-            this.f31032h = j;
+            this.f31033h = j;
             this.i = j2;
             this.j = track;
             this.k = i;
@@ -140,7 +131,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31032h, this.i, this.j, this.k)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31033h, this.i, this.j, this.k)) {
                 sample.writeTo(writableByteChannel);
             }
         }
@@ -152,20 +143,20 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public Container getParent() {
-            return this.f31029e;
+            return this.f31030e;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            long j = this.f31030f;
+            long j = this.f31031f;
             if (j != -1) {
                 return j;
             }
             long j2 = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31032h, this.i, this.j, this.k)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31033h, this.i, this.j, this.k)) {
                 j2 += sample.getSize();
             }
-            this.f31030f = j2;
+            this.f31031f = j2;
             return j2;
         }
 
@@ -180,7 +171,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public void setParent(Container container) {
-            this.f31029e = container;
+            this.f31030e = container;
         }
     }
 
@@ -395,47 +386,39 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
     public Box createPdin(Movie movie) {
         long j;
+        Iterator<Sample> it;
         ProgressiveDownloadInformationBox progressiveDownloadInformationBox = new ProgressiveDownloadInformationBox();
         LinkedList linkedList = new LinkedList();
-        Iterator<Track> it = movie.getTracks().iterator();
+        Iterator<Track> it2 = movie.getTracks().iterator();
         double d2 = 0.0d;
         long j2 = 0;
         while (true) {
             j = 10000;
-            if (!it.hasNext()) {
+            if (!it2.hasNext()) {
                 break;
             }
-            Track next = it.next();
+            Track next = it2.next();
             long duration = next.getDuration() / next.getTrackMetaData().getTimescale();
             if (duration > j2) {
                 j2 = duration;
             }
             List<Sample> samples = next.getSamples();
             if (samples.size() < 10000) {
-                for (Sample sample : samples) {
-                    double size = sample.getSize();
-                    Double.isNaN(size);
-                    d2 += size;
+                while (samples.iterator().hasNext()) {
+                    d2 += it.next().getSize();
                 }
             } else {
                 long j3 = 0;
                 for (int i = 0; i < 10000; i++) {
                     j3 += samples.get(i).getSize();
                 }
-                double size2 = (j3 * samples.size()) / 10000;
-                Double.isNaN(size2);
-                d2 += size2;
+                d2 += (j3 * samples.size()) / 10000;
             }
         }
         double d3 = j2;
-        Double.isNaN(d3);
         double d4 = (d2 * 1.2d) / d3;
         do {
-            Double.isNaN(d3);
-            double d5 = j;
-            Double.isNaN(d5);
-            Double.isNaN(d3);
-            long round = Math.round(((d4 * d3) / d5) - d3) * 1000;
+            long round = Math.round(((d4 * d3) / j) - d3) * 1000;
             linkedList.add(new ProgressiveDownloadInformationBox.Entry(j, round > 0 ? round + 3000 : 0L));
             j *= 2;
         } while (d4 > j);

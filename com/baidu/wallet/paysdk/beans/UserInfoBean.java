@@ -12,19 +12,19 @@ import java.util.List;
 public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25472a;
+    public int f25473a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25473b;
+    public String f25474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25474c;
+    public String f25475c;
 
     public <T> UserInfoBean(Context context) {
         super(context);
-        this.f25472a = 0;
-        this.f25473b = "";
-        this.f25474c = "";
+        this.f25473a = 0;
+        this.f25474b = "";
+        this.f25475c = "";
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -35,12 +35,12 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("is_unify_account", String.valueOf(this.f25472a)));
-        if (!TextUtils.isEmpty(this.f25473b)) {
-            arrayList.add(new RestNameValuePair("sdk_from", this.f25473b));
+        arrayList.add(new RestNameValuePair("is_unify_account", String.valueOf(this.f25473a)));
+        if (!TextUtils.isEmpty(this.f25474b)) {
+            arrayList.add(new RestNameValuePair("sdk_from", this.f25474b));
         }
-        if (!TextUtils.isEmpty(this.f25474c)) {
-            arrayList.add(new RestNameValuePair("sdk_service", this.f25474c));
+        if (!TextUtils.isEmpty(this.f25475c)) {
+            arrayList.add(new RestNameValuePair("sdk_service", this.f25475c));
         }
         return arrayList;
     }
@@ -56,11 +56,11 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
     }
 
     public void setCheckPrePassSign(int i, String str) {
-        this.f25472a = i;
-        this.f25473b = str;
+        this.f25473a = i;
+        this.f25474b = str;
     }
 
     public void setSdkServiceForMyBankFragment(String str) {
-        this.f25474c = str;
+        this.f25475c = str;
     }
 }

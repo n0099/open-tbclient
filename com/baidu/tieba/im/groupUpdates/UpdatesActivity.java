@@ -34,7 +34,7 @@ import d.b.h0.r.s.l;
 import d.b.h0.z0.n;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements AbsListView.OnScrollListener {
     public n<Boolean> delDataCallBack;
     public j deleteItemDialog;
@@ -47,7 +47,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public d.b.b.c.g.c mListener = new e(0);
     public CustomMessageListener mCustomListener = new f(0);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements n<LinkedList<GroupNewsPojo>> {
         public a() {
         }
@@ -78,14 +78,14 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f17992a;
+        public final /* synthetic */ n f17993a;
 
         public b(n nVar) {
-            this.f17992a = nVar;
+            this.f17993a = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,11 +95,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             UpdatesActivity.this.model.clearSelect();
             UpdatesActivity.this.updatesView.d();
             UpdatesActivity.this.setEditMode(false);
-            UpdatesModel.requestUpdatesDataFromDB(this.f17992a);
+            UpdatesModel.requestUpdatesDataFromDB(this.f17993a);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements n<LinkedList<GroupNewsPojo>> {
         public c() {
         }
@@ -117,7 +117,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements l.e {
         public d() {
         }
@@ -136,7 +136,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends d.b.b.c.g.c {
         public e(int i) {
             super(i);
@@ -164,7 +164,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public f(int i) {
             super(i);

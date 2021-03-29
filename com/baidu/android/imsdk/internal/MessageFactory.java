@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MessageFactory {
     public static final String TAG = "MessageFactory";
     public static MessageFactory mInstance;

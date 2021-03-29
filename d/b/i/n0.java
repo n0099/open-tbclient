@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.i.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n0 extends h {
     public LinearLayout l;
     public BjhArticleLayout m;
     public d.b.h0.r.q.a n;
     public int o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -23,9 +23,9 @@ public class n0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             n0 n0Var = n0.this;
-            a.InterfaceC1115a interfaceC1115a = n0Var.i;
-            if (interfaceC1115a != null) {
-                interfaceC1115a.a(n0Var.n);
+            a.InterfaceC1116a interfaceC1116a = n0Var.i;
+            if (interfaceC1116a != null) {
+                interfaceC1116a.a(n0Var.n);
             }
         }
     }
@@ -38,7 +38,7 @@ public class n0 extends h {
     @Override // d.b.i.a
     public View g() {
         if (this.l == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f51762f);
+            LinearLayout linearLayout = new LinearLayout(this.f51763f);
             this.l = linearLayout;
             SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
             this.l.setOrientation(1);
@@ -46,15 +46,15 @@ public class n0 extends h {
         }
         this.l.removeAllViews();
         if (this.m == null) {
-            BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f51762f);
+            BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f51763f);
             this.m = bjhArticleLayout;
             bjhArticleLayout.setJumpToPbListener(new a());
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-        layoutParams.rightMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-        layoutParams.bottomMargin = this.f51762f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+        layoutParams.topMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        layoutParams.rightMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        layoutParams.bottomMargin = this.f51763f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
         this.l.addView(this.m, layoutParams);
         return this.l;
     }
@@ -91,7 +91,7 @@ public class n0 extends h {
         }
     }
 
-    public void u(a.InterfaceC1115a interfaceC1115a) {
-        this.i = interfaceC1115a;
+    public void u(a.InterfaceC1116a interfaceC1116a) {
+        this.i = interfaceC1116a;
     }
 }

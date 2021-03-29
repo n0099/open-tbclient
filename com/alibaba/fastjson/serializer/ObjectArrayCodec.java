@@ -66,7 +66,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x005f */
-    /* JADX WARN: Type inference failed for: r8v1, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r8v1, types: [T, byte[]] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         Type componentType;

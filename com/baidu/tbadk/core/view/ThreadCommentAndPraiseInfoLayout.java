@@ -96,19 +96,19 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public MaskView d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13489e;
+    public int f13490e;
     public j e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13490f;
+    public TextView f13491f;
     public LinearLayout f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f13491g;
+    public TextView f13492g;
     public i g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public AgreeView f13492h;
+    public AgreeView f13493h;
     public boolean h0;
     public EMTextView i;
     public CustomMessageListener i0;
@@ -282,7 +282,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public ThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
         l.g(TbadkApplication.getInst(), R.dimen.tbds84);
-        this.f13489e = 11;
+        this.f13490e = 11;
         this.H = false;
         this.I = true;
         this.J = true;
@@ -520,7 +520,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             shareItem.I = str3;
             shareItem.p = str2;
             shareItem.J = str6;
-            shareItem.f13716f = true;
+            shareItem.f13717f = true;
             shareItem.o = this.Q;
             shareItem.D = getShareObjSource();
             shareItem.L = l;
@@ -579,7 +579,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         shareItem2.I = str3;
         shareItem2.p = str2;
         shareItem2.J = str6;
-        shareItem2.f13716f = true;
+        shareItem2.f13717f = true;
         shareItem2.o = this.Q;
         shareItem2.D = getShareObjSource();
         shareItem2.L = l2;
@@ -611,7 +611,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public void G(a2 a2Var) {
-        this.f13490f.setVisibility(8);
+        this.f13491f.setVisibility(8);
     }
 
     public void I(a2 a2Var) {
@@ -692,21 +692,21 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public final void O(a2 a2Var) {
         String X0;
-        if (this.f13491g == null || a2Var == null) {
+        if (this.f13492g == null || a2Var == null) {
             return;
         }
         if (a2Var.B0() > 0 && this.I) {
-            this.f13491g.setVisibility(0);
+            this.f13492g.setVisibility(0);
             if (this.P == 3) {
                 X0 = a2Var.Y0();
             } else {
                 X0 = a2Var.X0();
             }
-            this.f13491g.setText(X0);
+            this.f13492g.setText(X0);
             this.H = true;
             return;
         }
-        this.f13491g.setVisibility(8);
+        this.f13492g.setVisibility(8);
     }
 
     public void P(a2 a2Var) {
@@ -1025,7 +1025,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public TextView getBarNameTv() {
-        return this.f13490f;
+        return this.f13491f;
     }
 
     public View getCommentContainer() {
@@ -1049,7 +1049,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public void hideDisagree() {
-        this.f13492h.setAgreeAlone(true);
+        this.f13493h.setAgreeAlone(true);
     }
 
     public void hideShareContainer() {
@@ -1175,8 +1175,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             i2 = 8;
         }
         view.setVisibility(i2);
-        this.f13492h.setVisibility(r(8) ? 0 : 8);
-        this.f13492h.setAgreeAlone(r(32));
+        this.f13493h.setVisibility(r(8) ? 0 : 8);
+        this.f13493h.setAgreeAlone(r(32));
     }
 
     public final void n(Context context) {
@@ -1209,8 +1209,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             if (maskView != null) {
                 maskView.c();
             }
-            SkinManager.setViewTextColor(this.f13490f, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f13491g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f13491f, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f13492g, R.color.CAM_X0107);
             updateReplyStateUI();
             updateCollectStateUI(this.E);
             updateShareStateUI(this.E);
@@ -1219,10 +1219,10 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             if (c0Var != null) {
                 c0Var.W();
             }
-            AgreeView agreeView = this.f13492h;
+            AgreeView agreeView = this.f13493h;
             if (agreeView != null) {
                 agreeView.t(this.b0);
-                AgreeView agreeView2 = this.f13492h;
+                AgreeView agreeView2 = this.f13493h;
                 a2 a2Var = this.E;
                 agreeView2.setAlpha((a2Var == null || a2Var.getType() != a2.x3) ? 1.0f : SkinManager.RESOURCE_ALPHA_DISABLE);
             }
@@ -1233,7 +1233,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void onClick(View view) {
         a2 a2Var = this.E;
         if (a2Var == null || a2Var.getType() != a2.x3) {
-            if (view == this.f13490f) {
+            if (view == this.f13491f) {
                 s(view);
             } else if (view == this.l) {
                 v(view);
@@ -1268,8 +1268,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public void p(View view) {
-        this.f13490f = (TextView) view.findViewById(R.id.thread_info_bar_name);
-        this.f13491g = (TextView) view.findViewById(R.id.thread_info_reply_time);
+        this.f13491f = (TextView) view.findViewById(R.id.thread_info_bar_name);
+        this.f13492g = (TextView) view.findViewById(R.id.thread_info_reply_time);
         this.f0 = (LinearLayout) view.findViewById(R.id.thread_comment_layout_root);
         EMTextView eMTextView = (EMTextView) view.findViewById(R.id.thread_info_commont_num);
         this.i = eMTextView;
@@ -1287,7 +1287,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         View findViewById = view.findViewById(R.id.new_agree_view);
         if (findViewById != null) {
             AgreeView agreeView = (AgreeView) findViewById;
-            this.f13492h = agreeView;
+            this.f13493h = agreeView;
             agreeView.setAfterClickListener(new a());
         }
         this.t = view.findViewById(R.id.manage_view_container);
@@ -1337,7 +1337,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public final boolean r(int i2) {
-        return (i2 & this.f13489e) > 0;
+        return (i2 & this.f13490e) > 0;
     }
 
     public void resetShareContainer() {
@@ -1367,7 +1367,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public void setAgreeStatisticData(d.b.h0.r.q.e eVar) {
-        AgreeView agreeView = this.f13492h;
+        AgreeView agreeView = this.f13493h;
         if (agreeView != null) {
             agreeView.setStatisticData(eVar);
         }
@@ -1377,12 +1377,12 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         if (a2Var == null || !a2Var.x2()) {
             return;
         }
-        this.f13492h.setAgreeAlone(true);
+        this.f13493h.setAgreeAlone(true);
     }
 
     public void setBarNameClickEnabled(boolean z) {
         this.J = z;
-        TextView textView = this.f13490f;
+        TextView textView = this.f13491f;
         if (textView != null) {
             textView.setClickable(z);
         }
@@ -1444,7 +1444,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setFrom(int i2) {
         this.P = i2;
-        AgreeView agreeView = this.f13492h;
+        AgreeView agreeView = this.f13493h;
         if (agreeView != null) {
             agreeView.setFrom(i2);
         }
@@ -1452,7 +1452,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setGameId(int i2) {
         this.T = i2;
-        AgreeView agreeView = this.f13492h;
+        AgreeView agreeView = this.f13493h;
         if (agreeView != null) {
             agreeView.setGameId(i2);
         }
@@ -1535,7 +1535,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public void setShowFlag(int i2) {
-        this.f13489e = i2;
+        this.f13490e = i2;
         m();
     }
 
@@ -1548,7 +1548,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setTabName(String str) {
         this.U = str;
-        AgreeView agreeView = this.f13492h;
+        AgreeView agreeView = this.f13493h;
         if (agreeView != null) {
             agreeView.setTabName(str);
         }
@@ -1603,11 +1603,11 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         setAgreeViewType(a2Var);
         if (a2Var.L() != null) {
             a2Var.L().isInThread = true;
-            this.f13492h.setCardType(a2Var.U0());
-            this.f13492h.setThreadData(a2Var);
-            this.f13492h.setData(a2Var.L());
+            this.f13493h.setCardType(a2Var.U0());
+            this.f13493h.setThreadData(a2Var);
+            this.f13493h.setData(a2Var.L());
         }
-        AgreeView agreeView = this.f13492h;
+        AgreeView agreeView = this.f13493h;
         a2 a2Var2 = this.E;
         agreeView.setAlpha((a2Var2 == null || a2Var2.getType() != a2.x3) ? 1.0f : SkinManager.RESOURCE_ALPHA_DISABLE);
     }
@@ -1739,7 +1739,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public ThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         l.g(TbadkApplication.getInst(), R.dimen.tbds84);
-        this.f13489e = 11;
+        this.f13490e = 11;
         this.H = false;
         this.I = true;
         this.J = true;

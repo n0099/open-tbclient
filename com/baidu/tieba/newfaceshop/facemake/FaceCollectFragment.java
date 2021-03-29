@@ -27,24 +27,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FaceCollectFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f19224e;
+    public BdListView f19225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f19225f;
+    public h f19226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<EmotionImageData> f19226g;
+    public List<EmotionImageData> f19227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f19227h;
+    public f f19228h;
     public NoDataView i;
     public Activity j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, List<EmotionImageData>> {
         public a() {
         }
@@ -77,18 +77,18 @@ public class FaceCollectFragment extends BaseFragment {
         /* renamed from: c */
         public void onPostExecute(List<EmotionImageData> list) {
             if (list == null || list.isEmpty()) {
-                FaceCollectFragment.this.f19224e.setVisibility(8);
+                FaceCollectFragment.this.f19225e.setVisibility(8);
                 FaceCollectFragment.this.i.setVisibility(0);
                 return;
             }
-            FaceCollectFragment.this.f19226g.clear();
-            FaceCollectFragment.this.f19226g.addAll(list);
-            FaceCollectFragment.this.f19225f.notifyDataSetChanged();
+            FaceCollectFragment.this.f19227g.clear();
+            FaceCollectFragment.this.f19227g.addAll(list);
+            FaceCollectFragment.this.f19226f.notifyDataSetChanged();
         }
     }
 
     public LinkedHashMap<String, EmotionImageData> I0() {
-        h hVar = this.f19225f;
+        h hVar = this.f19226f;
         if (hVar != null) {
             return hVar.i();
         }
@@ -100,8 +100,8 @@ public class FaceCollectFragment extends BaseFragment {
     }
 
     public void K0(f fVar) {
-        this.f19227h = fVar;
-        h hVar = this.f19225f;
+        this.f19228h = fVar;
+        h hVar = this.f19226f;
         if (hVar != null) {
             hVar.l(fVar);
         }
@@ -118,11 +118,11 @@ public class FaceCollectFragment extends BaseFragment {
         this.i = a2;
         a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.i.setVisibility(8);
-        this.f19224e = (BdListView) inflate.findViewById(R.id.listview_emotion);
-        this.f19226g = new ArrayList();
-        h hVar = new h(this.f19226g, 20);
-        this.f19225f = hVar;
-        hVar.l(this.f19227h);
+        this.f19225e = (BdListView) inflate.findViewById(R.id.listview_emotion);
+        this.f19227g = new ArrayList();
+        h hVar = new h(this.f19227g, 20);
+        this.f19226f = hVar;
+        hVar.l(this.f19228h);
         if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             Iterator it = ((ArrayList) serializable).iterator();
@@ -132,9 +132,9 @@ public class FaceCollectFragment extends BaseFragment {
                     linkedHashMap.put(emotionImageData.getPicUrl(), faceData.emotionImageData);
                 }
             }
-            this.f19225f.g(linkedHashMap);
+            this.f19226f.g(linkedHashMap);
         }
-        this.f19224e.setAdapter((ListAdapter) this.f19225f);
+        this.f19225e.setAdapter((ListAdapter) this.f19226f);
         J0();
         return inflate;
     }

@@ -2,7 +2,7 @@ package com.squareup.wire;
 
 import com.alipay.sdk.encrypt.a;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WireOutput {
     public final byte[] buffer;
     public final int limit;

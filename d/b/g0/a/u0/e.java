@@ -15,21 +15,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
-/* loaded from: classes3.dex */
-public class e extends f.AbstractC0849f {
-    public static final boolean j = k.f45050a;
+/* loaded from: classes2.dex */
+public class e extends f.AbstractC0850f {
+    public static final boolean j = k.f45051a;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.g0.l.k.e f46601h;
+    public final d.b.g0.l.k.e f46602h;
     public final d.b.g0.l.h.d i;
 
     public e(d.b.g0.l.k.e eVar, d.b.g0.l.h.d dVar) {
         super("extract");
-        this.f46601h = eVar;
+        this.f46602h = eVar;
         this.i = dVar;
     }
 
-    @Override // d.b.g0.a.u0.f.AbstractC0849f
+    @Override // d.b.g0.a.u0.f.AbstractC0850f
     public void e() {
         super.e();
         if (b().getBoolean("result_output_dir_allow_rollback", false)) {
@@ -37,13 +37,13 @@ public class e extends f.AbstractC0849f {
         }
     }
 
-    @Override // d.b.g0.a.u0.f.AbstractC0849f
+    @Override // d.b.g0.a.u0.f.AbstractC0850f
     public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         d.b.g0.a.y0.g.a aVar;
         String string = bundle.getString("launch_id");
         if (j) {
             aVar = d.b.g0.a.y0.g.a.d(string);
-            b.C0885b e2 = aVar.e();
+            b.C0886b e2 = aVar.e();
             e2.b("SwanExtractor");
             e2.d(1);
         } else {
@@ -101,9 +101,9 @@ public class e extends f.AbstractC0849f {
 
     public final d.b.g0.a.f2.a m(@NonNull BufferedInputStream bufferedInputStream, String str) {
         File h2;
-        a.C0850a c0850a;
+        a.C0851a c0851a;
         d.b.g0.a.y0.g.a d2 = d.b.g0.a.y0.g.a.d(str);
-        d.b.g0.l.k.e eVar = this.f46601h;
+        d.b.g0.l.k.e eVar = this.f46602h;
         if (eVar == null) {
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
             aVar.j(11L);
@@ -112,12 +112,12 @@ public class e extends f.AbstractC0849f {
             d.b.g0.a.f2.e.a().f(aVar);
             return aVar;
         }
-        int i = eVar.f48923h;
+        int i = eVar.f48924h;
         boolean z = true;
         if (i == 1) {
-            h2 = a.d.h(eVar.f48922g, String.valueOf(eVar.i));
+            h2 = a.d.h(eVar.f48923g, String.valueOf(eVar.i));
         } else if (i == 0) {
-            h2 = d.e.h(eVar.f48922g, String.valueOf(eVar.i));
+            h2 = d.e.h(eVar.f48923g, String.valueOf(eVar.i));
         } else {
             d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
             aVar2.j(11L);
@@ -158,17 +158,17 @@ public class e extends f.AbstractC0849f {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             a.b e2 = d.b.g0.a.u0.g.a.e(bufferedInputStream);
-            int i2 = e2 == null ? -1 : e2.f46618b;
+            int i2 = e2 == null ? -1 : e2.f46619b;
             boolean z2 = i2 != -1;
             k(z2);
             if (z2) {
-                c0850a = d.b.g0.a.u0.g.a.a(bufferedInputStream, h2, i2);
-                if (c0850a == null || !c0850a.f46615a) {
+                c0851a = d.b.g0.a.u0.g.a.a(bufferedInputStream, h2, i2);
+                if (c0851a == null || !c0851a.f46616a) {
                     z = false;
                 }
             } else {
                 z = d.b.g0.p.f.d(bufferedInputStream, h2.getPath());
-                c0850a = null;
+                c0851a = null;
                 i2 = 0;
             }
             j(z2);
@@ -188,7 +188,7 @@ public class e extends f.AbstractC0849f {
             aVar5.j(11L);
             if (z2) {
                 aVar5.h(2330L);
-                aVar5.e("decrypt failed:" + c0850a.f46616b);
+                aVar5.e("decrypt failed:" + c0851a.f46617b);
             } else {
                 aVar5.h(2320L);
                 aVar5.e("unzip failed");

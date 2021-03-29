@@ -14,10 +14,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f49499a;
+    public BdUniqueId f49500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.c.g.a f49500b = new a(CmdConfigHttp.CMD_BACK_USER, 309689);
+    public d.b.b.c.g.a f49501b = new a(CmdConfigHttp.CMD_BACK_USER, 309689);
 
     /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
@@ -36,7 +36,7 @@ public class b {
             } else if (responsedMessage instanceof BackUserSocketResMsg) {
                 aVar = ((BackUserSocketResMsg) responsedMessage).getData();
             }
-            if (aVar == null || !aVar.f49498a) {
+            if (aVar == null || !aVar.f49499a) {
                 return;
             }
             d.b.h0.r.d0.b.i().v(d.b.h0.r.d0.b.m("pref_key_last_request_mission"), System.currentTimeMillis());
@@ -45,10 +45,10 @@ public class b {
     }
 
     public b(BdUniqueId bdUniqueId) {
-        this.f49499a = bdUniqueId;
+        this.f49500a = bdUniqueId;
         c();
-        this.f49500b.setTag(this.f49499a);
-        MessageManager.getInstance().registerListener(this.f49500b);
+        this.f49501b.setTag(this.f49500a);
+        MessageManager.getInstance().registerListener(this.f49501b);
     }
 
     public final boolean a() {
@@ -56,7 +56,7 @@ public class b {
     }
 
     public BdUniqueId b() {
-        return this.f49499a;
+        return this.f49500a;
     }
 
     public final void c() {
@@ -70,7 +70,7 @@ public class b {
     public void d() {
         if (a()) {
             BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
-            backUserReqMsg.setTag(this.f49499a);
+            backUserReqMsg.setTag(this.f49500a);
             MessageManager.getInstance().sendMessage(backUserReqMsg);
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.rest;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface b {
     e a(d dVar) throws Exception;
 

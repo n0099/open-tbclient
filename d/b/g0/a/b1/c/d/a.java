@@ -12,7 +12,7 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/backgroundAudio");
@@ -20,7 +20,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("AudioBGPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -31,7 +31,7 @@ public class a extends a0 {
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
         d.b.g0.a.b1.c.a b2;
         boolean z;
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("AudioBGPlayerAction", "handleSubAction subAction: " + str);
         }
         if (eVar == null) {
@@ -50,7 +50,7 @@ public class a extends a0 {
         } else {
             b2 = d.b.g0.a.b1.c.a.b(j, C.p());
         }
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("AudioBGPlayerAction", "subAction is : " + str);
         }
         JSONObject jSONObject = null;
@@ -101,32 +101,32 @@ public class a extends a0 {
         }
         switch (c2) {
             case 0:
-                c.g("backgroundAudio", "open, audioId " + b2.f43277a);
+                c.g("backgroundAudio", "open, audioId " + b2.f43278a);
                 C.y(b2, callbackHandler);
                 z = true;
                 break;
             case 1:
-                c.g("backgroundAudio", "update, audioId " + b2.f43277a);
+                c.g("backgroundAudio", "update, audioId " + b2.f43278a);
                 C.I(b2);
                 z = true;
                 break;
             case 2:
-                c.g("backgroundAudio", "play, audioId " + b2.f43277a);
+                c.g("backgroundAudio", "play, audioId " + b2.f43278a);
                 C.E();
                 z = true;
                 break;
             case 3:
-                c.g("backgroundAudio", "pause, audioId " + b2.f43277a);
+                c.g("backgroundAudio", "pause, audioId " + b2.f43278a);
                 C.z();
                 z = true;
                 break;
             case 4:
-                c.g("backgroundAudio", "seek, audioId " + b2.f43277a + " position " + b2.j);
+                c.g("backgroundAudio", "seek, audioId " + b2.f43278a + " position " + b2.j);
                 C.F(b2.j);
                 z = true;
                 break;
             case 5:
-                c.g("backgroundAudio", "stop, audioId " + b2.f43277a);
+                c.g("backgroundAudio", "stop, audioId " + b2.f43278a);
                 C.H();
                 z = true;
                 break;
@@ -138,7 +138,7 @@ public class a extends a0 {
                     return true;
                 } catch (JSONException e2) {
                     c.b("backgroundAudio", "getParams error " + e2.toString());
-                    if (a0.f46287b) {
+                    if (a0.f46288b) {
                         e2.printStackTrace();
                         break;
                     }
@@ -160,7 +160,7 @@ public class a extends a0 {
             try {
                 return new JSONObject(str);
             } catch (JSONException e2) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.d("AudioBGPlayerAction", Log.getStackTraceString(e2));
                 }
             }

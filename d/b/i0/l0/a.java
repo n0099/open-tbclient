@@ -17,10 +17,10 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f56480a = new a();
+    public static a f56481a = new a();
 
     public static a c() {
-        return f56480a;
+        return f56481a;
     }
 
     public final boolean a(String str) {
@@ -90,29 +90,29 @@ public class a {
 
     public int f(d.b.i0.x1.f.a aVar) {
         List<d.b.i0.x1.f.b> list;
-        if (aVar == null || (list = aVar.f62371e) == null || list.size() == 0) {
+        if (aVar == null || (list = aVar.f62372e) == null || list.size() == 0) {
             return 0;
         }
-        String str = ".emotions/" + aVar.f62367a;
+        String str = ".emotions/" + aVar.f62368a;
         g k = g.k();
-        List<d.b.i0.x1.f.b> list2 = aVar.f62371e;
+        List<d.b.i0.x1.f.b> list2 = aVar.f62372e;
         int i = 0;
         for (int i2 = 0; i2 < list2.size(); i2++) {
             d.b.i0.x1.f.b bVar = list2.get(i2);
-            if (a(str + "/" + bVar.f62374g)) {
-                if (a(str + "/" + bVar.f62375h)) {
+            if (a(str + "/" + bVar.f62375g)) {
+                if (a(str + "/" + bVar.f62376h)) {
                     StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                    sb.append(aVar.f62367a + "_" + bVar.f62373f);
+                    sb.append(aVar.f62368a + "_" + bVar.f62374f);
                     sb.append(",");
                     sb.append(bVar.j);
                     sb.append(",");
                     sb.append(bVar.i);
                     sb.append(",");
                     String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + d.b.b.e.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                    boolean isGif = FileHelper.isGif(str, bVar.f62374g);
-                    b.g(aVar.f62367a, bVar.f62375h, b.c(str2, true, false));
-                    b.g(aVar.f62367a, bVar.f62374g, b.c(str2, false, isGif));
-                    if (k.d(str2, aVar.f62367a, i2 + 1)) {
+                    boolean isGif = FileHelper.isGif(str, bVar.f62375g);
+                    b.g(aVar.f62368a, bVar.f62376h, b.c(str2, true, false));
+                    b.g(aVar.f62368a, bVar.f62375g, b.c(str2, false, isGif));
+                    if (k.d(str2, aVar.f62368a, i2 + 1)) {
                         i++;
                     }
                 }

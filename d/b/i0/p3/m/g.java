@@ -20,7 +20,7 @@ public interface g {
 
     void e(a aVar);
 
-    void setOnEncoderStatusUpdateListener(d.InterfaceC1804d interfaceC1804d);
+    void setOnEncoderStatusUpdateListener(d.InterfaceC1805d interfaceC1805d);
 
     void setPreviewSize(int i, int i2);
 }

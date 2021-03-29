@@ -81,10 +81,7 @@ public class c extends d.b.h0.b1.m.a {
             float f2 = d.b.h0.b1.m.a.G;
             if (f2 > 1.0f) {
                 float f3 = i;
-                double d2 = i3;
-                double d3 = H;
-                Double.isNaN(d2);
-                if (f3 * f2 <= d2 * d3) {
+                if (f3 * f2 <= i3 * H) {
                     i3 = (int) (f3 * f2);
                 }
                 i2 = (i2 * i3) / i;

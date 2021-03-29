@@ -5,13 +5,13 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WriteImagesInfo f51545a;
+    public WriteImagesInfo f51546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51546b;
+    public boolean f51547b;
 
     public a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.f51545a = writeImagesInfo;
-        this.f51546b = z;
+        this.f51546a = writeImagesInfo;
+        this.f51547b = z;
     }
 }

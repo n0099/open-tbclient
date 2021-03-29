@@ -46,9 +46,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
 
         @Override // h.f
         public void request(long j) {
-            if (j < 0) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
-            } else if (j != 0) {
+            } else if (i != 0) {
                 h.o.a.a.b(this, j);
                 this.parent.drain();
             }
@@ -66,30 +67,30 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public static final class a<T> extends j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final OnSubscribePublishMulticast<T> f68181e;
+        public final OnSubscribePublishMulticast<T> f68186e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.f68181e = onSubscribePublishMulticast;
+            this.f68186e = onSubscribePublishMulticast;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f68181e.onCompleted();
+            this.f68186e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f68181e.onError(th);
+            this.f68186e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f68181e.onNext(t);
+            this.f68186e.onNext(t);
         }
 
         @Override // h.j
         public void setProducer(f fVar) {
-            this.f68181e.setProducer(fVar);
+            this.f68186e.setProducer(fVar);
         }
     }
 
@@ -178,11 +179,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     public void drain() {
+        int i;
         if (getAndIncrement() != 0) {
             return;
         }
         Queue<T> queue = this.queue;
-        int i = 0;
+        int i2 = 0;
         do {
             long j = Long.MAX_VALUE;
             PublishProducer<T>[] publishProducerArr = this.subscribers;
@@ -192,7 +194,11 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
             if (length != 0) {
                 long j2 = 0;
-                while (j2 != j) {
+                while (true) {
+                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i == 0) {
+                        break;
+                    }
                     boolean z = this.done;
                     T poll = queue.poll();
                     boolean z2 = poll == null;
@@ -207,7 +213,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     }
                     j2++;
                 }
-                if (j2 == j && checkTerminated(this.done, queue.isEmpty())) {
+                if (i == 0 && checkTerminated(this.done, queue.isEmpty())) {
                     return;
                 }
                 if (j2 != 0) {
@@ -220,8 +226,8 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     }
                 }
             }
-            i = addAndGet(-i);
-        } while (i != 0);
+            i2 = addAndGet(-i2);
+        } while (i2 != 0);
     }
 
     @Override // h.k

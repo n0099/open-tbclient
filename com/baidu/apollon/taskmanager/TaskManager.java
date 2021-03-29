@@ -18,52 +18,52 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class TaskManager {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f3894b = 1000;
+    public static final long f3895b = 1000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f3897e = Long.MAX_VALUE;
+    public static final long f3898e = Long.MAX_VALUE;
     public static final int k = 5;
     public static final int l = 128;
     public static final int m = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f3895c = ApollonConstants.DEBUG;
+    public static final boolean f3896c = ApollonConstants.DEBUG;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3896d = TaskManager.class.getSimpleName();
+    public static final String f3897d = TaskManager.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, TaskManager> f3893a = new HashMap<>();
+    public static HashMap<String, TaskManager> f3894a = new HashMap<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public static TaskManager f3898h = null;
+    public static TaskManager f3899h = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f3899f = Long.MAX_VALUE;
+    public long f3900f = Long.MAX_VALUE;
 
     /* renamed from: g  reason: collision with root package name */
-    public Timer f3900g = new Timer();
+    public Timer f3901g = new Timer();
     public final HashMap<Future<?>, Runnable> j = new HashMap<>();
     public BlockingQueue<Runnable> n = new LinkedBlockingQueue(10);
     public final ThreadFactory o = new ThreadFactory() { // from class: com.baidu.apollon.taskmanager.TaskManager.1
 
         /* renamed from: b  reason: collision with root package name */
-        public final AtomicInteger f3902b = new AtomicInteger(1);
+        public final AtomicInteger f3903b = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "WalletTask #" + this.f3902b.getAndIncrement());
+            return new Thread(runnable, "WalletTask #" + this.f3903b.getAndIncrement());
         }
     };
     public a p = new a(5, 128, 1, TimeUnit.SECONDS, this.n, this.o);
     public b q = new b();
     public final HashMap<String, ArrayList<c>> i = new HashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends ThreadPoolExecutor {
         public a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
@@ -76,34 +76,34 @@ public final class TaskManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f3913a;
+        public String f3914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f3914b;
+        public Runnable f3915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3915c;
+        public long f3916c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f3916d;
+        public long f3917d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f3917e;
+        public boolean f3918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f3918f;
+        public long f3919f;
 
         public c(long j, long j2, boolean z, String str, Runnable runnable) {
-            this.f3916d = j;
-            this.f3918f = System.currentTimeMillis() + j;
-            this.f3915c = j2;
-            this.f3917e = z;
-            this.f3914b = runnable;
-            this.f3913a = str;
+            this.f3917d = j;
+            this.f3919f = System.currentTimeMillis() + j;
+            this.f3916c = j2;
+            this.f3918e = z;
+            this.f3915b = runnable;
+            this.f3914a = str;
         }
     }
 
@@ -117,29 +117,29 @@ public final class TaskManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(c cVar) {
-        if (cVar.f3915c > 0) {
-            cVar.f3916d = 0L;
+        if (cVar.f3916c > 0) {
+            cVar.f3917d = 0L;
         }
-        if (cVar.f3917e) {
-            this.q.execute(cVar.f3914b);
+        if (cVar.f3918e) {
+            this.q.execute(cVar.f3915b);
             return;
         }
-        this.j.put(this.p.submit(cVar.f3914b), cVar.f3914b);
-        if (f3895c) {
-            String str = f3896d;
-            Log.d(str, "execute task, " + cVar.f3913a + " execute time is " + System.currentTimeMillis());
+        this.j.put(this.p.submit(cVar.f3915b), cVar.f3915b);
+        if (f3896c) {
+            String str = f3897d;
+            Log.d(str, "execute task, " + cVar.f3914a + " execute time is " + System.currentTimeMillis());
         }
     }
 
     public static synchronized TaskManager getInstance(String str) {
         TaskManager taskManager;
         synchronized (TaskManager.class) {
-            if (f3893a.get(str) == null) {
+            if (f3894a.get(str) == null) {
                 TaskManager taskManager2 = new TaskManager();
-                f3898h = taskManager2;
-                f3893a.put(str, taskManager2);
+                f3899h = taskManager2;
+                f3894a.put(str, taskManager2);
             }
-            taskManager = f3898h;
+            taskManager = f3899h;
         }
         return taskManager;
     }
@@ -150,9 +150,9 @@ public final class TaskManager {
             Iterator<c> it = b2.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next.f3913a.equals(str2)) {
+                if (next.f3914a.equals(str2)) {
                     b(next);
-                    b2.remove(next.f3913a);
+                    b2.remove(next.f3914a);
                 }
             }
         }
@@ -168,37 +168,37 @@ public final class TaskManager {
     }
 
     private void c(c cVar) {
-        if (cVar.f3916d > 0) {
-            a(cVar, cVar.f3918f - System.currentTimeMillis());
+        if (cVar.f3917d > 0) {
+            a(cVar, cVar.f3919f - System.currentTimeMillis());
         } else {
             d(cVar);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedList<Runnable> f3908a;
+        public final LinkedList<Runnable> f3909a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f3909b;
+        public Runnable f3910b;
 
         public b() {
-            this.f3908a = new LinkedList<>();
+            this.f3909a = new LinkedList<>();
         }
 
         public synchronized void a() {
-            Runnable poll = this.f3908a.poll();
-            this.f3909b = poll;
+            Runnable poll = this.f3909a.poll();
+            this.f3910b = poll;
             if (poll != null) {
-                TaskManager.this.p.execute(this.f3909b);
+                TaskManager.this.p.execute(this.f3910b);
             }
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f3908a.offer(new Runnable() { // from class: com.baidu.apollon.taskmanager.TaskManager.b.1
+            this.f3909a.offer(new Runnable() { // from class: com.baidu.apollon.taskmanager.TaskManager.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -208,30 +208,30 @@ public final class TaskManager {
                     }
                 }
             });
-            if (this.f3909b == null) {
+            if (this.f3910b == null) {
                 a();
             }
         }
 
         public synchronized void a(Runnable runnable) {
-            this.f3908a.remove(runnable);
+            this.f3909a.remove(runnable);
         }
     }
 
     public boolean a(c cVar, String str) {
-        if (cVar == null || cVar.f3914b == null) {
+        if (cVar == null || cVar.f3915b == null) {
             return false;
         }
         synchronized (this.i) {
             ArrayList<c> b2 = b(str);
             if (!a(cVar, b2)) {
-                if (cVar.f3918f <= System.currentTimeMillis()) {
+                if (cVar.f3919f <= System.currentTimeMillis()) {
                     c(cVar);
-                } else if (cVar.f3916d > 0) {
+                } else if (cVar.f3917d > 0) {
                     c(cVar);
                 }
-                if (cVar.f3915c > 0) {
-                    cVar.f3918f = System.currentTimeMillis() + cVar.f3916d + cVar.f3915c;
+                if (cVar.f3916c > 0) {
+                    cVar.f3919f = System.currentTimeMillis() + cVar.f3917d + cVar.f3916c;
                     b2.add(cVar);
                     a(cVar);
                 }
@@ -243,12 +243,12 @@ public final class TaskManager {
     }
 
     private boolean b(c cVar, String str) {
-        if (cVar == null || cVar.f3914b == null) {
+        if (cVar == null || cVar.f3915b == null) {
             return false;
         }
         synchronized (this.i) {
             ArrayList<c> b2 = b(str);
-            c a2 = a(cVar.f3913a, b2);
+            c a2 = a(cVar.f3914a, b2);
             if (a2 != null) {
                 b(a2);
                 b2.remove(a2);
@@ -260,12 +260,12 @@ public final class TaskManager {
     }
 
     private void b(c cVar) {
-        if (cVar.f3917e) {
-            this.q.a(cVar.f3914b);
+        if (cVar.f3918e) {
+            this.q.a(cVar.f3915b);
             return;
         }
         for (Future<?> future : this.j.keySet()) {
-            if (this.j.get(future) == cVar.f3914b && future != null && (!future.isCancelled() || !future.isDone())) {
+            if (this.j.get(future) == cVar.f3915b && future != null && (!future.isCancelled() || !future.isDone())) {
                 future.cancel(true);
             }
         }
@@ -287,7 +287,7 @@ public final class TaskManager {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (TextUtils.equals(str, next.f3913a)) {
+            if (TextUtils.equals(str, next.f3914a)) {
                 return next;
             }
         }
@@ -295,24 +295,24 @@ public final class TaskManager {
     }
 
     private void a(c cVar) {
-        long j = cVar.f3918f;
-        if (j < this.f3899f) {
+        long j = cVar.f3919f;
+        if (j < this.f3900f) {
             a(Math.max(j - System.currentTimeMillis(), 1000L));
         }
     }
 
     private void a(long j) {
-        if (f3895c) {
-            String str = f3896d;
+        if (f3896c) {
+            String str = f3897d;
             Log.d(str, "intervalMillis: " + j);
         }
-        Timer timer = this.f3900g;
+        Timer timer = this.f3901g;
         if (timer != null) {
             timer.cancel();
-            this.f3900g = null;
+            this.f3901g = null;
         }
-        this.f3900g = new Timer();
-        this.f3900g.schedule(new TimerTask() { // from class: com.baidu.apollon.taskmanager.TaskManager.2
+        this.f3901g = new Timer();
+        this.f3901g.schedule(new TimerTask() { // from class: com.baidu.apollon.taskmanager.TaskManager.2
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 TaskManager.this.a();
@@ -322,34 +322,34 @@ public final class TaskManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (f3895c) {
-            Log.d(f3896d, "scheduleForPeriodTasks run");
+        if (f3896c) {
+            Log.d(f3897d, "scheduleForPeriodTasks run");
         }
         synchronized (this.i) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.f3899f = Long.MAX_VALUE;
+            this.f3900f = Long.MAX_VALUE;
             for (String str : this.i.keySet()) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<c> it = b(str).iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.f3918f - currentTimeMillis < 1000) {
-                        if (f3895c) {
-                            String str2 = f3896d;
-                            Log.d(str2, "task.mNextRunTime - current = " + (next.f3918f - currentTimeMillis));
+                    if (next.f3919f - currentTimeMillis < 1000) {
+                        if (f3896c) {
+                            String str2 = f3897d;
+                            Log.d(str2, "task.mNextRunTime - current = " + (next.f3919f - currentTimeMillis));
                         }
                         c(next);
-                        if (next.f3915c > 0) {
-                            next.f3918f = next.f3915c + currentTimeMillis;
+                        if (next.f3916c > 0) {
+                            next.f3919f = next.f3916c + currentTimeMillis;
                             arrayList.add(next);
                         }
                     }
-                    if (next.f3918f < this.f3899f) {
-                        this.f3899f = next.f3918f;
+                    if (next.f3919f < this.f3900f) {
+                        this.f3900f = next.f3919f;
                     }
                 }
-                if (this.f3899f < Long.MAX_VALUE) {
-                    a(this.f3899f - currentTimeMillis);
+                if (this.f3900f < Long.MAX_VALUE) {
+                    a(this.f3900f - currentTimeMillis);
                 }
             }
         }
@@ -358,7 +358,7 @@ public final class TaskManager {
     private boolean a(c cVar, ArrayList<c> arrayList) {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f3913a, cVar.f3913a)) {
+            if (TextUtils.equals(it.next().f3914a, cVar.f3914a)) {
                 return true;
             }
         }

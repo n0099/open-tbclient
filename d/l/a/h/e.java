@@ -5,38 +5,38 @@ import android.widget.ImageView;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f66265a;
+    public float f66266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f66266b;
+    public float f66267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f66267c = 1.0f;
+    public float f66268c = 1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f66268d = 1.0f;
+    public float f66269d = 1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f66269e;
+    public boolean f66270e;
 
     public final boolean a() {
-        return this.f66269e;
+        return this.f66270e;
     }
 
     public final float b() {
-        return this.f66267c;
+        return this.f66268c;
     }
 
     public final float c() {
-        return this.f66268d;
+        return this.f66269d;
     }
 
     public final float d() {
-        return this.f66265a;
+        return this.f66266a;
     }
 
     public final float e() {
-        return this.f66266b;
+        return this.f66267b;
     }
 
     public final void f(float f2, float f3, float f4, float f5, ImageView.ScaleType scaleType) {
@@ -52,96 +52,96 @@ public final class e {
         float f11 = f2 / f4;
         switch (d.$EnumSwitchMapping$0[scaleType.ordinal()]) {
             case 1:
-                this.f66265a = f6;
-                this.f66266b = f7;
+                this.f66266a = f6;
+                this.f66267b = f7;
                 return;
             case 2:
                 if (f8 > f9) {
-                    this.f66269e = false;
-                    this.f66267c = f10;
-                    this.f66268d = f10;
-                    this.f66265a = (f2 - (f4 * f10)) / 2.0f;
+                    this.f66270e = false;
+                    this.f66268c = f10;
+                    this.f66269d = f10;
+                    this.f66266a = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 }
-                this.f66269e = true;
-                this.f66267c = f11;
-                this.f66268d = f11;
-                this.f66266b = (f3 - (f5 * f11)) / 2.0f;
+                this.f66270e = true;
+                this.f66268c = f11;
+                this.f66269d = f11;
+                this.f66267b = (f3 - (f5 * f11)) / 2.0f;
                 return;
             case 3:
                 if (f4 < f2 && f5 < f3) {
-                    this.f66265a = f6;
-                    this.f66266b = f7;
+                    this.f66266a = f6;
+                    this.f66267b = f7;
                     return;
                 } else if (f8 > f9) {
-                    this.f66269e = true;
-                    this.f66267c = f11;
-                    this.f66268d = f11;
-                    this.f66266b = (f3 - (f5 * f11)) / 2.0f;
+                    this.f66270e = true;
+                    this.f66268c = f11;
+                    this.f66269d = f11;
+                    this.f66267b = (f3 - (f5 * f11)) / 2.0f;
                     return;
                 } else {
-                    this.f66269e = false;
-                    this.f66267c = f10;
-                    this.f66268d = f10;
-                    this.f66265a = (f2 - (f4 * f10)) / 2.0f;
+                    this.f66270e = false;
+                    this.f66268c = f10;
+                    this.f66269d = f10;
+                    this.f66266a = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 }
             case 4:
                 if (f8 > f9) {
-                    this.f66269e = true;
-                    this.f66267c = f11;
-                    this.f66268d = f11;
-                    this.f66266b = (f3 - (f5 * f11)) / 2.0f;
+                    this.f66270e = true;
+                    this.f66268c = f11;
+                    this.f66269d = f11;
+                    this.f66267b = (f3 - (f5 * f11)) / 2.0f;
                     return;
                 }
-                this.f66269e = false;
-                this.f66267c = f10;
-                this.f66268d = f10;
-                this.f66265a = (f2 - (f4 * f10)) / 2.0f;
+                this.f66270e = false;
+                this.f66268c = f10;
+                this.f66269d = f10;
+                this.f66266a = (f2 - (f4 * f10)) / 2.0f;
                 return;
             case 5:
                 if (f8 > f9) {
-                    this.f66269e = true;
-                    this.f66267c = f11;
-                    this.f66268d = f11;
+                    this.f66270e = true;
+                    this.f66268c = f11;
+                    this.f66269d = f11;
                     return;
                 }
-                this.f66269e = false;
-                this.f66267c = f10;
-                this.f66268d = f10;
+                this.f66270e = false;
+                this.f66268c = f10;
+                this.f66269d = f10;
                 return;
             case 6:
                 if (f8 > f9) {
-                    this.f66269e = true;
-                    this.f66267c = f11;
-                    this.f66268d = f11;
-                    this.f66266b = f3 - (f5 * f11);
+                    this.f66270e = true;
+                    this.f66268c = f11;
+                    this.f66269d = f11;
+                    this.f66267b = f3 - (f5 * f11);
                     return;
                 }
-                this.f66269e = false;
-                this.f66267c = f10;
-                this.f66268d = f10;
-                this.f66265a = f2 - (f4 * f10);
+                this.f66270e = false;
+                this.f66268c = f10;
+                this.f66269d = f10;
+                this.f66266a = f2 - (f4 * f10);
                 return;
             case 7:
                 Math.max(f11, f10);
-                this.f66269e = f11 > f10;
-                this.f66267c = f11;
-                this.f66268d = f10;
+                this.f66270e = f11 > f10;
+                this.f66268c = f11;
+                this.f66269d = f10;
                 return;
             default:
-                this.f66269e = true;
-                this.f66267c = f11;
-                this.f66268d = f11;
+                this.f66270e = true;
+                this.f66268c = f11;
+                this.f66269d = f11;
                 return;
         }
     }
 
     public final void g() {
-        this.f66265a = 0.0f;
-        this.f66266b = 0.0f;
-        this.f66267c = 1.0f;
-        this.f66268d = 1.0f;
-        this.f66269e = false;
+        this.f66266a = 0.0f;
+        this.f66267b = 0.0f;
+        this.f66268c = 1.0f;
+        this.f66269d = 1.0f;
+        this.f66270e = false;
     }
 }

@@ -14,39 +14,39 @@ import d.b.h0.w.a;
 import d.b.h0.w.n;
 import d.b.i0.d1.f.b;
 import d.b.i0.o3.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4251e;
+    public TextView f4252e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4252f;
+    public int f4253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f4253g;
+    public EditorTools f4254g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FloatRecordView f4254h;
+    public FloatRecordView f4255h;
     public WindowManager i;
     public WindowManager.LayoutParams j;
 
     public SendVoiceView(Context context) {
         super(context);
-        this.f4251e = null;
-        this.f4252f = 0;
+        this.f4252e = null;
+        this.f4253f = 0;
         if (context == null) {
             return;
         }
         LayoutInflater.from(context).inflate(R.layout.send_voice_view, this);
-        this.f4251e = (TextView) findViewById(R.id.tex_send_voice);
+        this.f4252e = (TextView) findViewById(R.id.tex_send_voice);
         setFocusable(true);
         setFocusableInTouchMode(true);
         a();
     }
 
     public final void a() {
-        this.f4254h = new FloatRecordView(getContext());
+        this.f4255h = new FloatRecordView(getContext());
         this.i = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.j = layoutParams;
@@ -68,22 +68,22 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     public void c() {
         LinearLayout b2;
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null || (b2 = floatRecordView.b()) == null || b2.getParent() != null) {
             return;
         }
         this.i.addView(b2, this.j);
-        this.f4254h.e();
+        this.f4255h.e();
     }
 
     @Override // d.b.i0.d1.f.b
     public void closeRecordCancel() {
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null) {
             return;
         }
         floatRecordView.closeRecordCancel();
-        LinearLayout a2 = this.f4254h.a();
+        LinearLayout a2 = this.f4255h.a();
         if (a2 == null || a2.getParent() == null) {
             return;
         }
@@ -92,12 +92,12 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     @Override // d.b.i0.d1.f.b
     public void closeRecordTooShort() {
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null) {
             return;
         }
         floatRecordView.closeRecordTooShort();
-        LinearLayout b2 = this.f4254h.b();
+        LinearLayout b2 = this.f4255h.b();
         if (b2 == null || b2.getParent() == null) {
             return;
         }
@@ -106,7 +106,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     @Override // d.b.h0.w.n
     public void d(a aVar) {
-        EditorTools editorTools = this.f4253g;
+        EditorTools editorTools = this.f4254g;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
@@ -114,7 +114,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     @Override // d.b.h0.w.n
     public int getToolId() {
-        return this.f4252f;
+        return this.f4253f;
     }
 
     @Override // d.b.h0.w.n
@@ -162,7 +162,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     @Override // d.b.b.e.q.f
     public void onShowRecording(int i) {
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null) {
             return;
         }
@@ -180,54 +180,54 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
     public void refreshSendVoiceText(boolean z) {
         if (z) {
-            this.f4251e.setBackgroundResource(R.drawable.but_talk_s);
-            this.f4251e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_no_push));
+            this.f4252e.setBackgroundResource(R.drawable.but_talk_s);
+            this.f4252e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_no_push));
             return;
         }
-        this.f4251e.setBackgroundResource(R.drawable.but_talk_n);
-        this.f4251e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_push_talk));
+        this.f4252e.setBackgroundResource(R.drawable.but_talk_n);
+        this.f4252e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_push_talk));
     }
 
     @Override // d.b.h0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f4253g = editorTools;
+        this.f4254g = editorTools;
     }
 
     @Override // d.b.h0.w.n
     public void setToolId(int i) {
-        this.f4252f = i;
+        this.f4253f = i;
     }
 
     @Override // d.b.i0.d1.f.b
     public void showRecordCancel() {
         LinearLayout a2;
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null || (a2 = floatRecordView.a()) == null || a2.getParent() != null) {
             return;
         }
         this.i.addView(a2, this.j);
-        this.f4254h.showRecordCancel();
+        this.f4255h.showRecordCancel();
     }
 
     @Override // d.b.i0.d1.f.b
     public void startRecordVoice() {
         LinearLayout c2;
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null || (c2 = floatRecordView.c()) == null || c2.getParent() != null) {
             return;
         }
         this.i.addView(c2, this.j);
-        this.f4254h.startRecordVoice();
+        this.f4255h.startRecordVoice();
     }
 
     @Override // d.b.i0.d1.f.b
     public void stopRecordVoice() {
-        FloatRecordView floatRecordView = this.f4254h;
+        FloatRecordView floatRecordView = this.f4255h;
         if (floatRecordView == null || this.i == null || this.j == null) {
             return;
         }
         floatRecordView.stopRecordVoice();
-        LinearLayout c2 = this.f4254h.c();
+        LinearLayout c2 = this.f4255h.c();
         if (c2 == null || c2.getParent() == null) {
             return;
         }

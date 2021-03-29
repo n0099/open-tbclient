@@ -20,19 +20,19 @@ import org.json.JSONObject;
 public class InnerPanoramaView extends BaseGLMapView {
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, com.baidu.pano.platform.comapi.a.a> f9477d;
+    public HashMap<String, com.baidu.pano.platform.comapi.a.a> f9478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PanoramaViewListener f9478e;
+    public PanoramaViewListener f9479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9479f;
+    public String f9480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.pano.platform.comapi.a.b f9480g;
+    public com.baidu.pano.platform.comapi.a.b f9481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PanoramaView f9481h;
+    public PanoramaView f9482h;
     public String i;
     public String j;
     public String k;
@@ -57,11 +57,11 @@ public class InnerPanoramaView extends BaseGLMapView {
 
     public InnerPanoramaView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f9477d = new HashMap<>();
+        this.f9478d = new HashMap<>();
         this.r = true;
         this.s = true;
         this.t = new c(this);
-        BaseGLMapView.f9471b = context;
+        BaseGLMapView.f9472b = context;
         MessageProxy.registerPanoViewListener(new d(this));
     }
 
@@ -73,9 +73,9 @@ public class InnerPanoramaView extends BaseGLMapView {
         try {
             String optString = new JSONObject(str).optString("Type", "");
             if (optString.equals("street")) {
-                this.f9473a.b(-15.0f, 90.0f);
+                this.f9474a.b(-15.0f, 90.0f);
             } else if (optString.equals("inter")) {
-                this.f9473a.b(-25.0f, 90.0f);
+                this.f9474a.b(-25.0f, 90.0f);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -117,11 +117,11 @@ public class InnerPanoramaView extends BaseGLMapView {
 
     public void d() {
         MessageProxy.unRegisterPanoViewListener();
-        this.f9473a.b();
+        this.f9474a.b();
     }
 
     public float c() {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             return eVar.c();
         }
@@ -132,7 +132,7 @@ public class InnerPanoramaView extends BaseGLMapView {
         if (this.s) {
             this.r = false;
             if (!TextUtils.isEmpty(str)) {
-                e eVar = this.f9473a;
+                e eVar = this.f9474a;
                 if (eVar != null) {
                     eVar.b(str);
                     return;
@@ -144,10 +144,10 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void d(String str) {
-        com.baidu.pano.platform.comapi.a.b bVar = this.f9480g;
+        com.baidu.pano.platform.comapi.a.b bVar = this.f9481g;
         if (bVar != null) {
             bVar.a(str);
-            this.f9473a.b(this.f9480g.f9466d);
+            this.f9474a.b(this.f9481g.f9467d);
         }
     }
 
@@ -173,7 +173,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public boolean c(String str) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar == null) {
             return false;
         }
@@ -181,34 +181,34 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void d(boolean z) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             eVar.d(z);
         }
     }
 
     public void c(boolean z) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             eVar.b(z);
         }
     }
 
     public void f() {
-        this.f9473a.g();
+        this.f9474a.g();
     }
 
     public void b(float f2) {
-        if (this.f9473a != null) {
+        if (this.f9474a != null) {
             while (f2 < 0.0f) {
                 f2 += 360.0f;
             }
-            this.f9473a.a(a(), f2 % 360.0f, 0.0f);
+            this.f9474a.a(a(), f2 % 360.0f, 0.0f);
         }
     }
 
     public float b() {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             return eVar.a(2);
         }
@@ -218,7 +218,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void a(String str) {
         if (this.s) {
             this.r = false;
-            e eVar = this.f9473a;
+            e eVar = this.f9474a;
             if (eVar != null) {
                 eVar.a(str);
             }
@@ -226,7 +226,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void b(int i) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar == null || i < 1 || i > 5) {
             return;
         }
@@ -234,13 +234,13 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void b(Bitmap bitmap) {
-        this.f9473a.c(bitmap);
+        this.f9474a.c(bitmap);
     }
 
     public void a(int i, int i2) {
         if (this.s) {
             this.r = false;
-            e eVar = this.f9473a;
+            e eVar = this.f9474a;
             if (eVar != null) {
                 eVar.a(i, i2);
             }
@@ -248,7 +248,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void b(boolean z) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             eVar.a(z);
         }
@@ -256,12 +256,12 @@ public class InnerPanoramaView extends BaseGLMapView {
 
     public boolean b(com.baidu.pano.platform.comapi.a.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.f9477d.entrySet()) {
+            for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.f9478d.entrySet()) {
                 String str = aVar.mKey;
                 if (str != null && str.equals(entry.getKey())) {
-                    boolean c2 = this.f9473a.c(entry.getKey());
+                    boolean c2 = this.f9474a.c(entry.getKey());
                     if (c2) {
-                        this.f9477d.remove(entry.getKey());
+                        this.f9478d.remove(entry.getKey());
                     }
                     return c2;
                 }
@@ -274,7 +274,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void a(double d2, double d3) {
         if (this.s) {
             this.r = false;
-            e eVar = this.f9473a;
+            e eVar = this.f9474a;
             if (eVar != null) {
                 eVar.a(d2, d3);
             }
@@ -282,26 +282,26 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public boolean e() {
-        boolean f2 = this.f9473a.f();
+        boolean f2 = this.f9474a.f();
         if (f2) {
-            this.f9477d.clear();
+            this.f9478d.clear();
         }
         return f2;
     }
 
     public void a(float f2) {
-        if (this.f9473a != null) {
+        if (this.f9474a != null) {
             if (f2 < -90.0f) {
                 f2 = -90.0f;
             } else if (f2 > 90.0f) {
                 f2 = 90.0f;
             }
-            this.f9473a.a(f2, b(), 0.0f);
+            this.f9474a.a(f2, b(), 0.0f);
         }
     }
 
     public float a() {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             return eVar.a(1);
         }
@@ -309,14 +309,14 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void a(PanoramaView.ImageDefinition imageDefinition) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             eVar.b(imageDefinition.getValue());
         }
     }
 
     public boolean a(Bitmap bitmap) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar == null) {
             return false;
         }
@@ -324,7 +324,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void a(boolean z) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             eVar.c(z);
         }
@@ -333,22 +333,22 @@ public class InnerPanoramaView extends BaseGLMapView {
     public boolean a(com.baidu.pano.platform.comapi.a.a aVar) {
         boolean a2;
         if (aVar != null) {
-            for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.f9477d.entrySet()) {
+            for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.f9478d.entrySet()) {
                 if (aVar.equals(entry.getValue())) {
                     throw new IllegalStateException("the overlay item have been added, you can not add it again");
                 }
             }
-            String str = String.valueOf(System.currentTimeMillis()) + String.valueOf(this.f9477d.size());
+            String str = String.valueOf(System.currentTimeMillis()) + String.valueOf(this.f9478d.size());
             Bundle bundle = aVar.toBundle(str, new Bundle());
             if (1003 == bundle.getInt("markerType")) {
-                a2 = this.f9473a.b(bundle);
+                a2 = this.f9474a.b(bundle);
             } else if (1001 == bundle.getInt("markerType")) {
-                a2 = this.f9473a.a(bundle);
+                a2 = this.f9474a.a(bundle);
             } else {
-                a2 = 1002 == bundle.getInt("markerType") ? this.f9473a.a(bundle, ((ImageMarker) aVar).getMarkerBitmap()) : false;
+                a2 = 1002 == bundle.getInt("markerType") ? this.f9474a.a(bundle, ((ImageMarker) aVar).getMarkerBitmap()) : false;
             }
             if (a2) {
-                this.f9477d.put(str, aVar);
+                this.f9478d.put(str, aVar);
             }
             return a2;
         }
@@ -364,11 +364,11 @@ public class InnerPanoramaView extends BaseGLMapView {
         bundle.putDouble("x", d2 * 100.0d);
         bundle.putDouble("y", d3 * 100.0d);
         bundle.putFloat("z", ((float) d4) * 100.0f);
-        return this.f9473a.a(bundle, bitmap);
+        return this.f9474a.a(bundle, bitmap);
     }
 
     public void a(String str, float f2, float f3) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             eVar.a(str, f2, f3);
         }
@@ -377,15 +377,15 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void a(String str, String str2, PanoramaView panoramaView, com.baidu.pano.platform.comapi.a.b bVar) {
         this.i = str;
         this.j = str2;
-        this.f9481h = panoramaView;
-        this.f9480g = bVar;
+        this.f9482h = panoramaView;
+        this.f9481g = bVar;
     }
 
     public void a(com.baidu.pano.platform.comapi.a.b bVar) {
         if (bVar != null) {
-            this.f9473a.d(bVar.toBundle("", new Bundle()));
-            if (bVar.f9464b) {
-                this.f9473a.a(bVar.f9465c);
+            this.f9474a.d(bVar.toBundle("", new Bundle()));
+            if (bVar.f9465b) {
+                this.f9474a.a(bVar.f9466c);
                 return;
             }
             return;
@@ -394,7 +394,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public double[] a(float f2, float f3) {
-        e eVar = this.f9473a;
+        e eVar = this.f9474a;
         if (eVar != null) {
             return eVar.d(f2, f3);
         }
@@ -402,15 +402,16 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public void a(PanoramaViewListener panoramaViewListener) {
-        this.f9478e = panoramaViewListener;
+        this.f9479e = panoramaViewListener;
     }
 
     public String a(double d2, double d3, double d4, double d5) {
         long sqrt = (long) Math.sqrt(Math.pow(d2 - d4, 2.0d) + Math.pow(d3 - d5, 2.0d));
-        if (sqrt > 10000) {
+        int i = (sqrt > 10000L ? 1 : (sqrt == 10000L ? 0 : -1));
+        if (i > 0) {
             return "";
         }
-        if (sqrt <= 10000 && sqrt > 1000) {
+        if (i <= 0 && sqrt > 1000) {
             return (sqrt / 1000) + "km";
         }
         return sqrt + "m";

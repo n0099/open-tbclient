@@ -3,7 +3,7 @@ package com.facebook.drawee.view;
 import android.view.View;
 import android.view.ViewGroup;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class AspectRatioMeasure {
 
     /* loaded from: classes6.dex */

@@ -332,12 +332,13 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         MotionTiming timing2;
         ObjectAnimator ofFloat;
         ObjectAnimator ofFloat2;
+        int i;
         float calculateTranslationX = calculateTranslationX(view, view2, fabTransformationSpec.positioning);
         float calculateTranslationY = calculateTranslationY(view, view2, fabTransformationSpec.positioning);
         if (calculateTranslationX == 0.0f || calculateTranslationY == 0.0f) {
             timing = fabTransformationSpec.timings.getTiming("translationXLinear");
             timing2 = fabTransformationSpec.timings.getTiming("translationYLinear");
-        } else if ((z && calculateTranslationY < 0.0f) || (!z && calculateTranslationY > 0.0f)) {
+        } else if ((z && calculateTranslationY < 0.0f) || (!z && i > 0)) {
             timing = fabTransformationSpec.timings.getTiming("translationXCurveUpwards");
             timing2 = fabTransformationSpec.timings.getTiming("translationYCurveUpwards");
         } else {

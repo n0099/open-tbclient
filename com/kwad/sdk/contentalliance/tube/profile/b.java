@@ -14,13 +14,13 @@ import java.io.Serializable;
 public class b extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public TubeProfileParam f33237a;
+    public TubeProfileParam f33238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f33238b;
+    public SceneImpl f33239b;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, d.a(this.f33237a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, d.a(this.f33238a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, TubeProfileParam tubeProfileParam) {
@@ -36,19 +36,19 @@ public class b extends IFragmentActivityProxy {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_HOME_PARAM");
         if (serializableExtra instanceof TubeProfileParam) {
             TubeProfileParam tubeProfileParam = (TubeProfileParam) serializableExtra;
-            this.f33237a = tubeProfileParam;
-            this.f33238b = new SceneImpl(tubeProfileParam.mEntryScene);
+            this.f33238a = tubeProfileParam;
+            this.f33239b = new SceneImpl(tubeProfileParam.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 7);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33237a.getTubeId());
-            this.f33238b.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33238a.getTubeId());
+            this.f33239b.setUrlPackage(uRLPackage);
         }
-        return this.f33237a != null;
+        return this.f33238a != null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        com.kwad.sdk.core.report.e.d(this.f33238b);
+        com.kwad.sdk.core.report.e.d(this.f33239b);
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy

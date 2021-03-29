@@ -5,10 +5,10 @@ import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import d.b.i0.d1.f.l.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements a.c {
         @Override // d.b.i0.d1.f.l.a.c
         public boolean a(String str) {

@@ -8,7 +8,7 @@ import com.baidu.down.manage.Download;
 import com.baidu.down.manage.DownloadConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DownloadDao {
     public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT); ";
     public static final boolean DEBUG = DownloadConstants.mDebug;
@@ -125,7 +125,7 @@ public final class DownloadDao {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0027 A[Catch: all -> 0x002b, Exception -> 0x002d, TRY_LEAVE, TryCatch #0 {Exception -> 0x002d, blocks: (B:3:0x0006, B:5:0x0012, B:7:0x0018, B:10:0x0027), top: B:33:0x0006, outer: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0027 A[Catch: all -> 0x002b, Exception -> 0x002d, TRY_LEAVE, TryCatch #0 {Exception -> 0x002d, blocks: (B:3:0x0006, B:5:0x0012, B:7:0x0018, B:10:0x0027), top: B:31:0x0006, outer: #3 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

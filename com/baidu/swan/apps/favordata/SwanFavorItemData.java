@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
 import d.b.g0.a.y0.e.c;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
     public static final String SCHEME_AUTHORITY_SWAN_APP = "swan";
     public static final String SCHEME_AUTHORITY_SWAN_GAME = "swangame";

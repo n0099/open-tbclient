@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.retrieve;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RetrieveTaskObj {
     public static final String TAG = "RetrieveTaskObj";
     public String mFileMeta;

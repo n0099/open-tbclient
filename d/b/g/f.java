@@ -9,36 +9,36 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f43074a;
+    public static volatile f f43075a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f43075e;
+        public String f43076e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f43076f;
+        public a f43077f;
 
         public b(String str, a aVar) {
-            this.f43075e = str;
-            this.f43076f = aVar;
+            this.f43076e = str;
+            this.f43077f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList<String> arrayList;
             ArrayList<String> arrayList2;
-            Map e2 = f.this.e(this.f43075e);
+            Map e2 = f.this.e(this.f43076e);
             if (e2 != null) {
                 arrayList2 = (ArrayList) e2.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
                 arrayList = (ArrayList) e2.get("ipv4");
@@ -46,19 +46,19 @@ public final class f {
                 arrayList = null;
                 arrayList2 = null;
             }
-            this.f43076f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f43075e);
+            this.f43077f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f43076e);
         }
     }
 
     public static f b() {
-        if (f43074a == null) {
+        if (f43075a == null) {
             synchronized (f.class) {
-                if (f43074a == null) {
-                    f43074a = new f();
+                if (f43075a == null) {
+                    f43075a = new f();
                 }
             }
         }
-        return f43074a;
+        return f43075a;
     }
 
     public BDHttpDnsResult a(String str) {

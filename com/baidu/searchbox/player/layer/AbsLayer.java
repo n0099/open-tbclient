@@ -16,14 +16,14 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbsLayer implements ILayer {
     public Context mContext;
     public IMessenger mCourier;
     public Handler mHandler;
     public LayerContainer mLayerContainer;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PrivateHandler extends Handler {
         public WeakReference<AbsLayer> mWeakControl;
 

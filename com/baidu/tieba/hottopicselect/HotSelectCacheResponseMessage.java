@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import d.b.h0.r.r.a;
 import d.b.i0.c1.c;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
     public c mBangData;

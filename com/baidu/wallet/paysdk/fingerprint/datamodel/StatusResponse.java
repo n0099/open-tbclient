@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class StatusResponse extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25640a = "StatusResponse";
+    public static final String f25641a = "StatusResponse";
     public JSONObject fingerprint;
     public JSONObject user_info;
 
@@ -29,7 +29,7 @@ public class StatusResponse extends a {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        LogUtil.d(f25640a, str);
+        LogUtil.d(f25641a, str);
     }
 
     @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.baidu.apollon.beans.IBeanResponse

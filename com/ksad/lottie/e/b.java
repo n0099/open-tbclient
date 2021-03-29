@@ -5,35 +5,35 @@ import androidx.annotation.RestrictTo;
 public class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f31390a;
+    public float f31391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f31391b;
+    public float f31392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f31392c;
+    public T f31393c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f31393d;
+    public T f31394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f31394e;
+    public float f31395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f31395f;
+    public float f31396f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f31396g;
+    public float f31397g;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public b<T> a(float f2, float f3, T t, T t2, float f4, float f5, float f6) {
-        this.f31390a = f2;
-        this.f31391b = f3;
-        this.f31392c = t;
-        this.f31393d = t2;
-        this.f31394e = f4;
-        this.f31395f = f5;
-        this.f31396g = f6;
+        this.f31391a = f2;
+        this.f31392b = f3;
+        this.f31393c = t;
+        this.f31394d = t2;
+        this.f31395e = f4;
+        this.f31396f = f5;
+        this.f31397g = f6;
         return this;
     }
 }

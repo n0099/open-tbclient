@@ -9,11 +9,11 @@ import java.io.FileOutputStream;
 public class e implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49345a;
+    public Context f49346a;
 
     public e(Context context) {
         if (context != null) {
-            this.f49345a = context.getApplicationContext();
+            this.f49346a = context.getApplicationContext();
             return;
         }
         throw new RuntimeException("context can not be null");
@@ -21,7 +21,7 @@ public class e implements b<String> {
 
     @Override // d.b.g0.q.c.b
     public boolean a() {
-        return !new File(this.f49345a.getFilesDir(), "libuuid.so").exists();
+        return !new File(this.f49346a.getFilesDir(), "libuuid.so").exists();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class e implements b<String> {
     }
 
     public final String d() {
-        File file = new File(this.f49345a.getFilesDir(), "libuuid.so");
+        File file = new File(this.f49346a.getFilesDir(), "libuuid.so");
         if (file.exists()) {
             return d.b.g0.q.d.a.c(file);
         }
@@ -47,12 +47,12 @@ public class e implements b<String> {
     }
 
     public final void e(String str) {
-        File file = new File(this.f49345a.getFilesDir(), "libuuid.so");
+        File file = new File(this.f49346a.getFilesDir(), "libuuid.so");
         int i = Build.VERSION.SDK_INT >= 24 ? 1 : 0;
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                fileOutputStream = this.f49345a.openFileOutput("libuuid.so", i ^ 1);
+                fileOutputStream = this.f49346a.openFileOutput("libuuid.so", i ^ 1);
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
             } catch (Exception e2) {

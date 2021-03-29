@@ -16,25 +16,25 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f27676a;
+    public static volatile a f27677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final q f27677b = p.f();
+    public final q f27678b = p.f();
 
     public static a a() {
-        if (f27676a == null) {
+        if (f27677a == null) {
             synchronized (a.class) {
-                if (f27676a == null) {
-                    f27676a = new a();
+                if (f27677a == null) {
+                    f27677a = new a();
                 }
             }
         }
-        return f27676a;
+        return f27677a;
     }
 
     public void b(final Context context, final AdSlot adSlot, final TTAdNative.FeedAdListener feedAdListener) {
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f27677b.a(adSlot, new m(), 6, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.b.a.2
+        this.f27678b.a(adSlot, new m(), 6, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.b.a.2
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 feedAdListener.onError(i, str);
@@ -70,7 +70,7 @@ public class a {
 
     public void a(final Context context, final AdSlot adSlot, final TTAdNative.FeedAdListener feedAdListener) {
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f27677b.a(adSlot, new m(), 5, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.b.a.1
+        this.f27678b.a(adSlot, new m(), 5, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.b.a.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 feedAdListener.onError(i, str);
@@ -106,7 +106,7 @@ public class a {
 
     public void a(final Context context, final AdSlot adSlot, final TTAdNative.DrawFeedAdListener drawFeedAdListener) {
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f27677b.a(adSlot, new m(), 9, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.b.a.3
+        this.f27678b.a(adSlot, new m(), 9, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.b.a.3
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 drawFeedAdListener.onError(i, str);

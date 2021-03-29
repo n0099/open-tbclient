@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbsEventTrigger implements IEventTrigger {
     public ArrayList<IMessenger> mNotifyList = new ArrayList<>();
 

@@ -17,7 +17,7 @@ import com.baidu.tieba.lego.card.model.ButtonCard;
 import d.b.b.e.p.l;
 import d.b.h0.r.s.a;
 import d.b.i0.r2.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
     public RelativeLayout r;
     public TbImageView s;
@@ -25,54 +25,54 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public int u;
     public final int v;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18640e;
+        public final /* synthetic */ ButtonCard f18641e;
 
         public a(ButtonCard buttonCard) {
-            this.f18640e = buttonCard;
+            this.f18641e = buttonCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ButtonCardView.this.setDialog(this.f18640e);
-            s.o().j().a(this.f18640e.getsExtras(), ButtonCardView.this.f18636e);
+            ButtonCardView.this.setDialog(this.f18641e);
+            s.o().j().a(this.f18641e.getsExtras(), ButtonCardView.this.f18637e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18642e;
+        public final /* synthetic */ ButtonCard f18643e;
 
         public b(ButtonCard buttonCard) {
-            this.f18642e = buttonCard;
+            this.f18643e = buttonCard;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f18642e.getBtnScheme()});
-            s.o().j().d(ButtonCardView.this.f18636e, "yes", this.f18642e.getsExtras());
+            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f18643e.getBtnScheme()});
+            s.o().j().d(ButtonCardView.this.f18637e, "yes", this.f18643e.getsExtras());
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18644e;
+        public final /* synthetic */ ButtonCard f18645e;
 
         public c(ButtonCard buttonCard) {
-            this.f18644e = buttonCard;
+            this.f18645e = buttonCard;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            s.o().j().d(ButtonCardView.this.f18636e, "no", this.f18644e.getsExtras());
+            s.o().j().d(ButtonCardView.this.f18637e, "no", this.f18645e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -106,14 +106,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         O();
-        double d2 = this.v;
-        Double.isNaN(d2);
-        double cardWidth = buttonCard.getCardWidth();
-        Double.isNaN(cardWidth);
-        float f2 = (float) ((d2 * 1.0d) / cardWidth);
+        float cardWidth = (float) ((this.v * 1.0d) / buttonCard.getCardWidth());
         ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
         layoutParams.width = this.v;
-        layoutParams.height = (int) (buttonCard.getCardHeight() * f2);
+        layoutParams.height = (int) (buttonCard.getCardHeight() * cardWidth);
         this.r.setLayoutParams(layoutParams);
         int bgColor = buttonCard.getBgColor();
         this.s.setDefaultBgResource(R.color.transparent);
@@ -124,7 +120,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         } else {
             this.s.setDefaultBgResource(R.color.transparent);
         }
-        int dimension = layoutParams.height - ((int) (TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.button_card_padding40) * f2));
+        int dimension = layoutParams.height - ((int) (TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.button_card_padding40) * cardWidth));
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.t.getLayoutParams();
         layoutParams2.height = dimension;
         layoutParams2.addRule(13);
@@ -157,7 +153,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         LegoListFragment.V.add(buttonCard.toString());
-        s.o().j().c(buttonCard.getShowExtra(), this.f18636e);
+        s.o().j().c(buttonCard.getShowExtra(), this.f18637e);
     }
 
     public void O() {

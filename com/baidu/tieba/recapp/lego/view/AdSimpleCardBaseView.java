@@ -48,14 +48,14 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20775e;
+        public AdCard f20776e;
 
         public b(AdCard adCard) {
-            this.f20775e = adCard;
+            this.f20776e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
-            String scheme = this.f20775e.getScheme();
+            String scheme = this.f20776e.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
                 scheme = advertAppInfo.H3;
             }
@@ -71,7 +71,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 AdSimpleCardBaseView.this.m.showToast(R.string.neterror);
                 return;
             }
-            AdCard adCard = this.f20775e;
+            AdCard adCard = this.f20776e;
             if (adCard == null) {
                 return;
             }

@@ -7,38 +7,38 @@ import java.util.List;
 public class DnsProxyResponseData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<HashMap<String, List<DnsProxyIpData>>> f15303e;
+    public List<HashMap<String, List<DnsProxyIpData>>> f15304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15304f;
+    public int f15305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15305g;
+    public String f15306g;
 
     /* loaded from: classes4.dex */
     public static class DnsProxyIpData extends OrmObject {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f15306e;
+        public String f15307e;
 
         public String getIp() {
-            return this.f15306e;
+            return this.f15307e;
         }
 
         public void setIp(String str) {
-            this.f15306e = str;
+            this.f15307e = str;
         }
     }
 
     public List<HashMap<String, List<DnsProxyIpData>>> getData() {
-        return this.f15303e;
+        return this.f15304e;
     }
 
     public String getErrmsg() {
-        return this.f15305g;
+        return this.f15306g;
     }
 
     public int getErrno() {
-        return this.f15304f;
+        return this.f15305f;
     }
 }

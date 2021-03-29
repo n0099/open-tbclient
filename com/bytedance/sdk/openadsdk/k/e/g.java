@@ -8,38 +8,38 @@ import java.util.List;
 public class g extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public d.c.c.b.d.b f29647c;
+    public d.c.c.b.d.b f29648c;
 
     public g(d.c.c.b.d.b bVar, f fVar) {
-        this.f29647c = bVar;
-        this.f29638a = new ArrayList();
-        for (int i = 0; i < this.f29647c.c().size(); i++) {
-            d.c.c.b.d.a aVar = this.f29647c.c().get(i);
+        this.f29648c = bVar;
+        this.f29639a = new ArrayList();
+        for (int i = 0; i < this.f29648c.c().size(); i++) {
+            d.c.c.b.d.a aVar = this.f29648c.c().get(i);
             if (aVar != null) {
-                this.f29638a.add(new i.b(aVar.a(), aVar.b()));
+                this.f29639a.add(new i.b(aVar.a(), aVar.b()));
             }
         }
-        this.f29639b = fVar;
+        this.f29640b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public int a() {
-        return this.f29647c.d();
+        return this.f29648c.d();
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public boolean b() {
-        return this.f29647c.d() >= 200 && this.f29647c.d() < 300;
+        return this.f29648c.d() >= 200 && this.f29648c.d() < 300;
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public List<i.b> c() {
-        return this.f29638a;
+        return this.f29639a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public InputStream d() {
-        return this.f29647c.a();
+        return this.f29648c.a();
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
@@ -49,11 +49,11 @@ public class g extends a {
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public String f() {
-        return a(this.f29647c.d());
+        return a(this.f29648c.d());
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public String a(String str, String str2) {
-        return a(str) != null ? a(str).f29716b : str2;
+        return a(str) != null ? a(str).f29717b : str2;
     }
 }

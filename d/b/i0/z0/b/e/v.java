@@ -22,7 +22,7 @@ import d.b.i.o0;
 import d.b.i.p0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.e0.k>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -30,7 +30,7 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     public boolean p;
     public b0<d.b.i0.x.e0.k> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.k> {
         public a(v vVar) {
         }
@@ -53,9 +53,9 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                         statisticItem.param("obj_locate", 4);
                         if (kVar != null) {
                             statisticItem.param("tid", kVar.l);
-                            a2 a2Var = kVar.f62196e;
+                            a2 a2Var = kVar.f62197e;
                             if (a2Var != null && a2Var.z1() != null) {
-                                statisticItem.param("pid", kVar.f62196e.z1().D());
+                                statisticItem.param("pid", kVar.f62197e.z1().D());
                             }
                         }
                         TiebaStatic.log(statisticItem);
@@ -65,9 +65,9 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                         statisticItem2.param("obj_locate", 2);
                         if (kVar != null) {
                             statisticItem2.param("tid", kVar.l);
-                            a2 a2Var2 = kVar.f62196e;
+                            a2 a2Var2 = kVar.f62197e;
                             if (a2Var2 != null && a2Var2.z1() != null) {
-                                statisticItem2.param("pid", kVar.f62196e.z1().D());
+                                statisticItem2.param("pid", kVar.f62197e.z1().D());
                             }
                         }
                         TiebaStatic.log(statisticItem2);
@@ -78,9 +78,9 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                             statisticItem3.param("obj_locate", 5);
                             if (kVar != null) {
                                 statisticItem3.param("tid", kVar.l);
-                                a2 a2Var3 = kVar.f62196e;
+                                a2 a2Var3 = kVar.f62197e;
                                 if (a2Var3 != null && a2Var3.z1() != null) {
-                                    statisticItem3.param("pid", kVar.f62196e.z1().D());
+                                    statisticItem3.param("pid", kVar.f62197e.z1().D());
                                 }
                             }
                             TiebaStatic.log(statisticItem3);
@@ -94,9 +94,9 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                                 statisticItem4.param("obj_locate", 3);
                                 if (kVar != null) {
                                     statisticItem4.param("tid", kVar.l);
-                                    a2 a2Var4 = kVar.f62196e;
+                                    a2 a2Var4 = kVar.f62197e;
                                     if (a2Var4 != null && a2Var4.z1() != null) {
-                                        statisticItem4.param("pid", kVar.f62196e.z1().D());
+                                        statisticItem4.param("pid", kVar.f62197e.z1().D());
                                     }
                                 }
                                 TiebaStatic.log(statisticItem4);
@@ -112,9 +112,9 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                         statisticItem5.param("obj_locate", 1);
                         if (kVar != null) {
                             statisticItem5.param("tid", kVar.l);
-                            a2 a2Var5 = kVar.f62196e;
+                            a2 a2Var5 = kVar.f62197e;
                             if (a2Var5 != null && a2Var5.z1() != null) {
-                                statisticItem5.param("pid", kVar.f62196e.z1().D());
+                                statisticItem5.param("pid", kVar.f62197e.z1().D());
                             }
                         }
                         TiebaStatic.log(statisticItem5);
@@ -129,7 +129,7 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b {
         public b(v vVar) {
         }
@@ -148,7 +148,7 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.b.j.e.w {
         public c() {
         }
@@ -163,7 +163,7 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
                     v.this.q.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 1, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -197,8 +197,8 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
         bVar.h(nVar);
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 9;
-        eVar.f50768h = 9;
+        eVar.f50763b = 9;
+        eVar.f50769h = 9;
         m0Var.v(eVar);
         m0Var.w(9);
         m0Var.A(4);
@@ -216,7 +216,7 @@ public class v extends d.b.b.j.e.a<d.b.i0.x.e0.k, ThreadCardViewHolder<d.b.i0.x.
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.x.e0.k kVar, ThreadCardViewHolder<d.b.i0.x.e0.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

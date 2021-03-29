@@ -22,18 +22,18 @@ public class f extends d.b.b.j.e.a<d.b.i0.t.j.d.h, CardViewHolder<d.b.i0.t.j.h.a
     }
 
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.h.f60867f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.h.f60868f);
         this.m = tbPageContext;
     }
 
     public final void i0(d.b.i0.t.j.d.h hVar, d.b.i0.t.j.h.a aVar) {
         aVar.z(8);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_income_value));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_income_value));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void j0() {
-        d.b.h0.l.a.t(this.m.getPageActivity(), true, d.b.h0.r.d0.b.i().o("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.f42357e.getResources().getString(R.string.ala_income_value));
+        d.b.h0.l.a.t(this.m.getPageActivity(), true, d.b.h0.r.d0.b.i().o("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.f42358e.getResources().getString(R.string.ala_income_value));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

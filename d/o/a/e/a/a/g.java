@@ -10,8 +10,8 @@ public class g extends a {
 
     @Override // d.o.a.e.a.a.e
     public Intent b() {
-        Intent intent = new Intent(d.o.a.e.b.d.c.f66950c + ".filemanager.intent.action.BROWSER_FILE");
-        intent.putExtra("CurrentDir", this.f66786c);
+        Intent intent = new Intent(d.o.a.e.b.d.c.f66955c + ".filemanager.intent.action.BROWSER_FILE");
+        intent.putExtra("CurrentDir", this.f66791c);
         intent.putExtra("CurrentMode", 1);
         intent.addFlags(268435456);
         intent.addFlags(32768);

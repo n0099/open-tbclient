@@ -9,14 +9,14 @@ import d.b.g0.a.k;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44272b = k.f45050a;
+    public static final boolean f44273b = k.f45051a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44273c = "swan_preset" + File.separator + "preset_list.json";
+    public static final String f44274c = "swan_preset" + File.separator + "preset_list.json";
 
     @Override // d.b.g0.a.e0.t.b
     public boolean e(c cVar) {
@@ -24,18 +24,18 @@ public class a extends b {
             return false;
         }
         Context appContext = AppRuntime.getAppContext();
-        String str = "swan_preset" + File.separator + cVar.f48922g + File.separator + cVar.p;
+        String str = "swan_preset" + File.separator + cVar.f48923g + File.separator + cVar.p;
         try {
-            File j = j(cVar.f48923h, cVar.f48922g, cVar.i);
+            File j = j(cVar.f48924h, cVar.f48923g, cVar.i);
             if (j == null) {
-                if (f44272b) {
+                if (f44273b) {
                     Log.e("AssetPresetController", "获取解压路径失败");
                 }
                 return false;
             }
             return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
         } catch (IOException e2) {
-            if (f44272b) {
+            if (f44273b) {
                 e2.printStackTrace();
             }
             return false;
@@ -50,6 +50,6 @@ public class a extends b {
 
     @Override // d.b.g0.a.e0.t.b
     public String i() {
-        return g.b(d.b.g0.a.w0.a.c(), f44273c);
+        return g.b(d.b.g0.a.w0.a.c(), f44274c);
     }
 }

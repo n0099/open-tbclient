@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.taskmanager.DatabaseMng;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     public DownloadDatabaseHelper(Context context) {
         super(context, DatabaseMng.DB_NAME, (SQLiteDatabase.CursorFactory) null, 1);

@@ -6,14 +6,14 @@ import android.webkit.WebView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.PermissionUtil;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f55445b;
+    public static c f55446b;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f55446a = c();
+    public a f55447a = c();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -25,19 +25,19 @@ public class c {
     }
 
     public static c b() {
-        if (f55445b == null) {
+        if (f55446b == null) {
             synchronized (c.class) {
-                if (f55445b == null) {
-                    f55445b = new c();
+                if (f55446b == null) {
+                    f55446b = new c();
                 }
             }
         }
-        return f55445b;
+        return f55446b;
     }
 
     public void a(Context context) {
         a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55446a) != null) {
+        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55447a) != null) {
             aVar.a(context);
         }
     }
@@ -56,14 +56,14 @@ public class c {
 
     public void e(Context context, String str, boolean z) {
         a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55446a) != null) {
+        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55447a) != null) {
             aVar.c(context, str, z);
         }
     }
 
     public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
         a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55446a) != null) {
+        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f55447a) != null) {
             aVar.b(context, webView, webChromeClient);
         }
     }

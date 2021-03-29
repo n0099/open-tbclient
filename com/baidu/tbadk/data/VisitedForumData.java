@@ -14,16 +14,16 @@ import tbclient.ThemeColorInfo;
 public class VisitedForumData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13825e;
+    public String f13826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13826f;
+    public boolean f13827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13827g;
+    public int f13828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13828h;
+    public String f13829h;
     public String i;
     public boolean isForumBusinessAccount;
     public String j;
@@ -38,10 +38,10 @@ public class VisitedForumData extends OrmObject {
     public PostPrefixData s;
 
     public VisitedForumData() {
-        this.f13825e = "";
-        this.f13826f = false;
-        this.f13827g = 0;
-        this.f13828h = "";
+        this.f13826e = "";
+        this.f13827f = false;
+        this.f13828g = 0;
+        this.f13829h = "";
         this.i = "";
         this.j = "";
         this.k = null;
@@ -57,7 +57,7 @@ public class VisitedForumData extends OrmObject {
     }
 
     public boolean B() {
-        return this.f13826f;
+        return this.f13827f;
     }
 
     public boolean C() {
@@ -72,11 +72,11 @@ public class VisitedForumData extends OrmObject {
         if (historyForumInfo == null) {
             return;
         }
-        this.f13825e = historyForumInfo.avatar;
+        this.f13826e = historyForumInfo.avatar;
         this.i = String.valueOf(historyForumInfo.forum_id);
-        this.f13828h = historyForumInfo.forum_name;
-        this.f13826f = historyForumInfo.is_liveforum.intValue() == 1;
-        this.f13827g = historyForumInfo.unread_num.intValue();
+        this.f13829h = historyForumInfo.forum_name;
+        this.f13827f = historyForumInfo.is_liveforum.intValue() == 1;
+        this.f13828g = historyForumInfo.unread_num.intValue();
         this.j = historyForumInfo.visit_time;
         this.k = historyForumInfo.theme_color;
         this.l = historyForumInfo.follow_num.intValue();
@@ -112,7 +112,7 @@ public class VisitedForumData extends OrmObject {
     }
 
     public String getForumName() {
-        return this.f13828h;
+        return this.f13829h;
     }
 
     public int getLevel() {
@@ -132,7 +132,7 @@ public class VisitedForumData extends OrmObject {
     }
 
     public String u() {
-        return this.f13825e;
+        return this.f13826e;
     }
 
     public boolean v() {
@@ -144,7 +144,7 @@ public class VisitedForumData extends OrmObject {
     }
 
     public int x() {
-        return this.f13827g;
+        return this.f13828g;
     }
 
     public List<FrsTabItemData> y() {
@@ -156,12 +156,12 @@ public class VisitedForumData extends OrmObject {
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
-        this.f13825e = str3;
-        this.f13826f = z;
-        this.f13828h = str2;
+        this.f13826e = str3;
+        this.f13827f = z;
+        this.f13829h = str2;
         this.i = str;
         this.j = str4;
-        this.f13827g = 0;
+        this.f13828g = 0;
         this.k = themeColorInfo;
         this.l = i;
     }

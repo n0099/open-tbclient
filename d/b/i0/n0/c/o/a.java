@@ -20,49 +20,49 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.b.j.e.a> f57053a;
+    public List<d.b.b.j.e.a> f57054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f57054b;
+    public BdTypeListView f57055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f57055c;
+    public k f57056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f57056d;
+    public m f57057d;
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         ArrayList arrayList = new ArrayList();
-        this.f57053a = arrayList;
-        this.f57054b = bdTypeListView;
-        arrayList.add(new g(baseActivity.getPageContext(), h.f57035h));
-        this.f57053a.add(new i(baseActivity.getPageContext(), j.f57040g));
-        this.f57053a.add(new f(baseActivity.getPageContext(), n.f57931g));
-        this.f57053a.add(new d.b.i0.n0.b.a(baseActivity.getPageContext(), d.b.i0.n0.b.b.f57013f));
-        this.f57053a.add(new c(baseActivity.getPageContext(), d.k));
-        this.f57053a.add(new d.b.i0.n0.c.a(baseActivity.getPageContext()));
+        this.f57054a = arrayList;
+        this.f57055b = bdTypeListView;
+        arrayList.add(new g(baseActivity.getPageContext(), h.f57036h));
+        this.f57054a.add(new i(baseActivity.getPageContext(), j.f57041g));
+        this.f57054a.add(new f(baseActivity.getPageContext(), n.f57932g));
+        this.f57054a.add(new d.b.i0.n0.b.a(baseActivity.getPageContext(), d.b.i0.n0.b.b.f57014f));
+        this.f57054a.add(new c(baseActivity.getPageContext(), d.k));
+        this.f57054a.add(new d.b.i0.n0.c.a(baseActivity.getPageContext()));
         k kVar = new k(baseActivity.getPageContext(), l.i);
-        this.f57055c = kVar;
-        this.f57053a.add(kVar);
-        m mVar = new m(baseActivity.getPageContext(), d.b.i0.n0.c.n.f57049h);
-        this.f57056d = mVar;
-        this.f57053a.add(mVar);
+        this.f57056c = kVar;
+        this.f57054a.add(kVar);
+        m mVar = new m(baseActivity.getPageContext(), d.b.i0.n0.c.n.f57050h);
+        this.f57057d = mVar;
+        this.f57054a.add(mVar);
     }
 
     public List<d.b.b.j.e.a> a() {
-        return this.f57053a;
+        return this.f57054a;
     }
 
     public void b() {
-        BdTypeListView bdTypeListView = this.f57054b;
+        BdTypeListView bdTypeListView = this.f57055b;
         if (bdTypeListView == null || !(bdTypeListView.getAdapter2() instanceof e)) {
             return;
         }
-        this.f57054b.getAdapter2().notifyDataSetChanged();
+        this.f57055b.getAdapter2().notifyDataSetChanged();
     }
 
     public void c() {
-        this.f57055c.onDestroy();
-        this.f57056d.onDestroy();
+        this.f57056c.onDestroy();
+        this.f57057d.onDestroy();
     }
 }

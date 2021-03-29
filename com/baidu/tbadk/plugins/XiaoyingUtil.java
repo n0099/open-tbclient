@@ -28,29 +28,29 @@ public class XiaoyingUtil {
     public static class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f14001e;
+        public final /* synthetic */ Context f14002e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f14002f;
+        public final /* synthetic */ String f14003f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f14003g;
+        public final /* synthetic */ int f14004g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f14004h;
+        public final /* synthetic */ int f14005h;
         public final /* synthetic */ String i;
 
         public a(Context context, String str, int i, int i2, String str2) {
-            this.f14001e = context;
-            this.f14002f = str;
-            this.f14003g = i;
-            this.f14004h = i2;
+            this.f14002e = context;
+            this.f14003f = str;
+            this.f14004g = i;
+            this.f14005h = i2;
             this.i = str2;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f14001e, this.f14002f, this.f14003g, this.f14004h, this.i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f14002e, this.f14003f, this.f14004g, this.f14005h, this.i)));
             aVar.dismiss();
         }
     }
@@ -67,19 +67,19 @@ public class XiaoyingUtil {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f14005e;
+        public final /* synthetic */ Activity f14006e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14006f;
+        public final /* synthetic */ TbPageContext f14007f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
-            this.f14005e = activity;
-            this.f14006f = tbPageContext;
+            this.f14006e = activity;
+            this.f14007f = tbPageContext;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f14006f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f14005e, XiaoyingUtil.PKG_NAME_VIDEO)));
+            this.f14007f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f14006e, XiaoyingUtil.PKG_NAME_VIDEO)));
             aVar.dismiss();
         }
     }

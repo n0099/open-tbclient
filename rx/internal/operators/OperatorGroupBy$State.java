@@ -41,7 +41,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         if (this.cancelled.get()) {
             this.queue.clear();
             this.parent.b(this.key);
-            throw null;
+            return true;
         } else if (z) {
             if (z3) {
                 if (z2) {
@@ -96,14 +96,14 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (z3) {
                         break;
                     }
-                    jVar.onNext((Object) NotificationLite.d(poll));
+                    jVar.onNext((Object) NotificationLite.e(poll));
                     j2++;
                 }
                 if (j2 != 0) {
                     if (j != Long.MAX_VALUE) {
                         a.g(this.requested, j2);
                     }
-                    this.parent.f67774e.request(j2);
+                    this.parent.f67779e.request(j2);
                 }
             }
             i = addAndGet(-i);
@@ -137,16 +137,17 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             this.error = new NullPointerException();
             this.done = true;
         } else {
-            this.queue.offer(NotificationLite.g(t));
+            this.queue.offer(NotificationLite.h(t));
         }
         drain();
     }
 
     @Override // h.f
     public void request(long j) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException("n >= required but it was " + j);
-        } else if (j != 0) {
+        } else if (i != 0) {
             a.b(this.requested, j);
             drain();
         }
@@ -156,7 +157,6 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
     public void unsubscribe() {
         if (this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
             this.parent.b(this.key);
-            throw null;
         }
     }
 

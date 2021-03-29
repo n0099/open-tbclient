@@ -12,16 +12,16 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbModel f52735a;
+    public PbModel f52736a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f52736b;
+    public BaseFragmentActivity f52737b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f52737c = null;
+    public b f52738c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HttpMessageListener f52738d;
+    public final HttpMessageListener f52739d;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -34,7 +34,7 @@ public class o {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    o.this.f52737c.a(-1, null, null);
+                    o.this.f52738c.a(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -44,7 +44,7 @@ public class o {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                o.this.f52737c.a(errorCode, errorMessage, tid);
+                o.this.f52738c.a(errorCode, errorMessage, tid);
             }
         }
     }
@@ -56,23 +56,23 @@ public class o {
 
     public o(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         a aVar = new a(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        this.f52738d = aVar;
-        this.f52735a = pbModel;
-        this.f52736b = baseFragmentActivity;
+        this.f52739d = aVar;
+        this.f52736a = pbModel;
+        this.f52737b = baseFragmentActivity;
         baseFragmentActivity.registerListener(aVar);
     }
 
     public void b(int i) {
-        if (this.f52735a == null) {
+        if (this.f52736a == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        httpMessage.addParam("thread_id", this.f52735a.O0());
+        httpMessage.addParam("thread_id", this.f52736a.O0());
         httpMessage.addParam("status", String.valueOf(i));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void c(b bVar) {
-        this.f52737c = bVar;
+        this.f52738c = bVar;
     }
 }

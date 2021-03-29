@@ -9,7 +9,7 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f49420a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+    public static final String f49421a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
 
     static {
         String str = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
@@ -21,7 +21,7 @@ public class a {
 
     public static boolean b() {
         StringBuilder sb = new StringBuilder();
-        sb.append(f49420a);
+        sb.append(f49421a);
         sb.append(File.separator);
         sb.append("libzeuswebviewchromium.so");
         return new File(sb.toString()).exists() && a();

@@ -2,7 +2,7 @@ package com.baidu.down.retry;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpRetryStatistic {
     public static final String DATA = "DATA:";
     public static final boolean DEBUG = false;

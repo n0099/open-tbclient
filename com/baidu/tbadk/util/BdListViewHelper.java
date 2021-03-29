@@ -13,7 +13,7 @@ import d.b.b.e.p.l;
 public class BdListViewHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f14030a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+    public static final int f14031a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
 
     /* loaded from: classes3.dex */
     public enum HeadType {
@@ -27,25 +27,25 @@ public class BdListViewHelper {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f14031a;
+        public static final /* synthetic */ int[] f14032a;
 
         static {
             int[] iArr = new int[HeadType.values().length];
-            f14031a = iArr;
+            f14032a = iArr;
             try {
                 iArr[HeadType.DEFAULT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f14031a[HeadType.HASTAB.ordinal()] = 2;
+                f14032a[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f14031a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+                f14032a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f14031a[HeadType.TIP.ordinal()] = 4;
+                f14032a[HeadType.TIP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -53,7 +53,7 @@ public class BdListViewHelper {
 
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.getInst().getContext();
-        int i = a.f14031a[headType.ordinal()];
+        int i = a.f14032a[headType.ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {

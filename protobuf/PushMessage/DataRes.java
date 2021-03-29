@@ -2,7 +2,7 @@ package protobuf.PushMessage;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataRes extends Message {
     public static final Long DEFAULT_PUSHTIME = 0L;
     @ProtoField(tag = 2)

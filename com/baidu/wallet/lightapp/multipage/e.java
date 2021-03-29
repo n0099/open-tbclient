@@ -17,20 +17,20 @@ import java.util.List;
 public class e implements h.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f25280a;
+    public JSONArray f25281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f25281b;
+    public Long f25282b;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f25282a = new e();
+        public static e f25283a = new e();
     }
 
     public static e a() {
-        return a.f25282a;
+        return a.f25283a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x002f  */
@@ -69,7 +69,7 @@ public class e implements h.b {
 
     private void c(Context context) {
         JSONArray jSONArray = new JSONArray();
-        this.f25280a = jSONArray;
+        this.f25281a = jSONArray;
         SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
     }
 
@@ -88,13 +88,13 @@ public class e implements h.b {
         DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
         PayStatisticsUtil.onEvent("#MW_BHM_ColdDown");
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        this.f25281b = valueOf;
+        this.f25282b = valueOf;
         SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
         h.a().b(context);
     }
 
     public e() {
-        this.f25281b = -1L;
+        this.f25282b = -1L;
     }
 
     public void a(@NonNull Context context, int i, @NonNull String str, List<String> list) {
@@ -118,10 +118,10 @@ public class e implements h.b {
     }
 
     private boolean b(Context context, int i) {
-        if (this.f25281b.longValue() == -1) {
-            this.f25281b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+        if (this.f25282b.longValue() == -1) {
+            this.f25282b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
         }
-        return System.currentTimeMillis() < this.f25281b.longValue() + ((long) (i * 1000));
+        return System.currentTimeMillis() < this.f25282b.longValue() + ((long) (i * 1000));
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.h.b
@@ -137,10 +137,10 @@ public class e implements h.b {
     }
 
     private JSONArray a(Context context) {
-        if (this.f25280a == null) {
-            this.f25280a = b(context);
+        if (this.f25281a == null) {
+            this.f25281a = b(context);
         }
-        return this.f25280a;
+        return this.f25281a;
     }
 
     private void a(Context context, int i) {

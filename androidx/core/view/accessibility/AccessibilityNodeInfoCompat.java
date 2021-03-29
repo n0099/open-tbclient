@@ -249,7 +249,7 @@ public class AccessibilityNodeInfoCompat {
     private void setBooleanProperty(int i, boolean z) {
         Bundle extras = getExtras();
         if (extras != null) {
-            int i2 = extras.getInt(BOOLEAN_PROPERTY_KEY, 0) & (i ^ (-1));
+            int i2 = extras.getInt(BOOLEAN_PROPERTY_KEY, 0) & (~i);
             if (!z) {
                 i = 0;
             }
@@ -1045,7 +1045,7 @@ public class AccessibilityNodeInfoCompat {
         int actions = getActions();
         while (actions != 0) {
             int numberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(actions);
-            actions &= numberOfTrailingZeros ^ (-1);
+            actions &= ~numberOfTrailingZeros;
             sb.append(getActionSymbolicName(numberOfTrailingZeros));
             if (actions != 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);

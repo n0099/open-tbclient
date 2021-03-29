@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class f0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f53342a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
+    public String f53343a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f53343b;
+    public a f53344b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -32,36 +32,36 @@ public class f0 {
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53344a = null;
+        public NetWork f53345a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53345b;
+        public String f53346b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f53346c;
+        public long f53347c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53347d;
+        public String f53348d;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<a> f53348e;
+        public WeakReference<a> f53349e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f53349f;
+        public int f53350f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f53350g;
+        public String f53351g;
 
         public b(String str, long j, String str2, a aVar, f0 f0Var, String str3) {
-            this.f53345b = null;
-            this.f53346c = 0L;
-            this.f53348e = null;
+            this.f53346b = null;
+            this.f53347c = 0L;
+            this.f53349e = null;
             new WeakReference(f0Var);
-            this.f53345b = str;
-            this.f53346c = j;
-            this.f53348e = new WeakReference<>(aVar);
-            this.f53347d = str2;
-            this.f53350g = str3;
+            this.f53346b = str;
+            this.f53347c = j;
+            this.f53349e = new WeakReference<>(aVar);
+            this.f53348d = str2;
+            this.f53351g = str3;
             setPriority(3);
         }
 
@@ -70,23 +70,23 @@ public class f0 {
         /* renamed from: b */
         public Integer doInBackground(Integer... numArr) {
             try {
-                if (this.f53346c != 0 && this.f53345b != null) {
+                if (this.f53347c != 0 && this.f53346b != null) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.f53344a = netWork;
-                    netWork.addPostData("fid", String.valueOf(this.f53346c));
-                    this.f53344a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f53345b);
-                    this.f53344a.addPostData("favo_type", "1");
-                    this.f53344a.addPostData("st_type", this.f53347d);
-                    this.f53344a.addPostData("authsid", this.f53350g);
-                    this.f53344a.getNetContext().getRequest().mIsNeedTbs = true;
-                    String postNetData = this.f53344a.postNetData();
+                    this.f53345a = netWork;
+                    netWork.addPostData("fid", String.valueOf(this.f53347c));
+                    this.f53345a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f53346b);
+                    this.f53345a.addPostData("favo_type", "1");
+                    this.f53345a.addPostData("st_type", this.f53348d);
+                    this.f53345a.addPostData("authsid", this.f53351g);
+                    this.f53345a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.f53345a.postNetData();
                     if (!d.b.b.e.p.k.isEmpty(postNetData)) {
                         JSONObject jSONObject = new JSONObject(postNetData);
-                        this.f53349f = jSONObject.optInt("error_code");
+                        this.f53350f = jSONObject.optInt("error_code");
                         jSONObject.optString("error_msg");
                         AuthTokenData.parse(jSONObject);
                     }
-                    if (this.f53344a.getNetContext().getResponse().isRequestSuccess()) {
+                    if (this.f53345a.getNetContext().getResponse().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -102,26 +102,26 @@ public class f0 {
         public void onPostExecute(Integer num) {
             NetWork netWork;
             super.onPostExecute((b) num);
-            if (this.f53348e != null) {
+            if (this.f53349e != null) {
                 d.b.i0.c3.q0.e eVar = new d.b.i0.c3.q0.e();
-                eVar.f53593a = this.f53346c;
-                a aVar = this.f53348e.get();
+                eVar.f53594a = this.f53347c;
+                a aVar = this.f53349e.get();
                 if (aVar == null) {
                     return;
                 }
-                if (num.intValue() == 1 && (netWork = this.f53344a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    TbadkCoreApplication.getInst().delLikeForum(this.f53345b);
-                    aVar.b(this.f53345b, this.f53346c);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.f53346c)));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.f53345b));
-                    eVar.f53594b = true;
+                if (num.intValue() == 1 && (netWork = this.f53345a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    TbadkCoreApplication.getInst().delLikeForum(this.f53346b);
+                    aVar.b(this.f53346b, this.f53347c);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.f53347c)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.f53346b));
+                    eVar.f53595b = true;
                 } else {
-                    eVar.f53594b = false;
-                    NetWork netWork2 = this.f53344a;
+                    eVar.f53595b = false;
+                    NetWork netWork2 = this.f53345a;
                     if (netWork2 != null) {
-                        String errorString = netWork2.isNetSuccess() ? this.f53344a.getErrorString() : this.f53344a.getNetException();
-                        eVar.f53595c = errorString;
-                        aVar.a(errorString, this.f53349f);
+                        String errorString = netWork2.isNetSuccess() ? this.f53345a.getErrorString() : this.f53345a.getNetException();
+                        eVar.f53596c = errorString;
+                        aVar.a(errorString, this.f53350f);
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, eVar));
@@ -130,14 +130,14 @@ public class f0 {
     }
 
     public void a(String str) {
-        this.f53342a = str;
+        this.f53343a = str;
     }
 
     public void b(a aVar) {
-        this.f53343b = aVar;
+        this.f53344b = aVar;
     }
 
     public void c(String str, long j) {
-        new b(str, j, this.f53342a, this.f53343b, this, null).execute(new Integer[0]);
+        new b(str, j, this.f53343a, this.f53344b, this, null).execute(new Integer[0]);
     }
 }

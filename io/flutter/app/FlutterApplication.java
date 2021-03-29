@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import androidx.annotation.CallSuper;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class FlutterApplication extends Application {
     public Activity mCurrentActivity = null;
 

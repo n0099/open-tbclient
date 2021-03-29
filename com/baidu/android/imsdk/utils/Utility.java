@@ -46,7 +46,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class Utility {
     public static final String ALGORITHM_NAME = "AES";
     public static final String API_KEY = "BD_IM_API_KEY";
@@ -57,7 +57,7 @@ public final class Utility {
     public static String mDeviceId;
     public static int mDisableRestapi;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }

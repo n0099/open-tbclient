@@ -12,16 +12,16 @@ public class b implements Closeable, Flushable {
     public static final String[] o;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Writer f66123e;
+    public final Writer f66124e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f66124f = new int[32];
+    public int[] f66125f = new int[32];
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66125g = 0;
+    public int f66126g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66126h;
+    public String f66127h;
     public String i;
     public boolean j;
     public boolean k;
@@ -54,20 +54,20 @@ public class b implements Closeable, Flushable {
         this.i = ":";
         this.m = true;
         if (writer != null) {
-            this.f66123e = writer;
+            this.f66124e = writer;
             return;
         }
         throw new NullPointerException("out == null");
     }
 
     public final void A() throws IOException {
-        if (this.f66126h == null) {
+        if (this.f66127h == null) {
             return;
         }
-        this.f66123e.write("\n");
-        int i = this.f66125g;
+        this.f66124e.write("\n");
+        int i = this.f66126g;
         for (int i2 = 1; i2 < i; i2++) {
-            this.f66123e.write(this.f66126h);
+            this.f66124e.write(this.f66127h);
         }
     }
 
@@ -81,41 +81,41 @@ public class b implements Closeable, Flushable {
             }
         }
         o();
-        this.f66123e.write(StringUtil.NULL_STRING);
+        this.f66124e.write(StringUtil.NULL_STRING);
         return this;
     }
 
     public final b C(int i, String str) throws IOException {
         o();
         E(i);
-        this.f66123e.write(str);
+        this.f66124e.write(str);
         return this;
     }
 
     public final int D() {
-        int i = this.f66125g;
+        int i = this.f66126g;
         if (i != 0) {
-            return this.f66124f[i - 1];
+            return this.f66125f[i - 1];
         }
         throw new IllegalStateException("JsonWriter is closed.");
     }
 
     public final void E(int i) {
-        int i2 = this.f66125g;
-        int[] iArr = this.f66124f;
+        int i2 = this.f66126g;
+        int[] iArr = this.f66125f;
         if (i2 == iArr.length) {
             int[] iArr2 = new int[i2 * 2];
             System.arraycopy(iArr, 0, iArr2, 0, i2);
-            this.f66124f = iArr2;
+            this.f66125f = iArr2;
         }
-        int[] iArr3 = this.f66124f;
-        int i3 = this.f66125g;
-        this.f66125g = i3 + 1;
+        int[] iArr3 = this.f66125f;
+        int i3 = this.f66126g;
+        this.f66126g = i3 + 1;
         iArr3[i3] = i;
     }
 
     public final void F(int i) {
-        this.f66124f[this.f66125g - 1] = i;
+        this.f66125f[this.f66126g - 1] = i;
     }
 
     public final void G(boolean z) {
@@ -124,11 +124,11 @@ public class b implements Closeable, Flushable {
 
     public final void H(String str) {
         if (str.length() == 0) {
-            this.f66126h = null;
+            this.f66127h = null;
             this.i = ":";
             return;
         }
-        this.f66126h = str;
+        this.f66127h = str;
         this.i = ": ";
     }
 
@@ -148,7 +148,7 @@ public class b implements Closeable, Flushable {
         int i;
         String str2;
         String[] strArr = this.k ? o : n;
-        this.f66123e.write("\"");
+        this.f66124e.write("\"");
         int length = str.length();
         int i2 = 0;
         while (i < length) {
@@ -157,9 +157,9 @@ public class b implements Closeable, Flushable {
                 str2 = strArr[charAt];
                 i = str2 == null ? i + 1 : 0;
                 if (i2 < i) {
-                    this.f66123e.write(str, i2, i - i2);
+                    this.f66124e.write(str, i2, i - i2);
                 }
-                this.f66123e.write(str2);
+                this.f66124e.write(str2);
                 i2 = i + 1;
             } else {
                 if (charAt == 8232) {
@@ -169,20 +169,20 @@ public class b implements Closeable, Flushable {
                 }
                 if (i2 < i) {
                 }
-                this.f66123e.write(str2);
+                this.f66124e.write(str2);
                 i2 = i + 1;
             }
         }
         if (i2 < length) {
-            this.f66123e.write(str, i2, length - i2);
+            this.f66124e.write(str, i2, length - i2);
         }
-        this.f66123e.write("\"");
+        this.f66124e.write("\"");
     }
 
     public b L(long j) throws IOException {
         Q();
         o();
-        this.f66123e.write(Long.toString(j));
+        this.f66124e.write(Long.toString(j));
         return this;
     }
 
@@ -192,7 +192,7 @@ public class b implements Closeable, Flushable {
         }
         Q();
         o();
-        this.f66123e.write(bool.booleanValue() ? "true" : "false");
+        this.f66124e.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
@@ -206,7 +206,7 @@ public class b implements Closeable, Flushable {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         o();
-        this.f66123e.append((CharSequence) obj);
+        this.f66124e.append((CharSequence) obj);
         return this;
     }
 
@@ -223,7 +223,7 @@ public class b implements Closeable, Flushable {
     public b P(boolean z) throws IOException {
         Q();
         o();
-        this.f66123e.write(z ? "true" : "false");
+        this.f66124e.write(z ? "true" : "false");
         return this;
     }
 
@@ -237,18 +237,18 @@ public class b implements Closeable, Flushable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f66123e.close();
-        int i = this.f66125g;
-        if (i <= 1 && (i != 1 || this.f66124f[i - 1] == 7)) {
-            this.f66125g = 0;
+        this.f66124e.close();
+        int i = this.f66126g;
+        if (i <= 1 && (i != 1 || this.f66125f[i - 1] == 7)) {
+            this.f66126g = 0;
             return;
         }
         throw new IOException("Incomplete document");
     }
 
     public void flush() throws IOException {
-        if (this.f66125g != 0) {
-            this.f66123e.flush();
+        if (this.f66126g != 0) {
+            this.f66124e.flush();
             return;
         }
         throw new IllegalStateException("JsonWriter is closed.");
@@ -257,7 +257,7 @@ public class b implements Closeable, Flushable {
     public final void n() throws IOException {
         int D = D();
         if (D == 5) {
-            this.f66123e.write(44);
+            this.f66124e.write(44);
         } else if (D != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
@@ -271,7 +271,7 @@ public class b implements Closeable, Flushable {
             F(2);
             A();
         } else if (D == 2) {
-            this.f66123e.append(',');
+            this.f66124e.append(',');
             A();
         } else if (D != 4) {
             if (D != 6) {
@@ -285,7 +285,7 @@ public class b implements Closeable, Flushable {
             }
             F(7);
         } else {
-            this.f66123e.append((CharSequence) this.i);
+            this.f66124e.append((CharSequence) this.i);
             F(5);
         }
     }
@@ -308,11 +308,11 @@ public class b implements Closeable, Flushable {
             throw new IllegalStateException("Nesting problem.");
         }
         if (this.l == null) {
-            this.f66125g--;
+            this.f66126g--;
             if (D == i2) {
                 A();
             }
-            this.f66123e.write(str);
+            this.f66124e.write(str);
             return this;
         }
         throw new IllegalStateException("Dangling name: " + this.l);
@@ -343,7 +343,7 @@ public class b implements Closeable, Flushable {
     public b z(String str) throws IOException {
         if (str != null) {
             if (this.l == null) {
-                if (this.f66125g != 0) {
+                if (this.f66126g != 0) {
                     this.l = str;
                     return this;
                 }

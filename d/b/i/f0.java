@@ -9,14 +9,14 @@ import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 import d.b.i.a;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f0 extends h {
     public RichTextLayout l;
     public d.b.h0.r.q.a m;
     public int n;
     public String o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -24,25 +24,25 @@ public class f0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f0 f0Var = f0.this;
-            a.InterfaceC1115a interfaceC1115a = f0Var.i;
-            if (interfaceC1115a != null) {
-                interfaceC1115a.a(f0Var.m);
+            a.InterfaceC1116a interfaceC1116a = f0Var.i;
+            if (interfaceC1116a != null) {
+                interfaceC1116a.a(f0Var.m);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements a.b {
         public b() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             if (f0.this.m != null && f0.this.m.n() != null && !f0.this.f().booleanValue()) {
                 a2 n = f0.this.m.n();
                 d.b.i0.x.m.a(n.o0());
-                d.b.i0.x.m.l(f0.this.l.f4510f, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(f0.this.l.f4511g, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(f0.this.l.f4511f, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(f0.this.l.f4512g, n.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -88,8 +88,8 @@ public class f0 extends h {
         this.o = str;
     }
 
-    public void w(a.InterfaceC1115a interfaceC1115a) {
-        this.i = interfaceC1115a;
+    public void w(a.InterfaceC1116a interfaceC1116a) {
+        this.i = interfaceC1116a;
     }
 
     public void x(boolean z) {

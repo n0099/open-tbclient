@@ -35,28 +35,28 @@ public class e {
     public static final Random n = new Random();
 
     /* renamed from: a  reason: collision with root package name */
-    public HashSet<String> f54221a = new HashSet<>();
+    public HashSet<String> f54222a = new HashSet<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54222b = new ConcurrentHashMap();
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54223b = new ConcurrentHashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54223c = new ConcurrentHashMap();
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54224c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54224d = new ConcurrentHashMap();
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54225d = new ConcurrentHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f54225e = new c();
+    public BroadcastReceiver f54226e = new c();
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f54226f = new d(2000994);
+    public CustomMessageListener f54227f = new d(2000994);
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f54227g = new C1225e(2001011);
+    public CustomMessageListener f54228g = new C1226e(2001011);
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f54228h = null;
+    public Handler f54229h = null;
     public HandlerThread i = new HandlerThread(e.class.getName());
     public Runnable j = new g();
     public long k = 0;
@@ -66,36 +66,9 @@ public class e {
     public class a implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f54229e;
-
-        public a(e eVar, String str) {
-            this.f54229e = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(DnsProxyResponseData.DnsProxyIpData dnsProxyIpData, DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2) {
-            if (dnsProxyIpData == null && dnsProxyIpData2 == null) {
-                return 0;
-            }
-            if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
-                if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                    return d.b.i0.e0.i.d.m().l(this.f54229e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().l(this.f54229e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
-                }
-                return -1;
-            }
-            return 1;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ String f54230e;
 
-        public b(e eVar, String str) {
+        public a(e eVar, String str) {
             this.f54230e = str;
         }
 
@@ -108,7 +81,34 @@ public class e {
             }
             if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                 if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                    return d.b.i0.e0.i.d.m().k(this.f54230e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().k(this.f54230e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
+                    return d.b.i0.e0.i.d.m().l(this.f54230e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().l(this.f54230e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
+                }
+                return -1;
+            }
+            return 1;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f54231e;
+
+        public b(e eVar, String str) {
+            this.f54231e = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(DnsProxyResponseData.DnsProxyIpData dnsProxyIpData, DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2) {
+            if (dnsProxyIpData == null && dnsProxyIpData2 == null) {
+                return 0;
+            }
+            if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
+                if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
+                    return d.b.i0.e0.i.d.m().k(this.f54231e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().k(this.f54231e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
                 }
                 return 1;
             }
@@ -143,8 +143,8 @@ public class e {
                         concurrentHashMap.put(str, arrayList);
                     }
                     if (concurrentHashMap.size() > 0) {
-                        e.this.f54223c.clear();
-                        e.this.f54223c.putAll(concurrentHashMap);
+                        e.this.f54224c.clear();
+                        e.this.f54224c.putAll(concurrentHashMap);
                         e.this.l(true);
                     }
                 } catch (Throwable th) {
@@ -173,8 +173,8 @@ public class e {
 
     /* renamed from: d.b.i0.e0.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1225e extends CustomMessageListener {
-        public C1225e(int i) {
+    public class C1226e extends CustomMessageListener {
+        public C1226e(int i) {
             super(i);
         }
 
@@ -198,15 +198,15 @@ public class e {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f54233e;
+        public final /* synthetic */ Runnable f54234e;
 
         public f(Runnable runnable) {
-            this.f54233e = runnable;
+            this.f54234e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.o(this.f54233e);
+            e.this.o(this.f54234e);
         }
     }
 
@@ -231,9 +231,9 @@ public class e {
         /* renamed from: c */
         public void onPostExecute(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
             super.onPostExecute(hashMap);
-            e.this.f54224d.clear();
+            e.this.f54225d.clear();
             if (hashMap != null) {
-                e.this.f54224d.putAll(hashMap);
+                e.this.f54225d.putAll(hashMap);
                 e.this.l(false);
             }
         }
@@ -243,15 +243,15 @@ public class e {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f54237e;
+        public final /* synthetic */ boolean f54238e;
 
         public i(boolean z) {
-            this.f54237e = z;
+            this.f54238e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.g(this.f54237e);
+            e.this.g(this.f54238e);
         }
     }
 
@@ -277,20 +277,20 @@ public class e {
             if (hashMapArr != null && hashMapArr.length > 0) {
                 if (hashMapArr[0] != null) {
                     e(hashMapArr[0]);
-                } else if (this.f54219a) {
+                } else if (this.f54220a) {
                     e.this.l = null;
                     e.this.g(false);
                 }
-            } else if (this.f54219a) {
+            } else if (this.f54220a) {
                 e.this.l = null;
                 e.this.g(false);
             }
         }
 
         public final void e(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
-            e.this.f54223c.clear();
+            e.this.f54224c.clear();
             if (hashMap != null) {
-                e.this.f54223c.putAll(hashMap);
+                e.this.f54224c.putAll(hashMap);
                 e.this.l(true);
                 if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                     Intent intent = new Intent();
@@ -340,12 +340,12 @@ public class e {
     }
 
     public void f() {
-        this.f54221a.clear();
+        this.f54222a.clear();
         d.b.i0.e0.i.d.m().j();
         d.b.b.e.m.e.a().removeCallbacks(this.j);
-        MessageManager.getInstance().unRegisterListener(this.f54226f);
-        MessageManager.getInstance().unRegisterListener(this.f54227g);
-        TbadkCoreApplication.getInst().unregisterReceiver(this.f54225e);
+        MessageManager.getInstance().unRegisterListener(this.f54227f);
+        MessageManager.getInstance().unRegisterListener(this.f54228g);
+        TbadkCoreApplication.getInst().unregisterReceiver(this.f54226e);
     }
 
     public void g(boolean z) {
@@ -358,21 +358,21 @@ public class e {
                 }
                 j jVar = new j(z);
                 this.l = jVar;
-                jVar.execute(new HashSet(this.f54221a));
+                jVar.execute(new HashSet(this.f54222a));
             }
         }
     }
 
     public String h(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.f54221a.contains(str)) {
-            String m2 = m(str, this.f54222b, z);
-            return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f54223c, z);
+        if (!TextUtils.isEmpty(str) && this.f54222a.contains(str)) {
+            String m2 = m(str, this.f54223b, z);
+            return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f54224c, z);
         }
         return null;
     }
 
     public final void j() {
-        new h().execute(new HashSet(this.f54221a));
+        new h().execute(new HashSet(this.f54222a));
     }
 
     public void k() {
@@ -385,11 +385,11 @@ public class e {
         Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map;
         Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map2;
         if (z) {
-            map = this.f54223c;
-            map2 = this.f54224d;
+            map = this.f54224c;
+            map2 = this.f54225d;
         } else {
-            map = this.f54224d;
-            map2 = this.f54223c;
+            map = this.f54225d;
+            map2 = this.f54224c;
         }
         for (String str : map.keySet()) {
             List<DnsProxyResponseData.DnsProxyIpData> list = map.get(str);
@@ -416,7 +416,7 @@ public class e {
                 dnsProxyIpData3.setIp(str2);
                 arrayList.add(dnsProxyIpData3);
             }
-            this.f54222b.put(str, arrayList);
+            this.f54223b.put(str, arrayList);
         }
     }
 
@@ -448,32 +448,32 @@ public class e {
     }
 
     public void n() {
-        this.f54221a.add("c.tieba.baidu.com");
+        this.f54222a.add("c.tieba.baidu.com");
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().unRegisterListener(this.f54226f);
-            MessageManager.getInstance().registerListener(this.f54226f);
+            MessageManager.getInstance().unRegisterListener(this.f54227f);
+            MessageManager.getInstance().registerListener(this.f54227f);
         }
-        MessageManager.getInstance().unRegisterListener(this.f54227g);
-        MessageManager.getInstance().registerListener(this.f54227g);
+        MessageManager.getInstance().unRegisterListener(this.f54228g);
+        MessageManager.getInstance().registerListener(this.f54228g);
         d.b.i0.e0.i.d.m().t();
         d.b.b.e.m.e.a().post(new k());
         g(true);
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             return;
         }
-        TbadkCoreApplication.getInst().unregisterReceiver(this.f54225e);
+        TbadkCoreApplication.getInst().unregisterReceiver(this.f54226e);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.dnsproxy.dnsproxydata");
-        TbadkCoreApplication.getInst().registerReceiver(this.f54225e, intentFilter);
+        TbadkCoreApplication.getInst().registerReceiver(this.f54226e, intentFilter);
     }
 
     public void o(Runnable runnable) {
         if (runnable != null) {
-            Handler handler = this.f54228h;
+            Handler handler = this.f54229h;
             if (handler == null) {
                 if (this.i.getLooper() != null) {
                     Handler handler2 = new Handler(this.i.getLooper());
-                    this.f54228h = handler2;
+                    this.f54229h = handler2;
                     handler2.post(runnable);
                 }
                 d.b.b.e.m.e.a().postDelayed(new f(runnable), 100L);

@@ -15,109 +15,109 @@ import d.b.g0.a.r1.e;
 import d.b.g0.i.n;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43825a = k.f45050a;
+    public static boolean f43826a = k.f45051a;
 
     /* renamed from: d.b.g0.a.d1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class RunnableC0642a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static class RunnableC0643a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43826e;
+        public final /* synthetic */ Context f43827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f43827f;
+        public final /* synthetic */ SwanAppActionBar f43828f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43828g;
+        public final /* synthetic */ String f43829g;
 
-        public RunnableC0642a(Context context, SwanAppActionBar swanAppActionBar, String str) {
-            this.f43826e = context;
-            this.f43827f = swanAppActionBar;
-            this.f43828g = str;
+        public RunnableC0643a(Context context, SwanAppActionBar swanAppActionBar, String str) {
+            this.f43827e = context;
+            this.f43828f = swanAppActionBar;
+            this.f43829g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.e(this.f43826e, this.f43827f, this.f43828g);
+            a.e(this.f43827e, this.f43828f, this.f43829g);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f43829e;
+        public final /* synthetic */ JSONObject f43830e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f43830f;
+        public final /* synthetic */ SwanAppActionBar f43831f;
 
         public b(JSONObject jSONObject, SwanAppActionBar swanAppActionBar) {
-            this.f43829e = jSONObject;
-            this.f43830f = swanAppActionBar;
+            this.f43830e = jSONObject;
+            this.f43831f = swanAppActionBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.l(this.f43830f, a.k(this.f43829e));
+            a.l(this.f43831f, a.k(this.f43830e));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43831e;
+        public final /* synthetic */ Context f43832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f43832f;
+        public final /* synthetic */ n f43833f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43833g;
+        public final /* synthetic */ String f43834g;
 
         public c(Context context, n nVar, String str) {
-            this.f43831e = context;
-            this.f43832f = nVar;
-            this.f43833g = str;
+            this.f43832e = context;
+            this.f43833f = nVar;
+            this.f43834g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.f(this.f43831e, this.f43832f, this.f43833g);
+            a.f(this.f43832e, this.f43833f, this.f43834g);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f43834e;
+        public final /* synthetic */ JSONArray f43835e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f43835f;
+        public final /* synthetic */ n f43836f;
 
         public d(JSONArray jSONArray, n nVar) {
-            this.f43834e = jSONArray;
-            this.f43835f = nVar;
+            this.f43835e = jSONArray;
+            this.f43836f = nVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int length = this.f43834e.length();
-            if (this.f43834e == null || length == 0) {
+            int length = this.f43835e.length();
+            if (this.f43835e == null || length == 0) {
                 return;
             }
             for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = this.f43834e.optJSONObject(i);
+                JSONObject optJSONObject = this.f43835e.optJSONObject(i);
                 if (optJSONObject != null) {
-                    this.f43835f.v(optJSONObject);
+                    this.f43836f.v(optJSONObject);
                     a.d(optJSONObject);
                 }
             }
-            this.f43835f.i();
+            this.f43836f.i();
         }
     }
 
@@ -168,7 +168,7 @@ public class a {
     }
 
     public static void i(Context context, SwanAppActionBar swanAppActionBar, String str) {
-        ExecutorUtilsExt.postOnElastic(new RunnableC0642a(context, swanAppActionBar, str), "getRefreshTips", 1);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0643a(context, swanAppActionBar, str), "getRefreshTips", 1);
     }
 
     public static void j(Context context, n nVar, String str) {
@@ -211,7 +211,7 @@ public class a {
     }
 
     public static void l(SwanAppActionBar swanAppActionBar, int i) {
-        if (f43825a) {
+        if (f43826a) {
             Log.i("messageRefresh", "update_red_dots:" + i);
         }
         if (swanAppActionBar != null) {

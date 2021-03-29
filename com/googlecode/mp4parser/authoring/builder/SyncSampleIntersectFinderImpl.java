@@ -117,9 +117,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                 linkedList3.add(Long.valueOf(jArr2[i]));
             }
         }
-        double length = jArr.length;
-        Double.isNaN(length);
-        if (linkedList2.size() < length * 0.25d) {
+        if (linkedList2.size() < jArr.length * 0.25d) {
             String str = "" + String.format("%5d - Common:  [", Integer.valueOf(linkedList2.size()));
             for (Long l : linkedList2) {
                 long longValue = l.longValue();
@@ -134,9 +132,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
             LOG.warning("There are less than 25% of common sync samples in the given track.");
             throw new RuntimeException("There are less than 25% of common sync samples in the given track.");
         }
-        double length2 = jArr.length;
-        Double.isNaN(length2);
-        if (linkedList2.size() < length2 * 0.5d) {
+        if (linkedList2.size() < jArr.length * 0.5d) {
             LOG.fine("There are less than 50% of common sync samples in the given track. This is implausible but I'm ok to continue.");
         } else if (linkedList2.size() < jArr.length) {
             LOG.finest("Common SyncSample positions vs. this tracks SyncSample positions: " + linkedList2.size() + " vs. " + jArr.length);
@@ -210,18 +206,11 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                         AudioSampleEntry audioSampleEntry = (AudioSampleEntry) next.getSampleDescriptionBox().getSampleEntry();
                         if (audioSampleEntry.getSampleRate() < 192000) {
                             long sampleRate = audioSampleEntry.getSampleRate();
-                            double d2 = size;
-                            Double.isNaN(r11);
-                            Double.isNaN(d2);
-                            double d3 = r11 / d2;
+                            double size2 = next.getSamples().size() / size;
                             long j2 = next.getSampleDurations()[0];
                             int i2 = 0;
                             while (i2 < length) {
-                                double d4 = sampleNumbers[i2] - 1;
-                                Double.isNaN(d4);
-                                double d5 = j2;
-                                Double.isNaN(d5);
-                                jArr2[i2] = (long) Math.ceil(d4 * d3 * d5);
+                                jArr2[i2] = (long) Math.ceil((sampleNumbers[i2] - 1) * size2 * j2);
                                 i2++;
                                 sampleNumbers = sampleNumbers;
                                 length = length;
@@ -232,18 +221,10 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                     }
                 }
                 long j3 = track.getSampleDurations()[i];
-                double sampleRate2 = ((AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()).getSampleRate();
-                double d6 = j;
-                Double.isNaN(sampleRate2);
-                Double.isNaN(d6);
-                double d7 = sampleRate2 / d6;
-                if (d7 == Math.rint(d7)) {
+                double sampleRate2 = ((AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()).getSampleRate() / j;
+                if (sampleRate2 == Math.rint(sampleRate2)) {
                     while (i < length) {
-                        double d8 = jArr2[i];
-                        Double.isNaN(d8);
-                        double d9 = j3;
-                        Double.isNaN(d9);
-                        jArr2[i] = (long) (((d8 * d7) / d9) + 1.0d);
+                        jArr2[i] = (long) (((jArr2[i] * sampleRate2) / j3) + 1.0d);
                         i++;
                     }
                     getSampleNumbersCache.put(cacheTuple, jArr2);
@@ -256,17 +237,12 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         for (Track track4 : this.movie.getTracks()) {
             if (track4.getSyncSamples() != null && track4.getSyncSamples().length > 0) {
                 long[] sampleNumbers2 = sampleNumbers(track4);
-                int size2 = track4.getSamples().size();
+                int size3 = track4.getSamples().size();
                 int length2 = sampleNumbers2.length;
                 long[] jArr3 = new long[length2];
-                double d10 = size2;
-                Double.isNaN(r8);
-                Double.isNaN(d10);
-                double d11 = r8 / d10;
+                double size4 = track.getSamples().size() / size3;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    double d12 = sampleNumbers2[i3] - 1;
-                    Double.isNaN(d12);
-                    jArr3[i3] = ((long) Math.ceil(d12 * d11)) + 1;
+                    jArr3[i3] = ((long) Math.ceil((sampleNumbers2[i3] - 1) * size4)) + 1;
                 }
                 getSampleNumbersCache.put(cacheTuple, jArr3);
                 return jArr3;

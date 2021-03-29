@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import d.b.b.c.g.c;
 import d.b.h0.r.s.a;
 import d.b.h0.s.d.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaLivePushRemindDialog {
     public TbPageContext mPageContext;
     public c msgRemindListener;

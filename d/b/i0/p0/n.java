@@ -5,32 +5,32 @@ import com.baidu.adp.BdUniqueId;
 public class n implements d.b.b.j.e.n {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f57931g = BdUniqueId.gen();
+    public static final BdUniqueId f57932g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57932e = 0;
+    public int f57933e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57933f = 0;
+    public int f57934f = 0;
 
     public int a() {
-        return this.f57933f;
+        return this.f57934f;
     }
 
     public int e() {
-        return this.f57932e;
+        return this.f57933e;
     }
 
     public void f(int i) {
-        this.f57933f = i;
+        this.f57934f = i;
     }
 
     public void g(int i) {
-        this.f57932e = i;
+        this.f57933e = i;
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f57931g;
+        return f57932g;
     }
 }

@@ -14,21 +14,21 @@ import javax.net.ssl.TrustManagerFactory;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public X509Certificate f30667a;
+    public X509Certificate f30668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLContext f30668b;
+    public SSLContext f30669b;
 
     public a(String str) {
         a(str);
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f30667a);
+            keyStore.setCertificateEntry("cert", this.f30668a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.f30668b = sSLContext;
+            this.f30669b = sSLContext;
             sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -37,7 +37,7 @@ public class a {
 
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
-        if (this.f30667a == null) {
+        if (this.f30668a == null) {
             ByteArrayInputStream byteArrayInputStream2 = null;
             try {
                 try {
@@ -50,7 +50,7 @@ public class a {
                     th = th;
                 }
                 try {
-                    this.f30667a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                    this.f30668a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
                     byteArrayInputStream.close();
                 } catch (CertificateException e3) {
                     e = e3;
@@ -78,6 +78,6 @@ public class a {
     }
 
     public SSLContext a() {
-        return this.f30668b;
+        return this.f30669b;
     }
 }

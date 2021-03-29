@@ -10,7 +10,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class Fresco {
     public static final Class<?> TAG = Fresco.class;
     public static DraweeControllerBuilderSupplierFactory mFactory = null;

@@ -28,20 +28,20 @@ import d.b.h0.r.f0.g;
 import d.b.i0.z0.e.a.d.h;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicTabView extends FrameLayout implements f.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17170e;
+    public int f17171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f17171f;
+    public TbPageContext<?> f17172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.z0.e.a.b f17172g;
+    public d.b.i0.z0.e.a.b f17173g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f17173h;
+    public BdSwipeRefreshLayout f17174h;
     public BdTypeRecyclerView i;
     public h j;
     public g k;
@@ -57,7 +57,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     public RecyclerView.OnScrollListener u;
     public ScrollFragmentTabHost.q v;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.OnScrollListener {
         public a() {
         }
@@ -78,7 +78,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends ScrollFragmentTabHost.q {
         public b() {
         }
@@ -97,28 +97,28 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || HotTopicTabView.this.f17172g == null) {
+            if (!j.A() || HotTopicTabView.this.f17173g == null) {
                 return;
             }
             HotTopicTabView.this.v(false);
-            HotTopicTabView.this.f17172g.loadData();
+            HotTopicTabView.this.f17173g.loadData();
         }
     }
 
     public HotTopicTabView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f17170e = 3;
+        this.f17171e = 3;
         this.o = -1;
         this.u = new a();
         this.v = new b();
-        this.f17171f = tbPageContext;
+        this.f17172f = tbPageContext;
         l(tbPageContext.getPageActivity());
         m();
         r();
@@ -157,10 +157,10 @@ public class HotTopicTabView extends FrameLayout implements f.g {
 
     public final void l(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_hot_topic_tab_layout, (ViewGroup) this, true);
-        this.f17173h = (BdSwipeRefreshLayout) findViewById(R.id.hotTopicRefreshLayout);
-        g gVar = new g(this.f17171f);
+        this.f17174h = (BdSwipeRefreshLayout) findViewById(R.id.hotTopicRefreshLayout);
+        g gVar = new g(this.f17172f);
         this.k = gVar;
-        this.f17173h.setProgressView(gVar);
+        this.f17174h.setProgressView(gVar);
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.hotTopicListView);
         this.i = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -168,8 +168,8 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         this.i.setOverScrollMode(2);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         this.i.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        this.j = new h(this.f17171f, this.i);
-        PbListView pbListView = new PbListView(this.f17171f.getPageActivity());
+        this.j = new h(this.f17172f, this.i);
+        PbListView pbListView = new PbListView(this.f17172f.getPageActivity());
         this.p = pbListView;
         pbListView.a();
         this.p.o(R.color.CAM_X0205);
@@ -205,7 +205,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
 
     @Override // d.b.h0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
-        this.f17172g.loadData();
+        this.f17173g.loadData();
     }
 
     public boolean q() {
@@ -215,10 +215,10 @@ public class HotTopicTabView extends FrameLayout implements f.g {
 
     public void r() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f17170e) {
+        if (skinType == this.f17171e) {
             return;
         }
-        this.f17170e = skinType;
+        this.f17171e = skinType;
         g gVar = this.k;
         if (gVar != null) {
             gVar.I(skinType);
@@ -283,7 +283,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     }
 
     public void setPresenter(d.b.i0.z0.e.a.b bVar) {
-        this.f17172g = bVar;
+        this.f17173g = bVar;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
@@ -315,7 +315,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         if (this.t) {
             this.t = false;
             if (ListUtils.isEmpty(this.j.a())) {
-                this.f17172g.loadData();
+                this.f17173g.loadData();
             }
         }
     }
@@ -372,10 +372,10 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     }
 
     public void y() {
-        this.f17173h.setRefreshing(true);
+        this.f17174h.setRefreshing(true);
     }
 
     public void z() {
-        this.f17173h.setRefreshing(false);
+        this.f17174h.setRefreshing(false);
     }
 }

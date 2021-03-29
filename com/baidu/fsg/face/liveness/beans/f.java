@@ -3,28 +3,28 @@ package com.baidu.fsg.face.liveness.beans;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5894a = "https://passport.baidu.com";
+    public static String f5895a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5895b = "https://passport.qatest.baidu.com";
+    public static String f5896b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5896c = "http://passport.rdtest.baidu.com";
+    public static String f5897c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f5897d = "http://wappass.baidu.com";
+    public static String f5898d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f5898e = "http://wappass.qatest.baidu.com";
+    public static String f5899e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f5899f = "http://wappass.rdtest.baidu.com";
+    public static String f5900f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f5900g = "https://gss0.bdstatic.com";
+    public static String f5901g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f5901h = "https://passport.baidu.com";
+    public static String f5902h = "https://passport.baidu.com";
     public static String i = "https://passport.qatest.baidu.com";
     public static String j = "https://voiceprint.baidu.com/echo.fcgi";
     public static String k = "https://voiceprint.baidu.com/echo.fcgi";

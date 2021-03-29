@@ -6,64 +6,64 @@ import java.util.Arrays;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f33417a = Charset.forName("ISO-8859-1");
+    public static final Charset f33418a = Charset.forName("ISO-8859-1");
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f33420c;
+        public static final int[] f33421c;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f33422e;
+        public final boolean f33423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f33423f;
+        public final boolean f33424f;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f33418a = new a(false, false);
+        public static final a f33419a = new a(false, false);
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f33419b = new a(true, false);
+        public static final a f33420b = new a(true, false);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int[] f33421d = new int[256];
+        public static final int[] f33422d = new int[256];
 
         static {
             int[] iArr = new int[256];
-            f33420c = iArr;
+            f33421c = iArr;
             Arrays.fill(iArr, -1);
-            for (int i = 0; i < b.f33427d.length; i++) {
-                f33420c[b.f33427d[i]] = i;
+            for (int i = 0; i < b.f33428d.length; i++) {
+                f33421c[b.f33428d[i]] = i;
             }
-            f33420c[61] = -2;
-            Arrays.fill(f33421d, -1);
-            for (int i2 = 0; i2 < b.f33428e.length; i2++) {
-                f33421d[b.f33428e[i2]] = i2;
+            f33421c[61] = -2;
+            Arrays.fill(f33422d, -1);
+            for (int i2 = 0; i2 < b.f33429e.length; i2++) {
+                f33422d[b.f33429e[i2]] = i2;
             }
-            f33421d[61] = -2;
+            f33422d[61] = -2;
         }
 
         public a(boolean z, boolean z2) {
-            this.f33422e = z;
-            this.f33423f = z2;
+            this.f33423e = z;
+            this.f33424f = z2;
         }
 
         private int a(byte[] bArr, int i, int i2) {
             int i3;
-            int[] iArr = this.f33422e ? f33421d : f33420c;
+            int[] iArr = this.f33423e ? f33422d : f33421c;
             int i4 = i2 - i;
             int i5 = 0;
             if (i4 == 0) {
                 return 0;
             }
             if (i4 < 2) {
-                if (this.f33423f && iArr[0] == -1) {
+                if (this.f33424f && iArr[0] == -1) {
                     return 0;
                 }
                 throw new IllegalArgumentException("Input byte[] should at least have 2 bytes for base64 bytes");
             }
-            if (this.f33423f) {
+            if (this.f33424f) {
                 int i6 = 0;
                 while (true) {
                     if (i >= i2) {
@@ -119,7 +119,7 @@ public class c {
             if (r12 >= r13) goto L39;
          */
         /* JADX WARN: Code restructure failed: missing block: B:41:0x00a3, code lost:
-            if (r10.f33423f == false) goto L38;
+            if (r10.f33424f == false) goto L38;
          */
         /* JADX WARN: Code restructure failed: missing block: B:42:0x00a5, code lost:
             r14 = r12 + 1;
@@ -139,14 +139,14 @@ public class c {
         /* JADX WARN: Code restructure failed: missing block: B:48:0x00c7, code lost:
             return r5;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:50:0x00d0, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:50:0x00cf, code lost:
             throw new java.lang.IllegalArgumentException("Last unit does not have enough valid bits");
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         private int a(byte[] bArr, int i, int i2, byte[] bArr2) {
-            int[] iArr = this.f33422e ? f33421d : f33420c;
+            int[] iArr = this.f33423e ? f33422d : f33421c;
             int i3 = 0;
             int i4 = 18;
             int i5 = 0;
@@ -179,7 +179,7 @@ public class c {
                         throw new IllegalArgumentException("Input byte array has wrong 4-byte ending unit");
                     }
                     i = i6;
-                } else if (!this.f33423f) {
+                } else if (!this.f33424f) {
                     throw new IllegalArgumentException("Illegal base64 character " + Integer.toString(bArr[i6 - 1], 16));
                 }
                 i = i6;
@@ -187,7 +187,7 @@ public class c {
         }
 
         public byte[] a(String str) {
-            return a(str.getBytes(c.f33417a));
+            return a(str.getBytes(c.f33418a));
         }
 
         public byte[] a(byte[] bArr) {
@@ -202,41 +202,41 @@ public class c {
     public static class b {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f33426c;
+        public static final b f33427c;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final byte[] f33429f;
+        public static final byte[] f33430f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final byte[] f33430g;
+        public final byte[] f33431g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f33431h;
+        public final int f33432h;
         public final boolean i;
         public final boolean j;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f33424a = new b(false, null, -1, true);
+        public static final b f33425a = new b(false, null, -1, true);
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f33425b = new b(true, null, -1, false);
+        public static final b f33426b = new b(true, null, -1, false);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final char[] f33427d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        public static final char[] f33428d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
         /* renamed from: e  reason: collision with root package name */
-        public static final char[] f33428e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'};
+        public static final char[] f33429e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'};
 
         static {
             byte[] bArr = {13, 10};
-            f33429f = bArr;
-            f33426c = new b(false, bArr, 76, true);
+            f33430f = bArr;
+            f33427c = new b(false, bArr, 76, true);
         }
 
         public b(boolean z, byte[] bArr, int i, boolean z2) {
             this.i = z;
-            this.f33430g = bArr;
-            this.f33431h = i;
+            this.f33431g = bArr;
+            this.f33432h = i;
             this.j = z2;
         }
 
@@ -248,15 +248,15 @@ public class c {
                 int i3 = i % 3;
                 i2 = ((i / 3) * 4) + (i3 == 0 ? 0 : i3 + 1);
             }
-            int i4 = this.f33431h;
-            return i4 > 0 ? i2 + (((i2 - 1) / i4) * this.f33430g.length) : i2;
+            int i4 = this.f33432h;
+            return i4 > 0 ? i2 + (((i2 - 1) / i4) * this.f33431g.length) : i2;
         }
 
         private int a(byte[] bArr, int i, int i2, byte[] bArr2) {
-            char[] cArr = this.i ? f33428e : f33427d;
+            char[] cArr = this.i ? f33429e : f33428d;
             int i3 = ((i2 - i) / 3) * 3;
             int i4 = i + i3;
-            int i5 = this.f33431h;
+            int i5 = this.f33432h;
             if (i5 > 0 && i3 > (i5 / 4) * 3) {
                 i3 = (i5 / 4) * 3;
             }
@@ -283,8 +283,8 @@ public class c {
                 }
                 int i17 = ((min - i) / 3) * 4;
                 i6 += i17;
-                if (i17 == this.f33431h && min < i2) {
-                    byte[] bArr3 = this.f33430g;
+                if (i17 == this.f33432h && min < i2) {
+                    byte[] bArr3 = this.f33431g;
                     int length = bArr3.length;
                     int i18 = 0;
                     while (i18 < length) {
@@ -336,10 +336,10 @@ public class c {
     }
 
     public static b a() {
-        return b.f33424a;
+        return b.f33425a;
     }
 
     public static a b() {
-        return a.f33418a;
+        return a.f33419a;
     }
 }

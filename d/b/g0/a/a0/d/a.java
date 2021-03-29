@@ -6,10 +6,10 @@ import d.b.g0.a.k;
 import d.b.g0.a.p.d.d;
 import d.b.g0.a.z0.f;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     @Nullable
@@ -20,7 +20,7 @@ public class a {
             return null;
         }
         String d2 = bVar.d();
-        String str = bVar.f43113g;
+        String str = bVar.f43114g;
         if (TextUtils.isEmpty(str)) {
             d.b.g0.a.c0.c.b("Component-Finder", "find a null " + d2 + " : slaveId is empty");
             return null;
@@ -30,10 +30,10 @@ public class a {
             d.b.g0.a.c0.c.b("Component-Finder", "find a null " + d2 + " : null component context");
             return null;
         }
-        String str2 = bVar.f43112f;
+        String str2 = bVar.f43113f;
         if (TextUtils.isEmpty(str2)) {
             d.b.g0.a.c0.c.l("Component-Finder", "find " + d2 + " with a empty componentId");
-            List<d.b.g0.a.a0.b.a> list = d3.a().f43172c.get(bVar.f43111e);
+            List<d.b.g0.a.a0.b.a> list = d3.a().f43173c.get(bVar.f43112e);
             if (list == null) {
                 d.b.g0.a.c0.c.b("Component-Finder", "find a null " + d2 + " with a empty componentId: fallbackComponents are null ");
                 return null;
@@ -45,7 +45,7 @@ public class a {
                 c2 = (C) list.get(0);
             }
         } else {
-            c2 = (C) d3.a().f43171b.get(str2);
+            c2 = (C) d3.a().f43172b.get(str2);
         }
         if (c2 == null) {
             d.b.g0.a.c0.c.b("Component-Finder", "find a null " + d2 + " : not exist");
@@ -64,7 +64,7 @@ public class a {
             d.b.g0.a.c0.c.b("Component-Finder", "find a null " + str2 + " : null component context");
             return null;
         }
-        C c2 = (C) d2.a().f43171b.get(str2);
+        C c2 = (C) d2.a().f43172b.get(str2);
         if (c2 == null) {
             d.b.g0.a.c0.c.b("Component-Finder", "find a null " + str2 + " : not exist");
             return null;
@@ -78,7 +78,7 @@ public class a {
             d.b.g0.a.a0.g.a.a("Component-Finder", "find component context with a null model");
             return null;
         }
-        return d(bVar.f43113g);
+        return d(bVar.f43114g);
     }
 
     @Nullable

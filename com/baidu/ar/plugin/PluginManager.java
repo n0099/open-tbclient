@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PluginManager {
     public static Map<String, ClassLoader> sPluginClassLoaderCache = new WeakHashMap(1);
     public static Map<String, Object> sPluginLoadedApkCache = new WeakHashMap(1);

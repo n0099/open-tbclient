@@ -7,7 +7,7 @@ import d.b.i0.z0.e.a.c;
 import d.b.i0.z0.e.a.f.a;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicTabSocketResponse extends SocketResponsedMessage implements a {
     public HotThreadListResIdl mData;
     public List<n> mHotTopicDataList;

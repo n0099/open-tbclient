@@ -3,11 +3,11 @@ package d.b.j.d.d;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f63727a = new SecureRandom();
+    public static final SecureRandom f63728a = new SecureRandom();
 
     public static int a(BigInteger bigInteger) {
         return (bigInteger.bitLength() + 7) >> 3;

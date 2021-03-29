@@ -16,10 +16,10 @@ public class PoseidonReceiver extends BroadcastReceiver {
         if ("android.intent.action.USER_PRESENT".equals(intent.getAction())) {
             W0 a2 = W0.a(context);
             Context a3 = a2.a();
-            if (a3 == null || a2.f39826b == null || !V1.u(a3) || !a2.f39826b.isReady()) {
+            if (a3 == null || a2.f39827b == null || !V1.u(a3) || !a2.f39827b.isReady()) {
                 return;
             }
-            a2.f39826b.show();
+            a2.f39827b.show();
             SharedPreferences.Editor edit = a3.getSharedPreferences("_prefs", 0).edit();
             edit.putFloat("psdpt", (float) System.currentTimeMillis());
             edit.apply();
@@ -34,15 +34,15 @@ public class PoseidonReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(m)) {
             return;
         }
-        if (a4.f39826b == null) {
+        if (a4.f39827b == null) {
             PBInterstitial pBInterstitial = new PBInterstitial(a5, m);
-            a4.f39826b = pBInterstitial;
+            a4.f39827b = pBInterstitial;
             pBInterstitial.setInterstitialListener(new V0(a4));
         }
-        PBInterstitial pBInterstitial2 = a4.f39826b;
+        PBInterstitial pBInterstitial2 = a4.f39827b;
         if (pBInterstitial2 == null || pBInterstitial2.isReady()) {
             return;
         }
-        a4.f39826b.load();
+        a4.f39827b.load();
     }
 }

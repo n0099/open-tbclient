@@ -6,10 +6,10 @@ import android.os.Message;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9921a;
+    public final /* synthetic */ b f9922a;
 
     public c(b bVar) {
-        this.f9921a = bVar;
+        this.f9922a = bVar;
     }
 
     @Override // android.os.Handler
@@ -22,21 +22,21 @@ public class c extends Handler {
         a aVar4;
         int i3 = message.what;
         if (i3 == 1) {
-            aVar = this.f9921a.f9913e;
+            aVar = this.f9922a.f9914e;
             if (aVar != null) {
-                aVar2 = this.f9921a.f9913e;
+                aVar2 = this.f9922a.f9914e;
                 aVar2.b();
-                this.f9921a.f9913e = null;
+                this.f9922a.f9914e = null;
             }
         } else if (i3 == 16 || i3 == 32) {
-            b bVar = this.f9921a;
-            i = bVar.f9914f;
-            bVar.f9914f = message.what | i;
-            aVar3 = this.f9921a.f9913e;
+            b bVar = this.f9922a;
+            i = bVar.f9915f;
+            bVar.f9915f = message.what | i;
+            aVar3 = this.f9922a.f9914e;
             if (aVar3 != null) {
-                i2 = this.f9921a.f9914f;
+                i2 = this.f9922a.f9915f;
                 if (i2 == 48) {
-                    aVar4 = this.f9921a.f9913e;
+                    aVar4 = this.f9922a.f9914e;
                     aVar4.a();
                 }
             }

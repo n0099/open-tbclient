@@ -16,76 +16,76 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f61681g = 3;
+    public static int f61682g = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f61682e;
+    public Context f61683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<TransmitForumData> f61683f = new ArrayList();
+    public List<TransmitForumData> f61684f = new ArrayList();
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f61684a;
+        public TextView f61685a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BarImageView f61685b;
+        public BarImageView f61686b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f61686c;
+        public View f61687c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f61687d = 3;
+        public int f61688d = 3;
 
         public a(View view) {
             if (view == null) {
                 return;
             }
-            this.f61684a = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.f61685a = (TextView) view.findViewById(R.id.transmit_forum_name);
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-            this.f61685b = barImageView;
+            this.f61686b = barImageView;
             barImageView.setShowOval(true);
-            this.f61686c = view.findViewById(R.id.divider_line);
+            this.f61687c = view.findViewById(R.id.divider_line);
         }
 
         public void a() {
-            if (b.f61681g != this.f61687d) {
-                SkinManager.setViewTextColor(this.f61684a, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.f61686c, R.color.CAM_X0204);
+            if (b.f61682g != this.f61688d) {
+                SkinManager.setViewTextColor(this.f61685a, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(this.f61687c, R.color.CAM_X0204);
             }
-            this.f61687d = b.f61681g;
+            this.f61688d = b.f61682g;
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.f61684a.setText(transmitForumData.forumName);
-                this.f61685b.W(transmitForumData.avatar, 10, false);
+                this.f61685a.setText(transmitForumData.forumName);
+                this.f61686b.W(transmitForumData.avatar, 10, false);
             }
         }
     }
 
     public b(Context context) {
-        this.f61682e = context;
+        this.f61683e = context;
     }
 
     public void b(List<TransmitForumData> list) {
-        this.f61683f.clear();
-        this.f61683f.addAll(list);
+        this.f61684f.clear();
+        this.f61684f.addAll(list);
         notifyDataSetChanged();
     }
 
     public void c(int i) {
-        if (f61681g != i) {
+        if (f61682g != i) {
             notifyDataSetChanged();
         }
-        f61681g = i;
+        f61682g = i;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f61683f.size();
+        return this.f61684f.size();
     }
 
     @Override // android.widget.Adapter
@@ -102,7 +102,7 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar = null;
         if (view == null) {
-            view = LayoutInflater.from(this.f61682e).inflate(R.layout.layout_select_forum_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f61683e).inflate(R.layout.layout_select_forum_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(R.id.key_select_forum_holder, aVar);
         } else {
@@ -113,7 +113,7 @@ public class b extends BaseAdapter {
         }
         if (aVar != null) {
             aVar.a();
-            aVar.b(this.f61683f.get(i));
+            aVar.b(this.f61684f.get(i));
         }
         return view;
     }

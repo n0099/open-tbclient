@@ -14,68 +14,68 @@ import com.baidu.tieba.memberCenter.tail.data.TailData;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59531a;
+    public View f59532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TailData f59532b;
+    public TailData f59533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59533c;
+    public TextView f59534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59534d;
+    public TextView f59535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f59535e;
+    public Context f59536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59536f;
+    public String f59537f;
 
     public void a(TbPageContext<?> tbPageContext) {
         tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f59531a);
-        d(this.f59536f);
+        tbPageContext.getLayoutMode().j(this.f59532a);
+        d(this.f59537f);
     }
 
     public View b(Context context) {
-        this.f59535e = context;
+        this.f59536e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.tail_management_item, (ViewGroup) null);
-        this.f59531a = inflate;
+        this.f59532a = inflate;
         inflate.setTag(this);
-        this.f59533c = (TextView) this.f59531a.findViewById(R.id.tail_management_item_text);
-        TextView textView = (TextView) this.f59531a.findViewById(R.id.tail_management_item_delete);
-        this.f59534d = textView;
+        this.f59534c = (TextView) this.f59532a.findViewById(R.id.tail_management_item_text);
+        TextView textView = (TextView) this.f59532a.findViewById(R.id.tail_management_item_delete);
+        this.f59535d = textView;
         textView.setTag(this);
-        return this.f59531a;
+        return this.f59532a;
     }
 
     public TailData c() {
-        return this.f59532b;
+        return this.f59533b;
     }
 
     public final void d(String str) {
-        this.f59536f = str;
-        this.f59533c.setTextColor(d.b.i0.q1.h.f.c.a(str));
+        this.f59537f = str;
+        this.f59534c.setTextColor(d.b.i0.q1.h.f.c.a(str));
     }
 
     public final void e(String str) {
-        this.f59533c.setText(TbFaceManager.e().l(this.f59535e, d.b.i0.q1.h.f.d.a(str), null));
+        this.f59534c.setText(TbFaceManager.e().l(this.f59536e, d.b.i0.q1.h.f.d.a(str), null));
     }
 
     public void f(View.OnClickListener onClickListener) {
-        this.f59534d.setOnClickListener(onClickListener);
+        this.f59535d.setOnClickListener(onClickListener);
     }
 
     public void g(Boolean bool) {
-        this.f59534d.setVisibility(bool.booleanValue() ? 0 : 8);
+        this.f59535d.setVisibility(bool.booleanValue() ? 0 : 8);
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.f59531a.setOnClickListener(onClickListener);
+        this.f59532a.setOnClickListener(onClickListener);
     }
 
     public void i(TailData tailData) {
-        this.f59532b = tailData;
+        this.f59533b = tailData;
         e(tailData.getContent());
         d(tailData.getFontColor());
     }

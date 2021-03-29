@@ -24,28 +24,28 @@ public class j {
     public long j;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetworkInfo f42011a = null;
+    public NetworkInfo f42012a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42012b = true;
+    public boolean f42013b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42013c = false;
+    public boolean f42014c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42014d = true;
+    public boolean f42015d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42015e = 0;
+    public int f42016e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42016f = 0;
+    public int f42017f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42017g = -1;
+    public int f42018g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42018h = null;
+    public String f42019h = null;
     public int i = -1;
     public boolean k = true;
     public Runnable l = new a(this);
@@ -233,7 +233,7 @@ public class j {
     }
 
     public static String m() {
-        return !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? com.baidu.apollon.statistics.g.f3873b : t() ? "2G" : "N";
+        return !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? com.baidu.apollon.statistics.g.f3874b : t() ? "2G" : "N";
     }
 
     public static int n(int i) {
@@ -295,10 +295,10 @@ public class j {
     }
 
     public boolean G() {
-        if (this.f42011a == null) {
+        if (this.f42012a == null) {
             j();
         }
-        return this.f42012b;
+        return this.f42013b;
     }
 
     public final void N(long j) {
@@ -323,62 +323,62 @@ public class j {
     }
 
     public int i() {
-        if (this.f42011a == null) {
+        if (this.f42012a == null) {
             j();
         }
-        return this.f42016f;
+        return this.f42017f;
     }
 
     public final void j() {
         NetworkInfo h2 = h();
-        this.f42011a = h2;
+        this.f42012a = h2;
         if (h2 != null) {
             if (h2.getType() == 1) {
-                this.f42012b = true;
-                this.f42013c = false;
+                this.f42013b = true;
+                this.f42014c = false;
             } else if (h2.getType() == 0) {
-                this.f42012b = false;
-                this.f42013c = true;
+                this.f42013b = false;
+                this.f42014c = true;
             } else {
-                this.f42012b = false;
-                this.f42013c = false;
+                this.f42013b = false;
+                this.f42014c = false;
             }
-            this.f42014d = true;
+            this.f42015d = true;
             int subtype = h2.getSubtype();
-            this.f42015e = subtype;
-            if (this.f42013c) {
-                this.f42016f = n(subtype);
+            this.f42016e = subtype;
+            if (this.f42014c) {
+                this.f42017f = n(subtype);
             } else {
-                this.f42016f = 0;
+                this.f42017f = 0;
             }
         } else {
-            this.f42012b = false;
-            this.f42013c = false;
-            this.f42014d = false;
-            this.f42015e = 0;
-            this.f42015e = 0;
+            this.f42013b = false;
+            this.f42014c = false;
+            this.f42015d = false;
+            this.f42016e = 0;
+            this.f42016e = 0;
         }
-        this.f42017g = L();
-        this.f42018h = Proxy.getDefaultHost();
+        this.f42018g = L();
+        this.f42019h = Proxy.getDefaultHost();
         this.i = Proxy.getDefaultPort();
     }
 
     public int o() {
-        if (this.f42017g == -1) {
+        if (this.f42018g == -1) {
             try {
-                this.f42017g = L();
+                this.f42018g = L();
             } catch (Exception unused) {
-                this.f42017g = 0;
+                this.f42018g = 0;
             }
         }
-        return this.f42017g;
+        return this.f42018g;
     }
 
     public String p() {
-        if (this.f42018h == null) {
-            this.f42018h = Proxy.getDefaultHost();
+        if (this.f42019h == null) {
+            this.f42019h = Proxy.getDefaultHost();
         }
-        return this.f42018h;
+        return this.f42019h;
     }
 
     public int q() {
@@ -389,16 +389,16 @@ public class j {
     }
 
     public boolean w() {
-        if (this.f42011a == null) {
+        if (this.f42012a == null) {
             j();
         }
-        return this.f42013c;
+        return this.f42014c;
     }
 
     public boolean y() {
-        if (this.f42011a == null) {
+        if (this.f42012a == null) {
             j();
         }
-        return this.f42014d;
+        return this.f42015d;
     }
 }

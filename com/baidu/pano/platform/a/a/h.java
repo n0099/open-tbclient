@@ -14,7 +14,7 @@ public class h {
         long j4;
         long j5;
         long currentTimeMillis = System.currentTimeMillis();
-        Map<String, String> map = lVar.f9380c;
+        Map<String, String> map = lVar.f9381c;
         String str = map.get("Date");
         long a2 = str != null ? a(str) : 0L;
         String str2 = map.get("Cache-Control");
@@ -72,13 +72,13 @@ public class h {
             }
         }
         b.a aVar = new b.a();
-        aVar.f9346a = lVar.f9379b;
-        aVar.f9347b = str5;
-        aVar.f9351f = j4;
-        aVar.f9350e = j3;
-        aVar.f9348c = a2;
-        aVar.f9349d = a4;
-        aVar.f9352g = map;
+        aVar.f9347a = lVar.f9380b;
+        aVar.f9348b = str5;
+        aVar.f9352f = j4;
+        aVar.f9351e = j3;
+        aVar.f9349c = a2;
+        aVar.f9350d = a4;
+        aVar.f9353g = map;
         return aVar;
     }
 

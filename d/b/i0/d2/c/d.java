@@ -16,28 +16,28 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54133a;
+    public String f54134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54134b;
+    public String f54135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54135c;
+    public String f54136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f54136d;
+    public boolean f54137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54137e;
+    public int f54138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54138f;
+    public int f54139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54139g;
+    public int f54140g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<d.b.i0.d2.c.a> f54140h;
+    public final List<d.b.i0.d2.c.a> f54141h;
     public b i;
     public final HttpMessageListener j;
 
@@ -70,19 +70,19 @@ public class d {
                 List<d.b.i0.d2.c.a> list = praiseListResponsedMessage.getmZanItemDataList();
                 if (list != null) {
                     for (d.b.i0.d2.c.a aVar : list) {
-                        d.this.f54140h.add(aVar);
+                        d.this.f54141h.add(aVar);
                     }
                 }
                 d dVar = d.this;
-                dVar.f54139g = dVar.f54140h.size();
-                d.this.f54138f = praiseListResponsedMessage.getTotalNum();
+                dVar.f54140g = dVar.f54141h.size();
+                d.this.f54139f = praiseListResponsedMessage.getTotalNum();
                 d.h(d.this);
-                int i = d.this.f54137e > 5 ? 1003 : 1001;
-                if (d.this.f54139g >= d.this.f54138f) {
+                int i = d.this.f54138e > 5 ? 1003 : 1001;
+                if (d.this.f54140g >= d.this.f54139f) {
                     i = 1002;
                 }
                 if (d.this.i != null) {
-                    d.this.i.onLoadSuccessed(d.this.f54138f, d.this.f54140h, i, d.this.f54138f - d.this.f54139g);
+                    d.this.i.onLoadSuccessed(d.this.f54139f, d.this.f54141h, i, d.this.f54139f - d.this.f54140g);
                 }
             }
         }
@@ -96,43 +96,43 @@ public class d {
     }
 
     public d() {
-        this.f54133a = "";
-        this.f54134b = "";
-        this.f54135c = "";
-        this.f54136d = true;
-        this.f54137e = 1;
-        this.f54138f = 0;
-        this.f54139g = 0;
-        this.f54140h = new ArrayList(100);
+        this.f54134a = "";
+        this.f54135b = "";
+        this.f54136c = "";
+        this.f54137d = true;
+        this.f54138e = 1;
+        this.f54139f = 0;
+        this.f54140g = 0;
+        this.f54141h = new ArrayList(100);
         this.i = null;
         this.j = new a(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.f54133a = "";
-        this.f54134b = "";
+        this.f54134a = "";
+        this.f54135b = "";
     }
 
     public static /* synthetic */ int h(d dVar) {
-        int i = dVar.f54137e;
-        dVar.f54137e = i + 1;
+        int i = dVar.f54138e;
+        dVar.f54138e = i + 1;
         return i;
     }
 
     public String i() {
-        return this.f54135c;
+        return this.f54136c;
     }
 
     public d.b.i0.d2.c.a j(int i) {
-        if (i <= -1 || i >= this.f54140h.size()) {
+        if (i <= -1 || i >= this.f54141h.size()) {
             return null;
         }
-        return this.f54140h.get(i);
+        return this.f54141h.get(i);
     }
 
     public String k() {
-        return this.f54133a;
+        return this.f54134a;
     }
 
     public boolean l() {
-        return this.f54136d;
+        return this.f54137d;
     }
 
     public void m(int i) {
@@ -141,37 +141,37 @@ public class d {
 
     public final void n() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        httpMessage.addParam("post_id", this.f54134b + "");
-        httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.f54137e + "");
+        httpMessage.addParam("post_id", this.f54135b + "");
+        httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.f54138e + "");
         httpMessage.addParam("res_num", "20");
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void o(Bundle bundle, String str) {
-        bundle.putBoolean(str, this.f54136d);
+        bundle.putBoolean(str, this.f54137d);
     }
 
     public void p(Bundle bundle, String str) {
-        bundle.putString(str, this.f54135c);
+        bundle.putString(str, this.f54136c);
     }
 
     public void q(Bundle bundle, String str) {
-        bundle.putString(str, this.f54134b);
+        bundle.putString(str, this.f54135b);
     }
 
     public void r(Bundle bundle, String str) {
-        bundle.putInt(str, this.f54138f);
+        bundle.putInt(str, this.f54139f);
     }
 
     public void s(Bundle bundle, String str) {
-        bundle.putString(str, this.f54133a);
+        bundle.putString(str, this.f54134a);
     }
 
     public void t(boolean z) {
     }
 
     public void u(int i) {
-        this.f54138f = i;
+        this.f54139f = i;
     }
 
     public void v() {
@@ -182,21 +182,21 @@ public class d {
     }
 
     public d(String str, String str2, String str3, boolean z, b bVar) {
-        this.f54133a = "";
-        this.f54134b = "";
-        this.f54135c = "";
-        this.f54136d = true;
-        this.f54137e = 1;
-        this.f54138f = 0;
-        this.f54139g = 0;
-        this.f54140h = new ArrayList(100);
+        this.f54134a = "";
+        this.f54135b = "";
+        this.f54136c = "";
+        this.f54137d = true;
+        this.f54138e = 1;
+        this.f54139f = 0;
+        this.f54140g = 0;
+        this.f54141h = new ArrayList(100);
         this.i = null;
         this.j = new a(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.f54133a = str;
-        this.f54134b = str2;
-        this.f54135c = str3;
+        this.f54134a = str;
+        this.f54135b = str2;
+        this.f54136c = str3;
         this.i = bVar;
-        this.f54136d = z;
+        this.f54137d = z;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/u/zan/getuserlist");
         tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

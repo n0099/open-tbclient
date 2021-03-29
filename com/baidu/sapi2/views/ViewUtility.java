@@ -24,10 +24,10 @@ public class ViewUtility implements NoProguard {
     public static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f11583a;
+        public final /* synthetic */ float f11584a;
 
         public a(float f2) {
-            this.f11583a = f2;
+            this.f11584a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -40,7 +40,7 @@ public class ViewUtility implements NoProguard {
                 }
                 return false;
             } else if (Build.VERSION.SDK_INT >= 11) {
-                view.setAlpha(this.f11583a);
+                view.setAlpha(this.f11584a);
                 return false;
             } else {
                 return false;
@@ -57,7 +57,7 @@ public class ViewUtility implements NoProguard {
             declaredField2.setAccessible(true);
             int i = declaredField.getInt(null);
             int i2 = declaredField2.getInt(attributes);
-            declaredField2.setInt(attributes, z ? i2 | i : (i ^ (-1)) & i2);
+            declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
             activity.getWindow().setAttributes(attributes);
             return true;
         } catch (Throwable unused) {

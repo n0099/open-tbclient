@@ -1,7 +1,7 @@
 package com.baidu.appsearchlib;
 
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Md5Util {
     public static MessageDigest md5;
 

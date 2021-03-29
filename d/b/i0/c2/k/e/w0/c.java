@@ -19,13 +19,13 @@ import com.baidu.tieba.tbadkCore.data.AgreeData;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.i0.c2.o.b f52880a;
+    public final d.b.i0.c2.o.b f52881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f52881b = new a(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+    public final HttpMessageListener f52882b = new a(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f52882c = new b(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+    public final HttpMessageListener f52883c = new b(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -55,7 +55,7 @@ public class c {
 
     public c(d.b.i0.c2.o.b bVar) {
         if (bVar != null) {
-            this.f52880a = bVar;
+            this.f52881a = bVar;
             f();
             return;
         }
@@ -91,7 +91,7 @@ public class c {
                 httpMessage.addParam("obj_type", agreeData.objType);
                 httpMessage.addParam("agree_type", agreeData.agreeType);
                 httpMessage.addParam("forum_id", agreeData.forumId);
-                k = TbPageExtraHelper.k(this.f52880a.P());
+                k = TbPageExtraHelper.k(this.f52881a.P());
                 if (k != null) {
                     httpMessage.addParam("obj_source", k.a());
                 }
@@ -113,12 +113,12 @@ public class c {
             agreeData.agreeType = 2;
             agreeData.hasAgree = true;
             agreeData.agreeNum++;
-            d.b.i0.q2.a.g().l(this.f52880a.getPageContext());
+            d.b.i0.q2.a.g().l(this.f52881a.getPageContext());
         } else {
             agreeData.agreeType = 2;
             agreeData.hasAgree = true;
             agreeData.agreeNum++;
-            d.b.i0.q2.a.g().l(this.f52880a.getPageContext());
+            d.b.i0.q2.a.g().l(this.f52881a.getPageContext());
         }
         i = 0;
         HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
@@ -130,7 +130,7 @@ public class c {
         httpMessage2.addParam("obj_type", agreeData.objType);
         httpMessage2.addParam("agree_type", agreeData.agreeType);
         httpMessage2.addParam("forum_id", agreeData.forumId);
-        k = TbPageExtraHelper.k(this.f52880a.P());
+        k = TbPageExtraHelper.k(this.f52881a.P());
         if (k != null) {
         }
         if (!TextUtils.isEmpty(agreeData.postId)) {
@@ -145,7 +145,7 @@ public class c {
     }
 
     public BdUniqueId c() {
-        TbPageContext pageContext = this.f52880a.getPageContext();
+        TbPageContext pageContext = this.f52881a.getPageContext();
         if (pageContext != null) {
             return pageContext.getUniqueId();
         }
@@ -158,27 +158,27 @@ public class c {
 
     public final void e(HttpResponsedMessage httpResponsedMessage, int i) {
         PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != i || !(httpResponsedMessage instanceof PbFloorAgreeResponseMessage) || (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) == null || pbFloorAgreeResponseMessage.hasError() || this.f52880a == null || pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
+        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != i || !(httpResponsedMessage instanceof PbFloorAgreeResponseMessage) || (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) == null || pbFloorAgreeResponseMessage.hasError() || this.f52881a == null || pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
             return;
         }
         CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
         activityDialogData.type = 0;
-        d.b.i0.c2.j.c.a(this.f52880a.getPageContext(), activityDialogData).show();
+        d.b.i0.c2.j.c.a(this.f52881a.getPageContext(), activityDialogData).show();
     }
 
     public boolean f() {
-        d.b.i0.c2.o.b bVar = this.f52880a;
+        d.b.i0.c2.o.b bVar = this.f52881a;
         if (bVar != null) {
-            bVar.registerListener(this.f52881b);
-            this.f52880a.registerListener(this.f52882c);
+            bVar.registerListener(this.f52882b);
+            this.f52881a.registerListener(this.f52883c);
             return true;
         }
         return true;
     }
 
     public final boolean g() {
-        MessageManager.getInstance().unRegisterListener(this.f52881b);
-        MessageManager.getInstance().unRegisterListener(this.f52882c);
+        MessageManager.getInstance().unRegisterListener(this.f52882b);
+        MessageManager.getInstance().unRegisterListener(this.f52883c);
         return true;
     }
 }

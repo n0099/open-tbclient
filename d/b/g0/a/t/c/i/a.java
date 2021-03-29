@@ -12,34 +12,34 @@ import d.b.g0.a.j1.j;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.t.b.d {
 
     /* renamed from: d.b.g0.a.t.c.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0817a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0818a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f46107e;
+        public final /* synthetic */ int f46108e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f46108f;
+        public final /* synthetic */ f f46109f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f.b f46109g;
+        public final /* synthetic */ f.b f46110g;
 
-        public RunnableC0817a(int i, f fVar, f.b bVar) {
-            this.f46107e = i;
-            this.f46108f = fVar;
-            this.f46109g = bVar;
+        public RunnableC0818a(int i, f fVar, f.b bVar) {
+            this.f46108e = i;
+            this.f46109f = fVar;
+            this.f46110g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f46107e > 1) {
-                d.b.g0.a.i2.f.b(this.f46108f, a.this.h(), 1);
+            if (this.f46108e > 1) {
+                d.b.g0.a.i2.f.b(this.f46109f, a.this.h(), 1);
             }
-            this.f46109g.a();
+            this.f46110g.a();
         }
     }
 
@@ -48,7 +48,7 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-NavigateBack", "handle: " + str);
         }
         String uuid = UUID.randomUUID().toString();
@@ -56,7 +56,7 @@ public class a extends d.b.g0.a.t.b.d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-NavigateBack", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45928c) {
+            if (d.b.g0.a.t.b.d.f45929c) {
                 d.b.g0.a.c0.c.b("Api-NavigateBack", "parse fail");
             }
             return bVar;
@@ -67,11 +67,11 @@ public class a extends d.b.g0.a.t.b.d {
             d.b.g0.a.c0.c.b("Api-NavigateBack", "manager is null");
             return new d.b.g0.a.t.e.b(1001, "manager is null");
         }
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-NavigateBack", "back delta: " + optInt);
         }
         int k = W.k();
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-NavigateBack", "fragment count " + k);
         }
         if (k == 1) {
@@ -81,13 +81,13 @@ public class a extends d.b.g0.a.t.b.d {
         if (optInt >= k) {
             optInt = k - 1;
         }
-        if (d.b.g0.a.t.b.d.f45928c) {
+        if (d.b.g0.a.t.b.d.f45929c) {
             Log.d("Api-NavigateBack", "real back delta: " + optInt);
         }
         f.b i = W.i("navigateBack");
-        i.n(f.i, f.f44013h);
+        i.n(f.i, f.f44014h);
         i.h(optInt);
-        k0.T(new RunnableC0817a(k, W, i));
+        k0.T(new RunnableC0818a(k, W, i));
         i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, uuid).A(new UbcFlowEvent("na_push_page_end"));
         j.c(1, uuid);
         j.a(uuid);

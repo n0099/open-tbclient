@@ -9,30 +9,30 @@ import java.util.LinkedList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.i0.c2.h.e f53178a;
+    public d.b.i0.c2.h.e f53179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.c2.h.e f53179b;
+    public d.b.i0.c2.h.e f53180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53180c;
+    public boolean f53181c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f53182e;
+    public Rect f53183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53183f;
+    public boolean f53184f;
     public MutableLiveData<Boolean> l;
     public MutableLiveData<Integer> m;
 
     /* renamed from: d  reason: collision with root package name */
-    public MutableLiveData<a2> f53181d = new MutableLiveData<>();
+    public MutableLiveData<a2> f53182d = new MutableLiveData<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<d.b.i0.c2.h.e> f53184g = new LinkedList<>();
+    public LinkedList<d.b.i0.c2.h.e> f53185g = new LinkedList<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public MutableLiveData<a2> f53185h = new MutableLiveData<>();
+    public MutableLiveData<a2> f53186h = new MutableLiveData<>();
     public MutableLiveData<a2> i = new MutableLiveData<>();
     public MutableLiveData<Boolean> j = new MutableLiveData<>();
     public MutableLiveData<Boolean> k = new MutableLiveData<>();
@@ -48,11 +48,11 @@ public class d {
     }
 
     public d.b.i0.c2.h.e b() {
-        return this.f53179b;
+        return this.f53180b;
     }
 
     public d.b.i0.c2.h.e c() {
-        return this.f53178a;
+        return this.f53179a;
     }
 
     public MutableLiveData<Boolean> d() {
@@ -68,27 +68,27 @@ public class d {
     }
 
     public Rect g() {
-        return this.f53182e;
+        return this.f53183e;
     }
 
     public MutableLiveData<a2> h() {
-        return this.f53185h;
+        return this.f53186h;
     }
 
     public MutableLiveData<a2> i() {
-        return this.f53181d;
+        return this.f53182d;
     }
 
     public LinkedList<d.b.i0.c2.h.e> j() {
-        return this.f53184g;
+        return this.f53185g;
     }
 
     public boolean k() {
-        return this.f53180c;
+        return this.f53181c;
     }
 
     public boolean l() {
-        return this.f53183f;
+        return this.f53184f;
     }
 
     public MutableLiveData<Boolean> m() {
@@ -96,9 +96,9 @@ public class d {
     }
 
     public void n(d.b.i0.c2.h.e eVar) {
-        this.f53179b = eVar;
+        this.f53180b = eVar;
         if (eVar != null) {
-            this.f53181d.setValue(eVar.L());
+            this.f53182d.setValue(eVar.L());
             if (ListUtils.isEmpty(eVar.f())) {
                 return;
             }
@@ -107,14 +107,14 @@ public class d {
     }
 
     public void o(d.b.i0.c2.h.e eVar) {
-        this.f53178a = eVar;
+        this.f53179a = eVar;
         n(eVar);
-        this.f53185h.setValue(null);
-        this.f53181d.setValue(eVar.L());
+        this.f53186h.setValue(null);
+        this.f53182d.setValue(eVar.L());
     }
 
     public void p(boolean z) {
-        this.f53180c = z;
+        this.f53181c = z;
     }
 
     public void q(boolean z) {
@@ -130,7 +130,7 @@ public class d {
     }
 
     public void t(boolean z) {
-        this.f53183f = z;
+        this.f53184f = z;
     }
 
     public void u(a2 a2Var) {
@@ -138,10 +138,10 @@ public class d {
     }
 
     public void v(Rect rect) {
-        this.f53182e = rect;
+        this.f53183e = rect;
     }
 
     public void w(a2 a2Var) {
-        this.f53185h.setValue(a2Var);
+        this.f53186h.setValue(a2Var);
     }
 }

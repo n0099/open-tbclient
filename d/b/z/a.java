@@ -1,5 +1,5 @@
 package d.b.z;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static final int alert_force_update_negative_msg = 2131690109;
     public static final int alert_force_update_positive_msg = 2131690110;

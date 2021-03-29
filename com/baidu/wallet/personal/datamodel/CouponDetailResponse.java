@@ -51,7 +51,7 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
     public static class AppSceneService implements NoProguard, Serializable {
 
         /* renamed from: android  reason: collision with root package name */
-        public int f26578android;
+        public int f26579android;
         public String url;
     }
 

@@ -33,7 +33,7 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
         public void onClick(View view) {
             d dVar = (d) view.getTag();
             TiebaStatic.log("c10624");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(c.this.f42357e, dVar.k(), dVar.g(), "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(c.this.f42358e, dVar.k(), dVar.g(), "")));
         }
     }
 
@@ -68,32 +68,32 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: v0 */
     public ManitoMemberItemViewHolder R(ViewGroup viewGroup) {
-        return new ManitoMemberItemViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.manito_item_member, (ViewGroup) null));
+        return new ManitoMemberItemViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.manito_item_member, (ViewGroup) null));
     }
 
     public View w0(int i, View view, ViewGroup viewGroup, d dVar, ManitoMemberItemViewHolder manitoMemberItemViewHolder) {
         super.X(i, view, viewGroup, dVar, manitoMemberItemViewHolder);
         if (dVar != null && manitoMemberItemViewHolder != null) {
-            if (manitoMemberItemViewHolder.f15911f != this.r) {
+            if (manitoMemberItemViewHolder.f15912f != this.r) {
                 SkinManager.setBackgroundResource(manitoMemberItemViewHolder.a(), R.drawable.frs_member_manito_bg);
-                SkinManager.setViewTextColor(manitoMemberItemViewHolder.f15907b, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(manitoMemberItemViewHolder.f15908c, R.color.CAM_X0109, 1);
-                SkinManager.setBackgroundColor(manitoMemberItemViewHolder.f15910e, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(manitoMemberItemViewHolder.f15909d, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(manitoMemberItemViewHolder.f15908b, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(manitoMemberItemViewHolder.f15909c, R.color.CAM_X0109, 1);
+                SkinManager.setBackgroundColor(manitoMemberItemViewHolder.f15911e, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(manitoMemberItemViewHolder.f15910d, R.color.CAM_X0109, 1);
             }
-            manitoMemberItemViewHolder.f15906a.e(dVar.e(), 12, false);
-            manitoMemberItemViewHolder.f15907b.setText(i0.e(dVar.j(), 16));
+            manitoMemberItemViewHolder.f15907a.e(dVar.e(), 12, false);
+            manitoMemberItemViewHolder.f15908b.setText(i0.e(dVar.j(), 16));
             if (StringUtils.isNull(dVar.f())) {
-                manitoMemberItemViewHolder.f15908c.setText(R.string.god_intro_default);
+                manitoMemberItemViewHolder.f15909c.setText(R.string.god_intro_default);
             } else {
-                manitoMemberItemViewHolder.f15908c.setText(i0.e(dVar.f(), 30));
+                manitoMemberItemViewHolder.f15909c.setText(i0.e(dVar.f(), 30));
             }
             int color = SkinManager.getColor(R.color.CAM_X0301);
             String numberUniformFormat = StringHelper.numberUniformFormat(dVar.a());
-            manitoMemberItemViewHolder.f15909d.setText(u0(String.format(this.f42357e.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            manitoMemberItemViewHolder.f15910d.setText(u0(String.format(this.f42358e.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             manitoMemberItemViewHolder.a().setTag(dVar);
             manitoMemberItemViewHolder.a().setOnClickListener(this.w);
-            manitoMemberItemViewHolder.f15911f = this.r;
+            manitoMemberItemViewHolder.f15912f = this.r;
         }
         return view;
     }

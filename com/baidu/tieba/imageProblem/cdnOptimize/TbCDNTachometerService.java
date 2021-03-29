@@ -22,7 +22,7 @@ import d.b.b.e.p.j;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbCDNTachometerService extends BdBaseService {
     public static final String LAST_GETCDNLIST_TIME = "com.baidu.tbadk.opTimize.lastGetCdnListTiem";
     public static final long TACHOMETER_INTERVAL = 300000;
@@ -61,12 +61,12 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData == null) {
                         return;
                     }
-                    String str = customMsgData.f18398e;
-                    boolean z = customMsgData.f18396c;
-                    long j = customMsgData.f18397d;
+                    String str = customMsgData.f18399e;
+                    boolean z = customMsgData.f18397c;
+                    long j = customMsgData.f18398d;
                     String valueOf = String.valueOf(j);
                     int i = 0;
-                    if (customMsgData.f18401h != null && customMsgData.f18401h.length() > 0) {
+                    if (customMsgData.f18402h != null && customMsgData.f18402h.length() > 0) {
                         TbCDNTachometerService.this.canBroadCast = true;
                         if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                             TbCDNTachometerService.this.isNormal = false;
@@ -140,36 +140,36 @@ public class TbCDNTachometerService extends BdBaseService {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class CustomMsgData {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbCdnIpListData f18394a;
+        public TbCdnIpListData f18395a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f18395b;
+        public int f18396b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f18396c;
+        public boolean f18397c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f18397d;
+        public long f18398d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18398e;
+        public String f18399e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbCdnTachometerModel f18399f;
+        public TbCdnTachometerModel f18400f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f18400g = false;
+        public boolean f18401g = false;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f18401h = null;
+        public String f18402h = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
-            this.f18394a = tbCdnIpListData;
-            this.f18395b = i;
+            this.f18395a = tbCdnIpListData;
+            this.f18396b = i;
         }
     }
 
@@ -271,40 +271,40 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(TbCdnIpListData tbCdnIpListData) {
         this.numOfThrowIp = 0;
-        if (tbCdnIpListData != null && tbCdnIpListData.f18402a == 0) {
-            if (!tbCdnIpListData.f18407f) {
+        if (tbCdnIpListData != null && tbCdnIpListData.f18403a == 0) {
+            if (!tbCdnIpListData.f18408f) {
                 broadCastAndStopSelf(null);
                 return;
-            } else if (tbCdnIpListData.f18406e.size() == 0) {
+            } else if (tbCdnIpListData.f18407e.size() == 0) {
                 broadCastAndStopSelf(null);
                 return;
             } else {
-                breakUpIpList(tbCdnIpListData.f18406e);
-                String str = tbCdnIpListData.f18404c;
-                String str2 = tbCdnIpListData.f18408g;
-                String str3 = tbCdnIpListData.f18405d;
+                breakUpIpList(tbCdnIpListData.f18407e);
+                String str = tbCdnIpListData.f18405c;
+                String str2 = tbCdnIpListData.f18409g;
+                String str3 = tbCdnIpListData.f18406d;
                 if (str == null || str2 == null || str3 == null) {
                     return;
                 }
-                int size = tbCdnIpListData.f18406e.size();
+                int size = tbCdnIpListData.f18407e.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
-                    customMsgData.f18399f = this.cdnTachometerModel;
-                    customMsgData.f18400g = this.isNormal;
-                    customMsgData.f18401h = "c.hiphotos.baidu.com";
+                    customMsgData.f18400f = this.cdnTachometerModel;
+                    customMsgData.f18401g = this.isNormal;
+                    customMsgData.f18402h = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.f18406e.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.f18407e.get(i);
                     String str4 = arrayList.size() > 0 ? arrayList.get(0) : "";
                     if (!this.cdnIpMap.containsKey(str4)) {
                         this.cdnIpMap.put(str4, arrayList);
                     }
                     CustomMsgData customMsgData2 = new CustomMsgData(tbCdnIpListData, i);
-                    customMsgData2.f18399f = this.cdnTachometerModel;
-                    customMsgData2.f18400g = this.isNormal;
+                    customMsgData2.f18400f = this.cdnTachometerModel;
+                    customMsgData2.f18401g = this.isNormal;
                     CustomMessage customMessage2 = new CustomMessage(2017000, customMsgData2);
                     customMessage2.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage2);

@@ -214,16 +214,16 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public class j implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f21097e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f21098e;
 
         public j(UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-            this.f21097e = userMuteAddAndDelCustomMessage;
+            this.f21098e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             UserMuteListActivity.this.showLoadingDialog();
-            MessageManager.getInstance().sendMessage(this.f21097e);
+            MessageManager.getInstance().sendMessage(this.f21098e);
             aVar.dismiss();
         }
     }
@@ -282,7 +282,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         this.mCtx = getPageContext();
         d.b.h0.r.f0.c cVar = new d.b.h0.r.f0.c();
         this.mToastMute = cVar;
-        cVar.f50483a = 1000L;
+        cVar.f50484a = 1000L;
         registerListener(this.mUserMuteDelListener);
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
         BdUniqueId bdUniqueId = MESSAGE_ID_USER_MUTE_LIST;

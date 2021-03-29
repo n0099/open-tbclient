@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public final AnimatedDrawableUtil mAnimatedDrawableUtil;
     public final AnimatedImage mAnimatedImage;
@@ -101,35 +101,19 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     private void renderImageSupportsScaling(Canvas canvas, AnimatedImageFrame animatedImageFrame) {
-        double width = this.mRenderedBounds.width();
-        double width2 = this.mAnimatedImage.getWidth();
-        Double.isNaN(width);
-        Double.isNaN(width2);
-        double d2 = width / width2;
-        double height = this.mRenderedBounds.height();
-        double height2 = this.mAnimatedImage.getHeight();
-        Double.isNaN(height);
-        Double.isNaN(height2);
-        double d3 = height / height2;
-        double width3 = animatedImageFrame.getWidth();
-        Double.isNaN(width3);
-        int round = (int) Math.round(width3 * d2);
-        double height3 = animatedImageFrame.getHeight();
-        Double.isNaN(height3);
-        int round2 = (int) Math.round(height3 * d3);
-        double xOffset = animatedImageFrame.getXOffset();
-        Double.isNaN(xOffset);
-        int i = (int) (xOffset * d2);
-        double yOffset = animatedImageFrame.getYOffset();
-        Double.isNaN(yOffset);
-        int i2 = (int) (yOffset * d3);
+        double width = this.mRenderedBounds.width() / this.mAnimatedImage.getWidth();
+        double height = this.mRenderedBounds.height() / this.mAnimatedImage.getHeight();
+        int round = (int) Math.round(animatedImageFrame.getWidth() * width);
+        int round2 = (int) Math.round(animatedImageFrame.getHeight() * height);
+        int xOffset = (int) (animatedImageFrame.getXOffset() * width);
+        int yOffset = (int) (animatedImageFrame.getYOffset() * height);
         synchronized (this) {
-            int width4 = this.mRenderedBounds.width();
-            int height4 = this.mRenderedBounds.height();
-            prepareTempBitmapForThisSize(width4, height4);
+            int width2 = this.mRenderedBounds.width();
+            int height2 = this.mRenderedBounds.height();
+            prepareTempBitmapForThisSize(width2, height2);
             animatedImageFrame.renderFrame(round, round2, this.mTempBitmap);
-            this.mRenderSrcRect.set(0, 0, width4, height4);
-            this.mRenderDstRect.set(i, i2, width4 + i, height4 + i2);
+            this.mRenderSrcRect.set(0, 0, width2, height2);
+            this.mRenderDstRect.set(xOffset, yOffset, width2 + xOffset, height2 + yOffset);
             canvas.drawBitmap(this.mTempBitmap, this.mRenderSrcRect, this.mRenderDstRect, (Paint) null);
         }
     }

@@ -49,8 +49,8 @@ public class c0 extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b
             }
             if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view instanceof TbImageView) {
-                    if (c0.this.z.f62183a instanceof Boolean) {
-                        if (((Boolean) c0.this.z.f62183a).booleanValue()) {
+                    if (c0.this.z.f62184a instanceof Boolean) {
+                        if (((Boolean) c0.this.z.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, c0.this.i, d.b.i0.p0.j2.d.J0, c0.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, c0.this.i, d.b.i0.p0.j2.d.J0, c0.this.i0());
@@ -70,8 +70,8 @@ public class c0 extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b
                 if (view.getId() == R.id.card_divider_tv) {
                     d.b.i0.p0.m2.l.a(d.b.i0.p0.j2.d.J0, a2Var.V0());
                 } else if (view instanceof TbImageView) {
-                    if (c0.this.z.f62183a instanceof Boolean) {
-                        if (((Boolean) c0.this.z.f62183a).booleanValue()) {
+                    if (c0.this.z.f62184a instanceof Boolean) {
+                        if (((Boolean) c0.this.z.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 1);
                         } else {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 3);
@@ -130,7 +130,7 @@ public class c0 extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b
                     c0.this.z.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), c0.this.y, false, d.b.i.e.a((d.b.b.j.e.s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

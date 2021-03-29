@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaLiveUserNotifyDialog extends Dialog {
     public RelativeLayout alaNotifyContentPanel;
     public TextView alaNotifyDescription;

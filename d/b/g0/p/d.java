@@ -35,10 +35,10 @@ import java.util.zip.ZipInputStream;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f49333a = -1;
+    public static int f49334a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f49334b = 1;
+    public static int f49335b = 1;
 
     public static void A(@NonNull List<String> list, @NonNull File file) {
         if (file.exists()) {
@@ -570,13 +570,13 @@ public final class d {
         }
         int lastIndexOf = str.lastIndexOf(File.separator);
         int length = str.length();
-        return (lastIndexOf == f49333a || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f49334b, length);
+        return (lastIndexOf == f49334a || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f49335b, length);
     }
 
     public static String l(String str) {
         int lastIndexOf;
         String k = k(str);
-        return (TextUtils.isEmpty(k) || (lastIndexOf = k.lastIndexOf(".")) == f49333a || lastIndexOf == k.length() + (-1)) ? "" : k.substring(lastIndexOf + 1);
+        return (TextUtils.isEmpty(k) || (lastIndexOf = k.lastIndexOf(".")) == f49334a || lastIndexOf == k.length() + (-1)) ? "" : k.substring(lastIndexOf + 1);
     }
 
     public static long m(String str) {

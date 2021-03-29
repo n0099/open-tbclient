@@ -13,16 +13,16 @@ public class CircleView1080 extends View {
     public static int k = 100;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13236e;
+    public int f13237e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13237f;
+    public int f13238f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f13238g;
+    public Paint f13239g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f13239h;
+    public RectF f13240h;
     public int i;
 
     public CircleView1080(Context context, AttributeSet attributeSet, int i) {
@@ -32,23 +32,23 @@ public class CircleView1080 extends View {
     }
 
     public void a() {
-        this.f13236e = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.f13237f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.f13237e = getResources().getDimensionPixelSize(R.dimen.tbds122);
+        this.f13238f = getResources().getDimensionPixelSize(R.dimen.tbds6);
         Paint paint = new Paint();
-        this.f13238g = paint;
-        paint.setStrokeWidth(this.f13237f);
-        this.f13238g.setColor(getResources().getColor(R.color.CAM_X0111));
-        this.f13238g.setStyle(Paint.Style.STROKE);
-        this.f13238g.setAntiAlias(true);
-        this.f13238g.setStrokeCap(Paint.Cap.ROUND);
-        int i = this.f13237f;
-        int i2 = this.f13236e;
-        this.f13239h = new RectF(i / 2, i / 2, (i / 2) + i2, i2 + (i / 2));
+        this.f13239g = paint;
+        paint.setStrokeWidth(this.f13238f);
+        this.f13239g.setColor(getResources().getColor(R.color.CAM_X0111));
+        this.f13239g.setStyle(Paint.Style.STROKE);
+        this.f13239g.setAntiAlias(true);
+        this.f13239g.setStrokeCap(Paint.Cap.ROUND);
+        int i = this.f13238f;
+        int i2 = this.f13237e;
+        this.f13240h = new RectF(i / 2, i / 2, (i / 2) + i2, i2 + (i / 2));
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawArc(this.f13239h, 270.0f, (j * this.i) / k, false, this.f13238g);
+        canvas.drawArc(this.f13240h, 270.0f, (j * this.i) / k, false, this.f13239g);
     }
 
     public void setProgress(int i) {

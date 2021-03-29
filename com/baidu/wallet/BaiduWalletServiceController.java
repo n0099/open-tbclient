@@ -27,40 +27,40 @@ public class BaiduWalletServiceController {
     public static final String H5CHECKPWDCB = "H5CheckPwd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23331b = "BaiduWalletServiceController";
+    public static final String f23332b = "BaiduWalletServiceController";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f23332c = new Object();
+    public static final Object f23333c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public static LoginBackListenerProxy f23333d;
+    public static LoginBackListenerProxy f23334d;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f23334a;
+    public ILightappInvokerCallback f23335a;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f23335e;
+    public long f23336e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduWalletServiceController f23353a = new BaiduWalletServiceController();
+        public static BaiduWalletServiceController f23354a = new BaiduWalletServiceController();
     }
 
     private boolean b() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f23335e;
+        long j = currentTimeMillis - this.f23336e;
         LogUtil.logd("timeD=" + j);
         if (0 >= j || j >= 800) {
-            this.f23335e = currentTimeMillis;
+            this.f23336e = currentTimeMillis;
             return false;
         }
         return true;
     }
 
     public static BaiduWalletServiceController getInstance() {
-        return a.f23353a;
+        return a.f23354a;
     }
 
     public static void getOpenBdussFirst(final Context context, final Intent intent, final boolean z, boolean z2) {
@@ -95,15 +95,15 @@ public class BaiduWalletServiceController {
 
     public static void loginFirst(final Context context, final Intent intent, final boolean z) {
         if (context instanceof Activity) {
-            com.baidu.wallet.core.utils.LogUtil.d(f23331b, "context is activity!");
+            com.baidu.wallet.core.utils.LogUtil.d(f23332b, "context is activity!");
         } else {
             intent.setFlags(268435456);
         }
-        f23333d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
+        f23334d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i, String str) {
                 if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23333d);
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23334d);
                 }
             }
 
@@ -121,7 +121,7 @@ public class BaiduWalletServiceController {
                 }
             }
         });
-        WalletLoginHelper.getInstance().login(f23333d);
+        WalletLoginHelper.getInstance().login(f23334d);
     }
 
     public void accessBusCardChargeNFC(Context context, Parcelable parcelable) {
@@ -183,7 +183,7 @@ public class BaiduWalletServiceController {
     }
 
     public BaiduWalletServiceController() {
-        this.f23334a = null;
+        this.f23335a = null;
     }
 
     private void a(Context context, boolean z) {
@@ -207,7 +207,7 @@ public class BaiduWalletServiceController {
 
     public void gotoWalletService(Context context, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
         if (iLightappInvokerCallback != null) {
-            this.f23334a = iLightappInvokerCallback;
+            this.f23335a = iLightappInvokerCallback;
             gotoWalletService(context, str, str2, true);
         }
     }

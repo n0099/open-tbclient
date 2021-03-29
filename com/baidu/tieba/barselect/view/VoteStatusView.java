@@ -15,16 +15,16 @@ import d.b.i0.v.e.d;
 public class VoteStatusView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15218e;
+    public int f15219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15219f;
+    public boolean f15220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f15220g;
+    public Paint f15221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shader f15221h;
+    public Shader f15222h;
     public int i;
     public int j;
     public int k;
@@ -43,10 +43,10 @@ public class VoteStatusView extends View {
         this.i = SkinManager.getColor(R.color.CAM_X0303);
         this.j = SkinManager.getColor(R.color.CAM_X0302);
         Paint paint = new Paint();
-        this.f15220g = paint;
+        this.f15221g = paint;
         paint.setAntiAlias(true);
-        this.f15220g.setStyle(Paint.Style.FILL);
-        this.f15220g.setColor(this.k);
+        this.f15221g.setStyle(Paint.Style.FILL);
+        this.f15221g.setColor(this.k);
         this.l = new Path();
         this.m = new Path();
         this.n = new Path();
@@ -58,7 +58,7 @@ public class VoteStatusView extends View {
         this.i = SkinManager.getColor(i, R.color.CAM_X0303);
         this.j = SkinManager.getColor(i, R.color.CAM_X0302);
         this.k = SkinManager.getColor(i, R.color.CAM_X0204);
-        this.f15219f = true;
+        this.f15220f = true;
         invalidate();
     }
 
@@ -80,37 +80,37 @@ public class VoteStatusView extends View {
         float f6 = (height * 17) / 26;
         this.o.addRect(f2, f5, f3, f6, Path.Direction.CW);
         this.p.addRect(f3, f5, f4, f6, Path.Direction.CW);
-        this.f15220g.setColor(this.k);
-        this.f15220g.setShader(null);
-        if (this.f15221h == null || this.f15219f) {
-            this.f15221h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.i, this.j, Shader.TileMode.CLAMP);
-            this.f15219f = false;
+        this.f15221g.setColor(this.k);
+        this.f15221g.setShader(null);
+        if (this.f15222h == null || this.f15220f) {
+            this.f15222h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.i, this.j, Shader.TileMode.CLAMP);
+            this.f15220f = false;
         }
-        if (this.f15218e == d.f61960c) {
-            this.f15220g.setShader(this.f15221h);
+        if (this.f15219e == d.f61961c) {
+            this.f15221g.setShader(this.f15222h);
         }
-        canvas.drawPath(this.p, this.f15220g);
-        canvas.drawPath(this.n, this.f15220g);
-        if (this.f15218e == d.f61959b) {
-            this.f15220g.setShader(this.f15221h);
+        canvas.drawPath(this.p, this.f15221g);
+        canvas.drawPath(this.n, this.f15221g);
+        if (this.f15219e == d.f61960b) {
+            this.f15221g.setShader(this.f15222h);
         }
-        canvas.drawPath(this.o, this.f15220g);
-        canvas.drawPath(this.m, this.f15220g);
-        if (this.f15218e == d.f61958a) {
-            this.f15220g.setShader(this.f15221h);
+        canvas.drawPath(this.o, this.f15221g);
+        canvas.drawPath(this.m, this.f15221g);
+        if (this.f15219e == d.f61959a) {
+            this.f15221g.setShader(this.f15222h);
         }
-        canvas.drawPath(this.l, this.f15220g);
+        canvas.drawPath(this.l, this.f15221g);
     }
 
     public void setStatus(int i) {
-        this.f15218e = i;
+        this.f15219e = i;
         invalidate();
     }
 
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15218e = -1;
-        this.f15219f = true;
+        this.f15219e = -1;
+        this.f15220f = true;
         a();
     }
 }

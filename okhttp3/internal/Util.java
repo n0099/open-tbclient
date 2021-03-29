@@ -38,7 +38,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Util {
     public static final byte[] EMPTY_BYTE_ARRAY;
     public static final RequestBody EMPTY_REQUEST;
@@ -152,13 +152,14 @@ public final class Util {
     }
 
     public static int checkDuration(String str, long j, TimeUnit timeUnit) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException(str + " < 0");
         } else if (timeUnit != null) {
             long millis = timeUnit.toMillis(j);
             if (millis > 2147483647L) {
                 throw new IllegalArgumentException(str + " too large.");
-            } else if (millis != 0 || j <= 0) {
+            } else if (millis != 0 || i <= 0) {
                 return (int) millis;
             } else {
                 throw new IllegalArgumentException(str + " too small.");

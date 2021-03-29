@@ -14,16 +14,16 @@ import d.b.b.a.f;
 import d.b.b.e.d.l;
 import d.b.i0.i1.p.e;
 import tbclient.Lego.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LegoPageModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.b.c.g.a f18718e;
+    public d.b.b.c.g.a f18719e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18719f;
+    public b f18720f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
@@ -40,7 +40,7 @@ public class LegoPageModel extends BdBaseModel {
             String str;
             boolean z;
             int i;
-            if (responsedMessage == null || LegoPageModel.this.f18719f == null) {
+            if (responsedMessage == null || LegoPageModel.this.f18720f == null) {
                 return;
             }
             boolean z2 = false;
@@ -58,7 +58,7 @@ public class LegoPageModel extends BdBaseModel {
                     i = pn;
                     z = z3;
                     if (responsedMessage.getError() == 0) {
-                        LegoPageModel.this.f18719f.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
+                        LegoPageModel.this.f18720f.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -68,7 +68,7 @@ public class LegoPageModel extends BdBaseModel {
                         dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
                     }
                     if (!z2) {
-                        LegoPageModel.this.f18719f.a(j, str, dataRes, z);
+                        LegoPageModel.this.f18720f.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
                             l<byte[]> d2 = d.b.h0.r.r.a.f().d("tb.lego_update");
@@ -78,7 +78,7 @@ public class LegoPageModel extends BdBaseModel {
                             sb.append(TextUtils.isEmpty(str) ? "" : str);
                             d2.a(sb.toString(), dataRes.toByteArray());
                         }
-                        LegoPageModel.this.f18719f.c(j, str, dataRes, z, i);
+                        LegoPageModel.this.f18720f.c(j, str, dataRes, z, i);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, dataRes));
                     return;
@@ -93,7 +93,7 @@ public class LegoPageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(long j, String str, DataRes dataRes, boolean z);
 
@@ -104,12 +104,12 @@ public class LegoPageModel extends BdBaseModel {
 
     public LegoPageModel(f fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f18718e = new a(CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
+        this.f18719e = new a(CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
         setUniqueId(bdUniqueId);
         u();
-        this.f18718e.getSocketMessageListener().setSelfListener(true);
-        this.f18718e.getHttpMessageListener().setSelfListener(true);
-        registerListener(this.f18718e);
+        this.f18719e.getSocketMessageListener().setSelfListener(true);
+        this.f18719e.getHttpMessageListener().setSelfListener(true);
+        registerListener(this.f18719e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -134,8 +134,8 @@ public class LegoPageModel extends BdBaseModel {
         legoPageRequest.setPageType(i);
         e a2 = e.a(j, str);
         if (a2 != null) {
-            legoPageRequest.setRn(a2.f56033d);
-            legoPageRequest.setParams(a2.f56034e);
+            legoPageRequest.setRn(a2.f56034d);
+            legoPageRequest.setParams(a2.f56035e);
         }
         legoPageRequest.getHttpMessage().addParam("page_id", j);
         sendMessage(legoPageRequest);
@@ -149,6 +149,6 @@ public class LegoPageModel extends BdBaseModel {
     }
 
     public void v(b bVar) {
-        this.f18719f = bVar;
+        this.f18720f = bVar;
     }
 }

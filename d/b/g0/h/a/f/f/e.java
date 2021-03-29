@@ -15,10 +15,10 @@ public class e {
     public static class a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.h.a.b f48735a;
+        public final /* synthetic */ d.b.g0.h.a.b f48736a;
 
         public a(d.b.g0.h.a.b bVar) {
-            this.f48735a = bVar;
+            this.f48736a = bVar;
         }
 
         @Override // d.b.g0.h.a.f.f.d.c
@@ -28,7 +28,7 @@ public class e {
 
         @Override // d.b.g0.h.a.f.f.d.c
         public void onSuccess() {
-            this.f48735a.q(true);
+            this.f48736a.q(true);
             d.b.g0.a.c0.c.g("map", "location permission success");
         }
     }
@@ -58,7 +58,7 @@ public class e {
             if (cVar3 != null && cVar3.isValid()) {
                 d.b.g0.a.c0.c.g("map", "initMapView coordinate is " + cVar2.n);
                 d.b.g0.a.a1.c.h.c cVar4 = cVar2.n;
-                map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f43190e, cVar4.f43191f)));
+                map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f43191e, cVar4.f43192f)));
             }
             MapStatus mapStatus = map.getMapStatus();
             float f2 = mapStatus != null ? mapStatus.zoom : (float) cVar2.o;

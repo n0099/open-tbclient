@@ -5,18 +5,18 @@ import d.a.a.q.a.p;
 public class k implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41403a;
+    public final String f41404a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f41404b;
+    public final int f41405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.s.i.h f41405c;
+    public final d.a.a.s.i.h f41406c;
 
     public k(String str, int i, d.a.a.s.i.h hVar) {
-        this.f41403a = str;
-        this.f41404b = i;
-        this.f41405c = hVar;
+        this.f41404a = str;
+        this.f41405b = i;
+        this.f41406c = hVar;
     }
 
     @Override // d.a.a.s.j.b
@@ -25,14 +25,14 @@ public class k implements b {
     }
 
     public String b() {
-        return this.f41403a;
+        return this.f41404a;
     }
 
     public d.a.a.s.i.h c() {
-        return this.f41405c;
+        return this.f41406c;
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.f41403a + ", index=" + this.f41404b + '}';
+        return "ShapePath{name=" + this.f41404a + ", index=" + this.f41405b + '}';
     }
 }

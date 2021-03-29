@@ -6,73 +6,73 @@ import com.kwai.filedownloader.r;
 public class b implements r.a, r.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f36853a;
+    public long f36854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36854b;
+    public long f36855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36855c;
+    public long f36856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36856d;
+    public long f36857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36857e;
+    public int f36858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36858f = 1000;
+    public int f36859f = 1000;
 
     @Override // com.kwai.filedownloader.r.b
     public void a() {
-        this.f36857e = 0;
-        this.f36853a = 0L;
+        this.f36858e = 0;
+        this.f36854a = 0L;
     }
 
     @Override // com.kwai.filedownloader.r.b
     public void a(long j) {
-        this.f36856d = SystemClock.uptimeMillis();
-        this.f36855c = j;
+        this.f36857d = SystemClock.uptimeMillis();
+        this.f36856c = j;
     }
 
     @Override // com.kwai.filedownloader.r.a
     public int b() {
-        return this.f36857e;
+        return this.f36858e;
     }
 
     @Override // com.kwai.filedownloader.r.b
     public void b(long j) {
-        if (this.f36856d <= 0) {
+        if (this.f36857d <= 0) {
             return;
         }
-        long j2 = j - this.f36855c;
-        this.f36853a = 0L;
-        long uptimeMillis = SystemClock.uptimeMillis() - this.f36856d;
+        long j2 = j - this.f36856c;
+        this.f36854a = 0L;
+        long uptimeMillis = SystemClock.uptimeMillis() - this.f36857d;
         if (uptimeMillis > 0) {
             j2 /= uptimeMillis;
         }
-        this.f36857e = (int) j2;
+        this.f36858e = (int) j2;
     }
 
     @Override // com.kwai.filedownloader.r.b
     public void c(long j) {
-        if (this.f36858f <= 0) {
+        if (this.f36859f <= 0) {
             return;
         }
         boolean z = true;
-        if (this.f36853a != 0) {
-            long uptimeMillis = SystemClock.uptimeMillis() - this.f36853a;
-            if (uptimeMillis >= this.f36858f || (this.f36857e == 0 && uptimeMillis > 0)) {
-                int i = (int) ((j - this.f36854b) / uptimeMillis);
-                this.f36857e = i;
-                this.f36857e = Math.max(0, i);
+        if (this.f36854a != 0) {
+            long uptimeMillis = SystemClock.uptimeMillis() - this.f36854a;
+            if (uptimeMillis >= this.f36859f || (this.f36858e == 0 && uptimeMillis > 0)) {
+                int i = (int) ((j - this.f36855b) / uptimeMillis);
+                this.f36858e = i;
+                this.f36858e = Math.max(0, i);
             } else {
                 z = false;
             }
         }
         if (z) {
-            this.f36854b = j;
-            this.f36853a = SystemClock.uptimeMillis();
+            this.f36855b = j;
+            this.f36854a = SystemClock.uptimeMillis();
         }
     }
 }

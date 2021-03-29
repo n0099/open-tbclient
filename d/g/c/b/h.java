@@ -52,36 +52,36 @@ public final class h {
     public static final class a extends Writer {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Appendable f66103e;
+        public final Appendable f66104e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final C1808a f66104f = new C1808a();
+        public final C1809a f66105f = new C1809a();
 
         /* renamed from: d.g.c.b.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C1808a implements CharSequence {
+        public static class C1809a implements CharSequence {
 
             /* renamed from: e  reason: collision with root package name */
-            public char[] f66105e;
+            public char[] f66106e;
 
             @Override // java.lang.CharSequence
             public char charAt(int i) {
-                return this.f66105e[i];
+                return this.f66106e[i];
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.f66105e.length;
+                return this.f66106e.length;
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i, int i2) {
-                return new String(this.f66105e, i, i2 - i);
+                return new String(this.f66106e, i, i2 - i);
             }
         }
 
         public a(Appendable appendable) {
-            this.f66103e = appendable;
+            this.f66104e = appendable;
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -94,14 +94,14 @@ public final class h {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            C1808a c1808a = this.f66104f;
-            c1808a.f66105e = cArr;
-            this.f66103e.append(c1808a, i, i2 + i);
+            C1809a c1809a = this.f66105f;
+            c1809a.f66106e = cArr;
+            this.f66104e.append(c1809a, i, i2 + i);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.f66103e.append((char) i);
+            this.f66104e.append((char) i);
         }
     }
 }

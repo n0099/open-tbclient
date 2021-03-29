@@ -21,17 +21,17 @@ import d.b.g0.a.k;
 import d.b.g0.a.z0.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppLocalService extends Service implements Handler.Callback {
     public static final String AB_SWAN_PRECLASS = "swan_preclass";
     public static final String ACTION_PERLOAD = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_PERLOAD";
     public static final String ACTION_PREFIX = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_";
     public static final String TAG = "SwanAppLocalService";
     public Messenger mMessenger;
-    public static final boolean DEBUG = k.f45050a;
+    public static final boolean DEBUG = k.f45051a;
     public static boolean sFlagPreloaded = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -46,7 +46,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -119,7 +119,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             sFlagPreloaded = true;
             k0.T(new a());
         }
-        if (!d.b.g0.a.j1.m.b.f44921b || d.b.g0.a.j1.m.b.i()) {
+        if (!d.b.g0.a.j1.m.b.f44922b || d.b.g0.a.j1.m.b.i()) {
             return;
         }
         p.k(new b(), "SwanAbSwitchCache");

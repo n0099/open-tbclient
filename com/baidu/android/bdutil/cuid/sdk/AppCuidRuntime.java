@@ -4,7 +4,7 @@ import com.baidu.android.bdutil.cuid.api.IAppCuidManagerImpl_Factory;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AppCuidRuntime {
     @Inject(force = false)
     public static IAppCuidManager getAppCuidManager() {

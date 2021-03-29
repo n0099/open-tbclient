@@ -5,24 +5,24 @@ import java.nio.ByteBuffer;
 public class FixedMultiPartBodyProvider extends UploadDataProvider {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22750e;
+    public String f22751e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22751f;
+    public int f22752f;
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public long n() {
-        return this.f22750e.getBytes().length;
+        return this.f22751e.getBytes().length;
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public void o(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
         if (byteBuffer.hasRemaining()) {
-            if (byteBuffer.remaining() >= this.f22750e.length() - this.f22751f) {
-                byteBuffer.put(this.f22750e.getBytes(), this.f22751f, this.f22750e.getBytes().length - this.f22751f);
+            if (byteBuffer.remaining() >= this.f22751e.length() - this.f22752f) {
+                byteBuffer.put(this.f22751e.getBytes(), this.f22752f, this.f22751e.getBytes().length - this.f22752f);
             } else {
-                byteBuffer.put(this.f22750e.getBytes(), this.f22751f, byteBuffer.remaining());
-                this.f22751f += byteBuffer.remaining();
+                byteBuffer.put(this.f22751e.getBytes(), this.f22752f, byteBuffer.remaining());
+                this.f22752f += byteBuffer.remaining();
             }
             uploadDataSink.c(false);
             return;
@@ -32,7 +32,7 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public void p(UploadDataSink uploadDataSink) {
-        this.f22751f = 0;
+        this.f22752f = 0;
         uploadDataSink.b();
     }
 }

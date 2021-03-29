@@ -68,7 +68,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> implements VoiceManager.j {
     public static final int MAX_ITEM_NUM = 400;
     public static final int PAGE_LIMIT = 2;
@@ -154,7 +154,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public CustomMessageListener mThreadAgreeChangedListener = new l(2016528);
     public CustomMessageListener mPostAgreeChangedListener = new m(2016530);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -165,7 +165,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -178,7 +178,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnTouchListener {
         public c() {
         }
@@ -198,7 +198,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnLongClickListener {
         public d() {
         }
@@ -219,7 +219,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements BaseViewPager.a {
         public e() {
         }
@@ -235,7 +235,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements ViewPager.OnPageChangeListener {
         public f() {
         }
@@ -304,7 +304,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -316,7 +316,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 return;
             }
             if (alaInfo.isChushou) {
-                ImageViewerActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(d.b.h0.a.f.f49574a + "://" + d.b.h0.a.f.f49575b + d.b.h0.a.f.k + "?" + d.b.h0.a.f.E + "=" + alaInfo.thirdLiveType + "&" + d.b.h0.a.f.F + "=" + alaInfo.thirdRoomId)));
+                ImageViewerActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(d.b.h0.a.f.f49575a + "://" + d.b.h0.a.f.f49576b + d.b.h0.a.f.k + "?" + d.b.h0.a.f.E + "=" + alaInfo.thirdLiveType + "&" + d.b.h0.a.f.F + "=" + alaInfo.thirdRoomId)));
             } else if (alaInfo.live_id > 0) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                 alaLiveInfoCoreData.liveID = alaInfo.live_id;
@@ -337,7 +337,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class h implements Runnable {
         public h() {
         }
@@ -348,13 +348,13 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18374e;
+        public final /* synthetic */ String f18375e;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
@@ -366,7 +366,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
 
         public i(String str) {
-            this.f18374e = str;
+            this.f18375e = str;
         }
 
         @Override // java.lang.Runnable
@@ -376,7 +376,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     ImageViewerActivity.this.dismissAlaTip();
                     return;
                 }
-                ImageViewerActivity.this.mAlaTipController.h0(this.f18374e);
+                ImageViewerActivity.this.mAlaTipController.h0(this.f18375e);
                 ImageViewerActivity.this.cacheAlaTag = null;
                 return;
             }
@@ -390,14 +390,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             ImageViewerActivity.this.mAlaTipController.M(3000);
             ImageViewerActivity.this.mAlaTipController.L(new a());
             if (ImageViewerActivity.this.alaUserPhotoLayout == null || ImageViewerActivity.this.alaUserPhotoLayout.getVisibility() == 0) {
-                ImageViewerActivity.this.mAlaTipController.h0(this.f18374e);
+                ImageViewerActivity.this.mAlaTipController.h0(this.f18375e);
                 return;
             }
-            ImageViewerActivity.this.cacheAlaTag = this.f18374e;
+            ImageViewerActivity.this.cacheAlaTag = this.f18375e;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class j extends d.b.h0.k0.b {
         public j() {
         }
@@ -413,7 +413,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class k extends CustomMessageListener {
         public k(int i) {
             super(i);
@@ -430,7 +430,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class l extends CustomMessageListener {
         public l(int i) {
             super(i);
@@ -441,7 +441,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
             AgreeData agreeData2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.b.i0.c3.h0.e) customResponsedMessage.getData()).f53376b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.b.i0.c3.h0.e) customResponsedMessage.getData()).f53377b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : ImageViewerActivity.this.assistUrls.values()) {
@@ -460,7 +460,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class m extends CustomMessageListener {
         public m(int i) {
             super(i);
@@ -471,7 +471,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
             AgreeData agreeData2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.b.i0.c3.h0.e) customResponsedMessage.getData()).f53376b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.b.i0.c3.h0.e) customResponsedMessage.getData()).f53377b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : ImageViewerActivity.this.assistUrls.values()) {
@@ -490,7 +490,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class n extends CustomMessageListener {
         public n(int i) {
             super(i);
@@ -500,19 +500,19 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             d.b.h0.t.l lVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.h0.t.l) || (lVar = (d.b.h0.t.l) customResponsedMessage.getData()) == null || StringUtils.isNull(lVar.f51481a)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.h0.t.l) || (lVar = (d.b.h0.t.l) customResponsedMessage.getData()) == null || StringUtils.isNull(lVar.f51482a)) {
                 return;
             }
             d.b.h0.p0.b.i(lVar);
-            if (StringUtils.isNull(lVar.f51483c)) {
-                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{lVar.f51481a});
+            if (StringUtils.isNull(lVar.f51484c)) {
+                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{lVar.f51482a});
             } else {
-                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{lVar.f51481a, lVar.f51483c});
+                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{lVar.f51482a, lVar.f51484c});
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class o implements DragImageView.h {
         public o() {
         }
@@ -566,10 +566,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class p implements View.OnClickListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements c.d {
             public a() {
             }
@@ -611,7 +611,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class q implements UrlDragImageView.p {
         public q() {
         }
@@ -622,7 +622,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class r implements d.b {
         public r() {
         }
@@ -757,7 +757,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class s implements View.OnSystemUiVisibilityChangeListener {
         public s() {
         }
@@ -770,7 +770,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class t implements View.OnClickListener {
         public t() {
         }
@@ -784,7 +784,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class u implements SortSwitchButton.f {
         public u() {
         }

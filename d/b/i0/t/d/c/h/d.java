@@ -107,17 +107,17 @@ public class d extends d.b.i0.x.b<i> {
     public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f60453a;
+        public final /* synthetic */ TbPageContext f60454a;
 
         public c(d dVar, TbPageContext tbPageContext) {
-            this.f60453a = tbPageContext;
+            this.f60454a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             d.b.b.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f60453a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f60454a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
         }
     }
 
@@ -214,7 +214,7 @@ public class d extends d.b.i0.x.b<i> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.n) {
-            if (ViewHelper.checkUpIsLogin(this.f62181g)) {
+            if (ViewHelper.checkUpIsLogin(this.f62182g)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(l().getPageActivity())));
             }
             TiebaStatic.log("c13552");
@@ -222,7 +222,7 @@ public class d extends d.b.i0.x.b<i> {
             if (StringUtils.isNull(this.K)) {
                 return;
             }
-            d.b.h0.l.a.r(this.f62181g.getApplicationContext(), b().getResources().getString(R.string.entrance_ranklist_tip), this.K, true, true, true, true, true, true, true);
+            d.b.h0.l.a.r(this.f62182g.getApplicationContext(), b().getResources().getString(R.string.entrance_ranklist_tip), this.K, true, true, true, true, true, true, true);
             TiebaStatic.log("c13553");
         } else if (view == this.u) {
             String str = "http://tieba.baidu.com/f?kw=百度直播";
@@ -235,11 +235,11 @@ public class d extends d.b.i0.x.b<i> {
             } else if (!str.contains("&default_tab_id=")) {
                 str = str + "&default_tab_id=1&call_from=15";
             }
-            UrlManager.getInstance().dealOneLink(this.f62180f, new String[]{str}, true);
+            UrlManager.getInstance().dealOneLink(this.f62181f, new String[]{str}, true);
             TiebaStatic.log("c13554");
         } else if (view == this.x) {
-            if (ViewHelper.checkUpIsLogin(this.f62181g)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f62180f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true)));
+            if (ViewHelper.checkUpIsLogin(this.f62182g)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f62181f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true)));
             }
             TiebaStatic.log("c13555");
         } else if (view == this.A) {
@@ -256,10 +256,10 @@ public class d extends d.b.i0.x.b<i> {
         int size = this.J.size();
         int i = this.I;
         if (size > i) {
-            this.o.W(this.J.get(i).f60336a, 12, false);
+            this.o.W(this.J.get(i).f60337a, 12, false);
         } else if (this.J.size() > 0) {
             this.I = 0;
-            this.o.W(this.J.get(0).f60336a, 12, false);
+            this.o.W(this.J.get(0).f60337a, 12, false);
         }
     }
 
@@ -309,7 +309,7 @@ public class d extends d.b.i0.x.b<i> {
         this.H.setRepeatMode(1);
         this.H.setDuration(2000L);
         this.H.addListener(new a());
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void x(boolean z) {
@@ -333,15 +333,15 @@ public class d extends d.b.i0.x.b<i> {
     @Override // d.b.i0.x.b
     /* renamed from: y */
     public void n(i iVar) {
-        if (iVar != null && iVar.f60338e != null) {
+        if (iVar != null && iVar.f60339e != null) {
             TiebaStatic.log("c13550");
             TiebaStatic.log("c13549");
             TiebaStatic.log("c13547");
             TiebaStatic.log("c13546");
-            d.b.i0.t.d.c.e.h hVar = iVar.f60338e;
-            this.K = hVar.f60335c;
-            if (hVar.f60333a && !ListUtils.isEmpty(hVar.f60334b)) {
-                ArrayList<h.a> arrayList = iVar.f60338e.f60334b;
+            d.b.i0.t.d.c.e.h hVar = iVar.f60339e;
+            this.K = hVar.f60336c;
+            if (hVar.f60334a && !ListUtils.isEmpty(hVar.f60335b)) {
+                ArrayList<h.a> arrayList = iVar.f60339e.f60335b;
                 this.J = arrayList;
                 if (ListUtils.isEmpty(arrayList)) {
                     return;

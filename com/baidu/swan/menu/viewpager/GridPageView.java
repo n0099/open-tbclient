@@ -18,26 +18,26 @@ import java.util.ArrayList;
 public class GridPageView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public AutoGridView f13002e;
+    public AutoGridView f13003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SlideableGridView.a f13003f;
+    public SlideableGridView.a f13004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13004g;
+    public int f13005g;
 
     /* loaded from: classes3.dex */
     public class AutoGridView extends GridView {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13005e;
+        public int f13006e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f13006f;
+        public int f13007f;
 
         public AutoGridView(Context context) {
             super(context);
-            this.f13006f = 5;
+            this.f13007f = 5;
         }
 
         public final void a() {
@@ -48,14 +48,14 @@ public class GridPageView extends FrameLayout {
                 int i3 = 0;
                 while (i2 < getChildCount()) {
                     int i4 = 0;
-                    for (int i5 = i2; i5 < this.f13006f + i2; i5++) {
+                    for (int i5 = i2; i5 < this.f13007f + i2; i5++) {
                         View childAt = getChildAt(i5);
                         if (childAt != null && childAt.getHeight() > i4) {
                             i4 = childAt.getHeight();
                         }
                     }
                     if (i4 > 0) {
-                        for (int i6 = i2; i6 < this.f13006f + i2; i6++) {
+                        for (int i6 = i2; i6 < this.f13007f + i2; i6++) {
                             View childAt2 = getChildAt(i6);
                             if (childAt2 != null && childAt2.getHeight() != i4) {
                                 childAt2.setMinimumHeight(i4);
@@ -64,7 +64,7 @@ public class GridPageView extends FrameLayout {
                         arrayList.add(Integer.valueOf(i4));
                     }
                     i3++;
-                    i2 += this.f13006f;
+                    i2 += this.f13007f;
                 }
                 for (Integer num : arrayList) {
                     i += num.intValue();
@@ -82,8 +82,8 @@ public class GridPageView extends FrameLayout {
         @Override // android.view.View
         public void onScrollChanged(int i, int i2, int i3, int i4) {
             int firstVisiblePosition = getFirstVisiblePosition();
-            if (this.f13005e != firstVisiblePosition) {
-                this.f13005e = firstVisiblePosition;
+            if (this.f13006e != firstVisiblePosition) {
+                this.f13006e = firstVisiblePosition;
                 a();
             }
             super.onScrollChanged(i, i2, i3, i4);
@@ -91,9 +91,9 @@ public class GridPageView extends FrameLayout {
 
         @Override // android.widget.GridView
         public void setNumColumns(int i) {
-            this.f13006f = i;
+            this.f13007f = i;
             super.setNumColumns(i);
-            setSelection(this.f13005e);
+            setSelection(this.f13006e);
         }
     }
 
@@ -104,8 +104,8 @@ public class GridPageView extends FrameLayout {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (GridPageView.this.f13003f != null) {
-                GridPageView.this.f13003f.e(GridPageView.this.f13004g, i, view);
+            if (GridPageView.this.f13004f != null) {
+                GridPageView.this.f13004f.e(GridPageView.this.f13005g, i, view);
             }
         }
     }
@@ -114,18 +114,18 @@ public class GridPageView extends FrameLayout {
     public class b extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f13009e;
+        public Context f13010e;
 
         public b(Context context) {
-            this.f13009e = context;
+            this.f13010e = context;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (GridPageView.this.f13003f == null) {
+            if (GridPageView.this.f13004f == null) {
                 return 0;
             }
-            return GridPageView.this.f13003f.d(GridPageView.this.f13004g);
+            return GridPageView.this.f13004f.d(GridPageView.this.f13005g);
         }
 
         @Override // android.widget.Adapter
@@ -140,7 +140,7 @@ public class GridPageView extends FrameLayout {
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            return GridPageView.this.f13003f.b(GridPageView.this.f13004g, i, view, viewGroup);
+            return GridPageView.this.f13004f.b(GridPageView.this.f13005g, i, view, viewGroup);
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -153,27 +153,27 @@ public class GridPageView extends FrameLayout {
 
     public GridPageView(Context context) {
         super(context);
-        this.f13002e = null;
+        this.f13003e = null;
         d(context);
     }
 
     public void c(int i, int i2) {
-        this.f13002e.setNumColumns(i);
-        this.f13004g = i2;
-        ((b) this.f13002e.getAdapter()).notifyDataSetChanged();
+        this.f13003e.setNumColumns(i);
+        this.f13005g = i2;
+        ((b) this.f13003e.getAdapter()).notifyDataSetChanged();
     }
 
     public final void d(Context context) {
         AutoGridView autoGridView = new AutoGridView(context);
-        this.f13002e = autoGridView;
+        this.f13003e = autoGridView;
         autoGridView.setNumColumns(5);
-        this.f13002e.setFocusableInTouchMode(false);
-        this.f13002e.setStretchMode(2);
-        this.f13002e.setVerticalSpacing((int) getResources().getDimension(g.common_grid_row_margin));
-        this.f13002e.setSelector(new ColorDrawable(0));
-        this.f13002e.setAdapter((ListAdapter) new b(context));
-        this.f13002e.setOnItemClickListener(new a());
-        addView(this.f13002e);
+        this.f13003e.setFocusableInTouchMode(false);
+        this.f13003e.setStretchMode(2);
+        this.f13003e.setVerticalSpacing((int) getResources().getDimension(g.common_grid_row_margin));
+        this.f13003e.setSelector(new ColorDrawable(0));
+        this.f13003e.setAdapter((ListAdapter) new b(context));
+        this.f13003e.setOnItemClickListener(new a());
+        addView(this.f13003e);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -182,18 +182,18 @@ public class GridPageView extends FrameLayout {
     }
 
     public void setGridItemAdapter(SlideableGridView.a aVar) {
-        this.f13003f = aVar;
+        this.f13004f = aVar;
     }
 
     public GridPageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13002e = null;
+        this.f13003e = null;
         d(context);
     }
 
     public GridPageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13002e = null;
+        this.f13003e = null;
         d(context);
     }
 }

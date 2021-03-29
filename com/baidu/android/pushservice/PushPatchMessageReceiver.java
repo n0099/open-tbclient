@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageReceiver {
     public static final int MSG_ARRIVED = 2;
     public static final int MSG_CLICKED = 3;

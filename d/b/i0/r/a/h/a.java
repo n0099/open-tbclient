@@ -14,52 +14,52 @@ import java.io.IOException;
 public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59677b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String f59678b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f59678c = File.separator;
+    public static final String f59679c = File.separator;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdInfo f59679a;
+    public AdInfo f59680a;
 
     public final void b(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(f59677b + f59678c + (q.c(this.f59679a.adVideoUrl) + ".mp4"));
+            File file2 = new File(f59678b + f59679c + (q.c(this.f59680a.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }
             if (file.renameTo(file2)) {
-                this.f59679a.videoLocalPath = file2.getAbsolutePath();
+                this.f59680a.videoLocalPath = file2.getAbsolutePath();
             } else {
-                this.f59679a.videoLocalPath = "";
+                this.f59680a.videoLocalPath = "";
             }
         } else {
-            this.f59679a.videoLocalPath = "";
+            this.f59680a.videoLocalPath = "";
         }
-        d.b.i0.r.a.i.a.j(this.f59679a);
+        d.b.i0.r.a.i.a.j(this.f59680a);
     }
 
     public void c(AdInfo adInfo) {
-        this.f59679a = adInfo;
+        this.f59680a = adInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x008f, code lost:
-        if (r12.equalsIgnoreCase(r11.f59679a.videoMd5) == false) goto L24;
+        if (r12.equalsIgnoreCase(r11.f59680a.videoMd5) == false) goto L24;
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Boolean doInBackground(Void... voidArr) {
-        String str = f59677b + f59678c + "advideo.temp";
+        String str = f59678b + f59679c + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         boolean z = false;
         try {
-            new File(f59677b).mkdirs();
+            new File(f59678b).mkdirs();
             if (!file.createNewFile()) {
                 b(false, null);
                 return Boolean.FALSE;
@@ -68,10 +68,10 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e2.printStackTrace();
         }
         e eVar = new e();
-        eVar.b().s(this.f59679a.adVideoUrl);
+        eVar.b().s(this.f59680a.adVideoUrl);
         boolean c2 = new d.b.b.e.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true);
         try {
-            if (TextUtils.isEmpty(this.f59679a.videoMd5)) {
+            if (TextUtils.isEmpty(this.f59680a.videoMd5)) {
                 b(c2, file);
                 return Boolean.valueOf(c2);
             }

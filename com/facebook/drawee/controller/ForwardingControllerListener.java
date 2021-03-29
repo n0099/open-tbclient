@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
     public static final String TAG = "FdingControllerListener";
     public final List<ControllerListener<? super INFO>> mListeners = new ArrayList(2);

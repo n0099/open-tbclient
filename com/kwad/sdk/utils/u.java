@@ -12,35 +12,35 @@ import java.lang.reflect.Method;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f36793a;
+    public static Method f36794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f36794b;
+    public static Method f36795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f36795c;
+    public static Field f36796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f36796d;
+    public static int f36797d;
 
     static {
         try {
-            f36793a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f36794a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
         }
         try {
-            f36794b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f36795b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException e3) {
             e3.printStackTrace();
         }
         try {
-            f36795c = WindowManager.LayoutParams.class.getField("statusBarColor");
+            f36796c = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException e4) {
             e4.printStackTrace();
         }
         try {
-            f36796d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+            f36797d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException e5) {
             e5.printStackTrace();
         } catch (NoSuchFieldException e6) {
@@ -53,7 +53,7 @@ public class u {
     }
 
     public static void a(Activity activity, boolean z, boolean z2) {
-        Method method = f36794b;
+        Method method = f36795b;
         if (method == null) {
             if (z2) {
                 a(activity.getWindow(), z);
@@ -72,7 +72,7 @@ public class u {
 
     public static void a(View view, boolean z) {
         int systemUiVisibility = view.getSystemUiVisibility();
-        int i = z ? f36796d | systemUiVisibility : (f36796d ^ (-1)) & systemUiVisibility;
+        int i = z ? f36797d | systemUiVisibility : (~f36797d) & systemUiVisibility;
         if (i != systemUiVisibility) {
             view.setSystemUiVisibility(i);
         }
@@ -80,11 +80,11 @@ public class u {
 
     public static void a(Window window, int i) {
         WindowManager.LayoutParams attributes = window.getAttributes();
-        Field field = f36795c;
+        Field field = f36796c;
         if (field != null) {
             try {
                 if (field.getInt(attributes) != i) {
-                    f36795c.set(attributes, Integer.valueOf(i));
+                    f36796c.set(attributes, Integer.valueOf(i));
                     window.setAttributes(attributes);
                 }
             } catch (IllegalAccessException e2) {
@@ -113,7 +113,7 @@ public class u {
             Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
             declaredField2.setAccessible(true);
             int i2 = declaredField2.getInt(layoutParams);
-            int i3 = z ? i | i2 : (i ^ (-1)) & i2;
+            int i3 = z ? i | i2 : (~i) & i2;
             if (i2 != i3) {
                 declaredField2.setInt(layoutParams, i3);
                 return true;

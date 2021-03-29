@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SyncGroupMessageService {
     public static final int MAX_MAP_SIZE = 1;
     public static final String TAG = "SyncGroupMessageService";

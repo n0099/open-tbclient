@@ -2,24 +2,24 @@ package d.b.n.a;
 
 import android.os.Handler;
 import com.baidu.crabsdk.a.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class j implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ n f64133e;
+    public final /* synthetic */ n f64134e;
 
     public j(n nVar) {
-        this.f64133e = nVar;
+        this.f64134e = nVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Runnable runnable;
-        this.f64133e.b();
-        if (this.f64133e.f4660a.get()) {
+        this.f64134e.b();
+        if (this.f64134e.f4661a.get()) {
             Handler a2 = com.baidu.crabsdk.a.j.a();
-            runnable = this.f64133e.f4662c;
-            a2.postDelayed(runnable, this.f64133e.f4661b);
+            runnable = this.f64134e.f4663c;
+            a2.postDelayed(runnable, this.f64134e.f4662b);
         }
     }
 }

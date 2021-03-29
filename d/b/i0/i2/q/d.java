@@ -104,16 +104,16 @@ public class d implements d.b.i0.i2.q.a {
     public ImageView z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56186e = 3000;
+    public int f56187e = 3000;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56187f = 8211;
+    public int f56188f = 8211;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56188g = 0;
+    public int f56189g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56189h = 4;
+    public int f56190h = 4;
     public int i = 232;
     public int j = 8416;
     public int k = 0;
@@ -167,7 +167,7 @@ public class d implements d.b.i0.i2.q.a {
         @Override // java.lang.Runnable
         public void run() {
             d dVar = d.this;
-            dVar.r0(dVar.f56188g);
+            dVar.r0(dVar.f56189g);
         }
     }
 
@@ -193,14 +193,14 @@ public class d implements d.b.i0.i2.q.a {
                     if (z) {
                         if (!d.this.u0.c()) {
                             d.b.v.a aVar = new d.b.v.a();
-                            aVar.f64790b = d.this.v0.card_title;
-                            aVar.f64791c = d.this.v0.button_title;
-                            aVar.f64792d = d.this.v0.jump_url;
-                            aVar.f64789a = d.this.v0.pic_url;
-                            aVar.f64794f = String.valueOf(d.this.Y);
+                            aVar.f64791b = d.this.v0.card_title;
+                            aVar.f64792c = d.this.v0.button_title;
+                            aVar.f64793d = d.this.v0.jump_url;
+                            aVar.f64790a = d.this.v0.pic_url;
+                            aVar.f64795f = String.valueOf(d.this.Y);
                             d dVar2 = d.this;
-                            aVar.f64793e = dVar2.W;
-                            aVar.f64795g = dVar2.d0();
+                            aVar.f64794e = dVar2.W;
+                            aVar.f64796g = dVar2.d0();
                             if (z2) {
                                 d.this.u0.f(aVar, (ViewGroup) d.this.Q);
                             } else {
@@ -220,8 +220,8 @@ public class d implements d.b.i0.i2.q.a {
 
     /* renamed from: d.b.i0.i2.q.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1311d implements Animator.AnimatorListener {
-        public C1311d() {
+    public class C1312d implements Animator.AnimatorListener {
+        public C1312d() {
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -427,7 +427,7 @@ public class d implements d.b.i0.i2.q.a {
                 int i3 = dVar2.k;
                 if (i == i3 || i == (i3 | 1)) {
                     d dVar3 = d.this;
-                    dVar3.r0(dVar3.f56188g);
+                    dVar3.r0(dVar3.f56189g);
                     d dVar4 = d.this;
                     dVar4.u.T(dVar4.D0);
                     d.this.w0(R.id.video_play);
@@ -500,7 +500,7 @@ public class d implements d.b.i0.i2.q.a {
             } else {
                 d dVar7 = d.this;
                 int i4 = dVar7.q;
-                if (i4 == dVar7.f56188g || i4 == dVar7.i || i4 == (i = dVar7.j) || i4 == (i2 = dVar7.k) || i4 == dVar7.n || i4 == (i | 1) || i4 == (i2 | 1)) {
+                if (i4 == dVar7.f56189g || i4 == dVar7.i || i4 == (i = dVar7.j) || i4 == (i2 = dVar7.k) || i4 == dVar7.n || i4 == (i | 1) || i4 == (i2 | 1)) {
                     int i5 = d.this.r;
                     if (i5 == 0) {
                         if (Math.abs(f2) - Math.abs(f3) > 0.0f) {
@@ -531,8 +531,9 @@ public class d implements d.b.i0.i2.q.a {
                         }
                     } else if (i5 == 1) {
                         d dVar13 = d.this;
-                        dVar13.L.c(dVar13.P, f3 > 0.0f);
-                        if (f3 > 0.0f) {
+                        int i8 = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
+                        dVar13.L.c(dVar13.P, i8 > 0);
+                        if (i8 > 0) {
                             d.this.N();
                         }
                     } else if (i5 == 2) {
@@ -551,8 +552,8 @@ public class d implements d.b.i0.i2.q.a {
             if (d.this.u.isPlaying()) {
                 d dVar = d.this;
                 int i = dVar.q;
-                int i2 = dVar.f56188g;
-                if (i != i2 && i != dVar.f56189h) {
+                int i2 = dVar.f56189g;
+                if (i != i2 && i != dVar.f56190h) {
                     if (i == dVar.i) {
                         dVar.r0(i2);
                     }
@@ -576,7 +577,7 @@ public class d implements d.b.i0.i2.q.a {
                     } else if (i3 == (i5 | 1)) {
                         dVar3.r0(i4 | 1);
                     } else {
-                        dVar3.r0(dVar3.f56187f);
+                        dVar3.r0(dVar3.f56188f);
                         d.this.startPlay();
                         d.this.o0();
                     }
@@ -610,7 +611,7 @@ public class d implements d.b.i0.i2.q.a {
                                 d.this.s = -1;
                             } else if (d.this.u.isPlaying()) {
                                 d dVar4 = d.this;
-                                dVar4.r0(dVar4.f56188g);
+                                dVar4.r0(dVar4.f56189g);
                             } else {
                                 d dVar5 = d.this;
                                 dVar5.r0(dVar5.j);
@@ -624,7 +625,7 @@ public class d implements d.b.i0.i2.q.a {
                                     dVar7.u.T(dVar7.D0);
                                 }
                                 d dVar8 = d.this;
-                                dVar8.r0(dVar8.f56188g);
+                                dVar8.r0(dVar8.f56189g);
                             }
                         }
                     }
@@ -664,7 +665,7 @@ public class d implements d.b.i0.i2.q.a {
         @Override // com.baidu.tieba.play.cyberPlayer.TbVideoViewSet.b
         public void b() {
             d dVar = d.this;
-            dVar.r0(dVar.f56187f);
+            dVar.r0(dVar.f56188f);
             d.this.v0();
         }
     }
@@ -716,8 +717,8 @@ public class d implements d.b.i0.i2.q.a {
     }
 
     public void P() {
-        if (this.q == this.f56189h) {
-            r0(this.f56188g);
+        if (this.q == this.f56190h) {
+            r0(this.f56189g);
         }
     }
 
@@ -730,9 +731,9 @@ public class d implements d.b.i0.i2.q.a {
             this.j = 8418;
         }
         if (this.a0) {
-            this.f56187f |= 1024;
-            this.f56188g |= 1024;
-            this.f56189h |= 1024;
+            this.f56188f |= 1024;
+            this.f56189g |= 1024;
+            this.f56190h |= 1024;
             this.i |= 1024;
             this.j |= 1024;
             this.k |= 1024;
@@ -741,9 +742,9 @@ public class d implements d.b.i0.i2.q.a {
             this.q |= 1024;
             return;
         }
-        this.f56187f &= -1025;
-        this.f56188g &= -1025;
-        this.f56189h &= -1025;
+        this.f56188f &= -1025;
+        this.f56189g &= -1025;
+        this.f56190h &= -1025;
         this.i &= -1025;
         this.j &= -1025;
         this.k &= -1025;
@@ -803,7 +804,7 @@ public class d implements d.b.i0.i2.q.a {
 
     public void T() {
         d.b.b.e.m.e.a().removeCallbacks(this.t);
-        d.b.b.e.m.e.a().postDelayed(this.t, this.f56186e);
+        d.b.b.e.m.e.a().postDelayed(this.t, this.f56187e);
     }
 
     public final void U() {
@@ -869,9 +870,9 @@ public class d implements d.b.i0.i2.q.a {
             if (i2 != -1) {
                 this.q = i2;
                 this.s = -1;
-                if (i2 == this.o || i2 == this.i || i2 == this.f56188g) {
+                if (i2 == this.o || i2 == this.i || i2 == this.f56189g) {
                     this.u.T(this.D0);
-                    r0(this.f56188g);
+                    r0(this.f56189g);
                 }
             }
         } else {
@@ -955,7 +956,7 @@ public class d implements d.b.i0.i2.q.a {
         Q();
         R();
         if (this.u.isPlaying()) {
-            r0(this.f56188g);
+            r0(this.f56189g);
         } else {
             r0(this.q);
         }
@@ -1004,7 +1005,7 @@ public class d implements d.b.i0.i2.q.a {
     }
 
     public final void b0() {
-        r0(this.f56189h);
+        r0(this.f56190h);
         this.G.s();
         TBLottieAnimationView tBLottieAnimationView = this.x;
         if (tBLottieAnimationView != null) {
@@ -1026,13 +1027,13 @@ public class d implements d.b.i0.i2.q.a {
         if (z) {
             this.x.cancelAnimation();
             int i2 = this.q;
-            if (i2 == this.f56188g || i2 == this.f56189h || i2 == this.i || i2 == this.f56187f) {
+            if (i2 == this.f56189g || i2 == this.f56190h || i2 == this.i || i2 == this.f56188f) {
                 stopPlay();
             }
             int i3 = this.q | 1;
             this.q = i3;
             r0(i3);
-        } else if (this.q == this.f56187f) {
+        } else if (this.q == this.f56188f) {
             return false;
         }
         return true;
@@ -1069,7 +1070,7 @@ public class d implements d.b.i0.i2.q.a {
         this.L = (VideoGestureView) this.R.findViewById(R.id.video_gesture);
         this.N = (OperableVideoErrorView) this.R.findViewById(R.id.video_error_layout);
         this.I.setVideoContainer(this);
-        this.x.addAnimatorListener(new C1311d());
+        this.x.addAnimatorListener(new C1312d());
         this.x.setAnimation(R.raw.lotti_video_loading);
         this.y.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
         this.y.setOnClickListener(this);
@@ -1099,7 +1100,7 @@ public class d implements d.b.i0.i2.q.a {
         this.I.setOnTouchListener(this.C0);
         this.N.setOutOnClickListener(this);
         this.j0 = new GestureDetector(this.P, this.B0);
-        r0(this.f56187f);
+        r0(this.f56188f);
         this.u0 = new d.b.v.c(this.P);
     }
 
@@ -1175,14 +1176,14 @@ public class d implements d.b.i0.i2.q.a {
             X();
         } else if (id != R.id.video_full_screen && id != R.id.video_full_screen_back) {
             if (id == R.id.video_replay) {
-                r0(this.f56187f);
+                r0(this.f56188f);
                 startPlay();
                 if (this.e0) {
                     TiebaStatic.log(new StatisticItem("c13345").param("tid", this.W).param("fid", this.Y).param("obj_type", this.U ? 1 : 2).param("obj_locate", this.a0 ? 1 : 2));
                 }
                 o0();
             } else if (id == R.id.video_play) {
-                if (this.q == this.f56187f) {
+                if (this.q == this.f56188f) {
                     startPlay();
                 } else {
                     r0(this.i);
@@ -1201,10 +1202,10 @@ public class d implements d.b.i0.i2.q.a {
                     TiebaStatic.log(new StatisticItem("c13344").param("tid", this.W).param("fid", this.Y).param("obj_type", this.U ? 1 : 2).param("obj_source", this.a0 ? 1 : 2).param("obj_locate", 2));
                 }
             } else if (id == R.id.play) {
-                r0(this.f56187f);
+                r0(this.f56188f);
                 startPlay();
             } else if (id == R.id.retry) {
-                r0(this.f56187f);
+                r0(this.f56188f);
                 startPlay();
             }
         } else {
@@ -1360,7 +1361,7 @@ public class d implements d.b.i0.i2.q.a {
         this.v0 = a2Var.u1().mcn_ad_card;
         Q();
         R();
-        r0(this.f56187f);
+        r0(this.f56188f);
         int intValue = a2Var.u1().video_duration.intValue() * 1000;
         this.G.p(intValue);
         this.G.setPlayer(this.u);
@@ -1460,7 +1461,7 @@ public class d implements d.b.i0.i2.q.a {
         this.u.U();
         this.u.G();
         this.G.q();
-        r0(this.f56187f);
+        r0(this.f56188f);
         MessageManager.getInstance().unRegisterListener(this.E0);
     }
 
@@ -1491,7 +1492,7 @@ public class d implements d.b.i0.i2.q.a {
     }
 
     public final void u0() {
-        r0(this.f56189h);
+        r0(this.f56190h);
         this.G.s();
         b0();
     }
@@ -1515,7 +1516,7 @@ public class d implements d.b.i0.i2.q.a {
         o oVar = this.b0;
         if (oVar != null) {
             o b2 = oVar.b();
-            b2.f56163a = this.d0;
+            b2.f56164a = this.d0;
             d.b.i0.i2.h.e(b2.m, "", "1", b2, this.u.getPcdnState());
         }
     }
@@ -1528,7 +1529,7 @@ public class d implements d.b.i0.i2.q.a {
         }
         this.u.U();
         this.G.q();
-        r0(this.f56187f);
+        r0(this.f56188f);
         MessageManager.getInstance().unRegisterListener(this.E0);
     }
 }

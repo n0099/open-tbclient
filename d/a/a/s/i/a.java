@@ -9,6 +9,6 @@ public class a extends n<Integer, Integer> {
 
     @Override // d.a.a.s.i.m
     public d.a.a.q.b.a<Integer, Integer> a() {
-        return new d.a.a.q.b.b(this.f41363a);
+        return new d.a.a.q.b.b(this.f41364a);
     }
 }

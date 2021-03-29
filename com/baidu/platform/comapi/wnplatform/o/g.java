@@ -8,16 +8,16 @@ import android.view.View;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f10367a;
+    public static float f10368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f10368b;
+    public static int f10369b;
 
     public static float a(Context context) {
-        if (f10367a == 0.0f) {
-            f10367a = context.getResources().getDisplayMetrics().density;
+        if (f10368a == 0.0f) {
+            f10368a = context.getResources().getDisplayMetrics().density;
         }
-        return f10367a;
+        return f10368a;
     }
 
     public static int b(Context context) {
@@ -46,7 +46,7 @@ public class g {
         if (context == null) {
             return 0;
         }
-        int i = f10368b;
+        int i = f10369b;
         if (i > 0) {
             return i;
         }

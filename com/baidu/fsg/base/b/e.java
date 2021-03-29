@@ -1,26 +1,26 @@
 package com.baidu.fsg.base.b;
 
 import com.baidu.fsg.base.b.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f5176a;
+    public final /* synthetic */ Runnable f5177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a.b f5177b;
+    public final /* synthetic */ a.b f5178b;
 
     public e(a.b bVar, Runnable runnable) {
-        this.f5177b = bVar;
-        this.f5176a = runnable;
+        this.f5178b = bVar;
+        this.f5177a = runnable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f5176a.run();
+            this.f5177a.run();
         } finally {
-            this.f5177b.a();
+            this.f5178b.a();
         }
     }
 }

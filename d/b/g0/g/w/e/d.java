@@ -12,10 +12,10 @@ import okhttp3.Response;
 public class d implements Interceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f48607a;
+    public a.b f48608a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f48608b = new a();
+    public final e f48609b = new a();
 
     /* loaded from: classes3.dex */
     public class a implements e {
@@ -24,34 +24,34 @@ public class d implements Interceptor {
 
         @Override // d.b.g0.a.g1.e
         public void a(long j, long j2, boolean z) {
-            if (d.this.f48607a == null) {
-                if (k.f45050a) {
+            if (d.this.f48608a == null) {
+                if (k.f45051a) {
                     Log.e("onProgress", "DownloadProgressInterceptor.mIProgressCallback == null");
                 }
             } else if (j2 == -1 && j != 0) {
-                d.this.f48607a.b(0, j, j2);
+                d.this.f48608a.b(0, j, j2);
             } else if (j2 > 52428800) {
-                d.this.f48607a.a(j2);
-                d.this.f48607a = null;
+                d.this.f48608a.a(j2);
+                d.this.f48608a = null;
             } else if (j2 <= 0 || j > j2 || j == 0) {
-                d.this.f48607a.c(j, j2);
-                d.this.f48607a = null;
+                d.this.f48608a.c(j, j2);
+                d.this.f48608a = null;
             } else {
                 int floor = (int) Math.floor((100 * j) / j2);
                 if (floor <= 100) {
-                    d.this.f48607a.b(floor, j, j2);
+                    d.this.f48608a.b(floor, j, j2);
                 }
             }
         }
     }
 
     public void c(a.b bVar) {
-        this.f48607a = bVar;
+        this.f48608a = bVar;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed = chain.proceed(chain.request());
-        return proceed.newBuilder().body(new h(proceed.body(), this.f48608b)).build();
+        return proceed.newBuilder().body(new h(proceed.body(), this.f48609b)).build();
     }
 }

@@ -72,7 +72,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public boolean hasSetFocusedStrokeColor = false;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public @interface GradientOrientation {
     }
 

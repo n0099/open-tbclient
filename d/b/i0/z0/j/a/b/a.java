@@ -13,16 +13,16 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import d.b.b.j.e.n;
 import d.b.b.j.e.w;
 import d.b.i0.z0.j.a.e.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.b.j.e.a<d.b.i0.z0.j.a.c.c, CardViewHolder<d>> {
     public TbPageContext<?> m;
     public d.b.b.e.k.b<ConstrainImageLayout> n;
     public d.b.b.e.k.b<TbImageView> o;
 
     /* renamed from: d.b.i0.z0.j.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1707a implements d.b.b.e.k.c<ConstrainImageLayout> {
-        public C1707a() {
+    /* loaded from: classes3.dex */
+    public class C1708a implements d.b.b.e.k.c<ConstrainImageLayout> {
+        public C1708a() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -66,7 +66,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.z0.j.a.c.c, CardViewHolder<d>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.e.k.c<TbImageView> {
         public b() {
         }
@@ -119,7 +119,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.z0.j.a.c.c, CardViewHolder<d>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c(a aVar) {
         }
@@ -136,7 +136,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.z0.j.a.c.c, CardViewHolder<d>> {
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), d.b.i0.z0.j.a.c.c.k);
-        this.n = new d.b.b.e.k.b<>(new C1707a(), 6, 0);
+        this.n = new d.b.b.e.k.b<>(new C1708a(), 6, 0);
         this.o = new d.b.b.e.k.b<>(new b(), 12, 0);
         this.m = tbPageContext;
         c0(new c(this));

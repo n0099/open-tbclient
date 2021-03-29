@@ -25,25 +25,25 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32638b;
+    public com.kwad.sdk.core.download.b.b f32639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AnimatorSet f32639c;
+    public AnimatorSet f32640c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ap f32640d;
+    public ap f32641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f32641e;
+    public View f32642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f32642f;
+    public View f32643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f32643g;
+    public View f32644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f32644h;
+    public TextView f32645h;
     public TextView i;
     public ImageView j;
     public ViewStub k;
@@ -56,33 +56,33 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
         if (adTemplate == null || !com.kwad.sdk.core.response.b.c.c(adTemplate)) {
             return;
         }
-        if (this.f32641e == null) {
-            this.f32641e = this.k.inflate();
+        if (this.f32642e == null) {
+            this.f32642e = this.k.inflate();
         }
-        this.f32642f = this.f32641e.findViewById(R.id.ksad_home_banner_close_btn);
-        this.f32644h = (TextView) this.f32641e.findViewById(R.id.ksad_home_banner_ad_content);
-        this.i = (TextView) this.f32641e.findViewById(R.id.ksad_home_banner_ad_link_btn);
-        this.f32643g = this.f32641e.findViewById(R.id.ksad_home_banner_ad_link_btn_layout);
-        this.j = (ImageView) this.f32641e.findViewById(R.id.ksad_home_banner_ad_img);
-        com.kwad.sdk.glide.c.b(o()).a(com.kwad.sdk.core.response.b.c.q(adTemplate)).a(com.kwad.sdk.glide.load.engine.h.f35535a).a((com.kwad.sdk.glide.load.h<Bitmap>) new com.kwad.sdk.contentalliance.widget.a(o(), ao.a(o(), 4.0f), 0, 1, Color.parseColor("#eaeaea"), 15)).a(this.j);
-        this.f32644h.setText(String.format(o().getString(z ? R.string.ksad_home_banner_installed_format : R.string.ksad_home_banner_uninstalled_format), com.kwad.sdk.core.response.b.a.q(com.kwad.sdk.core.response.b.c.j(adTemplate))));
+        this.f32643f = this.f32642e.findViewById(R.id.ksad_home_banner_close_btn);
+        this.f32645h = (TextView) this.f32642e.findViewById(R.id.ksad_home_banner_ad_content);
+        this.i = (TextView) this.f32642e.findViewById(R.id.ksad_home_banner_ad_link_btn);
+        this.f32644g = this.f32642e.findViewById(R.id.ksad_home_banner_ad_link_btn_layout);
+        this.j = (ImageView) this.f32642e.findViewById(R.id.ksad_home_banner_ad_img);
+        com.kwad.sdk.glide.c.b(o()).a(com.kwad.sdk.core.response.b.c.q(adTemplate)).a(com.kwad.sdk.glide.load.engine.h.f35536a).a((com.kwad.sdk.glide.load.h<Bitmap>) new com.kwad.sdk.contentalliance.widget.a(o(), ao.a(o(), 4.0f), 0, 1, Color.parseColor("#eaeaea"), 15)).a(this.j);
+        this.f32645h.setText(String.format(o().getString(z ? R.string.ksad_home_banner_installed_format : R.string.ksad_home_banner_uninstalled_format), com.kwad.sdk.core.response.b.a.q(com.kwad.sdk.core.response.b.c.j(adTemplate))));
         this.i.setText(z ? "立即体验" : "安装");
-        this.f32641e.setTranslationY(this.l);
-        this.f32638b = new com.kwad.sdk.core.download.b.b(adTemplate);
-        this.f32643g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.home.b.b.5
+        this.f32642e.setTranslationY(this.l);
+        this.f32639b = new com.kwad.sdk.core.download.b.b(adTemplate);
+        this.f32644g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.home.b.b.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AdTemplate adTemplate2;
                 int i;
                 if (z) {
-                    com.kwad.sdk.core.download.b.b bVar = b.this.f32638b;
+                    com.kwad.sdk.core.download.b.b bVar = b.this.f32639b;
                     if (bVar != null) {
                         bVar.d();
                     }
                     adTemplate2 = adTemplate;
                     i = 47;
                 } else {
-                    com.kwad.sdk.core.download.b.b bVar2 = b.this.f32638b;
+                    com.kwad.sdk.core.download.b.b bVar2 = b.this.f32639b;
                     if (bVar2 != null) {
                         bVar2.e();
                     }
@@ -93,7 +93,7 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
                 b.this.e();
             }
         });
-        this.f32642f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.home.b.b.6
+        this.f32643f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.home.b.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.kwad.sdk.core.report.b.c(adTemplate, z ? 48 : 46);
@@ -117,7 +117,7 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
         this.m = handlerThread;
         handlerThread.start();
         ap apVar = new ap(this, this.m.getLooper());
-        this.f32640d = apVar;
+        this.f32641d = apVar;
         apVar.sendEmptyMessageDelayed(6666, c.a.ad.f());
     }
 
@@ -147,7 +147,7 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
                 });
                 com.kwad.sdk.core.d.a.a("HomeAdBannerPresenter", "handleMsg MSG_CHECK_DELAY downloadData not null, showBanner");
                 com.kwad.sdk.home.download.a.a().a(com.kwad.sdk.core.response.b.a.s(com.kwad.sdk.core.response.b.c.j(b2)));
-                this.f32640d.sendEmptyMessageDelayed(8888, c.a.ad.g());
+                this.f32641d.sendEmptyMessageDelayed(8888, c.a.ad.g());
                 return;
             }
             final AdTemplate c2 = com.kwad.sdk.home.download.a.a().c();
@@ -160,32 +160,32 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
                 });
                 com.kwad.sdk.core.d.a.a("HomeAdBannerPresenter", "handleMsg MSG_CHECK_DELAY installedData not null, showBanner");
                 com.kwad.sdk.home.download.a.a().a(com.kwad.sdk.core.response.b.a.s(com.kwad.sdk.core.response.b.c.j(c2)));
-                this.f32640d.sendEmptyMessageDelayed(8888, c.a.ad.g());
+                this.f32641d.sendEmptyMessageDelayed(8888, c.a.ad.g());
             }
         }
     }
 
     public void a(final boolean z) {
-        AnimatorSet animatorSet = this.f32639c;
+        AnimatorSet animatorSet = this.f32640c;
         if (animatorSet != null && animatorSet.isRunning()) {
-            this.f32639c.removeAllListeners();
-            this.f32639c.cancel();
+            this.f32640c.removeAllListeners();
+            this.f32640c.cancel();
         }
-        this.f32639c = new AnimatorSet();
+        this.f32640c = new AnimatorSet();
         com.kwad.sdk.core.d.a.a("HomeAdBannerPresenter", "bottomViewAnimate + isShow : " + z);
-        View view = this.f32641e;
+        View view = this.f32642e;
         String name = View.TRANSLATION_Y.getName();
         float[] fArr = new float[1];
         fArr[0] = z ? 0.0f : this.l;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, name, fArr);
         ofFloat.setDuration(z ? 300L : 260L);
-        this.f32639c.playTogether(ofFloat);
-        this.f32639c.removeAllListeners();
-        this.f32639c.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.home.b.b.7
+        this.f32640c.playTogether(ofFloat);
+        this.f32640c.removeAllListeners();
+        this.f32640c.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.home.b.b.7
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                b.this.f32641e.setVisibility(z ? 4 : 0);
+                b.this.f32642e.setVisibility(z ? 4 : 0);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -194,31 +194,31 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
                 if (z) {
                     return;
                 }
-                b.this.f32641e.setVisibility(4);
+                b.this.f32642e.setVisibility(4);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorPauseListener
             public void onAnimationPause(Animator animator) {
                 super.onAnimationPause(animator);
-                b.this.f32641e.setVisibility(z ? 4 : 0);
+                b.this.f32642e.setVisibility(z ? 4 : 0);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
                 if (z) {
-                    b.this.f32641e.setVisibility(0);
+                    b.this.f32642e.setVisibility(0);
                 }
             }
         });
-        this.f32639c.start();
+        this.f32640c.start();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32640d.removeCallbacksAndMessages(null);
-        com.kwad.sdk.core.download.b.b bVar = this.f32638b;
+        this.f32641d.removeCallbacksAndMessages(null);
+        com.kwad.sdk.core.download.b.b bVar = this.f32639b;
         if (bVar != null) {
             bVar.f();
         }

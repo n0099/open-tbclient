@@ -10,7 +10,7 @@ import java.util.Set;
 public class fz implements gd {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40535a;
+    public String f40536a;
 
     /* renamed from: a  reason: collision with other field name */
     public List<fz> f415a;
@@ -19,20 +19,20 @@ public class fz implements gd {
     public String[] f416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40536b;
+    public String f40537b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40537c;
+    public String f40538c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         this.f416a = null;
         this.f417b = null;
         this.f415a = null;
-        this.f40535a = str;
-        this.f40536b = str2;
+        this.f40536a = str;
+        this.f40537b = str2;
         this.f416a = strArr;
         this.f417b = strArr2;
     }
@@ -41,11 +41,11 @@ public class fz implements gd {
         this.f416a = null;
         this.f417b = null;
         this.f415a = null;
-        this.f40535a = str;
-        this.f40536b = str2;
+        this.f40536a = str;
+        this.f40537b = str2;
         this.f416a = strArr;
         this.f417b = strArr2;
-        this.f40537c = str3;
+        this.f40538c = str3;
         this.f415a = list;
     }
 
@@ -94,9 +94,9 @@ public class fz implements gd {
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("ext_ele_name", this.f40535a);
-        bundle.putString("ext_ns", this.f40536b);
-        bundle.putString("ext_text", this.f40537c);
+        bundle.putString("ext_ele_name", this.f40536a);
+        bundle.putString("ext_ns", this.f40537b);
+        bundle.putString("ext_text", this.f40538c);
         Bundle bundle2 = new Bundle();
         String[] strArr = this.f416a;
         if (strArr != null && strArr.length > 0) {
@@ -125,7 +125,7 @@ public class fz implements gd {
 
     /* renamed from: a  reason: collision with other method in class */
     public String m315a() {
-        return this.f40535a;
+        return this.f40536a;
     }
 
     public String a(String str) {
@@ -163,27 +163,27 @@ public class fz implements gd {
         if (!TextUtils.isEmpty(str)) {
             str = gn.a(str);
         }
-        this.f40537c = str;
+        this.f40538c = str;
     }
 
     public String b() {
-        return this.f40536b;
+        return this.f40537b;
     }
 
     public String c() {
-        return !TextUtils.isEmpty(this.f40537c) ? gn.b(this.f40537c) : this.f40537c;
+        return !TextUtils.isEmpty(this.f40538c) ? gn.b(this.f40538c) : this.f40538c;
     }
 
     @Override // com.xiaomi.push.gd
     public String d() {
         StringBuilder sb = new StringBuilder();
         sb.append("<");
-        sb.append(this.f40535a);
-        if (!TextUtils.isEmpty(this.f40536b)) {
+        sb.append(this.f40536a);
+        if (!TextUtils.isEmpty(this.f40537b)) {
             sb.append(" ");
             sb.append("xmlns=");
             sb.append("\"");
-            sb.append(this.f40536b);
+            sb.append(this.f40537b);
             sb.append("\"");
         }
         String[] strArr = this.f416a;
@@ -198,7 +198,7 @@ public class fz implements gd {
                 }
             }
         }
-        if (TextUtils.isEmpty(this.f40537c)) {
+        if (TextUtils.isEmpty(this.f40538c)) {
             List<fz> list = this.f415a;
             if (list == null || list.size() <= 0) {
                 sb.append("/>");
@@ -210,10 +210,10 @@ public class fz implements gd {
             }
         } else {
             sb.append(">");
-            sb.append(this.f40537c);
+            sb.append(this.f40538c);
         }
         sb.append("</");
-        sb.append(this.f40535a);
+        sb.append(this.f40536a);
         sb.append(">");
         return sb.toString();
     }

@@ -8,7 +8,7 @@ import d.b.i0.i1.o.i.a;
 import d.b.i0.i1.o.k.b;
 import d.b.i0.i1.o.k.d;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     public final int bgColor;
     public final int bgColorNight;
@@ -97,11 +97,7 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     public double getRatio() {
         int i = this.picWidth;
         if (i > 0) {
-            double d2 = this.picHeight;
-            double d3 = i;
-            Double.isNaN(d2);
-            Double.isNaN(d3);
-            return d2 / d3;
+            return this.picHeight / i;
         }
         return super.getRatio();
     }

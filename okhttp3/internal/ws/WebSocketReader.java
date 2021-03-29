@@ -21,7 +21,7 @@ public final class WebSocketReader {
     public final Buffer controlFrameBuffer = new Buffer();
     public final Buffer messageFrameBuffer = new Buffer();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public interface FrameCallback {
         void onReadClose(int i, String str);
 

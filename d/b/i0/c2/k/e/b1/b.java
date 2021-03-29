@@ -39,62 +39,62 @@ import d.b.i0.b0.f;
 import d.b.i0.c2.k.e.q0;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f52610e;
+        public final /* synthetic */ PbModel f52611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52611f;
+        public final /* synthetic */ PbFragment f52612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ q0 f52612g;
+        public final /* synthetic */ q0 f52613g;
 
         public a(PbModel pbModel, PbFragment pbFragment, q0 q0Var) {
-            this.f52610e = pbModel;
-            this.f52611f = pbFragment;
-            this.f52612g = q0Var;
+            this.f52611e = pbModel;
+            this.f52612f = pbFragment;
+            this.f52613g = q0Var;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            PbModel pbModel = this.f52610e;
-            if (pbModel == null || pbModel.y0() == null || !this.f52610e.y0().e0() || TbSingleton.getInstance().isNotchScreen(this.f52611f.getBaseFragmentActivity()) || TbSingleton.getInstance().isCutoutScreen(this.f52611f.getBaseFragmentActivity())) {
+            PbModel pbModel = this.f52611e;
+            if (pbModel == null || pbModel.y0() == null || !this.f52611e.y0().e0() || TbSingleton.getInstance().isNotchScreen(this.f52612f.getBaseFragmentActivity()) || TbSingleton.getInstance().isCutoutScreen(this.f52612f.getBaseFragmentActivity())) {
                 return;
             }
-            this.f52612g.M0().setSystemUiVisibility(4);
+            this.f52613g.M0().setSystemUiVisibility(4);
         }
     }
 
     /* renamed from: d.b.i0.c2.k.e.b1.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1150b implements a.e {
+    /* loaded from: classes5.dex */
+    public static class C1151b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f52613e;
+        public final /* synthetic */ PbModel f52614e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52614f;
+        public final /* synthetic */ PbFragment f52615f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f52615g;
+        public final /* synthetic */ Thread2GroupShareView f52616g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f52616h;
+        public final /* synthetic */ long f52617h;
         public final /* synthetic */ String i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
         public final /* synthetic */ ShareFromPBMsgData l;
 
-        public C1150b(PbModel pbModel, PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f52613e = pbModel;
-            this.f52614f = pbFragment;
-            this.f52615g = thread2GroupShareView;
-            this.f52616h = j;
+        public C1151b(PbModel pbModel, PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
+            this.f52614e = pbModel;
+            this.f52615f = pbFragment;
+            this.f52616g = thread2GroupShareView;
+            this.f52617h = j;
             this.i = str;
             this.j = str2;
             this.k = str3;
@@ -103,92 +103,92 @@ public class b {
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            PbModel pbModel = this.f52613e;
+            PbModel pbModel = this.f52614e;
             if (pbModel != null && pbModel.y0() != null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_param1", 3).param("fid", this.f52613e.getForumId()).param("tid", this.f52613e.O0()).param("obj_locate", 1);
-                if (b.h(this.f52613e.y0()) != 0) {
-                    param.param("obj_type", b.h(this.f52613e.y0()));
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_param1", 3).param("fid", this.f52614e.getForumId()).param("tid", this.f52614e.O0()).param("obj_locate", 1);
+                if (b.h(this.f52614e.y0()) != 0) {
+                    param.param("obj_type", b.h(this.f52614e.y0()));
                 }
                 TiebaStatic.log(param);
             }
-            this.f52614f.HidenSoftKeyPad((InputMethodManager) this.f52614f.getBaseFragmentActivity().getSystemService("input_method"), this.f52615g.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f52614f.getBaseFragmentActivity(), this.f52616h, this.i, this.j, this.k, 0, this.f52615g.getLeaveMsg(), this.l.toChatMessageContent())));
+            this.f52615f.HidenSoftKeyPad((InputMethodManager) this.f52615f.getBaseFragmentActivity().getSystemService("input_method"), this.f52616g.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f52615f.getBaseFragmentActivity(), this.f52617h, this.i, this.j, this.k, 0, this.f52616g.getLeaveMsg(), this.l.toChatMessageContent())));
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52617e;
+        public final /* synthetic */ PbFragment f52618e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f52618f;
+        public final /* synthetic */ Thread2GroupShareView f52619f;
 
         public c(PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView) {
-            this.f52617e = pbFragment;
-            this.f52618f = thread2GroupShareView;
+            this.f52618e = pbFragment;
+            this.f52619f = thread2GroupShareView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f52617e.HidenSoftKeyPad((InputMethodManager) this.f52617e.getBaseFragmentActivity().getSystemService("input_method"), this.f52618f.getChatMsgView());
+            this.f52618e.HidenSoftKeyPad((InputMethodManager) this.f52618e.getBaseFragmentActivity().getSystemService("input_method"), this.f52619f.getChatMsgView());
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52619e;
+        public final /* synthetic */ PbFragment f52620e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f52620f;
+        public final /* synthetic */ Thread2GroupShareView f52621f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f52621g;
+        public final /* synthetic */ long f52622g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f52622h;
+        public final /* synthetic */ String f52623h;
         public final /* synthetic */ long i;
         public final /* synthetic */ ShareFromPBMsgData j;
 
         public d(PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView, long j, String str, long j2, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f52619e = pbFragment;
-            this.f52620f = thread2GroupShareView;
-            this.f52621g = j;
-            this.f52622h = str;
+            this.f52620e = pbFragment;
+            this.f52621f = thread2GroupShareView;
+            this.f52622g = j;
+            this.f52623h = str;
             this.i = j2;
             this.j = shareFromPBMsgData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f52619e.HidenSoftKeyPad((InputMethodManager) this.f52619e.getBaseFragmentActivity().getSystemService("input_method"), this.f52620f.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f52619e.getBaseFragmentActivity(), this.f52621g, this.f52622h, this.i, "from_share", this.f52620f.getLeaveMsg(), this.j.toChatMessageContent())));
+            this.f52620e.HidenSoftKeyPad((InputMethodManager) this.f52620e.getBaseFragmentActivity().getSystemService("input_method"), this.f52621f.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f52620e.getBaseFragmentActivity(), this.f52622g, this.f52623h, this.i, "from_share", this.f52621f.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f52623e;
+        public final /* synthetic */ PbFragment f52624e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f52624f;
+        public final /* synthetic */ Thread2GroupShareView f52625f;
 
         public e(PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView) {
-            this.f52623e = pbFragment;
-            this.f52624f = thread2GroupShareView;
+            this.f52624e = pbFragment;
+            this.f52625f = thread2GroupShareView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f52623e.HidenSoftKeyPad((InputMethodManager) this.f52623e.getBaseFragmentActivity().getSystemService("input_method"), this.f52624f.getChatMsgView());
+            this.f52624e.HidenSoftKeyPad((InputMethodManager) this.f52624e.getBaseFragmentActivity().getSystemService("input_method"), this.f52625f.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -226,7 +226,7 @@ public class b {
         shareItem.I = valueOf;
         shareItem.p = i0;
         shareItem.J = w1;
-        shareItem.f13716f = true;
+        shareItem.f13717f = true;
         shareItem.D = 6;
         shareItem.L = g(a2Var);
         if (parse != null) {
@@ -305,7 +305,7 @@ public class b {
             shareItem.Q = y0.M();
         }
         shareItem.t = str3;
-        shareItem.f13713c = true;
+        shareItem.f13714c = true;
         shareItem.q = pbModel.O0();
         shareItem.E = 3;
         shareItem.D = i2;
@@ -512,7 +512,7 @@ public class b {
         thread2GroupShareView.setData(d2);
         aVar.setContentViewSize(1);
         aVar.setContentView(thread2GroupShareView);
-        aVar.setPositiveButton(R.string.share, new C1150b(L, pbFragment, thread2GroupShareView, j, str, str2, str3, d2));
+        aVar.setPositiveButton(R.string.share, new C1151b(L, pbFragment, thread2GroupShareView, j, str, str2, str3, d2));
         aVar.setNegativeButton(R.string.cancel, new c(pbFragment, thread2GroupShareView));
         aVar.setCanceledOnTouchOutside(true);
         aVar.create(pbFragment.getPageContext()).show();

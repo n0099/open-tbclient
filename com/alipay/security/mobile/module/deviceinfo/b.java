@@ -253,7 +253,7 @@ public class b {
                     if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                         return subtype == 13 ? "4G" : "UNKNOW";
                     }
-                    return g.f3873b;
+                    return g.f3874b;
                 }
                 return "2G";
             }
@@ -834,7 +834,7 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0059  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0058  */
     /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1030,7 +1030,7 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0026  */
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1169,8 +1169,8 @@ public class b {
         return sb.toString();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x002b  */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x002e  */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x002d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

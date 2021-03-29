@@ -12,7 +12,7 @@ public class DynamicVideoView extends DynamicBaseWidgetImp {
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidgetImp, com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
     public boolean b() {
         super.b();
-        this.m.a(this.f28299a, this.f28300b, this.f28301c, this.f28302d);
+        this.m.a(this.f28300a, this.f28301b, this.f28302c, this.f28303d);
         return true;
     }
 }

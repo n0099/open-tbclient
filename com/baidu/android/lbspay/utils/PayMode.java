@@ -1,5 +1,5 @@
 package com.baidu.android.lbspay.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum PayMode {
     unknownPay,
     AliPay,

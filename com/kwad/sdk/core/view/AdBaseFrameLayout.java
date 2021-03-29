@@ -13,10 +13,10 @@ import com.kwad.sdk.utils.s;
 public class AdBaseFrameLayout extends FrameLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final s.a f34222b = new s.a();
+    public static final s.a f34223b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f34223a;
+    public View.OnTouchListener f34224a;
 
     public AdBaseFrameLayout(Context context) {
         super(context);
@@ -32,23 +32,23 @@ public class AdBaseFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        View.OnTouchListener onTouchListener = this.f34223a;
+        View.OnTouchListener onTouchListener = this.f34224a;
         if (onTouchListener != null) {
             onTouchListener.onTouch(this, motionEvent);
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            f34222b.a(getWidth(), getHeight());
-            f34222b.a(motionEvent.getX(), motionEvent.getY());
+            f34223b.a(getWidth(), getHeight());
+            f34223b.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f34222b.b(motionEvent.getX(), motionEvent.getY());
+            f34223b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return f34222b;
+        return f34223b;
     }
 
     @Override // android.view.View
@@ -56,6 +56,6 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f34223a = onTouchListener;
+        this.f34224a = onTouchListener;
     }
 }

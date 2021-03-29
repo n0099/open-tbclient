@@ -5,28 +5,28 @@ import tbclient.GetMoreMsg.MsgContent;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61117a;
+    public String f61118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61118b;
+    public String f61119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61119c;
+    public String f61120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61120d;
+    public String f61121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61121e;
+    public String f61122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61122f;
+    public String f61123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61123g;
+    public int f61124g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61124h;
+    public int f61125h;
     public int i;
     public String j;
     public String k = "";
@@ -45,17 +45,17 @@ public class d {
 
     public static void a(d dVar) {
         dVar.i = 0;
-        dVar.f61123g = 4;
-        dVar.f61124h = 4;
+        dVar.f61124g = 4;
+        dVar.f61125h = 4;
         dVar.l = System.currentTimeMillis();
         dVar.n = true;
     }
 
     public d(MsgContent msgContent) {
-        this.f61120d = msgContent.title;
+        this.f61121d = msgContent.title;
         this.q = msgContent.url;
-        this.f61122f = msgContent.src;
-        this.f61121e = msgContent.text;
+        this.f61123f = msgContent.src;
+        this.f61122e = msgContent.text;
         a(this);
     }
 }

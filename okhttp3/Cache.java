@@ -36,7 +36,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class Cache implements Closeable, Flushable {
     public static final int ENTRY_BODY = 1;
     public static final int ENTRY_COUNT = 2;
@@ -99,7 +99,7 @@ public final class Cache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class CacheResponseBody extends ResponseBody {
         public final BufferedSource bodySource;
         @Nullable
@@ -414,7 +414,7 @@ public final class Cache implements Closeable, Flushable {
         this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Entry {
         public final int code;
         @Nullable

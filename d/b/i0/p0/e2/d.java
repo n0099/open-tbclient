@@ -38,7 +38,7 @@ import tbclient.User;
 public class d extends j {
 
     /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f57422h;
+    public final CustomMessageListener f57423h;
     public final CustomMessageListener i;
     public final d.b.b.c.g.a j;
 
@@ -55,14 +55,14 @@ public class d extends j {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            if (StringUtils.isNull(str) || d.this.f57477b.S() == null) {
+            if (StringUtils.isNull(str) || d.this.f57478b.S() == null) {
                 return;
             }
-            FrsViewData S = d.this.f57477b.S();
+            FrsViewData S = d.this.f57478b.S();
             S.removeThread(str);
-            d.this.f57476a.v1(S.getThreadList(), S);
+            d.this.f57477a.v1(S.getThreadList(), S);
             if (d.b.i0.c3.e.i() != null) {
-                d.b.i0.c3.e.i().n(d.this.f57477b.i(), false);
+                d.b.i0.c3.e.i().n(d.this.f57478b.i(), false);
             }
         }
     }
@@ -83,14 +83,14 @@ public class d extends j {
                 return;
             }
             d dVar = d.this;
-            if (dVar.f57477b == null || dVar.f57476a == null || dVar.f57479d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f21388a) || d.this.f57477b.S() == null) {
+            if (dVar.f57478b == null || dVar.f57477a == null || dVar.f57480d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f21389a) || d.this.f57478b.S() == null) {
                 return;
             }
-            String str = eVar.f21388a;
-            String str2 = eVar.f21389b;
-            String str3 = eVar.f21390c;
-            if (eVar.f21391d == 4) {
-                FrsViewData S = d.this.f57477b.S();
+            String str = eVar.f21389a;
+            String str2 = eVar.f21390b;
+            String str3 = eVar.f21391c;
+            if (eVar.f21392d == 4) {
+                FrsViewData S = d.this.f57478b.S();
                 a2 threadDataById = S.getThreadDataById(str);
                 S.removeThreadData(threadDataById);
                 List<d.b.b.j.e.n> topThreadList = S.getTopThreadList();
@@ -98,11 +98,11 @@ public class d extends j {
                     topThreadList = new ArrayList<>();
                 }
                 topThreadList.add(0, threadDataById);
-                d.this.f57476a.v1(S.getThreadList(), S);
-                d.this.f57479d.T(S);
+                d.this.f57477a.v1(S.getThreadList(), S);
+                d.this.f57480d.T(S);
             }
-            if (TextUtils.equals(d.this.f57477b.i(), str3)) {
-                d.b.i0.c3.e.i().n(d.this.f57477b.i(), false);
+            if (TextUtils.equals(d.this.f57478b.i(), str3)) {
+                d.b.i0.c3.e.i().n(d.this.f57478b.i(), false);
             }
         }
     }
@@ -131,7 +131,7 @@ public class d extends j {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = d.this.f57477b.getResources().getString(R.string.neterror);
+                            errorString2 = d.this.f57478b.getResources().getString(R.string.neterror);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
@@ -144,7 +144,7 @@ public class d extends j {
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = d.this.f57477b.getResources().getString(R.string.neterror);
+                            errorString = d.this.f57478b.getResources().getString(R.string.neterror);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
@@ -167,25 +167,25 @@ public class d extends j {
 
     /* renamed from: d.b.i0.p0.e2.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1381d implements Runnable {
+    public class RunnableC1382d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostWriteCallBackData f57426e;
+        public final /* synthetic */ PostWriteCallBackData f57427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f57427f;
+        public final /* synthetic */ long f57428f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f57428g;
+        public final /* synthetic */ long f57429g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f57429h;
+        public final /* synthetic */ long f57430h;
 
-        public RunnableC1381d(PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
-            this.f57426e = postWriteCallBackData;
-            this.f57427f = j;
-            this.f57428g = j2;
-            this.f57429h = j3;
+        public RunnableC1382d(PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
+            this.f57427e = postWriteCallBackData;
+            this.f57428f = j;
+            this.f57429g = j2;
+            this.f57430h = j3;
         }
 
         @Override // java.lang.Runnable
@@ -195,24 +195,24 @@ public class d extends j {
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setProZone(this.f57426e.getProZone());
-            requestGetMyPostNetMessage.setParams(this.f57427f, this.f57428g, this.f57429h, k, i, f2, i2);
-            d.this.f57477b.sendMessage(requestGetMyPostNetMessage);
+            requestGetMyPostNetMessage.setProZone(this.f57427e.getProZone());
+            requestGetMyPostNetMessage.setParams(this.f57428f, this.f57429g, this.f57430h, k, i, f2, i2);
+            d.this.f57478b.sendMessage(requestGetMyPostNetMessage);
         }
     }
 
     public d(FrsFragment frsFragment) {
         super(frsFragment);
-        this.f57422h = new a(2921031);
+        this.f57423h = new a(2921031);
         this.i = new b(2921316);
         c cVar = new c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
         this.j = cVar;
         cVar.getSocketMessageListener().setSelfListener(true);
         this.j.getHttpMessageListener().setSelfListener(true);
-        this.f57422h.setSelfListener(false);
-        this.f57477b.registerListener(this.f57422h);
-        this.f57477b.registerListener(this.j);
-        this.f57477b.registerListener(this.i);
+        this.f57423h.setSelfListener(false);
+        this.f57478b.registerListener(this.f57423h);
+        this.f57478b.registerListener(this.j);
+        this.f57478b.registerListener(this.i);
     }
 
     public final void b(a2 a2Var, FrsNewAreaFragment frsNewAreaFragment) {
@@ -221,22 +221,22 @@ public class d extends j {
 
     public final void c(w0 w0Var) {
         ArrayList<d.b.b.j.e.n> threadList;
-        FrsViewData S = this.f57477b.S();
+        FrsViewData S = this.f57478b.S();
         if (S == null) {
             return;
         }
-        this.f57480e.C(w0Var);
-        if (this.f57480e.q0()) {
+        this.f57481e.C(w0Var);
+        if (this.f57481e.q0()) {
             ArrayList<d.b.b.j.e.n> arrayList = new ArrayList<>();
             arrayList.add(w0Var);
-            threadList = this.f57482g.c(false, true, arrayList, null, true);
+            threadList = this.f57483g.c(false, true, arrayList, null, true);
         } else {
             threadList = S.getThreadList();
         }
         if (threadList != null) {
             S.setThreadList(threadList);
             S.checkLiveStageInThreadList();
-            this.f57476a.v1(threadList, S);
+            this.f57477a.v1(threadList, S);
         }
     }
 
@@ -244,11 +244,11 @@ public class d extends j {
         DataRes dataRes;
         User_Info user_Info;
         if (i != 0) {
-            this.f57477b.showToast(str);
+            this.f57478b.showToast(str);
             return;
         }
-        FrsViewData S = this.f57477b.S();
-        if (S == null || S.getForum() == null || getMyPostResIdl == null || this.f57476a == null || this.f57480e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
+        FrsViewData S = this.f57478b.S();
+        if (S == null || S.getForum() == null || getMyPostResIdl == null || this.f57477a == null || this.f57481e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
             return;
         }
         w0 w0Var = new w0();
@@ -296,24 +296,24 @@ public class d extends j {
 
     public final void f(w0 w0Var, int i) {
         if (i == 1) {
-            FrsTabViewController.o y = this.f57477b.z2().y();
+            FrsTabViewController.o y = this.f57478b.z2().y();
             if (y != null) {
-                Fragment fragment = y.f16653b;
+                Fragment fragment = y.f16654b;
                 if (fragment instanceof FrsCommonTabFragment) {
                     ((FrsCommonTabFragment) fragment).K0(w0Var);
                 }
             }
         } else if (i == 2) {
-            FrsTabViewController.o F = this.f57477b.z2().F(301);
-            if (F == null || !(F.f16653b instanceof FrsGoodFragment)) {
+            FrsTabViewController.o F = this.f57478b.z2().F(301);
+            if (F == null || !(F.f16654b instanceof FrsGoodFragment)) {
                 return;
             }
-            this.f57478c.c(301);
-            ((FrsGoodFragment) F.f16653b).e1(w0Var);
+            this.f57479c.c(301);
+            ((FrsGoodFragment) F.f16654b).e1(w0Var);
         } else if (w0Var.m1() > 0) {
-            FrsTabViewController.o F2 = this.f57477b.z2().F(w0Var.m1());
+            FrsTabViewController.o F2 = this.f57478b.z2().F(w0Var.m1());
             if (F2 != null) {
-                Fragment fragment2 = F2.f16653b;
+                Fragment fragment2 = F2.f16654b;
                 if (fragment2 instanceof FrsCommonTabFragment) {
                     ((FrsCommonTabFragment) fragment2).K0(w0Var);
                 }
@@ -322,9 +322,9 @@ public class d extends j {
             if (!ListUtils.isEmpty(w0Var.z0())) {
                 w0Var.J1();
             }
-            FrsTabViewController.o F3 = this.f57477b.z2().F(this.f57477b.z2().B());
+            FrsTabViewController.o F3 = this.f57478b.z2().F(this.f57478b.z2().B());
             if (F3 != null) {
-                Fragment fragment3 = F3.f16653b;
+                Fragment fragment3 = F3.f16654b;
                 if (fragment3 instanceof FrsNewAreaFragment) {
                     b(w0Var, (FrsNewAreaFragment) fragment3);
                 } else {
@@ -335,21 +335,21 @@ public class d extends j {
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
-        FrsModelController frsModelController = this.f57480e;
+        FrsModelController frsModelController = this.f57481e;
         if (frsModelController == null) {
             return;
         }
-        boolean z = frsModelController.Z() != null && this.f57480e.Z().getIsBrandForum();
-        int N = this.f57480e.N();
+        boolean z = frsModelController.Z() != null && this.f57481e.Z().getIsBrandForum();
+        int N = this.f57481e.N();
         if (N == 2 || N == 3 || N == 7 || N == 8 || z) {
-            if ((d0.a().b(1) != null ? this.f57480e.R() : 0) != 0 || postWriteCallBackData == null) {
+            if ((d0.a().b(1) != null ? this.f57481e.R() : 0) != 0 || postWriteCallBackData == null) {
                 return;
             }
             long f2 = d.b.b.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
             long f3 = d.b.b.e.m.b.f(postWriteCallBackData.getThreadId(), 0L);
-            long f4 = d.b.b.e.m.b.f(this.f57477b.h(), 0L);
+            long f4 = d.b.b.e.m.b.f(this.f57478b.h(), 0L);
             if (f2 != 0 && f3 != 0 && f4 != 0) {
-                d.b.b.e.m.e.a().postDelayed(new RunnableC1381d(postWriteCallBackData, f3, f2, f4), 1000L);
+                d.b.b.e.m.e.a().postDelayed(new RunnableC1382d(postWriteCallBackData, f3, f2, f4), 1000L);
                 return;
             }
             WriteData writeData = postWriteCallBackData.writeDataForVideo;

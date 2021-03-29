@@ -10,7 +10,7 @@ import d.b.i0.u3.h;
 public class d extends d.b.i0.u3.h {
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61488h;
+    public boolean f61489h;
     public boolean i;
     public boolean j;
     public ValueAnimator k;
@@ -35,7 +35,7 @@ public class d extends d.b.i0.u3.h {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            View view = d.this.f61535b;
+            View view = d.this.f61536b;
             if (view != null) {
                 view.setAlpha(1.0f);
             }
@@ -58,7 +58,7 @@ public class d extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             View view;
-            if (valueAnimator.isRunning() && (view = d.this.f61535b) != null) {
+            if (valueAnimator.isRunning() && (view = d.this.f61536b) != null) {
                 view.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
@@ -76,7 +76,7 @@ public class d extends d.b.i0.u3.h {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            View view = d.this.f61535b;
+            View view = d.this.f61536b;
             if (view != null) {
                 view.setAlpha(0.0f);
             }
@@ -93,8 +93,8 @@ public class d extends d.b.i0.u3.h {
 
     /* renamed from: d.b.i0.u3.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1610d implements Runnable {
-        public RunnableC1610d() {
+    public class RunnableC1611d implements Runnable {
+        public RunnableC1611d() {
         }
 
         @Override // java.lang.Runnable
@@ -111,14 +111,14 @@ public class d extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float animatedFraction = valueAnimator.getAnimatedFraction();
-            if (d.this.f61488h || animatedFraction < 0.6923f || !d.this.o.f61455g.isAnimating()) {
-                if (d.this.j || animatedFraction < 0.38461f || !d.this.o.f61455g.isAnimating()) {
+            if (d.this.f61489h || animatedFraction < 0.6923f || !d.this.o.f61456g.isAnimating()) {
+                if (d.this.j || animatedFraction < 0.38461f || !d.this.o.f61456g.isAnimating()) {
                     return;
                 }
                 d.this.j = true;
                 return;
             }
-            d.this.f61488h = true;
+            d.this.f61489h = true;
         }
     }
 
@@ -154,7 +154,7 @@ public class d extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float animatedFraction = valueAnimator.getAnimatedFraction();
-            if (d.this.i || animatedFraction < 0.57142f || !d.this.o.f61455g.isAnimating()) {
+            if (d.this.i || animatedFraction < 0.57142f || !d.this.o.f61456g.isAnimating()) {
                 return;
             }
             d.this.i = true;
@@ -194,7 +194,7 @@ public class d extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning()) {
-                d.this.o.f61454f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                d.this.o.f61455f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -211,7 +211,7 @@ public class d extends d.b.i0.u3.h {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            d.this.o.f61454f.setAlpha(1.0f);
+            d.this.o.f61455f.setAlpha(1.0f);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -231,7 +231,7 @@ public class d extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning()) {
-                d.this.o.f61454f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                d.this.o.f61455f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -248,7 +248,7 @@ public class d extends d.b.i0.u3.h {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            d.this.o.f61454f.setAlpha(0.0f);
+            d.this.o.f61455f.setAlpha(0.0f);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -268,7 +268,7 @@ public class d extends d.b.i0.u3.h {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             View view;
-            if (valueAnimator.isRunning() && (view = d.this.f61535b) != null) {
+            if (valueAnimator.isRunning() && (view = d.this.f61536b) != null) {
                 view.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
@@ -276,7 +276,7 @@ public class d extends d.b.i0.u3.h {
 
     public d(Context context, a.c cVar) {
         super(context, cVar);
-        this.f61488h = false;
+        this.f61489h = false;
         this.i = false;
         this.j = false;
         this.p = new e();
@@ -295,56 +295,56 @@ public class d extends d.b.i0.u3.h {
     @Override // d.b.i0.u3.h
     public void d() {
         t();
-        this.o.f61455g.cancelAnimation();
+        this.o.f61456g.cancelAnimation();
     }
 
     @Override // d.b.i0.u3.h
     public void g() {
-        if (this.f61538e != 4) {
+        if (this.f61539e != 4) {
             return;
         }
-        this.f61538e = 1;
-        h.a aVar = this.f61537d;
+        this.f61539e = 1;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
             aVar.a(1);
         }
         t();
         y(0);
-        this.o.f61455g.setVisibility(0);
+        this.o.f61456g.setVisibility(0);
         this.k.start();
         this.n.start();
-        this.o.f61455g.removeAnimatorListener(this.s);
-        this.o.f61455g.removeUpdateListener(this.r);
-        this.o.f61455g.addAnimatorUpdateListener(this.p);
-        this.o.f61455g.addAnimatorListener(this.q);
-        this.o.f61455g.setMinAndMaxProgress(0.0f, 1.0f);
-        this.o.f61455g.setProgress(0.0f);
-        this.o.f61455g.setSpeed(1.4f);
-        this.o.f61455g.playAnimation();
+        this.o.f61456g.removeAnimatorListener(this.s);
+        this.o.f61456g.removeUpdateListener(this.r);
+        this.o.f61456g.addAnimatorUpdateListener(this.p);
+        this.o.f61456g.addAnimatorListener(this.q);
+        this.o.f61456g.setMinAndMaxProgress(0.0f, 1.0f);
+        this.o.f61456g.setProgress(0.0f);
+        this.o.f61456g.setSpeed(1.4f);
+        this.o.f61456g.playAnimation();
     }
 
     @Override // d.b.i0.u3.h
     public void h() {
-        if (this.f61538e != 2) {
+        if (this.f61539e != 2) {
             return;
         }
         this.o.e(false);
-        this.f61538e = 3;
-        h.a aVar = this.f61537d;
+        this.f61539e = 3;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
             aVar.a(3);
         }
-        this.o.f61455g.setVisibility(0);
-        d.b.b.e.m.e.a().postDelayed(new RunnableC1610d(), 300L);
+        this.o.f61456g.setVisibility(0);
+        d.b.b.e.m.e.a().postDelayed(new RunnableC1611d(), 300L);
         this.o.d(false);
-        this.o.f61455g.removeAnimatorListener(this.q);
-        this.o.f61455g.removeUpdateListener(this.p);
-        this.o.f61455g.addAnimatorUpdateListener(this.r);
-        this.o.f61455g.addAnimatorListener(this.s);
-        this.o.f61455g.setMinAndMaxProgress(0.0f, 1.0f);
-        this.o.f61455g.setProgress(1.0f);
-        this.o.f61455g.setSpeed(-1.68f);
-        this.o.f61455g.playAnimation();
+        this.o.f61456g.removeAnimatorListener(this.q);
+        this.o.f61456g.removeUpdateListener(this.p);
+        this.o.f61456g.addAnimatorUpdateListener(this.r);
+        this.o.f61456g.addAnimatorListener(this.s);
+        this.o.f61456g.setMinAndMaxProgress(0.0f, 1.0f);
+        this.o.f61456g.setProgress(1.0f);
+        this.o.f61456g.setSpeed(-1.68f);
+        this.o.f61456g.playAnimation();
     }
 
     public final void t() {
@@ -378,33 +378,33 @@ public class d extends d.b.i0.u3.h {
     }
 
     public final void v() {
-        this.f61488h = false;
+        this.f61489h = false;
         this.j = false;
         this.i = false;
         this.o.d(false);
-        View view = this.f61536c;
+        View view = this.f61537c;
         if (view != null) {
             view.setVisibility(0);
         }
-        View view2 = this.f61535b;
+        View view2 = this.f61536b;
         if (view2 != null) {
             view2.setAlpha(1.0f);
-            this.f61535b.setVisibility(0);
+            this.f61536b.setVisibility(0);
         }
         t();
         y(8);
-        this.f61538e = 4;
-        h.a aVar = this.f61537d;
+        this.f61539e = 4;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
             aVar.a(4);
         }
     }
 
     public final void w() {
-        this.o.f61455g.setVisibility(0);
+        this.o.f61456g.setVisibility(0);
         this.o.d(true);
-        this.f61538e = 2;
-        h.a aVar = this.f61537d;
+        this.f61539e = 2;
+        h.a aVar = this.f61538d;
         if (aVar != null) {
             aVar.a(2);
         }
@@ -415,8 +415,8 @@ public class d extends d.b.i0.u3.h {
     }
 
     public final void y(int i2) {
-        this.o.f61453e.setVisibility(i2);
-        this.o.f61454f.setVisibility(i2);
-        this.o.f61456h.setVisibility(i2);
+        this.o.f61454e.setVisibility(i2);
+        this.o.f61455f.setVisibility(i2);
+        this.o.f61457h.setVisibility(i2);
     }
 }

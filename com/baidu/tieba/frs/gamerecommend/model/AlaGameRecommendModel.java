@@ -18,16 +18,16 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public static final int FIRST_PN = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16400e;
+    public String f16401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16401f;
+    public int f16402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16402g;
+    public boolean f16403g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16403h;
+    public boolean f16404h;
     public HttpMessageListener j;
     public b k;
     public BdUniqueId i = BdUniqueId.gen();
@@ -46,23 +46,23 @@ public class AlaGameRecommendModel extends BdBaseModel {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (alaGameRecommendReponseMessage.hasError() || alaGameRecommendReponseMessage.getError() != 0) {
                     if (AlaGameRecommendModel.this.k != null) {
-                        AlaGameRecommendModel.this.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaGameRecommendModel.this.f16403h);
+                        AlaGameRecommendModel.this.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaGameRecommendModel.this.f16404h);
                     }
                 } else {
                     d.b.i0.p0.u1.c.a data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
-                    AlaGameRecommendModel.this.f16402g = data.f58595a;
-                    if (AlaGameRecommendModel.this.f16403h) {
+                    AlaGameRecommendModel.this.f16403g = data.f58596a;
+                    if (AlaGameRecommendModel.this.f16404h) {
                         AlaGameRecommendModel.z(AlaGameRecommendModel.this);
                     }
-                    AlaGameRecommendModel.this.l.c(AlaGameRecommendModel.this.f16401f, data);
+                    AlaGameRecommendModel.this.l.c(AlaGameRecommendModel.this.f16402f, data);
                     if (AlaGameRecommendModel.this.k != null) {
-                        AlaGameRecommendModel.this.k.a(AlaGameRecommendModel.this.f16402g, AlaGameRecommendModel.this.l.a());
+                        AlaGameRecommendModel.this.k.a(AlaGameRecommendModel.this.f16403g, AlaGameRecommendModel.this.l.a());
                     }
                 }
-                AlaGameRecommendModel.this.f16403h = false;
+                AlaGameRecommendModel.this.f16404h = false;
             }
         }
     }
@@ -75,15 +75,15 @@ public class AlaGameRecommendModel extends BdBaseModel {
     }
 
     public AlaGameRecommendModel(String str, b bVar) {
-        this.f16400e = str;
+        this.f16401e = str;
         this.k = bVar;
         E();
         registerListener();
     }
 
     public static /* synthetic */ int z(AlaGameRecommendModel alaGameRecommendModel) {
-        int i = alaGameRecommendModel.f16401f;
-        alaGameRecommendModel.f16401f = i + 1;
+        int i = alaGameRecommendModel.f16402f;
+        alaGameRecommendModel.f16402f = i + 1;
         return i;
     }
 
@@ -92,23 +92,23 @@ public class AlaGameRecommendModel extends BdBaseModel {
     }
 
     public void C() {
-        this.f16403h = false;
-        this.f16401f = 1;
+        this.f16404h = false;
+        this.f16402f = 1;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-        httpMessage.addParam("forum_id", this.f16400e);
-        httpMessage.addParam("recom_pn", this.f16401f);
+        httpMessage.addParam("forum_id", this.f16401e);
+        httpMessage.addParam("recom_pn", this.f16402f);
         httpMessage.setTag(this.i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void D() {
-        if (!this.f16402g || this.f16403h) {
+        if (!this.f16403g || this.f16404h) {
             return;
         }
-        this.f16403h = true;
+        this.f16404h = true;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-        httpMessage.addParam("forum_id", this.f16400e);
-        httpMessage.addParam("recom_pn", this.f16401f + 1);
+        httpMessage.addParam("forum_id", this.f16401e);
+        httpMessage.addParam("recom_pn", this.f16402f + 1);
         httpMessage.setTag(this.i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }

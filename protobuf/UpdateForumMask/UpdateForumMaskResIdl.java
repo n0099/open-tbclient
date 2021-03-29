@@ -3,7 +3,7 @@ package protobuf.UpdateForumMask;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class UpdateForumMaskResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;

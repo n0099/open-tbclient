@@ -15,26 +15,26 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     public static final Parcelable.Creator<TransitRouteLine> CREATOR = new o();
 
     /* renamed from: b  reason: collision with root package name */
-    public TaxiInfo f7313b;
+    public TaxiInfo f7314b;
 
     /* loaded from: classes2.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new p();
 
         /* renamed from: d  reason: collision with root package name */
-        public VehicleInfo f7314d;
+        public VehicleInfo f7315d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f7315e;
+        public RouteNode f7316e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RouteNode f7316f;
+        public RouteNode f7317f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TransitRouteStepType f7317g;
+        public TransitRouteStepType f7318g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7318h;
+        public String f7319h;
         public String i;
 
         /* loaded from: classes2.dex */
@@ -49,12 +49,12 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
         public TransitStep(Parcel parcel) {
             super(parcel);
-            this.f7314d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
-            this.f7315e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7316f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7315d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
+            this.f7316e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7317f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
             int readInt = parcel.readInt();
-            this.f7317g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
-            this.f7318h = parcel.readString();
+            this.f7318g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
+            this.f7319h = parcel.readString();
             this.i = parcel.readString();
         }
 
@@ -64,23 +64,23 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         public RouteNode getEntrance() {
-            return this.f7315e;
+            return this.f7316e;
         }
 
         public RouteNode getExit() {
-            return this.f7316f;
+            return this.f7317f;
         }
 
         public String getInstructions() {
-            return this.f7318h;
+            return this.f7319h;
         }
 
         public TransitRouteStepType getStepType() {
-            return this.f7317g;
+            return this.f7318g;
         }
 
         public VehicleInfo getVehicleInfo() {
-            return this.f7314d;
+            return this.f7315d;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
@@ -92,15 +92,15 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         public void setEntrace(RouteNode routeNode) {
-            this.f7315e = routeNode;
+            this.f7316e = routeNode;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7316f = routeNode;
+            this.f7317f = routeNode;
         }
 
         public void setInstructions(String str) {
-            this.f7318h = str;
+            this.f7319h = str;
         }
 
         public void setPathString(String str) {
@@ -108,22 +108,22 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         public void setStepType(TransitRouteStepType transitRouteStepType) {
-            this.f7317g = transitRouteStepType;
+            this.f7318g = transitRouteStepType;
         }
 
         public void setVehicleInfo(VehicleInfo vehicleInfo) {
-            this.f7314d = vehicleInfo;
+            this.f7315d = vehicleInfo;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeParcelable(this.f7314d, 1);
-            parcel.writeParcelable(this.f7315e, 1);
-            parcel.writeParcelable(this.f7316f, 1);
-            TransitRouteStepType transitRouteStepType = this.f7317g;
+            parcel.writeParcelable(this.f7315d, 1);
+            parcel.writeParcelable(this.f7316e, 1);
+            parcel.writeParcelable(this.f7317f, 1);
+            TransitRouteStepType transitRouteStepType = this.f7318g;
             parcel.writeInt(transitRouteStepType == null ? -1 : transitRouteStepType.ordinal());
-            parcel.writeString(this.f7318h);
+            parcel.writeString(this.f7319h);
             parcel.writeString(this.i);
         }
     }
@@ -133,7 +133,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
     public TransitRouteLine(Parcel parcel) {
         super(parcel);
-        this.f7313b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f7314b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -143,17 +143,17 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
     @Deprecated
     public TaxiInfo getTaxitInfo() {
-        return this.f7313b;
+        return this.f7314b;
     }
 
     public void setTaxitInfo(TaxiInfo taxiInfo) {
-        this.f7313b = taxiInfo;
+        this.f7314b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.setType(RouteLine.TYPE.TRANSITSTEP);
         super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.f7313b, 1);
+        parcel.writeParcelable(this.f7314b, 1);
     }
 }

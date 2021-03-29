@@ -8,29 +8,29 @@ import java.util.List;
 public class ShapeStroke implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31491a;
+    public final String f31492a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31492b;
+    public final com.ksad.lottie.model.a.b f31493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.ksad.lottie.model.a.b> f31493c;
+    public final List<com.ksad.lottie.model.a.b> f31494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.a f31494d;
+    public final com.ksad.lottie.model.a.a f31495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.d f31495e;
+    public final com.ksad.lottie.model.a.d f31496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31496f;
+    public final com.ksad.lottie.model.a.b f31497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final LineCapType f31497g;
+    public final LineCapType f31498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LineJoinType f31498h;
+    public final LineJoinType f31499h;
     public final float i;
 
     /* renamed from: com.ksad.lottie.model.content.ShapeStroke$1  reason: invalid class name */
@@ -38,38 +38,38 @@ public class ShapeStroke implements b {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31499a;
+        public static final /* synthetic */ int[] f31500a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31500b;
+        public static final /* synthetic */ int[] f31501b;
 
         static {
             int[] iArr = new int[LineJoinType.values().length];
-            f31500b = iArr;
+            f31501b = iArr;
             try {
                 iArr[LineJoinType.Bevel.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31500b[LineJoinType.Miter.ordinal()] = 2;
+                f31501b[LineJoinType.Miter.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31500b[LineJoinType.Round.ordinal()] = 3;
+                f31501b[LineJoinType.Round.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[LineCapType.values().length];
-            f31499a = iArr2;
+            f31500a = iArr2;
             try {
                 iArr2[LineCapType.Butt.ordinal()] = 1;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31499a[LineCapType.Round.ordinal()] = 2;
+                f31500a[LineCapType.Round.ordinal()] = 2;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31499a[LineCapType.Unknown.ordinal()] = 3;
+                f31500a[LineCapType.Unknown.ordinal()] = 3;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -82,7 +82,7 @@ public class ShapeStroke implements b {
         Unknown;
 
         public Paint.Cap toPaintCap() {
-            int i = AnonymousClass1.f31499a[ordinal()];
+            int i = AnonymousClass1.f31500a[ordinal()];
             return i != 1 ? i != 2 ? Paint.Cap.SQUARE : Paint.Cap.ROUND : Paint.Cap.BUTT;
         }
     }
@@ -94,7 +94,7 @@ public class ShapeStroke implements b {
         Bevel;
 
         public Paint.Join toPaintJoin() {
-            int i = AnonymousClass1.f31500b[ordinal()];
+            int i = AnonymousClass1.f31501b[ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
@@ -109,14 +109,14 @@ public class ShapeStroke implements b {
     }
 
     public ShapeStroke(String str, @Nullable com.ksad.lottie.model.a.b bVar, List<com.ksad.lottie.model.a.b> list, com.ksad.lottie.model.a.a aVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f2) {
-        this.f31491a = str;
-        this.f31492b = bVar;
-        this.f31493c = list;
-        this.f31494d = aVar;
-        this.f31495e = dVar;
-        this.f31496f = bVar2;
-        this.f31497g = lineCapType;
-        this.f31498h = lineJoinType;
+        this.f31492a = str;
+        this.f31493b = bVar;
+        this.f31494c = list;
+        this.f31495d = aVar;
+        this.f31496e = dVar;
+        this.f31497f = bVar2;
+        this.f31498g = lineCapType;
+        this.f31499h = lineJoinType;
         this.i = f2;
     }
 
@@ -126,35 +126,35 @@ public class ShapeStroke implements b {
     }
 
     public String a() {
-        return this.f31491a;
+        return this.f31492a;
     }
 
     public com.ksad.lottie.model.a.a b() {
-        return this.f31494d;
+        return this.f31495d;
     }
 
     public com.ksad.lottie.model.a.d c() {
-        return this.f31495e;
+        return this.f31496e;
     }
 
     public com.ksad.lottie.model.a.b d() {
-        return this.f31496f;
+        return this.f31497f;
     }
 
     public List<com.ksad.lottie.model.a.b> e() {
-        return this.f31493c;
+        return this.f31494c;
     }
 
     public com.ksad.lottie.model.a.b f() {
-        return this.f31492b;
+        return this.f31493b;
     }
 
     public LineCapType g() {
-        return this.f31497g;
+        return this.f31498g;
     }
 
     public LineJoinType h() {
-        return this.f31498h;
+        return this.f31499h;
     }
 
     public float i() {

@@ -17,13 +17,13 @@ import org.json.JSONObject;
 public class PanoramaRequest {
 
     /* renamed from: b  reason: collision with root package name */
-    public static PanoramaRequest f6365b;
+    public static PanoramaRequest f6366b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6366a;
+    public Context f6367a;
 
     public PanoramaRequest(Context context) {
-        this.f6366a = context;
+        this.f6367a = context;
     }
 
     private BaiduPanoData a(String str) {
@@ -127,15 +127,15 @@ public class PanoramaRequest {
     }
 
     public static PanoramaRequest getInstance(Context context) {
-        if (f6365b == null) {
-            f6365b = new PanoramaRequest(context);
+        if (f6366b == null) {
+            f6366b = new PanoramaRequest(context);
         }
-        return f6365b;
+        return f6366b;
     }
 
     public String getPanoramaByIIdWithJson(String str) {
         if (!TextUtils.isEmpty(str)) {
-            return c(c.a(this.f6366a).b(i.f9457a + "&iid=" + str + "&" + f.a(this.f6366a).toString()));
+            return c(c.a(this.f6367a).b(i.f9458a + "&iid=" + str + "&" + f.a(this.f6367a).toString()));
         }
         throw new IllegalArgumentException("The parameter iid can't be null or empty string!");
     }
@@ -145,26 +145,26 @@ public class PanoramaRequest {
     }
 
     public BaiduPanoData getPanoramaInfoByMercator(int i, int i2) {
-        return a(c.a(this.f6366a).b(i.f9460d + "&x=" + i + "&y=" + i2 + "&action=1&" + f.a(this.f6366a).toString()));
+        return a(c.a(this.f6367a).b(i.f9461d + "&x=" + i + "&y=" + i2 + "&action=1&" + f.a(this.f6367a).toString()));
     }
 
     public BaiduPoiPanoData getPanoramaInfoByUid(String str) {
         if (!TextUtils.isEmpty(str)) {
-            return b(c.a(this.f6366a).b(i.f9461e + "&uid=" + str + "&action=1&" + f.a(this.f6366a).toString()));
+            return b(c.a(this.f6367a).b(i.f9462e + "&uid=" + str + "&action=1&" + f.a(this.f6367a).toString()));
         }
         throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
     }
 
     public String getPanoramaRecommendInfo(String str) {
         if (!TextUtils.isEmpty(str)) {
-            return c.a(this.f6366a).b(i.f9458b + "&sid=" + str + "&" + f.a(this.f6366a).toString());
+            return c.a(this.f6367a).b(i.f9459b + "&sid=" + str + "&" + f.a(this.f6367a).toString());
         }
         throw new IllegalArgumentException("The parameter pid can't be null or empty string!");
     }
 
     public String getPoiInfoByUidWithJson(String str) {
         if (!TextUtils.isEmpty(str)) {
-            return c.a(this.f6366a).b(i.f9461e + "&action=1&uid=" + str + "&" + f.a(this.f6366a).toString());
+            return c.a(this.f6367a).b(i.f9462e + "&action=1&uid=" + str + "&" + f.a(this.f6367a).toString());
         }
         throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
     }

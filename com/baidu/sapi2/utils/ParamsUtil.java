@@ -83,7 +83,7 @@ public class ParamsUtil implements NoProguard {
     }
 
     public static String getUrlTwitterLogin(SapiConfiguration sapiConfiguration) {
-        String str = sapiConfiguration.environment.getURL() + g.f11505f;
+        String str = sapiConfiguration.environment.getURL() + g.f11506f;
         HashMap hashMap = new HashMap();
         hashMap.put("type", String.valueOf(SocialType.TWITTER.getType()));
         hashMap.put("tpl", sapiConfiguration.tpl);

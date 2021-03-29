@@ -3,7 +3,7 @@ package com.baidu.searchbox.ubcprocessor;
 import com.baidu.pyramid.annotation.Inject;
 import d.b.d0.a.b.b;
 import d.b.d0.a.b.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UBCCloudConfigObservers {
     @Inject(force = false)
     public d<UBCCloudConfigObserver> mObservers;

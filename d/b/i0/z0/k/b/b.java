@@ -22,7 +22,7 @@ import d.b.i.u0.a;
 import d.b.i0.i2.o;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public TbPageContext m;
     public BdUniqueId n;
@@ -31,7 +31,7 @@ public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public d.b.i0.z0.g.k.e q;
     public b0<l> r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<l> {
         public a() {
         }
@@ -53,34 +53,34 @@ public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     }
 
     /* renamed from: d.b.i0.z0.k.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1712b implements a.InterfaceC1115a {
+    /* loaded from: classes3.dex */
+    public class C1713b implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f63392a;
+        public final /* synthetic */ s0 f63393a;
 
-        public C1712b(s0 s0Var) {
-            this.f63392a = s0Var;
+        public C1713b(s0 s0Var) {
+            this.f63393a = s0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f63392a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f63393a.getVideoContainer());
             if (aVar instanceof l) {
                 aVar.objType = 5;
                 d.b.i0.z0.k.d.a.f((d.b.i0.x.e0.b) aVar);
-                d.b.i0.z0.k.d.a.c(aVar, b.this.f42357e, 19, false, computeViewArea);
+                d.b.i0.z0.k.d.a.c(aVar, b.this.f42358e, 19, false, computeViewArea);
                 return;
             }
             d.b.i0.z0.k.d.a.f((d.b.i0.x.e0.b) aVar);
-            d.b.i0.z0.k.d.a.c(aVar, b.this.f42357e, 19, false, computeViewArea);
+            d.b.i0.z0.k.d.a.c(aVar, b.this.f42358e, 19, false, computeViewArea);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }
@@ -95,7 +95,7 @@ public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
                     b.this.r.a(threadCardViewHolder.a(), lVar);
                 }
                 d.b.i0.z0.k.d.a.c(lVar, view.getContext(), 19, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -109,10 +109,10 @@ public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public final o n0(l lVar) {
         if (lVar != null) {
             o oVar = new o();
-            oVar.f56163a = Constants.VIA_ACT_TYPE_NINETEEN;
-            oVar.f56165c = lVar.l;
+            oVar.f56164a = Constants.VIA_ACT_TYPE_NINETEEN;
+            oVar.f56166c = lVar.l;
             if (lVar.n() != null) {
-                oVar.f56166d = String.valueOf(lVar.n().c0());
+                oVar.f56167d = String.valueOf(lVar.n().c0());
                 oVar.v = lVar.n().L0();
                 if (lVar.n().u1() != null) {
                     oVar.m = lVar.n().u1().video_md5;
@@ -120,10 +120,10 @@ public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
                 }
             }
             oVar.k = lVar.B();
-            oVar.f56168f = lVar.F();
+            oVar.f56169f = lVar.F();
             oVar.l = lVar.z();
-            oVar.f56170h = lVar.O();
-            oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f56171h = lVar.O();
+            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
             oVar.q = String.valueOf(lVar.E());
             if (lVar.n() == null || lVar.n().V() == null) {
                 return oVar;
@@ -160,7 +160,7 @@ public class b extends d.b.b.j.e.a<l, AutoVideoCardViewHolder<l>> {
     public AutoVideoCardViewHolder<l> R(ViewGroup viewGroup) {
         k0.b bVar = new k0.b(this.m.getPageActivity(), false);
         d.b.i.g gVar = new d.b.i.g(this.m.getPageActivity());
-        gVar.v(new C1712b(gVar));
+        gVar.v(new C1713b(gVar));
         this.p = gVar;
         gVar.x(this.n);
         this.p.u("video_tab");

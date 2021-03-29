@@ -6,43 +6,43 @@ import d.b.i0.c3.w;
 public class h implements d.b.b.j.e.n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f57035h = BdUniqueId.gen();
+    public static final BdUniqueId f57036h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public w f57036e;
+    public w f57037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57037f;
+    public String f57038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57038g;
+    public String f57039g;
 
     public String a() {
-        return this.f57037f;
+        return this.f57038f;
     }
 
     public String e() {
-        return this.f57038g;
+        return this.f57039g;
     }
 
     public w f() {
-        return this.f57036e;
+        return this.f57037e;
     }
 
     public void g(String str) {
-        this.f57037f = str;
+        this.f57038f = str;
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f57035h;
+        return f57036h;
     }
 
     public void j(String str) {
-        this.f57038g = str;
+        this.f57039g = str;
     }
 
     public void k(w wVar) {
-        this.f57036e = wVar;
+        this.f57037e = wVar;
     }
 }

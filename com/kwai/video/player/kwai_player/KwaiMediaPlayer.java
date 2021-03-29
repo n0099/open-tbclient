@@ -1019,51 +1019,43 @@ public final class KwaiMediaPlayer extends AbstractNativeMediaPlayer implements 
 
     @Override // com.kwai.video.player.AbstractNativeMediaPlayer
     public void onReceivePostEvent(Message message) {
-        int i;
-        int i2 = message.what;
-        if (i2 != 0) {
-            if (i2 == 1) {
+        int i = message.what;
+        if (i != 0) {
+            if (i == 1) {
                 notifyOnPrepared();
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 notifyOnCompletion();
                 stayAwake(false);
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 notifyOnBufferingUpdate(message.arg1);
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 notifyOnSeekComplete();
-            } else if (i2 == 5) {
-                int i3 = message.arg2;
-                this.mVideoHeight = i3;
-                if (this.mIsLive && this.mIsVR) {
-                    double d2 = i3;
-                    Double.isNaN(d2);
-                    i = (int) (d2 * 0.5625d);
-                } else {
-                    i = message.arg1;
-                }
-                this.mVideoWidth = i;
+            } else if (i == 5) {
+                int i2 = message.arg2;
+                this.mVideoHeight = i2;
+                this.mVideoWidth = (this.mIsLive && this.mIsVR) ? (int) (i2 * 0.5625d) : message.arg1;
                 notifyOnVideoSizeChanged(this.mVideoWidth, this.mVideoHeight, this.mVideoSarNum, this.mVideoSarDen);
                 resizeVideo(this.mVideoWidth, this.mVideoHeight);
-            } else if (i2 != 99) {
-                if (i2 == 100) {
+            } else if (i != 99) {
+                if (i == 100) {
                     Timber.e("MEDIA_ERROR, msg.arg1:%d, msg.arg2:%d", Integer.valueOf(message.arg1), Integer.valueOf(message.arg2));
                     if (!notifyOnError(message.arg1, message.arg2)) {
                         notifyOnCompletion();
                     }
                     stayAwake(false);
-                } else if (i2 == 200) {
-                    int i4 = message.arg1;
-                    if (i4 == 701) {
+                } else if (i == 200) {
+                    int i3 = message.arg1;
+                    if (i3 == 701) {
                         this.mBufferingCount++;
                         this.mStartBufferingTime = System.currentTimeMillis();
-                    } else if (i4 == 702) {
+                    } else if (i3 == 702) {
                         this.mTotalBufferingTime += (int) (System.currentTimeMillis() - this.mStartBufferingTime);
-                    } else if (i4 == 10100) {
+                    } else if (i3 == 10100) {
                         notifyOnSeekComplete();
                         return;
                     }
                     notifyOnInfo(message.arg1, message.arg2);
-                } else if (i2 == 300) {
+                } else if (i == 300) {
                     long j = (message.arg1 << 32) | message.arg2;
                     String kwaiLiveVoiceComment = getKwaiLiveVoiceComment(j);
                     Timber.i("MEDIA_LIVE_VC_TIME, vc_time:%d, voice_comment:%s", Long.valueOf(j), kwaiLiveVoiceComment);
@@ -1071,15 +1063,15 @@ public final class KwaiMediaPlayer extends AbstractNativeMediaPlayer implements 
                     if (onLiveVoiceCommentListener != null) {
                         onLiveVoiceCommentListener.onLiveVoiceCommentChange(this, kwaiLiveVoiceComment);
                     }
-                } else if (i2 == 10001) {
-                    int i5 = message.arg1;
-                    this.mVideoSarNum = i5;
-                    int i6 = message.arg2;
-                    this.mVideoSarDen = i6;
-                    notifyOnVideoSizeChanged(this.mVideoWidth, this.mVideoHeight, i5, i6);
-                } else if (i2 == 12001) {
+                } else if (i == 10001) {
+                    int i4 = message.arg1;
+                    this.mVideoSarNum = i4;
+                    int i5 = message.arg2;
+                    this.mVideoSarDen = i5;
+                    notifyOnVideoSizeChanged(this.mVideoWidth, this.mVideoHeight, i4, i5);
+                } else if (i == 12001) {
                     notifyRepresentationChangeStart(message.arg1, message.arg2);
-                } else if (i2 == 12002) {
+                } else if (i == 12002) {
                     notifyRepresentationChangeEnd(message.arg1);
                 } else {
                     DebugLog.e(TAG, "Unknown message type " + message.what);
@@ -1279,7 +1271,7 @@ public final class KwaiMediaPlayer extends AbstractNativeMediaPlayer implements 
         } else {
             AssetFileDescriptor assetFileDescriptor = null;
             try {
-                AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7663a);
+                AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7664a);
                 if (openAssetFileDescriptor == null) {
                     if (openAssetFileDescriptor != null) {
                         openAssetFileDescriptor.close();

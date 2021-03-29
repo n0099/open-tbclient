@@ -12,10 +12,7 @@ public final class LogTime {
     }
 
     public static double getElapsedMillis(long j) {
-        double logTime = getLogTime() - j;
-        double d2 = MILLIS_MULTIPLIER;
-        Double.isNaN(logTime);
-        return logTime * d2;
+        return (getLogTime() - j) * MILLIS_MULTIPLIER;
     }
 
     @TargetApi(17)

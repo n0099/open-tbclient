@@ -12,22 +12,22 @@ import java.util.List;
 public class BaiduNativeManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8007a = "BaiduNativeManager";
+    public static final String f8008a = "BaiduNativeManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f8008b;
+    public final Context f8009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f8009c;
+    public final String f8010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8010d;
+    public boolean f8011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8011e;
+    public int f8012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8012f;
+    public boolean f8013f;
 
     /* loaded from: classes2.dex */
     public interface FeedAdListener {
@@ -58,28 +58,28 @@ public class BaiduNativeManager {
     }
 
     public void loadContentAd(RequestParameters requestParameters, FeedAdListener feedAdListener) {
-        BaiduNative baiduNative = new BaiduNative(this.f8008b, this.f8009c, new a(feedAdListener), new e(this.f8008b, this.f8009c, IXAdConstants4PDK.SlotType.SLOT_TYPE_CONTENT, this.f8010d, this.f8011e));
-        baiduNative.setCacheVideoOnlyWifi(this.f8012f);
+        BaiduNative baiduNative = new BaiduNative(this.f8009b, this.f8010c, new a(feedAdListener), new e(this.f8009b, this.f8010c, IXAdConstants4PDK.SlotType.SLOT_TYPE_CONTENT, this.f8011d, this.f8012e));
+        baiduNative.setCacheVideoOnlyWifi(this.f8013f);
         baiduNative.setDownloadListener(new b());
         baiduNative.makeRequest(requestParameters);
     }
 
     public void loadFeedAd(RequestParameters requestParameters, FeedAdListener feedAdListener) {
-        BaiduNative baiduNative = new BaiduNative(this.f8008b, this.f8009c, new a(feedAdListener), this.f8010d, this.f8011e);
-        baiduNative.setCacheVideoOnlyWifi(this.f8012f);
+        BaiduNative baiduNative = new BaiduNative(this.f8009b, this.f8010c, new a(feedAdListener), this.f8011d, this.f8012e);
+        baiduNative.setCacheVideoOnlyWifi(this.f8013f);
         baiduNative.setDownloadListener(new b());
         baiduNative.makeRequest(requestParameters);
     }
 
     public void loadPortraitVideoAd(RequestParameters requestParameters, PortraitVideoAdListener portraitVideoAdListener) {
-        BaiduNative baiduNative = new BaiduNative(this.f8008b, this.f8009c, new a(portraitVideoAdListener), new e(this.f8008b, this.f8009c, IXAdConstants4PDK.SlotType.SLOT_TYPE_PORTRAIT_VIDEO, this.f8010d, this.f8011e));
-        baiduNative.setCacheVideoOnlyWifi(this.f8012f);
+        BaiduNative baiduNative = new BaiduNative(this.f8009b, this.f8010c, new a(portraitVideoAdListener), new e(this.f8009b, this.f8010c, IXAdConstants4PDK.SlotType.SLOT_TYPE_PORTRAIT_VIDEO, this.f8011d, this.f8012e));
+        baiduNative.setCacheVideoOnlyWifi(this.f8013f);
         baiduNative.setDownloadListener(new b());
         baiduNative.makeRequest(requestParameters);
     }
 
     public void setCacheVideoOnlyWifi(boolean z) {
-        this.f8012f = z;
+        this.f8013f = z;
     }
 
     public BaiduNativeManager(Context context, String str, int i) {
@@ -91,14 +91,14 @@ public class BaiduNativeManager {
     }
 
     public BaiduNativeManager(Context context, String str, boolean z, int i) {
-        this.f8010d = true;
-        this.f8011e = 8000;
-        this.f8012f = false;
-        this.f8008b = context;
+        this.f8011d = true;
+        this.f8012e = 8000;
+        this.f8013f = false;
+        this.f8009b = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
-        this.f8009c = str;
-        this.f8010d = z;
-        this.f8011e = i;
+        this.f8010c = str;
+        this.f8011d = z;
+        this.f8012e = i;
         q.a(context).a();
     }
 }

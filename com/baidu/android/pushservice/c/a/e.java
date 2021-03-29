@@ -1,25 +1,25 @@
 package com.baidu.android.pushservice.c.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2788a;
+    public String f2789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2789b;
+    public String f2790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2790c;
+    public long f2791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2791d;
+    public long f2792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2792e;
+    public long f2793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2793f;
+    public String f2794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2794g;
+    public long f2795g;
 }

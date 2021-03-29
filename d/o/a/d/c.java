@@ -1,7 +1,7 @@
 package d.o.a.d;
 
 import com.bytedance.sdk.openadsdk.adhost.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static final int tt_appdownloader_notification_layout = R.layout.tt_appdownloader_notification_layout;
     public static final int ttdownloader_activity_app_detail_info = R.layout.ttdownloader_activity_app_detail_info;

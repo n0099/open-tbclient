@@ -14,21 +14,21 @@ import d.b.g0.a.a0.b.b;
 import d.b.g0.a.a0.g.a;
 import d.b.g0.a.c0.c;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
-    public static final boolean i = k.f45050a;
+    public static final boolean i = k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12125e;
+    public View f12126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f12126f;
+    public b f12127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f12127g;
+    public Path f12128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ScrollView f12128h;
+    public ScrollView f12129h;
 
     public SwanAppComponentContainerView(@NonNull Context context) {
         super(context);
@@ -36,33 +36,33 @@ public class SwanAppComponentContainerView extends FrameLayout {
 
     public final void a(Canvas canvas) {
         Path path;
-        if (Build.VERSION.SDK_INT < 21 || (path = this.f12127g) == null || this.f12125e == null) {
+        if (Build.VERSION.SDK_INT < 21 || (path = this.f12128g) == null || this.f12126e == null) {
             return;
         }
-        b bVar = this.f12126f;
+        b bVar = this.f12127f;
         if (bVar instanceof d.b.g0.a.a0.c.e.c.b) {
             d.b.g0.a.a0.c.e.c.b bVar2 = (d.b.g0.a.a0.c.e.c.b) bVar;
             if (bVar2.r > 0) {
                 path.reset();
-                Path path2 = this.f12127g;
-                float left = this.f12125e.getLeft();
-                float top = this.f12125e.getTop();
-                float right = this.f12125e.getRight();
-                float bottom = this.f12125e.getBottom();
+                Path path2 = this.f12128g;
+                float left = this.f12126e.getLeft();
+                float top = this.f12126e.getTop();
+                float right = this.f12126e.getRight();
+                float bottom = this.f12126e.getBottom();
                 int i2 = bVar2.r;
                 path2.addRoundRect(left, top, right, bottom, i2, i2, Path.Direction.CW);
                 if (i) {
                     Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + bVar2.r);
                 }
                 canvas.save();
-                canvas.clipPath(this.f12127g);
+                canvas.clipPath(this.f12128g);
                 canvas.restore();
             }
         }
     }
 
     public ScrollView getScrollView() {
-        return this.f12128h;
+        return this.f12129h;
     }
 
     @Override // android.view.View
@@ -73,7 +73,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setHidden(boolean z) {
-        View view = this.f12128h;
+        View view = this.f12129h;
         if (view == null) {
             view = this;
         }
@@ -81,11 +81,11 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setModel(@NonNull b bVar) {
-        this.f12126f = bVar;
+        this.f12127f = bVar;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.f12128h = scrollView;
+        this.f12129h = scrollView;
     }
 
     public void setTargetView(@NonNull View view) {
@@ -93,18 +93,18 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setTargetView(@NonNull View view, int i2) {
-        if (this.f12125e == view) {
+        if (this.f12126e == view) {
             c.l("Component-ContainerView", "repeat setTargetView with the same view");
             return;
         }
-        if (this.f12127g == null) {
-            this.f12127g = new Path();
+        if (this.f12128g == null) {
+            this.f12128g = new Path();
         }
-        if (this.f12125e != null) {
+        if (this.f12126e != null) {
             a.a("Component-ContainerView", "repeat setTargetView with the different view");
-            removeView(this.f12125e);
+            removeView(this.f12126e);
         }
-        this.f12125e = view;
+        this.f12126e = view;
         addView(view, i2, generateDefaultLayoutParams());
     }
 }

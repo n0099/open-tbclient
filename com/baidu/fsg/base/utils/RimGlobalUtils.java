@@ -18,10 +18,10 @@ import com.baidu.fsg.base.activity.BaseActivity;
 public final class RimGlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5407a;
+    public static String f5408a;
 
     public static String getMsg() {
-        return f5407a;
+        return f5408a;
     }
 
     public static String getZid(Context context) {
@@ -89,7 +89,7 @@ public final class RimGlobalUtils {
     }
 
     public static void setMsg(String str) {
-        f5407a = str;
+        f5408a = str;
     }
 
     public static boolean showInputMethod(final Context context, final View view) {
@@ -149,7 +149,7 @@ public final class RimGlobalUtils {
     }
 
     public static void safeShowDialog(BaseActivity baseActivity, int i, String str) {
-        f5407a = str;
+        f5408a = str;
         try {
             baseActivity.getActivity().showDialog(i);
         } catch (Exception e2) {

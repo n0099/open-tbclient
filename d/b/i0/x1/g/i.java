@@ -14,83 +14,83 @@ import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends BaseAdapter {
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f62454g = 3;
+    public static int f62455g = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62455e;
+    public Context f62456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BazhuInfoData.BaInfo> f62456f = new ArrayList();
+    public List<BazhuInfoData.BaInfo> f62457f = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f62457a;
+        public TextView f62458a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f62458b;
+        public CheckBox f62459b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BarImageView f62459c;
+        public BarImageView f62460c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f62460d = 3;
+        public int f62461d = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public Drawable f62461e;
+        public Drawable f62462e;
 
         public a(View view) {
             if (view == null) {
                 return;
             }
-            this.f62457a = (TextView) view.findViewById(R.id.transmit_forum_name);
-            this.f62458b = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.f62459c = (BarImageView) view.findViewById(R.id.forum_avatar);
+            this.f62458a = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.f62459b = (CheckBox) view.findViewById(R.id.transmit_check_box);
+            this.f62460c = (BarImageView) view.findViewById(R.id.forum_avatar);
         }
 
         public void a() {
-            if (i.f62454g != this.f62460d) {
-                SkinManager.setViewTextColor(this.f62457a, R.color.CAM_X0105);
-                this.f62461e = SkinManager.getDrawable(R.drawable.transmit_check_box);
+            if (i.f62455g != this.f62461d) {
+                SkinManager.setViewTextColor(this.f62458a, R.color.CAM_X0105);
+                this.f62462e = SkinManager.getDrawable(R.drawable.transmit_check_box);
             }
-            this.f62460d = i.f62454g;
+            this.f62461d = i.f62455g;
         }
 
         public void b(BazhuInfoData.BaInfo baInfo) {
             if (baInfo != null) {
-                this.f62457a.setText(baInfo.forum_name);
-                this.f62458b.setChecked(baInfo.isChecked);
-                this.f62459c.W(baInfo.forum_Avatar, 10, false);
-                this.f62458b.setButtonDrawable(this.f62461e);
+                this.f62458a.setText(baInfo.forum_name);
+                this.f62459b.setChecked(baInfo.isChecked);
+                this.f62460c.W(baInfo.forum_Avatar, 10, false);
+                this.f62459b.setButtonDrawable(this.f62462e);
             }
         }
     }
 
     public i(Context context) {
-        this.f62455e = context;
+        this.f62456e = context;
     }
 
     public void b(List<BazhuInfoData.BaInfo> list) {
-        this.f62456f.clear();
-        this.f62456f.addAll(list);
+        this.f62457f.clear();
+        this.f62457f.addAll(list);
         notifyDataSetChanged();
     }
 
     public void c(int i) {
-        if (f62454g != i) {
+        if (f62455g != i) {
             notifyDataSetChanged();
         }
-        f62454g = i;
+        f62455g = i;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f62456f.size();
+        return this.f62457f.size();
     }
 
     @Override // android.widget.Adapter
@@ -107,7 +107,7 @@ public class i extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar = null;
         if (view == null) {
-            view = LayoutInflater.from(this.f62455e).inflate(R.layout.layout_select__single_forum_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f62456e).inflate(R.layout.layout_select__single_forum_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
@@ -118,7 +118,7 @@ public class i extends BaseAdapter {
         }
         if (aVar != null) {
             aVar.a();
-            aVar.b(this.f62456f.get(i));
+            aVar.b(this.f62457f.get(i));
         }
         return view;
     }

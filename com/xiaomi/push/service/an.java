@@ -21,20 +21,20 @@ import java.net.URL;
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f40948a;
+    public static long f40949a;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40949a;
+        public int f40950a;
 
         /* renamed from: a  reason: collision with other field name */
         public byte[] f888a;
 
         public a(byte[] bArr, int i) {
             this.f888a = bArr;
-            this.f40949a = i;
+            this.f40950a = i;
         }
     }
 
@@ -42,14 +42,14 @@ public class an {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40950a;
+        public long f40951a;
 
         /* renamed from: a  reason: collision with other field name */
         public Bitmap f889a;
 
         public b(Bitmap bitmap, long j) {
             this.f889a = bitmap;
-            this.f40950a = j;
+            this.f40951a = j;
         }
     }
 
@@ -258,7 +258,7 @@ public class an {
                 com.xiaomi.push.y.a((Closeable) null);
                 return bVar;
             }
-            bVar.f40950a = a2.f40949a;
+            bVar.f40951a = a2.f40950a;
             byte[] bArr = a2.f888a;
             if (bArr != null) {
                 if (z) {
@@ -296,10 +296,10 @@ public class an {
     public static void a(Context context) {
         File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
         if (file.exists()) {
-            if (f40948a == 0) {
-                f40948a = com.xiaomi.push.x.a(file);
+            if (f40949a == 0) {
+                f40949a = com.xiaomi.push.x.a(file);
             }
-            if (f40948a > 15728640) {
+            if (f40949a > 15728640) {
                 try {
                     File[] listFiles = file.listFiles();
                     for (int i = 0; i < listFiles.length; i++) {
@@ -310,7 +310,7 @@ public class an {
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
-                f40948a = 0L;
+                f40949a = 0L;
             }
         }
     }
@@ -379,7 +379,7 @@ public class an {
             com.xiaomi.push.y.a(bufferedOutputStream2);
             closeable = file;
             com.xiaomi.push.y.a(closeable);
-            file = (f40948a > 0L ? 1 : (f40948a == 0L ? 0 : -1));
+            file = (f40949a > 0L ? 1 : (f40949a == 0L ? 0 : -1));
             if (file != 0) {
             }
         } catch (Throwable th3) {
@@ -390,9 +390,9 @@ public class an {
             throw th;
         }
         com.xiaomi.push.y.a(closeable);
-        file = (f40948a > 0L ? 1 : (f40948a == 0L ? 0 : -1));
+        file = (f40949a > 0L ? 1 : (f40949a == 0L ? 0 : -1));
         if (file != 0) {
-            f40948a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+            f40949a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
         }
     }
 

@@ -239,16 +239,16 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
     public static SparseArray<m.a> D3 = new SparseArray<>(3);
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50701e = false;
+    public boolean f50702e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50702f = false;
+    public boolean f50703f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50703g = false;
+    public boolean f50704g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50704h = false;
+    public boolean f50705h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -583,8 +583,8 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
             this.s = writeData.getContent();
             w1 w1Var = new w1();
             this.C = w1Var;
-            w1Var.f50915a = writeData.getForumId();
-            this.C.f50916b = writeData.getForumName();
+            w1Var.f50916a = writeData.getForumId();
+            this.C.f50917b = writeData.getForumName();
             this.k2 = writeData.getTabId();
             this.l2 = writeData.getTabName();
             W2();
@@ -2253,7 +2253,7 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
         n();
         v0Var.m(L0());
         v0Var.j(this.d1);
-        v0Var.f50906g = this.e1;
+        v0Var.f50907g = this.e1;
         v0Var.o = this.T0;
         v0Var.j = this.S0;
         v0Var.l = this.U0;
@@ -2405,16 +2405,16 @@ public class a2 extends a implements PreLoadImageProvider, d.b.b.j.e.n, IVideoDa
                             if (Z1()) {
                                 return d3;
                             }
-                            if (this.f50701e) {
+                            if (this.f50702e) {
                                 return N2;
                             }
-                            if (this.f50702f) {
+                            if (this.f50703f) {
                                 return O2;
                             }
-                            if (this.f50703g) {
+                            if (this.f50704g) {
                                 return P2;
                             }
-                            if (this.f50704h) {
+                            if (this.f50705h) {
                                 return Q2;
                             }
                             if (this.i) {

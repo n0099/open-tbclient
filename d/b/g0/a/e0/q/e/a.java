@@ -10,18 +10,18 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import d.b.g0.a.i2.g0;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44254a = k.f45050a;
+    public static final boolean f44255a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44255b;
+    public static final boolean f44256b;
 
     /* renamed from: d.b.g0.a.e0.q.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0678a extends ProviderDelegation {
+    /* loaded from: classes2.dex */
+    public static class C0679a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
@@ -31,9 +31,9 @@ public final class a {
     }
 
     static {
-        f44255b = ProcessUtils.isMainProcess() ? e("swan_prefetch_app_data") : b();
-        if (f44254a) {
-            Log.i("PrefetchABSwitcher", "prefetch switch - " + f44255b);
+        f44256b = ProcessUtils.isMainProcess() ? e("swan_prefetch_app_data") : b();
+        if (f44255a) {
+            Log.i("PrefetchABSwitcher", "prefetch switch - " + f44256b);
         }
     }
 
@@ -42,13 +42,13 @@ public final class a {
     }
 
     public static boolean b() {
-        long currentTimeMillis = f44254a ? System.currentTimeMillis() : 0L;
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0678a.class, null);
+        long currentTimeMillis = f44255a ? System.currentTimeMillis() : 0L;
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0679a.class, null);
         boolean z = false;
         if (callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false)) {
             z = true;
         }
-        if (f44254a) {
+        if (f44255a) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.i("PrefetchABSwitcher", "get prefetch switch cross precess cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
         }
@@ -56,7 +56,7 @@ public final class a {
     }
 
     public static boolean c() {
-        return f44255b;
+        return f44256b;
     }
 
     public static boolean d() {
@@ -65,7 +65,7 @@ public final class a {
 
     public static boolean e(String str) {
         int a2;
-        if (f44254a) {
+        if (f44255a) {
             if (d.b.g0.a.m1.a.a.S() || (a2 = a()) == 1) {
                 return true;
             }
@@ -74,7 +74,7 @@ public final class a {
             }
         }
         d.b.g0.a.w0.a.N().getSwitch(str, 0);
-        if (f44254a) {
+        if (f44255a) {
             Log.d("PrefetchABSwitcher", str + " value from AB : 0");
         }
         return false;

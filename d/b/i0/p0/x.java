@@ -13,31 +13,31 @@ public class x implements d.b.b.j.e.n {
     public static final BdUniqueId i = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MetaData> f58716f;
+    public List<MetaData> f58717f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58715e = 0;
+    public int f58716e = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58717g = "本吧都在关注";
+    public String f58718g = "本吧都在关注";
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58718h = false;
+    public boolean f58719h = false;
 
     public int a() {
-        return this.f58715e;
+        return this.f58716e;
     }
 
     public String e() {
-        return this.f58717g;
+        return this.f58718g;
     }
 
     public List<MetaData> f() {
-        return this.f58716f;
+        return this.f58717f;
     }
 
     public boolean g() {
-        return this.f58718h;
+        return this.f58719h;
     }
 
     @Override // d.b.b.j.e.n
@@ -49,9 +49,9 @@ public class x implements d.b.b.j.e.n {
         if (featureCardGod == null || ListUtils.isEmpty(featureCardGod.sub_nodes)) {
             return;
         }
-        this.f58715e = featureCardGod.floor.intValue();
-        this.f58716f = featureCardGod.sub_nodes;
-        this.f58717g = featureCardGod.title;
+        this.f58716e = featureCardGod.floor.intValue();
+        this.f58717f = featureCardGod.sub_nodes;
+        this.f58718g = featureCardGod.title;
     }
 
     public void k(FrsPageUserExtend frsPageUserExtend) {
@@ -59,20 +59,20 @@ public class x implements d.b.b.j.e.n {
             return;
         }
         List<User> list = frsPageUserExtend.data;
-        this.f58715e = frsPageUserExtend.user_extend_storey.intValue();
-        this.f58716f = new ArrayList(list.size());
+        this.f58716e = frsPageUserExtend.user_extend_storey.intValue();
+        this.f58717f = new ArrayList(list.size());
         for (int i2 = 0; i2 < list.size(); i2++) {
             User user = list.get(i2);
             if (user != null && user.id.longValue() != 0) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i2));
-                this.f58716f.add(metaData);
+                this.f58717f.add(metaData);
             }
         }
-        this.f58717g = frsPageUserExtend.tips;
+        this.f58718g = frsPageUserExtend.tips;
     }
 
     public void l(boolean z) {
-        this.f58718h = z;
+        this.f58719h = z;
     }
 }

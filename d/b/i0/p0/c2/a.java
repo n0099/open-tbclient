@@ -32,22 +32,22 @@ import d.b.i0.p0.r;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f57366a;
+    public FrameLayout f57367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f57367b;
+    public TextView f57368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f57368c;
+    public ImageView f57369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d1 f57369d;
+    public d1 f57370d;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsFragment f57372g;
+    public FrsFragment f57373g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57373h;
+    public int f57374h;
     public String i;
     public AlaLiveInfoCoreData j;
     public AlaLiveInfoListCoreData k;
@@ -55,30 +55,30 @@ public class a {
     public int m;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57370e = true;
-    public c.b n = new C1378a();
+    public boolean f57371e = true;
+    public c.b n = new C1379a();
     public Runnable o = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57371f = n();
+    public int f57372f = n();
 
     /* renamed from: d.b.i0.p0.c2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1378a implements c.b {
-        public C1378a() {
+    public class C1379a implements c.b {
+        public C1379a() {
         }
 
         @Override // d.b.i0.p0.c2.c.b
         public void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage) {
             if (frsLiveTipResponseMessage != null) {
-                a.this.f57373h = frsLiveTipResponseMessage.remindType;
+                a.this.f57374h = frsLiveTipResponseMessage.remindType;
                 a.this.i = frsLiveTipResponseMessage.remindText;
                 a.this.j = frsLiveTipResponseMessage.infoCoreData;
                 a.this.k = frsLiveTipResponseMessage.listCoreData;
-                if (a.this.f57369d != null) {
-                    a.this.f57369d.f();
+                if (a.this.f57370d != null) {
+                    a.this.f57370d.f();
                 }
-                if (a.this.f57373h == 0) {
+                if (a.this.f57374h == 0) {
                     return;
                 }
                 a.this.y();
@@ -133,17 +133,17 @@ public class a {
     }
 
     public a(FrsFragment frsFragment, int i) {
-        this.f57372g = frsFragment;
+        this.f57373g = frsFragment;
         this.m = i;
     }
 
     public final void k() {
-        this.f57371f++;
-        d.b.h0.r.d0.b.i().u("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f57371f);
+        this.f57372f++;
+        d.b.h0.r.d0.b.i().u("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f57372f);
     }
 
     public void l() {
-        FrsFragment frsFragment = this.f57372g;
+        FrsFragment frsFragment = this.f57373g;
         if (frsFragment == null) {
             return;
         }
@@ -151,9 +151,9 @@ public class a {
     }
 
     public final void m() {
-        this.f57371f = 0;
+        this.f57372f = 0;
         d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        i.u("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f57371f);
+        i.u("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f57372f);
     }
 
     public final int n() {
@@ -176,34 +176,34 @@ public class a {
     }
 
     public final void q(Context context) {
-        if (context != null && this.f57366a == null) {
+        if (context != null && this.f57367a == null) {
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.frs_hot_live_tip, (ViewGroup) null);
-            this.f57366a = frameLayout;
+            this.f57367a = frameLayout;
             frameLayout.setOnClickListener(new c());
-            this.f57367b = (TextView) this.f57366a.findViewById(R.id.frs_hot_live_tip_content);
-            ImageView imageView = (ImageView) this.f57366a.findViewById(R.id.frs_hot_live_tip_close);
-            this.f57368c = imageView;
+            this.f57368b = (TextView) this.f57367a.findViewById(R.id.frs_hot_live_tip_content);
+            ImageView imageView = (ImageView) this.f57367a.findViewById(R.id.frs_hot_live_tip_close);
+            this.f57369c = imageView;
             imageView.setOnClickListener(new d());
             s();
         }
     }
 
     public final boolean r() {
-        return this.f57370e;
+        return this.f57371e;
     }
 
     public final void s() {
-        SkinManager.setBackgroundResource(this.f57366a, R.drawable.bg_frs_hot_live_tip_selector);
-        SkinManager.setViewTextColor(this.f57367b, R.color.CAM_X0101);
-        SkinManager.setImageResource(this.f57368c, R.drawable.icon_home_card_close_white);
-        this.f57367b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow_more_white), (Drawable) null);
+        SkinManager.setBackgroundResource(this.f57367a, R.drawable.bg_frs_hot_live_tip_selector);
+        SkinManager.setViewTextColor(this.f57368b, R.color.CAM_X0101);
+        SkinManager.setImageResource(this.f57369c, R.drawable.icon_home_card_close_white);
+        this.f57368b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow_more_white), (Drawable) null);
     }
 
     public final void t() {
-        if (this.f57373h == 2) {
+        if (this.f57374h == 2) {
             k();
         }
-        d1 d1Var = this.f57369d;
+        d1 d1Var = this.f57370d;
         if (d1Var != null) {
             d1Var.d();
         }
@@ -213,14 +213,14 @@ public class a {
         FrsFragment frsFragment;
         String str;
         m();
-        if (this.j == null || (frsFragment = this.f57372g) == null || !frsFragment.isAdded()) {
+        if (this.j == null || (frsFragment = this.f57373g) == null || !frsFragment.isAdded()) {
             return;
         }
         boolean equals = TextUtils.equals(p(), String.valueOf(this.j.userID));
-        int i = this.f57373h;
+        int i = this.f57374h;
         if (i == 1) {
             TiebaStatic.log(new StatisticItem("c12540"));
-            d1 d1Var = this.f57369d;
+            d1 d1Var = this.f57370d;
             if (d1Var != null) {
                 d1Var.d();
             }
@@ -231,10 +231,10 @@ public class a {
         } else {
             str = "";
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f57372g.getPageContext().getPageActivity(), this.j, this.k, str, p(), equals, null, null)));
-        if (this.f57372g.S().getForum().isGameForumType()) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f57373g.getPageContext().getPageActivity(), this.j, this.k, str, p(), equals, null, null)));
+        if (this.f57373g.S().getForum().isGameForumType()) {
             CustomMessage customMessage = new CustomMessage(2001622);
-            customMessage.setTag(this.f57372g.getBaseFragmentActivity().getUniqueId());
+            customMessage.setTag(this.f57373g.getBaseFragmentActivity().getUniqueId());
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001622);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -244,7 +244,7 @@ public class a {
     }
 
     public void v() {
-        d1 d1Var = this.f57369d;
+        d1 d1Var = this.f57370d;
         if (d1Var != null) {
             d1Var.f();
         }
@@ -256,15 +256,15 @@ public class a {
     }
 
     public void w() {
-        FrsFragment frsFragment = this.f57372g;
+        FrsFragment frsFragment = this.f57373g;
         if (frsFragment == null || !frsFragment.isAdded()) {
             return;
         }
         if (System.currentTimeMillis() - o() < 1800000) {
             return;
         }
-        if (this.f57372g.N2() && r()) {
-            this.f57370e = false;
+        if (this.f57373g.N2() && r()) {
+            this.f57371e = false;
             return;
         }
         if (this.l == null) {
@@ -284,9 +284,9 @@ public class a {
         if (StringUtils.isNull(this.i) || this.j == null) {
             return;
         }
-        if (this.f57373h != 2 || n() < 3) {
-            q(this.f57372g.getPageContext().getPageActivity());
-            TextView textView = this.f57367b;
+        if (this.f57374h != 2 || n() < 3) {
+            q(this.f57373g.getPageContext().getPageActivity());
+            TextView textView = this.f57368b;
             if (textView != null) {
                 textView.setText(this.i);
             }
@@ -299,19 +299,19 @@ public class a {
     public final void z() {
         r x0;
         FrameLayout frameLayout;
-        FrsFragment frsFragment = this.f57372g;
+        FrsFragment frsFragment = this.f57373g;
         if (frsFragment == null || (x0 = frsFragment.x0()) == null || x0.Z() == null || (frameLayout = (FrameLayout) x0.S()) == null) {
             return;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.ds56));
-        if (this.f57369d == null) {
-            this.f57369d = new d1();
+        if (this.f57370d == null) {
+            this.f57370d = new d1();
         }
-        int i = this.f57373h;
+        int i = this.f57374h;
         if (i == 2) {
-            this.f57369d.h(this.f57366a, frameLayout, layoutParams, 5000);
+            this.f57370d.h(this.f57367a, frameLayout, layoutParams, 5000);
         } else if (i == 1) {
-            this.f57369d.g(this.f57366a, frameLayout, layoutParams);
+            this.f57370d.g(this.f57367a, frameLayout, layoutParams);
             TiebaStatic.log(new StatisticItem("c12539"));
         }
     }

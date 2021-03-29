@@ -15,9 +15,9 @@ import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.f.a {
-    public static final boolean DEBUG = d.b.g0.a.k.f45050a;
+    public static final boolean DEBUG = d.b.g0.a.k.f45051a;
     public static final int INVALID_DURATION = -1;
     public static final int INVALID_ERROR_CODE = -1;
     public static final String TAG = "SwanAppAudioService";
@@ -25,7 +25,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public Binder mBinder = new AudioServiceStub(this);
     public Handler mMainHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AudioServiceStub extends IAudioService.Stub {
         public WeakReference<SwanAppAudioService> mAudioService;
 
@@ -107,23 +107,23 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f12262a;
+        public final /* synthetic */ String f12263a;
 
         public a(String str) {
-            this.f12262a = str;
+            this.f12263a = str;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onChangeSrc(this.f12262a);
+            iAudioListener.onChangeSrc(this.f12263a);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements t {
         public b() {
         }
@@ -134,59 +134,59 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f12265a;
+        public final /* synthetic */ int f12266a;
 
         public c(int i) {
-            this.f12265a = i;
+            this.f12266a = i;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onError(this.f12265a);
+            iAudioListener.onError(this.f12266a);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f12267a;
+        public final /* synthetic */ int f12268a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f12268b;
+        public final /* synthetic */ int f12269b;
 
         public d(int i, int i2) {
-            this.f12267a = i;
-            this.f12268b = i2;
+            this.f12268a = i;
+            this.f12269b = i2;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onTimeUpdate(this.f12267a, this.f12268b);
+            iAudioListener.onTimeUpdate(this.f12268a, this.f12269b);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f12270a;
+        public final /* synthetic */ int f12271a;
 
         public e(int i) {
-            this.f12270a = i;
+            this.f12271a = i;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onDownloadProgress(this.f12270a);
+            iAudioListener.onDownloadProgress(this.f12271a);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class f implements t {
         public f() {
         }
@@ -197,7 +197,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class g implements t {
         public g() {
         }
@@ -208,7 +208,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class h implements t {
         public h() {
         }
@@ -219,7 +219,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class i implements t {
         public i() {
         }
@@ -230,67 +230,67 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12276a;
+        public static final /* synthetic */ int[] f12277a;
 
         static {
             int[] iArr = new int[BgMusicPlayState.values().length];
-            f12276a = iArr;
+            f12277a = iArr;
             try {
                 iArr[BgMusicPlayState.READY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12276a[BgMusicPlayState.PLAY.ordinal()] = 2;
+                f12277a[BgMusicPlayState.PLAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f12276a[BgMusicPlayState.REPLAY.ordinal()] = 3;
+                f12277a[BgMusicPlayState.REPLAY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f12276a[BgMusicPlayState.PAUSE.ordinal()] = 4;
+                f12277a[BgMusicPlayState.PAUSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f12276a[BgMusicPlayState.STOP.ordinal()] = 5;
+                f12277a[BgMusicPlayState.STOP.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f12276a[BgMusicPlayState.END.ordinal()] = 6;
+                f12277a[BgMusicPlayState.END.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f12276a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
+                f12277a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f12276a[BgMusicPlayState.LOADING.ordinal()] = 8;
+                f12277a[BgMusicPlayState.LOADING.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12277e;
+        public final /* synthetic */ String f12278e;
 
         public k(String str) {
-            this.f12277e = str;
+            this.f12278e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.w0.a.e().a(this.f12277e, SwanAppAudioService.this);
+            d.b.g0.a.w0.a.e().a(this.f12278e, SwanAppAudioService.this);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class l implements Runnable {
         public l() {
         }
@@ -301,7 +301,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class m implements Runnable {
         public m() {
         }
@@ -312,7 +312,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class n implements Runnable {
         public n() {
         }
@@ -323,7 +323,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class o implements Runnable {
         public o() {
         }
@@ -336,7 +336,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class p implements t {
         public p() {
         }
@@ -347,7 +347,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class q implements t {
         public q() {
         }
@@ -358,7 +358,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class r implements t {
         public r() {
         }
@@ -369,7 +369,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class s implements t {
         public s() {
         }
@@ -380,12 +380,12 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface t<E extends IAudioListener> {
         void a(E e2) throws RemoteException;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class u<E extends IAudioListener> extends RemoteCallbackList<IAudioListener> {
         public u() {
         }
@@ -423,7 +423,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     }
 
     private void handleStateChanged(BgMusicPlayState bgMusicPlayState) {
-        int i2 = j.f12276a[bgMusicPlayState.ordinal()];
+        int i2 = j.f12277a[bgMusicPlayState.ordinal()];
         if (i2 == 1) {
             notifyEventOnCanPlay();
         } else if (i2 == 2) {

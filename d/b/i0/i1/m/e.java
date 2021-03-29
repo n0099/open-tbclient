@@ -9,32 +9,32 @@ import com.baidu.tbadk.core.util.NetWork;
 import d.b.h0.c.f;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.h0.c.a {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, f> {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f55909a = null;
+        public volatile NetWork f55910a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f55910b;
+        public String f55911b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f55911c;
+        public String f55912c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f55912d;
+        public HashMap<String, String> f55913d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.b.a.e f55913e;
+        public d.b.b.a.e f55914e;
 
         public a(e eVar, String str, String str2, HashMap<String, String> hashMap, d.b.b.a.e eVar2) {
-            this.f55910b = str;
-            this.f55911c = str2;
-            this.f55912d = hashMap;
-            this.f55913e = eVar2;
+            this.f55911b = str;
+            this.f55912c = str2;
+            this.f55913d = hashMap;
+            this.f55914e = eVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,38 +43,38 @@ public class e extends d.b.h0.c.a {
         public f doInBackground(Object... objArr) {
             f fVar = new f();
             try {
-                this.f55909a = new NetWork(TbConfig.SERVER_ADDRESS + this.f55911c);
-                Set<String> keySet = this.f55912d.keySet();
+                this.f55910a = new NetWork(TbConfig.SERVER_ADDRESS + this.f55912c);
+                Set<String> keySet = this.f55913d.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.f55909a.addPostData(str, this.f55912d.get(str));
+                            this.f55910a.addPostData(str, this.f55913d.get(str));
                         }
                     }
                 }
-                this.f55909a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.f55909a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.f55910a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                this.f55910a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 boolean z = true;
-                this.f55909a.getNetContext().getRequest().mIsNeedTbs = true;
-                String postNetData = this.f55909a.postNetData();
-                if (!this.f55909a.getNetContext().getResponse().isNetSuccess()) {
-                    fVar.f50060b = this.f55909a.getNetErrorCode();
-                    fVar.f50061c = this.f55909a.getNetString();
+                this.f55910a.getNetContext().getRequest().mIsNeedTbs = true;
+                String postNetData = this.f55910a.postNetData();
+                if (!this.f55910a.getNetContext().getResponse().isNetSuccess()) {
+                    fVar.f50061b = this.f55910a.getNetErrorCode();
+                    fVar.f50062c = this.f55910a.getNetString();
                 } else {
-                    fVar.f50060b = this.f55909a.getServerErrorCode();
-                    fVar.f50061c = this.f55909a.getErrorString();
+                    fVar.f50061b = this.f55910a.getServerErrorCode();
+                    fVar.f50062c = this.f55910a.getErrorString();
                 }
-                if (this.f55909a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                    if (fVar.f50060b != 0) {
+                if (this.f55910a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                    if (fVar.f50061b != 0) {
                         z = false;
                     }
-                    fVar.f50059a = z;
+                    fVar.f50060a = z;
                     return fVar;
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            fVar.f50059a = false;
+            fVar.f50060a = false;
             return fVar;
         }
 
@@ -82,21 +82,21 @@ public class e extends d.b.h0.c.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(f fVar) {
-            d.b.b.a.e eVar = this.f55913e;
+            d.b.b.a.e eVar = this.f55914e;
             if (eVar != null) {
                 eVar.c(fVar);
             }
-            d.b.i0.i1.m.a.a().d(this.f55911c, this.f55912d, fVar);
+            d.b.i0.i1.m.a.a().d(this.f55912c, this.f55913d, fVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.f55909a != null) {
-                this.f55909a.cancelNetConnect();
-                this.f55909a = null;
+            if (this.f55910a != null) {
+                this.f55910a.cancelNetConnect();
+                this.f55910a = null;
             }
             super.cancel(true);
-            d.b.b.a.e eVar = this.f55913e;
+            d.b.b.a.e eVar = this.f55914e;
             if (eVar != null) {
                 eVar.c(null);
             }

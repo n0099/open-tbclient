@@ -18,16 +18,16 @@ import d.b.g0.i.o;
 public class SwanAppMenuItemView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12997e;
+    public ImageView f12998e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12998f;
+    public TextView f12999f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12999g;
+    public TextView f13000g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f13000h;
+    public ImageView f13001h;
     public o i;
     public int j;
     public int k;
@@ -57,12 +57,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
     }
 
     private void setItemView(o oVar) {
-        this.f12998f.setEllipsize(TextUtils.TruncateAt.END);
-        this.f12998f.setAlpha(oVar.j() ? 1.0f : 0.3f);
+        this.f12999f.setEllipsize(TextUtils.TruncateAt.END);
+        this.f12999f.setAlpha(oVar.j() ? 1.0f : 0.3f);
         System.out.println(oVar.j());
-        this.f12997e.setEnabled(oVar.j());
-        this.f12997e.setScaleType(ImageView.ScaleType.CENTER);
-        this.f12997e.setVisibility(0);
+        this.f12998e.setEnabled(oVar.j());
+        this.f12998e.setScaleType(ImageView.ScaleType.CENTER);
+        this.f12998e.setVisibility(0);
         g(oVar);
         f(oVar);
     }
@@ -78,10 +78,10 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public final void e() {
         setGravity(49);
         LayoutInflater.from(getContext()).inflate(j.aiapp_menu_item_view_layout, this);
-        this.f12997e = (ImageView) findViewById(i.aiapp_menu_item_icon);
-        this.f12998f = (TextView) findViewById(i.aiapp_menu_item_title);
-        this.f12999g = (TextView) findViewById(i.aiapp_menu_item_new_tips);
-        this.f13000h = (ImageView) findViewById(i.aiapp_menu_item_new_dot);
+        this.f12998e = (ImageView) findViewById(i.aiapp_menu_item_icon);
+        this.f12999f = (TextView) findViewById(i.aiapp_menu_item_title);
+        this.f13000g = (TextView) findViewById(i.aiapp_menu_item_new_tips);
+        this.f13001h = (ImageView) findViewById(i.aiapp_menu_item_new_dot);
         setBackgroundResource(0);
     }
 
@@ -91,21 +91,21 @@ public class SwanAppMenuItemView extends RelativeLayout {
         }
         int f2 = oVar.f();
         if (f2 == 0) {
-            this.f12999g.setVisibility(8);
-            this.f12999g.setVisibility(8);
+            this.f13000g.setVisibility(8);
+            this.f13000g.setVisibility(8);
         } else if (f2 == 1) {
-            this.f13000h.setVisibility(8);
-            this.f12999g.setText(c(oVar.e()));
-            this.f12999g.setTextColor(getResources().getColor(f.swan_app_menu_item_tip_text));
-            this.f12999g.setBackground(getResources().getDrawable(h.swan_app_menu_new_bg));
-            this.f12999g.setVisibility(0);
+            this.f13001h.setVisibility(8);
+            this.f13000g.setText(c(oVar.e()));
+            this.f13000g.setTextColor(getResources().getColor(f.swan_app_menu_item_tip_text));
+            this.f13000g.setBackground(getResources().getDrawable(h.swan_app_menu_new_bg));
+            this.f13000g.setVisibility(0);
         } else if (f2 != 2) {
-            this.f12999g.setVisibility(8);
-            this.f13000h.setVisibility(8);
+            this.f13000g.setVisibility(8);
+            this.f13001h.setVisibility(8);
         } else {
-            this.f12999g.setVisibility(8);
-            this.f13000h.setImageDrawable(getResources().getDrawable(h.swan_app_menu_new_dot));
-            this.f13000h.setVisibility(0);
+            this.f13000g.setVisibility(8);
+            this.f13001h.setImageDrawable(getResources().getDrawable(h.swan_app_menu_new_dot));
+            this.f13001h.setVisibility(0);
         }
     }
 
@@ -114,13 +114,13 @@ public class SwanAppMenuItemView extends RelativeLayout {
             return;
         }
         setAlpha(1.0f);
-        this.f12998f.setText(oVar.h(getContext()));
+        this.f12999f.setText(oVar.h(getContext()));
         Drawable d2 = d(oVar);
         if (d2 != null) {
-            this.f12997e.setImageDrawable(d2);
-            this.f12997e.setImageLevel(oVar.b());
+            this.f12998e.setImageDrawable(d2);
+            this.f12998e.setImageLevel(oVar.b());
         }
-        this.f12998f.setTextColor(getResources().getColor(oVar.i()));
+        this.f12999f.setTextColor(getResources().getColor(oVar.i()));
     }
 
     public void h(o oVar) {

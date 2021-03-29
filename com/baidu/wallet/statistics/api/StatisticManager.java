@@ -7,22 +7,22 @@ import java.util.Map;
 public class StatisticManager implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorStatisticApi f26807a;
+    public static SensorStatisticApi f26808a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatisticManager f26808a = new StatisticManager();
+        public static StatisticManager f26809a = new StatisticManager();
     }
 
     public static StatisticManager a() {
-        return a.f26808a;
+        return a.f26809a;
     }
 
     public static void onEvent(String str) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEvent(str);
         }
@@ -30,7 +30,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEnd(String str, int i) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEnd(str, i);
         }
@@ -38,7 +38,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEndWithValue(String str, int i, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEndWithValue(str, i, str2);
         }
@@ -46,7 +46,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEndWithValues(String str, int i, Collection<String> collection) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEndWithValues(str, i, collection);
         }
@@ -54,7 +54,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventStart(String str) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventStart(str);
         }
@@ -62,7 +62,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventWithValue(String str, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventWithValue(str, str2);
         }
@@ -70,7 +70,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventWithValues(String str, Collection<String> collection) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventWithValues(str, collection);
         }
@@ -78,19 +78,19 @@ public class StatisticManager implements NoProguard {
 
     public static void triggerSending() {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.triggerSending();
         }
     }
 
     public StatisticManager() {
-        f26807a = SensorStatisticApi.getInstance();
+        f26808a = SensorStatisticApi.getInstance();
     }
 
     public static void onEvent(String str, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEvent(str, str2);
         }
@@ -98,7 +98,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEnd(String str, int i, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEnd(str, i, str2);
         }
@@ -106,7 +106,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEndWithValue(String str, int i, String str2, String str3) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEndWithValue(str, i, str2, str3);
         }
@@ -114,7 +114,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEndWithValues(str, i, collection, map);
         }
@@ -122,7 +122,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventWithValue(String str, String str2, String str3) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventWithValue(str, str2, str3);
         }
@@ -130,7 +130,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventWithValues(str, collection, map);
         }
@@ -138,7 +138,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEndWithValues(String str, int i, Collection<String> collection, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEndWithValues(str, i, collection, str2);
         }
@@ -146,7 +146,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventWithValues(String str, Collection<String> collection, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventWithValues(str, collection, str2);
         }
@@ -154,7 +154,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventEndWithValues(str, i, collection, map, str2);
         }
@@ -162,7 +162,7 @@ public class StatisticManager implements NoProguard {
 
     public static void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map, String str2) {
         a();
-        SensorStatisticApi sensorStatisticApi = f26807a;
+        SensorStatisticApi sensorStatisticApi = f26808a;
         if (sensorStatisticApi != null) {
             sensorStatisticApi.onEventWithValues(str, collection, map, str2);
         }

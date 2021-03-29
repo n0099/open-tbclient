@@ -14,25 +14,25 @@ import java.util.Iterator;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.a.f<GiftTabActivity> f61013a;
+    public d.b.b.a.f<GiftTabActivity> f61014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DefaultGiftListModel f61014b;
+    public DefaultGiftListModel f61015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CategoryGiftListModel f61015c;
+    public CategoryGiftListModel f61016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FreeGiftChanceModel f61016d;
+    public FreeGiftChanceModel f61017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.b.i0.t0.b.c> f61017e;
+    public ArrayList<d.b.i0.t0.b.c> f61018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d.b.i0.t0.b.a> f61018f;
+    public ArrayList<d.b.i0.t0.b.a> f61019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<d.b.i0.t0.b.e> f61019g;
+    public ArrayList<d.b.i0.t0.b.e> f61020g;
     public int i;
     public String j;
     public int k;
@@ -41,7 +41,7 @@ public class f {
     public d n;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<Integer, ArrayList<i0>> f61020h = new HashMap<>();
+    public HashMap<Integer, ArrayList<i0>> f61021h = new HashMap<>();
     public DefaultGiftListModel.b o = new a();
     public CategoryGiftListModel.b p = new b();
     public FreeGiftChanceModel.b q = new c();
@@ -58,9 +58,9 @@ public class f {
                 if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
                     i4 = arrayList.get(0).a();
                 }
-                f.this.f61018f = arrayList;
-                f.this.f61020h.put(Integer.valueOf(i4), arrayList2);
-                f.this.f61019g = arrayList3;
+                f.this.f61019f = arrayList;
+                f.this.f61021h.put(Integer.valueOf(i4), arrayList2);
+                f.this.f61020g = arrayList3;
                 f.this.j = str2;
                 f.this.i = i2;
                 f fVar = f.this;
@@ -72,7 +72,7 @@ public class f {
                 e eVar = f.this.m;
                 String str3 = f.this.j;
                 f fVar2 = f.this;
-                eVar.a(i, str, true, str3, fVar2.k, fVar2.l, fVar2.f61017e, f.this.f61018f, f.this.f61019g);
+                eVar.a(i, str, true, str3, fVar2.k, fVar2.l, fVar2.f61018e, f.this.f61019f, f.this.f61020g);
             }
         }
     }
@@ -85,14 +85,14 @@ public class f {
         @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
         public void a(int i, String str, int i2, ArrayList<i0> arrayList) {
             if (i == 0) {
-                f.this.f61020h.put(Integer.valueOf(i2), arrayList);
+                f.this.f61021h.put(Integer.valueOf(i2), arrayList);
                 f.this.q();
             }
             if (f.this.m != null) {
                 e eVar = f.this.m;
                 String str2 = f.this.j;
                 f fVar = f.this;
-                eVar.a(i, str, false, str2, fVar.k, fVar.l, fVar.f61017e, f.this.f61018f, f.this.f61019g);
+                eVar.a(i, str, false, str2, fVar.k, fVar.l, fVar.f61018e, f.this.f61019f, f.this.f61020g);
             }
         }
     }
@@ -125,67 +125,67 @@ public class f {
     }
 
     public f(d.b.b.a.f<GiftTabActivity> fVar) {
-        this.f61013a = fVar;
+        this.f61014a = fVar;
         DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(fVar);
-        this.f61014b = defaultGiftListModel;
+        this.f61015b = defaultGiftListModel;
         defaultGiftListModel.E(this.o);
-        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f61013a);
-        this.f61015c = categoryGiftListModel;
+        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f61014a);
+        this.f61016c = categoryGiftListModel;
         categoryGiftListModel.w(this.p);
-        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f61013a);
-        this.f61016d = freeGiftChanceModel;
+        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f61014a);
+        this.f61017d = freeGiftChanceModel;
         freeGiftChanceModel.w(this.q);
     }
 
     public void n(String str) {
-        if (this.f61016d == null) {
-            FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f61013a);
-            this.f61016d = freeGiftChanceModel;
+        if (this.f61017d == null) {
+            FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f61014a);
+            this.f61017d = freeGiftChanceModel;
             freeGiftChanceModel.w(this.q);
         }
-        this.f61016d.v(str);
+        this.f61017d.v(str);
     }
 
     public void o(String str, long j) {
-        if (this.f61014b == null) {
-            DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.f61013a);
-            this.f61014b = defaultGiftListModel;
+        if (this.f61015b == null) {
+            DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.f61014a);
+            this.f61015b = defaultGiftListModel;
             defaultGiftListModel.E(this.o);
         }
-        this.f61014b.D(str, j);
+        this.f61015b.D(str, j);
     }
 
     public void p(int i) {
-        if (this.f61015c == null) {
-            CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f61013a);
-            this.f61015c = categoryGiftListModel;
+        if (this.f61016c == null) {
+            CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f61014a);
+            this.f61016c = categoryGiftListModel;
             categoryGiftListModel.w(this.p);
         }
-        this.f61015c.v(i);
+        this.f61016c.v(i);
     }
 
     public final void q() {
         ArrayList<d.b.i0.t0.b.a> arrayList;
-        HashMap<Integer, ArrayList<i0>> hashMap = this.f61020h;
-        if (hashMap == null || hashMap.size() <= 0 || (arrayList = this.f61018f) == null || arrayList.size() <= 0) {
+        HashMap<Integer, ArrayList<i0>> hashMap = this.f61021h;
+        if (hashMap == null || hashMap.size() <= 0 || (arrayList = this.f61019f) == null || arrayList.size() <= 0) {
             return;
         }
-        if (this.f61017e == null) {
-            this.f61017e = new ArrayList<>();
+        if (this.f61018e == null) {
+            this.f61018e = new ArrayList<>();
         }
-        this.f61017e.clear();
-        Iterator<d.b.i0.t0.b.a> it = this.f61018f.iterator();
+        this.f61018e.clear();
+        Iterator<d.b.i0.t0.b.a> it = this.f61019f.iterator();
         while (it.hasNext()) {
             d.b.i0.t0.b.a next = it.next();
             if (next != null && !StringUtils.isNull(next.b())) {
                 d.b.i0.t0.b.c cVar = new d.b.i0.t0.b.c();
                 cVar.c(next.a());
                 cVar.d(next.b());
-                ArrayList<i0> arrayList2 = this.f61020h.get(Integer.valueOf(next.a()));
+                ArrayList<i0> arrayList2 = this.f61021h.get(Integer.valueOf(next.a()));
                 if (arrayList2 != null) {
                     cVar.e(arrayList2);
                 }
-                this.f61017e.add(cVar);
+                this.f61018e.add(cVar);
             }
         }
     }

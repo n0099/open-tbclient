@@ -12,14 +12,14 @@ import java.util.HashMap;
 public class b extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f8468a;
+    public l f8469a;
 
     public b(Context context, IXAdConstants4PDK.SlotType slotType) {
         super(context, null, slotType);
-        this.f8468a = XAdSDKFoundationFacade.getInstance().getAdConstants();
-        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f8469a = XAdSDKFoundationFacade.getInstance().getAdConstants();
+        this.f8626b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         g(1);
-        i(this.f8468a.getAdCreativeTypeImage() + this.f8468a.getAdCreativeTypeVideo() + this.f8468a.getAdCreativeTypeRichmedia());
+        i(this.f8469a.getAdCreativeTypeImage() + this.f8469a.getAdCreativeTypeVideo() + this.f8469a.getAdCreativeTypeRichmedia());
         f(8);
         h(0);
     }

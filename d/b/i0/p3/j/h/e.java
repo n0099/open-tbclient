@@ -35,28 +35,28 @@ import java.util.List;
 public class e extends d.b.b.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59060a;
+    public View f59061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HorizontalListView f59061b;
+    public HorizontalListView f59062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f59062c;
+    public Resources f59063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.p3.j.h.a f59063d;
+    public d.b.i0.p3.j.h.a f59064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.p3.j.c.c f59064e;
+    public d.b.i0.p3.j.c.c f59065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f59065f;
+    public LinearLayout f59066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f59066g;
+    public ImageView f59067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59067h;
+    public TextView f59068h;
     public boolean i;
     public MediaPlayer j;
     public String k;
@@ -77,7 +77,7 @@ public class e extends d.b.b.a.d {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (e.this.f59064e.b() != i || i == e.this.l) {
+            if (e.this.f59065e.b() != i || i == e.this.l) {
                 e.this.m = i;
                 e.this.u(i, view);
             }
@@ -88,19 +88,19 @@ public class e extends d.b.b.a.d {
     public class b implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a f59069a;
+        public final /* synthetic */ c.a f59070a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f59070b;
+        public final /* synthetic */ int f59071b;
 
         public b(c.a aVar, int i) {
-            this.f59069a = aVar;
-            this.f59070b = i;
+            this.f59070a = aVar;
+            this.f59071b = i;
         }
 
         @Override // d.b.i0.p3.j.f.a.b
         public void a(String str) {
-            this.f59069a.f58962b.setVisibility(4);
+            this.f59070a.f58963b.setVisibility(4);
             l.L(e.this.mContext.getPageActivity(), str);
             if (e.this.r != null) {
                 e.this.r.a(206, str);
@@ -109,7 +109,7 @@ public class e extends d.b.b.a.d {
 
         @Override // d.b.i0.p3.j.f.a.b
         public void b() {
-            this.f59069a.f58962b.setVisibility(4);
+            this.f59070a.f58963b.setVisibility(4);
         }
 
         @Override // d.b.i0.p3.j.f.a.b
@@ -117,8 +117,8 @@ public class e extends d.b.b.a.d {
             if (!TextUtils.isEmpty(str2)) {
                 str = str2;
             }
-            this.f59069a.f58962b.setVisibility(4);
-            e.this.I(str, this.f59070b);
+            this.f59070a.f58963b.setVisibility(4);
+            e.this.I(str, this.f59071b);
         }
     }
 
@@ -126,10 +126,10 @@ public class e extends d.b.b.a.d {
     public class c implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f59072a;
+        public final /* synthetic */ int f59073a;
 
         public c(int i) {
-            this.f59072a = i;
+            this.f59073a = i;
         }
 
         @Override // d.b.i0.p3.j.f.a.b
@@ -149,7 +149,7 @@ public class e extends d.b.b.a.d {
             if (!TextUtils.isEmpty(str2)) {
                 str = str2;
             }
-            e.this.I(str, this.f59072a);
+            e.this.I(str, this.f59073a);
         }
     }
 
@@ -157,23 +157,23 @@ public class e extends d.b.b.a.d {
     public class d implements MediaPlayer.OnPreparedListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f59074e;
+        public final /* synthetic */ int f59075e;
 
         public d(int i) {
-            this.f59074e = i;
+            this.f59075e = i;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            e.this.f59064e.d(this.f59074e);
+            e.this.f59065e.d(this.f59075e);
             e.this.j.setLooping(true);
         }
     }
 
     /* renamed from: d.b.i0.p3.j.h.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1466e implements MediaPlayer.OnErrorListener {
-        public C1466e() {
+    public class C1467e implements MediaPlayer.OnErrorListener {
+        public C1467e() {
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -191,18 +191,18 @@ public class e extends d.b.b.a.d {
     public class f implements MediaPlayer.OnPreparedListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f59077e;
+        public final /* synthetic */ int f59078e;
 
         public f(int i) {
-            this.f59077e = i;
+            this.f59078e = i;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            e.this.f59064e.d(this.f59077e);
+            e.this.f59065e.d(this.f59078e);
             e.this.j.setLooping(true);
             e.this.j.start();
-            e.this.f59063d.S();
+            e.this.f59064d.S();
         }
     }
 
@@ -231,7 +231,7 @@ public class e extends d.b.b.a.d {
         public void onClick(View view) {
             e eVar = e.this;
             eVar.Q(!eVar.i);
-            e.this.f59063d.Y(!e.this.i);
+            e.this.f59064d.Y(!e.this.i);
             e.this.M();
             StatisticItem statisticItem = new StatisticItem("c12423");
             statisticItem.param("obj_type", !e.this.i ? 1 : 0);
@@ -246,8 +246,8 @@ public class e extends d.b.b.a.d {
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f59061b.setSelection(e.this.n);
-            e.this.f59061b.v(e.this.m * l.g(e.this.getPageContext().getContext(), R.dimen.ds122));
+            e.this.f59062b.setSelection(e.this.n);
+            e.this.f59062b.v(e.this.m * l.g(e.this.getPageContext().getContext(), R.dimen.ds122));
         }
     }
 
@@ -255,16 +255,16 @@ public class e extends d.b.b.a.d {
         super(fVar);
         this.i = true;
         this.l = 1;
-        this.f59063d = aVar;
+        this.f59064d = aVar;
         this.r = gVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_music_layout, (ViewGroup) null);
-        this.f59060a = inflate;
-        this.f59062c = inflate.getResources();
+        this.f59061a = inflate;
+        this.f59063c = inflate.getResources();
         z();
     }
 
     public void A(d.b.b.a.f fVar, int i2) {
-        SkinManager.setBackgroundColor(this.f59060a, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f59061a, R.color.CAM_X0201);
     }
 
     public void B(String str, String str2) {
@@ -287,7 +287,7 @@ public class e extends d.b.b.a.d {
     public void F() {
         this.o = false;
         MediaPlayer mediaPlayer = this.j;
-        if (mediaPlayer == null || this.f59063d.l != 2) {
+        if (mediaPlayer == null || this.f59064d.l != 2) {
             return;
         }
         mediaPlayer.start();
@@ -296,7 +296,7 @@ public class e extends d.b.b.a.d {
 
     public void G(boolean z) {
         if (z) {
-            this.f59065f.setVisibility(0);
+            this.f59066f.setVisibility(0);
             if (this.q && this.j == null && !TextUtils.isEmpty(this.k)) {
                 I(this.k, this.n);
                 this.q = false;
@@ -309,7 +309,7 @@ public class e extends d.b.b.a.d {
             M();
             return;
         }
-        this.f59065f.setVisibility(8);
+        this.f59066f.setVisibility(8);
         E();
     }
 
@@ -344,13 +344,13 @@ public class e extends d.b.b.a.d {
             return;
         }
         this.p = musicData.id;
-        this.f59063d.s();
+        this.f59064d.s();
         String g2 = d.b.i0.p3.j.f.a.h().g(musicData.resource);
         if (!TextUtils.isEmpty(g2)) {
             I(g2, i2);
         } else if (view != null) {
             c.a aVar = (c.a) view.getTag();
-            aVar.f58962b.setVisibility(0);
+            aVar.f58963b.setVisibility(0);
             d.b.i0.p3.j.f.a.h().f(musicData.id, musicData.resource, new b(aVar, i2));
         } else {
             d.b.i0.p3.j.f.a.h().f(musicData.id, musicData.resource, new c(i2));
@@ -375,7 +375,7 @@ public class e extends d.b.b.a.d {
                 this.j.setDataSource(this.s);
                 this.j.prepare();
                 this.j.setOnPreparedListener(new d(i2));
-                this.j.setOnErrorListener(new C1466e());
+                this.j.setOnErrorListener(new C1467e());
             } catch (Exception e2) {
                 e2.printStackTrace();
                 O(this.k, i2);
@@ -425,12 +425,12 @@ public class e extends d.b.b.a.d {
             }
             d.b.i0.p3.j.f.a.h().e();
         }
-        J(i2, this.f59061b.getChildCount() > i2 ? this.f59061b.getChildAt(i2) : null, (MusicData) this.f59064e.getItem(i2));
+        J(i2, this.f59062b.getChildCount() > i2 ? this.f59062b.getChildAt(i2) : null, (MusicData) this.f59065e.getItem(i2));
     }
 
     public void P(List<MusicData> list) {
-        this.f59064e.f(list);
-        d.b.i0.p3.j.c.c cVar = this.f59064e;
+        this.f59065e.f(list);
+        d.b.i0.p3.j.c.c cVar = this.f59065e;
         if (cVar != null) {
             int b2 = cVar.b();
             this.n = b2;
@@ -442,12 +442,12 @@ public class e extends d.b.b.a.d {
     public void Q(boolean z) {
         this.i = z;
         if (z) {
-            this.f59066g.setSelected(false);
-            this.f59067h.setText(this.f59062c.getString(R.string.video_voice_open));
+            this.f59067g.setSelected(false);
+            this.f59068h.setText(this.f59063c.getString(R.string.video_voice_open));
             return;
         }
-        this.f59066g.setSelected(true);
-        this.f59067h.setText(this.f59062c.getString(R.string.video_voice_close));
+        this.f59067g.setSelected(true);
+        this.f59068h.setText(this.f59063c.getString(R.string.video_voice_close));
     }
 
     public void R(Intent intent) {
@@ -457,10 +457,10 @@ public class e extends d.b.b.a.d {
         this.q = true;
         this.p = intent.getStringExtra(EditVideoActivityConfig.MUSIC_ID_KEY);
         this.k = intent.getStringExtra(EditVideoActivityConfig.LOCAL_PATH_KEY);
-        d.b.i0.p3.j.c.c cVar = this.f59064e;
+        d.b.i0.p3.j.c.c cVar = this.f59065e;
         if (cVar != null) {
             cVar.e(this.p);
-            int b2 = this.f59064e.b();
+            int b2 = this.f59065e.b();
             this.n = b2;
             this.l = b2;
             this.m = b2;
@@ -477,7 +477,7 @@ public class e extends d.b.b.a.d {
         if (k.isEmpty(this.t) || k.isEmpty(this.s)) {
             return;
         }
-        List<MusicData> c2 = this.f59064e.c();
+        List<MusicData> c2 = this.f59065e.c();
         if (ListUtils.isEmpty(c2)) {
             return;
         }
@@ -491,7 +491,7 @@ public class e extends d.b.b.a.d {
     }
 
     public final void u(int i2, View view) {
-        MusicData musicData = (MusicData) this.f59064e.getItem(i2);
+        MusicData musicData = (MusicData) this.f59065e.getItem(i2);
         if (musicData == null) {
             return;
         }
@@ -504,9 +504,9 @@ public class e extends d.b.b.a.d {
         if (i3 == 0) {
             J(i2, view, musicData);
         } else if (i3 == 1) {
-            this.f59064e.d(i2);
+            this.f59065e.d(i2);
             L();
-            this.f59063d.S();
+            this.f59064d.S();
         } else if (i3 != 2) {
         } else {
             this.l = i2;
@@ -523,24 +523,24 @@ public class e extends d.b.b.a.d {
     }
 
     public View x() {
-        return this.f59060a;
+        return this.f59061a;
     }
 
     public void y(View view) {
-        this.f59065f = (LinearLayout) view.findViewById(R.id.video_voice_layout);
-        this.f59066g = (ImageView) view.findViewById(R.id.video_voice_img);
-        this.f59067h = (TextView) view.findViewById(R.id.video_voice_text);
-        this.f59065f.setVisibility(8);
-        this.f59065f.setOnClickListener(new h());
+        this.f59066f = (LinearLayout) view.findViewById(R.id.video_voice_layout);
+        this.f59067g = (ImageView) view.findViewById(R.id.video_voice_img);
+        this.f59068h = (TextView) view.findViewById(R.id.video_voice_text);
+        this.f59066f.setVisibility(8);
+        this.f59066f.setOnClickListener(new h());
         Q(this.i);
-        this.f59063d.Y(!this.i);
+        this.f59064d.Y(!this.i);
     }
 
     public final void z() {
-        this.f59061b = (HorizontalListView) this.f59060a.findViewById(R.id.horizontal_list);
+        this.f59062b = (HorizontalListView) this.f59061a.findViewById(R.id.horizontal_list);
         d.b.i0.p3.j.c.c cVar = new d.b.i0.p3.j.c.c(this.mContext);
-        this.f59064e = cVar;
-        this.f59061b.setAdapter((ListAdapter) cVar);
-        this.f59061b.setOnItemClickListener(new a());
+        this.f59065e = cVar;
+        this.f59062b.setAdapter((ListAdapter) cVar);
+        this.f59062b.setOnItemClickListener(new a());
     }
 }

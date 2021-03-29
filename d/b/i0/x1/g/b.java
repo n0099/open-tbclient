@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static Bitmap a(String str) {
         Bitmap bitmap = null;
@@ -18,7 +18,7 @@ public class b {
             File file = new File(str);
             if (file.exists()) {
                 if (c(file)) {
-                    d.b.b.j.d.a aVar = a.C0532a.b().get(str);
+                    d.b.b.j.d.a aVar = a.C0533a.b().get(str);
                     if (aVar != null) {
                         bitmap = aVar.p();
                     }

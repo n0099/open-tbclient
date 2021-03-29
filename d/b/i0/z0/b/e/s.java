@@ -23,7 +23,7 @@ import d.b.h0.r.q.v0;
 import d.b.i.b0;
 import d.b.i.k0;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class s extends d.b.b.j.e.a<d.b.i0.z0.b.f.a, ThreadCardViewHolder<d.b.i0.z0.b.f.a>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
@@ -31,7 +31,7 @@ public class s extends d.b.b.j.e.a<d.b.i0.z0.b.f.a, ThreadCardViewHolder<d.b.i0.
     public String p;
     public NEGFeedBackView.b q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements NEGFeedBackView.b {
         public a() {
         }
@@ -58,23 +58,23 @@ public class s extends d.b.b.j.e.a<d.b.i0.z0.b.f.a, ThreadCardViewHolder<d.b.i0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<Integer, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f62771a;
+        public NetWork f62772a;
 
         public b(s sVar) {
-            this.f62771a = null;
+            this.f62772a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f62771a;
+            NetWork netWork = this.f62772a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f62771a = null;
+                this.f62772a = null;
             }
         }
 
@@ -83,12 +83,12 @@ public class s extends d.b.b.j.e.a<d.b.i0.z0.b.f.a, ThreadCardViewHolder<d.b.i0.
         public String doInBackground(Integer... numArr) {
             try {
                 NetWork netWork = new NetWork();
-                this.f62771a = netWork;
+                this.f62772a = netWork;
                 netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
-                this.f62771a.addPostData("dislike_from", "concernpage");
-                this.f62771a.addPostData("dislike_type", "1");
-                this.f62771a.getNetContext().getRequest().mIsNeedTbs = true;
-                return this.f62771a.postNetData();
+                this.f62772a.addPostData("dislike_from", "concernpage");
+                this.f62772a.addPostData("dislike_type", "1");
+                this.f62772a.getNetContext().getRequest().mIsNeedTbs = true;
+                return this.f62772a.postNetData();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 return null;
@@ -129,7 +129,7 @@ public class s extends d.b.b.j.e.a<d.b.i0.z0.b.f.a, ThreadCardViewHolder<d.b.i0.
         b0 p = threadCardViewHolder.p(false);
         p.u(this.q);
         p.s(false);
-        p.t(this.f42357e.getString(R.string.concern_recommend_dialog_title));
+        p.t(this.f42358e.getString(R.string.concern_recommend_dialog_title));
         p.w(true);
         p.k = true;
         return threadCardViewHolder;

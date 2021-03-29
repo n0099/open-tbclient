@@ -32,20 +32,20 @@ import java.util.regex.Pattern;
 public class g extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonPostModel.c f56746e;
+    public PersonPostModel.c f56747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonPostModel f56747f;
+    public PersonPostModel f56748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f56748g;
+    public final String f56749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f56749h;
+    public BdUniqueId f56750h;
     public String i;
     public TbPageContext<BaseFragmentActivity> j;
     public final PersonPostModel.c k = new a();
-    public final a.InterfaceC1336a l = new b();
+    public final a.InterfaceC1337a l = new b();
 
     /* loaded from: classes5.dex */
     public class a implements PersonPostModel.c {
@@ -55,34 +55,34 @@ public class g extends BaseAdapter {
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
         public void p0(PersonPostModel personPostModel, boolean z) {
             if (z) {
-                g.this.f56747f = personPostModel;
-                Iterator<n> it = g.this.f56747f.postList.iterator();
+                g.this.f56748f = personPostModel;
+                Iterator<n> it = g.this.f56748f.postList.iterator();
                 while (it.hasNext()) {
                     n next = it.next();
                     if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                         it.remove();
                     }
                 }
-            } else if (g.this.f56747f != null) {
+            } else if (g.this.f56748f != null) {
                 for (int i = 0; i < personPostModel.postList.size(); i++) {
                     if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
-                        g.this.f56747f.postList.add(personPostModel.postList.get(i));
+                        g.this.f56748f.postList.add(personPostModel.postList.get(i));
                     }
                 }
             }
-            if (g.this.f56746e != null) {
-                g.this.f56746e.p0(personPostModel, z);
+            if (g.this.f56747e != null) {
+                g.this.f56747e.p0(personPostModel, z);
             }
             g.this.notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements a.InterfaceC1336a {
+    public class b implements a.InterfaceC1337a {
         public b() {
         }
 
-        @Override // d.b.i0.l2.a.InterfaceC1336a
+        @Override // d.b.i0.l2.a.InterfaceC1337a
         public void a(View view) {
             String[] strArr;
             int id = view.getId();
@@ -133,24 +133,24 @@ public class g extends BaseAdapter {
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
         this.j = tbPageContext;
-        this.f56748g = str;
-        this.f56749h = bdUniqueId;
+        this.f56749g = str;
+        this.f56750h = bdUniqueId;
     }
 
     public void e() {
-        PersonPostModel personPostModel = this.f56747f;
+        PersonPostModel personPostModel = this.f56748f;
         if (personPostModel != null) {
             personPostModel.cancelLoadData();
         }
     }
 
     public void f(boolean z) {
-        if (this.f56747f == null) {
-            PersonPostModel personPostModel = new PersonPostModel(this.j, this.f56749h, null, true, PersonPostModel.FROM_PERSON_POST);
-            this.f56747f = personPostModel;
-            personPostModel.setUniqueId(this.f56749h);
+        if (this.f56748f == null) {
+            PersonPostModel personPostModel = new PersonPostModel(this.j, this.f56750h, null, true, PersonPostModel.FROM_PERSON_POST);
+            this.f56748f = personPostModel;
+            personPostModel.setUniqueId(this.f56750h);
         }
-        this.f56747f.fetchPost(this.j, this.k, z, this.f56748g, false, true, false, null);
+        this.f56748f.fetchPost(this.j, this.k, z, this.f56749g, false, true, false, null);
     }
 
     public final void g(int i, c cVar, ViewGroup viewGroup) {
@@ -181,8 +181,8 @@ public class g extends BaseAdapter {
             cVar.w.setText(h2.title);
         }
         OriginalThreadInfo originalThreadInfo = h2.originalThreadInfo;
-        if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f13211b)) {
-            cVar.w.setText("分享：" + h2.originalThreadInfo.f13211b);
+        if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f13212b)) {
+            cVar.w.setText("分享：" + h2.originalThreadInfo.f13212b);
         }
         cVar.w.setTag(new String[]{String.valueOf(h2.thread_id), null, null, String.valueOf(h2.thread_type)});
         if (h2.thread_type == 33) {
@@ -201,7 +201,7 @@ public class g extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         ArrayList<n> arrayList;
-        PersonPostModel personPostModel = this.f56747f;
+        PersonPostModel personPostModel = this.f56748f;
         if (personPostModel == null || (arrayList = personPostModel.postList) == null) {
             return 0;
         }
@@ -238,10 +238,10 @@ public class g extends BaseAdapter {
     }
 
     public PersonPostModel.PostInfoList h(int i) {
-        return (PersonPostModel.PostInfoList) this.f56747f.postList.get(i);
+        return (PersonPostModel.PostInfoList) this.f56748f.postList.get(i);
     }
 
     public void i(PersonPostModel.c cVar) {
-        this.f56746e = cVar;
+        this.f56747e = cVar;
     }
 }

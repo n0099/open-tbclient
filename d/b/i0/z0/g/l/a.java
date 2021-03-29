@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.b.b.e.m.e;
 import d.b.b.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.i0.x.b<d.b.i0.z0.g.l.b> {
     public static final int s;
     public static final int t;
@@ -28,9 +28,9 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.g.l.b> {
     public d.b.i0.z0.g.l.b r;
 
     /* renamed from: d.b.i0.z0.g.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1703a implements View.OnClickListener {
-        public View$OnClickListenerC1703a() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1704a implements View.OnClickListener {
+        public View$OnClickListenerC1704a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -42,25 +42,25 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.g.l.b> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f63215e;
+        public final /* synthetic */ ViewGroup.LayoutParams f63216e;
 
         public b(ViewGroup.LayoutParams layoutParams) {
-            this.f63215e = layoutParams;
+            this.f63216e = layoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             a.this.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            this.f63215e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
-            a.this.n.setLayoutParams(this.f63215e);
+            this.f63216e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
+            a.this.n.setLayoutParams(this.f63216e);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -90,7 +90,7 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.g.l.b> {
         int i = t;
         textView.setPadding(0, i, 0, i - s);
         this.q = this.m.getResources().getString(R.string.home_read_here);
-        this.n.setOnClickListener(new View$OnClickListenerC1703a());
+        this.n.setOnClickListener(new View$OnClickListenerC1704a());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -100,16 +100,16 @@ public class a extends d.b.i0.x.b<d.b.i0.z0.g.l.b> {
         if (bVar == null || this.n.getLayoutParams() == null) {
             return;
         }
-        if (!bVar.f63220f) {
+        if (!bVar.f63221f) {
             this.n.getLayoutParams().height = v;
             this.n.requestLayout();
             this.o.setAlpha(0.0f);
         }
         if (this.n.getLayoutParams().height != u) {
-            bVar.f63220f = true;
+            bVar.f63221f = true;
             e.a().postDelayed(new c(), 1600L);
         }
-        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f63219e);
+        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f63220e);
         TextView textView = this.o;
         textView.setText(formatTimeShort + this.q);
         o(this.m, TbadkCoreApplication.getInst().getSkinType());

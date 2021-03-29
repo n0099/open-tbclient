@@ -29,8 +29,8 @@ public class a extends d.b.b.j.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: d.b.c.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0555a implements d.b.i0.i1.o.a {
-        public C0555a() {
+    public class C0556a implements d.b.i0.i1.o.a {
+        public C0556a() {
         }
 
         @Override // d.b.i0.i1.o.a
@@ -97,7 +97,7 @@ public class a extends d.b.b.j.e.a<d, AdCardViewHolder> implements f {
         if (a2 instanceof k) {
             this.s.add((k) a2);
         }
-        a2.setAfterClickSchemeListener(new C0555a());
+        a2.setAfterClickSchemeListener(new C0556a());
         return new AdCardViewHolder(a2);
     }
 

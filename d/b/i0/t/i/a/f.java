@@ -100,13 +100,13 @@ public class f extends k<z1, FrsPageAlaVideoHolder> implements z, d.b.i0.m.f {
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (z1Var != null) {
-            d.b.i0.t.i.e.e eVar = frsPageAlaVideoHolder.f15034a;
+            d.b.i0.t.i.e.e eVar = frsPageAlaVideoHolder.f15035a;
             if (eVar instanceof d.b.i0.m.e) {
                 eVar.setPage(this.y);
             }
-            frsPageAlaVideoHolder.f15034a.a(this.x);
-            frsPageAlaVideoHolder.f15034a.X(l0());
-            frsPageAlaVideoHolder.f15034a.n(z1Var.w);
+            frsPageAlaVideoHolder.f15035a.a(this.x);
+            frsPageAlaVideoHolder.f15035a.X(l0());
+            frsPageAlaVideoHolder.f15035a.n(z1Var.w);
             z1Var.w.x4();
         }
         this.q = (s) viewGroup;

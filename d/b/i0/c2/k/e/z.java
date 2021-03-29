@@ -28,12 +28,12 @@ public class z extends m<d.b.i0.c2.h.j, PbLoadMoreItemViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public PbLoadMoreItemViewHolder R(ViewGroup viewGroup) {
-        return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.new_pb_list_more, viewGroup, false), this.s);
+        return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.new_pb_list_more, viewGroup, false), this.s);
     }
 
     public View l0(int i, View view, ViewGroup viewGroup, d.b.i0.c2.h.j jVar, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
         super.X(i, view, viewGroup, jVar, pbLoadMoreItemViewHolder);
-        pbLoadMoreItemViewHolder.e(jVar.f52437e, d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104));
+        pbLoadMoreItemViewHolder.e(jVar.f52438e, d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104));
         pbLoadMoreItemViewHolder.d(this.t);
         pbLoadMoreItemViewHolder.c();
         return view;

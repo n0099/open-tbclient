@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     public Long mAppid;
     public String mBduss;

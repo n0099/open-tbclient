@@ -10,7 +10,7 @@ import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.wallet.core.NoProguard;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSPayAli implements NoProguard {
     public static final String ALI_AUTH_PAY = "authorize_pay";
     public static final String ALI_AUTH_SIGN = "authorize_sign";
@@ -20,20 +20,20 @@ public class LBSPayAli implements NoProguard {
     public IChannelPay mChannelPay;
     public String mServiceType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface INoSupportAliAuthorizePay {
         void onNoSupportAliAuthorizePay();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f2605a = new LBSPayAli();
+        public static LBSPayAli f2606a = new LBSPayAli();
     }
 
     public static LBSPayAli getInstance() {
-        return a.f2605a;
+        return a.f2606a;
     }
 
     private void handleError() {

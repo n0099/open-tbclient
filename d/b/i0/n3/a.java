@@ -5,11 +5,11 @@ import tbclient.UserMuteCheck.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public DataRes f57156a;
+    public DataRes f57157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57157b;
+    public String f57158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57158c;
+    public int f57159c;
 }

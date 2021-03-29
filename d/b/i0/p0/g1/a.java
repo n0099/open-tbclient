@@ -20,56 +20,56 @@ import java.util.Date;
 public class a implements z.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f57521a;
+    public TbPageContext f57522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57522b;
+    public View f57523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f57523c;
+    public TextView f57524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f57524d;
+    public TextView f57525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57525e;
+    public TextView f57526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f57526f;
+    public b f57527f;
 
     /* renamed from: g  reason: collision with root package name */
-    public z f57527g;
+    public z f57528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f57528h;
+    public View f57529h;
     public ImageView i;
     public ImageView j;
     public ImageView k;
     public TextView l;
     public View m;
-    public View.OnClickListener n = new View$OnClickListenerC1385a();
+    public View.OnClickListener n = new View$OnClickListenerC1386a();
 
     /* renamed from: d.b.i0.p0.g1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1385a implements View.OnClickListener {
-        public View$OnClickListenerC1385a() {
+    public class View$OnClickListenerC1386a implements View.OnClickListener {
+        public View$OnClickListenerC1386a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == a.this.j.getId()) {
-                a.this.f57521a.getPageActivity().finish();
+                a.this.f57522a.getPageActivity().finish();
             }
         }
     }
 
     public a(TbPageContext tbPageContext, View view) {
-        this.f57521a = tbPageContext;
-        this.f57522b = view;
-        this.f57523c = (TextView) view.findViewById(R.id.to_user_name);
-        this.f57524d = (TextView) view.findViewById(R.id.content);
-        this.f57525e = (TextView) view.findViewById(R.id.sender);
-        this.f57528h = view.findViewById(R.id.share_view);
+        this.f57522a = tbPageContext;
+        this.f57523b = view;
+        this.f57524c = (TextView) view.findViewById(R.id.to_user_name);
+        this.f57525d = (TextView) view.findViewById(R.id.content);
+        this.f57526e = (TextView) view.findViewById(R.id.sender);
+        this.f57529h = view.findViewById(R.id.share_view);
         this.i = (ImageView) view.findViewById(R.id.frs_private_share_qrcode);
         ImageView imageView = (ImageView) view.findViewById(R.id.close_button);
         this.j = imageView;
@@ -85,29 +85,29 @@ public class a implements z.d {
         View findViewById = view.findViewById(R.id.layout_content);
         this.m = findViewById;
         findViewById.setBackground(f());
-        this.f57528h.setBackground(f());
+        this.f57529h.setBackground(f());
         b bVar = new b(tbPageContext);
-        this.f57526f = bVar;
+        this.f57527f = bVar;
         bVar.k();
         i();
         z zVar = new z(tbPageContext);
-        this.f57527g = zVar;
-        zVar.o(view, this.f57528h, this);
-        z zVar2 = this.f57527g;
-        b bVar2 = this.f57526f;
-        zVar2.q(bVar2.f57531b, bVar2.f57535f);
-        this.f57527g.r(5);
+        this.f57528g = zVar;
+        zVar.o(view, this.f57529h, this);
+        z zVar2 = this.f57528g;
+        b bVar2 = this.f57527f;
+        zVar2.q(bVar2.f57532b, bVar2.f57536f);
+        this.f57528g.r(5);
     }
 
     @Override // d.b.i0.p0.z.d
     public void a() {
-        this.f57528h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
+        this.f57529h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
         this.k.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
     }
 
     @Override // d.b.i0.p0.z.d
     public void b() {
-        this.f57528h.setBackground(f());
+        this.f57529h.setBackground(f());
         this.k.setImageResource(R.drawable.pic_yaoqinghan_980x364);
     }
 
@@ -123,29 +123,29 @@ public class a implements z.d {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{SkinManager.getColor(R.color.CAM_X0201), SkinManager.getColor(R.color.CAM_X0201)});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
-        gradientDrawable.setCornerRadius(l.g(this.f57521a.getPageActivity(), R.dimen.tbds31));
+        gradientDrawable.setCornerRadius(l.g(this.f57522a.getPageActivity(), R.dimen.tbds31));
         return gradientDrawable;
     }
 
     public void g(int i) {
         SkinManager.setImageResource(this.j, R.drawable.icon_popup_shut_n);
-        SkinManager.setViewTextColor(this.f57523c, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f57524d, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f57525e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f57524c, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f57525d, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f57526e, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0109);
     }
 
     public void h(boolean z) {
-        this.f57522b.setVisibility(z ? 0 : 8);
+        this.f57523b.setVisibility(z ? 0 : 8);
     }
 
     public final void i() {
-        this.f57523c.setText("你好，朋友！");
-        this.f57524d.setText(this.f57526f.h());
+        this.f57524c.setText("你好，朋友！");
+        this.f57525d.setText(this.f57527f.h());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         Date date = new Date(System.currentTimeMillis());
-        TextView textView = this.f57525e;
-        textView.setText(this.f57526f.f57533d + "\n" + simpleDateFormat.format(date));
-        e(this.f57526f.f57532c);
+        TextView textView = this.f57526e;
+        textView.setText(this.f57527f.f57534d + "\n" + simpleDateFormat.format(date));
+        e(this.f57527f.f57533c);
     }
 }

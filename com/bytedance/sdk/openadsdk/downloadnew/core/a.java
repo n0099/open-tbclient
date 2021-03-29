@@ -9,13 +9,13 @@ public interface a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0317a {
+    public interface InterfaceC0318a {
         boolean a(int i, l lVar, String str, String str2, Object obj);
     }
 
     void a();
 
-    void a(int i, InterfaceC0317a interfaceC0317a);
+    void a(int i, InterfaceC0318a interfaceC0318a);
 
     void a(Activity activity);
 

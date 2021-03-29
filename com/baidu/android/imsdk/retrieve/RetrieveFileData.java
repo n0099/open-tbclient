@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RetrieveFileData {
     public static final String AES_PATH_IV = "1357902468135246";
     public static final String EXPIRED = "expiredTime";
@@ -21,7 +21,7 @@ public class RetrieveFileData {
     public static final String TYPE = "type";
     public static final String VERSION = "version";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class RetrieveFileBean {
         public long mExpiredTime;
         public String mJobId;

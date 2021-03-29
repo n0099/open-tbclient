@@ -11,28 +11,28 @@ import com.baidu.adp.lib.util.BdLog;
 public class c extends LinkMovementMethod {
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f61148f;
+    public static c f61149f;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.b1.m.f f61149a;
+    public d.b.h0.b1.m.f f61150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61150b;
+    public int f61151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61151c;
+    public int f61152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61152d;
+    public long f61153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61153e = -1;
+    public int f61154e = -1;
 
     public static c a() {
-        if (f61148f == null) {
-            f61148f = new c();
+        if (f61149f == null) {
+            f61149f = new c();
         }
-        return f61148f;
+        return f61149f;
     }
 
     public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
@@ -55,14 +55,14 @@ public class c extends LinkMovementMethod {
                 return fVarArr[0];
             } catch (Exception e2) {
                 BdLog.e(e2);
-                return this.f61149a;
+                return this.f61150a;
             }
         }
-        return this.f61149a;
+        return this.f61150a;
     }
 
     public void d(int i) {
-        this.f61153e = i;
+        this.f61154e = i;
     }
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
@@ -77,36 +77,36 @@ public class c extends LinkMovementMethod {
             }
         }
         if (b2 != null) {
-            this.f61149a = b2;
+            this.f61150a = b2;
         }
-        int i = this.f61153e;
+        int i = this.f61154e;
         if (i > -1) {
-            this.f61149a.g(i);
+            this.f61150a.g(i);
         }
         if (motionEvent.getAction() == 0) {
-            this.f61150b = (int) motionEvent.getX();
-            this.f61151c = (int) motionEvent.getY();
-            this.f61152d = System.currentTimeMillis();
-            d.b.h0.b1.m.f fVar = this.f61149a;
+            this.f61151b = (int) motionEvent.getX();
+            this.f61152c = (int) motionEvent.getY();
+            this.f61153d = System.currentTimeMillis();
+            d.b.h0.b1.m.f fVar = this.f61150a;
             if (fVar != null) {
                 fVar.h(1);
-                Selection.setSelection(spannable, spannable.getSpanStart(this.f61149a), spannable.getSpanEnd(this.f61149a));
+                Selection.setSelection(spannable, spannable.getSpanStart(this.f61150a), spannable.getSpanEnd(this.f61150a));
             }
             textView.invalidate();
         } else if (motionEvent.getAction() == 2) {
-            if (this.f61149a != null && (Math.abs(this.f61150b - motionEvent.getX()) > 20.0f || Math.abs(this.f61151c - motionEvent.getY()) > 20.0f)) {
-                this.f61149a.h(2);
+            if (this.f61150a != null && (Math.abs(this.f61151b - motionEvent.getX()) > 20.0f || Math.abs(this.f61152c - motionEvent.getY()) > 20.0f)) {
+                this.f61150a.h(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            d.b.h0.b1.m.f fVar2 = this.f61149a;
+            d.b.h0.b1.m.f fVar2 = this.f61150a;
             if (fVar2 != null) {
                 fVar2.h(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
-            if (c(this.f61150b, this.f61151c, motionEvent.getX(), motionEvent.getY(), this.f61152d, System.currentTimeMillis(), 500L)) {
+            if (c(this.f61151b, this.f61152c, motionEvent.getX(), motionEvent.getY(), this.f61153d, System.currentTimeMillis(), 500L)) {
                 return true;
             }
         }

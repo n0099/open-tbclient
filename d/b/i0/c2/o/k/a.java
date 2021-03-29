@@ -66,8 +66,8 @@ public class a extends d.b.i0.i2.q.d {
 
     /* renamed from: d.b.i0.c2.o.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1178a implements Runnable {
-        public RunnableC1178a() {
+    public class RunnableC1179a implements Runnable {
+        public RunnableC1179a() {
         }
 
         @Override // java.lang.Runnable
@@ -81,8 +81,8 @@ public class a extends d.b.i0.i2.q.d {
 
         /* renamed from: d.b.i0.c2.o.k.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1179a extends AnimatorListenerAdapter {
-            public C1179a() {
+        public class C1180a extends AnimatorListenerAdapter {
+            public C1180a() {
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -106,7 +106,7 @@ public class a extends d.b.i0.i2.q.d {
             a.this.Q0 = true;
             a.this.R0.setFloatValues(-l.g(context, i));
             a.this.R0.removeAllListeners();
-            a.this.R0.addListener(new C1179a());
+            a.this.R0.addListener(new C1180a());
             a.this.R0.start();
         }
     }
@@ -116,8 +116,8 @@ public class a extends d.b.i0.i2.q.d {
 
         /* renamed from: d.b.i0.c2.o.k.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1180a extends AnimatorListenerAdapter {
-            public C1180a() {
+        public class C1181a extends AnimatorListenerAdapter {
+            public C1181a() {
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -134,7 +134,7 @@ public class a extends d.b.i0.i2.q.d {
         public void run() {
             a.this.R0.setFloatValues(l.g(a.this.P, a.this.U ? R.dimen.tbds210 : R.dimen.tbds244));
             a.this.R0.removeAllListeners();
-            a.this.R0.addListener(new C1180a());
+            a.this.R0.addListener(new C1181a());
             a.this.R0.start();
         }
     }
@@ -156,7 +156,7 @@ public class a extends d.b.i0.i2.q.d {
         super(context, view);
         this.O0 = -1;
         this.T0 = 0;
-        this.e1 = new RunnableC1178a();
+        this.e1 = new RunnableC1179a();
         this.f1 = new b();
         this.g1 = new c();
         this.h1 = new d();
@@ -242,12 +242,12 @@ public class a extends d.b.i0.i2.q.d {
 
     @Override // d.b.i0.i2.q.d
     public void Q() {
-        int i = this.f56187f & (-33);
-        this.f56187f = i;
-        int i2 = this.f56188g & (-33);
-        this.f56188g = i2;
-        int i3 = this.f56189h & (-33);
-        this.f56189h = i3;
+        int i = this.f56188f & (-33);
+        this.f56188f = i;
+        int i2 = this.f56189g & (-33);
+        this.f56189g = i2;
+        int i3 = this.f56190h & (-33);
+        this.f56190h = i3;
         int i4 = this.i & (-33);
         this.i = i4;
         int i5 = this.j & (-33);
@@ -260,10 +260,10 @@ public class a extends d.b.i0.i2.q.d {
         this.m = i8;
         int i9 = this.n & (-33);
         this.n = i9;
-        this.f56187f = i | 1024;
+        this.f56188f = i | 1024;
         int i10 = i2 | 1024;
-        this.f56188g = i10;
-        this.f56189h = i3 & (-1025);
+        this.f56189g = i10;
+        this.f56190h = i3 & (-1025);
         this.i = i4 | 1024;
         this.j = i5 | 1024;
         int i11 = i6 | 1024;
@@ -272,7 +272,7 @@ public class a extends d.b.i0.i2.q.d {
         this.l = i12;
         this.m = i8 | 1024;
         this.n = i9 & (-1025);
-        this.f56188g = i10 | 16384;
+        this.f56189g = i10 | 16384;
         this.k = i11 | 16384;
         this.l = i12 & (-2);
     }
@@ -457,7 +457,7 @@ public class a extends d.b.i0.i2.q.d {
             int i2 = this.O0;
             if (i2 == -1) {
                 startPlay();
-            } else if (i2 != this.f56188g && i2 != this.i && i2 != this.f56189h) {
+            } else if (i2 != this.f56189g && i2 != this.i && i2 != this.f56190h) {
                 this.G.setCurrentDuration(n.d().c(this.V), false);
                 r0(this.O0);
             } else {
@@ -540,7 +540,7 @@ public class a extends d.b.i0.i2.q.d {
     @Override // d.b.i0.i2.q.d
     public void r0(int i) {
         VideoPbFragment videoPbFragment;
-        if (i != this.j && i != this.k && i != this.i && i != this.f56188g) {
+        if (i != this.j && i != this.k && i != this.i && i != this.f56189g) {
             T0();
             PbVideoFullscreenAttentionLayout pbVideoFullscreenAttentionLayout = this.K0;
             if (pbVideoFullscreenAttentionLayout != null) {
@@ -620,10 +620,10 @@ public class a extends d.b.i0.i2.q.d {
         }
         this.W0 = a2Var.V();
         o oVar = new o();
-        oVar.f56163a = "6";
-        oVar.f56165c = a2Var.w1();
-        oVar.f56166d = Long.toString(a2Var.c0());
-        oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f56164a = "6";
+        oVar.f56166c = a2Var.w1();
+        oVar.f56167d = Long.toString(a2Var.c0());
+        oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
         Context context = this.P;
         if (context instanceof BaseFragmentActivity) {
             Intent intent = ((BaseFragmentActivity) context).getIntent();
@@ -699,7 +699,7 @@ public class a extends d.b.i0.i2.q.d {
         o oVar = this.b0;
         if (oVar != null) {
             o b2 = oVar.b();
-            b2.f56163a = "pb";
+            b2.f56164a = "pb";
             h.e(b2.m, "", "2", b2, this.u.getPcdnState());
         }
     }

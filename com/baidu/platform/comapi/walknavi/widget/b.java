@@ -6,21 +6,21 @@ import com.baidu.platform.comapi.walknavi.widget.a;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f10225a;
+    public final /* synthetic */ a f10226a;
 
     public b(a aVar) {
-        this.f10225a = aVar;
+        this.f10226a = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.InterfaceC0127a interfaceC0127a;
-        a.InterfaceC0127a interfaceC0127a2;
-        interfaceC0127a = this.f10225a.f10223g;
-        if (interfaceC0127a != null) {
-            interfaceC0127a2 = this.f10225a.f10223g;
-            interfaceC0127a2.a();
+        a.InterfaceC0128a interfaceC0128a;
+        a.InterfaceC0128a interfaceC0128a2;
+        interfaceC0128a = this.f10226a.f10224g;
+        if (interfaceC0128a != null) {
+            interfaceC0128a2 = this.f10226a.f10224g;
+            interfaceC0128a2.a();
         }
-        this.f10225a.dismiss();
+        this.f10226a.dismiss();
     }
 }

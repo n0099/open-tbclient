@@ -12,45 +12,45 @@ import com.baidu.tieba.R;
 public class BasicSeperateBaMemberItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18896e;
+    public Context f18897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18897f;
+    public View f18898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18898g;
+    public View f18899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f18899h;
+    public TbImageView f18900h;
     public TextView i;
     public TextView j;
     public TbImageView k;
 
     public BasicSeperateBaMemberItemView(Context context) {
         super(context);
-        this.f18896e = context;
+        this.f18897e = context;
         a();
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.f18896e).inflate(R.layout.index_seperate_ba_item, this);
-        this.f18897f = inflate;
-        this.f18898g = inflate.findViewById(R.id.ly_desc);
-        this.f18899h = (TbImageView) this.f18897f.findViewById(R.id.task_icon);
-        this.i = (TextView) this.f18897f.findViewById(R.id.txt_title);
-        this.j = (TextView) this.f18897f.findViewById(R.id.txt_desc);
-        this.k = (TbImageView) this.f18897f.findViewById(R.id.privilege_spread_icon);
+        View inflate = LayoutInflater.from(this.f18897e).inflate(R.layout.index_seperate_ba_item, this);
+        this.f18898f = inflate;
+        this.f18899g = inflate.findViewById(R.id.ly_desc);
+        this.f18900h = (TbImageView) this.f18898f.findViewById(R.id.task_icon);
+        this.i = (TextView) this.f18898f.findViewById(R.id.txt_title);
+        this.j = (TextView) this.f18898f.findViewById(R.id.txt_desc);
+        this.k = (TbImageView) this.f18898f.findViewById(R.id.privilege_spread_icon);
     }
 
     public BasicSeperateBaMemberItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18896e = context;
+        this.f18897e = context;
         a();
     }
 
     public BasicSeperateBaMemberItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f18896e = context;
+        this.f18897e = context;
         a();
     }
 }

@@ -463,7 +463,7 @@ public final class NTLMEngineImpl {
     }
 
     public static int F(int i, int i2, int i3) {
-        return ((i ^ (-1)) & i3) | (i2 & i);
+        return ((~i) & i3) | (i2 & i);
     }
 
     public static int G(int i, int i2, int i3) {

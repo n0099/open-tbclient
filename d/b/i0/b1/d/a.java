@@ -10,15 +10,15 @@ import d.b.i0.p0.k;
 import d.b.i0.x.b0;
 import d.b.i0.x.x;
 import d.b.i0.x.y;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends k<a2, CardViewHolder<x>> implements y {
     public TbPageContext w;
     public b0<a2> x;
 
     /* renamed from: d.b.i0.b1.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1128a extends b0<a2> {
-        public C1128a(a aVar) {
+    /* loaded from: classes3.dex */
+    public class C1129a extends b0<a2> {
+        public C1129a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class a extends k<a2, CardViewHolder<x>> implements y {
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.x = new C1128a(this);
+        this.x = new C1129a(this);
         this.w = tbPageContext;
     }
 
@@ -42,7 +42,7 @@ public class a extends k<a2, CardViewHolder<x>> implements y {
     @Override // d.b.i0.p0.k, d.b.i0.x.y
     public void i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
-            this.f42357e = tbPageContext.getPageActivity();
+            this.f42358e = tbPageContext.getPageActivity();
             this.w = tbPageContext;
             this.i = bdUniqueId;
         }

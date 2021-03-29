@@ -24,16 +24,16 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class BikeNavigateHelper {
 
     /* renamed from: d  reason: collision with root package name */
-    public static BikeNavigateHelper f6738d;
+    public static BikeNavigateHelper f6739d;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6739a;
+    public boolean f6740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f6740b;
+    public Activity f6741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.mapapi.bikenavi.controllers.a.a f6741c = new com.baidu.mapapi.bikenavi.controllers.a.a();
+    public com.baidu.mapapi.bikenavi.controllers.a.a f6742c = new com.baidu.mapapi.bikenavi.controllers.a.a();
 
     static {
         if (a.a().equals(VersionInfo.getApiVersion())) {
@@ -44,23 +44,23 @@ public class BikeNavigateHelper {
     }
 
     public static BikeNavigateHelper getInstance() {
-        if (f6738d == null) {
-            f6738d = new BikeNavigateHelper();
+        if (f6739d == null) {
+            f6739d = new BikeNavigateHelper();
         }
-        return f6738d;
+        return f6739d;
     }
 
     public void initNaviEngine(Activity activity, IBEngineInitListener iBEngineInitListener) {
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             aVar.a(activity, iBEngineInitListener);
         }
     }
 
     public View onCreate(Activity activity) {
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
-            this.f6740b = activity;
+            this.f6741b = activity;
             return aVar.a(activity);
         }
         return null;
@@ -68,7 +68,7 @@ public class BikeNavigateHelper {
 
     public void pause() {
         b.a().h();
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             aVar.b();
         }
@@ -81,32 +81,32 @@ public class BikeNavigateHelper {
         b.a().k();
         b.a().w();
         b.a().i();
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             aVar.d();
-            this.f6741c = null;
+            this.f6742c = null;
         }
-        this.f6739a = false;
-        this.f6740b = null;
-        if (f6738d != null) {
-            f6738d = null;
+        this.f6740a = false;
+        this.f6741b = null;
+        if (f6739d != null) {
+            f6739d = null;
         }
     }
 
     public void resume() {
-        Activity activity = this.f6740b;
+        Activity activity = this.f6741b;
         if (activity == null || activity.isFinishing()) {
             return;
         }
         b.a().g();
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             aVar.c();
         }
     }
 
     public void routePlanWithParams(BikeNaviLaunchParam bikeNaviLaunchParam, IBRoutePlanListener iBRoutePlanListener) {
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             if (aVar.a()) {
                 if (bikeNaviLaunchParam != null && bikeNaviLaunchParam.getStartPt() != null && bikeNaviLaunchParam.getEndPt() != null) {
@@ -123,7 +123,7 @@ public class BikeNavigateHelper {
                     create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
                     create.c(0);
                     create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
-                    this.f6741c.a(create, iBRoutePlanListener);
+                    this.f6742c.a(create, iBRoutePlanListener);
                     return;
                 }
                 throw new UnsupportedBikeNaviException("launch param or startPt or endPt cannot be null");
@@ -137,7 +137,7 @@ public class BikeNavigateHelper {
     }
 
     public boolean setNaviMapUp() {
-        MapView f2 = this.f6741c.f();
+        MapView f2 = this.f6742c.f();
         if (f2 != null) {
             f2.setZOrderMediaOverlay(true);
             return true;
@@ -147,28 +147,28 @@ public class BikeNavigateHelper {
 
     public void setRouteGuidanceListener(Activity activity, IBRouteGuidanceListener iBRouteGuidanceListener) {
         if (iBRouteGuidanceListener != null) {
-            this.f6741c.a(activity, iBRouteGuidanceListener);
+            this.f6742c.a(activity, iBRouteGuidanceListener);
         }
     }
 
     public void setTTsPlayer(IBTTSPlayer iBTTSPlayer) {
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             aVar.a(iBTTSPlayer);
         }
     }
 
     public void showUIDebuggable(String str) {
-        this.f6741c.a(str);
+        this.f6742c.a(str);
     }
 
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f6739a) {
+            if (!this.f6740a) {
                 if (!b.a().p()) {
                     return false;
                 }
-                this.f6739a = true;
+                this.f6740a = true;
             }
             return true;
         }
@@ -176,7 +176,7 @@ public class BikeNavigateHelper {
     }
 
     public void triggerLocation(WLocData wLocData) {
-        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6741c;
+        com.baidu.mapapi.bikenavi.controllers.a.a aVar = this.f6742c;
         if (aVar != null) {
             aVar.a(wLocData);
         }

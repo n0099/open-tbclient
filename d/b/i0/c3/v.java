@@ -69,7 +69,7 @@ public class v {
                     for (int i4 = 0; i4 < viewCount; i4++) {
                         ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
                         if (viewItem != null) {
-                            viewItem.setBdUniqueId(d.b.i0.i1.o.e.f55918b.get(viewItem.getCardType()));
+                            viewItem.setBdUniqueId(d.b.i0.i1.o.e.f55919b.get(viewItem.getCardType()));
                             arrayList.add(viewItem);
                         }
                     }
@@ -121,7 +121,7 @@ public class v {
                         for (int i4 = 0; i4 < viewCount; i4++) {
                             ICardInfo viewItem = g2.getViewItem(i4, i);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(d.b.i0.i1.o.e.f55918b.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(d.b.i0.i1.o.e.f55919b.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -149,10 +149,10 @@ public class v {
     }
 
     public static ArrayList<BdUniqueId> g() {
-        int size = d.b.i0.i1.o.e.f55918b.size();
+        int size = d.b.i0.i1.o.e.f55919b.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            arrayList.add(d.b.i0.i1.o.e.f55918b.valueAt(i));
+            arrayList.add(d.b.i0.i1.o.e.f55919b.valueAt(i));
         }
         return arrayList;
     }

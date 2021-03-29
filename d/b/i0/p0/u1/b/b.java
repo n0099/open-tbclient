@@ -34,7 +34,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.d0.a, CardViewHolder<d.b.i0.x.d>> {
     }
 
     public b(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), d.b.i0.d0.a.f53623f);
+        super(tbPageContext.getPageActivity(), d.b.i0.d0.a.f53624f);
         this.o = str;
         this.p = str2;
         this.m = tbPageContext;

@@ -6,25 +6,25 @@ import java.io.File;
 public final class c extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26885c;
+    public String f26886c;
 
     public c(String str, EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         super(engineManager, webkitInstallListener);
         if (str != null) {
             String substring = str.substring(7);
             if (new File(substring).isFile()) {
-                this.f26885c = substring;
+                this.f26886c = substring;
             }
         }
     }
 
     @Override // com.baidu.webkit.internal.blink.a
     public final boolean b() {
-        return this.f26885c != null;
+        return this.f26886c != null;
     }
 
     @Override // com.baidu.webkit.internal.blink.a
     public final String c() {
-        return this.f26885c;
+        return this.f26886c;
     }
 }

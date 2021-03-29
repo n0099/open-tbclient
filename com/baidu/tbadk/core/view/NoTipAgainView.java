@@ -16,16 +16,16 @@ import d.b.h0.r.s.a;
 public class NoTipAgainView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13441e;
+    public TextView f13442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13442f;
+    public ImageView f13443f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13443g;
+    public boolean f13444g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.f f13444h;
+    public a.f f13445h;
 
     public NoTipAgainView(Context context) {
         this(context, null);
@@ -33,28 +33,28 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
 
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
-        this.f13441e = (TextView) findViewById(R.id.no_tip_again_text);
-        this.f13442f = (ImageView) findViewById(R.id.checkbox);
+        this.f13442e = (TextView) findViewById(R.id.no_tip_again_text);
+        this.f13443f = (ImageView) findViewById(R.id.checkbox);
         c();
-        this.f13442f.setOnClickListener(this);
+        this.f13443f.setOnClickListener(this);
     }
 
     public boolean b() {
-        return this.f13443g;
+        return this.f13444g;
     }
 
     public void c() {
         d();
-        SkinManager.setViewTextColor(this.f13441e, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f13442e, R.color.CAM_X0107);
     }
 
     public final void d() {
         Drawable maskDrawable;
-        ImageView imageView = this.f13442f;
+        ImageView imageView = this.f13443f;
         if (imageView == null) {
             return;
         }
-        if (this.f13443g) {
+        if (this.f13444g) {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
         } else {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -64,10 +64,10 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f13442f) {
-            this.f13443g = !this.f13443g;
+        if (view == this.f13443f) {
+            this.f13444g = !this.f13444g;
             d();
-            a.f fVar = this.f13444h;
+            a.f fVar = this.f13445h;
             if (fVar != null) {
                 fVar.a();
             }
@@ -75,7 +75,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     }
 
     public void setOnNoTipAgainCheckListener(a.f fVar) {
-        this.f13444h = fVar;
+        this.f13445h = fVar;
     }
 
     public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet) {
@@ -84,7 +84,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
 
     public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13443g = false;
+        this.f13444g = false;
         a();
     }
 }

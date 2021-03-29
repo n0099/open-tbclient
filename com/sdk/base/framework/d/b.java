@@ -8,20 +8,20 @@ import org.json.JSONObject;
 public final class b extends com.sdk.base.framework.b.b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f38533a;
+    public /* synthetic */ a f38534a;
 
     public b(a aVar) {
-        this.f38533a = aVar;
+        this.f38534a = aVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 java.lang.Object)] */
     @Override // com.sdk.base.framework.b.b
     public final void a(int i, Object obj) {
-        a aVar = this.f38533a;
+        a aVar = this.f38534a;
         StringBuilder sb = new StringBuilder();
         sb.append(obj);
         aVar.a(i, 302002, sb.toString());
-        Context context = this.f38533a.f38527a;
+        Context context = this.f38534a.f38528a;
         com.sdk.base.framework.f.g.a.a();
     }
 
@@ -41,22 +41,22 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                 String optString2 = jSONObject.optString("obj");
                 String optString3 = jSONObject.optString("seq");
                 if (!c.a(optString).booleanValue() || !c.a(optString3).booleanValue() || !c.a(optString2).booleanValue()) {
-                    this.f38533a.a(optInt, optString, optInt2, optString2, optString3);
-                    Context context = this.f38533a.f38527a;
+                    this.f38534a.a(optInt, optString, optInt2, optString2, optString3);
+                    Context context = this.f38534a.f38528a;
                     com.sdk.base.framework.f.g.a.a();
                     return;
                 }
-                this.f38533a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f38525d;
-                z2 = a.f38526e;
+                this.f38534a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str2 = a.f38526d;
+                z2 = a.f38527e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
                 i = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
-                this.f38533a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f38525d;
-                z = a.f38526e;
+                this.f38534a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str = a.f38526d;
+                z = a.f38527e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {

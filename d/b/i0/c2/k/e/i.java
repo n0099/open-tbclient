@@ -5,13 +5,13 @@ import d.b.b.e.d.l;
 public class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static i f52697c;
+    public static i f52698c;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.e.d.l<byte[]> f52698a = null;
+    public d.b.b.e.d.l<byte[]> f52699a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.e.d.l<byte[]> f52699b = null;
+    public d.b.b.e.d.l<byte[]> f52700b = null;
 
     public i() {
         c();
@@ -20,10 +20,10 @@ public class i {
     public static synchronized i b() {
         i iVar;
         synchronized (i.class) {
-            if (f52697c == null) {
-                f52697c = new i();
+            if (f52698c == null) {
+                f52698c = new i();
             }
-            iVar = f52697c;
+            iVar = f52698c;
         }
         return iVar;
     }
@@ -32,43 +32,43 @@ public class i {
         l.b<byte[]> h2;
         byte[] bArr;
         if (z) {
-            d.b.b.e.d.l<byte[]> lVar = this.f52698a;
+            d.b.b.e.d.l<byte[]> lVar = this.f52699a;
             if (lVar != null && str != null) {
                 h2 = lVar.h(str);
             }
             h2 = null;
         } else {
-            d.b.b.e.d.l<byte[]> lVar2 = this.f52699b;
+            d.b.b.e.d.l<byte[]> lVar2 = this.f52700b;
             if (lVar2 != null && str != null) {
                 h2 = lVar2.h(str);
             }
             h2 = null;
         }
-        if (h2 == null || (bArr = h2.f41701b) == null) {
+        if (h2 == null || (bArr = h2.f41702b) == null) {
             return null;
         }
         return bArr;
     }
 
     public final void c() {
-        if (this.f52698a == null) {
-            this.f52698a = d.b.h0.r.r.a.f().d("tb.pb_mark");
+        if (this.f52699a == null) {
+            this.f52699a = d.b.h0.r.r.a.f().d("tb.pb_mark");
         }
-        if (this.f52699b == null) {
-            this.f52699b = d.b.h0.r.r.a.f().d("tb.pb_normal");
+        if (this.f52700b == null) {
+            this.f52700b = d.b.h0.r.r.a.f().d("tb.pb_normal");
         }
     }
 
     public void d(String str, boolean z) {
         if (z) {
-            d.b.b.e.d.l<byte[]> lVar = this.f52698a;
+            d.b.b.e.d.l<byte[]> lVar = this.f52699a;
             if (lVar == null || str == null) {
                 return;
             }
             lVar.i(str, new byte[0], 0L);
             return;
         }
-        d.b.b.e.d.l<byte[]> lVar2 = this.f52699b;
+        d.b.b.e.d.l<byte[]> lVar2 = this.f52700b;
         if (lVar2 == null || str == null) {
             return;
         }
@@ -79,9 +79,9 @@ public class i {
         if (str != null) {
             c();
             if (z) {
-                this.f52698a.e(str, bArr, 604800000L);
+                this.f52699a.e(str, bArr, 604800000L);
             } else {
-                this.f52699b.e(str, bArr, 86400000L);
+                this.f52700b.e(str, bArr, 86400000L);
             }
         }
     }
@@ -91,6 +91,6 @@ public class i {
             return;
         }
         c();
-        this.f52698a.e(str, bArr, 2592000000L);
+        this.f52699a.e(str, bArr, 2592000000L);
     }
 }

@@ -4,13 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceHolder f17676e;
+    public SurfaceHolder f17677e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -28,7 +28,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
 
     public final void a() {
         SurfaceHolder holder = getHolder();
-        this.f17676e = holder;
+        this.f17677e = holder;
         holder.addCallback(this);
     }
 

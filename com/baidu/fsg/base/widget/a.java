@@ -7,10 +7,10 @@ import com.baidu.fsg.base.utils.support.ViewHelper;
 public class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BdActionBar f5507a;
+    public final /* synthetic */ BdActionBar f5508a;
 
     public a(BdActionBar bdActionBar) {
-        this.f5507a = bdActionBar;
+        this.f5508a = bdActionBar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -18,11 +18,11 @@ public class a implements View.OnTouchListener {
         View view2;
         View view3;
         if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-            view2 = this.f5507a.f5465c;
+            view2 = this.f5508a.f5466c;
             ViewHelper.setAlpha(view2, 0.5f);
             return false;
         }
-        view3 = this.f5507a.f5465c;
+        view3 = this.f5508a.f5466c;
         ViewHelper.setAlpha(view3, 1.0f);
         return false;
     }

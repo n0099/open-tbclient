@@ -13,22 +13,22 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public abstract class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f39457a = {34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
+    public static final byte[] f39458a = {34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f39458b = {PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
+    public static final byte[] f39459b = {PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f39459c = new Object();
+    public static final Object f39460c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<T> f39460d = new ArrayList();
+    public List<T> f39461d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39461e;
+    public Context f39462e;
 
     public d(Context context) {
-        this.f39461e = context.getApplicationContext();
+        this.f39462e = context.getApplicationContext();
         c();
     }
 
@@ -39,10 +39,10 @@ public abstract class d<T> {
     public abstract String b(String str) throws Exception;
 
     public final void c() {
-        synchronized (f39459c) {
+        synchronized (f39460c) {
             h.a(a());
-            this.f39460d.clear();
-            String a2 = y.b(this.f39461e).a(a(), null);
+            this.f39461d.clear();
+            String a2 = y.b(this.f39462e).a(a(), null);
             if (TextUtils.isEmpty(a2)) {
                 p.d("CacheSettings", "ClientManager init " + a() + " strApps empty.");
             } else if (a2.length() > 10000) {
@@ -53,7 +53,7 @@ public abstract class d<T> {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + a2);
                     List<T> a3 = a(b(a2));
                     if (a3 != null) {
-                        this.f39460d.addAll(a3);
+                        this.f39461d.addAll(a3);
                     }
                 } catch (Exception e2) {
                     d();
@@ -64,9 +64,9 @@ public abstract class d<T> {
     }
 
     public final void d() {
-        synchronized (f39459c) {
-            this.f39460d.clear();
-            y.b(this.f39461e).b(a(), "");
+        synchronized (f39460c) {
+            this.f39461d.clear();
+            y.b(this.f39462e).b(a(), "");
             p.d("CacheSettings", "clear " + a() + " strApps");
         }
     }

@@ -27,41 +27,41 @@ import java.util.List;
 public class f {
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<String> f48446e;
+    public static List<String> f48447e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48447a;
+    public Context f48448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48448b;
+    public String f48449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.g0.a.a2.f.c f48449c;
+    public final d.b.g0.a.a2.f.c f48450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.g0.a.a2.f.d f48450d;
+    public final d.b.g0.a.a2.f.d f48451d;
 
     static {
         ArrayList arrayList = new ArrayList();
-        f48446e = arrayList;
+        f48447e = arrayList;
         arrayList.add("ascii");
-        f48446e.add("base64");
-        f48446e.add("binary");
-        f48446e.add("hex");
-        f48446e.add("utf-8");
-        f48446e.add("utf8");
-        f48446e.add("latin1");
-        f48446e.add("ucs2");
-        f48446e.add("ucs-2");
-        f48446e.add("utf16le");
-        f48446e.add("utf-16le");
+        f48447e.add("base64");
+        f48447e.add("binary");
+        f48447e.add("hex");
+        f48447e.add("utf-8");
+        f48447e.add("utf8");
+        f48447e.add("latin1");
+        f48447e.add("ucs2");
+        f48447e.add("ucs-2");
+        f48447e.add("utf16le");
+        f48447e.add("utf-16le");
     }
 
     public f(Context context, String str, @NonNull d.b.g0.a.a2.f.c cVar) {
-        this.f48447a = context;
-        this.f48448b = str;
-        this.f48449c = cVar;
-        this.f48450d = cVar.h();
+        this.f48448a = context;
+        this.f48449b = str;
+        this.f48450c = cVar;
+        this.f48451d = cVar.h();
     }
 
     public c A(String str, String str2) {
@@ -77,7 +77,7 @@ public class f {
             return d(-1, "fail permission denied, open " + str2);
         }
         String I = n.I(str);
-        if (!this.f48449c.g(I, true)) {
+        if (!this.f48450c.g(I, true)) {
             return d(-4, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
         }
         if (!n.R(str2)) {
@@ -124,11 +124,11 @@ public class f {
                     j += n.x(str3);
                 }
             }
-            if (this.f48450d.a(j)) {
+            if (this.f48451d.a(j)) {
                 n.g(arrayList);
                 return d(-1, p());
             }
-            this.f48450d.b(j);
+            this.f48451d.b(j);
         }
         return d(0, "ok");
     }
@@ -187,7 +187,7 @@ public class f {
             if (equals) {
                 str6 = "latin1";
             }
-            boolean contains = f48446e.contains(str6.toLowerCase());
+            boolean contains = f48447e.contains(str6.toLowerCase());
             r14 = str6;
             if (!contains) {
                 return d(-1, "fail invalid encoding \"" + str6 + "\"");
@@ -207,7 +207,7 @@ public class f {
             if (!TextUtils.isEmpty(str7)) {
                 length = str7.getBytes().length;
                 j = length;
-                if (!this.f48449c.h().a(j)) {
+                if (!this.f48450c.h().a(j)) {
                     return d(-1, p());
                 }
                 File file = new File(g2);
@@ -270,10 +270,10 @@ public class f {
                                 fileOutputStream2 = fileOutputStream4;
                             }
                             if (z) {
-                                this.f48450d.b(j);
+                                this.f48451d.b(j);
                                 fileOutputStream = fileOutputStream2;
                             } else {
-                                this.f48450d.b(j - length3);
+                                this.f48451d.b(j - length3);
                                 fileOutputStream = fileOutputStream2;
                             }
                         } catch (Exception unused2) {
@@ -296,7 +296,7 @@ public class f {
             length = ((byte[]) obj).length;
             j = length;
         }
-        if (!this.f48449c.h().a(j)) {
+        if (!this.f48450c.h().a(j)) {
         }
     }
 
@@ -317,7 +317,7 @@ public class f {
             return v;
         }
         String I = n.I(str);
-        if (!this.f48449c.g(I, true)) {
+        if (!this.f48450c.g(I, true)) {
             return d(-4, n.C("fail no such file or directory ", "access", str, null));
         }
         String g2 = g(I);
@@ -371,7 +371,7 @@ public class f {
         }
         String I = n.I(str);
         boolean z2 = true;
-        if (!this.f48449c.g(I, true)) {
+        if (!this.f48450c.g(I, true)) {
             return d(-4, n.C("fail no such file or directory ", "copyFile", str, null));
         }
         String I2 = n.I(str2);
@@ -390,7 +390,7 @@ public class f {
         if (file.exists() && file.isFile()) {
             c h2 = h(I2, false);
             if (h2 != null) {
-                h2.f48341b = n.C("fail no such file or directory ", "copyFile", str2, null);
+                h2.f48342b = n.C("fail no such file or directory ", "copyFile", str2, null);
                 return h2;
             } else if (I2.endsWith(File.separator)) {
                 return d(-1, n.C("fail permission denied, ", "copyFile", str, str2));
@@ -412,12 +412,12 @@ public class f {
                 }
                 long x = n.x(g2);
                 z2 = (I.equals(I2) || I.startsWith(a.USER_DATA_PATH)) ? false : false;
-                if (z2 && this.f48450d.a(x)) {
+                if (z2 && this.f48451d.a(x)) {
                     return d(-1, p());
                 }
                 c w = !I.equals(I2) ? w(I, I2) : d(0, "ok");
-                if (z2 && w != null && w.f48340a == 0) {
-                    this.f48450d.b(x);
+                if (z2 && w != null && w.f48341a == 0) {
+                    this.f48451d.b(x);
                 }
                 return w;
             }
@@ -427,8 +427,8 @@ public class f {
 
     public final c d(int i, String str) {
         c cVar = new c();
-        cVar.f48340a = i;
-        cVar.f48341b = str;
+        cVar.f48341a = i;
+        cVar.f48342b = str;
         return cVar;
     }
 
@@ -438,7 +438,7 @@ public class f {
             return v;
         }
         String I = n.I(str);
-        if (!this.f48449c.g(I, true)) {
+        if (!this.f48450c.g(I, true)) {
             return d(-4, "fail file not exist");
         }
         String g2 = g(I);
@@ -453,37 +453,37 @@ public class f {
             return d(-1, "fail " + str + " is directory");
         }
         c d2 = d(0, "ok");
-        d2.f48344e = file.exists() ? file.length() : 0L;
-        d2.f48346g = file.exists() ? d.b.g0.p.e.b(file, false) : null;
+        d2.f48345e = file.exists() ? file.length() : 0L;
+        d2.f48347g = file.exists() ? d.b.g0.p.e.b(file, false) : null;
         return d2;
     }
 
     public final c f(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             c cVar = new c();
-            cVar.f48340a = -1;
-            cVar.f48341b = "fail no such file or directory " + str;
+            cVar.f48341a = -1;
+            cVar.f48342b = "fail no such file or directory " + str;
             return cVar;
         }
         String g2 = g(str);
         if (TextUtils.isEmpty(str)) {
             c cVar2 = new c();
-            cVar2.f48340a = -1;
-            cVar2.f48341b = "fail no such file or directory " + str;
+            cVar2.f48341a = -1;
+            cVar2.f48342b = "fail no such file or directory " + str;
             return cVar2;
         }
         File file = new File(g2);
         if (!file.exists()) {
             c cVar3 = new c();
-            cVar3.f48340a = -1;
-            cVar3.f48341b = "fail no such file or directory " + str;
+            cVar3.f48341a = -1;
+            cVar3.f48342b = "fail no such file or directory " + str;
             return cVar3;
         } else if (!z || file.isFile()) {
             return null;
         } else {
             c cVar4 = new c();
-            cVar4.f48340a = -1;
-            cVar4.f48341b = "fail no such file or directory " + str;
+            cVar4.f48341a = -1;
+            cVar4.f48342b = "fail no such file or directory " + str;
             return cVar4;
         }
     }
@@ -494,16 +494,16 @@ public class f {
             return "";
         }
         if (!str.startsWith("bdfile://code")) {
-            return str.startsWith(WebGLImageLoader.BDFILE) ? this.f48449c.d(str) : "";
+            return str.startsWith(WebGLImageLoader.BDFILE) ? this.f48450c.d(str) : "";
         }
-        if (this.f48448b.endsWith(File.separator)) {
-            String str3 = this.f48448b;
+        if (this.f48449b.endsWith(File.separator)) {
+            String str3 = this.f48449b;
             str2 = str3.substring(0, str3.length() - 1);
         } else {
-            str2 = this.f48448b;
+            str2 = this.f48449b;
         }
-        this.f48448b = str2;
-        return this.f48448b + str.substring(13);
+        this.f48449b = str2;
+        return this.f48449b + str.substring(13);
     }
 
     public final c h(String str, boolean z) {
@@ -528,7 +528,7 @@ public class f {
     }
 
     public c i() {
-        String a2 = this.f48449c.a();
+        String a2 = this.f48450c.a();
         String g2 = g(a.USER_DATA_PATH);
         if (TextUtils.isEmpty(g2)) {
             return d(-1, "path must be a string");
@@ -541,7 +541,7 @@ public class f {
             dVar.createTime = file.exists() ? file.lastModified() : 0L;
             String absolutePath = file.getAbsolutePath();
             if (file.exists() && !TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(a2) && absolutePath.startsWith(a2)) {
-                dVar.filePath = this.f48449c.b(absolutePath);
+                dVar.filePath = this.f48450c.b(absolutePath);
             }
             if (file.exists()) {
                 j = file.length();
@@ -550,7 +550,7 @@ public class f {
             arrayList.add(dVar);
         }
         c d2 = d(0, "ok");
-        d2.f48345f = arrayList;
+        d2.f48346f = arrayList;
         return d2;
     }
 
@@ -604,8 +604,8 @@ public class f {
             }
         }
         c d2 = d(0, "ok");
-        d2.f48343d = jVar;
-        d2.f48341b = "ok";
+        d2.f48344d = jVar;
+        d2.f48342b = "ok";
         return d2;
     }
 
@@ -686,7 +686,7 @@ public class f {
     }
 
     public final String p() {
-        String i = d.b.g0.p.d.i(this.f48450d.getMaxSize());
+        String i = d.b.g0.p.d.i(this.f48451d.getMaxSize());
         return String.format("fail file size over %s", (TextUtils.isEmpty(i) || TextUtils.equals(i, FileUtils.UNKNOW)) ? "" : "");
     }
 
@@ -696,12 +696,12 @@ public class f {
             return v;
         }
         String I = n.I(str);
-        if (!this.f48449c.g(I, true)) {
+        if (!this.f48450c.g(I, true)) {
             return d(-1, "fail permission denied, open " + str);
         }
         c f2 = f(I, true);
         if (f2 != null) {
-            f2.f48341b = n.C("fail no such file or directory ", "open", str, null);
+            f2.f48342b = n.C("fail no such file or directory ", "open", str, null);
             return f2;
         }
         boolean isEmpty = TextUtils.isEmpty(str2);
@@ -711,7 +711,7 @@ public class f {
                 str2 = "latin1";
             }
         }
-        if (!isEmpty && !f48446e.contains(str2)) {
+        if (!isEmpty && !f48447e.contains(str2)) {
             return d(-1, "fail Error: Unknown encoding: " + str2);
         }
         String g2 = g(I);
@@ -736,11 +736,11 @@ public class f {
                 str3 = r(new FileInputStream(file), str2);
             }
             if (TextUtils.isEmpty(str2)) {
-                d2.f48347h = bArr;
+                d2.f48348h = bArr;
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str3);
-                d2.f48342c = arrayList;
+                d2.f48343c = arrayList;
             }
             return d2;
         } catch (Exception e2) {
@@ -802,7 +802,7 @@ public class f {
                 }
             }
             c d2 = d(0, "ok");
-            d2.f48342c = arrayList;
+            d2.f48343c = arrayList;
             return d2;
         }
     }
@@ -826,7 +826,7 @@ public class f {
                 if (!file.delete()) {
                     return d(-1, "fail");
                 }
-                this.f48450d.b(-x);
+                this.f48451d.b(-x);
                 return d(0, "ok");
             } catch (Exception unused) {
                 return d(-1, "fail");
@@ -847,23 +847,23 @@ public class f {
         String I = n.I(str);
         c n = n(I);
         if (n != null) {
-            n.f48341b = n.C("fail permission denied, ", "rename", str, str2);
+            n.f48342b = n.C("fail permission denied, ", "rename", str, str2);
             return n;
         }
         String I2 = n.I(str2);
         c n2 = n(I2);
         if (n2 != null) {
-            n2.f48341b = n.C("fail permission denied, ", "rename", str, str2);
+            n2.f48342b = n.C("fail permission denied, ", "rename", str, str2);
             return n2;
         }
         c f2 = f(I, false);
         if (f2 != null) {
-            f2.f48341b = n.C("fail no such file or directory ", "rename", str, str2);
+            f2.f48342b = n.C("fail no such file or directory ", "rename", str, str2);
             return f2;
         } else if (n.R(I) && n.R(I2)) {
             c h2 = h(I2, false);
             if (h2 != null) {
-                h2.f48341b = n.C("fail no such file or directory ", "rename", str, str2);
+                h2.f48342b = n.C("fail no such file or directory ", "rename", str, str2);
                 return h2;
             }
             String g2 = g(I);
@@ -976,10 +976,10 @@ public class f {
                     if (!TextUtils.isEmpty(str2)) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(str2);
-                        d2.f48342c = arrayList;
+                        d2.f48343c = arrayList;
                     } else {
-                        d2.f48341b = "fail";
-                        d2.f48340a = -1;
+                        d2.f48342b = "fail";
+                        d2.f48341a = -1;
                     }
                     return d2;
                 } catch (IOException e2) {
@@ -993,10 +993,10 @@ public class f {
                         if (!TextUtils.isEmpty("")) {
                             ArrayList arrayList2 = new ArrayList();
                             arrayList2.add(str2);
-                            d2.f48342c = arrayList2;
+                            d2.f48343c = arrayList2;
                         } else {
-                            d2.f48341b = "fail";
-                            d2.f48340a = -1;
+                            d2.f48342b = "fail";
+                            d2.f48341a = -1;
                         }
                         return d3;
                     } catch (Throwable th) {
@@ -1006,10 +1006,10 @@ public class f {
                         if (TextUtils.isEmpty("")) {
                             ArrayList arrayList3 = new ArrayList();
                             arrayList3.add(str2);
-                            d2.f48342c = arrayList3;
+                            d2.f48343c = arrayList3;
                         } else {
-                            d2.f48341b = "fail";
-                            d2.f48340a = -1;
+                            d2.f48342b = "fail";
+                            d2.f48341a = -1;
                         }
                         throw th;
                     }
@@ -1050,7 +1050,7 @@ public class f {
         if (!I.startsWith(a.USER_DATA_PATH)) {
             return d(-1, n.C("fail permission denied, open ", null, str2, null));
         }
-        if (!this.f48449c.k(str)) {
+        if (!this.f48450c.k(str)) {
             return d(-4, "fail it is not a tempFilePath");
         }
         c h2 = h(I, false);
@@ -1069,7 +1069,7 @@ public class f {
         if (!a.USER_DATA_PATH.equals(I) && (!file.exists() || !file.isDirectory())) {
             c f2 = f(str, true);
             if (f2 != null) {
-                f2.f48341b = "fail no such file or directory ";
+                f2.f48342b = "fail no such file or directory ";
                 return f2;
             }
             String g3 = g(str);
@@ -1077,7 +1077,7 @@ public class f {
                 return d(-1, "fail no such file or directory " + str);
             }
             long x = n.x(g3);
-            if (this.f48450d.a(x)) {
+            if (this.f48451d.a(x)) {
                 return d(-1, p());
             }
             if (I.startsWith(a.USER_DATA_PATH) && !n.O(I)) {
@@ -1090,8 +1090,8 @@ public class f {
                     return n;
                 }
                 c w = w(str, I);
-                if (w != null && w.f48340a == 0) {
-                    this.f48450d.b(x);
+                if (w != null && w.f48341a == 0) {
+                    this.f48451d.b(x);
                     if (TextUtils.isEmpty(str)) {
                         return d(-1, n.C("fail no such file or directory ", null, str, null));
                     }
@@ -1101,8 +1101,8 @@ public class f {
                     }
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(I);
-                    w.f48342c = arrayList;
-                    w.f48341b = "ok";
+                    w.f48343c = arrayList;
+                    w.f48342b = "ok";
                 }
                 return w;
             }
@@ -1116,7 +1116,7 @@ public class f {
         if (v != null) {
             return v;
         }
-        if (!this.f48449c.k(str) && !this.f48449c.e(str)) {
+        if (!this.f48450c.k(str) && !this.f48450c.e(str)) {
             return d(-1, "fail permission denied, open " + str);
         }
         c f2 = f(str, false);
@@ -1161,7 +1161,7 @@ public class f {
         long x = n.x(g2);
         try {
             if (file.delete()) {
-                this.f48450d.b(-x);
+                this.f48451d.b(-x);
                 return d(0, "ok");
             }
             return d(-1, n.C("fail", null, str, null));

@@ -19,11 +19,10 @@ public final class FlowablePublishMulticast$MulticastSubscription<T> extends Ato
 
     @Override // g.d.d
     public void cancel() {
-        if (getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
-            return;
+        if (getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
+            this.parent.e(this);
+            this.parent.d();
         }
-        this.parent.e(this);
-        throw null;
     }
 
     public boolean isCancelled() {
@@ -35,7 +34,6 @@ public final class FlowablePublishMulticast$MulticastSubscription<T> extends Ato
         if (SubscriptionHelper.validate(j)) {
             b.b(this, j);
             this.parent.d();
-            throw null;
         }
     }
 }

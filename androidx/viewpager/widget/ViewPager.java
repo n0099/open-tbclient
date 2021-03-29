@@ -1500,7 +1500,8 @@ public class ViewPager extends ViewGroup {
                     float abs = Math.abs(f2);
                     float y2 = motionEvent.getY(findPointerIndex);
                     float abs2 = Math.abs(y2 - this.mInitialMotionY);
-                    if (f2 != 0.0f && !isGutterDrag(this.mLastMotionX, f2) && canScroll(this, false, (int) f2, (int) x2, (int) y2)) {
+                    int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                    if (i2 != 0 && !isGutterDrag(this.mLastMotionX, f2) && canScroll(this, false, (int) f2, (int) x2, (int) y2)) {
                         this.mLastMotionX = x2;
                         this.mLastMotionY = y2;
                         this.mIsUnableToDrag = true;
@@ -1510,7 +1511,9 @@ public class ViewPager extends ViewGroup {
                         this.mIsBeingDragged = true;
                         requestParentDisallowInterceptTouchEvent(true);
                         setScrollState(1);
-                        this.mLastMotionX = f2 > 0.0f ? this.mInitialMotionX + this.mTouchSlop : this.mInitialMotionX - this.mTouchSlop;
+                        float f3 = this.mInitialMotionX;
+                        float f4 = this.mTouchSlop;
+                        this.mLastMotionX = i2 > 0 ? f3 + f4 : f3 - f4;
                         this.mLastMotionY = y2;
                         setScrollingCacheEnabled(true);
                     } else if (abs2 > this.mTouchSlop) {

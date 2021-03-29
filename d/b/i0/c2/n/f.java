@@ -10,43 +10,43 @@ import com.baidu.tieba.R;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f53130a;
+    public c f53131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f53131b;
+    public BaseFragmentActivity f53132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53132c = 3;
+    public int f53133c = 3;
 
     public f(BaseFragmentActivity baseFragmentActivity) {
-        this.f53131b = baseFragmentActivity;
+        this.f53132b = baseFragmentActivity;
     }
 
     public final void a(d.b.i0.c2.h.e eVar, String str) {
         if (eVar == null) {
             return;
         }
-        if (this.f53130a == null) {
-            this.f53130a = new c(LayoutInflater.from(this.f53131b.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+        if (this.f53131a == null) {
+            this.f53131a = new c(LayoutInflater.from(this.f53132b.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
         }
-        this.f53130a.m(eVar, str);
+        this.f53131a.m(eVar, str);
     }
 
     public View b() {
-        c cVar = this.f53130a;
+        c cVar = this.f53131a;
         if (cVar == null) {
             return null;
         }
-        return cVar.f53111a;
+        return cVar.f53112a;
     }
 
     public void c(int i) {
-        if (this.f53132c != i) {
-            c cVar = this.f53130a;
+        if (this.f53133c != i) {
+            c cVar = this.f53131a;
             if (cVar != null) {
                 cVar.o();
             }
-            this.f53132c = i;
+            this.f53133c = i;
         }
     }
 
@@ -58,9 +58,9 @@ public class f {
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        c cVar = this.f53130a;
+        c cVar = this.f53131a;
         if (cVar != null) {
-            bdTypeListView.removeHeaderView(cVar.f53111a);
+            bdTypeListView.removeHeaderView(cVar.f53112a);
         }
     }
 }

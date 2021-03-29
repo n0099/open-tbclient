@@ -9,10 +9,11 @@ public final class a {
 
     public static float a(float f2, float f3) {
         if (f3 == 0.0f) {
-            if (f2 > 0.0f) {
+            int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+            if (i > 0) {
                 return 1.5707964f;
             }
-            return f2 == 0.0f ? 0.0f : -1.5707964f;
+            return i == 0 ? 0.0f : -1.5707964f;
         }
         float f4 = f2 / f3;
         if (Math.abs(f4) >= 1.0f) {

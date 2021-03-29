@@ -35,34 +35,34 @@ public class StatSettings extends StatisticsSettings {
     public static final String UNIONID = "union_id";
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f23695a;
+    public boolean f23696a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23696b;
+    public String f23697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23697c;
+    public String f23698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f23698d;
+    public Context f23699d;
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatSettings f23700a = new StatSettings();
+        public static StatSettings f23701a = new StatSettings();
     }
 
     private void a(Context context) {
-        if (this.f23698d != null || context == null) {
+        if (this.f23699d != null || context == null) {
             return;
         }
-        this.f23698d = context.getApplicationContext();
+        this.f23699d = context.getApplicationContext();
     }
 
     public static StatSettings getInstance(Context context) {
-        a.f23700a.a(context);
-        return a.f23700a;
+        a.f23701a.a(context);
+        return a.f23701a;
     }
 
     @Override // com.baidu.apollon.statistics.StatisticsSettings
@@ -70,13 +70,13 @@ public class StatSettings extends StatisticsSettings {
         JSONObject jSONObject = new JSONObject();
         try {
             com.baidu.wallet.base.statistics.a a2 = com.baidu.wallet.base.statistics.a.a();
-            jSONObject.putOpt("ua", a2.c(this.f23698d));
-            jSONObject.putOpt("cu", a2.a(this.f23698d));
-            jSONObject.put("cu2", a2.b(this.f23698d));
-            jSONObject.putOpt("op", a2.d(this.f23698d));
-            jSONObject.putOpt("bs", a2.e(this.f23698d));
-            jSONObject.putOpt("bk", a2.f(this.f23698d));
-            jSONObject.putOpt("sd", a2.h(this.f23698d));
+            jSONObject.putOpt("ua", a2.c(this.f23699d));
+            jSONObject.putOpt("cu", a2.a(this.f23699d));
+            jSONObject.put("cu2", a2.b(this.f23699d));
+            jSONObject.putOpt("op", a2.d(this.f23699d));
+            jSONObject.putOpt("bs", a2.e(this.f23699d));
+            jSONObject.putOpt("bk", a2.f(this.f23699d));
+            jSONObject.putOpt("sd", a2.h(this.f23699d));
             jSONObject.putOpt(UNIONID, a2.b());
         } catch (JSONException unused) {
         }
@@ -98,15 +98,15 @@ public class StatSettings extends StatisticsSettings {
 
     @Override // com.baidu.apollon.statistics.StatisticsSettings
     public String getPackagesConcerned() {
-        if (this.f23696b == null) {
-            this.f23696b = "com.baidu.wallet.pay,com.baidu.wallet.balance," + BuildConfig.APPLICATION_ID + ",com.baidu.wallet.fastpay,com.baidu.wallet.home,com.baidu.wallet.paysdk,com.baidu.wallet.personal,com.baidu.wallet.scancode,com.baidu.wallet.transfer,com.baidu.wallet,com.baidu.android.pay,com.baidu.android.lbspay";
+        if (this.f23697b == null) {
+            this.f23697b = "com.baidu.wallet.pay,com.baidu.wallet.balance," + BuildConfig.APPLICATION_ID + ",com.baidu.wallet.fastpay,com.baidu.wallet.home,com.baidu.wallet.paysdk,com.baidu.wallet.personal,com.baidu.wallet.scancode,com.baidu.wallet.transfer,com.baidu.wallet,com.baidu.android.pay,com.baidu.android.lbspay";
         }
-        return this.f23696b;
+        return this.f23697b;
     }
 
     @Override // com.baidu.apollon.statistics.StatisticsSettings
     public String getStrategy() {
-        return a(this.f23698d, 0, DebugConfig.getInstance(this.f23698d).getStatStrategyHost() + GET_STRATETY_URL);
+        return a(this.f23699d, 0, DebugConfig.getInstance(this.f23699d).getStatStrategyHost() + GET_STRATETY_URL);
     }
 
     @Override // com.baidu.apollon.statistics.StatisticsSettings
@@ -126,16 +126,16 @@ public class StatSettings extends StatisticsSettings {
 
     @Override // com.baidu.apollon.statistics.StatisticsSettings
     public boolean isReleaseVersion() {
-        return this.f23695a;
+        return this.f23696a;
     }
 
     public void setReleaseVesionFlag(boolean z) {
-        this.f23695a = z;
+        this.f23696a = z;
     }
 
     public StatSettings() {
-        this.f23695a = true;
-        this.f23696b = null;
+        this.f23696a = true;
+        this.f23697b = null;
     }
 
     private String a(Context context, int i, String str) {

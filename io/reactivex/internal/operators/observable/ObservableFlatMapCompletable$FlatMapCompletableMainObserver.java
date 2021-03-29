@@ -15,7 +15,7 @@ public final class ObservableFlatMapCompletable$FlatMapCompletableMainObserver<T
     public final o<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68057d;
+    public b f68062d;
     public final boolean delayErrors;
     public volatile boolean disposed;
     public final h<? super T, ? extends c> mapper;
@@ -69,7 +69,7 @@ public final class ObservableFlatMapCompletable$FlatMapCompletableMainObserver<T
     @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
     public void dispose() {
         this.disposed = true;
-        this.f68057d.dispose();
+        this.f68062d.dispose();
         this.set.dispose();
     }
 
@@ -85,7 +85,7 @@ public final class ObservableFlatMapCompletable$FlatMapCompletableMainObserver<T
 
     @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
     public boolean isDisposed() {
-        return this.f68057d.isDisposed();
+        return this.f68062d.isDisposed();
     }
 
     @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
@@ -139,15 +139,15 @@ public final class ObservableFlatMapCompletable$FlatMapCompletableMainObserver<T
             cVar.a(innerObserver);
         } catch (Throwable th) {
             f.a.u.a.a(th);
-            this.f68057d.dispose();
+            this.f68062d.dispose();
             onError(th);
         }
     }
 
     @Override // f.a.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68057d, bVar)) {
-            this.f68057d = bVar;
+        if (DisposableHelper.validate(this.f68062d, bVar)) {
+            this.f68062d = bVar;
             this.actual.onSubscribe(this);
         }
     }

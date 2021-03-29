@@ -25,13 +25,13 @@ public class b extends d.b.b.j.e.a<d.b.i0.t.j.d.e, CardViewHolder<d.b.i0.t.j.h.a
     }
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.e.f60864f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.e.f60865f);
         this.m = tbPageContext;
     }
 
     public final void i0(d.b.i0.t.j.d.e eVar, d.b.i0.t.j.h.a aVar) {
         aVar.z(8);
-        aVar.A(this.f42357e.getResources().getString(R.string.ala_person_live_forbidden));
+        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_forbidden));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 

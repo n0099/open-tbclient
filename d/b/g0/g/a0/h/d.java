@@ -5,15 +5,15 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47868a;
+    public String f47869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<long[]> f47869b;
+    public List<long[]> f47870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47870c;
+    public String f47871c;
 
     public String toString() {
-        return "[ videoPath = " + this.f47868a + "; clipPath = " + this.f47870c + "; clipList = " + this.f47869b + " ]";
+        return "[ videoPath = " + this.f47869a + "; clipPath = " + this.f47871c + "; clipList = " + this.f47870b + " ]";
     }
 }

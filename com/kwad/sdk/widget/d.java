@@ -16,26 +16,26 @@ import java.util.Arrays;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f36841a = new float[8];
+    public float[] f36842a = new float[8];
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36842b;
+    public float f36843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Path f36843c;
+    public Path f36844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f36844d;
+    public Paint f36845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f36845e;
+    public RectF f36846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36846f;
+    public boolean f36847f;
 
     private float[] a() {
-        float[] fArr = this.f36841a;
-        float f2 = this.f36842b;
+        float[] fArr = this.f36842a;
+        float f2 = this.f36843b;
         fArr[0] = f2;
         fArr[1] = f2;
         fArr[2] = f2;
@@ -48,17 +48,17 @@ public class d {
     }
 
     private Path b() {
-        this.f36843c.reset();
-        this.f36843c.addRoundRect(this.f36845e, a(), Path.Direction.CW);
-        return this.f36843c;
+        this.f36844c.reset();
+        this.f36844c.addRoundRect(this.f36846e, a(), Path.Direction.CW);
+        return this.f36844c;
     }
 
     public void a(float f2) {
-        this.f36842b = f2;
+        this.f36843b = f2;
     }
 
     public void a(int i, int i2) {
-        this.f36845e.set(0.0f, 0.0f, i, i2);
+        this.f36846e.set(0.0f, 0.0f, i, i2);
     }
 
     public void a(Context context, AttributeSet attributeSet) {
@@ -67,19 +67,19 @@ public class d {
         int[] iArr = {i, i2};
         Arrays.sort(iArr);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-        this.f36842b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
-        this.f36846f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), true);
+        this.f36843b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
+        this.f36847f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), true);
         obtainStyledAttributes.recycle();
-        this.f36843c = new Path();
-        this.f36844d = new Paint(1);
-        this.f36845e = new RectF();
-        this.f36844d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f36844c = new Path();
+        this.f36845d = new Paint(1);
+        this.f36846e = new RectF();
+        this.f36845d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
     }
 
     public void a(Canvas canvas) {
-        if (this.f36846f) {
+        if (this.f36847f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f36845e, null, 31);
+                canvas.saveLayer(this.f36846e, null, 31);
                 return;
             }
             canvas.save();
@@ -88,9 +88,9 @@ public class d {
     }
 
     public void b(Canvas canvas) {
-        if (this.f36846f) {
+        if (this.f36847f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f36844d);
+                canvas.drawPath(b(), this.f36845d);
             }
             canvas.restore();
         }
@@ -98,7 +98,7 @@ public class d {
 
     public void c(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.saveLayer(this.f36845e, null, 31);
+            canvas.saveLayer(this.f36846e, null, 31);
             return;
         }
         canvas.save();
@@ -107,7 +107,7 @@ public class d {
 
     public void d(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.drawPath(b(), this.f36844d);
+            canvas.drawPath(b(), this.f36845d);
         }
         canvas.restore();
     }

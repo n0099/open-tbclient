@@ -7,16 +7,16 @@ import java.util.HashMap;
 public class b implements IOAdEvent {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f8395a;
+    public final String f8396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f8396b;
+    public final HashMap<String, Object> f8397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f8397c;
+    public final int f8398c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f8398d;
+    public Object f8399d;
 
     public b(String str) {
         this(str, 0, new HashMap());
@@ -26,18 +26,18 @@ public class b implements IOAdEvent {
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     /* renamed from: a */
     public HashMap<String, Object> getData() {
-        return this.f8396b;
+        return this.f8397b;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public int getCode() {
-        return this.f8397c;
+        return this.f8398c;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getMessage() {
         try {
-            return (String) this.f8396b.get("message");
+            return (String) this.f8397b.get("message");
         } catch (Exception unused) {
             return "";
         }
@@ -45,17 +45,17 @@ public class b implements IOAdEvent {
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public Object getTarget() {
-        return this.f8398d;
+        return this.f8399d;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getType() {
-        return this.f8395a;
+        return this.f8396a;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public void setTarget(Object obj) {
-        this.f8398d = obj;
+        this.f8399d = obj;
     }
 
     public b(String str, String str2) {
@@ -64,7 +64,7 @@ public class b implements IOAdEvent {
 
     public void a(IXAdInstanceInfo iXAdInstanceInfo) {
         if (iXAdInstanceInfo != null) {
-            this.f8396b.put("instanceInfo", iXAdInstanceInfo.getUniqueId());
+            this.f8397b.put("instanceInfo", iXAdInstanceInfo.getUniqueId());
         }
     }
 
@@ -73,13 +73,13 @@ public class b implements IOAdEvent {
     }
 
     public b(String str, int i, HashMap<String, Object> hashMap) {
-        this.f8395a = str;
-        this.f8397c = i;
-        this.f8396b = hashMap;
+        this.f8396a = str;
+        this.f8398c = i;
+        this.f8397b = hashMap;
     }
 
     public b(String str, int i, String str2) {
         this(str, i, new HashMap());
-        this.f8396b.put("message", str2);
+        this.f8397b.put("message", str2);
     }
 }

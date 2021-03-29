@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TiebaIMConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static d.b.h0.v0.a a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {

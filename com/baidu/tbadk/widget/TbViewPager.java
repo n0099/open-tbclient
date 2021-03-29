@@ -12,16 +12,16 @@ import java.lang.reflect.Field;
 public class TbViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14112e;
+    public boolean f14113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f14113f;
+    public float f14114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14114g;
+    public int f14115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14115h;
+    public int f14116h;
 
     /* loaded from: classes3.dex */
     public class a extends Scroller {
@@ -41,24 +41,24 @@ public class TbViewPager extends ViewPager {
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.f14115h);
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.f14116h);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.f14115h);
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.f14116h);
         }
     }
 
     public TbViewPager(Context context) {
         super(context);
-        this.f14112e = false;
-        this.f14115h = 600;
+        this.f14113e = false;
+        this.f14116h = 600;
         c();
     }
 
     public final void c() {
-        this.f14114g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+        this.f14115g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
     }
 
     public final boolean d(MotionEvent motionEvent) {
@@ -71,7 +71,7 @@ public class TbViewPager extends ViewPager {
         if (d(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.f14112e) {
+        if (motionEvent.getPointerCount() > 1 && this.f14113e) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -91,7 +91,7 @@ public class TbViewPager extends ViewPager {
     }
 
     public int getScrollingDuration() {
-        return this.f14115h;
+        return this.f14116h;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -116,15 +116,15 @@ public class TbViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f14113f;
+                    float x = motionEvent.getX() - this.f14114f;
                     if (getCurrentItem() == 0) {
-                        if (x >= this.f14114g) {
+                        if (x >= this.f14115g) {
                             e(false);
                         } else {
                             e(true);
                         }
                     } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.f14114g)) {
+                        if (x <= (-this.f14115g)) {
                             e(false);
                         } else {
                             e(true);
@@ -144,24 +144,24 @@ public class TbViewPager extends ViewPager {
                 }
             }
             e(false);
-            this.f14113f = 0.0f;
+            this.f14114f = 0.0f;
             if (d(motionEvent)) {
             }
         }
         e(true);
-        this.f14113f = motionEvent.getX();
+        this.f14114f = motionEvent.getX();
         if (d(motionEvent)) {
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.f14112e = z;
+        this.f14113e = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     public void setViewPagerScroll(int i) {
-        this.f14115h = i;
+        this.f14116h = i;
         new a(getContext()).a(this);
     }
 
@@ -171,8 +171,8 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14112e = false;
-        this.f14115h = 600;
+        this.f14113e = false;
+        this.f14116h = 600;
         c();
     }
 }

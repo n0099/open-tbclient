@@ -15,21 +15,21 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f36768a;
+    public static final Map<String, String> f36769a;
 
     static {
         HashMap hashMap = new HashMap();
-        f36768a = hashMap;
+        f36769a = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        f36768a.put("OPPO", "com.oppo.market");
-        f36768a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f36768a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f36768a.put("OnePlus", "com.oppo.market");
-        f36768a.put("Meizu", "com.meizu.mstore");
-        f36768a.put("samsung", "com.sec.android.app.samsungapps");
-        f36768a.put("SMARTISAN", "com.smartisanos.appstore");
-        f36768a.put("Realme", "com.oppo.market");
-        f36768a.put("HONOR", "com.huawei.appmarket");
+        f36769a.put("OPPO", "com.oppo.market");
+        f36769a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f36769a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f36769a.put("OnePlus", "com.oppo.market");
+        f36769a.put("Meizu", "com.meizu.mstore");
+        f36769a.put("samsung", "com.sec.android.app.samsungapps");
+        f36769a.put("SMARTISAN", "com.smartisanos.appstore");
+        f36769a.put("Realme", "com.oppo.market");
+        f36769a.put("HONOR", "com.huawei.appmarket");
     }
 
     public static boolean a(Context context, String str) {
@@ -55,7 +55,7 @@ public class e {
             str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
         }
         try {
-            String str3 = f36768a.get(Build.BRAND);
+            String str3 = f36769a.get(Build.BRAND);
             Intent parseUri = Intent.parseUri(str, 1);
             parseUri.addFlags(268435456);
             for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {

@@ -1,32 +1,32 @@
 package d.c.c.b.c;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f65649a = false;
+    public boolean f65650a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65650b = true;
+    public boolean f65651b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f65651c = null;
+    public Map<String, Integer> f65652c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f65652d = null;
+    public Map<String, String> f65653d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65653e = 10;
+    public int f65654e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65654f = 1;
+    public int f65655f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f65655g = 1;
+    public int f65656g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f65656h = 10;
+    public int f65657h = 10;
     public int i = 1;
     public int j = 1;
     public int k = 900;
@@ -36,23 +36,23 @@ public class d {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(" localEnable: ");
-        sb.append(this.f65649a);
+        sb.append(this.f65650a);
         sb.append(" probeEnable: ");
-        sb.append(this.f65650b);
+        sb.append(this.f65651b);
         sb.append(" hostFilter: ");
-        Map<String, Integer> map = this.f65651c;
+        Map<String, Integer> map = this.f65652c;
         sb.append(map != null ? map.size() : 0);
         sb.append(" hostMap: ");
-        Map<String, String> map2 = this.f65652d;
+        Map<String, String> map2 = this.f65653d;
         sb.append(map2 != null ? map2.size() : 0);
         sb.append(" reqTo: ");
-        sb.append(this.f65653e);
+        sb.append(this.f65654e);
         sb.append("#");
-        sb.append(this.f65654f);
+        sb.append(this.f65655f);
         sb.append("#");
-        sb.append(this.f65655g);
+        sb.append(this.f65656g);
         sb.append(" reqErr: ");
-        sb.append(this.f65656h);
+        sb.append(this.f65657h);
         sb.append("#");
         sb.append(this.i);
         sb.append("#");

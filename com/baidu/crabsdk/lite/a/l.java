@@ -2,40 +2,40 @@ package com.baidu.crabsdk.lite.a;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f4734a;
+    public static SharedPreferences f4735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences.Editor f4735b;
+    public static SharedPreferences.Editor f4736b;
 
     public static void a(Context context) {
-        if (f4734a == null) {
-            f4734a = context.getSharedPreferences("crablite_app_life", 0);
+        if (f4735a == null) {
+            f4735a = context.getSharedPreferences("crablite_app_life", 0);
         }
-        if (f4735b == null) {
-            f4735b = f4734a.edit();
+        if (f4736b == null) {
+            f4736b = f4735a.edit();
         }
     }
 
     public static void b(String str) {
-        SharedPreferences.Editor editor = f4735b;
+        SharedPreferences.Editor editor = f4736b;
         if (editor != null) {
             editor.putInt("used_count_" + str, 0);
-            com.baidu.crabsdk.lite.b.c.c(f4735b, false);
+            com.baidu.crabsdk.lite.b.c.c(f4736b, false);
         }
     }
 
     public static void c(String str) {
-        SharedPreferences.Editor editor = f4735b;
+        SharedPreferences.Editor editor = f4736b;
         editor.putInt("used_count_" + str, d(str) + 1);
-        com.baidu.crabsdk.lite.b.c.c(f4735b, false);
+        com.baidu.crabsdk.lite.b.c.c(f4736b, false);
     }
 
     public static int d(String str) {
-        SharedPreferences sharedPreferences = f4734a;
+        SharedPreferences sharedPreferences = f4735a;
         return sharedPreferences.getInt("used_count_" + str, 0);
     }
 }

@@ -8,15 +8,15 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 public class e extends AbstractKsFeedPage {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsScene f34882a;
+    public KsScene f34883a;
 
     public e(KsScene ksScene) {
-        this.f34882a = ksScene;
+        this.f34883a = ksScene;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsFeedPage
     @NonNull
     public KsFragment getFragment2() {
-        return c.a(this.f34882a);
+        return c.a(this.f34883a);
     }
 }

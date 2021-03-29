@@ -9,24 +9,24 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.i2.k0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class w extends a0 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46566e;
+        public final /* synthetic */ Context f46567e;
 
         public a(w wVar, Context context) {
-            this.f46566e = context;
+            this.f46567e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Bundle bundle = new Bundle();
             bundle.putString("bundle_key_preload_preload_scene", "5");
-            d.b.g0.a.n1.c.f.b.i(this.f46566e, bundle);
+            d.b.g0.a.n1.c.f.b.i(this.f46567e, bundle);
         }
     }
 
@@ -36,7 +36,7 @@ public class w extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (!ProcessUtils.isMainProcess()) {
@@ -48,7 +48,7 @@ public class w extends a0 {
         if (optInt < 0) {
             optInt = 0;
         }
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.d("PreloadSwanCoreAction", "delay: " + optInt);
         }
         k0.U(new a(this, context), optInt);

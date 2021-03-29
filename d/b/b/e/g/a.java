@@ -9,10 +9,10 @@ public class a {
     public static View a(LayoutInflater layoutInflater, b bVar) {
         View b2 = bVar.b(layoutInflater);
         MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-        layoutParams.f2168c = bVar.getXOffset();
-        layoutParams.f2169d = bVar.getYOffset();
-        layoutParams.f2166a = bVar.a();
-        layoutParams.f2167b = bVar.c();
+        layoutParams.f2169c = bVar.getXOffset();
+        layoutParams.f2170d = bVar.getYOffset();
+        layoutParams.f2167a = bVar.a();
+        layoutParams.f2168b = bVar.c();
         b2.setLayoutParams(layoutParams);
         return b2;
     }

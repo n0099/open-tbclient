@@ -62,7 +62,7 @@ public class h extends d.b.i0.x.b<i> {
             hashMap.put(OpenFlutter.EXTRA_TRANSPARANT, Boolean.TRUE);
             hashMap.put("swipeback", Boolean.FALSE);
             hashMap.put("present", Boolean.TRUE);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(h.this.f62180f.getPageActivity(), "GodDialog", hashMap)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(h.this.f62181f.getPageActivity(), "GodDialog", hashMap)));
         }
     }
 
@@ -115,8 +115,8 @@ public class h extends d.b.i0.x.b<i> {
         }
         if (view == this.q) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 2));
-            if (ViewHelper.checkUpIsLogin(this.f62180f.getPageActivity())) {
-                UrlManager.getInstance().dealOneLink(this.f62180f, new String[]{TbConfig.URL_MEMBER_BUY});
+            if (ViewHelper.checkUpIsLogin(this.f62181f.getPageActivity())) {
+                UrlManager.getInstance().dealOneLink(this.f62181f, new String[]{TbConfig.URL_MEMBER_BUY});
                 return;
             }
             return;
@@ -126,7 +126,7 @@ public class h extends d.b.i0.x.b<i> {
             personCenterGuideView.h();
         }
         TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f62180f.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f62181f.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
     }
 
     public final void v() {
@@ -140,7 +140,7 @@ public class h extends d.b.i0.x.b<i> {
     /* renamed from: w */
     public void n(i iVar) {
         UserData userData;
-        if (iVar == null || (userData = iVar.f54787e) == null) {
+        if (iVar == null || (userData = iVar.f54788e) == null) {
             return;
         }
         this.v = userData;
@@ -158,7 +158,7 @@ public class h extends d.b.i0.x.b<i> {
         this.r.setText(this.v.getName_show());
         this.s.setText(b().getString(R.string.person_center_default_introduce));
         v();
-        o(this.f62180f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void x() {

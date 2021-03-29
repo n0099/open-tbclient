@@ -41,17 +41,17 @@ import d.b.h0.r.s.a;
 import d.b.h0.s.c.f0;
 import d.b.i0.c3.y;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.h0.w.e {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f63340f;
+    public TbPageContext<?> f63341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63341g;
+    public String f63342g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63342h;
+    public long f63343h;
     public NewWriteModel i;
     public d.b.h0.w.w.c j;
     public d.b.h0.w.w.b k;
@@ -66,9 +66,9 @@ public class a extends d.b.h0.w.e {
     public final d.b.b.a.e t;
 
     /* renamed from: d.b.i0.z0.j.a.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1709a implements NewWriteModel.g {
-        public C1709a() {
+    /* loaded from: classes3.dex */
+    public class C1710a implements NewWriteModel.g {
+        public C1710a() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -78,7 +78,7 @@ public class a extends d.b.h0.w.e {
                 a.this.l.callback(z, postWriteCallBackData, f0Var, writeData, antiData);
             }
             if (z) {
-                a.this.f63341g = null;
+                a.this.f63342g = null;
                 a.this.C(true);
             }
             int i = -1;
@@ -105,7 +105,7 @@ public class a extends d.b.h0.w.e {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(a.this.m().getPageActivity(), writeData, 12006)));
                     }
                 } else if (postWriteCallBackData != null && i == 227001) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f63340f.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f63341f.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                 } else if (i == 238010 || d.b.i0.m3.a.c(i)) {
                 } else {
                     a.this.m().showToast(str);
@@ -116,7 +116,7 @@ public class a extends d.b.h0.w.e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements AntiHelper.k {
         public b(a aVar) {
         }
@@ -132,7 +132,7 @@ public class a extends d.b.h0.w.e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c(a aVar) {
         }
@@ -143,7 +143,7 @@ public class a extends d.b.h0.w.e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.b.a.e {
         public d() {
         }
@@ -156,7 +156,7 @@ public class a extends d.b.h0.w.e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements y.d {
         public e() {
         }
@@ -176,22 +176,22 @@ public class a extends d.b.h0.w.e {
             if (a.this.o == null || a.this.o.size() == 0) {
                 a.this.a().A(new d.b.h0.w.a(2, 10, null));
             }
-            if (k.isEmpty(writeData.getContent()) || !k.isEmpty(a.this.f63341g)) {
+            if (k.isEmpty(writeData.getContent()) || !k.isEmpty(a.this.f63342g)) {
                 return;
             }
-            a.this.f63341g = writeData.getContent();
+            a.this.f63342g = writeData.getContent();
             a aVar = a.this;
-            aVar.D(aVar.f63341g);
+            aVar.D(aVar.f63342g);
         }
     }
 
     public a(EditorTools editorTools) {
         super(editorTools);
-        this.f63341g = "";
+        this.f63342g = "";
         this.m = null;
         this.o = new WriteImagesInfo();
         this.p = null;
-        this.r = new C1709a();
+        this.r = new C1710a();
         this.s = new b(this);
         this.t = new d();
     }
@@ -225,7 +225,7 @@ public class a extends d.b.h0.w.e {
     }
 
     public void F(TbPageContext<?> tbPageContext) {
-        this.f63340f = tbPageContext;
+        this.f63341f = tbPageContext;
     }
 
     public void G(NewWriteModel.g gVar) {
@@ -233,19 +233,19 @@ public class a extends d.b.h0.w.e {
     }
 
     public void H(String str) {
-        this.f63341g = str;
+        this.f63342g = str;
     }
 
     public void I(boolean z) {
     }
 
     public void J(long j) {
-        this.f63342h = j;
+        this.f63343h = j;
     }
 
     public void K(int i, String str) {
         if (AntiHelper.m(i, str)) {
-            if (AntiHelper.w(this.f63340f.getPageActivity(), str, i, this.s) != null) {
+            if (AntiHelper.w(this.f63341f.getPageActivity(), str, i, this.s) != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY_SUB_PB));
             }
         } else if (i != 230277 && i != 230278) {
@@ -268,7 +268,7 @@ public class a extends d.b.h0.w.e {
     }
 
     public void j() {
-        y.r(String.valueOf(this.f63342h), null);
+        y.r(String.valueOf(this.f63343h), null);
     }
 
     public final void k(Intent intent) {
@@ -284,7 +284,7 @@ public class a extends d.b.h0.w.e {
         try {
             int readPictureDegree = BitmapHelper.readPictureDegree(str);
             if (readPictureDegree != 0) {
-                Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, l.e(this.f63340f.getPageActivity(), l.k(this.f63340f.getPageActivity())), l.e(this.f63340f.getPageActivity(), l.i(this.f63340f.getPageActivity())));
+                Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, l.e(this.f63341f.getPageActivity(), l.k(this.f63341f.getPageActivity())), l.e(this.f63341f.getPageActivity(), l.i(this.f63341f.getPageActivity())));
                 Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
                 if (loadResizedBitmap != rotateBitmapBydegree) {
                     loadResizedBitmap.recycle();
@@ -305,11 +305,11 @@ public class a extends d.b.h0.w.e {
     }
 
     public TbPageContext<?> m() {
-        return this.f63340f;
+        return this.f63341f;
     }
 
     public void n() {
-        y.k(String.valueOf(this.f63342h), new e());
+        y.k(String.valueOf(this.f63343h), new e());
     }
 
     public d.b.i0.z0.j.a.e.c o() {
@@ -340,12 +340,12 @@ public class a extends d.b.h0.w.e {
     }
 
     public long s() {
-        return this.f63342h;
+        return this.f63343h;
     }
 
     public final void t() {
-        if (!WriteActivityConfig.isAsyncWriting() || this.f63342h <= 0) {
-            WriteActivityConfig.newInstance(this.f63340f.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f63342h)).setFrom("topic_detail").setCallFrom("1").setContent(this.f63341g).setWriteImagesInfo(this.o).send();
+        if (!WriteActivityConfig.isAsyncWriting() || this.f63343h <= 0) {
+            WriteActivityConfig.newInstance(this.f63341f.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f63343h)).setFrom("topic_detail").setCallFrom("1").setContent(this.f63342g).setWriteImagesInfo(this.o).send();
         }
     }
 
@@ -398,7 +398,7 @@ public class a extends d.b.h0.w.e {
         } else if (i == 12006) {
             PostWriteCallBackData postWriteCallBackData4 = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
             if (this.l != null) {
-                this.f63341g = null;
+                this.f63342g = null;
                 C(true);
                 this.i.f0(null);
                 this.i.Z(false);
@@ -487,8 +487,8 @@ public class a extends d.b.h0.w.e {
         this.i.T().setCanNoForum(true);
         this.i.T().setTransmitForumData("[]");
         this.i.T().setCallFrom("1");
-        this.i.T().setTopicId(String.valueOf(this.f63342h));
-        this.i.T().setContent(this.f63341g);
+        this.i.T().setTopicId(String.valueOf(this.f63343h));
+        this.i.T().setContent(this.f63342g);
         this.i.T().setIsNoTitle(true);
         this.i.T().setTitle("");
         this.i.T().setVoice(null);
@@ -510,9 +510,9 @@ public class a extends d.b.h0.w.e {
 
     public void z() {
         WriteData writeData = new WriteData(2);
-        writeData.setContent(this.f63341g);
-        writeData.setTopicId(String.valueOf(this.f63342h));
+        writeData.setContent(this.f63342g);
+        writeData.setTopicId(String.valueOf(this.f63343h));
         writeData.setWriteImagesInfo(this.o);
-        y.r(String.valueOf(this.f63342h), writeData);
+        y.r(String.valueOf(this.f63343h), writeData);
     }
 }

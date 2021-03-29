@@ -13,64 +13,64 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59161a = 1;
+    public int f59162a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59162b;
+    public int f59163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecordVideoActivity f59163c;
+    public RecordVideoActivity f59164c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressView f59164d;
+    public ProgressView f59165d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f59165e;
+    public List<b> f59166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59166f;
+    public boolean f59167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f59167g;
+    public long f59168g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f59168h;
+    public int f59169h;
 
     /* loaded from: classes5.dex */
     public class a implements ProgressView.a {
 
         /* renamed from: d.b.i0.p3.m.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1470a implements d.InterfaceC1804d {
+        public class C1471a implements d.InterfaceC1805d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f59170a;
+            public final /* synthetic */ g f59171a;
 
             /* renamed from: d.b.i0.p3.m.i$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC1471a implements Runnable {
-                public RunnableC1471a() {
+            public class RunnableC1472a implements Runnable {
+                public RunnableC1472a() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (i.this.f59163c != null) {
-                        i.this.f59163c.onRecordDone();
+                    if (i.this.f59164c != null) {
+                        i.this.f59164c.onRecordDone();
                     }
                 }
             }
 
-            public C1470a(g gVar) {
-                this.f59170a = gVar;
+            public C1471a(g gVar) {
+                this.f59171a = gVar;
             }
 
-            @Override // d.e.b.d.InterfaceC1804d
+            @Override // d.e.b.d.InterfaceC1805d
             public void a() {
-                d.b.b.e.m.e.a().post(new RunnableC1471a());
-                this.f59170a.setOnEncoderStatusUpdateListener(null);
+                d.b.b.e.m.e.a().post(new RunnableC1472a());
+                this.f59171a.setOnEncoderStatusUpdateListener(null);
             }
 
-            @Override // d.e.b.d.InterfaceC1804d
+            @Override // d.e.b.d.InterfaceC1805d
             public void b() {
             }
         }
@@ -82,18 +82,18 @@ public class i {
         public void a(int i) {
             h hVar;
             g q;
-            i.this.f59168h = i;
-            if (i != 100 || i.this.f59163c == null || (hVar = i.this.f59163c.mPreviewController) == null || (q = hVar.q()) == null) {
+            i.this.f59169h = i;
+            if (i != 100 || i.this.f59164c == null || (hVar = i.this.f59164c.mPreviewController) == null || (q = hVar.q()) == null) {
                 return;
             }
             if (q instanceof GLVideoPreviewView) {
-                q.setOnEncoderStatusUpdateListener(new C1470a(q));
+                q.setOnEncoderStatusUpdateListener(new C1471a(q));
                 i.this.o();
                 return;
             }
             i.this.o();
-            if (i.this.f59163c != null) {
-                i.this.f59163c.onRecordDone();
+            if (i.this.f59164c != null) {
+                i.this.f59164c.onRecordDone();
             }
         }
     }
@@ -104,14 +104,14 @@ public class i {
     }
 
     public i(RecordVideoActivity recordVideoActivity) {
-        this.f59163c = recordVideoActivity;
+        this.f59164c = recordVideoActivity;
         if (recordVideoActivity == null) {
             return;
         }
         ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.camera_switch);
-        ImageView imageView2 = (ImageView) this.f59163c.findViewById(R.id.flash_switch);
-        ProgressView progressView = (ProgressView) this.f59163c.findViewById(R.id.video_progress_view);
-        this.f59164d = progressView;
+        ImageView imageView2 = (ImageView) this.f59164c.findViewById(R.id.flash_switch);
+        ProgressView progressView = (ProgressView) this.f59164c.findViewById(R.id.video_progress_view);
+        this.f59165d = progressView;
         progressView.setListener(new a());
         if (!d.b.i0.p3.m.a.f(true)) {
             imageView2.setVisibility(4);
@@ -123,42 +123,42 @@ public class i {
     }
 
     public void c(b bVar) {
-        if (this.f59165e == null) {
-            this.f59165e = new ArrayList();
+        if (this.f59166e == null) {
+            this.f59166e = new ArrayList();
         }
-        this.f59165e.add(bVar);
+        this.f59166e.add(bVar);
     }
 
     public void d() {
-        ProgressView progressView = this.f59164d;
+        ProgressView progressView = this.f59165d;
         if (progressView != null) {
             progressView.setCurrentState(ProgressView.State.DELETE);
         }
-        this.f59162b = this.f59164d.getLastProgress();
-        h hVar = this.f59163c.mPreviewController;
+        this.f59163b = this.f59165d.getLastProgress();
+        h hVar = this.f59164c.mPreviewController;
         if (hVar != null) {
             hVar.h();
         }
     }
 
     public int e() {
-        return this.f59168h;
+        return this.f59169h;
     }
 
     public int f() {
-        return this.f59161a;
+        return this.f59162a;
     }
 
     public int g() {
-        return this.f59162b;
+        return this.f59163b;
     }
 
     public boolean h() {
-        return this.f59161a == 6;
+        return this.f59162a == 6;
     }
 
     public boolean i() {
-        j jVar = this.f59163c.mMusicController;
+        j jVar = this.f59164c.mMusicController;
         if (jVar != null) {
             return jVar.i();
         }
@@ -171,12 +171,12 @@ public class i {
     }
 
     public boolean k() {
-        return this.f59164d.b();
+        return this.f59165d.b();
     }
 
     public void l() {
         ProgressView progressView;
-        if (this.f59166f || (progressView = this.f59164d) == null) {
+        if (this.f59167f || (progressView = this.f59165d) == null) {
             return;
         }
         progressView.setCurrentState(ProgressView.State.ROLLBACK);
@@ -184,12 +184,12 @@ public class i {
 
     public void m(int i) {
         File[] listFiles;
-        this.f59161a = i;
+        this.f59162a = i;
         if (i == 1) {
-            this.f59164d.setVisibility(4);
-            this.f59164d.d();
-            this.f59162b = 0;
-            File file = new File(d.b.i0.p3.c.f58889c);
+            this.f59165d.setVisibility(4);
+            this.f59165d.d();
+            this.f59163b = 0;
+            File file = new File(d.b.i0.p3.c.f58890c);
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 for (File file2 : listFiles) {
                     if (file2.getPath().startsWith("rec_tmp_")) {
@@ -198,57 +198,57 @@ public class i {
                 }
             }
         }
-        List<b> list = this.f59165e;
+        List<b> list = this.f59166e;
         if (list != null) {
             for (b bVar : list) {
-                bVar.a(this.f59161a);
+                bVar.a(this.f59162a);
             }
         }
     }
 
     public void n() {
         h hVar;
-        if (this.f59166f) {
+        if (this.f59167f) {
             return;
         }
-        ProgressView progressView = this.f59164d;
+        ProgressView progressView = this.f59165d;
         if (progressView != null) {
             progressView.setVisibility(0);
-            this.f59164d.setCurrentState(ProgressView.State.START);
+            this.f59165d.setCurrentState(ProgressView.State.START);
         }
-        if (!this.f59166f) {
-            this.f59166f = true;
-            this.f59167g = System.currentTimeMillis();
+        if (!this.f59167f) {
+            this.f59167f = true;
+            this.f59168g = System.currentTimeMillis();
         }
-        RecordVideoActivity recordVideoActivity = this.f59163c;
+        RecordVideoActivity recordVideoActivity = this.f59164c;
         if (recordVideoActivity == null || (hVar = recordVideoActivity.mPreviewController) == null) {
             return;
         }
         hVar.L();
-        j jVar = this.f59163c.mMusicController;
+        j jVar = this.f59164c.mMusicController;
         if (jVar != null) {
-            jVar.n(this.f59162b);
+            jVar.n(this.f59163b);
         }
     }
 
     public void o() {
         h hVar;
-        if (this.f59166f) {
-            ProgressView progressView = this.f59164d;
+        if (this.f59167f) {
+            ProgressView progressView = this.f59165d;
             if (progressView != null) {
                 progressView.setCurrentState(ProgressView.State.PAUSE);
             }
-            this.f59166f = false;
-            this.f59162b = (int) (this.f59162b + (System.currentTimeMillis() - this.f59167g));
-            ProgressView progressView2 = this.f59164d;
+            this.f59167f = false;
+            this.f59163b = (int) (this.f59163b + (System.currentTimeMillis() - this.f59168g));
+            ProgressView progressView2 = this.f59165d;
             if (progressView2 != null) {
                 int lastProgress = progressView2.getLastProgress();
-                int i = this.f59162b;
+                int i = this.f59163b;
                 if (lastProgress != i) {
-                    this.f59164d.c(i);
+                    this.f59165d.c(i);
                 }
             }
-            RecordVideoActivity recordVideoActivity = this.f59163c;
+            RecordVideoActivity recordVideoActivity = this.f59164c;
             if (recordVideoActivity == null || (hVar = recordVideoActivity.mPreviewController) == null) {
                 return;
             }

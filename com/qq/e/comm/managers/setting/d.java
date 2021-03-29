@@ -12,18 +12,18 @@ public class d extends e {
     }
 
     public final Object a(String str) {
-        return this.f38325a.opt(str);
+        return this.f38326a.opt(str);
     }
 
     public final void a(String str, Object obj) {
         try {
-            this.f38325a.putOpt(str, obj);
+            this.f38326a.putOpt(str, obj);
         } catch (JSONException e2) {
             GDTLogger.e("Exception while update setting", e2);
         }
     }
 
     public String toString() {
-        return "GDTSDKSetting[" + this.f38325a.toString() + "]";
+        return "GDTSDKSetting[" + this.f38326a.toString() + "]";
     }
 }

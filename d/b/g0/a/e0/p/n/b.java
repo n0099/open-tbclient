@@ -10,47 +10,47 @@ import d.b.g0.a.r1.j;
 import d.b.g0.l.l.f;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b extends d.b.g0.a.e0.p.n.a implements f {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f44200f = k.f45050a;
+    public static final boolean f44201f = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.n1.b.b> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ C0671b f44201e;
+        public final /* synthetic */ C0672b f44202e;
 
-        public a(b bVar, C0671b c0671b) {
-            this.f44201e = c0671b;
+        public a(b bVar, C0672b c0672b) {
+            this.f44202e = c0672b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.n1.b.b bVar) {
-            this.f44201e.onFail(bVar.N());
+            this.f44202e.onFail(bVar.N());
         }
     }
 
     /* renamed from: d.b.g0.a.e0.p.n.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0671b implements f.a, d.b.g0.a.i2.u0.b<i.a> {
+    /* loaded from: classes2.dex */
+    public class C0672b implements f.a, d.b.g0.a.i2.u0.b<i.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final f.a f44202e;
+        public final f.a f44203e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f44203f;
+        public final boolean f44204f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f44204g = false;
+        public boolean f44205g = false;
 
-        public C0671b(f.a aVar) {
-            this.f44202e = aVar;
-            this.f44203f = aVar != null;
-            if (b.f44200f) {
+        public C0672b(f.a aVar) {
+            this.f44203e = aVar;
+            this.f44204f = aVar != null;
+            if (b.f44201f) {
                 b.this.A("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
         }
@@ -59,12 +59,12 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
         public void a(String str, String str2, JSONObject jSONObject) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f44200f) {
+                if (b.f44201f) {
                     b bVar = b.this;
                     bVar.A("IpcHttpCallbackWrapper#onStatRecord", "valid=" + e2 + " url=" + str + " statRecord=" + jSONObject);
                 }
                 if (e2) {
-                    this.f44202e.a(str, str2, jSONObject);
+                    this.f44203e.a(str, str2, jSONObject);
                 }
             }
         }
@@ -73,32 +73,32 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
         public void b(String str, int i) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f44200f) {
+                if (b.f44201f) {
                     b bVar = b.this;
                     bVar.A("IpcHttpCallbackWrapper#onSuccess", "valid=" + e2 + " statusCode=" + i + " response=" + str);
                 }
                 if (e2) {
                     c();
-                    this.f44202e.b(str, i);
+                    this.f44203e.b(str, i);
                 }
             }
         }
 
         public synchronized void c() {
-            this.f44204g = true;
+            this.f44205g = true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x006b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x006c, code lost:
             if (r1 == 1) goto L19;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:25:0x006d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:25:0x006e, code lost:
             if (r1 == 2) goto L18;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:27:0x0070, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x0071, code lost:
             onFail(new java.lang.Exception(r7.m("pms_http_with_ipc_key_error")));
          */
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x007f, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:28:0x0080, code lost:
             b(r7.m("pms_http_with_ipc_key_response"), r7.h("pms_http_with_ipc_key_status_code"));
          */
         @Override // d.b.g0.a.i2.u0.b
@@ -109,7 +109,7 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
         public void onCallback(i.a aVar) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f44200f) {
+                if (b.f44201f) {
                     b bVar = b.this;
                     bVar.A("IpcHttpCallbackWrapper#onCallback", "valid=" + e2 + " msg=" + aVar);
                 }
@@ -135,8 +135,8 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
 
         public synchronized boolean e() {
             boolean z;
-            if (this.f44203f) {
-                z = this.f44204g ? false : true;
+            if (this.f44204f) {
+                z = this.f44205g ? false : true;
             }
             return z;
         }
@@ -145,13 +145,13 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
         public void onFail(Exception exc) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f44200f) {
+                if (b.f44201f) {
                     b bVar = b.this;
                     bVar.A("IpcHttpCallbackWrapper#onFail", "valid=" + e2 + " exception=" + exc);
                 }
                 if (e2) {
                     c();
-                    f.a aVar = this.f44202e;
+                    f.a aVar = this.f44203e;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -171,7 +171,7 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
 
     @Override // d.b.g0.a.e0.p.n.a, d.b.g0.l.l.f
     public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar) {
-        if (f44200f) {
+        if (f44201f) {
             z("buildJsonPostRequest");
         }
         y("pms_http_with_ipc_action_build_json_post_request", str, map, map2, jSONObject, aVar);
@@ -179,34 +179,34 @@ public final class b extends d.b.g0.a.e0.p.n.a implements f {
 
     @Override // d.b.g0.a.e0.p.n.a, d.b.g0.l.l.f
     public void b(String str, Map<String, String> map, Map<String, String> map2, f.a aVar) {
-        if (f44200f) {
+        if (f44201f) {
             z("buildGetRequest");
         }
         y("pms_http_with_ipc_action_build_get_request", str, map, map2, null, aVar);
     }
 
     public final void y(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar) {
-        if (f44200f) {
+        if (f44201f) {
             z("ipcHttp");
         }
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-        C0671b c0671b = new C0671b(aVar);
+        C0672b c0672b = new C0672b(aVar);
         d.b.g0.a.n1.b.b w = d.b.g0.a.n1.b.c.C("pms_http_with_ipc").w("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
         d.b.g0.a.n1.b.b r = w.w("pms_http_with_ipc_key_url", str2).w("pms_http_with_ipc_keyjson_body", TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2).r("pms_http_with_ipc_key_url_param_map", d.b.g0.a.e0.p.n.a.e(map)).r("pms_http_with_ipc_key_header_param_map", d.b.g0.a.e0.p.n.a.e(map2));
         r.I(true);
-        r.F(c0671b);
-        r.E(new a(this, c0671b));
-        if (f44200f) {
+        r.F(c0672b);
+        r.E(new a(this, c0672b));
+        if (f44201f) {
             A("ipcHttp", "session=" + r);
         }
         r.K(d.F0);
     }
 
     public final void z(String str) {
-        if (f44200f) {
+        if (f44201f) {
             Log.i("PmsHttpForClient", str);
         }
     }

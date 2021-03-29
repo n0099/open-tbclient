@@ -8,17 +8,17 @@ import d.b.g0.a.i2.h0;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46224a = k.f45050a;
+    public static final boolean f46225a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.g f46225b;
+    public static a.g f46226b;
 
     public static void a(a.g gVar) {
-        f46225b = gVar;
+        f46226b = gVar;
     }
 
     public static void b(EditText editText, int i) {
@@ -26,7 +26,7 @@ public class c {
     }
 
     public static void c(EditText editText, int i) {
-        if (editText == null || f46225b == null) {
+        if (editText == null || f46226b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -36,11 +36,11 @@ public class c {
             jSONObject.put("cursorOffset", editText.getSelectionStart());
             jSONObject.put("keyCode", i);
         } catch (JSONException e2) {
-            if (f46224a) {
+            if (f46225a) {
                 e2.printStackTrace();
             }
         }
-        f46225b.a(String.valueOf(editText.getTag()), jSONObject);
+        f46226b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void d(EditText editText, int i) {
@@ -48,7 +48,7 @@ public class c {
     }
 
     public static void e(EditText editText, String str, int i) {
-        if (editText == null || f46225b == null) {
+        if (editText == null || f46226b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -58,11 +58,11 @@ public class c {
             jSONObject.put("cursorOffset", editText.getText().length());
             jSONObject.put("keyboardHeight", h0.H(i));
         } catch (JSONException e2) {
-            if (f46224a) {
+            if (f46225a) {
                 e2.printStackTrace();
             }
         }
-        f46225b.a(String.valueOf(editText.getTag()), jSONObject);
+        f46226b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void f(EditText editText, int i) {

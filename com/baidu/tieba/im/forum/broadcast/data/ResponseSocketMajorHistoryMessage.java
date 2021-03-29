@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import d.b.i0.d1.i.a.b.a;
 import tbclient.Error;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
     public a majorHistoryData;
 

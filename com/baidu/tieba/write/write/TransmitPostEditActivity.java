@@ -261,8 +261,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (aVar == null) {
                 return;
             }
-            if (aVar.f51523a == 31) {
-                Object obj2 = aVar.f51525c;
+            if (aVar.f51524a == 31) {
+                Object obj2 = aVar.f51526c;
                 if (obj2 instanceof Integer) {
                     int intValue = ((Integer) obj2).intValue();
                     int i = intValue == 5 ? 4 : intValue == 9 ? 3 : intValue == 26 ? 1 : intValue == 7 ? 2 : 0;
@@ -271,7 +271,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     }
                 }
             }
-            int i2 = aVar.f51523a;
+            int i2 = aVar.f51524a;
             if (i2 == 16) {
                 if (TransmitPostEditActivity.this.isTextFull()) {
                     TransmitPostEditActivity.this.showToast(R.string.over_limit_tip);
@@ -283,7 +283,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     TransmitPostEditActivity.this.showToast(R.string.over_limit_tip);
                     return;
                 }
-                Object obj3 = aVar.f51525c;
+                Object obj3 = aVar.f51526c;
                 if (obj3 == null || !(obj3 instanceof d.b.h0.s.c.t)) {
                     return;
                 }
@@ -293,7 +293,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             } else if (i2 == 12 || i2 == 13 || i2 == 46 || i2 == 49) {
                 TransmitPostEditActivity.this.refreshPostButton();
             } else if (i2 == 18) {
-                if (aVar.f51525c == null || TransmitPostEditActivity.this.mAdditionData != null) {
+                if (aVar.f51526c == null || TransmitPostEditActivity.this.mAdditionData != null) {
                     int i3 = TransmitPostEditActivity.this.mLocationState;
                     if (i3 != 0) {
                         if (i3 != 2) {
@@ -371,7 +371,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     TransmitPostEditActivity.this.mPostContent.setSelection(TransmitPostEditActivity.this.mPostContent.getText().toString().length());
                 }
                 TransmitPostEditActivity.this.mTitleView.setVisibility(8);
-            } else if (i2 == 55 && (obj = aVar.f51525c) != null && (obj instanceof Boolean)) {
+            } else if (i2 == 55 && (obj = aVar.f51526c) != null && (obj instanceof Boolean)) {
                 TransmitPostEditActivity.this.isPrivacy = ((Boolean) obj).booleanValue();
             }
         }
@@ -381,10 +381,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public class d implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22448e = "";
+        public String f22449e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22449f;
+        public String f22450f;
 
         public d() {
         }
@@ -397,10 +397,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (editable == null || realTitleInstance == null || realTitleInstance.getText() == null) {
                 return;
             }
-            String str = this.f22448e;
+            String str = this.f22449e;
             if (str == null || !str.equals(editable.toString())) {
                 if (TransmitPostEditActivity.this.mHighLightController != null) {
-                    this.f22448e = realTitleInstance.getText().toString();
+                    this.f22449e = realTitleInstance.getText().toString();
                     TransmitPostEditActivity.this.mHighLightController.j(realTitleInstance, true);
                     return;
                 }
@@ -411,12 +411,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            this.f22449f = charSequence != null ? charSequence.toString() : "";
+            this.f22450f = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            String str = this.f22449f;
+            String str = this.f22450f;
             if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.toString().length() : 0)) {
                 TransmitPostEditActivity.this.gotoHotTopicSelectActivity(charSequence, i, i3, "from_title");
             }
@@ -427,10 +427,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public class e implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22451e = "";
+        public String f22452e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22452f;
+        public String f22453f;
 
         public e() {
         }
@@ -443,10 +443,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 return;
             }
             int selectionEnd = realContentEdittextInstance.getSelectionEnd();
-            String str = this.f22451e;
+            String str = this.f22452e;
             if (str == null || !str.equals(editable.toString())) {
                 if (TransmitPostEditActivity.this.mHighLightController != null) {
-                    this.f22451e = realContentEdittextInstance.getText().toString();
+                    this.f22452e = realContentEdittextInstance.getText().toString();
                     TransmitPostEditActivity.this.mHighLightController.j(realContentEdittextInstance, false);
                     return;
                 }
@@ -457,12 +457,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            this.f22452f = charSequence != null ? charSequence.toString() : "";
+            this.f22453f = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            String str = this.f22452f;
+            String str = this.f22453f;
             if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.toString().length() : 0)) {
                 TransmitPostEditActivity.this.gotoHotTopicSelectActivity(charSequence, i, i3, "from_content");
             }
@@ -525,9 +525,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (e1Var == null) {
                 return;
             }
-            TransmitPostEditActivity.this.mCategoryView.setText(e1Var.f57401a);
-            TransmitPostEditActivity.this.mData.setCategoryTo(e1Var.f57402b);
-            TransmitPostEditActivity.this.mCategoryToID = e1Var.f57402b;
+            TransmitPostEditActivity.this.mCategoryView.setText(e1Var.f57402a);
+            TransmitPostEditActivity.this.mData.setCategoryTo(e1Var.f57403b);
+            TransmitPostEditActivity.this.mCategoryToID = e1Var.f57403b;
             TransmitPostEditActivity.this.mCategoryView.c();
         }
     }
@@ -1115,7 +1115,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (b2 == null) {
             return;
         }
-        this.mCategoryList = b2.f57400b;
+        this.mCategoryList = b2.f57401b;
         this.mCategoryFromID = getIntent().getIntExtra("category_id", -1);
         List<c0> list = this.mCategoryList;
         if (list == null || list.isEmpty() || this.mCategoryFromID < 0) {
@@ -1123,16 +1123,16 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
         c0 c0Var = new c0();
         this.mCategoryDefault = c0Var;
-        c0Var.f57361b = 0;
-        c0Var.f57360a = getPageContext().getResources().getString(R.string.category_auto);
+        c0Var.f57362b = 0;
+        c0Var.f57361a = getPageContext().getResources().getString(R.string.category_auto);
         c0 c0Var2 = this.mCategoryDefault;
-        this.mCategoryToID = c0Var2.f57361b;
-        this.mCategoryName = c0Var2.f57360a;
+        this.mCategoryToID = c0Var2.f57362b;
+        this.mCategoryName = c0Var2.f57361a;
         for (c0 c0Var3 : this.mCategoryList) {
-            int i2 = c0Var3.f57361b;
+            int i2 = c0Var3.f57362b;
             if (i2 == this.mCategoryFromID) {
                 this.mCategoryToID = i2;
-                this.mCategoryName = c0Var3.f57360a;
+                this.mCategoryName = c0Var3.f57361a;
                 return;
             }
         }
@@ -1933,7 +1933,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public void deleteChar() {
         if (getRealContentEdittextInstance().getSelectionStart() > 0) {
             String substring = getRealContentEdittextInstance().getText().toString().substring(0, getRealContentEdittextInstance().getSelectionStart());
-            Matcher matcher = d.b.i0.k0.a.f56419b.matcher(substring);
+            Matcher matcher = d.b.i0.k0.a.f56420b.matcher(substring);
             if (matcher.find()) {
                 getRealContentEdittextInstance().getText().delete(getRealContentEdittextInstance().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getRealContentEdittextInstance().getSelectionStart());
                 return;
@@ -2124,7 +2124,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
             StringBuilder sb2 = new StringBuilder();
             if (this.needAddHotTopicSign) {
-                sb2.append(d.b.h0.p0.b.f50404a);
+                sb2.append(d.b.h0.p0.b.f50405a);
                 this.needAddHotTopicSign = false;
             }
             sb2.append(stringExtra);

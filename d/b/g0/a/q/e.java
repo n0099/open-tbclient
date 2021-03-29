@@ -3,10 +3,10 @@ package d.b.g0.a.q;
 import android.content.Context;
 import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends SwanAppSimpleH5Widget {
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public e(Context context) {

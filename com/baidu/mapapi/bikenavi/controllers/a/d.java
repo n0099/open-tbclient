@@ -7,9 +7,9 @@ public final class d implements com.baidu.platform.comapi.wnplatform.m.c {
     public int a(String str, boolean z) {
         IBTTSPlayer iBTTSPlayer;
         IBTTSPlayer iBTTSPlayer2;
-        iBTTSPlayer = a.f6742b;
+        iBTTSPlayer = a.f6743b;
         if (iBTTSPlayer != null) {
-            iBTTSPlayer2 = a.f6742b;
+            iBTTSPlayer2 = a.f6743b;
             return iBTTSPlayer2.playTTSText(str, z);
         }
         return 0;

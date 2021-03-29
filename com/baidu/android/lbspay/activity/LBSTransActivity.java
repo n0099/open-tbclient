@@ -5,7 +5,7 @@ import com.baidu.android.lbspay.presenter.LBSTransPresenter;
 import com.baidu.android.lbspay.presenter.LBSTransPresenterFactory;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSTransActivity extends LBSBaseActivity {
     public static final String BEAN_TAG = "LBSTransActivity";
     public static final String PRESENTER_TYPE = "presentertype";

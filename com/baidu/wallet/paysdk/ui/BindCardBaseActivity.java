@@ -50,10 +50,10 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public static final String BEAN_TAG = "BindCardBaseActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequestCache.BindCategory f25902a;
+    public PayRequestCache.BindCategory f25903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f25903b;
+    public LayoutInflater f25904b;
     public BdActionBar bdActionBar;
     public h checkCardInfoBean;
     public boolean isAutoFillPhone;
@@ -69,18 +69,18 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public final int DIALOG_CAN_AMOUNT_NO_PWD = 629128;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f25904c = 629129;
+    public final int f25905c = 629129;
     public final int DIALOG_ABANDON_AUTHORIZE = 629130;
     public boolean isFromRestore = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25905e = false;
+    public boolean f25906e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25906f = 0;
+    public int f25907f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f25907g = 0;
+    public int f25908g = 0;
 
     private void a() {
         this.bdActionBar.measure(0, View.MeasureSpec.makeMeasureSpec(0, 0));
@@ -93,10 +93,10 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     }
 
     public void addContentView(int i) {
-        if (this.f25903b == null) {
-            this.f25903b = LayoutInflater.from(getActivity());
+        if (this.f25904b == null) {
+            this.f25904b = LayoutInflater.from(getActivity());
         }
-        a(this.f25903b.inflate(i, (ViewGroup) null));
+        a(this.f25904b.inflate(i, (ViewGroup) null));
     }
 
     @Override // com.baidu.wallet.core.BaseActivity
@@ -110,7 +110,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
 
     public void changeCurrentStepInfo(String str, int i) {
         initActionBarWithActualTitleValue(str);
-        this.f25906f = i;
+        this.f25907f = i;
     }
 
     public String formatCardNo(String str) {
@@ -137,11 +137,11 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     }
 
     public PayRequestCache.BindCategory getCategory() {
-        return this.f25902a;
+        return this.f25903a;
     }
 
     public int getCurrentStep() {
-        return this.f25906f;
+        return this.f25907f;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
@@ -204,7 +204,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     }
                 }
                 if (i2 == 15500 && (this.mBindReq.getmBindFrom() == 2 || this.mBindReq.getmBindFrom() == 7 || this.mBindReq.getmBindFrom() == 9)) {
-                    this.f25905e = i == 13;
+                    this.f25906e = i == 13;
                     this.mCardInfoUpdateContent = (ErrorContentResponse) obj;
                     this.mDialogMsg = str;
                     this.mPayErrorCode = i2;
@@ -243,12 +243,12 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public void onClick(View view) {
         int id = view.getId();
         if (id == ResUtils.id(getActivity(), "date_tip_img")) {
-            this.f25907g = 1;
+            this.f25908g = 1;
             this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_date_tip");
             PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_HELP_DATE);
             WalletGlobalUtils.safeShowDialog(this, 2, "");
         } else if (id == ResUtils.id(getActivity(), "cvv_tip_img")) {
-            this.f25907g = 0;
+            this.f25908g = 0;
             this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_cvv2_tip");
             PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_HELP_CVV);
             WalletGlobalUtils.safeShowDialog(this, 2, "");
@@ -270,9 +270,9 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         setIsShowMultiWindowTips(true);
         if (bundle == null) {
             this.mPayReq = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-            this.f25902a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
-            this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f25902a);
-            PayDataCache.getInstance().setCurrentPayRequest(this.f25902a);
+            this.f25903a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
+            this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f25903a);
+            PayDataCache.getInstance().setCurrentPayRequest(this.f25903a);
             a(getIntent());
             this.isFromRestore = false;
         } else {
@@ -339,9 +339,9 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        this.f25902a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
-        this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f25902a);
-        PayDataCache.getInstance().setCurrentPayRequest(this.f25902a);
+        this.f25903a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
+        this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f25903a);
+        PayDataCache.getInstance().setCurrentPayRequest(this.f25903a);
         if (this.mBindReq == null) {
             BindFastRequest bindFastRequest = new BindFastRequest();
             this.mBindReq = bindFastRequest;
@@ -373,7 +373,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         if (i == 2) {
             PromptImageDialog promptImageDialog = (PromptImageDialog) dialog;
             promptImageDialog.setMessage(this.mDialogMsg);
-            if (this.f25907g == 0) {
+            if (this.f25908g == 0) {
                 promptImageDialog.setTitleMessage(ResUtils.getString(getActivity(), "ebpay_cvv2_tip_title"));
                 promptImageDialog.setImage(ResUtils.drawable(getActivity(), "wallet_base_help_cvv"));
                 return;
@@ -413,7 +413,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     WalletGlobalUtils.safeDismissDialog(BindCardBaseActivity.this, 34);
                 }
             });
-            if (this.f25905e) {
+            if (this.f25906e) {
                 promptDialog2.hideNegativeButton();
             }
             promptDialog2.setPositiveBtn(ResUtils.string(this, "ebpay_wallet_continue_pay"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardBaseActivity.4
@@ -581,7 +581,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         }
         bundle.putSerializable("PayResponse", PayDataCache.getInstance().getPayResponse());
         bundle.putBoolean("isautofillphone", this.isAutoFillPhone);
-        bundle.putInt("currentStep", this.f25906f);
+        bundle.putInt("currentStep", this.f25907f);
         bundle.putInt("halfScreen", this.mUpdateItemCount);
         bundle.putInt("reasonForChangeCardItem", this.mBindReason);
         super.onSaveInstanceState(bundle);
@@ -651,7 +651,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                 this.mCardInfoUpdateContent = (ErrorContentResponse) serializable4;
             }
             this.isAutoFillPhone = bundle.getBoolean("isautofillphone");
-            this.f25906f = bundle.getInt("currentStep");
+            this.f25907f = bundle.getInt("currentStep");
             this.mUpdateItemCount = bundle.getInt("halfScreen", 0);
             this.mBindReason = bundle.getInt("reasonForChangeCardItem", 0);
         }

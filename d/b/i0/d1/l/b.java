@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import d.b.i0.d1.d;
 import d.b.i0.d1.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.c.f.a {
     public b() {
         super(2016007);

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 public class d extends d.b.g0.a.n1.a.a.a {
     @Override // d.b.g0.a.n1.a.a.a
     public void b(@NonNull Bundle bundle) {
-        this.f45339d.putInt("net_quality", -1000);
+        this.f45340d.putInt("net_quality", -1000);
         c();
     }
 }

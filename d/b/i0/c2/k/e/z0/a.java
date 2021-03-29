@@ -30,27 +30,27 @@ import d.b.b.e.p.k;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f52992f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
+    public static final String f52993f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.i0.c2.k.a f52993a;
+    public final d.b.i0.c2.k.a f52994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View.OnClickListener f52994b = new View$OnClickListenerC1162a();
+    public final View.OnClickListener f52995b = new View$OnClickListenerC1163a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final View.OnClickListener f52995c = new b(this);
+    public final View.OnClickListener f52996c = new b(this);
 
     /* renamed from: d  reason: collision with root package name */
-    public final View.OnClickListener f52996d = new c();
+    public final View.OnClickListener f52997d = new c();
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbRichTextView.v f52997e = new d();
+    public final TbRichTextView.v f52998e = new d();
 
     /* renamed from: d.b.i0.c2.k.e.z0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1162a implements View.OnClickListener {
-        public View$OnClickListenerC1162a() {
+    public class View$OnClickListenerC1163a implements View.OnClickListener {
+        public View$OnClickListenerC1163a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -116,20 +116,20 @@ public class a {
             if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                 String str6 = (String) view.getTag(R.id.tag_nick_name_activity);
                 if (!TextUtils.isEmpty(str6) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f52993a.getPageContext().getPageActivity(), null, str6, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f52994a.getPageContext().getPageActivity(), null, str6, true)));
                     return;
                 }
             }
             String str7 = view.getTag(R.id.tag_virtual_user_url) instanceof String ? (String) view.getTag(R.id.tag_virtual_user_url) : null;
             if (str7 != null) {
                 if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    UrlManager.getInstance().dealOneLink(a.this.f52993a.getPageContext(), new String[]{str7});
+                    UrlManager.getInstance().dealOneLink(a.this.f52994a.getPageContext(), new String[]{str7});
                 }
             } else if (str2 != null) {
                 if (alaInfoData != null && (i == 1 || alaInfoData.live_status == 1)) {
                     if (alaInfoData.isChushou) {
                         UrlManager urlManager = UrlManager.getInstance();
-                        TbPageContext pageContext = a.this.f52993a.getPageContext();
+                        TbPageContext pageContext = a.this.f52994a.getPageContext();
                         urlManager.dealOneLink(pageContext, new String[]{"tiebachushou://liveroom?roomid=" + alaInfoData.thirdRoomId + "&livetype=" + alaInfoData.thirdLiveType});
                         return;
                     } else if (alaInfoData.live_id > 0) {
@@ -141,7 +141,7 @@ public class a {
                         return;
                     }
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.f52993a.getPageContext().getPageActivity(), str2, str3, a.this.f52993a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.f52994a.getPageContext().getPageActivity(), str2, str3, a.this.f52994a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }
@@ -154,7 +154,7 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(R.id.tag_user_id) instanceof String) {
-                d.b.h0.l.a.o(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.f52992f + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
+                d.b.h0.l.a.o(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.f52993f + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
             }
         }
@@ -170,9 +170,9 @@ public class a {
             if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                 String str = view.getTag() != null ? (String) view.getTag() : null;
                 if (str != null) {
-                    UrlManager.getInstance().dealOneLink(a.this.f52993a.getPageContext(), new String[]{str});
+                    UrlManager.getInstance().dealOneLink(a.this.f52994a.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.f52993a.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.f52994a.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             }
         }
     }
@@ -184,11 +184,11 @@ public class a {
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.v
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.f52993a.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.f52994a.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
         }
     }
 
     public a(d.b.i0.c2.k.a aVar) {
-        this.f52993a = aVar;
+        this.f52994a = aVar;
     }
 }

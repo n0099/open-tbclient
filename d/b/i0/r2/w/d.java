@@ -26,18 +26,18 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
     public class a implements d.b.i0.i1.o.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f59874a;
+        public final /* synthetic */ AdvertAppInfo f59875a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f59875b;
+        public final /* synthetic */ int f59876b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f59876c;
+        public final /* synthetic */ String f59877c;
 
         /* renamed from: d.b.i0.r2.w.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1511a extends BdAsyncTask<String, Void, Void> {
-            public C1511a(a aVar) {
+        public class C1512a extends BdAsyncTask<String, Void, Void> {
+            public C1512a(a aVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -52,19 +52,19 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
         }
 
         public a(d dVar, AdvertAppInfo advertAppInfo, int i, String str) {
-            this.f59874a = advertAppInfo;
-            this.f59875b = i;
-            this.f59876c = str;
+            this.f59875a = advertAppInfo;
+            this.f59876b = i;
+            this.f59877c = str;
         }
 
         @Override // d.b.i0.i1.o.a
         public void a(int i, HashMap<String, Object> hashMap) {
             if (t.p(i)) {
-                d.b.i0.r2.b0.d.e(this.f59874a, this.f59875b, hashMap, i);
+                d.b.i0.r2.b0.d.e(this.f59875a, this.f59876b, hashMap, i);
             } else {
-                d.b.i0.r2.b0.d.k(this.f59874a, this.f59875b, this.f59876c, null, hashMap);
+                d.b.i0.r2.b0.d.k(this.f59875a, this.f59876b, this.f59877c, null, hashMap);
             }
-            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59874a));
+            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59875a));
         }
 
         @Override // d.b.i0.i1.o.a
@@ -73,12 +73,12 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
                 hashMap = new HashMap<>();
             }
             hashMap.put("da_area", "button");
-            d.b.i0.r2.b0.d.k(this.f59874a, this.f59875b, this.f59876c, str, hashMap);
-            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59874a));
+            d.b.i0.r2.b0.d.k(this.f59875a, this.f59876b, this.f59877c, str, hashMap);
+            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f59875a));
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            new C1511a(this).execute(str2);
+            new C1512a(this).execute(str2);
         }
     }
 
@@ -86,15 +86,15 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
     public class b implements d.b.i0.i1.o.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f59877a;
+        public final /* synthetic */ String f59878a;
 
         public b(String str) {
-            this.f59877a = str;
+            this.f59878a = str;
         }
 
         @Override // d.b.i0.i1.o.c
         public void a(AdvertAppInfo advertAppInfo, int i) {
-            h.b(TbadkCoreApplication.getInst().getContext(), advertAppInfo, i, d.this.u0(advertAppInfo, this.f59877a));
+            h.b(TbadkCoreApplication.getInst().getContext(), advertAppInfo, i, d.this.u0(advertAppInfo, this.f59878a));
         }
     }
 

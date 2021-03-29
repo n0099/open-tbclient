@@ -51,7 +51,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     public String Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8590a;
+    public String f8591a;
     public int aA;
     public int aB;
     public int aC;
@@ -86,25 +86,25 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     public boolean az;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8591b;
+    public String f8592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8592c;
+    public String f8593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8593d;
+    public String f8594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8594e;
+    public String f8595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8595f;
+    public String f8596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8596g;
+    public String f8597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8597h;
+    public String f8598h;
     public String i;
     public String j;
     public String k;
@@ -260,12 +260,12 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getAdId() {
-        return this.f8591b;
+        return this.f8592b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getAdSource() {
-        return this.f8592c;
+        return this.f8593c;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -360,7 +360,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getDescription() {
-        return this.f8594e;
+        return this.f8595e;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -390,7 +390,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getFwt() {
-        return this.f8590a;
+        return this.f8591a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -440,7 +440,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getMaterialType() {
-        return this.f8596g;
+        return this.f8597g;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -475,7 +475,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getPhoneNumber() {
-        return this.f8597h;
+        return this.f8598h;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -504,7 +504,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getSponsorUrl() {
-        return this.f8595f;
+        return this.f8596f;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -529,7 +529,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getTitle() {
-        return this.f8593d;
+        return this.f8594d;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -689,12 +689,12 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setAdId(String str) {
-        this.f8591b = str;
+        this.f8592b = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setAdSource(String str) {
-        this.f8592c = str;
+        this.f8593c = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -830,7 +830,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setDescription(String str) {
-        this.f8594e = str;
+        this.f8595e = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -860,7 +860,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setFwt(String str) {
-        this.f8590a = str;
+        this.f8591a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -920,7 +920,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setMaterialType(String str) {
-        this.f8596g = str;
+        this.f8597g = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -950,7 +950,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setPhoneNumber(String str) {
-        this.f8597h = str;
+        this.f8598h = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -989,7 +989,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setSponsorUrl(String str) {
-        this.f8595f = str;
+        this.f8596f = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -1024,7 +1024,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setTitle(String str) {
-        this.f8593d = str;
+        this.f8594d = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -1084,29 +1084,29 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f8591b);
-        parcel.writeString(this.f8592c);
+        parcel.writeString(this.f8592b);
+        parcel.writeString(this.f8593c);
         parcel.writeString(this.ab);
         parcel.writeString(this.ae);
         parcel.writeString(this.aa);
         parcel.writeString(this.w);
         parcel.writeString(this.au);
         parcel.writeString(this.X);
-        parcel.writeString(this.f8594e);
-        parcel.writeString(this.f8593d);
+        parcel.writeString(this.f8595e);
+        parcel.writeString(this.f8594d);
         parcel.writeString(this.k);
-        parcel.writeString(this.f8590a);
+        parcel.writeString(this.f8591a);
         parcel.writeString(this.z);
         parcel.writeString(this.j);
         parcel.writeString(this.i);
-        parcel.writeString(this.f8596g);
+        parcel.writeString(this.f8597g);
         parcel.writeInt(this.B);
         parcel.writeInt(this.A);
         parcel.writeString(this.x);
         parcel.writeString(this.C);
-        parcel.writeString(this.f8597h);
+        parcel.writeString(this.f8598h);
         parcel.writeString(this.Y);
-        parcel.writeString(this.f8595f);
+        parcel.writeString(this.f8596f);
         parcel.writeString(this.aj);
         parcel.writeString(this.n);
         parcel.writeInt(this.p);
@@ -1133,7 +1133,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @SuppressLint({"DefaultLocale"})
     public XAdInstanceInfo(JSONObject jSONObject) {
-        this.f8591b = "-1";
+        this.f8592b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -1164,12 +1164,12 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.ah = System.currentTimeMillis();
             this.Q = jSONObject.optInt("act");
             this.z = jSONObject.optString("html", null);
-            this.f8591b = jSONObject.optString("id", "-1");
-            this.f8592c = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
-            this.f8593d = jSONObject.optString("tit", "");
-            this.f8594e = jSONObject.optString("desc", "");
-            this.f8595f = jSONObject.optString("surl", "");
-            this.f8597h = jSONObject.optString("phone", "");
+            this.f8592b = jSONObject.optString("id", "-1");
+            this.f8593c = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
+            this.f8594d = jSONObject.optString("tit", "");
+            this.f8595e = jSONObject.optString("desc", "");
+            this.f8596f = jSONObject.optString("surl", "");
+            this.f8598h = jSONObject.optString("phone", "");
             this.i = jSONObject.optString("w_picurl", "");
             this.j = jSONObject.optString("icon", "");
             this.k = jSONObject.optString("exp2", StringUtil.EMPTY_ARRAY);
@@ -1196,13 +1196,13 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
                     }
                 }
             }
-            this.f8596g = jSONObject.optString("type");
+            this.f8597g = jSONObject.optString("type");
             if (this.z != null && this.z.length() > 0) {
                 this.ai = IXAdInstanceInfo.CreativeType.HTML;
-            } else if (this.f8596g != null) {
-                if (this.f8596g.equals("text")) {
+            } else if (this.f8597g != null) {
+                if (this.f8597g.equals("text")) {
                     this.ai = IXAdInstanceInfo.CreativeType.TEXT;
-                } else if (this.f8596g.equals("image")) {
+                } else if (this.f8597g.equals("image")) {
                     if (this.i != null && !this.i.equals("")) {
                         int lastIndexOf = this.i.toLowerCase(Locale.getDefault()).lastIndexOf(46);
                         if ((lastIndexOf >= 0 ? this.i.toLowerCase(Locale.getDefault()).substring(lastIndexOf) : "").equals(".gif")) {
@@ -1211,9 +1211,9 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
                             this.ai = IXAdInstanceInfo.CreativeType.STATIC_IMAGE;
                         }
                     }
-                } else if (this.f8596g.equals("rm")) {
+                } else if (this.f8597g.equals("rm")) {
                     this.ai = IXAdInstanceInfo.CreativeType.RM;
-                } else if (this.f8596g.equals("video")) {
+                } else if (this.f8597g.equals("video")) {
                     this.ai = IXAdInstanceInfo.CreativeType.VIDEO;
                 }
             }
@@ -1325,7 +1325,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.af = jSONObject.optInt("po", 0);
             this.ag = jSONObject.optInt("st", 0) == 1;
             this.r = jSONObject.optString("murl", "");
-            if (this.f8596g.equals("video") && this.r.length() > 0) {
+            if (this.f8597g.equals("video") && this.r.length() > 0) {
                 this.s = jSONObject.optInt("w", 0);
                 this.t = jSONObject.optInt("h", 0);
                 this.q = "video";
@@ -1343,7 +1343,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     }
 
     public XAdInstanceInfo(Parcel parcel) {
-        this.f8591b = "-1";
+        this.f8592b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -1369,29 +1369,29 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.ax = false;
         this.aE = false;
         this.aF = null;
-        this.f8591b = parcel.readString();
-        this.f8592c = parcel.readString();
+        this.f8592b = parcel.readString();
+        this.f8593c = parcel.readString();
         this.ab = parcel.readString();
         this.ae = parcel.readString();
         this.aa = parcel.readString();
         this.w = parcel.readString();
         this.au = parcel.readString();
         this.X = parcel.readString();
-        this.f8594e = parcel.readString();
-        this.f8593d = parcel.readString();
+        this.f8595e = parcel.readString();
+        this.f8594d = parcel.readString();
         this.k = parcel.readString();
-        this.f8590a = parcel.readString();
+        this.f8591a = parcel.readString();
         this.z = parcel.readString();
         this.j = parcel.readString();
         this.i = parcel.readString();
-        this.f8596g = parcel.readString();
+        this.f8597g = parcel.readString();
         this.B = parcel.readInt();
         this.A = parcel.readInt();
         this.x = parcel.readString();
         this.C = parcel.readString();
-        this.f8597h = parcel.readString();
+        this.f8598h = parcel.readString();
         this.Y = parcel.readString();
-        this.f8595f = parcel.readString();
+        this.f8596f = parcel.readString();
         this.aj = parcel.readString();
         this.n = parcel.readString();
         this.p = parcel.readInt();

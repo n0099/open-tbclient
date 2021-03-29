@@ -4,40 +4,40 @@ import android.content.SharedPreferences;
 import com.baidu.smallgame.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f42762d = 1;
+    public static int f42763d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f42763e = 2;
+    public static int f42764e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f42764f = 3;
+    public static int f42765f = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f42765a = new HashMap();
+    public Map<String, String> f42766a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f42766b = new HashMap();
+    public Map<String, String> f42767b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f42767c;
+    public SharedPreferences f42768c;
 
     public void a() {
-        this.f42765a.clear();
+        this.f42766a.clear();
     }
 
     public String b(int i, String str) {
         String str2;
-        if (i == f42762d) {
-            str2 = this.f42765a.get(str);
-        } else if (i == f42763e) {
-            str2 = this.f42766b.get(str);
+        if (i == f42763d) {
+            str2 = this.f42766a.get(str);
+        } else if (i == f42764e) {
+            str2 = this.f42767b.get(str);
         } else {
-            if (i == f42764f) {
-                SharedPreferences sharedPreferences = this.f42767c;
+            if (i == f42765f) {
+                SharedPreferences sharedPreferences = this.f42768c;
                 if (sharedPreferences != null) {
                     str2 = sharedPreferences.getString(str, "");
                 } else {
@@ -50,16 +50,16 @@ public class a {
     }
 
     public void c(SharedPreferences sharedPreferences) {
-        this.f42767c = sharedPreferences;
+        this.f42768c = sharedPreferences;
     }
 
     public void d(int i, String str, String str2) {
-        if (i == f42762d) {
-            this.f42765a.put(str, str2);
-        } else if (i == f42763e) {
-            this.f42766b.put(str, str2);
-        } else if (i == f42764f) {
-            SharedPreferences sharedPreferences = this.f42767c;
+        if (i == f42763d) {
+            this.f42766a.put(str, str2);
+        } else if (i == f42764e) {
+            this.f42767b.put(str, str2);
+        } else if (i == f42765f) {
+            SharedPreferences sharedPreferences = this.f42768c;
             if (sharedPreferences != null) {
                 sharedPreferences.edit().putString(str, str2).commit();
             } else {

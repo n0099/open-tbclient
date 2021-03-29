@@ -3,15 +3,15 @@ package com.win.opensdk;
 public class o implements PBVideoListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBVideo f39992a;
+    public final /* synthetic */ PBVideo f39993a;
 
     public o(PBVideo pBVideo) {
-        this.f39992a = pBVideo;
+        this.f39993a = pBVideo;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onClicked();
         }
@@ -19,7 +19,7 @@ public class o implements PBVideoListener {
 
     @Override // com.win.opensdk.PBListener
     public void onFail(PBError pBError) {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onFail(pBError);
         }
@@ -27,7 +27,7 @@ public class o implements PBVideoListener {
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onLoaded();
         }
@@ -35,7 +35,7 @@ public class o implements PBVideoListener {
 
     @Override // com.win.opensdk.PBVideoListener
     public void onRewardedAdClosed() {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onRewardedAdClosed();
         }
@@ -43,7 +43,7 @@ public class o implements PBVideoListener {
 
     @Override // com.win.opensdk.PBVideoListener
     public void onRewardedAdOpened() {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onRewardedAdOpened();
         }
@@ -51,7 +51,7 @@ public class o implements PBVideoListener {
 
     @Override // com.win.opensdk.PBVideoListener
     public void onRewardedShowFail(String str) {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onRewardedShowFail(str);
         }
@@ -59,7 +59,7 @@ public class o implements PBVideoListener {
 
     @Override // com.win.opensdk.PBVideoListener
     public void onUserEarnedReward(boolean z, long j) {
-        PBVideoListener pBVideoListener = this.f39992a.f39769c;
+        PBVideoListener pBVideoListener = this.f39993a.f39770c;
         if (pBVideoListener != null) {
             pBVideoListener.onUserEarnedReward(z, j);
         }

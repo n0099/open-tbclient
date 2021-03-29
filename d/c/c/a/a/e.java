@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface e extends q, ReadableByteChannel {
     void a(long j) throws IOException;
 

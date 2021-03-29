@@ -15,40 +15,40 @@ import com.ksad.lottie.model.content.GradientType;
 public class h extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31232b;
+    public final String f31233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LongSparseArray<LinearGradient> f31233c;
+    public final LongSparseArray<LinearGradient> f31234c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LongSparseArray<RadialGradient> f31234d;
+    public final LongSparseArray<RadialGradient> f31235d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final RectF f31235e;
+    public final RectF f31236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final GradientType f31236f;
+    public final GradientType f31237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f31237g;
+    public final int f31238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.c, com.ksad.lottie.model.content.c> f31238h;
+    public final com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.c, com.ksad.lottie.model.content.c> f31239h;
     public final com.ksad.lottie.a.b.a<PointF, PointF> i;
     public final com.ksad.lottie.a.b.a<PointF, PointF> j;
 
     public h(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.e eVar) {
         super(fVar, aVar, eVar.h().toPaintCap(), eVar.i().toPaintJoin(), eVar.l(), eVar.d(), eVar.g(), eVar.j(), eVar.k());
-        this.f31233c = new LongSparseArray<>();
-        this.f31234d = new LongSparseArray<>();
-        this.f31235e = new RectF();
-        this.f31232b = eVar.a();
-        this.f31236f = eVar.b();
-        this.f31237g = (int) (fVar.r().c() / 32.0f);
+        this.f31234c = new LongSparseArray<>();
+        this.f31235d = new LongSparseArray<>();
+        this.f31236e = new RectF();
+        this.f31233b = eVar.a();
+        this.f31237f = eVar.b();
+        this.f31238g = (int) (fVar.r().c() / 32.0f);
         com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.c, com.ksad.lottie.model.content.c> a2 = eVar.c().a();
-        this.f31238h = a2;
+        this.f31239h = a2;
         a2.a(this);
-        aVar.a(this.f31238h);
+        aVar.a(this.f31239h);
         com.ksad.lottie.a.b.a<PointF, PointF> a3 = eVar.e().a();
         this.i = a3;
         a3.a(this);
@@ -61,54 +61,54 @@ public class h extends a {
 
     private LinearGradient b() {
         long d2 = d();
-        LinearGradient linearGradient = this.f31233c.get(d2);
+        LinearGradient linearGradient = this.f31234c.get(d2);
         if (linearGradient != null) {
             return linearGradient;
         }
         PointF e2 = this.i.e();
         PointF e3 = this.j.e();
-        com.ksad.lottie.model.content.c e4 = this.f31238h.e();
+        com.ksad.lottie.model.content.c e4 = this.f31239h.e();
         int[] b2 = e4.b();
         float[] a2 = e4.a();
-        RectF rectF = this.f31235e;
+        RectF rectF = this.f31236e;
         int width = (int) (rectF.left + (rectF.width() / 2.0f) + e2.x);
-        RectF rectF2 = this.f31235e;
+        RectF rectF2 = this.f31236e;
         int height = (int) (rectF2.top + (rectF2.height() / 2.0f) + e2.y);
-        RectF rectF3 = this.f31235e;
+        RectF rectF3 = this.f31236e;
         int width2 = (int) (rectF3.left + (rectF3.width() / 2.0f) + e3.x);
-        RectF rectF4 = this.f31235e;
+        RectF rectF4 = this.f31236e;
         LinearGradient linearGradient2 = new LinearGradient(width, height, width2, (int) (rectF4.top + (rectF4.height() / 2.0f) + e3.y), b2, a2, Shader.TileMode.CLAMP);
-        this.f31233c.put(d2, linearGradient2);
+        this.f31234c.put(d2, linearGradient2);
         return linearGradient2;
     }
 
     private RadialGradient c() {
         long d2 = d();
-        RadialGradient radialGradient = this.f31234d.get(d2);
+        RadialGradient radialGradient = this.f31235d.get(d2);
         if (radialGradient != null) {
             return radialGradient;
         }
         PointF e2 = this.i.e();
         PointF e3 = this.j.e();
-        com.ksad.lottie.model.content.c e4 = this.f31238h.e();
+        com.ksad.lottie.model.content.c e4 = this.f31239h.e();
         int[] b2 = e4.b();
         float[] a2 = e4.a();
-        RectF rectF = this.f31235e;
+        RectF rectF = this.f31236e;
         int width = (int) (rectF.left + (rectF.width() / 2.0f) + e2.x);
-        RectF rectF2 = this.f31235e;
+        RectF rectF2 = this.f31236e;
         int height = (int) (rectF2.top + (rectF2.height() / 2.0f) + e2.y);
-        RectF rectF3 = this.f31235e;
+        RectF rectF3 = this.f31236e;
         int width2 = (int) (rectF3.left + (rectF3.width() / 2.0f) + e3.x);
-        RectF rectF4 = this.f31235e;
+        RectF rectF4 = this.f31236e;
         RadialGradient radialGradient2 = new RadialGradient(width, height, (float) Math.hypot(width2 - width, ((int) ((rectF4.top + (rectF4.height() / 2.0f)) + e3.y)) - height), b2, a2, Shader.TileMode.CLAMP);
-        this.f31234d.put(d2, radialGradient2);
+        this.f31235d.put(d2, radialGradient2);
         return radialGradient2;
     }
 
     private int d() {
-        int round = Math.round(this.i.f() * this.f31237g);
-        int round2 = Math.round(this.j.f() * this.f31237g);
-        int round3 = Math.round(this.f31238h.f() * this.f31237g);
+        int round = Math.round(this.i.f() * this.f31238g);
+        int round2 = Math.round(this.j.f() * this.f31238g);
+        int round3 = Math.round(this.f31239h.f() * this.f31238g);
         int i = round != 0 ? PayBeanFactory.BEAN_ID_WIDTHDRAW * round : 17;
         if (round2 != 0) {
             i = i * 31 * round2;
@@ -120,12 +120,12 @@ public class h extends a {
     public void a(Canvas canvas, Matrix matrix, int i) {
         Paint paint;
         Shader c2;
-        a(this.f31235e, matrix);
-        if (this.f31236f == GradientType.Linear) {
-            paint = this.f31190a;
+        a(this.f31236e, matrix);
+        if (this.f31237f == GradientType.Linear) {
+            paint = this.f31191a;
             c2 = b();
         } else {
-            paint = this.f31190a;
+            paint = this.f31191a;
             c2 = c();
         }
         paint.setShader(c2);

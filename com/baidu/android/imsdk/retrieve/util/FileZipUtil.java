@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FileZipUtil {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x009a -> B:69:0x009d). Please submit an issue!!! */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
@@ -104,7 +104,7 @@ public class FileZipUtil {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class ZipSrc {
         public boolean mDelete;
         @NonNull

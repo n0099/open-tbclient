@@ -6,11 +6,11 @@ import java.util.LinkedList;
 public final class e extends LinkedList {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22948a = 2000;
+    public final int f22949a = 2000;
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue
     public final boolean add(Object obj) {
-        if (size() == this.f22948a) {
+        if (size() == this.f22949a) {
             removeFirst();
         }
         return super.add(obj);

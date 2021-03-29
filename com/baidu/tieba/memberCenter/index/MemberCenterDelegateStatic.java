@@ -20,10 +20,10 @@ import d.b.h0.e0.d;
 public class MemberCenterDelegateStatic extends d.b.h0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f18923a;
+    public ImageView f18924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f18924b;
+    public CustomMessageListener f18925b;
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -43,7 +43,7 @@ public class MemberCenterDelegateStatic extends d.b.h0.e0.b {
             if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = memberCenterDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            fragmentTabStructure.f50154a.setArguments(new Bundle());
+            fragmentTabStructure.f50155a.setArguments(new Bundle());
         }
     }
 
@@ -60,16 +60,16 @@ public class MemberCenterDelegateStatic extends d.b.h0.e0.b {
                 return;
             }
             if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                MemberCenterDelegateStatic.this.f18923a.setVisibility(8);
+                MemberCenterDelegateStatic.this.f18924a.setVisibility(8);
             } else if (!TbadkCoreApplication.isLogin()) {
-                MemberCenterDelegateStatic.this.f18923a.setVisibility(8);
+                MemberCenterDelegateStatic.this.f18924a.setVisibility(8);
             } else {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
                 if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > i.k("maintab_member_center_red_tip_" + currentAccount, 0L)) {
-                    MemberCenterDelegateStatic.this.f18923a.setVisibility(0);
+                    MemberCenterDelegateStatic.this.f18924a.setVisibility(0);
                 } else {
-                    MemberCenterDelegateStatic.this.f18923a.setVisibility(8);
+                    MemberCenterDelegateStatic.this.f18924a.setVisibility(8);
                 }
             }
         }
@@ -82,22 +82,22 @@ public class MemberCenterDelegateStatic extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50154a = new MemberCenterFragment();
-        cVar.f50158e = 14;
-        cVar.f50155b = R.string.member;
+        cVar.f50155a = new MemberCenterFragment();
+        cVar.f50159e = 14;
+        cVar.f50156b = R.string.member;
         return cVar;
     }
 
     @Override // d.b.h0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.f18923a = new ImageView(context);
+        this.f18924a = new ImageView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13960f = this.mIndicator;
-        aVar.f13957c = l.e(context, 3.0f);
-        ImageView imageView = this.f18923a;
-        aVar.f13955a = imageView;
-        aVar.f13958d = R.drawable.icon_news_down_bar_one;
+        aVar.f13961f = this.mIndicator;
+        aVar.f13958c = l.e(context, 3.0f);
+        ImageView imageView = this.f18924a;
+        aVar.f13956a = imageView;
+        aVar.f13959d = R.drawable.icon_news_down_bar_one;
         imageView.setVisibility(8);
         this.mIndicator.a("member_center_red_tip", aVar);
         return this.mIndicator;
@@ -111,13 +111,13 @@ public class MemberCenterDelegateStatic extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public void onAdd() {
         super.onAdd();
-        this.f18924b = new b(2016459);
+        this.f18925b = new b(2016459);
     }
 
     @Override // d.b.h0.e0.b
     public void onRemove() {
         super.onRemove();
-        this.f18923a = null;
-        MessageManager.getInstance().unRegisterListener(this.f18924b);
+        this.f18924a = null;
+        MessageManager.getInstance().unRegisterListener(this.f18925b);
     }
 }

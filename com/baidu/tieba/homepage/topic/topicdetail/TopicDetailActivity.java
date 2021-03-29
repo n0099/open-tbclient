@@ -30,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.b.i0.z0.j.a.a {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -41,7 +41,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public TopicDetailView mTopicDetailView;
     public long topicID;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements f.b {
         public a() {
         }
@@ -169,7 +169,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     @Override // d.b.i0.z0.j.a.a
     public void netCallback(int i, d.b.i0.z0.j.a.c.a aVar) {
         this.mTopicDetailView.r();
-        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f63308f)) {
+        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f63309f)) {
             this.mTopicDetailView.s();
             this.mTopicDetailView.setData(aVar);
             return;

@@ -10,16 +10,16 @@ import com.baidu.adp.widget.SwipeBackLayout;
 public class ListViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f14361e;
+    public float f14362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f14362f;
+    public float f14363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f14363g;
+    public float f14364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f14364h;
+    public float f14365h;
     public GestureDetector i;
     public boolean j;
     public SwipeBackLayout.c k;
@@ -112,11 +112,11 @@ public class ListViewPager extends ViewPager {
                     if (cVar != null) {
                         cVar.enableSwipeBack();
                     }
-                    this.f14363g = motionEvent.getX() - this.f14361e;
-                    this.f14364h = motionEvent.getY() - this.f14362f;
-                    this.f14361e = motionEvent.getX();
-                    this.f14362f = motionEvent.getY();
-                    if (getCurrentItem() != 0 && Math.abs(this.f14363g) > Math.abs(this.f14364h)) {
+                    this.f14364g = motionEvent.getX() - this.f14362e;
+                    this.f14365h = motionEvent.getY() - this.f14363f;
+                    this.f14362e = motionEvent.getX();
+                    this.f14363f = motionEvent.getY();
+                    if (getCurrentItem() != 0 && Math.abs(this.f14364g) > Math.abs(this.f14365h)) {
                         e(true);
                     }
                 } else if (action != 3) {
@@ -136,10 +136,10 @@ public class ListViewPager extends ViewPager {
             if (cVar2 != null) {
                 cVar2.enableSwipeBack();
             }
-            this.f14361e = 0.0f;
-            this.f14362f = 0.0f;
-            this.f14363g = 0.0f;
-            this.f14364h = 0.0f;
+            this.f14362e = 0.0f;
+            this.f14363f = 0.0f;
+            this.f14364g = 0.0f;
+            this.f14365h = 0.0f;
             if (d(motionEvent)) {
             }
         }
@@ -147,8 +147,8 @@ public class ListViewPager extends ViewPager {
         if (cVar3 != null) {
             cVar3.enableSwipeBack();
         }
-        this.f14361e = motionEvent.getX();
-        this.f14362f = motionEvent.getY();
+        this.f14362e = motionEvent.getX();
+        this.f14363f = motionEvent.getY();
         if (d(motionEvent)) {
         }
     }

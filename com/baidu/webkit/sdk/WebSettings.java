@@ -37,7 +37,7 @@ public abstract class WebSettings implements Observer {
     public boolean mEnableJsPrompt = true;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public @interface CacheMode {
     }
 
@@ -74,7 +74,7 @@ public abstract class WebSettings implements Observer {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public @interface MenuItemFlags {
     }
 

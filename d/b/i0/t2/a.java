@@ -49,37 +49,37 @@ public class a {
     public static a m;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.i0.o3.b f61100d;
+    public final d.b.i0.o3.b f61101d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61101e;
+    public int f61102e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61102f;
+    public int f61103f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61103g;
+    public boolean f61104g;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d.b.i0.t2.d> f61098b = new LinkedList();
+    public List<d.b.i0.t2.d> f61099b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.t2.d f61099c = null;
+    public d.b.i0.t2.d f61100c = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f61104h = new HandlerC1586a(this);
+    public Handler f61105h = new HandlerC1587a(this);
     public CustomMessageListener i = new b(0);
     public CustomMessageListener j = new c(0);
     public CustomMessageListener k = new d(2005016);
     public CustomMessageListener l = new e(2001355);
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f61097a = TbadkApplication.getInst().getApp();
+    public final Context f61098a = TbadkApplication.getInst().getApp();
 
     /* renamed from: d.b.i0.t2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class HandlerC1586a extends Handler {
-        public HandlerC1586a(a aVar) {
+    public class HandlerC1587a extends Handler {
+        public HandlerC1587a(a aVar) {
         }
 
         @Override // android.os.Handler
@@ -149,7 +149,7 @@ public class a {
                 int hours = new Date(System.currentTimeMillis()).getHours();
                 if ((hours < 0 || hours > 7) && hours < 23) {
                     RemindRecommendMessage remindRecommendMessage = (RemindRecommendMessage) customResponsedMessage;
-                    if (a.this.f61100d.c()) {
+                    if (a.this.f61101d.c()) {
                         a.this.p(remindRecommendMessage);
                     } else {
                         a.this.o(remindRecommendMessage);
@@ -171,7 +171,7 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f61100d.e();
+            a.this.f61101d.e();
         }
     }
 
@@ -182,8 +182,8 @@ public class a {
         MessageManager.getInstance().registerListener(2012121, this.j);
         MessageManager.getInstance().registerListener(2012123, this.j);
         MessageManager.getInstance().registerListener(this.l);
-        this.f61102f = 0;
-        this.f61100d = new d.b.i0.o3.b();
+        this.f61103f = 0;
+        this.f61101d = new d.b.i0.o3.b();
     }
 
     public static a j() {
@@ -201,7 +201,7 @@ public class a {
     }
 
     public void c(d.b.i0.t2.d dVar) {
-        List<d.b.i0.t2.d> list = this.f61098b;
+        List<d.b.i0.t2.d> list = this.f61099b;
         if (list == null) {
             return;
         }
@@ -233,28 +233,28 @@ public class a {
         }
         dVar.i = imMessageCenterPojo.getUnread_count();
         dVar.j = imMessageCenterPojo.getGid();
-        dVar.f61124h = imMessageCenterPojo.getCustomGroupType();
-        dVar.f61117a = imMessageCenterPojo.getGroup_name();
-        dVar.f61118b = imMessageCenterPojo.getLast_user_name();
-        dVar.f61119c = imMessageCenterPojo.getNameShow();
+        dVar.f61125h = imMessageCenterPojo.getCustomGroupType();
+        dVar.f61118a = imMessageCenterPojo.getGroup_name();
+        dVar.f61119b = imMessageCenterPojo.getLast_user_name();
+        dVar.f61120c = imMessageCenterPojo.getNameShow();
         dVar.l = imMessageCenterPojo.getLast_content_time();
-        if (dVar.f61124h == 1) {
-            dVar.f61121e = dVar.f61118b + ":" + imMessageCenterPojo.getLast_content();
+        if (dVar.f61125h == 1) {
+            dVar.f61122e = dVar.f61119b + ":" + imMessageCenterPojo.getLast_content();
         } else {
-            dVar.f61121e = imMessageCenterPojo.getLast_content();
+            dVar.f61122e = imMessageCenterPojo.getLast_content();
         }
         dVar.s = d.b.b.e.m.b.f(imMessageCenterPojo.getTaskId(), 0L);
         return dVar;
     }
 
     public d.b.i0.t2.d f(ChatMessage chatMessage, int i) {
-        a.C1202a c1202a;
+        a.C1203a c1203a;
         d.b.i0.t2.d dVar = new d.b.i0.t2.d();
         dVar.i = 0;
         chatMessage.getMsgType();
-        dVar.f61124h = i;
-        dVar.f61118b = chatMessage.getUserInfo().getUserName();
-        dVar.f61119c = chatMessage.getUserInfo().getName_show();
+        dVar.f61125h = i;
+        dVar.f61119b = chatMessage.getUserInfo().getUserName();
+        dVar.f61120c = chatMessage.getUserInfo().getName_show();
         chatMessage.getRecordId();
         dVar.m = chatMessage.getMsgId();
         dVar.n = true;
@@ -262,15 +262,15 @@ public class a {
         dVar.p = 1;
         dVar.s = chatMessage.getStatTaskId();
         dVar.t = chatMessage.getStatisticsServiceId();
-        int i2 = dVar.f61124h;
+        int i2 = dVar.f61125h;
         if (i2 == 1) {
             ImMessageCenterPojo i3 = d.b.i0.d1.k.b.o().i(chatMessage.getGroupId(), 1);
             if (i3 != null) {
-                dVar.f61117a = i3.getGroup_name();
+                dVar.f61118a = i3.getGroup_name();
                 dVar.i = i3.getUnread_count();
                 dVar.l = i3.getLast_content_time();
             }
-            dVar.f61121e = dVar.f61118b + ":" + d.b.i0.d1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
+            dVar.f61122e = dVar.f61119b + ":" + d.b.i0.d1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
             dVar.j = chatMessage.getGroupId();
             if (!d.b.h0.s.d.d.d().n()) {
                 dVar.n = false;
@@ -286,8 +286,8 @@ public class a {
                 dVar.o = i4.getIsFriend() == 1;
                 dVar.p = i4.getFollowStatus();
             }
-            dVar.f61117a = chatMessage.getUserInfo().getUserName();
-            dVar.f61121e = d.b.i0.d1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
+            dVar.f61118a = chatMessage.getUserInfo().getUserName();
+            dVar.f61122e = d.b.i0.d1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
             if (dVar.o) {
                 if (!d.b.h0.s.d.d.d().p()) {
                     dVar.n = false;
@@ -314,19 +314,19 @@ public class a {
                 dVar.o = i5.getIsFriend() == 1;
                 dVar.p = i5.getFollowStatus();
             }
-            dVar.f61117a = chatMessage.getUserInfo().getUserName();
+            dVar.f61118a = chatMessage.getUserInfo().getUserName();
             if (chatMessage.getMsgType() == 7) {
-                List<a.C1202a> a2 = d.b.i0.d1.l.c.a.a(chatMessage.getContent(), null, chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-                if (a2 != null && a2.size() > 0 && (c1202a = a2.get(0)) != null) {
-                    dVar.f61120d = c1202a.f53906a;
-                    dVar.f61121e = c1202a.f53907b;
-                    dVar.f61122f = c1202a.f53908c;
-                    dVar.q = c1202a.f53909d;
-                    dVar.s = c1202a.k;
-                    dVar.t = c1202a.l;
+                List<a.C1203a> a2 = d.b.i0.d1.l.c.a.a(chatMessage.getContent(), null, chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                if (a2 != null && a2.size() > 0 && (c1203a = a2.get(0)) != null) {
+                    dVar.f61121d = c1203a.f53907a;
+                    dVar.f61122e = c1203a.f53908b;
+                    dVar.f61123f = c1203a.f53909c;
+                    dVar.q = c1203a.f53910d;
+                    dVar.s = c1203a.k;
+                    dVar.t = c1203a.l;
                 }
             } else {
-                dVar.f61121e = d.b.i0.d1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
+                dVar.f61122e = d.b.i0.d1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
             }
             if (!d.b.h0.s.d.d.d().l()) {
                 dVar.n = false;
@@ -343,7 +343,7 @@ public class a {
         if (dVar == null) {
             return;
         }
-        this.f61098b.remove(dVar);
+        this.f61099b.remove(dVar);
     }
 
     public final String i(String str) {
@@ -418,12 +418,12 @@ public class a {
     }
 
     public d.b.i0.t2.d l() {
-        return this.f61099c;
+        return this.f61100c;
     }
 
     public List<d.b.i0.t2.d> m() {
         LinkedList linkedList = new LinkedList();
-        linkedList.addAll(this.f61098b);
+        linkedList.addAll(this.f61099b);
         return linkedList;
     }
 
@@ -434,12 +434,12 @@ public class a {
         d.b.i0.t2.d dVar = new d.b.i0.t2.d();
         dVar.i = 0;
         dVar.j = "-1";
-        dVar.f61124h = 4;
+        dVar.f61125h = 4;
         String str = remindRecommendMessage.name;
-        dVar.f61117a = str;
-        dVar.f61118b = str;
-        dVar.f61120d = remindRecommendMessage.title;
-        dVar.f61122f = remindRecommendMessage.picture;
+        dVar.f61118a = str;
+        dVar.f61119b = str;
+        dVar.f61121d = remindRecommendMessage.title;
+        dVar.f61123f = remindRecommendMessage.picture;
         dVar.q = remindRecommendMessage.url;
         dVar.l = System.currentTimeMillis();
         dVar.n = true;
@@ -461,12 +461,12 @@ public class a {
         if (remindRecommendMessage == null || (str = remindRecommendMessage.url) == null || str.length() <= 0) {
             return;
         }
-        Intent k = k(this.f61097a, new x0(-1L, -1L, remindRecommendMessage.url, remindRecommendMessage.title, "", -1L), str);
+        Intent k = k(this.f61098a, new x0(-1L, -1L, remindRecommendMessage.url, remindRecommendMessage.title, "", -1L), str);
         if (k == null) {
             return;
         }
-        PendingIntent service = PendingIntent.getService(this.f61097a, 0, k, 134217728);
-        Context context = this.f61097a;
+        PendingIntent service = PendingIntent.getService(this.f61098a, 0, k, 134217728);
+        Context context = this.f61098a;
         String str2 = remindRecommendMessage.name;
         String str3 = remindRecommendMessage.title;
         NotificationHelper.showNotification(context, 2000, str2, str3, str3, service, false);
@@ -496,8 +496,8 @@ public class a {
     }
 
     public void s() {
-        this.f61098b.clear();
-        this.f61099c = null;
+        this.f61099b.clear();
+        this.f61100c = null;
     }
 
     public final boolean t(ChatMessage chatMessage, d.b.i0.t2.d dVar) {
@@ -508,14 +508,14 @@ public class a {
             if (j == 0 || StringUtils.isNull(i) || UtilHelper.getTodayZeroTime() < TbSingleton.getInstance().getLastResumeTime()) {
                 return false;
             }
-            if (!this.f61100d.c()) {
+            if (!this.f61101d.c()) {
                 Activity b2 = d.b.b.a.b.f().b();
                 if (b2 != null && b2.getClass() != null && b2.getClass().getName().equals(ScreenLockActivity.class.getName())) {
                     b2.finish();
                 }
                 chatMessage.setHasRead(true);
-                NotificationHelper.cancelNotification(this.f61097a, 19);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(this.f61097a, j, i)));
+                NotificationHelper.cancelNotification(this.f61098a, 19);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(this.f61098a, j, i)));
             }
             TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", i));
             return true;
@@ -526,19 +526,19 @@ public class a {
     public void u() {
         d.b.i0.t2.d dVar;
         if (g()) {
-            List<d.b.i0.t2.d> list = this.f61098b;
-            if ((list == null || list.size() == 0) && this.f61099c == null) {
+            List<d.b.i0.t2.d> list = this.f61099b;
+            if ((list == null || list.size() == 0) && this.f61100c == null) {
                 return;
             }
-            if (!this.f61100d.c() || this.f61102f == 1) {
+            if (!this.f61101d.c() || this.f61103f == 1) {
                 Activity b2 = d.b.b.a.b.f().b();
                 if (b2 != null && b2.getClass() != null && b2.getClass().getName().equals("com.baidu.tieba.pushdialog.PushDialogActivity")) {
                     b2.finish();
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.f61097a)));
-                this.f61104h.postDelayed(new f(), 1000L);
-                List<d.b.i0.t2.d> list2 = this.f61098b;
-                if (list2 == null || list2.size() <= 0 || (dVar = this.f61098b.get(0)) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.f61098a)));
+                this.f61105h.postDelayed(new f(), 1000L);
+                List<d.b.i0.t2.d> list2 = this.f61099b;
+                if (list2 == null || list2.size() <= 0 || (dVar = this.f61099b.get(0)) == null) {
                     return;
                 }
                 TiebaStatic.logPagePV(new StatisticItem("c11702").param("msg_id", dVar.m / 100).param("task_id", dVar.s));
@@ -561,7 +561,7 @@ public class a {
                         }
                         c(f2);
                     } else {
-                        this.f61099c = f2;
+                        this.f61100c = f2;
                     }
                     z = true;
                 } else {

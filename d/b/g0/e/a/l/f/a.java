@@ -3,10 +3,10 @@ package d.b.g0.e.a.l.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.e.a.l.i.a f47582a;
+    public d.b.g0.e.a.l.i.a f47583a;
 
     public d.b.g0.e.a.l.i.a a() {
-        return this.f47582a;
+        return this.f47583a;
     }
 
     public int b() {

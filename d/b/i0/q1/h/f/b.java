@@ -17,22 +17,22 @@ public class b {
     public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f59593a;
+        public final /* synthetic */ EditText f59594a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f59594b;
+        public final /* synthetic */ SpannableStringBuilder f59595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f59595c;
+        public final /* synthetic */ int f59596c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f59596d;
+        public final /* synthetic */ EmotionGroupType f59597d;
 
         public a(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-            this.f59593a = editText;
-            this.f59594b = spannableStringBuilder;
-            this.f59595c = i;
-            this.f59596d = emotionGroupType;
+            this.f59594a = editText;
+            this.f59595b = spannableStringBuilder;
+            this.f59596c = i;
+            this.f59597d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class b {
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
             super.onLoaded((a) aVar, str, i);
             if (aVar != null) {
-                b.this.c(this.f59593a, this.f59594b, this.f59595c, aVar, this.f59596d);
+                b.this.c(this.f59594a, this.f59595b, this.f59596c, aVar, this.f59597d);
             }
         }
     }
@@ -62,9 +62,7 @@ public class b {
         BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
         int width = p.getWidth();
         if (emotionGroupType == EmotionGroupType.LOCAL) {
-            double d2 = width;
-            Double.isNaN(d2);
-            width = (int) (d2 * 0.5d);
+            width = (int) (width * 0.5d);
         }
         bitmapDrawable.setBounds(0, 0, width, width);
         bitmapDrawable.setGravity(119);

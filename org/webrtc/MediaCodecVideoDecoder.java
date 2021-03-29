@@ -198,7 +198,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static class HwDecoderFactory implements VideoDecoderFactory {
         public final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import d.b.h0.m.g;
 import java.lang.reflect.Field;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class InputMethodManagerLeaksFixer {
     public static void fixFocusedViewLeak(Application application) {
         final InputMethodManager inputMethodManager;

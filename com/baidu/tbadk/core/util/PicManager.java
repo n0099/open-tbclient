@@ -98,12 +98,8 @@ public class PicManager {
                 i5 = msgSPicMaxSizeInt;
             }
             if (z2 && i <= msgSPicMaxSizeInt && i2 <= i5) {
-                double d2 = msgSPicMaxSizeInt;
-                Double.isNaN(d2);
-                double d3 = i5;
-                Double.isNaN(d3);
-                i5 = (int) (d3 * 0.9d);
-                msgSPicMaxSizeInt = (int) (d2 * 0.9d);
+                i5 = (int) (i5 * 0.9d);
+                msgSPicMaxSizeInt = (int) (msgSPicMaxSizeInt * 0.9d);
             }
             if (msgSPicMaxSizeInt < 70 && i5 < 70) {
                 i5 = 70;
@@ -121,12 +117,8 @@ public class PicManager {
         msgSPicMaxSizeInt = i3;
         i5 = i4;
         if (z2) {
-            double d22 = msgSPicMaxSizeInt;
-            Double.isNaN(d22);
-            double d32 = i5;
-            Double.isNaN(d32);
-            i5 = (int) (d32 * 0.9d);
-            msgSPicMaxSizeInt = (int) (d22 * 0.9d);
+            i5 = (int) (i5 * 0.9d);
+            msgSPicMaxSizeInt = (int) (msgSPicMaxSizeInt * 0.9d);
         }
         if (msgSPicMaxSizeInt < 70) {
             i5 = 70;

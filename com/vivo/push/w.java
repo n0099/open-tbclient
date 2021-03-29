@@ -8,19 +8,19 @@ import android.os.Message;
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f39591a = new Handler(Looper.getMainLooper());
+    public static final Handler f39592a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f39592b;
+    public static final HandlerThread f39593b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f39593c;
+    public static final Handler f39594c;
 
     static {
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f39592b = handlerThread;
+        f39593b = handlerThread;
         handlerThread.start();
-        f39593c = new x(f39592b.getLooper());
+        f39594c = new x(f39593b.getLooper());
     }
 
     public static void a(v vVar) {
@@ -32,15 +32,15 @@ public final class w {
         Message message = new Message();
         message.what = a2;
         message.obj = vVar;
-        f39593c.sendMessageDelayed(message, 0L);
+        f39594c.sendMessageDelayed(message, 0L);
     }
 
     public static void b(Runnable runnable) {
-        f39591a.post(runnable);
+        f39592a.post(runnable);
     }
 
     public static void a(Runnable runnable) {
-        f39593c.removeCallbacks(runnable);
-        f39593c.postDelayed(runnable, 15000L);
+        f39594c.removeCallbacks(runnable);
+        f39594c.postDelayed(runnable, 15000L);
     }
 }

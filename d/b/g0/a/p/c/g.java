@@ -3,7 +3,7 @@ package d.b.g0.a.p.c;
 import android.content.Context;
 import android.view.View;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface g<VIEW extends View> {
     void a(String str);
 

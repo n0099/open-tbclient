@@ -53,28 +53,28 @@ import org.json.JSONObject;
 public class h implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8529a = null;
+    public static String f8530a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8530b = null;
+    public static String f8531b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8531c = null;
+    public static String f8532c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f8532d = null;
+    public static String f8533d = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f8533h = "";
+    public static String f8534h = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f8534e = "_cpr";
+    public final String f8535e = "_cpr";
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicLong f8535f = new AtomicLong(1);
+    public final AtomicLong f8536f = new AtomicLong(1);
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f8536g = null;
+    public Method f8537g = null;
     public HashMap<String, Object> i = new HashMap<>();
 
     private String a(Context context) {
@@ -279,9 +279,9 @@ public class h implements IXAdCommonUtils {
         long j;
         long j2;
         do {
-            j = this.f8535f.get();
+            j = this.f8536f.get();
             j2 = j + 1;
-        } while (!this.f8535f.compareAndSet(j, j2 <= 9223372036854775806L ? j2 : 1L));
+        } while (!this.f8536f.compareAndSet(j, j2 <= 9223372036854775806L ? j2 : 1L));
         return j;
     }
 
@@ -379,10 +379,10 @@ public class h implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f8529a == null) {
-                f8529a = d(context, IXAdCommonUtils.APPSID);
+            if (f8530a == null) {
+                f8530a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f8529a;
+            return f8530a;
         } catch (Exception unused) {
             return "";
         }
@@ -395,34 +395,34 @@ public class h implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppSec(Context context) {
-        String str = f8531c;
-        if (str == null || str.length() == 0 || f8531c.startsWith(StringUtil.NULL_STRING)) {
+        String str = f8532c;
+        if (str == null || str.length() == 0 || f8532c.startsWith(StringUtil.NULL_STRING)) {
             setAppSec(getAppId(context));
         }
-        return f8531c;
+        return f8532c;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getBaiduMapsInfo(Context context) {
         String packageName = context != null ? context.getApplicationContext().getPackageName() : null;
-        if (TextUtils.isEmpty(f8533h)) {
+        if (TextUtils.isEmpty(f8534h)) {
             com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new j(this, packageName));
         }
-        return f8533h;
+        return f8534h;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getChannelId() {
-        return f8532d;
+        return f8533d;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getDebugToken(Context context) {
         try {
-            if (f8530b == null) {
-                f8530b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
+            if (f8531b == null) {
+                f8531b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
             }
-            return f8530b;
+            return f8531b;
         } catch (Exception unused) {
             return "";
         }
@@ -628,7 +628,7 @@ public class h implements IXAdCommonUtils {
                 return;
             }
             com.baidu.mobads.command.a aVar = new com.baidu.mobads.command.a(str, "");
-            aVar.f8186g = true;
+            aVar.f8187g = true;
             com.baidu.mobads.a.a aVar2 = new com.baidu.mobads.a.a(aVar);
             IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme("package");
@@ -709,14 +709,14 @@ public class h implements IXAdCommonUtils {
             sb.append("&pack=" + context.getPackageName());
             StringBuilder sb2 = new StringBuilder();
             sb2.append("&v=");
-            sb2.append("android_" + com.baidu.mobads.constants.a.f8205c + "_4.1.30");
+            sb2.append("android_" + com.baidu.mobads.constants.a.f8206c + "_4.1.30");
             sb.append(sb2.toString());
         } catch (Exception e2) {
             e = e2;
         }
         try {
             com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(uRIUitls.addParameters(vdUrl(sb.toString(), i), null), "");
-            bVar.f8413e = 1;
+            bVar.f8414e = 1;
             new com.baidu.mobads.openad.b.a().a(bVar);
         } catch (Exception e3) {
             e = e3;
@@ -744,17 +744,17 @@ public class h implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f8529a = str;
+        f8530a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppSec(String str) {
-        f8531c = str + "_cpr";
+        f8532c = str + "_cpr";
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setChannelId(String str) {
-        f8532d = str;
+        f8533d = str;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils

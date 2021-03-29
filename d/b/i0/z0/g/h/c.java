@@ -15,7 +15,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i.k0;
 import d.b.i.m0;
 import d.b.i.u0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.i0.z0.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.e0.e>> implements d.b.i0.m.f {
     public BdUniqueId n;
     public TbPageContext<?> o;
@@ -24,7 +24,7 @@ public class c extends d.b.i0.z0.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
     public d.b.b.j.e.s r;
     public d.b.i0.x.b0<d.b.i0.x.e0.e> s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.i0.x.b0<d.b.i0.x.e0.e> {
         public a() {
         }
@@ -42,7 +42,7 @@ public class c extends d.b.i0.z0.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.j.e.w {
         public b() {
         }
@@ -64,7 +64,7 @@ public class c extends d.b.i0.z0.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
             d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) nVar;
             eVar.k = 1;
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), 2, false);
-            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
         }
     }
 
@@ -81,8 +81,8 @@ public class c extends d.b.i0.z0.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
         bVar.h(new d.b.i.k(this.o.getPageActivity()));
         m0 m0Var = new m0(this.o.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 1;
-        eVar.f50768h = 1;
+        eVar.f50763b = 1;
+        eVar.f50769h = 1;
         m0Var.v(eVar);
         m0Var.w(1);
         m0Var.A(3);
@@ -134,7 +134,7 @@ public class c extends d.b.i0.z0.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
         } else if (id == R.id.user_avatar || id == R.id.user_name) {
             i = 2;
             if (i == 0) {
-                d.b.i0.z0.g.m.a.a(eVar.f62196e, this.n, eVar.E(), i);
+                d.b.i0.z0.g.m.a.a(eVar.f62197e, this.n, eVar.E(), i);
                 return;
             }
             return;

@@ -14,40 +14,40 @@ import java.util.Arrays;
 public final class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22949c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+    public static String f22950c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f22950d = null;
+    public static f f22951d = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f22952b = "ufo";
+    public final String f22953b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22951a = 1209600000;
+    public final int f22952a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;
         String b2 = b(str);
         if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-            new File(f22949c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+            new File(f22950c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
             return decodeFile;
         }
         return null;
     }
 
     public static f a() {
-        if (f22950d == null) {
-            f22950d = new f();
+        if (f22951d == null) {
+            f22951d = new f();
         }
-        return f22950d;
+        return f22951d;
     }
 
     public static String b(String str) {
-        return f22949c + "/cache/image/" + str;
+        return f22950c + "/cache/image/" + str;
     }
 
     public static void b() {
-        String str = f22949c + "/cache/image/";
+        String str = f22950c + "/cache/image/";
         File[] listFiles = new File(str).listFiles();
         if (listFiles == null) {
             return;
@@ -59,16 +59,12 @@ public final class f {
     }
 
     public static int c() {
-        if (!Environment.getExternalStorageState().equals("mounted")) {
-            c.a("sdCard is not exist");
-            return 0;
+        if (Environment.getExternalStorageState().equals("mounted")) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return (int) ((statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576.0d);
         }
-        StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        double availableBlocks = statFs.getAvailableBlocks();
-        double blockSize = statFs.getBlockSize();
-        Double.isNaN(availableBlocks);
-        Double.isNaN(blockSize);
-        return (int) ((availableBlocks * blockSize) / 1048576.0d);
+        c.a("sdCard is not exist");
+        return 0;
     }
 
     private void c(String str) {
@@ -81,13 +77,11 @@ public final class f {
             i = (int) (i + file.length());
         }
         if (i > 20971520 || 20 > c()) {
-            double length = listFiles.length;
-            Double.isNaN(length);
-            int i2 = (int) ((length * 0.4d) + 1.0d);
+            int length = (int) ((listFiles.length * 0.4d) + 1.0d);
             Arrays.sort(listFiles, new g(this));
             c.b("ufo ->Clear some expiredcache files");
-            for (int i3 = 0; i3 < i2; i3++) {
-                listFiles[i3].delete();
+            for (int i2 = 0; i2 < length; i2++) {
+                listFiles[i2].delete();
             }
         }
     }
@@ -101,11 +95,11 @@ public final class f {
                     c.c("ufo ->Low free space onsd, do not cache");
                     return;
                 }
-                c(f22949c + "/cache/image/");
+                c(f22950c + "/cache/image/");
                 if (equals) {
-                    File file2 = new File(f22949c);
-                    File file3 = new File(f22949c + "/cache");
-                    File file4 = new File(f22949c + "/cache/image");
+                    File file2 = new File(f22950c);
+                    File file3 = new File(f22950c + "/cache");
+                    File file4 = new File(f22950c + "/cache/image");
                     if (!file2.exists()) {
                         file2.mkdir();
                     }

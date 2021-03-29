@@ -9,7 +9,7 @@ import java.util.List;
 public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30272d = 0;
+    public int f30273d = 0;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.k
@@ -17,15 +17,15 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
     public Pair<Uri, UpdatePackage> b() {
         UpdatePackage g2 = g();
         List<String> urlList = g2.getPatch().getUrlList();
-        int i = this.f30272d;
-        this.f30272d = i + 1;
+        int i = this.f30273d;
+        this.f30273d = i + 1;
         return new Pair<>(Uri.parse(urlList.get(i)), g2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.k
     public boolean a(Throwable th) {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "patch update failed", th);
-        if (this.f30272d >= g().getPatch().getUrlList().size()) {
+        if (this.f30273d >= g().getPatch().getUrlList().size()) {
             return false;
         }
         return (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.a) || (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.b);

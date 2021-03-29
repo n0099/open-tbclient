@@ -66,17 +66,17 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19786e;
+        public final /* synthetic */ String f19787e;
 
         public a(String str) {
-            this.f19786e = str;
+            this.f19787e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbSearchEmotionActivity.this.mEditSearchView.setText(this.f19786e);
-            PbSearchEmotionActivity.this.mEditSearchView.setSelection(this.f19786e.length());
-            PbSearchEmotionActivity.this.searchEmotion(this.f19786e);
+            PbSearchEmotionActivity.this.mEditSearchView.setText(this.f19787e);
+            PbSearchEmotionActivity.this.mEditSearchView.setSelection(this.f19787e.length());
+            PbSearchEmotionActivity.this.searchEmotion(this.f19787e);
             TiebaStatic.log("c12178");
         }
     }
@@ -152,17 +152,17 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ EmotionImageData f19792a;
+            public final /* synthetic */ EmotionImageData f19793a;
 
             public a(EmotionImageData emotionImageData) {
-                this.f19792a = emotionImageData;
+                this.f19793a = emotionImageData;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.b.e.l.c
             public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
                 if (aVar != null) {
-                    PbSearchEmotionActivity.this.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(PbSearchEmotionActivity.this.getPageContext().getPageActivity(), 25023, this.f19792a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
+                    PbSearchEmotionActivity.this.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(PbSearchEmotionActivity.this.getPageContext().getPageActivity(), 25023, this.f19793a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
                 }
             }
         }
@@ -187,16 +187,16 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f19794e;
+        public final /* synthetic */ EmotionImageData f19795e;
 
         public f(EmotionImageData emotionImageData) {
-            this.f19794e = emotionImageData;
+            this.f19795e = emotionImageData;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            PbSearchEmotionActivity.this.sendEmotion(this.f19794e);
+            PbSearchEmotionActivity.this.sendEmotion(this.f19795e);
         }
     }
 

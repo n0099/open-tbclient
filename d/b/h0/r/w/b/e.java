@@ -6,13 +6,13 @@ import androidx.viewpager.widget.ViewPager;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51067a = -2;
+    public int f51068a = -2;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51068b = -1;
+    public int f51069b = -1;
 
     public void a(int i) {
-        this.f51067a = i;
+        this.f51068a = i;
     }
 
     public void b(ViewPager viewPager) {
@@ -21,10 +21,10 @@ public class e {
         }
         ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f51068b, this.f51067a);
+            layoutParams = new ViewGroup.LayoutParams(this.f51069b, this.f51068a);
         } else {
-            layoutParams.height = this.f51067a;
-            layoutParams.width = this.f51068b;
+            layoutParams.height = this.f51068a;
+            layoutParams.width = this.f51069b;
         }
         viewPager.setLayoutParams(layoutParams);
     }

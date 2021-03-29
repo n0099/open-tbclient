@@ -12,24 +12,24 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.DataRes;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k implements d.b.h0.g0.b.h {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<FeedData> f54430e = new ArrayList<>();
+    public ArrayList<FeedData> f54431e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public z0 f54431f = new z0();
+    public z0 f54432f = new z0();
 
     /* renamed from: g  reason: collision with root package name */
-    public i f54432g = new i();
+    public i f54433g = new i();
 
     public ArrayList<FeedData> b() {
-        return this.f54430e;
+        return this.f54431e;
     }
 
     public z0 c() {
-        return this.f54431f;
+        return this.f54432f;
     }
 
     @Override // d.b.h0.g0.b.h
@@ -43,14 +43,14 @@ public class k implements d.b.h0.g0.b.h {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray.optJSONObject(i));
-                    this.f54430e.add(feedData);
+                    this.f54431e.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                        this.f54430e.remove(feedData);
+                        this.f54431e.remove(feedData);
                     }
                 }
             }
-            this.f54432g.f(jSONObject.optJSONObject("message"));
-            this.f54431f.i(jSONObject.optJSONObject("page"));
+            this.f54433g.f(jSONObject.optJSONObject("message"));
+            this.f54432f.i(jSONObject.optJSONObject("page"));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -66,13 +66,13 @@ public class k implements d.b.h0.g0.b.h {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.f54430e.add(feedData);
+                        this.f54431e.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                            this.f54430e.remove(feedData);
+                            this.f54431e.remove(feedData);
                         }
                     }
                 }
-                this.f54431f.j(dataRes.page);
+                this.f54432f.j(dataRes.page);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
 import d.b.h0.f0.h;
 import d.b.i0.d1.f.j.g;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public OfficialBarFeedMsglistView feedView;
     public String forumId;
@@ -22,7 +22,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public h mTopToastEventListener = new a();
     public g.d onDataLoadListener = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends h<TopToastEvent> {
         public a() {
         }
@@ -39,7 +39,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements g.d {
         public b() {
         }

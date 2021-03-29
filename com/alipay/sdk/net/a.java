@@ -75,9 +75,9 @@ public final class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:116:0x01ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x01b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x01bc A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x01ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x01b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x01bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -146,14 +146,8 @@ public final class a {
                         th = th2;
                         try {
                             c.a(th);
-                            if (httpURLConnection != null) {
-                            }
-                            if (bufferedInputStream != null) {
-                            }
-                            if (bufferedOutputStream != null) {
-                            }
                             return null;
-                        } catch (Throwable th3) {
+                        } finally {
                             if (httpURLConnection != null) {
                                 try {
                                     httpURLConnection.disconnect();
@@ -172,7 +166,6 @@ public final class a {
                                 } catch (Throwable unused3) {
                                 }
                             }
-                            throw th3;
                         }
                     }
                 } else {
@@ -210,39 +203,27 @@ public final class a {
                         }
                     }
                     return bVar;
-                } catch (Throwable th4) {
+                } catch (Throwable th3) {
                     httpURLConnection = httpURLConnection2;
-                    th = th4;
+                    th = th3;
                     bufferedOutputStream = bufferedOutputStream2;
                     bufferedInputStream = bufferedInputStream2;
                     c.a(th);
-                    if (httpURLConnection != null) {
-                        try {
-                            httpURLConnection.disconnect();
-                        } catch (Throwable unused7) {
-                        }
-                    }
-                    if (bufferedInputStream != null) {
-                        try {
-                            bufferedInputStream.close();
-                        } catch (Throwable unused8) {
-                        }
-                    }
                     if (bufferedOutputStream != null) {
                         try {
                             bufferedOutputStream.close();
-                        } catch (Throwable unused9) {
+                        } catch (Throwable unused7) {
                         }
                     }
                     return null;
                 }
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Throwable th4) {
+                th = th4;
                 bufferedInputStream = null;
                 bufferedOutputStream = null;
             }
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th5) {
+            th = th5;
             httpURLConnection = null;
             bufferedInputStream = null;
             bufferedOutputStream = null;

@@ -7,21 +7,21 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import d.b.g0.a.k;
 import d.b.g0.a.p.d.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46218a = k.f45050a;
+    public static final boolean f46219a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f46219b = {"swan", "swanAPI", "utils"};
+    public static final String[] f46220b = {"swan", "swanAPI", "utils"};
 
     @NonNull
     public static Pair<Boolean, d.b.g0.a.t.e.a> a(d.b.g0.a.t.b.a aVar, String str) {
         d.b.g0.a.t.e.b bVar = new d.b.g0.a.t.e.b();
         boolean b2 = b(str, aVar.a().h());
         if (b2) {
-            bVar.f46214b = 402;
+            bVar.f46215b = 402;
         }
         return new Pair<>(Boolean.valueOf(b2), bVar);
     }
@@ -29,12 +29,12 @@ public class a {
     public static boolean b(String str, CallbackHandler callbackHandler) {
         boolean z;
         if (!(callbackHandler instanceof d)) {
-            if (f46218a) {
+            if (f46219a) {
                 Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
             }
             return false;
         } else if (TextUtils.isEmpty(str)) {
-            if (f46218a) {
+            if (f46219a) {
                 throw new RuntimeException("whitelistName is empty");
             }
             return false;
@@ -45,12 +45,12 @@ public class a {
             } else if ("ai_apps_ad_landing".equals(S)) {
                 z = !d.b.g0.a.s1.a.b.a(str);
             } else {
-                if (!"swan_app_alliance_login_widget".equals(S) && !"swan_app_alliance_choose_address_widget".equals(S) && f46218a) {
+                if (!"swan_app_alliance_login_widget".equals(S) && !"swan_app_alliance_choose_address_widget".equals(S) && f46219a) {
                     Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
                 }
                 return false;
             }
-            if (f46218a) {
+            if (f46219a) {
                 Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
             }
             return z;
@@ -65,7 +65,7 @@ public class a {
         }
         if (str.startsWith("swan")) {
             String substring = str.substring(indexOf + 1);
-            for (String str2 : f46219b) {
+            for (String str2 : f46220b) {
                 if (d.b.g0.a.s1.a.b.g(str2 + "/" + substring)) {
                     return false;
                 }

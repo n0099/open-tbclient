@@ -6,20 +6,20 @@ import java.util.Map;
 public final class ci implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f23117a;
+    public final /* synthetic */ int f23118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f23118b;
+    public final /* synthetic */ cg f23119b;
 
     public ci(cg cgVar, int i) {
-        this.f23118b = cgVar;
-        this.f23117a = i;
+        this.f23119b = cgVar;
+        this.f23118a = i;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         com.baidu.ufosdk.f.c.a("点击已解决！！！");
-        ((Map) this.f23118b.f23114a.f23021h.get(this.f23117a)).put("ask", 2);
+        ((Map) this.f23119b.f23115a.f23022h.get(this.f23118a)).put("ask", 2);
         new Thread(new cj(this)).start();
     }
 }

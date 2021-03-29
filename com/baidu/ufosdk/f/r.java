@@ -23,14 +23,7 @@ public final class r {
 
     public static void a(Window window, int i) {
         b(window, i);
-        double d2 = (((-16711681) | i) >> 16) & 255;
-        Double.isNaN(d2);
-        double d3 = (((-65281) | i) >> 8) & 255;
-        Double.isNaN(d3);
-        double d4 = (d2 * 0.299d) + (d3 * 0.587d);
-        double d5 = (i | (-256)) & 255;
-        Double.isNaN(d5);
-        a(window, ((int) (d4 + (d5 * 0.114d))) * 2 > 255);
+        a(window, ((int) (((((double) ((((-16711681) | i) >> 16) & 255)) * 0.299d) + (((double) ((((-65281) | i) >> 8) & 255)) * 0.587d)) + (((double) ((i | (-256)) & 255)) * 0.114d))) * 2 > 255);
     }
 
     public static void a(Window window, boolean z) {
@@ -88,7 +81,7 @@ public final class r {
         window.addFlags(Integer.MIN_VALUE);
         if ((i & (-16777216)) == 0) {
             window.setStatusBarColor(0);
-        } else if ((i ^ (-1)) != 0) {
+        } else if ((~i) != 0) {
             window.setStatusBarColor(i);
         } else {
             if (!(l.a() == 5 || l.a() == 3) || Build.VERSION.SDK_INT >= 23) {
@@ -128,7 +121,7 @@ public final class r {
                 declaredField2.setAccessible(true);
                 int i = declaredField.getInt(null);
                 int i2 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, z ? i2 | i : (i ^ (-1)) & i2);
+                declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
                 window.setAttributes(attributes);
                 return true;
             } catch (Exception unused) {

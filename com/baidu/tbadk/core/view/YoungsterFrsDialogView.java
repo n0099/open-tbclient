@@ -17,16 +17,16 @@ import d.b.h0.r.f0.m.c;
 public class YoungsterFrsDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f13596e;
+    public RelativeLayout f13597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f13597f;
+    public LinearLayout f13598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f13598g;
+    public ImageView f13599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f13599h;
+    public TextView f13600h;
     public TextView i;
     public TBSpecificationBtn j;
     public TBSpecificationBtn k;
@@ -38,11 +38,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
 
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
-        this.f13596e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
-        this.f13598g = (ImageView) findViewById(R.id.img_youngster_top);
-        this.f13599h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
+        this.f13597e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
+        this.f13599g = (ImageView) findViewById(R.id.img_youngster_top);
+        this.f13600h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
         this.i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
-        this.f13597f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
+        this.f13598f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
         this.j = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
         c cVar = new c();
         cVar.q(R.color.CAM_X0105);
@@ -65,11 +65,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
 
     public void c() {
         SkinManager.setBackgroundResource(this, R.drawable.transparent_bg);
-        this.f13598g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f13599h, R.color.CAM_X0105);
+        this.f13599g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f13600h, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0107);
         this.l.c();
-        SkinManager.setBackgroundResource(this.f13596e, R.drawable.dialog_background);
+        SkinManager.setBackgroundResource(this.f13597e, R.drawable.dialog_background);
         this.j.k();
         this.k.k();
     }
@@ -99,13 +99,13 @@ public class YoungsterFrsDialogView extends LinearLayout {
     }
 
     public void setTxtYoungsterDialogTitleText(int i) {
-        this.f13599h.setText(getContext().getString(i));
+        this.f13600h.setText(getContext().getString(i));
     }
 
     public void setYoungsterDialogGroupMarginTop(int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f13597f.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f13598f.getLayoutParams();
         layoutParams.topMargin = i;
-        this.f13597f.setLayoutParams(layoutParams);
+        this.f13598f.setLayoutParams(layoutParams);
     }
 
     public YoungsterFrsDialogView(Context context, @Nullable AttributeSet attributeSet) {

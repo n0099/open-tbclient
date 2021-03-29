@@ -9,27 +9,27 @@ import java.util.Date;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f60189a;
+    public long f60190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60190b;
+    public long f60191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60191c;
+    public long f60192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60192d;
+    public long f60193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g0 f60193e;
+    public g0 f60194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f60194f = new C1534a(2001371);
+    public CustomMessageListener f60195f = new C1535a(2001371);
 
     /* renamed from: d.b.i0.s3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1534a extends CustomMessageListener {
-        public C1534a(int i) {
+    public class C1535a extends CustomMessageListener {
+        public C1535a(int i) {
             super(i);
         }
 
@@ -48,7 +48,7 @@ public class a {
     }
 
     public boolean b() {
-        if (this.f60189a != 0 && this.f60190b != 0 && this.f60191c != 0) {
+        if (this.f60190a != 0 && this.f60191b != 0 && this.f60192c != 0) {
             Date date = new Date();
             if (d(date) && e(date)) {
                 return true;
@@ -59,30 +59,30 @@ public class a {
 
     public final void c() {
         f();
-        this.f60192d = d.b.h0.r.d0.b.i().k("key_video_splash_last_show_time", 0L);
-        MessageManager.getInstance().registerListener(this.f60194f);
+        this.f60193d = d.b.h0.r.d0.b.i().k("key_video_splash_last_show_time", 0L);
+        MessageManager.getInstance().registerListener(this.f60195f);
     }
 
     public final boolean d(Date date) {
-        return date != null && date.getTime() >= this.f60189a && date.getTime() <= this.f60190b;
+        return date != null && date.getTime() >= this.f60190a && date.getTime() <= this.f60191b;
     }
 
     public final boolean e(Date date) {
-        return date != null && date.getTime() - this.f60192d >= this.f60191c;
+        return date != null && date.getTime() - this.f60193d >= this.f60192c;
     }
 
     public final void f() {
-        if (this.f60193e == null) {
-            this.f60193e = new g0();
+        if (this.f60194e == null) {
+            this.f60194e = new g0();
         }
-        this.f60193e.g(d.b.h0.r.d0.b.i().o("key_video_splash_config", ""));
-        this.f60189a = this.f60193e.e();
-        this.f60190b = this.f60193e.a();
-        this.f60191c = this.f60193e.d();
+        this.f60194e.g(d.b.h0.r.d0.b.i().o("key_video_splash_config", ""));
+        this.f60190a = this.f60194e.e();
+        this.f60191b = this.f60194e.a();
+        this.f60192c = this.f60194e.d();
     }
 
     public void g(long j) {
-        this.f60192d = j;
+        this.f60193d = j;
         d.b.h0.r.d0.b.i().v("key_video_splash_last_show_time", j);
     }
 }

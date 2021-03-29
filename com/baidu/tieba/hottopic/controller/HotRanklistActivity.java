@@ -21,7 +21,7 @@ import d.b.i0.b1.c.j;
 import d.b.i0.b1.c.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> implements HotRanklistModel.b {
     public d.b.i0.b1.b.b hotTopicShareModel;
     public List<j> mHotTopicRanklistDataList;
@@ -34,7 +34,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     public boolean isTabListLoaded = false;
     public CustomMessageListener changeTabListener = new b(2001433);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements NoNetworkView.b {
         public a() {
         }
@@ -53,7 +53,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -138,7 +138,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         } else if (this.ranklistModel != null) {
             String str = this.isTabListLoaded ? "0" : "1";
             if (!ListUtils.isEmpty(this.mTopicTabList)) {
-                this.listType = this.mTopicTabList.get(this.ranklistMainView.h()).f52145f;
+                this.listType = this.mTopicTabList.get(this.ranklistMainView.h()).f52146f;
             }
             this.ranklistModel.u(this.callFrom, this.listType, str, 0L);
         }
@@ -154,12 +154,12 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         if (this.ranklistMainView == null) {
             return;
         }
-        if (!ListUtils.isEmpty(jVar.f52122b) && !this.isTabListLoaded) {
-            this.mTopicTabList = jVar.f52122b;
+        if (!ListUtils.isEmpty(jVar.f52123b) && !this.isTabListLoaded) {
+            this.mTopicTabList = jVar.f52123b;
             this.mHotTopicRanklistDataList = new ArrayList();
-            for (p pVar : jVar.f52122b) {
+            for (p pVar : jVar.f52123b) {
                 j jVar2 = new j();
-                jVar2.f52121a = pVar.f52145f;
+                jVar2.f52122a = pVar.f52146f;
                 this.mHotTopicRanklistDataList.add(jVar2);
             }
         }
@@ -171,7 +171,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             while (true) {
                 if (i3 >= this.mHotTopicRanklistDataList.size()) {
                     break;
-                } else if (this.mHotTopicRanklistDataList.get(i3).f52121a.equals(jVar.f52121a)) {
+                } else if (this.mHotTopicRanklistDataList.get(i3).f52122a.equals(jVar.f52122a)) {
                     i2 = i3;
                     break;
                 } else {
@@ -179,15 +179,15 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                 }
             }
             if (i2 == 0) {
-                jVar.f52122b = this.mTopicTabList;
-            } else if (ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f52122b)) {
-                this.mHotTopicRanklistDataList.get(0).f52122b = this.mTopicTabList;
+                jVar.f52123b = this.mTopicTabList;
+            } else if (ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f52123b)) {
+                this.mHotTopicRanklistDataList.get(0).f52123b = this.mTopicTabList;
             }
             this.mHotTopicRanklistDataList.add(i2, jVar);
             this.mHotTopicRanklistDataList.remove(i2 + 1);
         }
         this.ranklistMainView.n(this.mHotTopicRanklistDataList);
-        if (this.isTabListLoaded || ListUtils.isEmpty(this.mHotTopicRanklistDataList) || ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f52122b) || ListUtils.isEmpty(this.mTopicTabList)) {
+        if (this.isTabListLoaded || ListUtils.isEmpty(this.mHotTopicRanklistDataList) || ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f52123b) || ListUtils.isEmpty(this.mTopicTabList)) {
             return;
         }
         this.isTabListLoaded = true;
@@ -271,6 +271,6 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         if (ListUtils.isEmpty(this.mTopicTabList) || (pVar = this.mTopicTabList.get(this.ranklistMainView.h())) == null) {
             return;
         }
-        this.hotTopicShareModel.e(null, pVar.f52147h, pVar.j, pVar.f52146g, pVar.i, false);
+        this.hotTopicShareModel.e(null, pVar.f52148h, pVar.j, pVar.f52147g, pVar.i, false);
     }
 }

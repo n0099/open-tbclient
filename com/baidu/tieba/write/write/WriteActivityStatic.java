@@ -59,10 +59,10 @@ import java.util.Map;
 public class WriteActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f22550a = 11;
+    public static int f22551a = 11;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f22551b = 18;
+    public static int f22552b = 18;
 
     /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlSchemaHandler {
@@ -161,7 +161,7 @@ public class WriteActivityStatic {
     public static void b(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
         int i = Build.VERSION.SDK_INT;
-        if (i <= f22551b && i >= f22550a) {
+        if (i <= f22552b && i >= f22551a) {
             d(tbPageContext);
         } else {
             c(tbPageContext);

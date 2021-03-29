@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class StringUtil implements IStringUtil {
     public static final String ARRAY_ELEMENT_SEPARATOR = ", ";
     public static final String ARRAY_END = "}";

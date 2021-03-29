@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class PersonalizedResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;

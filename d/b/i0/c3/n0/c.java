@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class c extends d {
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile HashMap<String, Long> f53514d;
+    public volatile HashMap<String, Long> f53515d;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -33,21 +33,21 @@ public class c extends d {
 
     public c(int i) {
         super(i);
-        this.f53514d = new HashMap<>();
+        this.f53515d = new HashMap<>();
     }
 
     public void e() {
         synchronized (this) {
-            this.f53517c.clear();
-            this.f53514d.clear();
+            this.f53518c.clear();
+            this.f53515d.clear();
         }
     }
 
     public long f(String str) {
         try {
             synchronized (this) {
-                if (this.f53514d.get(str) != null) {
-                    return this.f53514d.get(str).longValue();
+                if (this.f53515d.get(str) != null) {
+                    return this.f53515d.get(str).longValue();
                 }
                 return 0L;
             }

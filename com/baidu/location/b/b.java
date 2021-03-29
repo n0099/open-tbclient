@@ -32,29 +32,29 @@ import java.util.Locale;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f6616a;
+    public static int f6617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6617b;
+    public static int f6618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f6618c;
+    public static b f6619c;
     public static Class<?> k;
 
     /* renamed from: d  reason: collision with root package name */
-    public TelephonyManager f6619d = null;
+    public TelephonyManager f6620d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.location.b.a f6620e = new com.baidu.location.b.a();
+    public com.baidu.location.b.a f6621e = new com.baidu.location.b.a();
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.location.b.a f6621f = null;
+    public com.baidu.location.b.a f6622f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.baidu.location.b.a> f6622g = null;
+    public List<com.baidu.location.b.a> f6623g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f6623h = null;
+    public a f6624h = null;
     public boolean i = false;
     public boolean j = false;
     public Handler l = new Handler();
@@ -76,17 +76,17 @@ public class b {
         public void onSignalStrengthsChanged(SignalStrength signalStrength) {
             com.baidu.location.b.a aVar;
             int cdmaDbm;
-            if (b.this.f6620e != null) {
-                if (b.this.f6620e.i == 'g') {
-                    aVar = b.this.f6620e;
+            if (b.this.f6621e != null) {
+                if (b.this.f6621e.i == 'g') {
+                    aVar = b.this.f6621e;
                     cdmaDbm = signalStrength.getGsmSignalStrength();
-                } else if (b.this.f6620e.i != 'c') {
+                } else if (b.this.f6621e.i != 'c') {
                     return;
                 } else {
-                    aVar = b.this.f6620e;
+                    aVar = b.this.f6621e;
                     cdmaDbm = signalStrength.getCdmaDbm();
                 }
-                aVar.f6615h = cdmaDbm;
+                aVar.f6616h = cdmaDbm;
             }
         }
     }
@@ -103,7 +103,7 @@ public class b {
         if (r2 <= 0) goto L9;
      */
     /* JADX WARN: Code restructure failed: missing block: B:43:0x0170, code lost:
-        r1.f6614g = java.lang.System.currentTimeMillis();
+        r1.f6615g = java.lang.System.currentTimeMillis();
      */
     /* JADX WARN: Removed duplicated region for block: B:37:0x0117 A[ADDED_TO_REGION] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x011d A[Catch: Exception -> 0x015b, TRY_LEAVE, TryCatch #2 {Exception -> 0x015b, blocks: (B:38:0x0119, B:40:0x011d), top: B:50:0x0119 }] */
@@ -125,10 +125,10 @@ public class b {
                 if (cellInfo instanceof CellInfoLte) {
                     CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
                     CellIdentityLte cellIdentity = cellInfoLte.getCellIdentity();
-                    aVar.f6610c = a(cellIdentity.getMcc());
-                    aVar.f6611d = a(cellIdentity.getMnc());
-                    aVar.f6608a = a(cellIdentity.getTac());
-                    aVar.f6609b = a(cellIdentity.getCi());
+                    aVar.f6611c = a(cellIdentity.getMcc());
+                    aVar.f6612d = a(cellIdentity.getMnc());
+                    aVar.f6609a = a(cellIdentity.getTac());
+                    aVar.f6610b = a(cellIdentity.getCi());
                     aVar.i = 'g';
                     asuLevel = cellInfoLte.getCellSignalStrength().getAsuLevel();
                 }
@@ -136,23 +136,23 @@ public class b {
                     if (cellInfo instanceof CellInfoWcdma) {
                     }
                 }
-                aVar.f6614g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+                aVar.f6615g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
                 return aVar;
             }
             CellInfoCdma cellInfoCdma = (CellInfoCdma) cellInfo;
             CellIdentityCdma cellIdentity2 = cellInfoCdma.getCellIdentity();
-            aVar.f6612e = cellIdentity2.getLatitude();
-            aVar.f6613f = cellIdentity2.getLongitude();
-            aVar.f6611d = a(cellIdentity2.getSystemId());
-            aVar.f6608a = a(cellIdentity2.getNetworkId());
-            aVar.f6609b = a(cellIdentity2.getBasestationId());
+            aVar.f6613e = cellIdentity2.getLatitude();
+            aVar.f6614f = cellIdentity2.getLongitude();
+            aVar.f6612d = a(cellIdentity2.getSystemId());
+            aVar.f6609a = a(cellIdentity2.getNetworkId());
+            aVar.f6610b = a(cellIdentity2.getBasestationId());
             aVar.i = 'c';
-            aVar.f6615h = cellInfoCdma.getCellSignalStrength().getCdmaDbm();
-            com.baidu.location.b.a aVar2 = this.f6620e;
-            if (aVar2 == null || (i = aVar2.f6610c) <= 0) {
+            aVar.f6616h = cellInfoCdma.getCellSignalStrength().getCdmaDbm();
+            com.baidu.location.b.a aVar2 = this.f6621e;
+            if (aVar2 == null || (i = aVar2.f6611c) <= 0) {
                 i = -1;
                 try {
-                    String networkOperator = this.f6619d.getNetworkOperator();
+                    String networkOperator = this.f6620d.getNetworkOperator();
                     if (networkOperator != null && networkOperator.length() > 0 && networkOperator.length() >= 3) {
                         int intValue2 = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                         if (intValue2 >= 0) {
@@ -162,38 +162,38 @@ public class b {
                 } catch (Exception unused) {
                 }
             }
-            aVar.f6610c = i;
+            aVar.f6611c = i;
             z = true;
             if (intValue >= 18 && !z) {
                 try {
                     if (cellInfo instanceof CellInfoWcdma) {
                         CellIdentityWcdma cellIdentity3 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                        aVar.f6610c = a(cellIdentity3.getMcc());
-                        aVar.f6611d = a(cellIdentity3.getMnc());
-                        aVar.f6608a = a(cellIdentity3.getLac());
-                        aVar.f6609b = a(cellIdentity3.getCid());
+                        aVar.f6611c = a(cellIdentity3.getMcc());
+                        aVar.f6612d = a(cellIdentity3.getMnc());
+                        aVar.f6609a = a(cellIdentity3.getLac());
+                        aVar.f6610b = a(cellIdentity3.getCid());
                         aVar.i = 'g';
-                        aVar.f6615h = ((CellInfoWcdma) cellInfo).getCellSignalStrength().getAsuLevel();
+                        aVar.f6616h = ((CellInfoWcdma) cellInfo).getCellSignalStrength().getAsuLevel();
                     }
                 } catch (Exception unused2) {
                 }
             }
-            aVar.f6614g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+            aVar.f6615g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
             return aVar;
         }
         CellInfoGsm cellInfoGsm = (CellInfoGsm) cellInfo;
         CellIdentityGsm cellIdentity4 = cellInfoGsm.getCellIdentity();
-        aVar.f6610c = a(cellIdentity4.getMcc());
-        aVar.f6611d = a(cellIdentity4.getMnc());
-        aVar.f6608a = a(cellIdentity4.getLac());
-        aVar.f6609b = a(cellIdentity4.getCid());
+        aVar.f6611c = a(cellIdentity4.getMcc());
+        aVar.f6612d = a(cellIdentity4.getMnc());
+        aVar.f6609a = a(cellIdentity4.getLac());
+        aVar.f6610b = a(cellIdentity4.getCid());
         aVar.i = 'g';
         asuLevel = cellInfoGsm.getCellSignalStrength().getAsuLevel();
-        aVar.f6615h = asuLevel;
+        aVar.f6616h = asuLevel;
         z = true;
         if (intValue >= 18) {
         }
-        aVar.f6614g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+        aVar.f6615g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
         return aVar;
     }
 
@@ -202,21 +202,21 @@ public class b {
     }
 
     private com.baidu.location.b.a a(CellLocation cellLocation, boolean z) {
-        if (cellLocation == null || this.f6619d == null) {
+        if (cellLocation == null || this.f6620d == null) {
             return null;
         }
         com.baidu.location.b.a aVar = new com.baidu.location.b.a();
         if (z) {
             aVar.f();
         }
-        aVar.f6614g = System.currentTimeMillis();
+        aVar.f6615g = System.currentTimeMillis();
         try {
-            String networkOperator = this.f6619d.getNetworkOperator();
+            String networkOperator = this.f6620d.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
                 int i = -1;
                 if (networkOperator.length() >= 3) {
                     i = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
-                    aVar.f6610c = i < 0 ? this.f6620e.f6610c : i;
+                    aVar.f6611c = i < 0 ? this.f6621e.f6611c : i;
                 }
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
@@ -228,18 +228,18 @@ public class b {
                     i = Integer.valueOf(substring.substring(0, i2)).intValue();
                 }
                 if (i < 0) {
-                    i = this.f6620e.f6611d;
+                    i = this.f6621e.f6612d;
                 }
-                aVar.f6611d = i;
+                aVar.f6612d = i;
             }
-            f6616a = this.f6619d.getSimState();
+            f6617a = this.f6620d.getSimState();
         } catch (Exception unused) {
-            f6617b = 1;
+            f6618b = 1;
         }
         if (cellLocation instanceof GsmCellLocation) {
             GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
-            aVar.f6608a = gsmCellLocation.getLac();
-            aVar.f6609b = gsmCellLocation.getCid();
+            aVar.f6609a = gsmCellLocation.getLac();
+            aVar.f6610b = gsmCellLocation.getCid();
             aVar.i = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
             aVar.i = 'c';
@@ -256,21 +256,21 @@ public class b {
                 try {
                     int systemId = ((CdmaCellLocation) cellLocation).getSystemId();
                     if (systemId < 0) {
-                        systemId = this.f6620e.f6611d;
+                        systemId = this.f6621e.f6612d;
                     }
-                    aVar.f6611d = systemId;
-                    aVar.f6609b = ((CdmaCellLocation) cellLocation).getBaseStationId();
-                    aVar.f6608a = ((CdmaCellLocation) cellLocation).getNetworkId();
+                    aVar.f6612d = systemId;
+                    aVar.f6610b = ((CdmaCellLocation) cellLocation).getBaseStationId();
+                    aVar.f6609a = ((CdmaCellLocation) cellLocation).getNetworkId();
                     int baseStationLatitude = ((CdmaCellLocation) cellLocation).getBaseStationLatitude();
                     if (baseStationLatitude < Integer.MAX_VALUE) {
-                        aVar.f6612e = baseStationLatitude;
+                        aVar.f6613e = baseStationLatitude;
                     }
                     int baseStationLongitude = ((CdmaCellLocation) cellLocation).getBaseStationLongitude();
                     if (baseStationLongitude < Integer.MAX_VALUE) {
-                        aVar.f6613f = baseStationLongitude;
+                        aVar.f6614f = baseStationLongitude;
                     }
                 } catch (Exception unused3) {
-                    f6617b = 3;
+                    f6618b = 3;
                     return aVar;
                 }
             }
@@ -282,39 +282,39 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f6618c == null) {
-                f6618c = new b();
+            if (f6619c == null) {
+                f6619c = new b();
             }
-            bVar = f6618c;
+            bVar = f6619c;
         }
         return bVar;
     }
 
     private void c(com.baidu.location.b.a aVar) {
         if (aVar.b()) {
-            com.baidu.location.b.a aVar2 = this.f6620e;
+            com.baidu.location.b.a aVar2 = this.f6621e;
             if (aVar2 == null || !aVar2.a(aVar)) {
-                this.f6620e = aVar;
+                this.f6621e = aVar;
                 if (!aVar.b()) {
-                    List<com.baidu.location.b.a> list = this.f6622g;
+                    List<com.baidu.location.b.a> list = this.f6623g;
                     if (list != null) {
                         list.clear();
                         return;
                     }
                     return;
                 }
-                int size = this.f6622g.size();
-                com.baidu.location.b.a aVar3 = size == 0 ? null : this.f6622g.get(size - 1);
+                int size = this.f6623g.size();
+                com.baidu.location.b.a aVar3 = size == 0 ? null : this.f6623g.get(size - 1);
                 if (aVar3 != null) {
-                    int i = aVar3.f6609b;
-                    com.baidu.location.b.a aVar4 = this.f6620e;
-                    if (i == aVar4.f6609b && aVar3.f6608a == aVar4.f6608a) {
+                    int i = aVar3.f6610b;
+                    com.baidu.location.b.a aVar4 = this.f6621e;
+                    if (i == aVar4.f6610b && aVar3.f6609a == aVar4.f6609a) {
                         return;
                     }
                 }
-                this.f6622g.add(this.f6620e);
-                if (this.f6622g.size() > 3) {
-                    this.f6622g.remove(0);
+                this.f6623g.add(this.f6621e);
+                if (this.f6623g.size() > 3) {
+                    this.f6623g.remove(0);
                 }
                 j();
                 this.j = false;
@@ -329,25 +329,25 @@ public class b {
         StringBuilder sb2 = new StringBuilder();
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
             try {
-                List<CellInfo> allCellInfo = this.f6619d.getAllCellInfo();
+                List<CellInfo> allCellInfo = this.f6620d.getAllCellInfo();
                 if (allCellInfo != null && allCellInfo.size() > 0) {
                     sb2.append("&nc=");
                     for (CellInfo cellInfo : allCellInfo) {
-                        if (!cellInfo.isRegistered() && (a2 = a(cellInfo)) != null && a2.f6608a != -1 && a2.f6609b != -1) {
-                            if (aVar.f6608a != a2.f6608a) {
+                        if (!cellInfo.isRegistered() && (a2 = a(cellInfo)) != null && a2.f6609a != -1 && a2.f6610b != -1) {
+                            if (aVar.f6609a != a2.f6609a) {
                                 sb = new StringBuilder();
-                                sb.append(a2.f6608a);
+                                sb.append(a2.f6609a);
                                 sb.append(FieldBuilder.SE);
-                                sb.append(a2.f6609b);
+                                sb.append(a2.f6610b);
                                 sb.append(FieldBuilder.SE);
-                                sb.append(a2.f6615h);
+                                sb.append(a2.f6616h);
                                 sb.append(";");
                             } else {
                                 sb = new StringBuilder();
                                 sb.append(FieldBuilder.SE);
-                                sb.append(a2.f6609b);
+                                sb.append(a2.f6610b);
                                 sb.append(FieldBuilder.SE);
-                                sb.append(a2.f6615h);
+                                sb.append(a2.f6616h);
                                 sb.append(";");
                             }
                             sb2.append(sb.toString());
@@ -388,10 +388,10 @@ public class b {
                     char c2 = readInt5 == 2 ? 'c' : readInt5 == 1 ? 'g' : (char) 0;
                     if (readLong != j) {
                         com.baidu.location.b.a aVar = new com.baidu.location.b.a(readInt3, readInt4, readInt, readInt2, 0, c2);
-                        aVar.f6614g = readLong;
+                        aVar.f6615g = readLong;
                         if (aVar.b()) {
                             this.j = true;
-                            this.f6622g.add(aVar);
+                            this.f6623g.add(aVar);
                         }
                     }
                     i++;
@@ -405,20 +405,20 @@ public class b {
     }
 
     private void j() {
-        if (this.f6622g == null && this.f6621f == null) {
+        if (this.f6623g == null && this.f6622f == null) {
             return;
         }
-        if (this.f6622g == null && this.f6621f != null) {
+        if (this.f6623g == null && this.f6622f != null) {
             LinkedList linkedList = new LinkedList();
-            this.f6622g = linkedList;
-            linkedList.add(this.f6621f);
+            this.f6623g = linkedList;
+            linkedList.add(this.f6622f);
         }
         String g2 = com.baidu.location.d.j.g();
-        if (g2 == null || this.f6622g == null) {
+        if (g2 == null || this.f6623g == null) {
             return;
         }
         File file = new File(g2 + File.separator + "lcvif.dat");
-        int size = this.f6622g.size();
+        int size = this.f6623g.size();
         try {
             if (file.exists()) {
                 file.delete();
@@ -426,7 +426,7 @@ public class b {
             file.createNewFile();
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
             randomAccessFile.seek(0L);
-            randomAccessFile.writeLong(this.f6622g.get(size - 1).f6614g);
+            randomAccessFile.writeLong(this.f6623g.get(size - 1).f6615g);
             randomAccessFile.writeInt(size);
             for (int i = 0; i < 3 - size; i++) {
                 randomAccessFile.writeLong(0L);
@@ -437,14 +437,14 @@ public class b {
                 randomAccessFile.writeInt(2);
             }
             for (int i2 = 0; i2 < size; i2++) {
-                randomAccessFile.writeLong(this.f6622g.get(i2).f6614g);
-                randomAccessFile.writeInt(this.f6622g.get(i2).f6610c);
-                randomAccessFile.writeInt(this.f6622g.get(i2).f6611d);
-                randomAccessFile.writeInt(this.f6622g.get(i2).f6608a);
-                randomAccessFile.writeInt(this.f6622g.get(i2).f6609b);
-                if (this.f6622g.get(i2).i == 'g') {
+                randomAccessFile.writeLong(this.f6623g.get(i2).f6615g);
+                randomAccessFile.writeInt(this.f6623g.get(i2).f6611c);
+                randomAccessFile.writeInt(this.f6623g.get(i2).f6612d);
+                randomAccessFile.writeInt(this.f6623g.get(i2).f6609a);
+                randomAccessFile.writeInt(this.f6623g.get(i2).f6610b);
+                if (this.f6623g.get(i2).i == 'g') {
                     randomAccessFile.writeInt(1);
-                } else if (this.f6622g.get(i2).i == 'c') {
+                } else if (this.f6623g.get(i2).i == 'c') {
                     randomAccessFile.writeInt(2);
                 } else {
                     randomAccessFile.writeInt(3);
@@ -464,7 +464,7 @@ public class b {
         }
         if (l == null || !l.b()) {
             try {
-                cellLocation = this.f6619d.getCellLocation();
+                cellLocation = this.f6620d.getCellLocation();
             } catch (Throwable unused) {
                 cellLocation = null;
             }
@@ -480,8 +480,8 @@ public class b {
             return null;
         }
         try {
-            f6616a = this.f6619d.getSimState();
-            List<CellInfo> allCellInfo = this.f6619d.getAllCellInfo();
+            f6617a = this.f6620d.getSimState();
+            List<CellInfo> allCellInfo = this.f6620d.getAllCellInfo();
             if (allCellInfo == null || allCellInfo.size() <= 0) {
                 return null;
             }
@@ -520,7 +520,7 @@ public class b {
             th.printStackTrace();
         }
         if ((d2 == null || d2.equals("") || d2.equals("&nc=")) && intValue < 17) {
-            List<NeighboringCellInfo> neighboringCellInfo = this.f6619d.getNeighboringCellInfo();
+            List<NeighboringCellInfo> neighboringCellInfo = this.f6620d.getNeighboringCellInfo();
             if (neighboringCellInfo == null || neighboringCellInfo.isEmpty()) {
                 str = d2;
             } else {
@@ -529,7 +529,7 @@ public class b {
                 for (NeighboringCellInfo neighboringCellInfo2 : neighboringCellInfo) {
                     int lac = neighboringCellInfo2.getLac();
                     if (lac != -1 && neighboringCellInfo2.getCid() != -1) {
-                        str2 = aVar.f6608a != lac ? str2 + lac + FieldBuilder.SE + neighboringCellInfo2.getCid() + FieldBuilder.SE + neighboringCellInfo2.getRssi() + ";" : str2 + FieldBuilder.SE + neighboringCellInfo2.getCid() + FieldBuilder.SE + neighboringCellInfo2.getRssi() + ";";
+                        str2 = aVar.f6609a != lac ? str2 + lac + FieldBuilder.SE + neighboringCellInfo2.getCid() + FieldBuilder.SE + neighboringCellInfo2.getRssi() + ";" : str2 + FieldBuilder.SE + neighboringCellInfo2.getCid() + FieldBuilder.SE + neighboringCellInfo2.getRssi() + ";";
                     }
                     i++;
                     if (i >= 8) {
@@ -551,51 +551,47 @@ public class b {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
         stringBuffer.append(aVar.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(aVar.f6610c), Integer.valueOf(aVar.f6611d), Integer.valueOf(aVar.f6608a), Integer.valueOf(aVar.f6609b), Integer.valueOf(aVar.f6615h)));
-        if (aVar.f6612e < Integer.MAX_VALUE && (i = aVar.f6613f) < Integer.MAX_VALUE) {
-            Locale locale = Locale.CHINA;
-            double d2 = i;
-            Double.isNaN(d2);
-            double d3 = aVar.f6612e;
-            Double.isNaN(d3);
-            stringBuffer.append(String.format(locale, "&cdmall=%.6f|%.6f", Double.valueOf(d2 / 14400.0d), Double.valueOf(d3 / 14400.0d)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(aVar.f6611c), Integer.valueOf(aVar.f6612d), Integer.valueOf(aVar.f6609a), Integer.valueOf(aVar.f6610b), Integer.valueOf(aVar.f6616h)));
+        if (aVar.f6613e < Integer.MAX_VALUE && (i = aVar.f6614f) < Integer.MAX_VALUE) {
+            stringBuffer.append(String.format(Locale.CHINA, "&cdmall=%.6f|%.6f", Double.valueOf(i / 14400.0d), Double.valueOf(aVar.f6613e / 14400.0d)));
         }
         stringBuffer.append("&cl_t=");
-        stringBuffer.append(aVar.f6614g);
+        stringBuffer.append(aVar.f6615g);
         try {
-            if (this.f6622g != null && this.f6622g.size() > 0) {
-                int size = this.f6622g.size();
+            if (this.f6623g != null && this.f6623g.size() > 0) {
+                int size = this.f6623g.size();
                 stringBuffer.append("&clt=");
                 for (int i2 = 0; i2 < size; i2++) {
-                    com.baidu.location.b.a aVar2 = this.f6622g.get(i2);
+                    com.baidu.location.b.a aVar2 = this.f6623g.get(i2);
                     if (aVar2 != null) {
-                        if (aVar2.f6610c != aVar.f6610c) {
-                            stringBuffer.append(aVar2.f6610c);
+                        if (aVar2.f6611c != aVar.f6611c) {
+                            stringBuffer.append(aVar2.f6611c);
                         }
                         stringBuffer.append(FieldBuilder.SE);
-                        if (aVar2.f6611d != aVar.f6611d) {
-                            stringBuffer.append(aVar2.f6611d);
+                        if (aVar2.f6612d != aVar.f6612d) {
+                            stringBuffer.append(aVar2.f6612d);
                         }
                         stringBuffer.append(FieldBuilder.SE);
-                        if (aVar2.f6608a != aVar.f6608a) {
-                            stringBuffer.append(aVar2.f6608a);
+                        if (aVar2.f6609a != aVar.f6609a) {
+                            stringBuffer.append(aVar2.f6609a);
                         }
                         stringBuffer.append(FieldBuilder.SE);
-                        if (aVar2.f6609b != aVar.f6609b) {
-                            stringBuffer.append(aVar2.f6609b);
+                        if (aVar2.f6610b != aVar.f6610b) {
+                            stringBuffer.append(aVar2.f6610b);
                         }
                         stringBuffer.append(FieldBuilder.SE);
-                        stringBuffer.append((System.currentTimeMillis() - aVar2.f6614g) / 1000);
+                        stringBuffer.append((System.currentTimeMillis() - aVar2.f6615g) / 1000);
                         stringBuffer.append(";");
                     }
                 }
             }
         } catch (Exception unused) {
         }
-        if (f6616a > 100) {
-            f6616a = 0;
+        if (f6617a > 100) {
+            f6617a = 0;
         }
-        stringBuffer.append("&cs=" + (f6616a + (f6617b << 8)));
+        int i3 = f6617a + (f6618b << 8);
+        stringBuffer.append("&cs=" + i3);
         String str = aVar.j;
         if (str != null) {
             stringBuffer.append(str);
@@ -608,15 +604,15 @@ public class b {
             return;
         }
         if (com.baidu.location.f.isServing) {
-            this.f6619d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
-            this.f6622g = new LinkedList();
-            this.f6623h = new a();
+            this.f6620d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
+            this.f6623g = new LinkedList();
+            this.f6624h = new a();
             i();
-            if (this.f6619d == null || this.f6623h == null) {
+            if (this.f6620d == null || this.f6624h == null) {
                 return;
             }
             try {
-                this.f6619d.listen(this.f6623h, AuthorityState.STATE_INIT_ING);
+                this.f6620d.listen(this.f6624h, AuthorityState.STATE_INIT_ING);
             } catch (Exception unused) {
             }
             this.i = true;
@@ -625,13 +621,13 @@ public class b {
 
     public synchronized void c() {
         if (this.i) {
-            if (this.f6623h != null && this.f6619d != null) {
-                this.f6619d.listen(this.f6623h, 0);
+            if (this.f6624h != null && this.f6620d != null) {
+                this.f6620d.listen(this.f6624h, 0);
             }
-            this.f6623h = null;
-            this.f6619d = null;
-            this.f6622g.clear();
-            this.f6622g = null;
+            this.f6624h = null;
+            this.f6620d = null;
+            this.f6623g.clear();
+            this.f6623g = null;
             j();
             this.i = false;
         }
@@ -642,7 +638,7 @@ public class b {
     }
 
     public int e() {
-        TelephonyManager telephonyManager = this.f6619d;
+        TelephonyManager telephonyManager = this.f6620d;
         if (telephonyManager == null) {
             return 0;
         }
@@ -655,35 +651,35 @@ public class b {
 
     public com.baidu.location.b.a f() {
         com.baidu.location.b.a aVar;
-        com.baidu.location.b.a aVar2 = this.f6620e;
-        if ((aVar2 == null || !aVar2.a() || !this.f6620e.b()) && this.f6619d != null) {
+        com.baidu.location.b.a aVar2 = this.f6621e;
+        if ((aVar2 == null || !aVar2.a() || !this.f6621e.b()) && this.f6620d != null) {
             try {
                 k();
             } catch (Exception unused) {
             }
         }
-        com.baidu.location.b.a aVar3 = this.f6620e;
+        com.baidu.location.b.a aVar3 = this.f6621e;
         if (aVar3 != null && aVar3.e()) {
-            this.f6621f = null;
-            com.baidu.location.b.a aVar4 = this.f6620e;
-            this.f6621f = new com.baidu.location.b.a(aVar4.f6608a, aVar4.f6609b, aVar4.f6610c, aVar4.f6611d, aVar4.f6615h, aVar4.i);
+            this.f6622f = null;
+            com.baidu.location.b.a aVar4 = this.f6621e;
+            this.f6622f = new com.baidu.location.b.a(aVar4.f6609a, aVar4.f6610b, aVar4.f6611c, aVar4.f6612d, aVar4.f6616h, aVar4.i);
         }
-        com.baidu.location.b.a aVar5 = this.f6620e;
-        if (aVar5 != null && aVar5.d() && (aVar = this.f6621f) != null) {
-            com.baidu.location.b.a aVar6 = this.f6620e;
+        com.baidu.location.b.a aVar5 = this.f6621e;
+        if (aVar5 != null && aVar5.d() && (aVar = this.f6622f) != null) {
+            com.baidu.location.b.a aVar6 = this.f6621e;
             if (aVar6.i == 'g') {
-                aVar6.f6611d = aVar.f6611d;
-                aVar6.f6610c = aVar.f6610c;
+                aVar6.f6612d = aVar.f6612d;
+                aVar6.f6611c = aVar.f6611c;
             }
         }
-        return this.f6620e;
+        return this.f6621e;
     }
 
     public String g() {
         int i = -1;
         try {
-            if (this.f6619d != null) {
-                i = this.f6619d.getSimState();
+            if (this.f6620d != null) {
+                i = this.f6620d.getSimState();
             }
         } catch (Exception unused) {
         }
@@ -693,7 +689,7 @@ public class b {
     public int h() {
         String str;
         try {
-            str = this.f6619d.getSubscriberId();
+            str = this.f6620d.getSubscriberId();
         } catch (Exception unused) {
             str = null;
         }

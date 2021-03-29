@@ -7,11 +7,10 @@ public class e implements Comparator<d> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(d dVar, d dVar2) {
-        long j = dVar.f41927c;
-        long j2 = dVar2.f41927c;
-        if (j > j2) {
+        int i = (dVar.f41928c > dVar2.f41928c ? 1 : (dVar.f41928c == dVar2.f41928c ? 0 : -1));
+        if (i > 0) {
             return 1;
         }
-        return j == j2 ? 0 : -1;
+        return i == 0 ? 0 : -1;
     }
 }

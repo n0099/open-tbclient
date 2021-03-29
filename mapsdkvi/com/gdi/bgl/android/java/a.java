@@ -5,8 +5,8 @@ import android.graphics.Typeface;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Typeface f68119a = null;
+    public Typeface f68124a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68120b = 0;
+    public int f68125b = 0;
 }

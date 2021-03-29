@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class BussinessUtils {
     /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
         if (r2 != null) goto L11;

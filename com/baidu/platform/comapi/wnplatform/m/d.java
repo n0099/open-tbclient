@@ -3,27 +3,27 @@ package com.baidu.platform.comapi.wnplatform.m;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10313a = "d";
+    public static final String f10314a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f10314b;
+    public static d f10315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10315c = false;
+    public boolean f10316c = false;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f10314b == null) {
-                f10314b = new d();
+            if (f10315b == null) {
+                f10315b = new d();
             }
-            dVar = f10314b;
+            dVar = f10315b;
         }
         return dVar;
     }
 
     public synchronized void a(boolean z) {
-        com.baidu.platform.comapi.wnplatform.d.a.b(f10313a + "setBusy:" + z);
-        this.f10315c = z;
+        com.baidu.platform.comapi.wnplatform.d.a.b(f10314a + "setBusy:" + z);
+        this.f10316c = z;
     }
 }

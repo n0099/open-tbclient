@@ -5,41 +5,41 @@ import com.qq.e.comm.pi.CustomLandingPageListener;
 public final class GlobalSetting {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile CustomLandingPageListener f38309a = null;
+    public static volatile CustomLandingPageListener f38310a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Integer f38310b = null;
+    public static volatile Integer f38311b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f38311c = false;
+    public static volatile boolean f38312c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f38312d = true;
+    public static volatile boolean f38313d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile Boolean f38313e;
+    public static volatile Boolean f38314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile String f38314f;
+    public static volatile String f38315f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f38315g;
+    public static volatile String f38316g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile String f38316h;
+    public static volatile String f38317h;
     public static volatile String i;
     public static volatile String j;
 
     public static Integer getChannel() {
-        return f38310b;
+        return f38311b;
     }
 
     public static String getCustomADActivityClassName() {
-        return f38314f;
+        return f38315f;
     }
 
     public static CustomLandingPageListener getCustomLandingPageListener() {
-        return f38309a;
+        return f38310a;
     }
 
     public static String getCustomLandscapeActivityClassName() {
@@ -47,7 +47,7 @@ public final class GlobalSetting {
     }
 
     public static String getCustomPortraitActivityClassName() {
-        return f38315g;
+        return f38316g;
     }
 
     public static String getCustomRewardvideoLandscapeActivityClassName() {
@@ -55,46 +55,46 @@ public final class GlobalSetting {
     }
 
     public static String getCustomRewardvideoPortraitActivityClassName() {
-        return f38316h;
+        return f38317h;
     }
 
     public static Boolean isAgreePrivacyStrategy() {
-        return f38313e;
+        return f38314e;
     }
 
     public static boolean isAgreePrivacyStrategyNonNull() {
-        if (f38313e != null) {
-            return f38313e.booleanValue();
+        if (f38314e != null) {
+            return f38314e.booleanValue();
         }
         return true;
     }
 
     public static boolean isEnableMediationTool() {
-        return f38311c;
+        return f38312c;
     }
 
     public static boolean isEnableVideoDownloadingCache() {
-        return f38312d;
+        return f38313d;
     }
 
     public static void setAgreePrivacyStrategy(boolean z) {
-        if (f38313e == null) {
-            f38313e = Boolean.valueOf(z);
+        if (f38314e == null) {
+            f38314e = Boolean.valueOf(z);
         }
     }
 
     public static void setChannel(int i2) {
-        if (f38310b == null) {
-            f38310b = Integer.valueOf(i2);
+        if (f38311b == null) {
+            f38311b = Integer.valueOf(i2);
         }
     }
 
     public static void setCustomADActivityClassName(String str) {
-        f38314f = str;
+        f38315f = str;
     }
 
     public static void setCustomLandingPageListener(CustomLandingPageListener customLandingPageListener) {
-        f38309a = customLandingPageListener;
+        f38310a = customLandingPageListener;
     }
 
     public static void setCustomLandscapeActivityClassName(String str) {
@@ -102,7 +102,7 @@ public final class GlobalSetting {
     }
 
     public static void setCustomPortraitActivityClassName(String str) {
-        f38315g = str;
+        f38316g = str;
     }
 
     public static void setCustomRewardvideoLandscapeActivityClassName(String str) {
@@ -110,14 +110,14 @@ public final class GlobalSetting {
     }
 
     public static void setCustomRewardvideoPortraitActivityClassName(String str) {
-        f38316h = str;
+        f38317h = str;
     }
 
     public static void setEnableMediationTool(boolean z) {
-        f38311c = z;
+        f38312c = z;
     }
 
     public static void setEnableVideoDownloadingCache(boolean z) {
-        f38312d = z;
+        f38313d = z;
     }
 }

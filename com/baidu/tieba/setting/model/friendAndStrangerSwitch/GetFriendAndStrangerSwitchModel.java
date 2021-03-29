@@ -12,7 +12,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21000e;
+    public HttpMessageListener f21001e;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -33,7 +33,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public GetFriendAndStrangerSwitchModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f21000e = aVar;
+        this.f21001e = aVar;
         registerListener(aVar);
         LoadData();
     }

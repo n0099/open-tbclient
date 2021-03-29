@@ -8,7 +8,7 @@ import tbclient.Error;
 import tbclient.RecommendForumListForBottle.DataRes;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetBottleForumListHttpResMessage extends HttpResponsedMessage {
     public List<ForumInfo> mBottleForumList;
 

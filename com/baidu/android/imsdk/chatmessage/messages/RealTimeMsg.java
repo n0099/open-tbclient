@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoProGuard {
     public int mDuration;
     public boolean mSucess;

@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushManager {
     public static final String TAG = "PushManager";
 
@@ -80,7 +80,7 @@ public class PushManager {
     }
 
     public static void enableHuaweiProxy(Context context, boolean z) {
-        PushSettings.f2673c = z ? 1 : 0;
+        PushSettings.f2674c = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", z ? 1 : 0);
     }
 
@@ -88,11 +88,11 @@ public class PushManager {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f3012e = str;
+        f.f3013e = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
-        f.f3013f = str2;
+        f.f3014f = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
-        PushSettings.f2674d = z ? 1 : 0;
+        PushSettings.f2675d = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", z ? 1 : 0);
     }
 
@@ -100,29 +100,29 @@ public class PushManager {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f3014g = str;
+        f.f3015g = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
-        f.f3015h = str2;
+        f.f3016h = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        PushSettings.f2675e = z ? 1 : 0;
+        PushSettings.f2676e = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableVivoProxy(Context context, boolean z) {
-        PushSettings.f2676f = z ? 1 : 0;
+        PushSettings.f2677f = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableXiaomiProxy(Context context, boolean z, String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            f.f3010c = str;
+            f.f3011c = str;
             com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPID_KEY", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            f.f3011d = str2;
+            f.f3012d = str2;
             com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
-        PushSettings.f2672b = z ? 1 : 0;
+        PushSettings.f2673b = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", z ? 1 : 0);
     }
 
@@ -326,8 +326,8 @@ public class PushManager {
         if (f.m(context)) {
             return;
         }
-        f.f3008a = i;
-        f.f3009b = str;
+        f.f3009a = i;
+        f.f3010b = str;
         h.b(context);
         String f2 = m.f(context, str);
         if (TextUtils.isEmpty(f2)) {
@@ -337,7 +337,7 @@ public class PushManager {
         com.baidu.android.pushservice.g.a.a("PushManager", "startWork from " + context.getPackageName() + " checkResult: " + f2, context.getApplicationContext());
         m.a("startWork from " + context.getPackageName() + " checkResult: " + f2, context);
         if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i == 0) {
-            f.a(context, i, f.f3009b);
+            f.a(context, i, f.f3010b);
         } else {
             if (i != 0) {
                 Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");

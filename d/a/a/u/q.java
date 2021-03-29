@@ -14,10 +14,10 @@ import java.lang.ref.WeakReference;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f41433a = new LinearInterpolator();
+    public static final Interpolator f41434a = new LinearInterpolator();
 
     /* renamed from: b  reason: collision with root package name */
-    public static SparseArrayCompat<WeakReference<Interpolator>> f41434b;
+    public static SparseArrayCompat<WeakReference<Interpolator>> f41435b;
 
     @Nullable
     public static WeakReference<Interpolator> a(int i) {
@@ -118,7 +118,7 @@ public class q {
         }
         jsonReader.endObject();
         if (z) {
-            interpolator = f41433a;
+            interpolator = f41434a;
             t2 = t;
         } else if (pointF != null && pointF2 != null) {
             float f4 = -f2;
@@ -139,7 +139,7 @@ public class q {
             }
             interpolator = interpolator2;
         } else {
-            interpolator = f41433a;
+            interpolator = f41434a;
         }
         d.a.a.w.a<T> aVar = new d.a.a.w.a<>(dVar, t, t2, interpolator, f3, null);
         aVar.i = pointF3;
@@ -152,15 +152,15 @@ public class q {
     }
 
     public static SparseArrayCompat<WeakReference<Interpolator>> e() {
-        if (f41434b == null) {
-            f41434b = new SparseArrayCompat<>();
+        if (f41435b == null) {
+            f41435b = new SparseArrayCompat<>();
         }
-        return f41434b;
+        return f41435b;
     }
 
     public static void f(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            f41434b.put(i, weakReference);
+            f41435b.put(i, weakReference);
         }
     }
 }

@@ -2579,16 +2579,16 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             updateViewCacheSize();
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:100:0x0212  */
-        /* JADX WARN: Removed duplicated region for block: B:106:0x022e A[ADDED_TO_REGION] */
+        /* JADX WARN: Removed duplicated region for block: B:100:0x0211  */
+        /* JADX WARN: Removed duplicated region for block: B:106:0x022d A[ADDED_TO_REGION] */
         /* JADX WARN: Removed duplicated region for block: B:18:0x0037  */
         /* JADX WARN: Removed duplicated region for block: B:27:0x005c  */
         /* JADX WARN: Removed duplicated region for block: B:29:0x005f  */
-        /* JADX WARN: Removed duplicated region for block: B:76:0x018b  */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x01a8  */
-        /* JADX WARN: Removed duplicated region for block: B:85:0x01cb  */
-        /* JADX WARN: Removed duplicated region for block: B:90:0x01da  */
-        /* JADX WARN: Removed duplicated region for block: B:99:0x0204  */
+        /* JADX WARN: Removed duplicated region for block: B:76:0x018a  */
+        /* JADX WARN: Removed duplicated region for block: B:82:0x01a7  */
+        /* JADX WARN: Removed duplicated region for block: B:85:0x01ca  */
+        /* JADX WARN: Removed duplicated region for block: B:90:0x01d9  */
+        /* JADX WARN: Removed duplicated region for block: B:99:0x0203  */
         @Nullable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -3793,7 +3793,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
 
         public void setFlags(int i, int i2) {
-            this.mFlags = (i & i2) | (this.mFlags & (i2 ^ (-1)));
+            this.mFlags = (i & i2) | (this.mFlags & (~i2));
         }
 
         public final void setIsRecyclable(boolean z) {

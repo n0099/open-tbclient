@@ -5,48 +5,48 @@ import android.content.Context;
 public class s1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40025a;
+    public Context f40026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40026b;
+    public String f40027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40027c;
+    public String f40028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public S0 f40028d;
+    public S0 f40029d;
 
     public s1(Context context) {
-        this.f40025a = context;
+        this.f40026a = context;
     }
 
     public s1 a(S0 s0) {
-        this.f40028d = s0;
+        this.f40029d = s0;
         return this;
     }
 
     public void a() {
-        this.f40027c = t1.f40038d + t1.f40040f;
+        this.f40028c = t1.f40039d + t1.f40041f;
         t1.a(this);
     }
 
     public void b() {
-        this.f40027c = t1.f40038d + t1.f40041g;
+        this.f40028c = t1.f40039d + t1.f40042g;
         t1.a(this);
     }
 
     public void c() {
-        this.f40027c = t1.f40038d + t1.f40039e;
+        this.f40028c = t1.f40039d + t1.f40040e;
         t1.a(this);
     }
 
     public void d() {
-        this.f40027c = t1.f40038d + t1.i;
+        this.f40028c = t1.f40039d + t1.i;
         t1.a(this);
     }
 
     public void e() {
-        this.f40027c = t1.f40038d + t1.f40042h;
+        this.f40028c = t1.f40039d + t1.f40043h;
         t1.a(this);
     }
 }

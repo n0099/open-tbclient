@@ -9,54 +9,48 @@ import com.win.opensdk.core.Info;
 public class t0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f40030a;
+    public View f40031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40031b;
+    public boolean f40032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s0 f40032c;
+    public s0 f40033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f40033d;
+    public Info f40034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f40034e = new q0(this, Looper.getMainLooper());
+    public Handler f40035e = new q0(this, Looper.getMainLooper());
 
     public void a(View view, Info info, s0 s0Var) {
-        this.f40030a = view;
-        this.f40032c = s0Var;
-        this.f40033d = info;
+        this.f40031a = view;
+        this.f40033c = s0Var;
+        this.f40034d = info;
         try {
-            if (!this.f40031b) {
-                this.f40034e.sendEmptyMessage(1101);
+            if (!this.f40032b) {
+                this.f40035e.sendEmptyMessage(1101);
             }
-            this.f40030a.getViewTreeObserver().addOnScrollChangedListener(new r0(this, s0Var));
+            this.f40031a.getViewTreeObserver().addOnScrollChangedListener(new r0(this, s0Var));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0051 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004b A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a(View view) {
-        Rect rect;
         boolean z;
         if (view == null || !view.isShown()) {
             return false;
         }
-        if (view.getGlobalVisibleRect(new Rect()) && this.f40033d != null) {
-            double measuredWidth = view.getMeasuredWidth();
-            double sper = this.f40033d.getSper();
-            Double.isNaN(measuredWidth);
-            if (rect.width() >= sper * measuredWidth) {
-                double measuredHeight = view.getMeasuredHeight();
-                double sper2 = this.f40033d.getSper();
-                Double.isNaN(measuredHeight);
-                if (rect.height() >= sper2 * measuredHeight) {
+        Rect rect = new Rect();
+        if (view.getGlobalVisibleRect(rect) && this.f40034d != null) {
+            if (rect.width() >= this.f40034d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f40034d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

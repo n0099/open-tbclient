@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.spswitch.handler.SPSwitchRootLayoutHandler;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
     public SPSwitchRootLayoutHandler conflictHandler;
 

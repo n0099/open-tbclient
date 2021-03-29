@@ -22,7 +22,6 @@ public final class PublishSubject<T> extends a<T> {
         public void dispose() {
             if (compareAndSet(false, true)) {
                 this.parent.c(this);
-                throw null;
             }
         }
 
@@ -54,7 +53,5 @@ public final class PublishSubject<T> extends a<T> {
         }
     }
 
-    public void c(PublishDisposable<T> publishDisposable) {
-        throw null;
-    }
+    public abstract void c(PublishDisposable<T> publishDisposable);
 }

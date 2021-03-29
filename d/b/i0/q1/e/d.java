@@ -22,52 +22,52 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public NoNetworkView f59359a;
+    public NoNetworkView f59360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f59360b;
+    public NavigationBar f59361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f59361c;
+    public BdListView f59362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f59362d;
+    public View f59363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f59363e;
+    public b f59364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f59364f;
+    public View f59365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f59365g;
+    public TbImageView f59366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59366h;
+    public TextView f59367h;
     public MemberTaskCenterActivity i;
 
     public d(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
         this.i = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.member_task_center_activity);
-        this.f59362d = memberTaskCenterActivity.findViewById(R.id.root_view);
-        this.f59359a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
+        this.f59363d = memberTaskCenterActivity.findViewById(R.id.root_view);
+        this.f59360a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
         NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
-        this.f59360b = navigationBar;
+        this.f59361b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f59360b.setTitleText(R.string.member_task_center);
-        this.f59361c = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
-        this.f59364f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
-        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.f59361c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f59364f.findViewById(R.id.advert_image_view);
-        this.f59365g = tbImageView;
+        this.f59361b.setTitleText(R.string.member_task_center);
+        this.f59362c = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
+        this.f59365f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
+        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.f59362c, BdListViewHelper.HeadType.DEFAULT);
+        TbImageView tbImageView = (TbImageView) this.f59365f.findViewById(R.id.advert_image_view);
+        this.f59366g = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f59366h = (TextView) this.f59364f.findViewById(R.id.current_score_num);
-        this.f59365g.setOnClickListener(onClickListener);
+        this.f59367h = (TextView) this.f59365f.findViewById(R.id.current_score_num);
+        this.f59366g.setOnClickListener(onClickListener);
         b bVar = new b(memberTaskCenterActivity);
-        this.f59363e = bVar;
+        this.f59364e = bVar;
         bVar.d(onClickListener);
-        this.f59361c.addHeaderView(this.f59364f);
-        this.f59361c.setAdapter((ListAdapter) this.f59363e);
+        this.f59362c.addHeaderView(this.f59365f);
+        this.f59362c.setAdapter((ListAdapter) this.f59364e);
     }
 
     public final SpannableString a(String str, String str2) {
@@ -78,23 +78,23 @@ public class d {
     }
 
     public BdListView b() {
-        return this.f59361c;
+        return this.f59362c;
     }
 
     public View c() {
-        return this.f59362d;
+        return this.f59363d;
     }
 
     public void d(int i) {
-        this.f59360b.onChangeSkinType(this.i.getPageContext(), i);
-        this.f59359a.c(this.i.getPageContext(), i);
-        SkinManager.setBackgroundColor(this.f59366h, R.color.CAM_X0205);
+        this.f59361b.onChangeSkinType(this.i.getPageContext(), i);
+        this.f59360a.c(this.i.getPageContext(), i);
+        SkinManager.setBackgroundColor(this.f59367h, R.color.CAM_X0205);
     }
 
     public void e(String str, List<r> list, long j) {
-        this.f59365g.W(str, 10, false);
-        this.f59366h.setText(a(this.i.getResources().getString(R.string.current_score), String.valueOf(j)));
-        this.f59363e.c(list);
-        this.f59363e.notifyDataSetChanged();
+        this.f59366g.W(str, 10, false);
+        this.f59367h.setText(a(this.i.getResources().getString(R.string.current_score), String.valueOf(j)));
+        this.f59364e.c(list);
+        this.f59364e.notifyDataSetChanged();
     }
 }

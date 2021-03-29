@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmotionUsageUtil {
     public static final String EMOTION_USAGE_FILE_NAME = "emotion-usage.json";
     public static int LRU_MAX_COUNT = 5;

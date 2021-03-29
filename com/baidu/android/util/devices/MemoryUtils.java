@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MemoryUtils {
     public static final int BUFFER_SIZE = 8192;
     public static final boolean DEBUG = false;

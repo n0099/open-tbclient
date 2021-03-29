@@ -123,7 +123,7 @@ public final class ResourcesCompat {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00a4  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00a3  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

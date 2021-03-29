@@ -29,7 +29,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class StatisticPoster {
     public static final boolean DEBUG = false;
     public static final int DOWNLOAD_STATUS_ERROR = 2;

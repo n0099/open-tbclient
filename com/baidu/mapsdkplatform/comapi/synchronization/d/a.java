@@ -5,7 +5,7 @@ import android.util.Log;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7750a = true;
+    public static boolean f7751a = true;
 
     public static String a() {
         StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
@@ -13,19 +13,19 @@ public final class a {
     }
 
     public static void a(String str, String str2) {
-        if (f7750a) {
+        if (f7751a) {
             Log.d(str, str2);
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f7750a) {
+        if (f7751a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(boolean z) {
-        f7750a = z;
+        f7751a = z;
     }
 
     public static String b() {
@@ -33,7 +33,7 @@ public final class a {
     }
 
     public static void b(String str, String str2) {
-        if (f7750a) {
+        if (f7751a) {
             Log.e(str, str2);
         }
     }

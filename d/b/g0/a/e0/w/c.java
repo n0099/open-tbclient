@@ -4,35 +4,35 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44324a = k.f45050a;
+    public static final boolean f44325a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LruCache<String, Object> f44325b;
+    public static LruCache<String, Object> f44326b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f44326a = new c();
+        public static final c f44327a = new c();
     }
 
     public static c b() {
-        return b.f44326a;
+        return b.f44327a;
     }
 
     public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
         if (TextUtils.isEmpty(str)) {
             return config;
         }
-        CONFIG config2 = (CONFIG) f44325b.get(str);
+        CONFIG config2 = (CONFIG) f44326b.get(str);
         if (config2 == null) {
             return config;
         }
-        if (f44324a) {
+        if (f44325a) {
             Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
         }
         return config2;
@@ -40,14 +40,14 @@ public final class c {
 
     public synchronized <CONFIG> void c(String str, CONFIG config) {
         if (!TextUtils.isEmpty(str) && config != null) {
-            if (f44324a) {
+            if (f44325a) {
                 Log.d("SwanAppConfigCache", "putConfig key: " + str);
             }
-            f44325b.put(str, config);
+            f44326b.put(str, config);
         }
     }
 
     public c() {
-        f44325b = new LruCache<>(10);
+        f44326b = new LruCache<>(10);
     }
 }

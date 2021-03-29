@@ -18,28 +18,28 @@ import com.baidu.wallet.utils.AccessibilityUtils;
 public class FastPayTabSwitchView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f24450a;
+    public RelativeLayout f24451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f24451b;
+    public RelativeLayout f24452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24452c;
+    public TextView f24453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24453d;
+    public TextView f24454d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f24454e;
+    public TextView f24455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24455f;
+    public TextView f24456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f24456g;
+    public a f24457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24457h;
+    public boolean f24458h;
     public boolean i;
 
     /* loaded from: classes5.dex */
@@ -51,72 +51,72 @@ public class FastPayTabSwitchView extends LinearLayout {
 
     public FastPayTabSwitchView(Context context) {
         super(context);
-        this.f24457h = true;
+        this.f24458h = true;
         this.i = BeanConstants.CHANNEL_ID.equals(BeanConstants.CHANNEL_ID_KUANG);
         a();
     }
 
     public boolean isFirstSelected() {
-        return this.f24457h;
+        return this.f24458h;
     }
 
     public void setOnTabChangedListener(a aVar) {
-        this.f24456g = aVar;
+        this.f24457g = aVar;
     }
 
     public void setTabChange(boolean z) {
         int color;
         int color2;
-        TextView textView = this.f24453d;
+        TextView textView = this.f24454d;
         if (z) {
             color = ResUtils.getColor(getContext(), this.i ? "bd_wallet_fp_fix_tip" : "bd_wallet_black");
         } else {
             color = ResUtils.getColor(getContext(), this.i ? "bd_wallet_black" : "wallet_fp_main_color");
         }
         textView.setTextColor(color);
-        this.f24455f.setVisibility(z ? 4 : 0);
-        TextView textView2 = this.f24452c;
+        this.f24456f.setVisibility(z ? 4 : 0);
+        TextView textView2 = this.f24453c;
         if (z) {
             color2 = ResUtils.getColor(getContext(), this.i ? "bd_wallet_black" : "wallet_fp_main_color");
         } else {
             color2 = ResUtils.getColor(getContext(), this.i ? "bd_wallet_fp_fix_tip" : "bd_wallet_black");
         }
         textView2.setTextColor(color2);
-        this.f24454e.setVisibility(z ? 0 : 4);
+        this.f24455e.setVisibility(z ? 0 : 4);
     }
 
     private void b() {
-        this.f24450a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.fastpay.ui.widget.FastPayTabSwitchView.1
+        this.f24451a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.fastpay.ui.widget.FastPayTabSwitchView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                RelativeLayout relativeLayout = FastPayTabSwitchView.this.f24450a;
-                AccessibilityUtils.setContentDescription(relativeLayout, ((Object) FastPayTabSwitchView.this.f24452c.getText()) + "已选中");
-                RelativeLayout relativeLayout2 = FastPayTabSwitchView.this.f24451b;
-                AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) FastPayTabSwitchView.this.f24453d.getText()) + "未选中");
+                RelativeLayout relativeLayout = FastPayTabSwitchView.this.f24451a;
+                AccessibilityUtils.setContentDescription(relativeLayout, ((Object) FastPayTabSwitchView.this.f24453c.getText()) + "已选中");
+                RelativeLayout relativeLayout2 = FastPayTabSwitchView.this.f24452b;
+                AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) FastPayTabSwitchView.this.f24454d.getText()) + "未选中");
                 PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_MOBILE_TABCLICK);
-                if (FastPayTabSwitchView.this.f24457h) {
+                if (FastPayTabSwitchView.this.f24458h) {
                     return;
                 }
-                FastPayTabSwitchView.this.f24457h = true;
+                FastPayTabSwitchView.this.f24458h = true;
                 FastPayTabSwitchView.this.setTabChange(true);
-                if (FastPayTabSwitchView.this.f24456g != null) {
-                    FastPayTabSwitchView.this.f24456g.a();
+                if (FastPayTabSwitchView.this.f24457g != null) {
+                    FastPayTabSwitchView.this.f24457g.a();
                 }
             }
         });
-        this.f24451b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.fastpay.ui.widget.FastPayTabSwitchView.2
+        this.f24452b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.fastpay.ui.widget.FastPayTabSwitchView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                RelativeLayout relativeLayout = FastPayTabSwitchView.this.f24451b;
-                AccessibilityUtils.setContentDescription(relativeLayout, ((Object) FastPayTabSwitchView.this.f24453d.getText()) + "已选中");
-                RelativeLayout relativeLayout2 = FastPayTabSwitchView.this.f24450a;
-                AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) FastPayTabSwitchView.this.f24452c.getText()) + "未选中");
+                RelativeLayout relativeLayout = FastPayTabSwitchView.this.f24452b;
+                AccessibilityUtils.setContentDescription(relativeLayout, ((Object) FastPayTabSwitchView.this.f24454d.getText()) + "已选中");
+                RelativeLayout relativeLayout2 = FastPayTabSwitchView.this.f24451a;
+                AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) FastPayTabSwitchView.this.f24453c.getText()) + "未选中");
                 PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_DATASTREAM_CLICK);
-                if (FastPayTabSwitchView.this.f24457h) {
-                    FastPayTabSwitchView.this.f24457h = false;
+                if (FastPayTabSwitchView.this.f24458h) {
+                    FastPayTabSwitchView.this.f24458h = false;
                     FastPayTabSwitchView.this.setTabChange(false);
-                    if (FastPayTabSwitchView.this.f24456g != null) {
-                        FastPayTabSwitchView.this.f24456g.b();
+                    if (FastPayTabSwitchView.this.f24457g != null) {
+                        FastPayTabSwitchView.this.f24457g.b();
                     }
                 }
             }
@@ -125,30 +125,30 @@ public class FastPayTabSwitchView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), this.i ? "wallet_fp_tab_switch_baiduapp" : "wallet_fp_tab_switch"), this);
-        this.f24450a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_fastpay"));
-        this.f24451b = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_traffic"));
-        this.f24453d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_tv"));
-        this.f24455f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_line"));
-        this.f24452c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_tv"));
-        this.f24454e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_line"));
-        setTabChange(this.f24457h);
-        RelativeLayout relativeLayout = this.f24450a;
-        AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.f24452c.getText()) + "已选中");
-        RelativeLayout relativeLayout2 = this.f24451b;
-        AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.f24453d.getText()) + "未选中");
+        this.f24451a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_fastpay"));
+        this.f24452b = (RelativeLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_switch_traffic"));
+        this.f24454d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_tv"));
+        this.f24456f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_traffic_line"));
+        this.f24453c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_tv"));
+        this.f24455e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fastpay_line"));
+        setTabChange(this.f24458h);
+        RelativeLayout relativeLayout = this.f24451a;
+        AccessibilityUtils.setContentDescription(relativeLayout, ((Object) this.f24453c.getText()) + "已选中");
+        RelativeLayout relativeLayout2 = this.f24452b;
+        AccessibilityUtils.setContentDescription(relativeLayout2, ((Object) this.f24454d.getText()) + "未选中");
         b();
     }
 
     public FastPayTabSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24457h = true;
+        this.f24458h = true;
         this.i = BeanConstants.CHANNEL_ID.equals(BeanConstants.CHANNEL_ID_KUANG);
         a();
     }
 
     public FastPayTabSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f24457h = true;
+        this.f24458h = true;
         this.i = BeanConstants.CHANNEL_ID.equals(BeanConstants.CHANNEL_ID_KUANG);
         a();
     }

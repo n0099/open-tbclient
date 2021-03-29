@@ -6,10 +6,10 @@ import d.b.i0.t.d.c.f.d.f;
 public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f14798a;
+    public f f14799a;
 
     public LiveTabConcernOfflineViewHolder(f fVar) {
         super(fVar.m());
-        this.f14798a = fVar;
+        this.f14799a = fVar;
     }
 }

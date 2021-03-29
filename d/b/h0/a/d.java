@@ -36,28 +36,28 @@ import java.util.regex.Pattern;
 public class d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f49553g = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+    public static final Pattern f49554g = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f49554h = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
+    public static final Pattern f49555h = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49555a;
+    public boolean f49556a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f49556b;
+    public long f49557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public t f49557c;
+    public t f49558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.h0.a.e f49558d;
+    public d.b.h0.a.e f49559d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f49559e = new AtomicBoolean(false);
+    public AtomicBoolean f49560e = new AtomicBoolean(false);
 
     /* renamed from: f  reason: collision with root package name */
-    public e.b f49560f = new a();
+    public e.b f49561f = new a();
 
     /* loaded from: classes3.dex */
     public class a implements e.b {
@@ -99,15 +99,15 @@ public class d {
 
     /* renamed from: d.b.h0.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1041d extends d.b.b.c.g.a {
-        public C1041d(int i, int i2) {
+    public class C1042d extends d.b.b.c.g.a {
+        public C1042d(int i, int i2) {
             super(i, i2);
         }
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage responsedMessage) {
             d.b.h0.a.g decryptData;
-            d.this.f49559e.compareAndSet(true, false);
+            d.this.f49560e.compareAndSet(true, false);
             if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                 decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
             } else if (!(responsedMessage instanceof DecryptCodeSocketRespMsg)) {
@@ -121,7 +121,7 @@ public class d {
             UtilHelper.clearClipBoard();
             int g2 = decryptData.g();
             if (g2 == 1 || g2 == 0) {
-                if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f49589g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
+                if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f49590g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
                     return;
                 }
                 TbadkCoreApplication.getInst().setCurAiAppid(null);
@@ -190,10 +190,10 @@ public class d {
         public void onPostExecute(String str) {
             super.onPostExecute((f) str);
             if (str == null) {
-                if (d.this.f49557c == null || !d.this.z()) {
+                if (d.this.f49558c == null || !d.this.z()) {
                     return;
                 }
-                d.this.f49557c.b();
+                d.this.f49558c.b();
                 return;
             }
             d.this.m(str);
@@ -211,7 +211,7 @@ public class d {
             Matcher matcher;
             if (strArr != null && strArr.length >= 1) {
                 String str = strArr[0];
-                if (!d.b.b.e.p.k.isEmpty(str) && (matcher = d.f49554h.matcher(str)) != null && matcher.find()) {
+                if (!d.b.b.e.p.k.isEmpty(str) && (matcher = d.f49555h.matcher(str)) != null && matcher.find()) {
                     return str;
                 }
             }
@@ -239,7 +239,7 @@ public class d {
             Matcher matcher;
             if (strArr != null && strArr.length >= 1) {
                 String str = strArr[0];
-                if (!d.b.b.e.p.k.isEmpty(str) && (matcher = d.f49553g.matcher(str)) != null && matcher.find()) {
+                if (!d.b.b.e.p.k.isEmpty(str) && (matcher = d.f49554g.matcher(str)) != null && matcher.find()) {
                     return str;
                 }
             }
@@ -250,10 +250,10 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((h) str);
-            if (str == null || d.this.f49559e.get()) {
+            if (str == null || d.this.f49560e.get()) {
                 return;
             }
-            d.this.f49559e.compareAndSet(false, true);
+            d.this.f49560e.compareAndSet(false, true);
             DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
             decryptCodeReqMsg.setCode(str);
             MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -264,15 +264,15 @@ public class d {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f49569a = new d();
+        public static final d f49570a = new d();
     }
 
     public static final d w() {
-        return i.f49569a;
+        return i.f49570a;
     }
 
     public final void A() {
-        MessageManager.getInstance().registerListener(new C1041d(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
+        MessageManager.getInstance().registerListener(new C1042d(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
         MessageManager.getInstance().registerListener(new e(2001011));
     }
 
@@ -299,7 +299,7 @@ public class d {
     }
 
     public final void m(String str) {
-        this.f49558d.c(str);
+        this.f49559d.c(str);
     }
 
     public void n(String str) {
@@ -327,7 +327,7 @@ public class d {
         if (d.b.b.e.p.k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
             return;
         }
-        if (str.startsWith(d.b.h0.a.f.f49574a)) {
+        if (str.startsWith(d.b.h0.a.f.f49575a)) {
             Uri.Builder buildUpon = Uri.parse(str).buildUpon();
             buildUpon.appendQueryParameter(d.b.h0.a.f.w, d.b.h0.a.f.L);
             parse = buildUpon.build();
@@ -336,10 +336,10 @@ public class d {
     }
 
     public final void r(y yVar) {
-        if (yVar == null || yVar.b() == null || d.b.b.e.p.k.isEmpty(yVar.b().f49659a) || !z()) {
+        if (yVar == null || yVar.b() == null || d.b.b.e.p.k.isEmpty(yVar.b().f49660a) || !z()) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, yVar.b().f49659a));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, yVar.b().f49660a));
     }
 
     public void s(String str) {
@@ -357,10 +357,10 @@ public class d {
     }
 
     public final String u() {
-        if (System.currentTimeMillis() - this.f49556b < 2000) {
+        if (System.currentTimeMillis() - this.f49557b < 2000) {
             return null;
         }
-        this.f49556b = System.currentTimeMillis();
+        this.f49557b = System.currentTimeMillis();
         return UtilHelper.getClipBoardContent();
     }
 
@@ -379,15 +379,15 @@ public class d {
     }
 
     public void y(Activity activity) {
-        if (this.f49555a) {
+        if (this.f49556a) {
             return;
         }
         B();
         A();
         d.b.h0.a.e eVar = new d.b.h0.a.e();
-        this.f49558d = eVar;
-        eVar.g(this.f49560f);
-        this.f49557c = new t();
+        this.f49559d = eVar;
+        eVar.g(this.f49561f);
+        this.f49558c = new t();
         String u = u();
         if (!d.b.b.e.p.k.isEmpty(u)) {
             w().l(u);
@@ -396,7 +396,7 @@ public class d {
         } else if (RomTypeUtil.isEmui() || RomTypeUtil.isOnePlus()) {
             d.b.b.e.m.e.a().postDelayed(new c(), 2000L);
         }
-        this.f49555a = true;
+        this.f49556a = true;
     }
 
     public final boolean z() {

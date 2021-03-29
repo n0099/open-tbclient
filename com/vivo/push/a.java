@@ -9,18 +9,18 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f39347a;
+    public Bundle f39348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39348b;
+    public String f39349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39349c;
+    public String f39350c;
 
     public a(String str, String str2, Bundle bundle) {
-        this.f39348b = str;
-        this.f39349c = str2;
-        this.f39347a = bundle;
+        this.f39349b = str;
+        this.f39350c = str2;
+        this.f39348a = bundle;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x001b, code lost:
@@ -55,12 +55,12 @@ public final class a {
     }
 
     public final int b(String str, int i) {
-        Bundle bundle = this.f39347a;
+        Bundle bundle = this.f39348a;
         return bundle == null ? i : bundle.getInt(str, i);
     }
 
     public final Serializable c(String str) {
-        Bundle bundle = this.f39347a;
+        Bundle bundle = this.f39348a;
         if (bundle == null) {
             return null;
         }
@@ -68,7 +68,7 @@ public final class a {
     }
 
     public final boolean d(String str) {
-        Bundle bundle = this.f39347a;
+        Bundle bundle = this.f39348a;
         if (bundle == null) {
             return false;
         }
@@ -76,7 +76,7 @@ public final class a {
     }
 
     public final ArrayList<String> b(String str) {
-        Bundle bundle = this.f39347a;
+        Bundle bundle = this.f39348a;
         if (bundle == null) {
             return null;
         }
@@ -84,58 +84,58 @@ public final class a {
     }
 
     public final long b(String str, long j) {
-        Bundle bundle = this.f39347a;
+        Bundle bundle = this.f39348a;
         return bundle == null ? j : bundle.getLong(str, j);
     }
 
     public final Bundle b() {
-        return this.f39347a;
+        return this.f39348a;
     }
 
     public final void a(String str, int i) {
-        if (this.f39347a == null) {
-            this.f39347a = new Bundle();
+        if (this.f39348a == null) {
+            this.f39348a = new Bundle();
         }
-        this.f39347a.putInt(str, i);
+        this.f39348a.putInt(str, i);
     }
 
     public final void a(String str, long j) {
-        if (this.f39347a == null) {
-            this.f39347a = new Bundle();
+        if (this.f39348a == null) {
+            this.f39348a = new Bundle();
         }
-        this.f39347a.putLong(str, j);
+        this.f39348a.putLong(str, j);
     }
 
     public final void a(String str, String str2) {
-        if (this.f39347a == null) {
-            this.f39347a = new Bundle();
+        if (this.f39348a == null) {
+            this.f39348a = new Bundle();
         }
-        this.f39347a.putString(str, str2);
+        this.f39348a.putString(str, str2);
     }
 
     public final void a(String str, Serializable serializable) {
-        if (this.f39347a == null) {
-            this.f39347a = new Bundle();
+        if (this.f39348a == null) {
+            this.f39348a = new Bundle();
         }
-        this.f39347a.putSerializable(str, serializable);
+        this.f39348a.putSerializable(str, serializable);
     }
 
     public final void a(String str, boolean z) {
-        if (this.f39347a == null) {
-            this.f39347a = new Bundle();
+        if (this.f39348a == null) {
+            this.f39348a = new Bundle();
         }
-        this.f39347a.putBoolean(str, z);
+        this.f39348a.putBoolean(str, z);
     }
 
     public final void a(String str, ArrayList<String> arrayList) {
-        if (this.f39347a == null) {
-            this.f39347a = new Bundle();
+        if (this.f39348a == null) {
+            this.f39348a = new Bundle();
         }
-        this.f39347a.putStringArrayList(str, arrayList);
+        this.f39348a.putStringArrayList(str, arrayList);
     }
 
     public final String a(String str) {
-        Bundle bundle = this.f39347a;
+        Bundle bundle = this.f39348a;
         if (bundle == null) {
             return null;
         }
@@ -143,6 +143,6 @@ public final class a {
     }
 
     public final String a() {
-        return this.f39348b;
+        return this.f39349b;
     }
 }

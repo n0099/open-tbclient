@@ -27,29 +27,29 @@ import java.lang.reflect.Field;
 public class NaSlideActiviy extends AppCompatActivity {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11016g = "NaSlideActivity";
+    public static final String f11017g = "NaSlideActivity";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f11017h = true;
+    public static final boolean f11018h = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11018a = false;
+    public boolean f11019a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11019b = false;
+    public boolean f11020b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11020c = false;
+    public boolean f11021c = false;
     public SapiConfiguration configuration = SapiAccountManager.getInstance().getConfignation();
 
     /* renamed from: d  reason: collision with root package name */
-    public SlideInterceptor f11021d;
+    public SlideInterceptor f11022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlidingPaneLayout.PanelSlideListener f11022e;
+    public SlidingPaneLayout.PanelSlideListener f11023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f11023f;
+    public WeakReference<Activity> f11024f;
     public SlideHelper mSlideHelper;
 
     private void b() {
@@ -68,13 +68,13 @@ public class NaSlideActiviy extends AppCompatActivity {
     }
 
     public void forceActivityTransparent(boolean z) {
-        this.f11020c = z;
+        this.f11021c = z;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        Log.d(f11016g, "onConfigurationChanged: ");
+        Log.d(f11017g, "onConfigurationChanged: ");
         SlideHelper slideHelper = this.mSlideHelper;
         if (slideHelper != null) {
             slideHelper.setCanSlide(configuration.orientation != 2);
@@ -89,9 +89,9 @@ public class NaSlideActiviy extends AppCompatActivity {
         super.onCreate(bundle);
         SapiConfiguration sapiConfiguration = this.configuration;
         if (sapiConfiguration != null && sapiConfiguration.supportGestureSlide) {
-            this.f11018a = true;
+            this.f11019a = true;
         } else {
-            this.f11018a = false;
+            this.f11019a = false;
         }
         Window window = getWindow();
         if (window != null) {
@@ -102,7 +102,7 @@ public class NaSlideActiviy extends AppCompatActivity {
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        Log.d(f11016g, "onPostCreate");
+        Log.d(f11017g, "onPostCreate");
         a();
     }
 
@@ -115,30 +115,30 @@ public class NaSlideActiviy extends AppCompatActivity {
     }
 
     public void setEnableSliding(boolean z) {
-        this.f11018a = z;
+        this.f11019a = z;
     }
 
     public void setEnableTaskRootSlide(boolean z) {
-        this.f11019b = z;
+        this.f11020b = z;
     }
 
     public void setSlideExtraListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
-        this.f11022e = panelSlideListener;
+        this.f11023e = panelSlideListener;
     }
 
     public void setEnableSliding(boolean z, SlideInterceptor slideInterceptor) {
-        this.f11018a = z;
-        this.f11021d = slideInterceptor;
+        this.f11019a = z;
+        this.f11022d = slideInterceptor;
     }
 
     private void a() {
-        if (this.f11018a) {
+        if (this.f11019a) {
             boolean z = getResources().getConfiguration().orientation != 2;
-            if (!this.f11019b && isTaskRoot()) {
+            if (!this.f11020b && isTaskRoot()) {
                 z = false;
             }
             if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                Log.e(f11016g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
+                Log.e(f11017g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             final int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
@@ -146,21 +146,21 @@ public class NaSlideActiviy extends AppCompatActivity {
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideActivity(this);
             this.mSlideHelper.setCanSlide(z);
-            this.mSlideHelper.forceActivityTransparent(this.f11020c);
-            this.mSlideHelper.setSlideInterceptor(this.f11021d);
+            this.mSlideHelper.forceActivityTransparent(this.f11021c);
+            this.mSlideHelper.setSlideInterceptor(this.f11022d);
             this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.sapi2.activity.NaSlideActiviy.2
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
-                    if (NaSlideActiviy.this.f11022e != null) {
-                        NaSlideActiviy.this.f11022e.onPanelClosed(view);
+                    if (NaSlideActiviy.this.f11023e != null) {
+                        NaSlideActiviy.this.f11023e.onPanelClosed(view);
                     }
                     NaSlideActiviy.this.a(0.0f);
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelOpened(View view) {
-                    if (NaSlideActiviy.this.f11022e != null) {
-                        NaSlideActiviy.this.f11022e.onPanelOpened(view);
+                    if (NaSlideActiviy.this.f11023e != null) {
+                        NaSlideActiviy.this.f11023e.onPanelOpened(view);
                     }
                     NaSlideActiviy.this.a(0.0f);
                     NaSlideActiviy.this.mSlideHelper.setShadowDrawable(null);
@@ -178,8 +178,8 @@ public class NaSlideActiviy extends AppCompatActivity {
                         }
                         maskView.setAlpha(f3);
                     }
-                    if (NaSlideActiviy.this.f11022e != null) {
-                        NaSlideActiviy.this.f11022e.onPanelSlide(view, f2);
+                    if (NaSlideActiviy.this.f11023e != null) {
+                        NaSlideActiviy.this.f11023e.onPanelSlide(view, f2);
                     }
                     float f4 = i >> 2;
                     NaSlideActiviy.this.a((f2 * f4) - f4);
@@ -191,12 +191,12 @@ public class NaSlideActiviy extends AppCompatActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f2) {
         try {
-            if (this.f11023f == null || this.f11023f.get() == null) {
-                this.f11023f = new WeakReference<>(a.e().b());
+            if (this.f11024f == null || this.f11024f.get() == null) {
+                this.f11024f = new WeakReference<>(a.e().b());
             }
-            if (this.f11023f.get() != null) {
+            if (this.f11024f.get() != null) {
                 Activity c2 = a.e().c();
-                Activity activity = this.f11023f.get();
+                Activity activity = this.f11024f.get();
                 if (c2 != null && activity != null && c2.getLocalClassName().equals(activity.getLocalClassName())) {
                     a(activity, 0.0f);
                 } else {

@@ -138,7 +138,7 @@ public final class ULong implements Comparable<ULong> {
     @InlineOnly
     /* renamed from: inv-impl  reason: not valid java name */
     public static final long m792invimpl(long j) {
-        return m782constructorimpl(j ^ (-1));
+        return m782constructorimpl(~j);
     }
 
     @InlineOnly

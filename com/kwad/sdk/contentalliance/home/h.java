@@ -11,51 +11,51 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32788a;
+    public com.kwad.sdk.core.i.a f32789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsContentPage.PageListener f32789b;
+    public KsContentPage.PageListener f32790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsContentPage.VideoListener f32790c;
+    public KsContentPage.VideoListener f32791c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public LiveSlidHomeParam f32791d;
+    public LiveSlidHomeParam f32792d;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.swipe.c f32794g;
+    public com.kwad.sdk.contentalliance.home.swipe.c f32795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f32795h;
+    public i f32796h;
     public SceneImpl k;
     public volatile boolean l;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.trends.view.c> f32792e = new ArrayList();
+    public List<com.kwad.sdk.contentalliance.trends.view.c> f32793e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.detail.photo.comment.g> f32793f = new ArrayList();
+    public List<com.kwad.sdk.contentalliance.detail.photo.comment.g> f32794f = new ArrayList();
     public boolean i = false;
     public boolean j = false;
 
     public void a() {
-        com.kwad.sdk.core.i.a aVar = this.f32788a;
+        com.kwad.sdk.core.i.a aVar = this.f32789a;
         if (aVar != null) {
             aVar.b();
-            this.f32788a.f();
+            this.f32789a.f();
         }
-        List<com.kwad.sdk.contentalliance.trends.view.c> list = this.f32792e;
+        List<com.kwad.sdk.contentalliance.trends.view.c> list = this.f32793e;
         if (list != null) {
             list.clear();
         }
-        List<com.kwad.sdk.contentalliance.detail.photo.comment.g> list2 = this.f32793f;
+        List<com.kwad.sdk.contentalliance.detail.photo.comment.g> list2 = this.f32794f;
         if (list2 != null) {
             list2.clear();
         }
     }
 
     public void b() {
-        this.f32792e.clear();
+        this.f32793e.clear();
     }
 }

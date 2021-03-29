@@ -28,11 +28,11 @@ public class FrsGameStrategyItemView extends b<d.b.i0.p0.s1.a.a.b> {
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public FrsGameStrategyItemView f16353a;
+        public FrsGameStrategyItemView f16354a;
 
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
             super(frsGameStrategyItemView.m());
-            this.f16353a = frsGameStrategyItemView;
+            this.f16354a = frsGameStrategyItemView;
         }
     }
 
@@ -89,7 +89,7 @@ public class FrsGameStrategyItemView extends b<d.b.i0.p0.s1.a.a.b> {
         String numberUniformFormat = StringHelper.numberUniformFormat(g2.G1());
         String formatTimeShort = StringHelper.getFormatTimeShort(g2.S());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f62181g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f62182g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (g2.s1() == 40) {

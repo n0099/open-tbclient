@@ -263,11 +263,11 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class j implements b.InterfaceC1650b {
+    public class j implements b.InterfaceC1651b {
         public j() {
         }
 
-        @Override // d.b.i0.w2.b.InterfaceC1650b
+        @Override // d.b.i0.w2.b.InterfaceC1651b
         public void a(boolean z, PostPrefixData postPrefixData) {
             if (z) {
                 WriteShareActivity.this.mPrefixData = postPrefixData;
@@ -285,7 +285,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             WriteShareActivity.this.mView.F(null);
         }
 
-        @Override // d.b.i0.w2.b.InterfaceC1650b
+        @Override // d.b.i0.w2.b.InterfaceC1651b
         public void onFailure() {
             WriteShareActivity.this.mPrefixData = null;
             WriteShareActivity.this.mView.F(null);
@@ -324,19 +324,19 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public Activity f21124e;
+        public Activity f21125e;
 
         public m(Activity activity) {
-            this.f21124e = null;
-            this.f21124e = activity;
+            this.f21125e = null;
+            this.f21125e = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f21124e != null) {
+            if (this.f21125e != null) {
                 WriteShareActivity.this.setResult(0);
-                d.b.h0.r.a0.b.g(this.f21124e, 200, false);
-                this.f21124e.finish();
+                d.b.h0.r.a0.b.g(this.f21125e, 200, false);
+                this.f21125e.finish();
             }
         }
     }

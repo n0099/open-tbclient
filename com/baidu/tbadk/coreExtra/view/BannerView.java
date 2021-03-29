@@ -23,16 +23,16 @@ import d.b.i0.r2.t;
 public class BannerView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13735e;
+    public String f13736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13736f;
+    public String f13737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f13737g;
+    public Button f13738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f13738h;
+    public TbImageView f13739h;
     public TbPageContext<?> i;
     public TbImageView j;
     public View k;
@@ -53,9 +53,9 @@ public class BannerView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             BannerView bannerView = BannerView.this;
-            if (view == bannerView.f13737g) {
-                if (!TextUtils.isEmpty(bannerView.f13736f)) {
-                    TiebaStatic.log(BannerView.this.f13736f);
+            if (view == bannerView.f13738g) {
+                if (!TextUtils.isEmpty(bannerView.f13737f)) {
+                    TiebaStatic.log(BannerView.this.f13737f);
                 }
                 BannerView.this.l = true;
                 BannerView.this.setVisibility(8);
@@ -65,8 +65,8 @@ public class BannerView extends RelativeLayout {
                 }
                 return;
             }
-            if (!TextUtils.isEmpty(bannerView.f13735e)) {
-                TiebaStatic.log(BannerView.this.f13735e);
+            if (!TextUtils.isEmpty(bannerView.f13736e)) {
+                TiebaStatic.log(BannerView.this.f13736e);
             }
             if (BannerView.this.r == null) {
                 if (TextUtils.isEmpty(BannerView.this.n)) {
@@ -96,8 +96,8 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13735e = "";
-        this.f13736f = "";
+        this.f13736e = "";
+        this.f13737f = "";
         this.l = false;
         this.m = 0.16875f;
         this.o = false;
@@ -106,18 +106,18 @@ public class BannerView extends RelativeLayout {
     }
 
     public TbImageView getBannerView() {
-        return this.f13738h;
+        return this.f13739h;
     }
 
     public final void h(Context context) {
         LayoutInflater.from(context).inflate(R.layout.bannerview, this);
         Button button = (Button) findViewById(R.id.btn_close);
-        this.f13737g = button;
+        this.f13738g = button;
         button.setOnClickListener(this.s);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.banner_image);
-        this.f13738h = tbImageView;
+        this.f13739h = tbImageView;
         tbImageView.setAutoChangeStyle(true);
-        this.f13738h.setOnClickListener(this.s);
+        this.f13739h.setOnClickListener(this.s);
         this.j = (TbImageView) findViewById(R.id.tv_advert);
         View findViewById = findViewById(R.id.banner_mask);
         this.k = findViewById;
@@ -129,7 +129,7 @@ public class BannerView extends RelativeLayout {
     }
 
     public void j() {
-        this.f13738h.postInvalidate();
+        this.f13739h.postInvalidate();
     }
 
     public void k() {
@@ -139,7 +139,7 @@ public class BannerView extends RelativeLayout {
 
     public void setBannerData(f0 f0Var) {
         this.p = f0Var;
-        t.k(f0Var.f50784g, this.j, f0Var.f50785h, l.g(getContext(), R.dimen.ds26));
+        t.k(f0Var.f50785g, this.j, f0Var.f50786h, l.g(getContext(), R.dimen.ds26));
     }
 
     public void setBannerMaskColor(int i) {
@@ -155,7 +155,7 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewEvent(TbImageView.f fVar) {
-        TbImageView tbImageView = this.f13738h;
+        TbImageView tbImageView = this.f13739h;
         if (tbImageView == null || fVar == null) {
             return;
         }
@@ -168,13 +168,11 @@ public class BannerView extends RelativeLayout {
         this.o = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
         if (!this.l && this.o) {
-            ViewGroup.LayoutParams layoutParams = this.f13738h.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f13739h.getLayoutParams();
             layoutParams.width = l.k(getContext());
-            double k = l.k(getContext()) * this.m;
-            Double.isNaN(k);
-            layoutParams.height = (int) (k + 0.5d);
-            this.f13738h.setLayoutParams(layoutParams);
-            this.f13738h.T(str, 10, 640, 108, false);
+            layoutParams.height = (int) ((l.k(getContext()) * this.m) + 0.5d);
+            this.f13739h.setLayoutParams(layoutParams);
+            this.f13739h.T(str, 10, 640, 108, false);
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.height = layoutParams.height;
@@ -188,8 +186,8 @@ public class BannerView extends RelativeLayout {
         if (str == null || str2 == null) {
             return;
         }
-        this.f13735e = str;
-        this.f13736f = str2;
+        this.f13736e = str;
+        this.f13737f = str2;
     }
 
     public void setTagViewVisible(boolean z) {

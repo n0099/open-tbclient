@@ -31,7 +31,7 @@ import d.b.i0.c3.l0.a;
 import d.b.i0.c3.l0.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public static final String JS_CANCEL_VCODE = "jsCancelVcode";
     public static final String JS_CHANGE_VCODE = "jsChangeVcode";

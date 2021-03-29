@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class StatusBarUtils {
     public static final int STATUS_BAR_DEFAULT_HEIGHT = 25;
     public static final String STATUS_BAR_HEIGHT_RES_NAME = "status_bar_height";

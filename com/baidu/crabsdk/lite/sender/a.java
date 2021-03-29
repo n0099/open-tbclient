@@ -14,21 +14,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f4749g = false;
+    public static boolean f4750g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4750h = Environment.getExternalStorageDirectory().getPath() + File.separator + n.c() + File.separator + "oom_lite" + File.separator;
+    public static final String f4751h = Environment.getExternalStorageDirectory().getPath() + File.separator + n.c() + File.separator + "oom_lite" + File.separator;
     public static a i = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f4751e = null;
+    public Thread.UncaughtExceptionHandler f4752e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4752f = null;
+    public Context f4753f = null;
 
     public static boolean a(Throwable th) {
         while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
@@ -45,12 +45,12 @@ public final class a implements Thread.UncaughtExceptionHandler {
     }
 
     public final void b(Context context) {
-        if (this.f4751e == null) {
-            this.f4751e = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.f4752e == null) {
+            this.f4752e = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.f4752f == null) {
-            this.f4752f = context.getApplicationContext();
+        if (this.f4753f == null) {
+            this.f4753f = context.getApplicationContext();
         }
     }
 
@@ -104,11 +104,11 @@ public final class a implements Thread.UncaughtExceptionHandler {
     /* JADX WARN: Code restructure failed: missing block: B:41:0x0099, code lost:
         com.baidu.crabsdk.lite.b.a.e(r2, "pw", r0);
      */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0187 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0186 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:107:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d9 A[Catch: all -> 0x012e, TryCatch #3 {all -> 0x012e, blocks: (B:54:0x00cc, B:56:0x00d9, B:58:0x00df, B:59:0x00ed, B:60:0x00f1, B:61:0x0100), top: B:101:0x00cc }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x019f A[Catch: Exception -> 0x01a9, TryCatch #1 {Exception -> 0x01a9, blocks: (B:79:0x017b, B:80:0x017f, B:82:0x0187, B:83:0x019b, B:84:0x019f), top: B:97:0x017b }] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x01b5  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d9 A[Catch: all -> 0x012d, TryCatch #3 {all -> 0x012d, blocks: (B:54:0x00cc, B:56:0x00d9, B:58:0x00df, B:59:0x00ed, B:60:0x00f1, B:61:0x0100), top: B:101:0x00cc }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x019e A[Catch: Exception -> 0x01a8, TryCatch #1 {Exception -> 0x01a8, blocks: (B:79:0x017a, B:80:0x017e, B:82:0x0186, B:83:0x019a, B:84:0x019e), top: B:97:0x017a }] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x01b4  */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -125,7 +125,7 @@ public final class a implements Thread.UncaughtExceptionHandler {
             java.lang.String r1 = android.util.Log.getStackTraceString(r10)
             r2 = 0
             if (r1 == 0) goto L35
-            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r3 = com.baidu.crabsdk.lite.a.f4714a
+            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r3 = com.baidu.crabsdk.lite.a.f4715a
             java.util.Set r3 = r3.keySet()
             if (r3 == 0) goto L35
             boolean r4 = r3.isEmpty()
@@ -143,10 +143,10 @@ public final class a implements Thread.UncaughtExceptionHandler {
             r2 = r4
         L35:
             if (r2 != 0) goto L44
-            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4751e
+            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4752e
             boolean r1 = r1.equals(r8)
             if (r1 != 0) goto L44
-            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4751e
+            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4752e
             r1.uncaughtException(r9, r10)
         L44:
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
@@ -194,11 +194,11 @@ public final class a implements Thread.UncaughtExceptionHandler {
             java.lang.String r5 = "pw"
             com.baidu.crabsdk.lite.b.a.e(r2, r5, r0)
         L9e:
-            if (r6 == 0) goto L1ad
+            if (r6 == 0) goto L1ac
             java.lang.String r0 = r1.trim()
             boolean r0 = r0.equals(r4)
-            if (r0 != 0) goto L1ad
-            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r0 = com.baidu.crabsdk.lite.a.f4714a
+            if (r0 != 0) goto L1ac
+            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r0 = com.baidu.crabsdk.lite.a.f4715a
             java.lang.Object r0 = r0.get(r2)
             java.util.HashMap r0 = (java.util.HashMap) r0
             if (r0 == 0) goto Lc3
@@ -211,49 +211,49 @@ public final class a implements Thread.UncaughtExceptionHandler {
         Lc3:
             r0 = 0
         Lc4:
-            if (r0 == 0) goto L144
+            if (r0 == 0) goto L143
             boolean r0 = a(r10)
-            if (r0 == 0) goto L144
-            java.lang.String r0 = com.baidu.crabsdk.lite.sender.a.f4750h     // Catch: java.lang.Throwable -> L12e
-            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L12e
-            r1.<init>(r0)     // Catch: java.lang.Throwable -> L12e
-            boolean r4 = r1.exists()     // Catch: java.lang.Throwable -> L12e
+            if (r0 == 0) goto L143
+            java.lang.String r0 = com.baidu.crabsdk.lite.sender.a.f4751h     // Catch: java.lang.Throwable -> L12d
+            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L12d
+            r1.<init>(r0)     // Catch: java.lang.Throwable -> L12d
+            boolean r4 = r1.exists()     // Catch: java.lang.Throwable -> L12d
             if (r4 != 0) goto L100
-            boolean r1 = r1.mkdirs()     // Catch: java.lang.Throwable -> L12e
+            boolean r1 = r1.mkdirs()     // Catch: java.lang.Throwable -> L12d
             if (r1 != 0) goto Lf1
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12e
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12d
             java.lang.String r4 = "app文件创建失败  fileName is "
-            r1.<init>(r4)     // Catch: java.lang.Throwable -> L12e
-            r1.append(r0)     // Catch: java.lang.Throwable -> L12e
-            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> L12e
+            r1.<init>(r4)     // Catch: java.lang.Throwable -> L12d
+            r1.append(r0)     // Catch: java.lang.Throwable -> L12d
+            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> L12d
         Led:
-            com.baidu.crabsdk.lite.b.a.d(r2, r1)     // Catch: java.lang.Throwable -> L12e
+            com.baidu.crabsdk.lite.b.a.d(r2, r1)     // Catch: java.lang.Throwable -> L12d
             goto L100
         Lf1:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12e
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12d
             java.lang.String r4 = "app文件创建ok  fileName is "
-            r1.<init>(r4)     // Catch: java.lang.Throwable -> L12e
-            r1.append(r0)     // Catch: java.lang.Throwable -> L12e
-            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> L12e
+            r1.<init>(r4)     // Catch: java.lang.Throwable -> L12d
+            r1.append(r0)     // Catch: java.lang.Throwable -> L12d
+            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> L12d
             goto Led
         L100:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12e
-            r1.<init>()     // Catch: java.lang.Throwable -> L12e
-            r1.append(r0)     // Catch: java.lang.Throwable -> L12e
-            long r4 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L12e
-            r1.append(r4)     // Catch: java.lang.Throwable -> L12e
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12d
+            r1.<init>()     // Catch: java.lang.Throwable -> L12d
+            r1.append(r0)     // Catch: java.lang.Throwable -> L12d
+            long r4 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L12d
+            r1.append(r4)     // Catch: java.lang.Throwable -> L12d
             java.lang.String r0 = ".hprof"
-            r1.append(r0)     // Catch: java.lang.Throwable -> L12e
-            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> L12e
-            android.os.Debug.dumpHprofData(r0)     // Catch: java.lang.Throwable -> L12e
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12e
+            r1.append(r0)     // Catch: java.lang.Throwable -> L12d
+            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> L12d
+            android.os.Debug.dumpHprofData(r0)     // Catch: java.lang.Throwable -> L12d
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L12d
             java.lang.String r4 = "输出OOM的dump信息 name="
-            r1.<init>(r4)     // Catch: java.lang.Throwable -> L12e
-            r1.append(r0)     // Catch: java.lang.Throwable -> L12e
-            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> L12e
-            com.baidu.crabsdk.lite.b.a.c(r2, r0)     // Catch: java.lang.Throwable -> L12e
-            goto L144
-        L12e:
+            r1.<init>(r4)     // Catch: java.lang.Throwable -> L12d
+            r1.append(r0)     // Catch: java.lang.Throwable -> L12d
+            java.lang.String r0 = r1.toString()     // Catch: java.lang.Throwable -> L12d
+            com.baidu.crabsdk.lite.b.a.c(r2, r0)     // Catch: java.lang.Throwable -> L12d
+            goto L143
+        L12d:
             r0 = move-exception
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             java.lang.String r4 = "oom save fail"
@@ -262,63 +262,63 @@ public final class a implements Thread.UncaughtExceptionHandler {
             r1.append(r0)
             java.lang.String r0 = r1.toString()
             com.baidu.crabsdk.lite.b.a.d(r2, r0)
-        L144:
+        L143:
             boolean r0 = com.baidu.crabsdk.lite.sender.c.p(r2)
-            if (r0 == 0) goto L1ad
+            if (r0 == 0) goto L1ac
             boolean r0 = com.baidu.crabsdk.lite.sender.c.b(r2)
-            if (r0 == 0) goto L1ad
+            if (r0 == 0) goto L1ac
             boolean r0 = com.baidu.crabsdk.lite.sender.c.h(r2, r10)
-            if (r0 == 0) goto L1ad
-            com.baidu.crabsdk.lite.sender.a.f4749g = r3
-            android.content.Context r0 = r8.f4752f
-            if (r0 == 0) goto L17b
-            if (r9 == 0) goto L17b
-            if (r10 != 0) goto L161
-            goto L17b
-        L161:
+            if (r0 == 0) goto L1ac
+            com.baidu.crabsdk.lite.sender.a.f4750g = r3
+            android.content.Context r0 = r8.f4753f
+            if (r0 == 0) goto L17a
+            if (r9 == 0) goto L17a
+            if (r10 != 0) goto L160
+            goto L17a
+        L160:
             java.util.Map r0 = com.baidu.crabsdk.lite.sender.b.b(r2, r0, r10)
-            if (r0 == 0) goto L17b
+            if (r0 == 0) goto L17a
             java.lang.String r0 = com.baidu.crabsdk.lite.sender.d.b(r2, r0)
-            android.content.Context r1 = r8.f4752f
+            android.content.Context r1 = r8.f4753f
             com.baidu.crabsdk.lite.sender.d.e(r2, r1, r0)
             com.baidu.crabsdk.lite.sender.c.k(r2, r10)
             com.baidu.crabsdk.lite.sender.c.c(r2)
-            android.content.Context r0 = r8.f4752f
+            android.content.Context r0 = r8.f4753f
             com.baidu.crabsdk.lite.sender.e.c(r2, r0)
-        L17b:
-            long r0 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L1a9
-        L17f:
-            long r3 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L1a9
-            boolean r5 = com.baidu.crabsdk.lite.sender.a.f4749g     // Catch: java.lang.Exception -> L1a9
-            if (r5 == 0) goto L19f
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L1a9
+        L17a:
+            long r0 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L1a8
+        L17e:
+            long r3 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L1a8
+            boolean r5 = com.baidu.crabsdk.lite.sender.a.f4750g     // Catch: java.lang.Exception -> L1a8
+            if (r5 == 0) goto L19e
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L1a8
             java.lang.String r6 = "^^ upload finished()! --> cost : "
-            r5.<init>(r6)     // Catch: java.lang.Exception -> L1a9
+            r5.<init>(r6)     // Catch: java.lang.Exception -> L1a8
             long r3 = r3 - r0
-            r5.append(r3)     // Catch: java.lang.Exception -> L1a9
+            r5.append(r3)     // Catch: java.lang.Exception -> L1a8
             java.lang.String r0 = "ms"
-            r5.append(r0)     // Catch: java.lang.Exception -> L1a9
-            java.lang.String r0 = r5.toString()     // Catch: java.lang.Exception -> L1a9
-        L19b:
-            com.baidu.crabsdk.lite.b.a.c(r2, r0)     // Catch: java.lang.Exception -> L1a9
-            goto L1ad
-        L19f:
+            r5.append(r0)     // Catch: java.lang.Exception -> L1a8
+            java.lang.String r0 = r5.toString()     // Catch: java.lang.Exception -> L1a8
+        L19a:
+            com.baidu.crabsdk.lite.b.a.c(r2, r0)     // Catch: java.lang.Exception -> L1a8
+            goto L1ac
+        L19e:
             long r3 = r3 - r0
             r5 = 2500(0x9c4, double:1.235E-320)
             int r7 = (r3 > r5 ? 1 : (r3 == r5 ? 0 : -1))
-            if (r7 <= 0) goto L17f
+            if (r7 <= 0) goto L17e
             java.lang.String r0 = "T^T upload timeout!"
-            goto L19b
-        L1a9:
+            goto L19a
+        L1a8:
             r0 = move-exception
             r0.printStackTrace()
-        L1ad:
-            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4751e
+        L1ac:
+            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4752e
             boolean r0 = r0.equals(r8)
-            if (r0 != 0) goto L1ba
-            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4751e
+            if (r0 != 0) goto L1b9
+            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4752e
             r0.uncaughtException(r9, r10)
-        L1ba:
+        L1b9:
             return
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.crabsdk.lite.sender.a.uncaughtException(java.lang.Thread, java.lang.Throwable):void");

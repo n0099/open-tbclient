@@ -6,48 +6,48 @@ import tbclient.SchoolRecomUserInfo;
 public class r1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50875a = "";
+    public String f50876a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50876b = "";
+    public String f50877b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50877c = "";
+    public String f50878c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50878d = "";
+    public String f50879d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50879e = -1;
+    public int f50880e = -1;
 
     public String a() {
-        return this.f50878d;
+        return this.f50879d;
     }
 
     public int b() {
-        return this.f50879e;
+        return this.f50880e;
     }
 
     public String c() {
-        return this.f50877c;
+        return this.f50878c;
     }
 
     public String d() {
-        return this.f50875a;
+        return this.f50876a;
     }
 
     public String e() {
-        return this.f50876b;
+        return this.f50877b;
     }
 
     public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
         if (schoolRecomUserInfo == null) {
             return;
         }
-        this.f50875a = StringUtils.string(schoolRecomUserInfo.uid);
-        this.f50876b = schoolRecomUserInfo.uname;
-        this.f50877c = schoolRecomUserInfo.portrait;
-        this.f50878d = schoolRecomUserInfo.institute;
-        this.f50879e = schoolRecomUserInfo.is_liked.intValue();
+        this.f50876a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.f50877b = schoolRecomUserInfo.uname;
+        this.f50878c = schoolRecomUserInfo.portrait;
+        this.f50879d = schoolRecomUserInfo.institute;
+        this.f50880e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

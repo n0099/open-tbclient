@@ -32,16 +32,16 @@ import tbclient.HotThread.tinfo;
 public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<d.b.i0.y.a.d.a, d.b.i0.y.a.d.b> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ChosenPostActivity f15283e;
+    public ChosenPostActivity f15284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ChosenPostModel f15284f;
+    public ChosenPostModel f15285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ChosenPostCacheModel f15285g;
+    public ChosenPostCacheModel f15286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.g0.d.a f15286h;
+    public d.b.h0.g0.d.a f15287h;
     public d.b.i0.y.a.d.a i;
     public CacheModel.c<d.b.i0.y.a.d.b> j;
     public d.b.b.c.g.a k;
@@ -58,10 +58,10 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             if (data != null && !data.isEmpty() && (bVar = data.get(0)) != null) {
                 d.b.h0.g0.c.b bVar2 = new d.b.h0.g0.c.b(4099, bVar, null, null);
                 bVar2.i(ChosenPostModelController.this.getUniqueId());
-                ChosenPostModelController.this.f15283e.getEventCenter().dispatchMvcEvent(bVar2);
+                ChosenPostModelController.this.f15284e.getEventCenter().dispatchMvcEvent(bVar2);
             }
             ChosenPostModelController.this.i.b();
-            ChosenPostModelController.this.f15284f.N();
+            ChosenPostModelController.this.f15285f.N();
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
@@ -81,7 +81,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                BdToast d2 = BdToast.d(ChosenPostModelController.this.f15283e.getActivity(), responsedMessage.getErrorString(), 0);
+                BdToast d2 = BdToast.d(ChosenPostModelController.this.f15284e.getActivity(), responsedMessage.getErrorString(), 0);
                 d2.a();
                 d2.q();
             } else if (responsedMessage instanceof UnlikeHttpResponse) {
@@ -94,32 +94,32 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
 
     public ChosenPostModelController(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity.getPageContext());
-        this.f15286h = new d.b.h0.g0.d.a();
+        this.f15287h = new d.b.h0.g0.d.a();
         this.j = new a();
         this.k = new b(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
-        this.f15283e = chosenPostActivity;
+        this.f15284e = chosenPostActivity;
         C();
         D();
         registerListener(this.k);
     }
 
     public boolean A(d.b.i0.y.a.d.a aVar, d.b.i0.y.a.d.b bVar) {
-        this.f15283e.getViewController().v(bVar);
+        this.f15284e.getViewController().v(bVar);
         if (bVar != null) {
-            this.f15286h.g(false);
-            this.f15286h.f(false);
-            this.f15283e.getViewController().w(this.f15286h);
+            this.f15287h.g(false);
+            this.f15287h.f(false);
+            this.f15284e.getViewController().w(this.f15287h);
             return true;
         }
         return true;
     }
 
     public boolean B(boolean z) {
-        this.f15286h.g(true);
-        this.f15283e.getViewController().w(this.f15286h);
+        this.f15287h.g(true);
+        this.f15284e.getViewController().w(this.f15287h);
         E(true);
         this.i.b();
-        this.f15284f.N();
+        this.f15285f.N();
         return true;
     }
 
@@ -146,14 +146,14 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             bVar = new d.b.h0.g0.c.b(4098, null, null, null);
         }
         bVar.i(getUniqueId());
-        this.f15283e.getEventCenter().dispatchMvcEvent(bVar);
+        this.f15284e.getEventCenter().dispatchMvcEvent(bVar);
     }
 
     public final void F(long j) {
         d.b.h0.g0.c.b bVar = new d.b.h0.g0.c.b(4102, null, null, null);
         bVar.g(Long.valueOf(j));
         bVar.i(getUniqueId());
-        this.f15283e.getEventCenter().dispatchMvcEvent(bVar);
+        this.f15284e.getEventCenter().dispatchMvcEvent(bVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -186,8 +186,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.f15283e.onServerError(errorData);
-            this.f15283e.getViewController().onServerError(errorData);
+            this.f15284e.onServerError(errorData);
+            this.f15284e.getViewController().onServerError(errorData);
         }
     }
 
@@ -211,39 +211,39 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.f15283e.onServerError(errorData);
-            this.f15283e.getViewController().onServerError(errorData);
+            this.f15284e.onServerError(errorData);
+            this.f15284e.getViewController().onServerError(errorData);
         }
     }
 
     public boolean w() {
-        this.f15285g.H();
+        this.f15286g.H();
         return true;
     }
 
     public void x(Bundle bundle) {
         this.i = new d.b.i0.y.a.d.a();
-        ChosenPostModel chosenPostModel = new ChosenPostModel(this.f15283e.getPageContext(), this.i);
-        this.f15284f = chosenPostModel;
+        ChosenPostModel chosenPostModel = new ChosenPostModel(this.f15284e.getPageContext(), this.i);
+        this.f15285f = chosenPostModel;
         chosenPostModel.V(this);
-        ChosenPostCacheModel chosenPostCacheModel = new ChosenPostCacheModel(this.f15283e.getPageContext());
-        this.f15285g = chosenPostCacheModel;
+        ChosenPostCacheModel chosenPostCacheModel = new ChosenPostCacheModel(this.f15284e.getPageContext());
+        this.f15286g = chosenPostCacheModel;
         chosenPostCacheModel.K(this.j);
     }
 
     public boolean y() {
         this.i.b();
-        this.f15284f.N();
-        this.f15286h.f(true);
-        this.f15286h.h(true);
+        this.f15285f.N();
+        this.f15287h.f(true);
+        this.f15287h.h(true);
         E(false);
-        this.f15283e.getViewController().w(this.f15286h);
+        this.f15284e.getViewController().w(this.f15287h);
         return true;
     }
 
     public boolean z(d.b.h0.g0.c.b bVar) {
         if (bVar.b() == 4100) {
-            this.f15284f.N();
+            this.f15285f.N();
             return false;
         } else if (bVar.b() == 4101) {
             Object c2 = bVar.c();

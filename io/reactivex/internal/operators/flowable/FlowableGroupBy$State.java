@@ -128,15 +128,20 @@ public final class FlowableGroupBy$State<T, K> extends BasicIntQueueSubscription
     }
 
     public void drainNormal() {
+        int i;
         a<T> aVar = this.queue;
         boolean z = this.delayError;
         c<? super T> cVar = this.actual.get();
-        int i = 1;
+        int i2 = 1;
         while (true) {
             if (cVar != null) {
                 long j = this.requested.get();
                 long j2 = 0;
-                while (j2 != j) {
+                while (true) {
+                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i == 0) {
+                        break;
+                    }
                     boolean z2 = this.done;
                     Object obj = (T) aVar.poll();
                     boolean z3 = obj == null;
@@ -149,7 +154,7 @@ public final class FlowableGroupBy$State<T, K> extends BasicIntQueueSubscription
                     cVar.onNext(obj);
                     j2++;
                 }
-                if (j2 == j && checkTerminated(this.done, aVar.isEmpty(), cVar, z)) {
+                if (i == 0 && checkTerminated(this.done, aVar.isEmpty(), cVar, z)) {
                     return;
                 }
                 if (j2 != 0) {
@@ -159,8 +164,8 @@ public final class FlowableGroupBy$State<T, K> extends BasicIntQueueSubscription
                     this.parent.s.request(j2);
                 }
             }
-            i = addAndGet(-i);
-            if (i == 0) {
+            i2 = addAndGet(-i2);
+            if (i2 == 0) {
                 return;
             }
             if (cVar == null) {

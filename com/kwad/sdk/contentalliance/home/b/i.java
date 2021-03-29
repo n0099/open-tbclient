@@ -6,67 +6,67 @@ import com.kwad.sdk.internal.api.SceneImpl;
 public class i extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32694b;
+    public com.kwad.sdk.core.i.a f32695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.i.c f32695c;
+    public com.kwad.sdk.core.i.c f32696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32696d;
+    public boolean f32697d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SceneImpl f32697e;
+    public SceneImpl f32698e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsFragment f32698f;
+    public KsFragment f32699f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32699g;
+    public long f32700g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32700h;
+    public String f32701h;
 
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a;
-        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32774f;
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32769a;
+        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32775f;
         if (hVar == null) {
             return;
         }
-        com.kwad.sdk.core.i.a aVar = hVar.f32788a;
-        this.f32694b = aVar;
+        com.kwad.sdk.core.i.a aVar = hVar.f32789a;
+        this.f32695b = aVar;
         if (aVar == null) {
             return;
         }
-        this.f32697e = fVar.f32773e;
-        KsFragment ksFragment = fVar.f32769a;
-        this.f32698f = ksFragment;
-        this.f32700h = String.valueOf(ksFragment.hashCode());
-        if (this.f32695c == null) {
+        this.f32698e = fVar.f32774e;
+        KsFragment ksFragment = fVar.f32770a;
+        this.f32699f = ksFragment;
+        this.f32701h = String.valueOf(ksFragment.hashCode());
+        if (this.f32696c == null) {
             com.kwad.sdk.core.i.c cVar = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.home.b.i.1
                 @Override // com.kwad.sdk.core.i.c
                 public void b() {
-                    if (i.this.f32697e == null || i.this.f32698f == null || i.this.f32699g <= 0) {
+                    if (i.this.f32698e == null || i.this.f32699f == null || i.this.f32700g <= 0) {
                         return;
                     }
-                    com.kwad.sdk.core.report.e.a(i.this.f32697e, System.currentTimeMillis() - i.this.f32699g);
-                    i.this.f32699g = 0L;
+                    com.kwad.sdk.core.report.e.a(i.this.f32698e, System.currentTimeMillis() - i.this.f32700g);
+                    i.this.f32700g = 0L;
                 }
 
                 @Override // com.kwad.sdk.core.i.c
                 public void c_() {
-                    if (i.this.f32696d) {
-                        com.kwad.sdk.core.report.e.c(i.this.f32697e);
+                    if (i.this.f32697d) {
+                        com.kwad.sdk.core.report.e.c(i.this.f32698e);
                     } else {
-                        i.this.f32696d = true;
-                        com.kwad.sdk.core.report.e.b(i.this.f32697e);
+                        i.this.f32697d = true;
+                        com.kwad.sdk.core.report.e.b(i.this.f32698e);
                     }
-                    i.this.f32699g = System.currentTimeMillis();
+                    i.this.f32700g = System.currentTimeMillis();
                 }
             };
-            this.f32695c = cVar;
-            this.f32694b.a(cVar);
+            this.f32696c = cVar;
+            this.f32695b.a(cVar);
         }
     }
 
@@ -74,8 +74,8 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     public void b_() {
         com.kwad.sdk.core.i.a aVar;
         super.b_();
-        com.kwad.sdk.core.i.c cVar = this.f32695c;
-        if (cVar == null || (aVar = this.f32694b) == null) {
+        com.kwad.sdk.core.i.c cVar = this.f32696c;
+        if (cVar == null || (aVar = this.f32695b) == null) {
             return;
         }
         aVar.b(cVar);
@@ -84,6 +84,6 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        com.kwad.sdk.core.scene.a.a().c(this.f32700h);
+        com.kwad.sdk.core.scene.a.a().c(this.f32701h);
     }
 }

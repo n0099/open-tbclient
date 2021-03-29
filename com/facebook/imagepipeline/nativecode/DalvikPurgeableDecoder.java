@@ -20,7 +20,7 @@ import com.facebook.imageutils.BitmapUtil;
 import java.util.Locale;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public static final byte[] EOI;
     public final BitmapCounter mUnpooledBitmapsCounter = BitmapCounterProvider.get();

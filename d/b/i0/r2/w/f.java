@@ -89,13 +89,13 @@ public class f extends d.b.b.j.e.a<o, PbAppLegoViewHolder> implements p, l {
     public class d implements d.b.i0.i1.o.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f59882a;
+        public final /* synthetic */ AdvertAppInfo f59883a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f59883b;
+        public final /* synthetic */ int f59884b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f59884c;
+        public final /* synthetic */ String f59885c;
 
         /* loaded from: classes5.dex */
         public class a extends BdAsyncTask<String, Void, Void> {
@@ -114,9 +114,9 @@ public class f extends d.b.b.j.e.a<o, PbAppLegoViewHolder> implements p, l {
         }
 
         public d(f fVar, AdvertAppInfo advertAppInfo, int i, String str) {
-            this.f59882a = advertAppInfo;
-            this.f59883b = i;
-            this.f59884c = str;
+            this.f59883a = advertAppInfo;
+            this.f59884b = i;
+            this.f59885c = str;
         }
 
         @Override // d.b.i0.i1.o.a
@@ -125,11 +125,11 @@ public class f extends d.b.b.j.e.a<o, PbAppLegoViewHolder> implements p, l {
                 return;
             }
             if (t.p(i)) {
-                d.b.i0.r2.b0.d.e(this.f59882a, this.f59883b, hashMap, i);
+                d.b.i0.r2.b0.d.e(this.f59883a, this.f59884b, hashMap, i);
             } else {
-                d.b.i0.r2.b0.d.k(this.f59882a, this.f59883b, this.f59884c, null, hashMap);
+                d.b.i0.r2.b0.d.k(this.f59883a, this.f59884b, this.f59885c, null, hashMap);
             }
-            AdvertAppInfo advertAppInfo = this.f59882a;
+            AdvertAppInfo advertAppInfo = this.f59883a;
             if (advertAppInfo.g4) {
                 return;
             }
@@ -138,8 +138,8 @@ public class f extends d.b.b.j.e.a<o, PbAppLegoViewHolder> implements p, l {
 
         @Override // d.b.i0.i1.o.a
         public void b(String str, String str2, HashMap<String, Object> hashMap) {
-            d.b.i0.r2.b0.d.k(this.f59882a, this.f59883b, this.f59884c, str, hashMap);
-            AdvertAppInfo advertAppInfo = this.f59882a;
+            d.b.i0.r2.b0.d.k(this.f59883a, this.f59884b, this.f59885c, str, hashMap);
+            AdvertAppInfo advertAppInfo = this.f59883a;
             if (advertAppInfo.g4) {
                 return;
             }
@@ -155,15 +155,15 @@ public class f extends d.b.b.j.e.a<o, PbAppLegoViewHolder> implements p, l {
     public class e implements d.b.i0.i1.o.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f59885a;
+        public final /* synthetic */ String f59886a;
 
         public e(String str) {
-            this.f59885a = str;
+            this.f59886a = str;
         }
 
         @Override // d.b.i0.i1.o.c
         public void a(AdvertAppInfo advertAppInfo, int i) {
-            h.b(f.this.m.getPageContext().getPageActivity(), advertAppInfo, i, f.this.r0(advertAppInfo, this.f59885a));
+            h.b(f.this.m.getPageContext().getPageActivity(), advertAppInfo, i, f.this.r0(advertAppInfo, this.f59886a));
         }
     }
 
@@ -321,8 +321,8 @@ public class f extends d.b.b.j.e.a<o, PbAppLegoViewHolder> implements p, l {
             J0.Y3 = new d.b.h0.r.q.d();
         }
         d.b.h0.r.q.d dVar = J0.Y3;
-        dVar.f50749b = oVar.E0;
-        dVar.f50748a = oVar.C0();
+        dVar.f50750b = oVar.E0;
+        dVar.f50749a = oVar.C0();
         J0.position = oVar.L0;
         J0.g4 = oVar.M0;
         d.b.i0.i1.o.l.e eVar = (d.b.i0.i1.o.l.e) view;

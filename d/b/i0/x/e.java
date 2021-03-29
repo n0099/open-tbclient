@@ -52,7 +52,7 @@ public class e extends b<d.b.i0.d0.b> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
@@ -65,7 +65,7 @@ public class e extends b<d.b.i0.d0.b> {
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -87,7 +87,7 @@ public class e extends b<d.b.i0.d0.b> {
         this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
         this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
         this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-        int dimensionPixelSize = this.f62181g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+        int dimensionPixelSize = this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds326);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -97,7 +97,7 @@ public class e extends b<d.b.i0.d0.b> {
         this.s.setIsRound(true);
         this.s.setDrawBorder(true);
         this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.s.setBorderWidth(this.f62181g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.s.setBorderWidth(this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds1));
         m().setOnClickListener(this);
     }
 
@@ -136,7 +136,7 @@ public class e extends b<d.b.i0.d0.b> {
         this.u.setText(StringHelper.getFormatTimeShort(bVar.g().S()));
         if ("news".equals(bVar.g().k0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f62180f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.g().G1())));
+            this.t.setText(this.f62181f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.g().G1())));
             return;
         }
         this.s.setVisibility(0);

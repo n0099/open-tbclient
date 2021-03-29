@@ -11,7 +11,7 @@ import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.Track;
 import d.b.d0.a.b.d;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PerfFrameContext {
     public static final IPerfFrameCallBack PERFFRAME_CONTEXT_DEFAULT = new IPerfFrameCallBack() { // from class: com.baidu.searchbox.perfframe.impl.PerfFrameContext.1
         @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrameCallBack

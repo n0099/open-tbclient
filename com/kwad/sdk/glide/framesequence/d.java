@@ -12,12 +12,12 @@ public class d extends com.kwad.sdk.glide.load.resource.b.b<FrameSequenceDrawabl
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return ((FrameSequenceDrawable) this.f35633a).getSize();
+        return ((FrameSequenceDrawable) this.f35634a).getSize();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public void d_() {
-        ((FrameSequenceDrawable) this.f35633a).stop();
-        ((FrameSequenceDrawable) this.f35633a).destroy();
+        ((FrameSequenceDrawable) this.f35634a).stop();
+        ((FrameSequenceDrawable) this.f35634a).destroy();
     }
 }

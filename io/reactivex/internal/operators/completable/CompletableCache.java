@@ -19,7 +19,6 @@ public final class CompletableCache extends a implements b {
         public void dispose() {
             if (compareAndSet(false, true)) {
                 CompletableCache.this.d(this);
-                throw null;
             }
         }
 
@@ -29,7 +28,5 @@ public final class CompletableCache extends a implements b {
         }
     }
 
-    public void d(InnerCompletableCache innerCompletableCache) {
-        throw null;
-    }
+    public abstract void d(InnerCompletableCache innerCompletableCache);
 }

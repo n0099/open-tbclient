@@ -16,20 +16,20 @@ import org.webrtc.EglBase10;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public EGLDisplay f58994a;
+    public EGLDisplay f58995a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLContext f58995b;
+    public EGLContext f58996b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EGLSurface f58996c;
+    public EGLSurface f58997c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Surface f58997d;
+    public Surface f58998d;
 
     public g(Surface surface) {
         if (surface != null) {
-            this.f58997d = surface;
+            this.f58998d = surface;
             b();
             return;
         }
@@ -53,21 +53,21 @@ public class g {
 
     public final void b() {
         EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-        this.f58994a = eglGetDisplay;
+        this.f58995a = eglGetDisplay;
         if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
             int[] iArr = new int[2];
             if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                this.f58994a = null;
+                this.f58995a = null;
                 throw new RuntimeException("unable to initialize EGL14");
             }
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (EGL14.eglChooseConfig(this.f58994a, new int[]{12324, 8, 12323, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                this.f58995b = EGL14.eglCreateContext(this.f58994a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+            if (EGL14.eglChooseConfig(this.f58995a, new int[]{12324, 8, 12323, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                this.f58996b = EGL14.eglCreateContext(this.f58995a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
                 a("eglCreateContext");
-                if (this.f58995b != null) {
-                    this.f58996c = EGL14.eglCreateWindowSurface(this.f58994a, eGLConfigArr[0], this.f58997d, new int[]{12344}, 0);
+                if (this.f58996b != null) {
+                    this.f58997c = EGL14.eglCreateWindowSurface(this.f58995a, eGLConfigArr[0], this.f58998d, new int[]{12344}, 0);
                     a("eglCreateWindowSurface");
-                    if (this.f58996c == null) {
+                    if (this.f58997c == null) {
                         throw new RuntimeException("surface was null");
                     }
                     return;
@@ -80,33 +80,33 @@ public class g {
     }
 
     public void c() {
-        EGLDisplay eGLDisplay = this.f58994a;
-        EGLSurface eGLSurface = this.f58996c;
-        if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f58995b)) {
+        EGLDisplay eGLDisplay = this.f58995a;
+        EGLSurface eGLSurface = this.f58997c;
+        if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f58996b)) {
             throw new RuntimeException("eglMakeCurrent failed");
         }
     }
 
     public void d() {
-        if (EGL14.eglGetCurrentContext().equals(this.f58995b)) {
-            EGLDisplay eGLDisplay = this.f58994a;
+        if (EGL14.eglGetCurrentContext().equals(this.f58996b)) {
+            EGLDisplay eGLDisplay = this.f58995a;
             EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
             EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
         }
-        EGL14.eglDestroySurface(this.f58994a, this.f58996c);
-        EGL14.eglDestroyContext(this.f58994a, this.f58995b);
-        this.f58997d.release();
-        this.f58994a = null;
-        this.f58995b = null;
-        this.f58996c = null;
-        this.f58997d = null;
+        EGL14.eglDestroySurface(this.f58995a, this.f58997c);
+        EGL14.eglDestroyContext(this.f58995a, this.f58996b);
+        this.f58998d.release();
+        this.f58995a = null;
+        this.f58996b = null;
+        this.f58997c = null;
+        this.f58998d = null;
     }
 
     public void e(long j) {
-        EGLExt.eglPresentationTimeANDROID(this.f58994a, this.f58996c, j);
+        EGLExt.eglPresentationTimeANDROID(this.f58995a, this.f58997c, j);
     }
 
     public boolean f() {
-        return EGL14.eglSwapBuffers(this.f58994a, this.f58996c);
+        return EGL14.eglSwapBuffers(this.f58995a, this.f58997c);
     }
 }

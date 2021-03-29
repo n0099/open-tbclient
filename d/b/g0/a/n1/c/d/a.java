@@ -5,15 +5,15 @@ import android.os.Message;
 import android.util.Log;
 import d.b.g0.a.k;
 import d.b.g0.a.n1.c.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45372a = k.f45050a;
+    public static final boolean f45373a = k.f45051a;
 
     public static void a(Message message) {
         Bundle bundle;
-        if (f45372a) {
+        if (f45373a) {
             Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
         }
         int i = message.arg1;
@@ -48,7 +48,7 @@ public class a {
     public static void c(Message message) {
         Object obj = message.obj;
         if (!(obj instanceof Bundle)) {
-            if (f45372a) {
+            if (f45373a) {
                 throw new RuntimeException("delegation msg obj is not a bundle");
             }
             return;
@@ -62,7 +62,7 @@ public class a {
     public static void d(Message message) {
         Object obj = message.obj;
         if (!(obj instanceof Bundle)) {
-            if (f45372a) {
+            if (f45373a) {
                 throw new RuntimeException("delegation msg obj is not a bundle");
             }
             return;

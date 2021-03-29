@@ -42,9 +42,9 @@ public class j0 extends z {
     @Override // d.c.b.z
     public JSONObject i() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f65111e);
-        jSONObject.put("tea_event_index", this.f65112f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65113g);
+        jSONObject.put("local_time_ms", this.f65112e);
+        jSONObject.put("tea_event_index", this.f65113f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65114g);
         jSONObject.put("stop_timestamp", this.n);
         jSONObject.put("duration", this.m / 1000);
         jSONObject.put("datetime", this.k);

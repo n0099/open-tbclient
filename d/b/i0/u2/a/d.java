@@ -8,10 +8,10 @@ import tbclient.GetDislikeList.DataRes;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f61298a = new ArrayList();
+    public List<b> f61299a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61299b = true;
+    public boolean f61300b = true;
 
     public void a(DataRes dataRes) {
         if (dataRes == null) {
@@ -19,11 +19,11 @@ public class d {
         }
         for (ForumList forumList : dataRes.forum_list) {
             b bVar = new b();
-            bVar.f61289a = forumList.avatar;
-            bVar.f61290b = forumList.forum_name;
-            bVar.f61291c = String.valueOf(forumList.forum_id);
-            this.f61298a.add(bVar);
+            bVar.f61290a = forumList.avatar;
+            bVar.f61291b = forumList.forum_name;
+            bVar.f61292c = String.valueOf(forumList.forum_id);
+            this.f61299a.add(bVar);
         }
-        this.f61299b = dataRes.has_more.intValue() == 1;
+        this.f61300b = dataRes.has_more.intValue() == 1;
     }
 }

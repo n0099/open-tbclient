@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CellTopicLinearLayout extends LinearLayout {
     public CellTopicLinearLayout(Context context) {
         super(context);

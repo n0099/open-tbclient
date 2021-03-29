@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51159a;
+    public String f51160a;
 
     public String a() {
-        return this.f51159a;
+        return this.f51160a;
     }
 
     public void b(JSONObject jSONObject) {
@@ -16,7 +16,7 @@ public class e0 {
             return;
         }
         try {
-            this.f51159a = jSONObject.optString("checkurl", null);
+            this.f51160a = jSONObject.optString("checkurl", null);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

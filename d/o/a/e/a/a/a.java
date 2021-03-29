@@ -6,22 +6,22 @@ import android.util.Log;
 public abstract class a implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f66784a;
+    public final Context f66789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.o.a.e.b.j.a f66785b;
+    public final d.o.a.e.b.j.a f66790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f66786c;
+    public final String f66791c;
 
     public a(Context context, d.o.a.e.b.j.a aVar, String str) {
-        this.f66784a = context;
-        this.f66785b = aVar;
-        this.f66786c = str;
+        this.f66789a = context;
+        this.f66790b = aVar;
+        this.f66791c = str;
     }
 
     public boolean a() {
-        if (this.f66784a == null) {
+        if (this.f66789a == null) {
             return false;
         }
         try {
@@ -30,6 +30,6 @@ public abstract class a implements e {
                 Log.e("AbsDevicePlan", "check is valid failed!", th);
             }
         }
-        return b().resolveActivity(this.f66784a.getPackageManager()) != null;
+        return b().resolveActivity(this.f66789a.getPackageManager()) != null;
     }
 }

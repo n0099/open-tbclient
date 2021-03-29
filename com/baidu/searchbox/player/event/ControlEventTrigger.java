@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ControlEventTrigger extends AbsEventTrigger {
     @PublicMethod
     public void goBackOrForeground(boolean z) {

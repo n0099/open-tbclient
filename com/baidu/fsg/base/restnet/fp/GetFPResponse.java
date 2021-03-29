@@ -10,7 +10,7 @@ import com.baidu.fsg.base.utils.JsonUtils;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GetFPResponse implements IBeanResponse {
     public RimConfig conf;
     public String confSign;
@@ -18,12 +18,12 @@ public class GetFPResponse implements IBeanResponse {
     public RimFp fp;
     public SoDownloadInfo so_download;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CommonConfig implements NoProguard {
         public String init_delay;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Exp implements NoProguard {
         public ExpContent[] exp_contents;
         public String exp_id;
@@ -31,13 +31,13 @@ public class GetFPResponse implements IBeanResponse {
         public String is_enable;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ExpContent implements NoProguard {
         public String exp_name;
         public String exp_value;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class LivenessConfig implements NoProguard {
         public static final int CROP_FACE_RATIO = 3;
         public static final int CROP_FACE_SIZE = 256;
@@ -57,10 +57,10 @@ public class GetFPResponse implements IBeanResponse {
         public static final int YAW = 15;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f5210a = 6;
+        public static final int f5211a = 6;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f5211b = 3;
+        public static final int f5212b = 3;
         public String custom_sp_config;
         public String custom_verfitytext_spno_list;
         public String custom_verifytext;
@@ -83,7 +83,7 @@ public class GetFPResponse implements IBeanResponse {
         public String crop_face_ratio = String.valueOf(3);
         public String crop_face_size = String.valueOf(256);
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class SpConf implements NoProguard {
             public String tip_msg;
         }
@@ -329,7 +329,7 @@ public class GetFPResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class OcrConfig implements NoProguard {
         public int id_capture_interval;
         public int id_capture_max_num;
@@ -338,21 +338,21 @@ public class GetFPResponse implements IBeanResponse {
         public String id_logo_text;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class RimConfig implements NoProguard {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonConfig f5212common;
+        public CommonConfig f5213common;
         public LivenessConfig living;
         public OcrConfig ocr;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class RimFp implements NoProguard {
         public String fp;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class SoDownloadInfo implements NoProguard {
         public boolean enable;
         public boolean extra_global_enable;
@@ -361,7 +361,7 @@ public class GetFPResponse implements IBeanResponse {
         public String zip_version;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class SoInfo implements NoProguard {
         public String cpu;
         public String hash;

@@ -5,22 +5,22 @@ import android.util.Log;
 import d.b.g0.a.k;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44096a = k.f45050a;
+    public static final boolean f44097a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f44097b;
+    public static final Set<String> f44098b;
 
     static {
         HashSet hashSet = new HashSet();
-        f44097b = hashSet;
+        f44098b = hashSet;
         hashSet.add("https");
-        f44097b.add("http");
-        f44097b.add("sms");
-        f44097b.add("tel");
+        f44098b.add("http");
+        f44098b.add("sms");
+        f44098b.add("tel");
     }
 
     @Override // d.b.g0.a.e0.n.d
@@ -33,8 +33,8 @@ public class a implements d {
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = f44097b.contains(parse.getScheme());
-        if (f44096a) {
+        boolean contains = f44098b.contains(parse.getScheme());
+        if (f44097a) {
             StringBuilder sb = new StringBuilder();
             sb.append(contains ? "legal schemes : " : "illegal schemes : ");
             sb.append(parse.getScheme());

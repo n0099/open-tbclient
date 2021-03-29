@@ -5,12 +5,12 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.SystemEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.pool.SynchronizedFIFOPool;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoSessionManager {
     public SynchronizedFIFOPool<VideoSession> mSessionCache;
     public SystemEventTrigger mSystemEventTrigger;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Holder {
         public static final VideoSessionManager mInstance = new VideoSessionManager();
     }

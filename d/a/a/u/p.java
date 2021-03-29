@@ -15,21 +15,21 @@ public class p {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41432a;
+        public static final /* synthetic */ int[] f41433a;
 
         static {
             int[] iArr = new int[JsonToken.values().length];
-            f41432a = iArr;
+            f41433a = iArr;
             try {
                 iArr[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41432a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                f41433a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f41432a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                f41433a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -96,7 +96,7 @@ public class p {
     }
 
     public static PointF e(JsonReader jsonReader, float f2) throws IOException {
-        int i = a.f41432a[jsonReader.peek().ordinal()];
+        int i = a.f41433a[jsonReader.peek().ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i == 3) {
@@ -123,7 +123,7 @@ public class p {
 
     public static float g(JsonReader jsonReader) throws IOException {
         JsonToken peek = jsonReader.peek();
-        int i = a.f41432a[peek.ordinal()];
+        int i = a.f41433a[peek.ordinal()];
         if (i != 1) {
             if (i == 2) {
                 jsonReader.beginArray();

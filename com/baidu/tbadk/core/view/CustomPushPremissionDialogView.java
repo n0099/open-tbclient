@@ -21,16 +21,16 @@ import d.b.h0.r.f0.m.c;
 public class CustomPushPremissionDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13353e;
+    public TextView f13354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBLottieAnimationView f13354f;
+    public TBLottieAnimationView f13355f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13355g;
+    public View f13356g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13356h;
+    public View f13357h;
     public TBSpecificationBtn i;
     public TBSpecificationBtn j;
 
@@ -49,24 +49,24 @@ public class CustomPushPremissionDialogView extends LinearLayout {
         setBackgroundDrawable(gradientDrawable);
         LinearLayout.inflate(context, R.layout.custom_push_premission_dialog_view, this);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
-        this.f13354f = tBLottieAnimationView;
+        this.f13355f = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
-        this.f13354f.setFrame(0);
-        SkinManager.setLottieAnimation(this.f13354f, R.raw.lottie_push_permission_dialog_animation);
-        this.f13354f.playAnimation();
+        this.f13355f.setFrame(0);
+        SkinManager.setLottieAnimation(this.f13355f, R.raw.lottie_push_permission_dialog_animation);
+        this.f13355f.playAnimation();
         TextView textView = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
-        this.f13353e = textView;
+        this.f13354e = textView;
         textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f13355g = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
+        this.f13356g = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-            this.f13356h = findViewById(R.id.animation_layout);
-            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, l.g(getContext(), R.dimen.tbds22)).into(this.f13356h);
-            ViewGroup.LayoutParams layoutParams2 = this.f13355g.getLayoutParams();
+            this.f13357h = findViewById(R.id.animation_layout);
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, l.g(getContext(), R.dimen.tbds22)).into(this.f13357h);
+            ViewGroup.LayoutParams layoutParams2 = this.f13356g.getLayoutParams();
             layoutParams2.width = l.g(context, R.dimen.tbds774);
-            this.f13355g.setLayoutParams(layoutParams2);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f13355g);
+            this.f13356g.setLayoutParams(layoutParams2);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f13356g);
         } else {
-            TBSelector.makeDrawableSelector().setShape(0).radius(l.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f13355g);
+            TBSelector.makeDrawableSelector().setShape(0).radius(l.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f13356g);
         }
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
         this.i = tBSpecificationBtn;

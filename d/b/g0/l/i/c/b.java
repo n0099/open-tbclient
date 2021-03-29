@@ -10,19 +10,19 @@ import java.util.List;
 public abstract class b<T> {
     public ContentValues a(d.b.g0.l.k.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.f48922g);
-        contentValues.put("category", Integer.valueOf(eVar.f48923h));
+        contentValues.put("bundle_id", eVar.f48923g);
+        contentValues.put("category", Integer.valueOf(eVar.f48924h));
         contentValues.put("version_name", eVar.j);
         contentValues.put("version_code", Long.valueOf(eVar.i));
         contentValues.put("size", Long.valueOf(eVar.k));
         contentValues.put(PackageTable.MD5, eVar.l);
         contentValues.put("sign", eVar.m);
         contentValues.put("downloadUrl", eVar.n);
-        contentValues.put(PackageTable.FILE_PATH, eVar.f48916a);
-        contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(eVar.f48917b));
-        contentValues.put("create_time", Long.valueOf(eVar.f48918c));
-        contentValues.put("update_time", Long.valueOf(eVar.f48919d));
-        contentValues.put("state", Integer.valueOf(eVar.f48920e));
+        contentValues.put(PackageTable.FILE_PATH, eVar.f48917a);
+        contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(eVar.f48918b));
+        contentValues.put("create_time", Long.valueOf(eVar.f48919c));
+        contentValues.put("update_time", Long.valueOf(eVar.f48920d));
+        contentValues.put("state", Integer.valueOf(eVar.f48921e));
         return contentValues;
     }
 
@@ -46,20 +46,20 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.f48922g = string;
-            eVar.f48923h = cursor.getInt(columnIndex2);
+            eVar.f48923g = string;
+            eVar.f48924h = cursor.getInt(columnIndex2);
             eVar.j = cursor.getString(columnIndex3);
             eVar.i = cursor.getInt(columnIndex4);
             eVar.k = cursor.getLong(columnIndex5);
             eVar.l = cursor.getString(columnIndex6);
             eVar.m = cursor.getString(columnIndex7);
             eVar.n = cursor.getString(columnIndex8);
-            eVar.f48916a = cursor.getString(columnIndex10);
-            eVar.f48917b = cursor.getLong(columnIndex11);
-            eVar.f48918c = cursor.getLong(columnIndex12);
-            eVar.f48919d = cursor.getLong(columnIndex13);
-            eVar.f48921f = cursor.getLong(columnIndex9);
-            eVar.f48920e = cursor.getInt(columnIndex14);
+            eVar.f48917a = cursor.getString(columnIndex10);
+            eVar.f48918b = cursor.getLong(columnIndex11);
+            eVar.f48919c = cursor.getLong(columnIndex12);
+            eVar.f48920d = cursor.getLong(columnIndex13);
+            eVar.f48922f = cursor.getLong(columnIndex9);
+            eVar.f48921e = cursor.getInt(columnIndex14);
             return true;
         }
         return false;

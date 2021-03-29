@@ -5,17 +5,17 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class Objects {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class ToStringHelper {
         public final String className;
         public ValueHolder holderHead;
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes6.dex */
         public static final class ValueHolder {
             @Nullable
             public String name;

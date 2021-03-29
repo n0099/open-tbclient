@@ -26,46 +26,46 @@ import d.b.b.e.p.l;
 public class c implements d.b.h0.t0.a, View.OnClickListener, AdapterView.OnItemClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<SelectLocationActivity> f56871e;
+    public TbPageContext<SelectLocationActivity> f56872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f56872f;
+    public NavigationBar f56873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56873g;
+    public ImageView f56874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f56874h;
+    public LinearLayout f56875h;
     public BdListView i;
     public b j;
     public Intent k;
 
     public c(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.f56871e = tbPageContext;
-        this.f56874h = linearLayout;
-        this.f56872f = navigationBar;
+        this.f56872e = tbPageContext;
+        this.f56875h = linearLayout;
+        this.f56873f = navigationBar;
         b();
         a();
     }
 
     public final void a() {
-        LayoutInflater.from(this.f56871e.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.f56874h, true);
-        this.i = (BdListView) this.f56874h.findViewById(R.id.select_position_list);
-        b bVar = new b(this.f56871e);
+        LayoutInflater.from(this.f56872e.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.f56875h, true);
+        this.i = (BdListView) this.f56875h.findViewById(R.id.select_position_list);
+        b bVar = new b(this.f56872e);
         this.j = bVar;
         this.i.setAdapter((ListAdapter) bVar);
         this.i.setOnItemClickListener(this);
     }
 
     public final void b() {
-        this.f56872f.setCenterTextTitle(this.f56871e.getResources().getString(R.string.select_position_title));
-        ImageView imageView = (ImageView) this.f56872f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        this.f56873g = imageView;
+        this.f56873f.setCenterTextTitle(this.f56872e.getResources().getString(R.string.select_position_title));
+        ImageView imageView = (ImageView) this.f56873f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        this.f56874g = imageView;
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-        layoutParams.setMargins(0, 0, l.g(this.f56871e.getPageActivity(), R.dimen.ds10), 0);
-        this.f56873g.setLayoutParams(layoutParams);
-        this.f56873g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.f56873g.setOnClickListener(this);
+        layoutParams.setMargins(0, 0, l.g(this.f56872e.getPageActivity(), R.dimen.ds10), 0);
+        this.f56874g.setLayoutParams(layoutParams);
+        this.f56874g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.f56874g.setOnClickListener(this);
     }
 
     @Override // d.b.h0.t0.a
@@ -87,8 +87,8 @@ public class c implements d.b.h0.t0.a, View.OnClickListener, AdapterView.OnItemC
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f56873g) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.f56871e.getPageActivity(), 23009)));
+        if (view == this.f56874g) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.f56872e.getPageActivity(), 23009)));
         }
     }
 
@@ -104,8 +104,8 @@ public class c implements d.b.h0.t0.a, View.OnClickListener, AdapterView.OnItemC
         if (i == 0) {
             messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             locationEvent.isShowLocation = false;
-            this.f56871e.getOrignalPage().publishEvent(locationEvent);
-            this.f56871e.getOrignalPage().finish();
+            this.f56872e.getOrignalPage().publishEvent(locationEvent);
+            this.f56872e.getOrignalPage().finish();
             return;
         }
         Object item = this.j.getItem(i);
@@ -116,14 +116,14 @@ public class c implements d.b.h0.t0.a, View.OnClickListener, AdapterView.OnItemC
             locationEvent.locAddr = nearByAddressData.getAddr();
             locationEvent.locSn = nearByAddressData.getSn();
             locationEvent.isShowLocation = true;
-            this.f56871e.getOrignalPage().publishEvent(locationEvent);
-            this.f56871e.getOrignalPage().finish();
+            this.f56872e.getOrignalPage().publishEvent(locationEvent);
+            this.f56872e.getOrignalPage().finish();
         }
     }
 
     @Override // d.b.h0.t0.a
     public void onViewChangeSkinType(int i) {
-        this.f56873g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.f56874g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         this.j.notifyDataSetChanged();
     }
 }

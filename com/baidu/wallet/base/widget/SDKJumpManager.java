@@ -17,7 +17,7 @@ import com.baidu.wallet.passport.LoginBackListenerProxy;
 public class SDKJumpManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f23910a;
+    public LoginBackListenerProxy f23911a;
 
     /* loaded from: classes5.dex */
     public interface OnJumpListener {
@@ -28,11 +28,11 @@ public class SDKJumpManager {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static SDKJumpManager f23915a = new SDKJumpManager();
+        public static SDKJumpManager f23916a = new SDKJumpManager();
     }
 
     public static SDKJumpManager getInstance() {
-        return a.f23915a;
+        return a.f23916a;
     }
 
     public void doSDKJump(final Context context, String str, String str2, final String str3, boolean z, OnJumpListener onJumpListener) {
@@ -45,11 +45,11 @@ public class SDKJumpManager {
             if (!NetworkUtils.isNetworkAvailable(context)) {
                 GlobalUtils.toast(context, ResUtils.getString(context, "ebpay_no_network"));
             } else if (z) {
-                this.f23910a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.widget.SDKJumpManager.1
+                this.f23911a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.widget.SDKJumpManager.1
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i, String str4) {
                         if (i == 603) {
-                            WalletLoginHelper.getInstance().onlyLogin(SDKJumpManager.this.f23910a);
+                            WalletLoginHelper.getInstance().onlyLogin(SDKJumpManager.this.f23911a);
                         }
                     }
 
@@ -58,7 +58,7 @@ public class SDKJumpManager {
                         BaiduWalletDelegate.getInstance().openH5Module(context, str3, true);
                     }
                 });
-                WalletLoginHelper.getInstance().login(this.f23910a);
+                WalletLoginHelper.getInstance().login(this.f23911a);
             } else {
                 BaiduWalletDelegate.getInstance().openH5Module(context, str3, true);
             }
@@ -71,11 +71,11 @@ public class SDKJumpManager {
         } else if ("4".equals(str2) && !TextUtils.isEmpty(str3)) {
             BaiduWalletDelegate.getInstance().invokeHostNative(str3, "");
         } else if ("5".equals(str2)) {
-            this.f23910a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.widget.SDKJumpManager.2
+            this.f23911a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.widget.SDKJumpManager.2
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i, String str4) {
                     if (i == 603) {
-                        WalletLoginHelper.getInstance().onlyLogin(SDKJumpManager.this.f23910a);
+                        WalletLoginHelper.getInstance().onlyLogin(SDKJumpManager.this.f23911a);
                     }
                 }
 
@@ -83,7 +83,7 @@ public class SDKJumpManager {
                 public void onSuccess(int i, String str4) {
                 }
             });
-            WalletLoginHelper.getInstance().login(this.f23910a);
+            WalletLoginHelper.getInstance().login(this.f23911a);
         } else if (!"6".equals(str2) || a(context, str3)) {
         } else {
             GlobalUtils.toast(context, ResUtils.getString(context, "wallet_base_string_service_forbidden"));

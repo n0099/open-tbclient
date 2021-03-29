@@ -13,19 +13,19 @@ import com.baidu.tieba.R;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f58570a;
+    public Context f58571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f58571b;
+    public TextView f58572b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ValueAnimator f58573d;
+    public ValueAnimator f58574d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f58574e = new c();
+    public Runnable f58575e = new c();
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f58572c = new Handler();
+    public Handler f58573c = new Handler();
 
     /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -34,10 +34,10 @@ public class f {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            if (f.this.f58571b == null || valueAnimator == null) {
+            if (f.this.f58572b == null || valueAnimator == null) {
                 return;
             }
-            f.this.f58571b.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            f.this.f58572b.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -52,7 +52,7 @@ public class f {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (f.this.f58571b != null) {
+            if (f.this.f58572b != null) {
                 f.this.g();
             }
         }
@@ -73,65 +73,65 @@ public class f {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.f58571b == null || f.this.f58571b.getParent() == null || f.this.f58573d == null) {
+            if (f.this.f58572b == null || f.this.f58572b.getParent() == null || f.this.f58574d == null) {
                 return;
             }
-            f.this.f58573d.start();
+            f.this.f58574d.start();
         }
     }
 
     public f(Context context) {
-        this.f58570a = context;
+        this.f58571a = context;
         c();
     }
 
     public final void c() {
-        TextView textView = new TextView(this.f58570a);
-        this.f58571b = textView;
-        textView.setTextSize(0, this.f58570a.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-        SkinManager.setBackgroundResource(this.f58571b, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f58571b, R.color.CAM_X0101);
-        this.f58571b.setGravity(17);
-        this.f58571b.setVisibility(0);
+        TextView textView = new TextView(this.f58571a);
+        this.f58572b = textView;
+        textView.setTextSize(0, this.f58571a.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+        SkinManager.setBackgroundResource(this.f58572b, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f58572b, R.color.CAM_X0101);
+        this.f58572b.setGravity(17);
+        this.f58572b.setVisibility(0);
         ValueAnimator valueAnimator = new ValueAnimator();
-        this.f58573d = valueAnimator;
+        this.f58574d = valueAnimator;
         valueAnimator.setFloatValues(1.0f, 0.0f);
-        this.f58573d.setDuration(400L);
-        this.f58573d.addUpdateListener(new a());
-        this.f58573d.addListener(new b());
+        this.f58574d.setDuration(400L);
+        this.f58574d.addUpdateListener(new a());
+        this.f58574d.addListener(new b());
     }
 
     public void d() {
-        this.f58572c.removeCallbacks(this.f58574e);
-        this.f58572c.postDelayed(this.f58574e, 2000L);
+        this.f58573c.removeCallbacks(this.f58575e);
+        this.f58573c.postDelayed(this.f58575e, 2000L);
     }
 
     public TextView e() {
-        return this.f58571b;
+        return this.f58572b;
     }
 
     public boolean f() {
-        TextView textView = this.f58571b;
+        TextView textView = this.f58572b;
         return textView != null && textView.getVisibility() == 0;
     }
 
     public void g() {
-        Handler handler = this.f58572c;
+        Handler handler = this.f58573c;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        ValueAnimator valueAnimator = this.f58573d;
+        ValueAnimator valueAnimator = this.f58574d;
         if (valueAnimator != null) {
             valueAnimator.cancel();
         }
-        TextView textView = this.f58571b;
+        TextView textView = this.f58572b;
         if (textView != null) {
             ViewParent parent = textView.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.f58571b);
+                ((ViewGroup) parent).removeView(this.f58572b);
             }
-            this.f58571b.setVisibility(8);
-            this.f58571b = null;
+            this.f58572b.setVisibility(8);
+            this.f58572b = null;
         }
     }
 }

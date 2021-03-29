@@ -9,27 +9,27 @@ public class o implements d.b.b.j.e.n {
     public static final BdUniqueId m = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52453e;
+    public String f52454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f52454f;
+    public BdUniqueId f52455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52455g = 0;
+    public int f52456g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52456h = false;
+    public boolean f52457h = false;
     public boolean i;
     public boolean j;
     public List<PbSortType> k;
 
     public o(BdUniqueId bdUniqueId) {
-        this.f52454f = m;
-        this.f52454f = bdUniqueId;
+        this.f52455f = m;
+        this.f52455f = bdUniqueId;
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return this.f52454f;
+        return this.f52455f;
     }
 }

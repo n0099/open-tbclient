@@ -7,22 +7,22 @@ import java.util.List;
 public class d implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f54556f = BdUniqueId.gen();
+    public static final BdUniqueId f54557f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54557e;
+    public String f54558e;
 
     public d(boolean z, a aVar) {
-        String str = aVar.f54552e;
-        String str2 = aVar.f54551d;
-        this.f54557e = aVar.f54548a;
-        String str3 = aVar.f54553f;
-        List<b> list = aVar.f54550c;
-        int i = aVar.f54549b;
+        String str = aVar.f54553e;
+        String str2 = aVar.f54552d;
+        this.f54558e = aVar.f54549a;
+        String str3 = aVar.f54554f;
+        List<b> list = aVar.f54551c;
+        int i = aVar.f54550b;
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f54556f;
+        return f54557f;
     }
 }

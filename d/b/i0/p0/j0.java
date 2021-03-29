@@ -10,74 +10,74 @@ import tbclient.FrsTabInfo;
 public class j0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<FrsTabInfo> f57684a;
+    public List<FrsTabInfo> f57685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<d.b.h0.e0.b> f57685b = new LinkedList();
+    public final List<d.b.h0.e0.b> f57686b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f57686c;
+    public Context f57687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57687d;
+    public String f57688d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57688e;
+    public String f57689e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57689f;
+    public String f57690f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57690g;
+    public String f57691g;
 
     public j0(Context context, List<FrsTabInfo> list) {
-        this.f57684a = list;
-        this.f57686c = context;
+        this.f57685a = list;
+        this.f57687c = context;
     }
 
     public void a(d.b.h0.e0.b bVar) {
         if (bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        for (d.b.h0.e0.b bVar2 : this.f57685b) {
-            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f50158e == bVar.getFragmentTabStructure().f50158e) {
+        for (d.b.h0.e0.b bVar2 : this.f57686b) {
+            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f50159e == bVar.getFragmentTabStructure().f50159e) {
                 return;
             }
         }
-        this.f57685b.add(bVar);
+        this.f57686b.add(bVar);
     }
 
     public Context b() {
-        return this.f57686c;
+        return this.f57687c;
     }
 
     public String c() {
-        return this.f57689f;
+        return this.f57690f;
     }
 
     public String d() {
-        return this.f57687d;
+        return this.f57688d;
     }
 
     public String e() {
-        return this.f57688e;
+        return this.f57689e;
     }
 
     public String f() {
-        return this.f57690g;
+        return this.f57691g;
     }
 
     public List<FrsTabInfo> g() {
-        return this.f57684a;
+        return this.f57685a;
     }
 
     public List<d.b.h0.e0.b> h() {
-        return this.f57685b;
+        return this.f57686b;
     }
 
     public boolean i(int i) {
-        if (i < 100 && !ListUtils.isEmpty(this.f57684a)) {
-            for (FrsTabInfo frsTabInfo : this.f57684a) {
+        if (i < 100 && !ListUtils.isEmpty(this.f57685a)) {
+            for (FrsTabInfo frsTabInfo : this.f57685a) {
                 if (frsTabInfo.tab_id.intValue() == i) {
                     return true;
                 }
@@ -88,33 +88,33 @@ public class j0 {
     }
 
     public void j(String str) {
-        this.f57689f = str;
+        this.f57690f = str;
     }
 
     public void k(String str) {
-        this.f57687d = str;
+        this.f57688d = str;
     }
 
     public void l(String str) {
-        this.f57688e = str;
+        this.f57689e = str;
     }
 
     public void m(String str) {
-        this.f57690g = str;
+        this.f57691g = str;
     }
 
     public void n() {
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
-        for (FrsTabInfo frsTabInfo : this.f57684a) {
+        for (FrsTabInfo frsTabInfo : this.f57685a) {
             boolean z = false;
-            Iterator<d.b.h0.e0.b> it = this.f57685b.iterator();
+            Iterator<d.b.h0.e0.b> it = this.f57686b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 d.b.h0.e0.b next = it.next();
-                if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().f50158e) {
+                if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().f50159e) {
                     linkedList.add(next);
                     z = true;
                     break;
@@ -125,12 +125,12 @@ public class j0 {
             }
         }
         if (!ListUtils.isEmpty(linkedList2)) {
-            this.f57684a.removeAll(linkedList2);
+            this.f57685a.removeAll(linkedList2);
         }
-        this.f57685b.clear();
+        this.f57686b.clear();
         if (ListUtils.isEmpty(linkedList)) {
             return;
         }
-        this.f57685b.addAll(linkedList);
+        this.f57686b.addAll(linkedList);
     }
 }

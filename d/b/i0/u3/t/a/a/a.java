@@ -23,40 +23,40 @@ import d.b.i0.c3.q0.g;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NewVcodeView f61700a;
+    public final NewVcodeView f61701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f61701b;
+    public final NewWriteModel f61702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61702c;
+    public boolean f61703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PostWriteCallBackData f61703d;
+    public PostWriteCallBackData f61704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final NewWriteModel.g f61704e;
+    public final NewWriteModel.g f61705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteModel.g f61705f;
+    public NewWriteModel.g f61706f;
 
     /* renamed from: d.b.i0.u3.t.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1619a implements NewWriteModel.g {
-        public C1619a() {
+    public class C1620a implements NewWriteModel.g {
+        public C1620a() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, f0 f0Var, WriteData writeData, AntiData antiData) {
             String str;
             String str2;
-            if (a.this.f61700a == null) {
+            if (a.this.f61701a == null) {
                 return;
             }
-            a.this.f61700a.showPostThreadLoadingView(false);
+            a.this.f61701a.showPostThreadLoadingView(false);
             if (z) {
-                a.this.f61703d = postWriteCallBackData;
-                a.this.f61702c = true;
+                a.this.f61704d = postWriteCallBackData;
+                a.this.f61703c = true;
                 String str3 = null;
                 if (f0Var == null || f0Var.a() == null) {
                     str = null;
@@ -68,97 +68,97 @@ public class a implements b {
                     str = str4;
                     str3 = str5;
                 }
-                a.this.f61700a.runJsMethod("success", str3 + "," + str + "," + str2);
+                a.this.f61701a.runJsMethod("success", str3 + "," + str + "," + str2);
             } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
-                if (a.this.f61705f != null) {
-                    a.this.f61705f.callback(false, postWriteCallBackData, f0Var, writeData, antiData);
+                if (a.this.f61706f != null) {
+                    a.this.f61706f.callback(false, postWriteCallBackData, f0Var, writeData, antiData);
                 }
             } else {
-                a.this.f61700a.getContext().setVisible(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f61700a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                a.this.f61701a.getContext().setVisible(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f61701a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
             }
         }
     }
 
     public a(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
-        C1619a c1619a = new C1619a();
-        this.f61704e = c1619a;
-        this.f61700a = newVcodeView;
-        this.f61701b = newWriteModel;
-        newWriteModel.d0(c1619a);
+        C1620a c1620a = new C1620a();
+        this.f61705e = c1620a;
+        this.f61701a = newVcodeView;
+        this.f61702b = newWriteModel;
+        newWriteModel.d0(c1620a);
     }
 
     @Override // d.b.i0.u3.t.a.a.b
     public void a(boolean z) {
-        this.f61700a.setRatio(0.9433962f);
-        this.f61700a.showWebView(false);
-        this.f61700a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
+        this.f61701a.setRatio(0.9433962f);
+        this.f61701a.showWebView(false);
+        this.f61701a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
     }
 
     @Override // d.b.i0.u3.t.a.a.b
     public boolean b(WebView webView, String str) {
         WriteData T;
         String str2;
-        if (this.f61701b.T() == null || StringUtils.isNull(str) || (T = this.f61701b.T()) == null) {
+        if (this.f61702b.T() == null || StringUtils.isNull(str) || (T = this.f61702b.T()) == null) {
             return false;
         }
         if (str.contains("objc:loadReady")) {
             if (T.getVcodeExtra() == null) {
                 return false;
             }
-            this.f61700a.runJsMethod("handleFreshCaptcha", "'" + T.getVcodeUrl() + "','" + T.getVcodeExtra().slideImg + "','" + T.getVcodeExtra().textImg + "'");
+            this.f61701a.runJsMethod("handleFreshCaptcha", "'" + T.getVcodeUrl() + "','" + T.getVcodeExtra().slideImg + "','" + T.getVcodeExtra().textImg + "'");
             return true;
         } else if (str.contains("objc:jsChangePosition")) {
             j(d.b.h0.a1.a.a(str));
             return true;
         } else if (str.contains("objc:finish")) {
             if (T != null && T.getVideoReviewType() == 1) {
-                NewVcodeView newVcodeView = this.f61700a;
+                NewVcodeView newVcodeView = this.f61701a;
                 newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.video_send_success_under_review));
             } else if (T != null && T.getVideoReviewType() == 2) {
-                NewVcodeView newVcodeView2 = this.f61700a;
+                NewVcodeView newVcodeView2 = this.f61701a;
                 newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.video_send_success));
             } else {
-                String string = this.f61700a.getContext().getResources().getString(R.string.send_success);
-                PostWriteCallBackData postWriteCallBackData = this.f61703d;
+                String string = this.f61701a.getContext().getResources().getString(R.string.send_success);
+                PostWriteCallBackData postWriteCallBackData = this.f61704d;
                 String str3 = null;
                 if (postWriteCallBackData != null) {
                     str3 = postWriteCallBackData.getPreMsg();
-                    str2 = this.f61703d.getColorMsg();
-                    string = this.f61703d.getErrorString();
+                    str2 = this.f61704d.getColorMsg();
+                    string = this.f61704d.getErrorString();
                 } else {
                     str2 = null;
                 }
                 if (T.getType() != 7) {
-                    g.b(this.f61700a.getContext().getActivity(), string, str3, str2);
+                    g.b(this.f61701a.getContext().getActivity(), string, str3, str2);
                 }
             }
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
-            bundle.putSerializable("post_write_callback_data", this.f61703d);
+            bundle.putSerializable("post_write_callback_data", this.f61704d);
             intent.putExtras(bundle);
-            BaseActivity context = this.f61700a.getContext();
-            this.f61700a.getContext();
+            BaseActivity context = this.f61701a.getContext();
+            this.f61701a.getContext();
             context.setResult(-1, intent);
-            this.f61700a.getContext().finish();
+            this.f61701a.getContext().finish();
             return true;
         } else if (!str.contains("objc:jumpToFeedback()") || WriteActivityConfig.isAsyncWriting()) {
             return false;
         } else {
-            WriteActivityConfig.newInstance(this.f61700a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
+            WriteActivityConfig.newInstance(this.f61701a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
             return true;
         }
     }
 
     @Override // d.b.i0.u3.t.a.a.b
     public void c(NewWriteModel.g gVar) {
-        this.f61705f = gVar;
+        this.f61706f = gVar;
     }
 
     @Override // d.b.i0.u3.t.a.a.b
     public void d() {
-        this.f61700a.showPostThreadLoadingView(false);
-        this.f61701b.cancelLoadData();
+        this.f61701a.showPostThreadLoadingView(false);
+        this.f61702b.cancelLoadData();
     }
 
     @Override // d.b.i0.u3.t.a.a.b
@@ -167,16 +167,16 @@ public class a implements b {
 
     public final void j(String str) {
         if (!l.C()) {
-            this.f61700a.getContext().showToast(R.string.neterror);
-            this.f61700a.getContext().finish();
+            this.f61701a.getContext().showToast(R.string.neterror);
+            this.f61701a.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
-            this.f61700a.showPostThreadLoadingView(true);
-            this.f61701b.T().setVcode(str);
-            this.f61701b.T().setVcodeType("5");
-            this.f61701b.i0();
+            this.f61701a.showPostThreadLoadingView(true);
+            this.f61702b.T().setVcode(str);
+            this.f61702b.T().setVcodeType("5");
+            this.f61702b.i0();
         } else {
-            this.f61700a.getContext().showToast(R.string.neterror);
-            this.f61700a.getContext().finish();
+            this.f61701a.getContext().showToast(R.string.neterror);
+            this.f61701a.getContext().finish();
         }
     }
 
@@ -186,7 +186,7 @@ public class a implements b {
 
     @Override // d.b.i0.u3.t.a.a.b
     public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView = this.f61700a;
+        NewVcodeView newVcodeView = this.f61701a;
         if (newVcodeView != null) {
             newVcodeView.showWebViewDelay(1000);
         }

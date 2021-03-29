@@ -14,47 +14,47 @@ import java.util.ArrayList;
 public class d extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f57096e;
+    public final Context f57097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f57097f;
+    public ArrayList<String> f57098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f57098g;
+    public final String f57099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57099h = true;
+    public boolean f57100h = true;
 
     /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f57100a;
+        public TextView f57101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f57101b;
+        public View f57102b;
 
         public b(d dVar) {
         }
     }
 
     public d(Context context, ArrayList<String> arrayList) {
-        this.f57096e = context;
-        this.f57097f = arrayList;
-        this.f57098g = context.getText(R.string.forum).toString();
+        this.f57097e = context;
+        this.f57098f = arrayList;
+        this.f57099g = context.getText(R.string.forum).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
-        this.f57097f = arrayList;
+        this.f57098f = arrayList;
     }
 
     public void b(boolean z) {
-        this.f57099h = z;
+        this.f57100h = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<String> arrayList = this.f57097f;
+        ArrayList<String> arrayList = this.f57098f;
         if (arrayList == null) {
             return 0;
         }
@@ -67,7 +67,7 @@ public class d extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.f57097f.get(i);
+        return this.f57098f.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -80,10 +80,10 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f57096e).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f57097e).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
             bVar = new b();
-            bVar.f57100a = (TextView) view.findViewById(R.id.home_lv_search_forum);
-            bVar.f57101b = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
+            bVar.f57101a = (TextView) view.findViewById(R.id.home_lv_search_forum);
+            bVar.f57102b = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
@@ -93,13 +93,13 @@ public class d extends BaseAdapter {
             return view;
         }
         String str = (String) item;
-        if (this.f57099h) {
-            bVar.f57100a.setText(str.concat(this.f57098g));
+        if (this.f57100h) {
+            bVar.f57101a.setText(str.concat(this.f57099g));
         } else {
-            bVar.f57100a.setText(str);
+            bVar.f57101a.setText(str);
         }
-        SkinManager.setViewTextColor(bVar.f57100a, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundColor(bVar.f57101b, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(bVar.f57101a, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundColor(bVar.f57102b, R.color.CAM_X0204);
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         return view;
     }

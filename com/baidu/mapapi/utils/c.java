@@ -9,24 +9,24 @@ import com.baidu.mapframework.open.aidl.b;
 public final class c extends b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7399a;
+    public final /* synthetic */ int f7400a;
 
     public c(int i) {
-        this.f7399a = i;
+        this.f7400a = i;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
     public void a(IBinder iBinder) throws RemoteException {
         String str;
         IComOpenClient iComOpenClient;
-        str = b.f7393c;
+        str = b.f7394c;
         Log.d(str, "onClientReady");
-        iComOpenClient = b.f7395e;
+        iComOpenClient = b.f7396e;
         if (iComOpenClient != null) {
-            IComOpenClient unused = b.f7395e = null;
+            IComOpenClient unused = b.f7396e = null;
         }
-        IComOpenClient unused2 = b.f7395e = IComOpenClient.a.a(iBinder);
-        b.a(this.f7399a);
+        IComOpenClient unused2 = b.f7396e = IComOpenClient.a.a(iBinder);
+        b.a(this.f7400a);
         boolean unused3 = b.t = true;
     }
 }

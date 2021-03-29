@@ -16,29 +16,29 @@ import javax.crypto.spec.SecretKeySpec;
 public class Crypto {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5353a = 16;
+    public static final int f5354a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5354b = 8;
+    public static final int f5355b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5355c = 128;
+    public static final int f5356c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5356d = 64;
+    public static final int f5357d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5357e = 8;
+    public static final int f5358e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5358f = 1000;
+    public static final int f5359f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f5359g = new SecureRandom();
+    public static SecureRandom f5360g = new SecureRandom();
 
     public static byte[] a(int i) {
         byte[] bArr = new byte[i];
-        f5359g.nextBytes(bArr);
+        f5360g.nextBytes(bArr);
         return bArr;
     }
 

@@ -9,24 +9,24 @@ import tbclient.GetVipInfo.VipBannerList;
 public class a implements d.b.b.j.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f59290f = BdUniqueId.gen();
+    public static final BdUniqueId f59291f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f59291e;
+    public List<b> f59292e;
 
     public a(VipBannerList vipBannerList) {
         if (vipBannerList == null || vipBannerList.item == null) {
             return;
         }
         String str = vipBannerList.card_id;
-        this.f59291e = new ArrayList();
+        this.f59292e = new ArrayList();
         for (VipBannerItem vipBannerItem : vipBannerList.item) {
-            this.f59291e.add(new b(vipBannerItem));
+            this.f59292e.add(new b(vipBannerItem));
         }
     }
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f59290f;
+        return f59291f;
     }
 }

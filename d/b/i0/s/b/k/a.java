@@ -29,26 +29,26 @@ public class a extends a0 {
 
     /* renamed from: d.b.i0.s.b.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1528a extends ResponseCallback {
+    public class C1529a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f60095a;
+        public final /* synthetic */ String f60096a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f60096b;
+        public final /* synthetic */ CallbackHandler f60097b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f60097c;
+        public final /* synthetic */ e f60098c;
 
-        public C1528a(String str, CallbackHandler callbackHandler, e eVar) {
-            this.f60095a = str;
-            this.f60096b = callbackHandler;
-            this.f60097c = eVar;
+        public C1529a(String str, CallbackHandler callbackHandler, e eVar) {
+            this.f60096a = str;
+            this.f60097b = callbackHandler;
+            this.f60098c = eVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f60096b.handleSchemeDispatchCallback(this.f60095a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            this.f60097b.handleSchemeDispatchCallback(this.f60096a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -57,7 +57,7 @@ public class a extends a0 {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            a.this.n(response, this.f60095a, this.f60096b, this.f60097c);
+            a.this.n(response, this.f60096a, this.f60097b, this.f60098c);
             return response;
         }
     }
@@ -112,7 +112,7 @@ public class a extends a0 {
             schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
         }
         buildUpon.scheme(schemeHead);
-        if (a0.f46287b) {
+        if (a0.f46288b) {
             Log.i("NavigateToSmartProgram", buildUpon.build().toString());
         }
         return buildUpon.build();
@@ -128,12 +128,12 @@ public class a extends a0 {
                 jSONObject2.put("params", jSONObject);
                 String H = d.b.g0.a.w0.a.l().H();
                 Request build = new Request.Builder().url(H).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                 }
                 return build;
             } catch (Exception e2) {
-                if (a0.f46287b) {
+                if (a0.f46288b) {
                     e2.printStackTrace();
                 }
             }
@@ -142,10 +142,10 @@ public class a extends a0 {
     }
 
     public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, e eVar) {
-        d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(d.b.g0.a.w0.a.l().H(), requestBody, new C1528a(str, callbackHandler, eVar));
-        aVar.f48883f = true;
-        aVar.f48884g = false;
-        aVar.f48885h = true;
+        d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(d.b.g0.a.w0.a.l().H(), requestBody, new C1529a(str, callbackHandler, eVar));
+        aVar.f48884f = true;
+        aVar.f48885g = false;
+        aVar.f48886h = true;
         d.b.g0.k.e.a.f().e(aVar);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
@@ -169,7 +169,7 @@ public class a extends a0 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
             }
         } catch (Exception e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.d("NavigateToSmartProgram", e2.getMessage());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

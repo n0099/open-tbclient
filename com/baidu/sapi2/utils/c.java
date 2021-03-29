@@ -9,28 +9,28 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11441a = "login_";
+    public static final String f11442a = "login_";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11442b = "login_pop";
+    public static final String f11443b = "login_pop";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11443c = "modifyPWD_widge";
+    public static final String f11444c = "modifyPWD_widge";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11444d = "normal_incomplete";
+    public static final String f11445d = "normal_incomplete";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11445e = "normal_guest";
+    public static final String f11446e = "normal_guest";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11446f = "fillname_widge";
+    public static final String f11447f = "fillname_widge";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11447g = "web2native";
+    public static final String f11448g = "web2native";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f11448h = "native2web";
+    public static final String f11449h = "native2web";
     public static final String i = "sapi_action_bduss_changed";
 
     public void a(String str) {

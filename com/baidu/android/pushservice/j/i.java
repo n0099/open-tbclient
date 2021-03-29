@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i {
     public static String a(Context context, String str) {
         return context.getSharedPreferences("pst", 0).getString(str, "");
@@ -52,7 +52,7 @@ public class i {
             edit.putString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            m.f3395a = 1;
+            m.f3396a = 1;
             edit.putLong("version_code", m.c(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e2) {

@@ -12,7 +12,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class EglBase10 implements EglBase {
     public static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
     @Nullable

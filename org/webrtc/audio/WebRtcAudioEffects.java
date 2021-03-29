@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public class WebRtcAudioEffects {
     public static final UUID AOSP_ACOUSTIC_ECHO_CANCELER = UUID.fromString("bb392ec0-8d4d-11e0-a896-0002a5d5c51b");
     public static final UUID AOSP_NOISE_SUPPRESSOR = UUID.fromString("c06c8400-8e06-11e0-9cb6-0002a5d5c51b");

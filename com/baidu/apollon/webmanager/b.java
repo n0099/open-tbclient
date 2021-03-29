@@ -18,42 +18,42 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f4061b = "JsJavaBridge";
+    public static final String f4062b = "JsJavaBridge";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f4064e = 0;
+    public static final int f4065e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f4065f = 101;
+    public static final int f4066f = 101;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f4066g = 102;
+    public static final int f4067g = 102;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f4067h = 100;
+    public static final int f4068h = 100;
     public static final String i = "Local";
     public String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4060a = ApollonConstants.DEBUG & false;
+    public static final boolean f4061a = ApollonConstants.DEBUG & false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4062c = "BdWallet:";
+    public static final String f4063c = "BdWallet:";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f4063d = f4062c.toLowerCase();
+    public static final String f4064d = f4063c.toLowerCase();
     public final HashMap<String, Object> j = new HashMap<>();
     public final HashMap<String, Set<String>> k = new HashMap<>();
     public boolean l = false;
     public final Map<String, String> n = new HashMap();
 
     public void a(Object obj, String str) {
-        if (f4060a) {
-            Log.i(f4061b, "addJavascriptInterface to map: <" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + ">");
+        if (f4061a) {
+            Log.i(f4062b, "addJavascriptInterface to map: <" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + ">");
         }
         if (obj == null || TextUtils.isEmpty(str)) {
             return;
@@ -97,8 +97,8 @@ public class b {
             try {
                 a(sb, this.j.get(str), str);
             } catch (JSONException e2) {
-                if (f4060a) {
-                    Log.e(f4061b, "", e2);
+                if (f4061a) {
+                    Log.e(f4062b, "", e2);
                 }
             }
         }
@@ -108,14 +108,14 @@ public class b {
             }
         }
         this.l = false;
-        if (f4060a) {
+        if (f4061a) {
             sb.append("console.log('addJavascript done!');");
         }
         sb.append("}");
         sb.append(")()");
         this.m = sb.toString();
-        if (f4060a) {
-            Log.i(f4061b, "getImpactedJsString : " + this.m);
+        if (f4061a) {
+            Log.i(f4062b, "getImpactedJsString : " + this.m);
         }
         return this.m;
     }
@@ -123,8 +123,8 @@ public class b {
     public void a(String str) {
         this.j.remove(str);
         this.m = null;
-        if (f4060a) {
-            Log.i(f4061b, "removeJavascriptInterface from map: " + str);
+        if (f4061a) {
+            Log.i(f4062b, "removeJavascriptInterface from map: " + str);
         }
     }
 
@@ -143,17 +143,17 @@ public class b {
     public boolean a(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         String substring;
         boolean z;
-        if (f4060a) {
-            Log.i(f4061b, "handle url: " + str);
-            Log.i(f4061b, "handle msg: " + str2);
+        if (f4061a) {
+            Log.i(f4062b, "handle url: " + str);
+            Log.i(f4062b, "handle msg: " + str2);
         }
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        if (str2.startsWith(f4062c)) {
+        if (str2.startsWith(f4063c)) {
             substring = str2.substring(9);
             z = true;
-        } else if (!str2.startsWith(f4062c.toLowerCase())) {
+        } else if (!str2.startsWith(f4063c.toLowerCase())) {
             return false;
         } else {
             substring = str2.substring(9);
@@ -161,7 +161,7 @@ public class b {
         }
         try {
             JavaBridgeObject javaBridgeObject = (JavaBridgeObject) JsonUtils.fromJson(substring, JavaBridgeObject.class);
-            if (f4060a && javaBridgeObject != null) {
+            if (f4061a && javaBridgeObject != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(javaBridgeObject.obj);
                 sb.append(".");
@@ -178,14 +178,14 @@ public class b {
                     }
                 }
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                LogUtil.i(f4061b, "call: " + sb.toString());
+                LogUtil.i(f4062b, "call: " + sb.toString());
             }
             if (javaBridgeObject != null) {
                 return a(jsPromptResult, z, javaBridgeObject);
             }
             return true;
         } catch (JSONException e2) {
-            if (f4060a) {
+            if (f4061a) {
                 e2.printStackTrace();
             }
             jsPromptResult.cancel();
@@ -206,7 +206,7 @@ public class b {
     private void a(StringBuilder sb, Object obj, String str) throws JSONException {
         if (sb != null && obj != null && !TextUtils.isEmpty(str)) {
             Class<?> cls = obj.getClass();
-            if (f4060a) {
+            if (f4061a) {
                 sb.append("if(typeof(window." + str + ")!='undefined'){");
                 sb.append("console.log('window." + str + " is exist!!');}else{");
             } else {
@@ -227,7 +227,7 @@ public class b {
                         sb.append("return ");
                     }
                     sb.append("prompt('");
-                    sb.append(f4063d);
+                    sb.append(f4064d);
                     sb.append("'+");
                     sb.append("JSON.stringify({");
                     sb.append("obj");
@@ -252,20 +252,20 @@ public class b {
             }
             sb.append("};");
             sb.append("}");
-        } else if (f4060a) {
-            Log.e(f4061b, "createJsScript: invalid params:");
-            Log.e(f4061b, "script=" + ((Object) sb));
-            Log.e(f4061b, "obj=" + obj + ", interfaceName=" + str);
+        } else if (f4061a) {
+            Log.e(f4062b, "createJsScript: invalid params:");
+            Log.e(f4062b, "script=" + ((Object) sb));
+            Log.e(f4062b, "obj=" + obj + ", interfaceName=" + str);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0100  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0103 A[Catch: InvocationTargetException -> 0x012d, IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, TryCatch #2 {IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, InvocationTargetException -> 0x012d, blocks: (B:34:0x00d4, B:36:0x00de, B:39:0x00f2, B:47:0x0107, B:49:0x010b, B:51:0x0121, B:52:0x0129, B:46:0x0103), top: B:85:0x00d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x010b A[Catch: InvocationTargetException -> 0x012d, IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, TryCatch #2 {IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, InvocationTargetException -> 0x012d, blocks: (B:34:0x00d4, B:36:0x00de, B:39:0x00f2, B:47:0x0107, B:49:0x010b, B:51:0x0121, B:52:0x0129, B:46:0x0103), top: B:85:0x00d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0121 A[Catch: InvocationTargetException -> 0x012d, IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, TryCatch #2 {IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, InvocationTargetException -> 0x012d, blocks: (B:34:0x00d4, B:36:0x00de, B:39:0x00f2, B:47:0x0107, B:49:0x010b, B:51:0x0121, B:52:0x0129, B:46:0x0103), top: B:85:0x00d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0129 A[Catch: InvocationTargetException -> 0x012d, IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, TRY_LEAVE, TryCatch #2 {IllegalAccessException -> 0x0136, IllegalArgumentException -> 0x013f, NoSuchMethodException -> 0x016b, InvocationTargetException -> 0x012d, blocks: (B:34:0x00d4, B:36:0x00de, B:39:0x00f2, B:47:0x0107, B:49:0x010b, B:51:0x0121, B:52:0x0129, B:46:0x0103), top: B:85:0x00d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x014a  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0167  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00ff  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0102 A[Catch: InvocationTargetException -> 0x012c, IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, TryCatch #2 {IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, InvocationTargetException -> 0x012c, blocks: (B:34:0x00d3, B:36:0x00dd, B:39:0x00f1, B:47:0x0106, B:49:0x010a, B:51:0x0120, B:52:0x0128, B:46:0x0102), top: B:85:0x00d3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x010a A[Catch: InvocationTargetException -> 0x012c, IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, TryCatch #2 {IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, InvocationTargetException -> 0x012c, blocks: (B:34:0x00d3, B:36:0x00dd, B:39:0x00f1, B:47:0x0106, B:49:0x010a, B:51:0x0120, B:52:0x0128, B:46:0x0102), top: B:85:0x00d3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0120 A[Catch: InvocationTargetException -> 0x012c, IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, TryCatch #2 {IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, InvocationTargetException -> 0x012c, blocks: (B:34:0x00d3, B:36:0x00dd, B:39:0x00f1, B:47:0x0106, B:49:0x010a, B:51:0x0120, B:52:0x0128, B:46:0x0102), top: B:85:0x00d3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0128 A[Catch: InvocationTargetException -> 0x012c, IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, TRY_LEAVE, TryCatch #2 {IllegalAccessException -> 0x0135, IllegalArgumentException -> 0x013e, NoSuchMethodException -> 0x016a, InvocationTargetException -> 0x012c, blocks: (B:34:0x00d3, B:36:0x00dd, B:39:0x00f1, B:47:0x0106, B:49:0x010a, B:51:0x0120, B:52:0x0128, B:46:0x0102), top: B:85:0x00d3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0166  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -275,8 +275,8 @@ public class b {
         boolean z2;
         Object obj = this.j.get(javaBridgeObject.obj);
         if (obj == null) {
-            if (f4060a) {
-                Log.e(f4061b, "not exist js interface:" + javaBridgeObject.obj);
+            if (f4061a) {
+                Log.e(f4062b, "not exist js interface:" + javaBridgeObject.obj);
             }
             if (z) {
                 jsPromptResult.confirm(a(101, "interface:" + javaBridgeObject.obj + " not found!", (String) null));
@@ -285,8 +285,8 @@ public class b {
             }
             return true;
         } else if (javaBridgeObject.args == null && javaBridgeObject.func == null) {
-            if (f4060a) {
-                Log.d(f4061b, "interface query: found for " + obj);
+            if (f4061a) {
+                Log.d(f4062b, "interface query: found for " + obj);
             }
             if (z) {
                 jsPromptResult.confirm(a(0, "interface:" + obj + " found!", Boolean.TRUE.toString()));
@@ -301,8 +301,8 @@ public class b {
                 clsArr = new Class[length];
                 for (int i2 = 0; i2 < length; i2++) {
                     clsArr[i2] = a(javaBridgeObject.args[i2]);
-                    if (f4060a) {
-                        Log.d(f4061b, "type:" + clsArr[i2].getName());
+                    if (f4061a) {
+                        Log.d(f4062b, "type:" + clsArr[i2].getName());
                     }
                 }
             } else {
@@ -313,8 +313,8 @@ public class b {
                 if (invoke != null && invoke.getClass() != Void.TYPE) {
                     z2 = false;
                     String obj2 = !z2 ? "" : invoke.toString();
-                    if (f4060a) {
-                        Log.i(f4061b, "called ok: " + obj2);
+                    if (f4061a) {
+                        Log.i(f4062b, "called ok: " + obj2);
                     }
                     if (!z) {
                         jsPromptResult.confirm(a(0, (String) null, obj2));
@@ -326,13 +326,13 @@ public class b {
                 z2 = true;
                 if (!z2) {
                 }
-                if (f4060a) {
+                if (f4061a) {
                 }
                 if (!z) {
                 }
                 return true;
             } catch (IllegalAccessException e2) {
-                if (f4060a) {
+                if (f4061a) {
                     e2.printStackTrace();
                     return false;
                 }
@@ -343,7 +343,7 @@ public class b {
                 }
                 return true;
             } catch (IllegalArgumentException e3) {
-                if (f4060a) {
+                if (f4061a) {
                     e3.printStackTrace();
                     return false;
                 }
@@ -351,7 +351,7 @@ public class b {
                 }
                 return true;
             } catch (NoSuchMethodException unused) {
-                if (f4060a) {
+                if (f4061a) {
                     StringBuilder sb = new StringBuilder(javaBridgeObject.func);
                     sb.append("(");
                     if (length > 0) {
@@ -373,7 +373,7 @@ public class b {
                 }
                 return true;
             } catch (InvocationTargetException e4) {
-                if (f4060a) {
+                if (f4061a) {
                     e4.printStackTrace();
                     return false;
                 }
@@ -395,7 +395,7 @@ public class b {
                 jSONObject.put("result", str2);
             }
         } catch (JSONException e2) {
-            if (f4060a) {
+            if (f4061a) {
                 e2.printStackTrace();
             }
         }

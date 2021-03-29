@@ -12,9 +12,7 @@ public class DummyBitmapPool implements BitmapPool {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
     public Bitmap get(int i) {
-        double d2 = i;
-        Double.isNaN(d2);
-        return Bitmap.createBitmap(1, (int) Math.ceil(d2 / 2.0d), Bitmap.Config.RGB_565);
+        return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

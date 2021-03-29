@@ -2,7 +2,7 @@ package d.b.g0.a.p.b;
 
 import d.b.g0.a.p.c.p0;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class w implements p0 {
     @Override // d.b.g0.a.p.c.p0
     public void a() {
@@ -37,8 +37,8 @@ public class w implements p0 {
             return null;
         }
         if (d.b.g0.a.e0.u.a.b()) {
-            return d.b.g0.a.e0.u.a.f44285a + File.separator + "libcom.baidu.zeus.so";
+            return d.b.g0.a.e0.u.a.f44286a + File.separator + "libcom.baidu.zeus.so";
         }
-        return d.b.g0.a.e0.u.a.f44287c + File.separator + "libcom.baidu.zeus.so";
+        return d.b.g0.a.e0.u.a.f44288c + File.separator + "libcom.baidu.zeus.so";
     }
 }

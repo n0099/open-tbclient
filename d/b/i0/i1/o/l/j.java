@@ -2,7 +2,7 @@ package d.b.i0.i1.o.l;
 
 import android.view.View;
 import com.baidu.tbadk.widget.DragImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface j {
     void a(DragImageView.h hVar);
 

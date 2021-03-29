@@ -6,21 +6,21 @@ import android.util.DisplayMetrics;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DisplayMetrics f65941a;
+    public static DisplayMetrics f65942a;
 
     public static int a(Context context) {
         c(context);
-        return f65941a.heightPixels;
+        return f65942a.heightPixels;
     }
 
     public static int b(Context context) {
         c(context);
-        return f65941a.widthPixels;
+        return f65942a.widthPixels;
     }
 
     public static void c(Context context) {
-        if (f65941a == null) {
-            f65941a = context.getResources().getDisplayMetrics();
+        if (f65942a == null) {
+            f65942a = context.getResources().getDisplayMetrics();
         }
     }
 }

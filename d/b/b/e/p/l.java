@@ -28,36 +28,36 @@ import java.util.regex.Pattern;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f42019a = false;
+    public static boolean f42020a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f42020b;
+    public static float f42021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f42021c;
+    public static int f42022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f42022d;
+    public static int f42023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Toast f42023e;
+    public static Toast f42024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f42024f;
+    public static c f42025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f42025g;
+    public static String f42026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Handler f42026h = new Handler(Looper.getMainLooper());
+    public static Handler f42027h = new Handler(Looper.getMainLooper());
     public static Runnable i = new a();
 
     /* loaded from: classes.dex */
     public static class a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            if (l.f42023e != null) {
-                l.f42023e.cancel();
+            if (l.f42024e != null) {
+                l.f42024e.cancel();
             }
         }
     }
@@ -66,24 +66,24 @@ public class l {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f42027e;
+        public final /* synthetic */ View f42028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42028f;
+        public final /* synthetic */ int f42029f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42029g;
+        public final /* synthetic */ int f42030g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f42030h;
+        public final /* synthetic */ int f42031h;
         public final /* synthetic */ int i;
         public final /* synthetic */ View j;
 
         public b(View view, int i, int i2, int i3, int i4, View view2) {
-            this.f42027e = view;
-            this.f42028f = i;
-            this.f42029g = i2;
-            this.f42030h = i3;
+            this.f42028e = view;
+            this.f42029f = i;
+            this.f42030g = i2;
+            this.f42031h = i3;
             this.i = i4;
             this.j = view2;
         }
@@ -91,12 +91,12 @@ public class l {
         @Override // java.lang.Runnable
         public void run() {
             Rect rect = new Rect();
-            this.f42027e.getHitRect(rect);
-            rect.right += this.f42028f;
-            rect.left -= this.f42029g;
-            rect.bottom += this.f42030h;
+            this.f42028e.getHitRect(rect);
+            rect.right += this.f42029f;
+            rect.left -= this.f42030g;
+            rect.bottom += this.f42031h;
             rect.top -= this.i;
-            this.j.setTouchDelegate(new TouchDelegate(rect, this.f42027e));
+            this.j.setTouchDelegate(new TouchDelegate(rect, this.f42028e));
         }
     }
 
@@ -139,7 +139,7 @@ public class l {
     }
 
     public static void G(c cVar) {
-        f42024f = cVar;
+        f42025f = cVar;
     }
 
     public static void H(Context context, int i2) {
@@ -170,19 +170,19 @@ public class l {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
             return;
         }
-        f42026h.removeCallbacks(i);
-        if (f42023e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f42024f;
+        f42027h.removeCallbacks(i);
+        if (f42024e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f42025f;
             if (cVar != null) {
                 cVar.a();
             }
-            if (!str.equals(f42025g)) {
-                c cVar2 = f42024f;
+            if (!str.equals(f42026g)) {
+                c cVar2 = f42025f;
                 if (cVar2 != null && cVar2.c() != null) {
-                    f42024f.b(str);
-                    f42023e.setView(f42024f.c());
+                    f42025f.b(str);
+                    f42024e.setView(f42025f.c());
                 } else {
-                    f42023e.setText(str);
+                    f42024e.setText(str);
                 }
             }
             int e2 = e(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -190,57 +190,55 @@ public class l {
                 e2 = 0;
             }
             if (i2 == 3500) {
-                f42023e.setDuration(1);
+                f42024e.setDuration(1);
             } else {
-                f42023e.setDuration(0);
+                f42024e.setDuration(0);
             }
-            f42023e.setGravity(17, 0, e2);
+            f42024e.setGravity(17, 0, e2);
         } else {
-            Toast toast = f42023e;
+            Toast toast = f42024e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f42024f;
+            c cVar3 = f42025f;
             if (cVar3 != null) {
                 cVar3.a();
             }
-            c cVar4 = f42024f;
+            c cVar4 = f42025f;
             if (cVar4 != null && cVar4.c() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f42023e = toast2;
+                f42024e = toast2;
                 u.a(toast2);
                 if (i2 == 3500) {
-                    f42023e.setDuration(1);
+                    f42024e.setDuration(1);
                 } else {
-                    f42023e.setDuration(0);
+                    f42024e.setDuration(0);
                 }
-                f42024f.b(str);
-                f42023e.setView(f42024f.c());
+                f42025f.b(str);
+                f42024e.setView(f42025f.c());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
-                    f42023e = makeText;
+                    f42024e = makeText;
                     u.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                    f42023e = makeText2;
+                    f42024e = makeText2;
                     u.a(makeText2);
                 }
-                f42023e.setText(str);
+                f42024e.setText(str);
             }
-            f42023e.setGravity(17, 0, e(BdBaseApplication.getInst().getApp(), 100.0f));
+            f42024e.setGravity(17, 0, e(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        f42025g = str;
-        f42026h.postDelayed(i, i2);
-        f42023e.show();
+        f42026g = str;
+        f42027h.postDelayed(i, i2);
+        f42024e.show();
     }
 
     public static double a(double d2, double d3, double d4, double d5) {
         double F = F(d2);
         double F2 = F(d4);
-        double round = Math.round(Math.asin(Math.sqrt(Math.pow(Math.sin((F - F2) / 2.0d), 2.0d) + (Math.cos(F) * Math.cos(F2) * Math.pow(Math.sin((F(d3) - F(d5)) / 2.0d), 2.0d)))) * 2.0d * 6378.137d * 10000.0d);
-        Double.isNaN(round);
-        return round / 10000.0d;
+        return Math.round(((Math.asin(Math.sqrt(Math.pow(Math.sin((F - F2) / 2.0d), 2.0d) + ((Math.cos(F) * Math.cos(F2)) * Math.pow(Math.sin((F(d3) - F(d5)) / 2.0d), 2.0d)))) * 2.0d) * 6378.137d) * 10000.0d) / 10000.0d;
     }
 
     public static void c(Context context, View view, int i2, int i3, int i4, int i5) {
@@ -272,10 +270,10 @@ public class l {
     }
 
     public static int e(Context context, float f2) {
-        if (!f42019a) {
+        if (!f42020a) {
             x(context);
         }
-        return (int) ((f2 * f42020b) + 0.5f);
+        return (int) ((f2 * f42021b) + 0.5f);
     }
 
     public static Field f(Object obj, String str) {
@@ -295,31 +293,31 @@ public class l {
     }
 
     public static float h(Context context) {
-        if (!f42019a) {
+        if (!f42020a) {
             x(context);
         }
-        return f42020b;
+        return f42021b;
     }
 
     public static int i(Context context) {
-        if (!f42019a) {
+        if (!f42020a) {
             x(context);
         }
-        return f42022d;
+        return f42023d;
     }
 
     public static int j(Context context, boolean z) {
-        if (!f42019a || z) {
+        if (!f42020a || z) {
             x(context);
         }
-        return f42022d;
+        return f42023d;
     }
 
     public static int k(Context context) {
-        if (!f42019a) {
+        if (!f42020a) {
             x(context);
         }
-        return f42021c;
+        return f42022c;
     }
 
     public static int[] l(int i2, int i3, int i4, int i5) {
@@ -497,7 +495,7 @@ public class l {
     }
 
     public static c u() {
-        return f42024f;
+        return f42025f;
     }
 
     public static boolean v(Context context, String str) {
@@ -532,14 +530,14 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation != 1 && orientation != 3) {
-            f42021c = displayMetrics.widthPixels;
-            f42022d = displayMetrics.heightPixels;
+            f42022c = displayMetrics.widthPixels;
+            f42023d = displayMetrics.heightPixels;
         } else {
-            f42021c = displayMetrics.heightPixels;
-            f42022d = displayMetrics.widthPixels;
+            f42022c = displayMetrics.heightPixels;
+            f42023d = displayMetrics.widthPixels;
         }
-        f42020b = displayMetrics.density;
-        f42019a = true;
+        f42021b = displayMetrics.density;
+        f42020a = true;
     }
 
     public static boolean y(byte[] bArr) {
@@ -548,7 +546,7 @@ public class l {
         }
         try {
             String str = new String(bArr, 0, 16, "UTF-8");
-            if (str.indexOf(com.baidu.wallet.base.audio.b.f23529e) == 0) {
+            if (str.indexOf(com.baidu.wallet.base.audio.b.f23530e) == 0) {
                 return 8 == str.indexOf("WEBPVP8 ");
             }
             return false;

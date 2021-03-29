@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMAnswerRtcInfo extends BIMRtcInfo {
     public static final Parcelable.Creator<BIMAnswerRtcInfo> CREATOR = new Parcelable.Creator<BIMAnswerRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMAnswerRtcInfo.1
         /* JADX DEBUG: Method merged with bridge method */

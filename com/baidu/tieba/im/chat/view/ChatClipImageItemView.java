@@ -17,7 +17,7 @@ import d.b.b.f.a.h;
 import d.b.b.f.a.k;
 import d.b.b.f.a.n;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
     public a A0;
     public boolean w0;
@@ -25,7 +25,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public final Path y0;
     public boolean z0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(Canvas canvas);
     }
@@ -78,11 +78,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         } else {
             this.x0 = new h();
         }
-        this.f2181h.n = true;
+        this.f2182h.n = true;
         this.x0.t(this);
         k kVar = this.x0;
         this.i = kVar;
-        kVar.p(this.f2181h);
+        kVar.p(this.f2182h);
     }
 
     public final Path g0(float f2, float f3, float f4) {

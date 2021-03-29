@@ -14,32 +14,32 @@ import d.b.g0.a.y0.e.b;
 import d.b.g0.a.y0.e.c;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45234a = k.f45050a;
+    public static final boolean f45235a = k.f45051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.g0.a.a2.g.a f45235b;
+    public static d.b.g0.a.a2.g.a f45236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f45236c;
+    public static final Set<String> f45237c;
 
     static {
         HashSet hashSet = new HashSet();
-        f45236c = hashSet;
+        f45237c = hashSet;
         hashSet.add("aiapps_websafe_debug_key");
-        f45236c.add("aiapps_server_domains_debug_key");
-        f45236c.add("aiapps_use_extension_debug_key");
-        f45236c.add("aiapps_emit_live_debug_key");
-        f45236c.add("aiapps_emit_https_debug_key");
-        f45236c.add("aiapps_emit_wss_debug_key");
-        f45236c.add("aiapps_load_cts_debug_key");
-        f45236c.add("aiapps_env_data");
-        f45236c.add("aiapps_js_native_switch_key");
-        f45236c.add("aiapps_emit_game_core_debug_key");
-        f45236c.add("aiapps_emit_game_launch_mode_key");
+        f45237c.add("aiapps_server_domains_debug_key");
+        f45237c.add("aiapps_use_extension_debug_key");
+        f45237c.add("aiapps_emit_live_debug_key");
+        f45237c.add("aiapps_emit_https_debug_key");
+        f45237c.add("aiapps_emit_wss_debug_key");
+        f45237c.add("aiapps_load_cts_debug_key");
+        f45237c.add("aiapps_env_data");
+        f45237c.add("aiapps_js_native_switch_key");
+        f45237c.add("aiapps_emit_game_core_debug_key");
+        f45237c.add("aiapps_emit_game_launch_mode_key");
     }
 
     public static boolean A() {
@@ -154,7 +154,7 @@ public final class a {
             return null;
         }
         extensionCore.extensionCoreVersionCode = 4294967297L;
-        extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f5541e;
+        extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f5542e;
         return extensionCore;
     }
 
@@ -163,7 +163,7 @@ public final class a {
     }
 
     public static d.g c(d.b.g0.a.y0.e.b bVar, d.b.g0.a.i2.r0.b bVar2) {
-        if (f45234a && bVar.j0()) {
+        if (f45235a && bVar.j0()) {
             return d.b.a(bVar, bVar2);
         }
         if (B(bVar.d0())) {
@@ -203,7 +203,7 @@ public final class a {
     }
 
     public static String j(d.b.g0.a.y0.e.b bVar) {
-        if (f45234a && bVar.j0()) {
+        if (f45235a && bVar.j0()) {
             return d.b.e().getPath();
         }
         if (B(bVar.d0())) {
@@ -244,16 +244,16 @@ public final class a {
     }
 
     public static d.b.g0.a.a2.g.a r() {
-        if (f45235b == null) {
+        if (f45236b == null) {
             synchronized (a.class) {
-                if (f45235b == null) {
+                if (f45236b == null) {
                     d.b.g0.a.a2.g.a aVar = new d.b.g0.a.a2.g.a("swan_app_debug");
-                    f45235b = aVar;
-                    aVar.f43236f.addAll(f45236c);
+                    f45236b = aVar;
+                    aVar.f43237f.addAll(f45237c);
                 }
             }
         }
-        return f45235b;
+        return f45236b;
     }
 
     public static boolean s() {
@@ -281,10 +281,10 @@ public final class a {
     }
 
     public static boolean y(d.b.g0.a.y0.e.b bVar) {
-        return (f45234a && bVar.j0()) || B(bVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && bVar.Q());
+        return (f45235a && bVar.j0()) || B(bVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && bVar.Q());
     }
 
     public static boolean z(c cVar) {
-        return (f45234a && cVar.j0()) || B(cVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && cVar.Q());
+        return (f45235a && cVar.j0()) || B(cVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && cVar.Q());
     }
 }

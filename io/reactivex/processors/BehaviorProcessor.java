@@ -15,16 +15,16 @@ import java.util.concurrent.locks.Lock;
 public final class BehaviorProcessor<T> extends a<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lock f68095f;
+    public final Lock f68100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<Object> f68096g;
+    public final AtomicReference<Object> f68101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f68097h;
+    public long f68102h;
 
     /* loaded from: classes7.dex */
-    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1857a<Object> {
+    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1858a<Object> {
         public static final long serialVersionUID = 3293175281126227086L;
         public final c<? super T> actual;
         public volatile boolean cancelled;
@@ -47,7 +47,6 @@ public final class BehaviorProcessor<T> extends a<T> {
             }
             this.cancelled = true;
             this.state.d(this);
-            throw null;
         }
 
         public void emitFirst() {
@@ -62,10 +61,10 @@ public final class BehaviorProcessor<T> extends a<T> {
                     return;
                 }
                 BehaviorProcessor<T> behaviorProcessor = this.state;
-                Lock lock = behaviorProcessor.f68095f;
+                Lock lock = behaviorProcessor.f68100f;
                 lock.lock();
-                this.index = behaviorProcessor.f68097h;
-                Object obj = behaviorProcessor.f68096g.get();
+                this.index = behaviorProcessor.f68102h;
+                Object obj = behaviorProcessor.f68101g.get();
                 lock.unlock();
                 this.emitting = obj != null;
                 this.next = true;
@@ -130,7 +129,7 @@ public final class BehaviorProcessor<T> extends a<T> {
             }
         }
 
-        @Override // f.a.x.i.a.InterfaceC1857a, f.a.w.i
+        @Override // f.a.x.i.a.InterfaceC1858a, f.a.w.i
         public boolean test(Object obj) {
             if (this.cancelled) {
                 return true;
@@ -158,7 +157,5 @@ public final class BehaviorProcessor<T> extends a<T> {
         }
     }
 
-    public void d(BehaviorSubscription<T> behaviorSubscription) {
-        throw null;
-    }
+    public abstract void d(BehaviorSubscription<T> behaviorSubscription);
 }

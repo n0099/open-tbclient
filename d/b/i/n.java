@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n extends h {
     public ThreadGodReplyLayout l;
     public d.b.h0.r.q.a m;
     public StatisticItem n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -30,35 +30,35 @@ public class n extends h {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f51807e;
+        public final /* synthetic */ View.OnClickListener f51808e;
 
         public b(View.OnClickListener onClickListener) {
-            this.f51807e = onClickListener;
+            this.f51808e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f51762f);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f51763f);
             String w1 = n.this.m.n().w1();
             PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(w1, n.this.m.n().z1().D() + "", 1, "other");
-            createNormalCfg.setStartFrom(n.this.f51761e.i());
+            createNormalCfg.setStartFrom(n.this.f51762e.i());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            n.this.f51761e.o(new a.C1117a(1));
-            this.f51807e.onClick(view);
+            n.this.f51762e.o(new a.C1118a(1));
+            this.f51808e.onClick(view);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements a.b {
         public c() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1117a c1117a) {
+        public boolean a(a.C1118a c1118a) {
             d.b.i0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return false;
         }

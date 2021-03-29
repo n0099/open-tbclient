@@ -6,7 +6,7 @@ import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements a {
     @Override // d.b.g0.a.j0.h.a
     @Nullable
@@ -23,7 +23,7 @@ public class c implements a {
             hashSet.add(swanFavorItemData.getAppKey());
         }
         list.removeAll(hashSet);
-        if (a.f44812a) {
+        if (a.f44813a) {
             Log.d("IDiskCleanStrategy", "共" + hashSet.size() + "条收藏，尝试过滤");
         }
         return list;

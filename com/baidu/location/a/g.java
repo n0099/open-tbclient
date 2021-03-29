@@ -7,28 +7,28 @@ import java.io.RandomAccessFile;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f6493a = null;
+    public static g f6494a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6494b = "Temp_in.dat";
+    public static String f6495b = "Temp_in.dat";
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f6495c = new File(com.baidu.location.d.i.f6712a, f6494b);
+    public static File f6496c = new File(com.baidu.location.d.i.f6713a, f6495b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static StringBuffer f6496d = null;
+    public static StringBuffer f6497d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f6497e = true;
+    public static boolean f6498e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6498f = 0;
+    public static int f6499f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6499g = 0;
+    public static int f6500g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f6500h = 0;
+    public static long f6501h = 0;
     public static long i = 0;
     public static long j = 0;
     public static double k = 0.0d;
@@ -43,10 +43,10 @@ public class g {
         int readInt2;
         int readInt3;
         int i2;
-        File file = f6495c;
+        File file = f6496c;
         if (file != null && file.exists()) {
             try {
-                randomAccessFile = new RandomAccessFile(f6495c, "rw");
+                randomAccessFile = new RandomAccessFile(f6496c, "rw");
                 randomAccessFile.seek(0L);
                 readInt = randomAccessFile.readInt();
                 readInt2 = randomAccessFile.readInt();
@@ -95,11 +95,11 @@ public class g {
     }
 
     public static void b() {
-        f6497e = true;
-        f6496d = null;
-        f6498f = 0;
-        f6499g = 0;
-        f6500h = 0L;
+        f6498e = true;
+        f6497d = null;
+        f6499f = 0;
+        f6500g = 0;
+        f6501h = 0L;
         i = 0L;
         j = 0L;
         k = 0.0d;
@@ -110,22 +110,22 @@ public class g {
     }
 
     public static boolean c() {
-        if (f6495c.exists()) {
-            f6495c.delete();
+        if (f6496c.exists()) {
+            f6496c.delete();
         }
-        if (!f6495c.getParentFile().exists()) {
-            f6495c.getParentFile().mkdirs();
+        if (!f6496c.getParentFile().exists()) {
+            f6496c.getParentFile().mkdirs();
         }
         try {
-            f6495c.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(f6495c, "rw");
+            f6496c.createNewFile();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(f6496c, "rw");
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(1);
             randomAccessFile.close();
             b();
-            return f6495c.exists();
+            return f6496c.exists();
         } catch (IOException unused) {
             return false;
         }

@@ -7,37 +7,37 @@ import java.nio.ByteBuffer;
 public class e extends InputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f63820e;
+    public final d f63821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63821f;
+    public boolean f63822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f63822g;
+    public ByteBuffer f63823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IOException f63823h;
+    public IOException f63824h;
 
     public e(d dVar) {
-        this.f63820e = dVar;
+        this.f63821e = dVar;
     }
 
     public final void n() throws IOException {
-        if (this.f63821f) {
-            IOException iOException = this.f63823h;
+        if (this.f63822f) {
+            IOException iOException = this.f63824h;
             if (iOException != null) {
                 throw iOException;
             }
         } else if (o()) {
         } else {
-            if (this.f63822g == null) {
-                this.f63822g = ByteBuffer.allocateDirect(32768);
+            if (this.f63823g == null) {
+                this.f63823g = ByteBuffer.allocateDirect(32768);
             }
-            this.f63822g.clear();
-            this.f63820e.u(this.f63822g);
-            IOException iOException2 = this.f63823h;
+            this.f63823g.clear();
+            this.f63821e.u(this.f63823g);
+            IOException iOException2 = this.f63824h;
             if (iOException2 == null) {
-                ByteBuffer byteBuffer = this.f63822g;
+                ByteBuffer byteBuffer = this.f63823g;
                 if (byteBuffer != null) {
                     byteBuffer.flip();
                     return;
@@ -49,21 +49,21 @@ public class e extends InputStream {
     }
 
     public final boolean o() {
-        ByteBuffer byteBuffer = this.f63822g;
+        ByteBuffer byteBuffer = this.f63823g;
         return byteBuffer != null && byteBuffer.hasRemaining();
     }
 
     public void p(IOException iOException) {
-        this.f63823h = iOException;
-        this.f63821f = true;
-        this.f63822g = null;
+        this.f63824h = iOException;
+        this.f63822f = true;
+        this.f63823g = null;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
         n();
         if (o()) {
-            return this.f63822g.get() & 255;
+            return this.f63823g.get() & 255;
         }
         return -1;
     }
@@ -78,8 +78,8 @@ public class e extends InputStream {
         }
         n();
         if (o()) {
-            int min = Math.min(this.f63822g.limit() - this.f63822g.position(), i2);
-            this.f63822g.get(bArr, i, min);
+            int min = Math.min(this.f63823g.limit() - this.f63823g.position(), i2);
+            this.f63823g.get(bArr, i, min);
             return min;
         }
         return -1;

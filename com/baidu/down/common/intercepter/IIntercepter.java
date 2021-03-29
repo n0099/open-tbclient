@@ -1,7 +1,7 @@
 package com.baidu.down.common.intercepter;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IIntercepter<T> {
     public static final String TYPE_NETWORK = "network";
     public static final String TYPE_RESPONSE = "response";

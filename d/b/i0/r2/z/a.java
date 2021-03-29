@@ -58,21 +58,21 @@ public class a extends e {
 
     @Override // d.b.i0.i1.o.e
     public void c() {
-        SparseIntArray sparseIntArray = e.f55917a;
+        SparseIntArray sparseIntArray = e.f55918a;
         sparseIntArray.put(17, sparseIntArray.size() + 1);
-        SparseIntArray sparseIntArray2 = e.f55917a;
+        SparseIntArray sparseIntArray2 = e.f55918a;
         sparseIntArray2.put(26, sparseIntArray2.size() + 1);
-        SparseIntArray sparseIntArray3 = e.f55917a;
+        SparseIntArray sparseIntArray3 = e.f55918a;
         sparseIntArray3.put(27, sparseIntArray3.size() + 1);
-        SparseIntArray sparseIntArray4 = e.f55917a;
+        SparseIntArray sparseIntArray4 = e.f55918a;
         sparseIntArray4.put(33, sparseIntArray4.size() + 1);
-        SparseIntArray sparseIntArray5 = e.f55917a;
+        SparseIntArray sparseIntArray5 = e.f55918a;
         sparseIntArray5.put(34, sparseIntArray5.size() + 1);
-        e.f55918b.put(17, BdUniqueId.gen());
-        e.f55918b.put(26, BdUniqueId.gen());
-        e.f55918b.put(27, BdUniqueId.gen());
-        e.f55918b.put(33, BdUniqueId.gen());
-        e.f55918b.put(34, BdUniqueId.gen());
+        e.f55919b.put(17, BdUniqueId.gen());
+        e.f55919b.put(26, BdUniqueId.gen());
+        e.f55919b.put(27, BdUniqueId.gen());
+        e.f55919b.put(33, BdUniqueId.gen());
+        e.f55919b.put(34, BdUniqueId.gen());
     }
 
     @Override // d.b.i0.i1.o.e

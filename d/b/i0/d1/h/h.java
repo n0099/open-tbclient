@@ -7,21 +7,21 @@ import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f53799a;
+    public static h f53800a;
 
     public static h e() {
-        if (f53799a == null) {
+        if (f53800a == null) {
             synchronized (h.class) {
-                if (f53799a == null) {
-                    f53799a = new h();
+                if (f53800a == null) {
+                    f53800a = new h();
                 }
             }
         }
-        return f53799a;
+        return f53800a;
     }
 
     public SQLiteStatement a(String str) {

@@ -171,8 +171,8 @@ import java.util.concurrent.Executors;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 @ModifyClass
-/* loaded from: classes.dex */
-public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.InterfaceC1585c {
+/* loaded from: classes3.dex */
+public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.InterfaceC1586c {
     public static final long ACTION_TEST = 1;
     public static final String ACTIVE_CLEAR_TAG = "active_clear";
     public static final int APP_EVENT_LOGIN = 1;
@@ -331,7 +331,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public int homeBarShowType = 1;
     public boolean needCheckUserNameDialog = true;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.h0.z0.n<Boolean> {
         public a() {
         }
@@ -346,7 +346,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class b implements CustomMessageTask.CustomRunnable<Intent> {
         public b() {
         }
@@ -358,7 +358,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.c {
         public c() {
         }
@@ -386,7 +386,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -397,15 +397,15 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class e implements a.InterfaceC0530a {
-        @Override // d.b.b.a.k.a.InterfaceC0530a
+    /* loaded from: classes3.dex */
+    public static class e implements a.InterfaceC0531a {
+        @Override // d.b.b.a.k.a.InterfaceC0531a
         public void a(SQLiteDatabase sQLiteDatabase) {
             TbadkCoreApplication.resetTDatabaseCreateTime();
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class f implements CustomMessageTask.CustomRunnable<x0> {
         public f() {
         }
@@ -417,7 +417,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class g implements d.b.b.c.e.c.k.b {
         public g() {
         }
@@ -428,7 +428,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class h implements d.b.b.c.e.c.k.c {
 
         /* loaded from: classes3.dex */
@@ -452,7 +452,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class i implements a.b {
         public i() {
         }
@@ -463,7 +463,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class j extends CustomMessageListener {
         public j(int i) {
             super(i);
@@ -476,12 +476,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
                 return;
             }
             d.b.i0.c3.l0.d.d dVar = (d.b.i0.c3.l0.d.d) customResponsedMessage.getData();
-            DescriptionTableInfo.setModuleSet(dVar.f53499a);
-            DescriptionTableInfo.setDescriptionTable(dVar.f53500b);
+            DescriptionTableInfo.setModuleSet(dVar.f53500a);
+            DescriptionTableInfo.setDescriptionTable(dVar.f53501b);
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class k extends f0<Object> {
         public k() {
         }
@@ -496,7 +496,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class l implements l.c {
         public l() {
         }
@@ -519,23 +519,23 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f13179e;
+        public final /* synthetic */ boolean f13180e;
 
         public m(boolean z) {
-            this.f13179e = z;
+            this.f13180e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new d.b.h0.e0.a(this.f13179e)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new d.b.h0.e0.a(this.f13180e)));
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class n implements Handler.Callback {
         public n() {
         }
@@ -551,23 +551,23 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class o implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BDHttpDns f13182e;
+        public final /* synthetic */ BDHttpDns f13183e;
 
         public o(BDHttpDns bDHttpDns) {
-            this.f13182e = bDHttpDns;
+            this.f13183e = bDHttpDns;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f13182e.p("prefetch");
+            this.f13183e.p("prefetch");
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class p implements d.b.b.c.e.c.k.e {
 
         /* loaded from: classes3.dex */
@@ -594,7 +594,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class q extends d.b.b.c.f.d {
         public q(int i) {
             super(i);
@@ -611,7 +611,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class r extends d.b.b.c.f.k {
         public r(int i) {
             super(i);
@@ -628,7 +628,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class s implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public s() {
         }
@@ -656,25 +656,25 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class t extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13188a;
+        public final /* synthetic */ Context f13189a;
 
         public t(Context context) {
-            this.f13188a = context;
+            this.f13189a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(CertVerifyHelper.isOfficial(this.f13188a));
+            return Boolean.valueOf(CertVerifyHelper.isOfficial(this.f13189a));
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class u extends PhoneStateListener {
         public u() {
         }
@@ -694,7 +694,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class v implements GuardConfigurations.DaemonListener {
         public v() {
         }
@@ -1074,7 +1074,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     private void initICDN() {
-        d.b.b.e.j.a.c.f41771f = UseHttpdnsSdkSwitch.isOn();
+        d.b.b.e.j.a.c.f41772f = UseHttpdnsSdkSwitch.isOn();
         if (UseHttpdnsSdkSwitch.isOn()) {
             BDHttpDns j2 = BDHttpDns.j(getApplicationContext());
             j2.n(false);
@@ -1165,8 +1165,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new e());
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x004f  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0054  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2247,7 +2247,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return iArr;
     }
 
-    @Override // d.b.i0.t1.c.InterfaceC1585c
+    @Override // d.b.i0.t1.c.InterfaceC1586c
     public d.b.i0.t1.c getSplash() {
         if (this.mSplash == null) {
             this.mSplash = new d.b.i0.t1.c(this);
@@ -2503,7 +2503,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public void initAxeSdk() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b.C1750b.c(getApplicationContext()).b().t();
+            b.C1751b.c(getApplicationContext()).b().t();
         }
     }
 
@@ -3065,9 +3065,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
         int m2 = d.b.h0.a0.c.j().m();
-        double d2 = m2;
-        Double.isNaN(d2);
-        int max = (int) Math.max(d2 * 0.8d, TbConfig.getBigImageMaxUsedMemory());
+        int max = (int) Math.max(m2 * 0.8d, TbConfig.getBigImageMaxUsedMemory());
         if (max < m2) {
             BdLog.isDebugMode();
             d.b.h0.a0.c.j().s(max);

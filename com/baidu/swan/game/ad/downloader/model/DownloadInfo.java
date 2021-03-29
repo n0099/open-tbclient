@@ -22,36 +22,36 @@ public class DownloadInfo implements Serializable {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12790a;
+        public String f12791a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f12791b = -1;
+        public long f12792b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12792c;
+        public String f12793c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12793d;
+        public String f12794d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12794e;
+        public String f12795e;
 
         public DownloadInfo a() {
             DownloadInfo downloadInfo = new DownloadInfo();
-            if (!TextUtils.isEmpty(this.f12792c)) {
-                downloadInfo.setUri(this.f12792c);
-                if (!TextUtils.isEmpty(this.f12794e)) {
-                    downloadInfo.setPath(this.f12794e);
-                    if (TextUtils.isEmpty(this.f12793d)) {
-                        downloadInfo.setPackageName(this.f12793d);
+            if (!TextUtils.isEmpty(this.f12793c)) {
+                downloadInfo.setUri(this.f12793c);
+                if (!TextUtils.isEmpty(this.f12795e)) {
+                    downloadInfo.setPath(this.f12795e);
+                    if (TextUtils.isEmpty(this.f12794d)) {
+                        downloadInfo.setPackageName(this.f12794d);
                     }
-                    if (this.f12791b == -1) {
+                    if (this.f12792b == -1) {
                         b(System.currentTimeMillis());
                     }
-                    if (TextUtils.isEmpty(this.f12790a)) {
-                        downloadInfo.setId(this.f12792c);
+                    if (TextUtils.isEmpty(this.f12791a)) {
+                        downloadInfo.setId(this.f12793c);
                     } else {
-                        downloadInfo.setId(this.f12790a);
+                        downloadInfo.setId(this.f12791a);
                     }
                     return downloadInfo;
                 }
@@ -61,22 +61,22 @@ public class DownloadInfo implements Serializable {
         }
 
         public a b(long j) {
-            this.f12791b = j;
+            this.f12792b = j;
             return this;
         }
 
         public a c(String str) {
-            this.f12793d = str;
+            this.f12794d = str;
             return this;
         }
 
         public a d(String str) {
-            this.f12794e = str;
+            this.f12795e = str;
             return this;
         }
 
         public a e(String str) {
-            this.f12792c = str;
+            this.f12793c = str;
             return this;
         }
     }

@@ -14,11 +14,11 @@ import java.util.UUID;
 public class f implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49346a;
+    public Context f49347a;
 
     public f(Context context) {
         if (context != null) {
-            this.f49346a = context.getApplicationContext();
+            this.f49347a = context.getApplicationContext();
             return;
         }
         throw new RuntimeException("context can not be null");
@@ -63,7 +63,7 @@ public class f implements b<String> {
     }
 
     public final String d() {
-        String string = Settings.Secure.getString(this.f49346a.getContentResolver(), "android_id");
+        String string = Settings.Secure.getString(this.f49347a.getContentResolver(), "android_id");
         if (TextUtils.isEmpty(string)) {
             string = e();
         }

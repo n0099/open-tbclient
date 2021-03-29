@@ -22,16 +22,16 @@ import d.b.h0.r.q.a2;
 public class AlaSquareLiveVideoMask extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14731e;
+    public Context f14732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f14732f;
+    public View f14733f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f14733g;
+    public TbImageView f14734g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14734h;
+    public View f14735h;
     public HeadImageView i;
     public TextView j;
     public TextView k;
@@ -51,31 +51,31 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
     }
 
     public final void a(Context context) {
-        this.f14731e = context;
+        this.f14732e = context;
         this.r = AnimationUtils.loadAnimation(context, R.anim.video_cover_fade_out);
         View inflate = LayoutInflater.from(context).inflate(R.layout.new_square_top_live_card_mask, this);
-        this.f14732f = inflate;
+        this.f14733f = inflate;
         this.q = (FrameLayout) inflate.findViewById(R.id.fade_out_view_root);
-        TbImageView tbImageView = (TbImageView) this.f14732f.findViewById(R.id.live_cover);
-        this.f14733g = tbImageView;
+        TbImageView tbImageView = (TbImageView) this.f14733f.findViewById(R.id.live_cover);
+        this.f14734g = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.f14733g.setAutoChangeStyle(false);
-        View findViewById = this.f14732f.findViewById(R.id.head_root_view);
-        this.f14734h = findViewById;
+        this.f14734g.setAutoChangeStyle(false);
+        View findViewById = this.f14733f.findViewById(R.id.head_root_view);
+        this.f14735h = findViewById;
         findViewById.setBackgroundResource(R.drawable.round_host_header_bg_n);
-        this.i = (HeadImageView) this.f14732f.findViewById(R.id.hostheader_image);
-        this.j = (TextView) this.f14732f.findViewById(R.id.hostheader_name);
-        this.k = (TextView) this.f14732f.findViewById(R.id.hostheader_id);
+        this.i = (HeadImageView) this.f14733f.findViewById(R.id.hostheader_image);
+        this.j = (TextView) this.f14733f.findViewById(R.id.hostheader_name);
+        this.k = (TextView) this.f14733f.findViewById(R.id.hostheader_id);
         this.i.setIsRound(true);
         this.i.setAutoChangeStyle(false);
-        this.l = (TextView) this.f14732f.findViewById(R.id.tvSquareTitle);
-        this.m = (TextView) this.f14732f.findViewById(R.id.tvLiveCount);
-        this.n = (ImageView) this.f14732f.findViewById(R.id.image_video_play);
-        NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f14732f.findViewById(R.id.ala_play);
+        this.l = (TextView) this.f14733f.findViewById(R.id.tvSquareTitle);
+        this.m = (TextView) this.f14733f.findViewById(R.id.tvLiveCount);
+        this.n = (ImageView) this.f14733f.findViewById(R.id.image_video_play);
+        NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f14733f.findViewById(R.id.ala_play);
         this.o = noActiveStopAlaPlayAnimationView;
         noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.s);
         SkinManager.setImageResource(this.n, R.drawable.btn_icon_play_live_on_n);
-        this.p = (ProgressBar) this.f14732f.findViewById(R.id.auto_video_loading_progress);
+        this.p = (ProgressBar) this.f14733f.findViewById(R.id.auto_video_loading_progress);
         b();
     }
 
@@ -118,18 +118,18 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             return;
         }
         AlaInfoData q1 = a2Var.q1();
-        this.f14733g.W(q1.cover, 10, false);
+        this.f14734g.W(q1.cover, 10, false);
         AlaUserInfoData alaUserInfoData = q1.user_info;
         if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
-            this.f14734h.setVisibility(0);
+            this.f14735h.setVisibility(0);
             this.i.W(alaUserInfoData.portrait, 10, false);
             this.j.setText(a2Var.T().getName_show());
-            this.k.setText(String.format(this.f14731e.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
+            this.k.setText(String.format(this.f14732e.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
         } else {
-            this.f14734h.setVisibility(8);
+            this.f14735h.setVisibility(8);
         }
         this.l.setText(a2Var.x1());
-        this.m.setText(this.f14731e.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(q1.audience_count)));
+        this.m.setText(this.f14732e.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(q1.audience_count)));
         if (this.s) {
             return;
         }

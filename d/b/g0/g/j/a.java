@@ -10,27 +10,27 @@ import d.b.g0.g.e.d.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48233a = k.f45050a;
+    public static final boolean f48234a = k.f45051a;
 
     /* renamed from: d.b.g0.g.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0967a implements b<e> {
+    public static class C0968a implements b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f48234e;
+        public final /* synthetic */ c f48235e;
 
-        public C0967a(c cVar) {
-            this.f48234e = cVar;
+        public C0968a(c cVar) {
+            this.f48235e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            if (eVar == null || eVar.f46770d || eVar.j != 1) {
-                a.c(this.f48234e, false, "system deny");
+            if (eVar == null || eVar.f46771d || eVar.j != 1) {
+                a.c(this.f48235e, false, "system deny");
             } else {
-                a.c(this.f48234e, true, "authorize:ok");
+                a.c(this.f48235e, true, "authorize:ok");
             }
         }
     }
@@ -44,12 +44,12 @@ public class a {
         if (O == null) {
             c(F, false, "authorize:fail internal error");
         } else {
-            O.R().e("mapp_enable_eval", new C0967a(F));
+            O.R().e("mapp_enable_eval", new C0968a(F));
         }
     }
 
     public static void c(c cVar, boolean z, String str) {
-        if (f48233a) {
+        if (f48234a) {
             Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
         }
         d.b.g0.g.e.d.b bVar = new d.b.g0.g.e.d.b();

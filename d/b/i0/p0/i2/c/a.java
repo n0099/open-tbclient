@@ -17,15 +17,15 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f57680a;
+    public TbPageContext f57681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f57681b;
+    public CustomMessageListener f57682b;
 
     /* renamed from: d.b.i0.p0.i2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1388a extends CustomMessageListener {
-        public C1388a(int i) {
+    public class C1389a extends CustomMessageListener {
+        public C1389a(int i) {
             super(i);
         }
 
@@ -52,11 +52,11 @@ public class a {
                 if (TextUtils.isEmpty(o) || !o.contains(str2)) {
                     b.i().w("key_match_id_list_" + optString4, o + str);
                 }
-                Intent intent = new Intent(a.this.f57680a.getPageActivity(), AlarmReceiver.class);
+                Intent intent = new Intent(a.this.f57681a.getPageActivity(), AlarmReceiver.class);
                 intent.putExtra("KEY_MATCH_NAME", optString2);
                 intent.putExtra("KEY_MATCH_TYPE", optString4);
                 intent.putExtra("KEY_MATCH_ID", optString);
-                PendingIntent broadcast = PendingIntent.getBroadcast(a.this.f57680a.getPageActivity(), 0, intent, 0);
+                PendingIntent broadcast = PendingIntent.getBroadcast(a.this.f57681a.getPageActivity(), 0, intent, 0);
                 Calendar calendar = Calendar.getInstance();
                 long currentTimeMillis = System.currentTimeMillis();
                 calendar.setTimeInMillis(currentTimeMillis);
@@ -64,7 +64,7 @@ public class a {
                 if (f2 > 0) {
                     calendar.add(14, (int) f2);
                 }
-                ((AlarmManager) a.this.f57680a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                ((AlarmManager) a.this.f57681a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -72,9 +72,9 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext) {
-        C1388a c1388a = new C1388a(2921404);
-        this.f57681b = c1388a;
-        this.f57680a = tbPageContext;
-        tbPageContext.registerListener(c1388a);
+        C1389a c1389a = new C1389a(2921404);
+        this.f57682b = c1389a;
+        this.f57681a = tbPageContext;
+        tbPageContext.registerListener(c1389a);
     }
 }

@@ -23,17 +23,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class c implements b.a, Observer {
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d.b.s.a.b.b f64581h = new d.b.s.a.b.b();
+    public static volatile d.b.s.a.b.b f64582h = new d.b.s.a.b.b();
     public static volatile c i;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f64582e;
+    public Context f64583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64583f = -1;
+    public int f64584f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f64584g;
+    public b f64585g;
 
     /* loaded from: classes2.dex */
     public class b extends BroadcastReceiver {
@@ -86,24 +86,24 @@ public class c implements b.a, Observer {
     }
 
     public static int g() {
-        return f64581h.f64580a;
+        return f64582h.f64581a;
     }
 
     @Override // d.b.s.a.e.b.a
     public void a(String str) {
-        this.f64583f = -1;
+        this.f64584f = -1;
         j(0);
-        d.b.s.a.a.d.w(this.f64582e, "2Y", "accessToken success");
+        d.b.s.a.a.d.w(this.f64583e, "2Y", "accessToken success");
     }
 
     public void c(Context context, String str, String str2, int i2) {
-        if (f64581h.f64580a != -2 && f64581h.f64580a != 0) {
+        if (f64582h.f64581a != -2 && f64582h.f64581a != 0) {
             d(context, str, str2, i2);
             return;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("SocketConnect state is ");
-        sb.append(f64581h.f64580a == 0 ? "connected" : "connecting");
+        sb.append(f64582h.f64581a == 0 ? "connected" : "connecting");
         d.a("LCPClientManager", sb.toString());
     }
 
@@ -112,7 +112,7 @@ public class c implements b.a, Observer {
         a.d dVar;
         if (context != null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && RequsetNetworkUtils.isConnected(context)) {
-                this.f64582e = context;
+                this.f64583e = context;
                 if (TextUtils.isEmpty(e.b(context))) {
                     e.q(context, str);
                 }
@@ -120,12 +120,12 @@ public class c implements b.a, Observer {
                     e.s(context, str2);
                 }
                 f.T(context).addObserver(i);
-                if (f64581h.f64580a != -2 && f64581h.f64580a != 0) {
-                    if (this.f64584g == null) {
+                if (f64582h.f64581a != -2 && f64582h.f64581a != 0) {
+                    if (this.f64585g == null) {
                         IntentFilter intentFilter = new IntentFilter();
                         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                         b bVar = new b();
-                        this.f64584g = bVar;
+                        this.f64585g = bVar;
                         context.registerReceiver(bVar, intentFilter);
                     }
                     if (d.b.s.a.a.d.j(context)) {
@@ -163,7 +163,7 @@ public class c implements b.a, Observer {
                         d.b.s.a.a.d.x(context, i2);
                     }
                     if (!e.k(context)) {
-                        if (this.f64583f < 0) {
+                        if (this.f64584f < 0) {
                             k();
                         }
                         return;
@@ -174,87 +174,87 @@ public class c implements b.a, Observer {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("SocketConnect state is ");
-                sb.append(f64581h.f64580a == 0 ? "connected" : "connecting");
+                sb.append(f64582h.f64581a == 0 ? "connected" : "connecting");
                 d.a("LCPClientManager", sb.toString());
             }
         }
     }
 
     public final void e() {
-        Context context = this.f64582e;
-        c(context, e.b(context), e.e(this.f64582e), d.b.s.a.a.d.f(this.f64582e));
+        Context context = this.f64583e;
+        c(context, e.b(context), e.e(this.f64583e), d.b.s.a.a.d.f(this.f64583e));
     }
 
     public void h(@NonNull BLCPRequest bLCPRequest, @Nullable d.b.s.a.b.d.b bVar) {
-        Context context = this.f64582e;
+        Context context = this.f64583e;
         if (context == null || !e.m(context)) {
             if (bVar != null) {
-                bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f6377a, bLCPRequest.f6378b, bLCPRequest.f6380d, new byte[0]);
+                bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f6378a, bLCPRequest.f6379b, bLCPRequest.f6381d, new byte[0]);
             }
-        } else if (f64581h.f64580a != 0) {
+        } else if (f64582h.f64581a != 0) {
             if (!(bLCPRequest instanceof d.b.s.a.b.d.a) && bVar != null) {
-                bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f6377a, bLCPRequest.f6378b, bLCPRequest.f6380d, new byte[0]);
+                bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f6378a, bLCPRequest.f6379b, bLCPRequest.f6381d, new byte[0]);
             }
-            if (f64581h.f64580a == -1) {
+            if (f64582h.f64581a == -1) {
                 e();
             }
         } else {
-            f.T(this.f64582e).I(bLCPRequest, bVar);
-            if (bLCPRequest.f6378b == 1 && bLCPRequest.f6377a == 4) {
+            f.T(this.f64583e).I(bLCPRequest, bVar);
+            if (bLCPRequest.f6379b == 1 && bLCPRequest.f6378a == 4) {
                 d.a("LCPClientManager", "云控登录打点");
-                Context context2 = this.f64582e;
-                d.b.s.a.g.a.a(context2, 1L, "invoke", bLCPRequest.f6380d + "");
+                Context context2 = this.f64583e;
+                d.b.s.a.g.a.a(context2, 1L, "invoke", bLCPRequest.f6381d + "");
             }
-            if (bLCPRequest.f6378b == 50 && bLCPRequest.f6377a == 2) {
-                Context context3 = this.f64582e;
-                d.b.s.a.g.a.a(context3, 50L, "invoke", bLCPRequest.f6380d + "");
+            if (bLCPRequest.f6379b == 50 && bLCPRequest.f6378a == 2) {
+                Context context3 = this.f64583e;
+                d.b.s.a.g.a.a(context3, 50L, "invoke", bLCPRequest.f6381d + "");
             }
         }
     }
 
     public void i() {
-        Context context = this.f64582e;
+        Context context = this.f64583e;
         if (context != null) {
             f.T(context).c0();
         }
     }
 
     public final void j(int i2) {
-        Context context = this.f64582e;
+        Context context = this.f64583e;
         if (context == null || !e.m(context)) {
             return;
         }
         if (i2 == 0) {
             d.a("LCPClientManager", "socketAction createSocket");
-            f64581h.f64580a = -2;
-            f.T(this.f64582e).i0();
+            f64582h.f64581a = -2;
+            f.T(this.f64583e).i0();
         } else if (i2 != 1) {
         } else {
             d.a("LCPClientManager", "socketAction closeSocket");
-            f.T(this.f64582e).j0("socketAction closeSocket:", f.T(this.f64582e).x);
+            f.T(this.f64583e).j0("socketAction closeSocket:", f.T(this.f64583e).x);
         }
     }
 
     public void k() {
         Context context;
-        Context context2 = this.f64582e;
+        Context context2 = this.f64583e;
         if (context2 != null && RequsetNetworkUtils.isConnected(context2)) {
-            this.f64583f++;
-            d.a("LCPClientManager", "no token, so request token, and tryCount = " + this.f64583f);
-            if (this.f64583f < 3) {
-                d.b.s.a.a.d.w(this.f64582e, "2N", "accessToken is null");
-                d.b.s.a.e.b bVar = new d.b.s.a.e.b(this.f64582e, this);
+            this.f64584f++;
+            d.a("LCPClientManager", "no token, so request token, and tryCount = " + this.f64584f);
+            if (this.f64584f < 3) {
+                d.b.s.a.a.d.w(this.f64583e, "2N", "accessToken is null");
+                d.b.s.a.e.b bVar = new d.b.s.a.e.b(this.f64583e, this);
                 d.b.s.a.e.c.e(bVar, bVar);
                 return;
             }
-            this.f64583f = -1;
+            this.f64584f = -1;
             return;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("context = ");
-        sb.append(this.f64582e);
+        sb.append(this.f64583e);
         sb.append(", net :");
-        sb.append(this.f64582e == null ? "" : Boolean.valueOf(!RequsetNetworkUtils.isConnected(context)));
+        sb.append(this.f64583e == null ? "" : Boolean.valueOf(!RequsetNetworkUtils.isConnected(context)));
         d.a("LCPClientManager", sb.toString());
     }
 
@@ -262,18 +262,18 @@ public class c implements b.a, Observer {
     public void onFailure(int i2, String str) {
         d.b("LCPClientManager", "getToken :" + str);
         k();
-        d.b.s.a.a.d.w(this.f64582e, "2N_1", "accessToken fail");
-        if (this.f64583f == 2) {
-            f64581h.f64580a = -1;
-            f.T(this.f64582e).a0();
+        d.b.s.a.a.d.w(this.f64583e, "2N_1", "accessToken fail");
+        if (this.f64584f == 2) {
+            f64582h.f64581a = -1;
+            f.T(this.f64583e).a0();
         }
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         if (obj instanceof d.b.s.a.b.b) {
-            f64581h.f64580a = ((d.b.s.a.b.b) obj).f64580a;
-            d.a("LCPClientManager", "Manager update connectState :" + f64581h.f64580a);
+            f64582h.f64581a = ((d.b.s.a.b.b) obj).f64581a;
+            d.a("LCPClientManager", "Manager update connectState :" + f64582h.f64581a);
         }
     }
 }

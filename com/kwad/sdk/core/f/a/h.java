@@ -8,10 +8,10 @@ import com.kwad.sdk.utils.w;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33616a;
+    public Context f33617a;
 
     public h(Context context) {
-        this.f33616a = context;
+        this.f33617a = context;
     }
 
     public String a() {
@@ -19,7 +19,7 @@ public class h {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f33616a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                cursor = this.f33617a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
                 if (cursor != null && cursor.moveToNext()) {
                     str = cursor.getString(cursor.getColumnIndex("value"));
                     com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID oaid:" + str);

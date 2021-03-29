@@ -21,7 +21,7 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         try {
-            GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20620a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
+            GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20621a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
             setError(getLockWindowMsgResIdl.error.errorno.intValue());
             setErrorString(getLockWindowMsgResIdl.error.usermsg);
             if (getLockWindowMsgResIdl.data != null) {

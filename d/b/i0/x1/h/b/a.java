@@ -7,26 +7,26 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
 import d.b.h0.b1.e.a;
 import d.b.h0.b1.e.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SimpleDragSortListView f62464a;
+    public final SimpleDragSortListView f62465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final C1665a f62465b;
+    public final C1666a f62466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.h0.b1.e.a f62466c;
+    public final d.b.h0.b1.e.a f62467c;
 
     /* renamed from: d.b.i0.x1.h.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1665a extends b {
+    /* loaded from: classes3.dex */
+    public static class C1666a extends b {
         public int J;
         public int K;
         public ListView L;
 
-        public C1665a(d.b.h0.b1.e.a aVar, ListView listView) {
+        public C1666a(d.b.h0.b1.e.a aVar, ListView listView) {
             super(aVar, listView, 0, 2, 0);
             this.J = 0;
             this.K = Integer.MAX_VALUE;
@@ -78,27 +78,27 @@ public class a {
     }
 
     public a(SimpleDragSortListView simpleDragSortListView) {
-        this.f62464a = simpleDragSortListView;
+        this.f62465a = simpleDragSortListView;
         d.b.h0.b1.e.a aVar = new d.b.h0.b1.e.a(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.f62466c = aVar;
+        this.f62467c = aVar;
         simpleDragSortListView.setDragSortViewEventDelegate(aVar);
-        C1665a c1665a = new C1665a(this.f62466c, simpleDragSortListView);
-        this.f62465b = c1665a;
-        c1665a.d(-1);
-        this.f62466c.t0(this.f62465b);
-        this.f62466c.v0(this.f62465b);
-        simpleDragSortListView.setOnTouchListener(this.f62465b);
+        C1666a c1666a = new C1666a(this.f62467c, simpleDragSortListView);
+        this.f62466b = c1666a;
+        c1666a.d(-1);
+        this.f62467c.t0(this.f62466b);
+        this.f62467c.v0(this.f62466b);
+        simpleDragSortListView.setOnTouchListener(this.f62466b);
     }
 
     public void a(boolean z) {
-        this.f62466c.p0(z);
+        this.f62467c.p0(z);
     }
 
     public void b(int i, int i2) {
-        this.f62465b.y(i, i2);
+        this.f62466b.y(i, i2);
     }
 
     public void c(a.i iVar) {
-        this.f62466c.u0(iVar);
+        this.f62467c.u0(iVar);
     }
 }

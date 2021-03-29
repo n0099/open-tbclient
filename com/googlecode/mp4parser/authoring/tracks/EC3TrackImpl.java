@@ -54,16 +54,16 @@ public class EC3TrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31045b;
+        public final /* synthetic */ int f31046b;
 
         public a(int i) {
-            this.f31045b = i;
+            this.f31046b = i;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return EC3TrackImpl.this.dataSource.map(this.f31045b, EC3TrackImpl.this.frameSize);
+                return EC3TrackImpl.this.dataSource.map(this.f31046b, EC3TrackImpl.this.frameSize);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -76,7 +76,7 @@ public class EC3TrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            EC3TrackImpl.this.dataSource.transferTo(this.f31045b, EC3TrackImpl.this.frameSize, writableByteChannel);
+            EC3TrackImpl.this.dataSource.transferTo(this.f31046b, EC3TrackImpl.this.frameSize, writableByteChannel);
         }
     }
 
@@ -329,12 +329,8 @@ public class EC3TrackImpl extends AbstractTrack {
         if (i7 == 0) {
             return null;
         }
-        double d2 = i7;
-        Double.isNaN(d2);
         int i8 = bitStreamInfo.frameSize;
-        double d3 = i8;
-        Double.isNaN(d3);
-        bitStreamInfo.bitrate = (int) ((d2 / 1536.0d) * d3 * 8.0d);
+        bitStreamInfo.bitrate = (int) ((i7 / 1536.0d) * i8 * 8.0d);
         this.dataSource.position(position + i8);
         return bitStreamInfo;
     }

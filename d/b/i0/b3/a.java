@@ -16,7 +16,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f52246a = Arrays.asList("a006", "a005", "a008", "a002");
+    public static final List<String> f52247a = Arrays.asList("a006", "a005", "a008", "a002");
 
     public static String a(String str) {
         return "enterfourm_att_" + str;
@@ -69,7 +69,7 @@ public class a {
     public static StatisticItem i(String str, String str2, boolean z, int i, int i2) {
         StatisticItem statisticItem = new StatisticItem(str2);
         statisticItem.param("page_type", str).param("ad_exp", z ? 1 : 0).param("ad_exp_cnt", i).param(TiebaStatic.Params.OBJ_FLOOR, 0).param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-        if (str != null && f52246a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && f52247a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         }
         return statisticItem;
@@ -96,7 +96,7 @@ public class a {
             str3 = str4;
         }
         param.param("obj_id", str3).param(TiebaStatic.Params.OBJ_AD_LOCATE, i3);
-        if (str != null && f52246a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && f52247a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         }
         if (z) {
@@ -144,7 +144,7 @@ public class a {
         if (!k.isEmpty(a2Var.W0())) {
             statisticItem.param("list_strategy", a2Var.W0());
         }
-        if (str != null && f52246a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().r)) {
+        if (str != null && f52247a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().r)) {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         } else if (!k.isEmpty(a2Var.T0)) {
             statisticItem.param("ab_tag", a2Var.T0);

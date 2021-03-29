@@ -18,13 +18,13 @@ import d.b.g0.g.f.f;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView> {
-    public static final boolean C = k.f45050a;
+    public static final boolean C = k.f45051a;
     public Context A;
     public boolean B;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends d.b.g0.g.f.k.a {
         public a(d dVar) {
         }
@@ -41,7 +41,7 @@ public class d extends SwanAppWebViewManager implements d.b.g0.a.p.d.a<NgWebView
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements d.b.g0.g.f.b {
         public b(d dVar) {
         }

@@ -42,7 +42,7 @@ import d.b.h0.r.l.a;
 import d.b.h0.s.i.b;
 import java.lang.reflect.Field;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LoginActivity extends BaseActivity<LoginActivity> {
     public static final int SOCIAL_TYPE_QQ = 3;
     public static final int SOCIAL_TYPE_WEIBO = 1;
@@ -62,9 +62,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public boolean mClose = false;
     public int jumpTo = -1;
     public int mTab = -1;
-    public final a.InterfaceC1081a mReLoginCallback = new c();
+    public final a.InterfaceC1082a mReLoginCallback = new c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebAuthListener {
         public a() {
         }
@@ -97,7 +97,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends WebAuthListener {
         public b() {
         }
@@ -128,10 +128,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1081a {
+    /* loaded from: classes3.dex */
+    public class c implements a.InterfaceC1082a {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements DialogInterface.OnCancelListener {
             public a() {
             }
@@ -145,7 +145,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public c() {
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1081a
+        @Override // d.b.h0.r.l.a.InterfaceC1082a
         public void a(String str, int i, String str2) {
             d.b.h0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
@@ -156,7 +156,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             LoginActivity.this.finishForResult(0);
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1081a
+        @Override // d.b.h0.r.l.a.InterfaceC1082a
         public void b(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().c()) {
                 LoginActivity loginActivity = LoginActivity.this;
@@ -164,7 +164,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1081a
+        @Override // d.b.h0.r.l.a.InterfaceC1082a
         public void c(AccountData accountData) {
             d.b.h0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new StatisticItem("c12948").param("obj_type", LoginActivity.this.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, LoginActivity.this.mFromUrl));
@@ -181,24 +181,24 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f19403e;
+        public final /* synthetic */ AccountData f19404e;
 
         public d(AccountData accountData) {
-            this.f19403e = accountData;
+            this.f19404e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.h0.r.l.c.g(this.f19403e);
+            d.b.h0.r.l.c.g(this.f19404e);
             d.b.h0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements b.e {
         public e() {
         }

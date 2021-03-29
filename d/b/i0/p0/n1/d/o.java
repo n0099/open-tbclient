@@ -52,8 +52,8 @@ public class o extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 } else if (view.getId() == R.id.share_num_container) {
                     d.b.i0.p0.j2.a.b(a2Var, 14, o.this.i, d.b.i0.p0.j2.d.J0, o.this.i0());
                 } else if (view instanceof TbImageView) {
-                    if (o.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) o.this.A.f62183a).booleanValue()) {
+                    if (o.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) o.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.a.b(a2Var, 1, o.this.i, d.b.i0.p0.j2.d.J0, o.this.i0());
                         } else {
                             d.b.i0.p0.j2.a.b(a2Var, 3, o.this.i, d.b.i0.p0.j2.d.J0, o.this.i0());
@@ -73,8 +73,8 @@ public class o extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                 if (view.getId() == R.id.card_divider_tv) {
                     d.b.i0.p0.m2.l.a(d.b.i0.p0.j2.d.J0, a2Var.V0());
                 } else if (view instanceof TbImageView) {
-                    if (o.this.A.f62183a instanceof Boolean) {
-                        if (((Boolean) o.this.A.f62183a).booleanValue()) {
+                    if (o.this.A.f62184a instanceof Boolean) {
+                        if (((Boolean) o.this.A.f62184a).booleanValue()) {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 1);
                         } else {
                             d.b.i0.p0.j2.c.j().g(d.b.i0.p0.j2.d.J0, a2Var, 3);
@@ -114,7 +114,7 @@ public class o extends d.b.i0.p0.k<z1, ThreadCardViewHolder<a2>> implements d.b.
                     o.this.A.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), o.this.z, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }

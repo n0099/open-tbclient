@@ -3,17 +3,17 @@ package d.b.i0.c3;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f53337a = false;
+    public boolean f53338a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53338b = false;
+    public boolean f53339b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53339c = 0;
+    public int f53340c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53340d = "";
+    public String f53341d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public long f53341e = 0;
+    public long f53342e = 0;
 }

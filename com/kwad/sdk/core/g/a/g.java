@@ -5,10 +5,10 @@ import com.kwad.sdk.core.response.model.SdkConfigData;
 public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33653a;
+    public String f33654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33654b;
+    public String f33655b;
 
     public static g a() {
         SdkConfigData.TemplateConfig a2 = com.kwad.sdk.core.config.c.a();
@@ -16,13 +16,13 @@ public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
             g gVar = new g();
             String str = a2.h5Url;
             if (str != null) {
-                gVar.f33654b = str;
+                gVar.f33655b = str;
             }
             String str2 = a2.h5Version;
             if (str2 != null) {
-                gVar.f33653a = str2;
+                gVar.f33654a = str2;
             }
-            if (gVar.f33654b == null && gVar.f33653a == null) {
+            if (gVar.f33655b == null && gVar.f33654a == null) {
                 return null;
             }
             return gVar;

@@ -13,20 +13,20 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f3764a = new a();
+    public static final a f3765a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f3765b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f3766b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3766c = 2;
+    public static final int f3767c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3767d = 7;
+    public static final int f3768d = 7;
 
     private boolean b(String str, X509Certificate x509Certificate) {
         List<String> a2 = a(x509Certificate, 7);
@@ -68,7 +68,7 @@ public final class a implements HostnameVerifier {
     }
 
     public static boolean a(String str) {
-        return f3765b.matcher(str).matches();
+        return f3766b.matcher(str).matches();
     }
 
     public static List<String> a(X509Certificate x509Certificate) {

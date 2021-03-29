@@ -3,16 +3,16 @@ package d.b.g0.a.c2.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43792a;
+    public a f43793a;
 
     public void a(int i) {
-        a aVar = this.f43792a;
+        a aVar = this.f43793a;
         if (aVar != null) {
             aVar.a(i);
         }
     }
 
     public void b(a aVar) {
-        this.f43792a = aVar;
+        this.f43793a = aVar;
     }
 }

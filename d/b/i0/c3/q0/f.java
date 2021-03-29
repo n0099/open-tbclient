@@ -11,22 +11,22 @@ import java.util.ArrayList;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f53596a;
+    public final int f53597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53597b;
+    public String f53598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53598c;
+    public String f53599c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53599d;
+    public String f53600d;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53602g;
+    public int f53603g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53603h;
+    public String f53604h;
     public String i;
     public String j;
     public final AntiData k;
@@ -37,20 +37,20 @@ public class f {
     public IconStampData q;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53600e = null;
+    public String f53601e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53601f = null;
+    public String f53602f = null;
     public ArrayList<String> l = null;
 
     public f(int i, String str, AntiData antiData) {
-        this.f53596a = i;
-        this.f53597b = str;
+        this.f53597a = i;
+        this.f53598b = str;
         this.k = antiData;
     }
 
     public void A(String str) {
-        this.f53597b = str;
+        this.f53598b = str;
     }
 
     public void B(String str) {
@@ -58,7 +58,7 @@ public class f {
     }
 
     public void C(String str) {
-        this.f53603h = str;
+        this.f53604h = str;
     }
 
     public void D(IconStampData iconStampData) {
@@ -66,15 +66,15 @@ public class f {
     }
 
     public void E(int i) {
-        this.f53602g = i;
+        this.f53603g = i;
     }
 
     public void F(String str) {
-        this.f53601f = str;
+        this.f53602f = str;
     }
 
     public void G(String str) {
-        this.f53598c = str;
+        this.f53599c = str;
     }
 
     public void H(t1 t1Var) {
@@ -86,7 +86,7 @@ public class f {
     }
 
     public void J(String str) {
-        this.f53600e = str;
+        this.f53601e = str;
     }
 
     public void K(VideoEasterEggData videoEasterEggData) {
@@ -106,7 +106,7 @@ public class f {
     }
 
     public String c() {
-        return this.f53599d;
+        return this.f53600d;
     }
 
     public ContriInfo d() {
@@ -114,11 +114,11 @@ public class f {
     }
 
     public int e() {
-        return this.f53596a;
+        return this.f53597a;
     }
 
     public String f() {
-        return this.f53597b;
+        return this.f53598b;
     }
 
     public String g() {
@@ -126,7 +126,7 @@ public class f {
     }
 
     public String h() {
-        return this.f53603h;
+        return this.f53604h;
     }
 
     public IconStampData i() {
@@ -134,15 +134,15 @@ public class f {
     }
 
     public int j() {
-        return this.f53602g;
+        return this.f53603g;
     }
 
     public String k() {
-        return this.f53601f;
+        return this.f53602f;
     }
 
     public String l() {
-        return this.f53598c;
+        return this.f53599c;
     }
 
     public t1 m() {
@@ -154,7 +154,7 @@ public class f {
     }
 
     public String o() {
-        return this.f53600e;
+        return this.f53601e;
     }
 
     public VideoEasterEggData p() {
@@ -166,28 +166,28 @@ public class f {
     }
 
     public boolean r() {
-        return this.f53596a != 0;
+        return this.f53597a != 0;
     }
 
     public boolean s() {
-        return this.f53596a == 227001;
+        return this.f53597a == 227001;
     }
 
     public boolean t() {
-        return this.f53596a == 1990055;
+        return this.f53597a == 1990055;
     }
 
     public boolean u() {
-        int i = this.f53596a;
+        int i = this.f53597a;
         return i == 5 || i == 6;
     }
 
     public boolean v() {
-        return this.f53596a == 220015;
+        return this.f53597a == 220015;
     }
 
     public boolean w() {
-        return this.f53596a == 3250012;
+        return this.f53597a == 3250012;
     }
 
     public void x(CustomDialogData customDialogData) {
@@ -195,7 +195,7 @@ public class f {
     }
 
     public void y(String str) {
-        this.f53599d = str;
+        this.f53600d = str;
     }
 
     public void z(ContriInfo contriInfo) {

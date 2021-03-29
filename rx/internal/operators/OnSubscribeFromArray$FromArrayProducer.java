@@ -33,13 +33,14 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
 
     @Override // h.f
     public void request(long j) {
-        if (j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
         } else if (j == Long.MAX_VALUE) {
             if (a.b(this, j) == 0) {
                 fastPath();
             }
-        } else if (j == 0 || a.b(this, j) != 0) {
+        } else if (i == 0 || a.b(this, j) != 0) {
         } else {
             slowPath(j);
         }

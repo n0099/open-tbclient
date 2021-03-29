@@ -7,26 +7,26 @@ import com.baidu.swan.apps.SwanAppActivity;
 import d.b.g0.a.h;
 import d.b.g0.a.q1.b.b.g;
 import d.b.g0.a.r1.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43591a;
+    public static boolean f43592a;
 
     /* renamed from: d.b.g0.a.c0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class DialogInterface$OnClickListenerC0617a implements DialogInterface.OnClickListener {
+    /* loaded from: classes2.dex */
+    public static class DialogInterface$OnClickListenerC0618a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f43592e;
+        public final /* synthetic */ e f43593e;
 
-        public DialogInterface$OnClickListenerC0617a(e eVar) {
-            this.f43592e = eVar;
+        public DialogInterface$OnClickListenerC0618a(e eVar) {
+            this.f43593e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            SwanAppActivity n = this.f43592e.n();
+            SwanAppActivity n = this.f43593e.n();
             if (n != null && Build.VERSION.SDK_INT >= 21) {
                 n.finishAndRemoveTask();
             }
@@ -35,11 +35,11 @@ public class a {
     }
 
     public static boolean a() {
-        return f43591a;
+        return f43592a;
     }
 
     public static void b(boolean z) {
-        f43591a = z;
+        f43592a = z;
     }
 
     public static void c(Context context, boolean z) {
@@ -52,7 +52,7 @@ public class a {
             aVar.y(context.getString(i));
             aVar.n(new d.b.g0.a.j2.g.a());
             aVar.m(false);
-            aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0617a(y));
+            aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0618a(y));
             aVar.X();
         }
     }

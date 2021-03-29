@@ -3,17 +3,17 @@ package d.b.g0.a.y.a.j;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public DashPathEffect f46972a;
+    public DashPathEffect f46973a;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
-        DashPathEffect dashPathEffect = this.f46972a;
+        DashPathEffect dashPathEffect = this.f46973a;
         if (dashPathEffect != null) {
-            bVar.f46970g.setPathEffect(dashPathEffect);
+            bVar.f46971g.setPathEffect(dashPathEffect);
         }
     }
 
@@ -34,6 +34,6 @@ public class b0 extends a {
         if (fArr == null || f2 < 0) {
             return;
         }
-        this.f46972a = new DashPathEffect(fArr, f2);
+        this.f46973a = new DashPathEffect(fArr, f2);
     }
 }

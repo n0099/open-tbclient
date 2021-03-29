@@ -134,7 +134,7 @@ public class LongSparseArray<E> implements Cloneable {
             this.mValues[binarySearch] = e2;
             return;
         }
-        int i = binarySearch ^ (-1);
+        int i = ~binarySearch;
         if (i < this.mSize) {
             Object[] objArr = this.mValues;
             if (objArr[i] == DELETED) {
@@ -145,7 +145,7 @@ public class LongSparseArray<E> implements Cloneable {
         }
         if (this.mGarbage && this.mSize >= this.mKeys.length) {
             gc();
-            i = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j) ^ (-1);
+            i = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         }
         int i2 = this.mSize;
         if (i2 >= this.mKeys.length) {

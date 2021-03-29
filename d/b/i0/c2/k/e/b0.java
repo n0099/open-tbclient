@@ -526,7 +526,7 @@ public class b0 extends d.b.h0.r.s.j {
 
     public View x(int i) {
         View findViewById;
-        View view = this.f51017g;
+        View view = this.f51018g;
         if (view != null && (view instanceof ViewGroup) && (findViewById = view.findViewById(R.id.content_view)) != null && (findViewById instanceof ViewGroup)) {
             ViewGroup viewGroup = (ViewGroup) findViewById;
             int childCount = viewGroup.getChildCount();

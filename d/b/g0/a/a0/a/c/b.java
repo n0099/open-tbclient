@@ -6,7 +6,7 @@ import d.b.g0.a.c0.c;
 import d.b.g0.a.i2.h0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends d.b.g0.a.a0.a.d.b {
     public double A;
     public int B;

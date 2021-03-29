@@ -23,56 +23,56 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.h0.e.a> f61583e;
+    public List<d.b.h0.e.a> f61584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61584f;
+    public String f61585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragmentActivity f61585g;
+    public BaseFragmentActivity f61586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61586h;
+    public int f61587h;
     public LayoutInflater i;
 
     /* renamed from: d.b.i0.u3.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1614b {
+    public class C1615b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f61587a;
+        public TbImageView f61588a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f61588b;
+        public TextView f61589b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f61589c;
+        public ImageView f61590c;
 
-        public C1614b(b bVar) {
+        public C1615b(b bVar) {
         }
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.f61585g = baseFragmentActivity;
+        this.f61586g = baseFragmentActivity;
         this.i = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
-        this.f61586h = l.k(this.f61585g.getPageContext().getPageActivity()) / 2;
+        this.f61587h = l.k(this.f61586g.getPageContext().getPageActivity()) / 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d.b.h0.e.a getItem(int i) {
-        return (d.b.h0.e.a) ListUtils.getItem(this.f61583e, i);
+        return (d.b.h0.e.a) ListUtils.getItem(this.f61584e, i);
     }
 
     public void b(List<d.b.h0.e.a> list, String str) {
-        this.f61583e = list;
-        this.f61584f = str;
+        this.f61584e = list;
+        this.f61585f = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f61583e);
+        return ListUtils.getCount(this.f61584e);
     }
 
     @Override // android.widget.Adapter
@@ -82,18 +82,18 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C1614b c1614b;
-        if (view != null && (view.getTag() instanceof C1614b)) {
-            c1614b = (C1614b) view.getTag();
+        C1615b c1615b;
+        if (view != null && (view.getTag() instanceof C1615b)) {
+            c1615b = (C1615b) view.getTag();
         } else {
             view = this.i.inflate(R.layout.album_list_item, viewGroup, false);
-            c1614b = new C1614b();
-            c1614b.f61587a = (TbImageView) view.findViewById(R.id.item_head);
-            c1614b.f61588b = (TextView) view.findViewById(R.id.item_name);
-            c1614b.f61589c = (ImageView) view.findViewById(R.id.item_arrow);
-            c1614b.f61587a.setGifIconSupport(false);
-            c1614b.f61587a.setLongIconSupport(false);
-            view.setTag(c1614b);
+            c1615b = new C1615b();
+            c1615b.f61588a = (TbImageView) view.findViewById(R.id.item_head);
+            c1615b.f61589b = (TextView) view.findViewById(R.id.item_name);
+            c1615b.f61590c = (ImageView) view.findViewById(R.id.item_arrow);
+            c1615b.f61588a.setGifIconSupport(false);
+            c1615b.f61588a.setLongIconSupport(false);
+            view.setTag(c1615b);
         }
         d.b.h0.e.a item = getItem(i);
         if (item == null) {
@@ -102,25 +102,25 @@ public class b extends BaseAdapter {
         }
         view.setVisibility(0);
         if (!TextUtils.isEmpty(item.g())) {
-            String s = l.s(c1614b.f61588b.getPaint(), item.g(), this.f61586h);
-            c1614b.f61588b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+            String s = l.s(c1615b.f61589b.getPaint(), item.g(), this.f61587h);
+            c1615b.f61589b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
         } else {
-            c1614b.f61588b.setText("");
+            c1615b.f61589b.setText("");
         }
         String b2 = item.b();
-        if (!TextUtils.isEmpty(b2) && b2.equals(this.f61584f)) {
-            c1614b.f61589c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-            c1614b.f61589c.setVisibility(0);
+        if (!TextUtils.isEmpty(b2) && b2.equals(this.f61585f)) {
+            c1615b.f61590c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            c1615b.f61590c.setVisibility(0);
         } else {
-            c1614b.f61589c.setVisibility(8);
+            c1615b.f61590c.setVisibility(8);
         }
         MediaFileInfo f2 = item.f();
         if (f2 instanceof VideoFileInfo) {
-            c1614b.f61587a.W(((VideoFileInfo) f2).videoPath, 37, false);
+            c1615b.f61588a.W(((VideoFileInfo) f2).videoPath, 37, false);
         } else if (f2 instanceof ImageFileInfo) {
-            c1614b.f61587a.W(((ImageFileInfo) f2).getFilePath(), 35, false);
+            c1615b.f61588a.W(((ImageFileInfo) f2).getFilePath(), 35, false);
         }
-        SkinManager.setViewTextColor(c1614b.f61588b, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(c1615b.f61589b, R.color.CAM_X0105);
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         return view;
     }

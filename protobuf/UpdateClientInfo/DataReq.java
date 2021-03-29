@@ -3,7 +3,7 @@ package protobuf.UpdateClientInfo;
 import com.squareup.wire.ByteString;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_BDUSS = "";
     public static final String DEFAULT_DEVICE = "";

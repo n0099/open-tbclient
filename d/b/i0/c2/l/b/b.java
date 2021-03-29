@@ -12,23 +12,23 @@ import tbclient.ExcPbPage.ExcContent;
 public class b implements c {
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableString f53098e;
+    public SpannableString f53099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53099f;
+    public String f53100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f53100g;
+    public TbPageContext<?> f53101g;
 
     /* renamed from: d.b.i0.c2.l.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1168b extends ClickableSpan {
-        public C1168b() {
+    public class C1169b extends ClickableSpan {
+        public C1169b() {
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(b.this.f53100g, new String[]{b.this.f53099f});
+            UrlManager.getInstance().dealOneLink(b.this.f53101g, new String[]{b.this.f53100f});
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -42,10 +42,10 @@ public class b implements c {
         if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
             return;
         }
-        this.f53100g = tbPageContext;
-        this.f53098e = new SpannableString(excContent.text);
-        this.f53098e.setSpan(new C1168b(), 0, excContent.text.length(), 17);
-        this.f53099f = excContent.link;
+        this.f53101g = tbPageContext;
+        this.f53099e = new SpannableString(excContent.text);
+        this.f53099e.setSpan(new C1169b(), 0, excContent.text.length(), 17);
+        this.f53100f = excContent.link;
     }
 
     @Override // d.b.i0.c2.l.b.c
@@ -55,7 +55,7 @@ public class b implements c {
 
     @Override // d.b.i0.c2.l.b.c
     public CharSequence b() {
-        return this.f53098e;
+        return this.f53099e;
     }
 
     @Override // d.b.i0.c2.l.b.d

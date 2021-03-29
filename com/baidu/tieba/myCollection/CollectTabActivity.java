@@ -18,14 +18,14 @@ import com.baidu.tieba.R;
 import d.b.h0.e0.c;
 import d.b.i0.v1.b;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
     public d.b.i0.v1.a mController;
     public CustomMessageListener mEditorEnableListener = new a(2022209);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -78,7 +78,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             if (fragmentTabStructure == null) {
                 return;
             }
-            fragmentTabStructure.f50154a.setArguments(new Bundle());
+            fragmentTabStructure.f50155a.setArguments(new Bundle());
         }
         this.mController.h(aVar.c());
     }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static View.OnClickListener f49636a = new a();
+    public static View.OnClickListener f49637a = new a();
 
     /* loaded from: classes3.dex */
     public static class a implements View.OnClickListener {
@@ -104,7 +104,7 @@ public class r {
         }
         d.b.h0.r.s.g f2 = d.b.h0.r.s.g.f(d2.getPageActivity(), completeTaskToastData.message);
         f2.g(completeTaskToastData.duration);
-        f2.h(f49636a);
+        f2.h(f49637a);
         f2.i(completeTaskToastData);
         f2.j();
         return f2;

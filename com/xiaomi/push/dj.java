@@ -3,20 +3,20 @@ package com.xiaomi.push;
 public class dj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dj f40364a;
+    public static volatile dj f40365a;
 
     /* renamed from: a  reason: collision with other field name */
     public di f235a;
 
     public static dj a() {
-        if (f40364a == null) {
+        if (f40365a == null) {
             synchronized (dj.class) {
-                if (f40364a == null) {
-                    f40364a = new dj();
+                if (f40365a == null) {
+                    f40365a = new dj();
                 }
             }
         }
-        return f40364a;
+        return f40365a;
     }
 
     /* renamed from: a  reason: collision with other method in class */

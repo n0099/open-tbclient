@@ -22,7 +22,7 @@ public class f extends d.b.i0.p0.k<d.b.i0.p0.n, FrsEmpertyItemViewHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: t0 */
     public FrsEmpertyItemViewHolder R(ViewGroup viewGroup) {
-        return new FrsEmpertyItemViewHolder(new View(this.f42357e));
+        return new FrsEmpertyItemViewHolder(new View(this.f42358e));
     }
 
     public View u0(int i, View view, ViewGroup viewGroup, d.b.i0.p0.n nVar, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {

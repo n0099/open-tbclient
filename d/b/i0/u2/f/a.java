@@ -16,37 +16,37 @@ import tbclient.UserMuteQuery.MuteUser;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public SimpleDateFormat f61417e = new SimpleDateFormat("yyyy.MM.dd");
+    public SimpleDateFormat f61418e = new SimpleDateFormat("yyyy.MM.dd");
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<MuteUser> f61418f;
+    public ArrayList<MuteUser> f61419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseActivity f61419g;
+    public BaseActivity f61420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f61420h;
+    public e f61421h;
     public d i;
 
     /* renamed from: d.b.i0.u2.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1602a implements View.OnClickListener {
+    public class View$OnClickListenerC1603a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MuteUser f61421e;
+        public final /* synthetic */ MuteUser f61422e;
 
-        public View$OnClickListenerC1602a(MuteUser muteUser) {
-            this.f61421e = muteUser;
+        public View$OnClickListenerC1603a(MuteUser muteUser) {
+            this.f61422e = muteUser;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f61420h != null) {
-                MuteUser muteUser = this.f61421e;
+            if (a.this.f61421h != null) {
+                MuteUser muteUser = this.f61422e;
                 if (muteUser.user_id == null || muteUser.user_name == null) {
                     return;
                 }
-                a.this.f61420h.a(this.f61421e.user_id.longValue(), this.f61421e.user_name);
+                a.this.f61421h.a(this.f61422e.user_id.longValue(), this.f61422e.user_name);
             }
         }
     }
@@ -55,20 +55,20 @@ public class a extends BaseAdapter {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MuteUser f61423e;
+        public final /* synthetic */ MuteUser f61424e;
 
         public b(MuteUser muteUser) {
-            this.f61423e = muteUser;
+            this.f61424e = muteUser;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.i != null) {
-                MuteUser muteUser = this.f61423e;
+                MuteUser muteUser = this.f61424e;
                 if (muteUser.user_id == null || muteUser.user_name == null) {
                     return;
                 }
-                a.this.i.a(this.f61423e.user_id.longValue(), this.f61423e.user_name);
+                a.this.i.a(this.f61424e.user_id.longValue(), this.f61424e.user_name);
             }
         }
     }
@@ -77,20 +77,20 @@ public class a extends BaseAdapter {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MuteUser f61425e;
+        public final /* synthetic */ MuteUser f61426e;
 
         public c(MuteUser muteUser) {
-            this.f61425e = muteUser;
+            this.f61426e = muteUser;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.i != null) {
-                MuteUser muteUser = this.f61425e;
+                MuteUser muteUser = this.f61426e;
                 if (muteUser.user_id == null || muteUser.user_name == null) {
                     return;
                 }
-                a.this.i.a(this.f61425e.user_id.longValue(), this.f61425e.user_name);
+                a.this.i.a(this.f61426e.user_id.longValue(), this.f61426e.user_name);
             }
         }
     }
@@ -109,31 +109,31 @@ public class a extends BaseAdapter {
     public class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f61427a;
+        public View f61428a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f61428b;
+        public HeadImageView f61429b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f61429c;
+        public TextView f61430c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f61430d;
+        public TextView f61431d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f61431e;
+        public TextView f61432e;
 
         public f(a aVar) {
         }
 
-        public /* synthetic */ f(a aVar, View$OnClickListenerC1602a view$OnClickListenerC1602a) {
+        public /* synthetic */ f(a aVar, View$OnClickListenerC1603a view$OnClickListenerC1603a) {
             this(aVar);
         }
     }
 
     public a(BaseActivity baseActivity, e eVar, d dVar) {
-        this.f61419g = baseActivity;
-        this.f61420h = eVar;
+        this.f61420g = baseActivity;
+        this.f61421h = eVar;
         this.i = dVar;
     }
 
@@ -141,52 +141,52 @@ public class a extends BaseAdapter {
         f fVar;
         if (obj == null) {
             fVar = new f(this, null);
-            View inflate = LayoutInflater.from(this.f61419g.getPageContext().getContext()).inflate(R.layout.user_mute_list_item, (ViewGroup) null);
-            fVar.f61427a = inflate;
-            fVar.f61429c = (TextView) inflate.findViewById(R.id.item_user_name);
-            fVar.f61430d = (TextView) fVar.f61427a.findViewById(R.id.item_mute_terminate_time);
-            fVar.f61431e = (TextView) fVar.f61427a.findViewById(R.id.item_remove_button);
-            fVar.f61428b = (HeadImageView) fVar.f61427a.findViewById(R.id.item_header_view);
-            fVar.f61427a.setTag(fVar);
-            fVar.f61431e.setTag(Integer.valueOf(i));
-            fVar.f61428b.setTag(Integer.valueOf(i));
-            fVar.f61429c.setTag(Integer.valueOf(i));
+            View inflate = LayoutInflater.from(this.f61420g.getPageContext().getContext()).inflate(R.layout.user_mute_list_item, (ViewGroup) null);
+            fVar.f61428a = inflate;
+            fVar.f61430c = (TextView) inflate.findViewById(R.id.item_user_name);
+            fVar.f61431d = (TextView) fVar.f61428a.findViewById(R.id.item_mute_terminate_time);
+            fVar.f61432e = (TextView) fVar.f61428a.findViewById(R.id.item_remove_button);
+            fVar.f61429b = (HeadImageView) fVar.f61428a.findViewById(R.id.item_header_view);
+            fVar.f61428a.setTag(fVar);
+            fVar.f61432e.setTag(Integer.valueOf(i));
+            fVar.f61429b.setTag(Integer.valueOf(i));
+            fVar.f61430c.setTag(Integer.valueOf(i));
         } else {
             fVar = (f) obj;
         }
-        fVar.f61431e.setOnClickListener(new View$OnClickListenerC1602a(muteUser));
-        fVar.f61428b.setOnClickListener(new b(muteUser));
-        fVar.f61429c.setOnClickListener(new c(muteUser));
+        fVar.f61432e.setOnClickListener(new View$OnClickListenerC1603a(muteUser));
+        fVar.f61429b.setOnClickListener(new b(muteUser));
+        fVar.f61430c.setOnClickListener(new c(muteUser));
         String str = muteUser.portrait;
         if (str != null) {
-            fVar.f61428b.setTag(str);
-            fVar.f61428b.W(str, 12, false);
+            fVar.f61429b.setTag(str);
+            fVar.f61429b.W(str, 12, false);
         }
         String str2 = muteUser.name_show;
         if (str2 != null) {
-            fVar.f61429c.setText(str2);
+            fVar.f61430c.setText(str2);
         } else {
-            fVar.f61429c.setText(muteUser.user_name);
+            fVar.f61430c.setText(muteUser.user_name);
         }
         if (muteUser.mute_time != null) {
-            fVar.f61430d.setText(this.f61419g.getResources().getString(R.string.auto_terminate_mute_time, this.f61417e.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
+            fVar.f61431d.setText(this.f61420g.getResources().getString(R.string.auto_terminate_mute_time, this.f61418e.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
         }
         Long l = muteUser.user_id;
         if (l != null) {
-            fVar.f61431e.setTag(l);
+            fVar.f61432e.setTag(l);
         }
-        this.f61419g.getLayoutMode().j(fVar.f61427a);
+        this.f61420g.getLayoutMode().j(fVar.f61428a);
         return fVar;
     }
 
     public void d(ArrayList<MuteUser> arrayList) {
-        this.f61418f = arrayList;
+        this.f61419f = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<MuteUser> arrayList = this.f61418f;
+        ArrayList<MuteUser> arrayList = this.f61419f;
         if (arrayList != null) {
             return arrayList.size();
         }
@@ -195,7 +195,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        ArrayList<MuteUser> arrayList = this.f61418f;
+        ArrayList<MuteUser> arrayList = this.f61419f;
         if (arrayList != null) {
             return arrayList.get(i);
         }
@@ -210,14 +210,14 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
-        MuteUser muteUser = this.f61418f.get(i);
+        MuteUser muteUser = this.f61419f.get(i);
         if (muteUser != null) {
             fVar = c(view != null ? view.getTag() : null, muteUser, i);
         } else {
             fVar = null;
         }
         if (fVar != null) {
-            return fVar.f61427a;
+            return fVar.f61428a;
         }
         return null;
     }

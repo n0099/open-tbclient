@@ -5,10 +5,10 @@ import tbclient.DeleteTail.ResData;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59483a;
+    public int f59484a;
 
     public int a() {
-        return this.f59483a;
+        return this.f59484a;
     }
 
     public void b(ResData resData) {
@@ -16,6 +16,6 @@ public class c {
         if (resData == null || (l = resData.tailId) == null) {
             return;
         }
-        this.f59483a = l.intValue();
+        this.f59484a = l.intValue();
     }
 }

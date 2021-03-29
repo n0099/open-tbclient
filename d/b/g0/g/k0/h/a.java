@@ -22,50 +22,50 @@ import d.b.g0.g.s.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f48255a;
+    public RelativeLayout f48256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EditText f48256b;
+    public EditText f48257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f48257c;
+    public EditText f48258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f48258d;
+    public RelativeLayout f48259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f48259e;
+    public Button f48260e;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.f f48261g;
+    public a.f f48262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.g.s.c f48262h;
+    public d.b.g0.g.s.c f48263h;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48260f = false;
-    public View.OnClickListener i = new View$OnClickListenerC0972a();
+    public boolean f48261f = false;
+    public View.OnClickListener i = new View$OnClickListenerC0973a();
     public TextWatcher j = new b();
     public TextView.OnEditorActionListener k = new c();
 
     /* renamed from: d.b.g0.g.k0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0972a implements View.OnClickListener {
-        public View$OnClickListenerC0972a() {
+    public class View$OnClickListenerC0973a implements View.OnClickListener {
+        public View$OnClickListenerC0973a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f48257c == null || !a.this.f48260f) {
+            if (a.this.f48258c == null || !a.this.f48261f) {
                 return;
             }
-            if (a.this.f48261g != null) {
-                a.this.f48261g.a(a.this.f48257c.getText().toString());
+            if (a.this.f48262g != null) {
+                a.this.f48262g.a(a.this.f48258c.getText().toString());
             }
-            if (a.this.f48262h == null || a.this.f48262h.f48565d || a.this.f48261g == null) {
+            if (a.this.f48263h == null || a.this.f48263h.f48566d || a.this.f48262g == null) {
                 return;
             }
-            a.this.f48261g.d();
+            a.this.f48262g.d();
             a.this.m("");
         }
     }
@@ -75,22 +75,22 @@ public class a {
 
         /* renamed from: d.b.g0.g.k0.h.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0973a implements Runnable {
+        public class RunnableC0974a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Editable f48265e;
+            public final /* synthetic */ Editable f48266e;
 
-            public RunnableC0973a(Editable editable) {
-                this.f48265e = editable;
+            public RunnableC0974a(Editable editable) {
+                this.f48266e = editable;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (TextUtils.isEmpty(this.f48265e.toString())) {
-                    a.this.f48259e.setEnabled(false);
-                } else if (a.this.f48259e.isEnabled()) {
+                if (TextUtils.isEmpty(this.f48266e.toString())) {
+                    a.this.f48260e.setEnabled(false);
+                } else if (a.this.f48260e.isEnabled()) {
                 } else {
-                    a.this.f48259e.setEnabled(true);
+                    a.this.f48260e.setEnabled(true);
                 }
             }
         }
@@ -100,10 +100,10 @@ public class a {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            if (a.this.f48261g != null) {
-                a.this.f48261g.c(editable.toString());
+            if (a.this.f48262g != null) {
+                a.this.f48262g.c(editable.toString());
             }
-            a.this.f48259e.post(new RunnableC0973a(editable));
+            a.this.f48260e.post(new RunnableC0974a(editable));
         }
 
         @Override // android.text.TextWatcher
@@ -122,16 +122,16 @@ public class a {
 
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (a.this.f48262h == null || a.this.f48262h.f48566e != i || a.this.f48257c == null || !a.this.f48260f) {
+            if (a.this.f48263h == null || a.this.f48263h.f48567e != i || a.this.f48258c == null || !a.this.f48261f) {
                 return false;
             }
-            if (a.this.f48261g != null) {
-                a.this.f48261g.a(a.this.f48257c.getText().toString());
+            if (a.this.f48262g != null) {
+                a.this.f48262g.a(a.this.f48258c.getText().toString());
             }
-            if (a.this.f48262h.f48565d || a.this.f48261g == null) {
+            if (a.this.f48263h.f48566d || a.this.f48262g == null) {
                 return true;
             }
-            a.this.f48261g.d();
+            a.this.f48262g.d();
             a.this.m("");
             return true;
         }
@@ -144,7 +144,7 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f48259e.setEnabled(false);
+            a.this.f48260e.setEnabled(false);
         }
     }
 
@@ -152,24 +152,24 @@ public class a {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.s.c f48269e;
+        public final /* synthetic */ d.b.g0.g.s.c f48270e;
 
         public e(d.b.g0.g.s.c cVar) {
-            this.f48269e = cVar;
+            this.f48270e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int length;
             try {
-                if (a.this.f48257c.getText().length() <= this.f48269e.f48562a.length()) {
-                    length = a.this.f48257c.getText().length();
+                if (a.this.f48258c.getText().length() <= this.f48270e.f48563a.length()) {
+                    length = a.this.f48258c.getText().length();
                 } else {
-                    length = this.f48269e.f48562a.length();
+                    length = this.f48270e.f48563a.length();
                 }
-                a.this.f48257c.setSelection(length);
+                a.this.f48258c.setSelection(length);
             } catch (Exception e2) {
-                if (k.f45050a) {
+                if (k.f45051a) {
                     e2.printStackTrace();
                 }
             }
@@ -180,121 +180,121 @@ public class a {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48271e;
+        public final /* synthetic */ String f48272e;
 
         public f(String str) {
-            this.f48271e = str;
+            this.f48272e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f48257c.setSelection(this.f48271e.length());
+            a.this.f48258c.setSelection(this.f48272e.length());
         }
     }
 
     public a(Context context) {
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(g.aiapps_ai_games_input_view, (ViewGroup) null);
-        this.f48255a = relativeLayout;
-        this.f48256b = (EditText) relativeLayout.findViewById(d.b.g0.a.f.ai_games_virtual_input_et);
-        this.f48258d = (RelativeLayout) this.f48255a.findViewById(d.b.g0.a.f.ai_games_real_input_container);
-        this.f48257c = (EditText) this.f48255a.findViewById(d.b.g0.a.f.ai_games_real_input_et);
-        Button button = (Button) this.f48255a.findViewById(d.b.g0.a.f.ai_games_input_send_btn);
-        this.f48259e = button;
+        this.f48256a = relativeLayout;
+        this.f48257b = (EditText) relativeLayout.findViewById(d.b.g0.a.f.ai_games_virtual_input_et);
+        this.f48259d = (RelativeLayout) this.f48256a.findViewById(d.b.g0.a.f.ai_games_real_input_container);
+        this.f48258c = (EditText) this.f48256a.findViewById(d.b.g0.a.f.ai_games_real_input_et);
+        Button button = (Button) this.f48256a.findViewById(d.b.g0.a.f.ai_games_input_send_btn);
+        this.f48260e = button;
         button.setOnClickListener(this.i);
-        this.f48257c.addTextChangedListener(this.j);
-        this.f48257c.setOnEditorActionListener(this.k);
-        this.f48259e.post(new d());
+        this.f48258c.addTextChangedListener(this.j);
+        this.f48258c.setOnEditorActionListener(this.k);
+        this.f48260e.post(new d());
     }
 
     public View f() {
-        return this.f48255a;
+        return this.f48256a;
     }
 
     public boolean g() {
-        return this.f48260f;
+        return this.f48261f;
     }
 
     public void h() {
         EditText editText;
         EditText editText2;
         InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-        if (!inputMethodManager.isActive() || (editText = this.f48257c) == null) {
+        if (!inputMethodManager.isActive() || (editText = this.f48258c) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(editText.getApplicationWindowToken(), 0);
-        this.f48260f = false;
-        this.f48256b.setVisibility(8);
-        this.f48258d.setVisibility(8);
-        a.f fVar = this.f48261g;
-        if (fVar == null || (editText2 = this.f48257c) == null) {
+        this.f48261f = false;
+        this.f48257b.setVisibility(8);
+        this.f48259d.setVisibility(8);
+        a.f fVar = this.f48262g;
+        if (fVar == null || (editText2 = this.f48258c) == null) {
             return;
         }
         fVar.b(editText2.getText().toString());
     }
 
     public void i(a.f fVar) {
-        this.f48261g = fVar;
+        this.f48262g = fVar;
     }
 
     public void j(d.b.g0.g.s.c cVar) {
-        this.f48262h = cVar;
-        if (this.f48257c == null || cVar == null) {
+        this.f48263h = cVar;
+        if (this.f48258c == null || cVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(cVar.f48562a)) {
-            this.f48257c.setText(cVar.f48562a);
-            if (cVar.f48563b > 0) {
-                if (!TextUtils.isEmpty(cVar.f48562a) && cVar.f48562a.length() > cVar.f48563b) {
-                    cVar.f48563b = cVar.f48562a.length();
+        if (!TextUtils.isEmpty(cVar.f48563a)) {
+            this.f48258c.setText(cVar.f48563a);
+            if (cVar.f48564b > 0) {
+                if (!TextUtils.isEmpty(cVar.f48563a) && cVar.f48563a.length() > cVar.f48564b) {
+                    cVar.f48564b = cVar.f48563a.length();
                 }
-                this.f48257c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.f48563b)});
+                this.f48258c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.f48564b)});
             }
-            this.f48257c.postDelayed(new e(cVar), 300L);
+            this.f48258c.postDelayed(new e(cVar), 300L);
         } else {
-            this.f48257c.setText("");
+            this.f48258c.setText("");
         }
-        this.f48259e.setEnabled(!TextUtils.isEmpty(cVar.f48562a));
-        if (cVar.f48564c) {
-            this.f48257c.setMinLines(1);
-            this.f48257c.setInputType(131073);
-            this.f48259e.setText(cVar.f48567f);
+        this.f48260e.setEnabled(!TextUtils.isEmpty(cVar.f48563a));
+        if (cVar.f48565c) {
+            this.f48258c.setMinLines(1);
+            this.f48258c.setInputType(131073);
+            this.f48260e.setText(cVar.f48568f);
             return;
         }
-        this.f48257c.setMaxLines(1);
-        this.f48257c.setInputType(1);
+        this.f48258c.setMaxLines(1);
+        this.f48258c.setInputType(1);
     }
 
     public void k(int i) {
-        this.f48258d.setVisibility(0);
-        this.f48257c.setFocusableInTouchMode(true);
-        this.f48257c.requestFocus();
-        this.f48256b.setVisibility(8);
-        this.f48260f = true;
-        a.f fVar = this.f48261g;
+        this.f48259d.setVisibility(0);
+        this.f48258c.setFocusableInTouchMode(true);
+        this.f48258c.requestFocus();
+        this.f48257b.setVisibility(8);
+        this.f48261f = true;
+        a.f fVar = this.f48262g;
         if (fVar != null) {
             fVar.e(i);
         }
     }
 
     public boolean l() {
-        if (this.f48260f) {
+        if (this.f48261f) {
             return false;
         }
-        this.f48256b.setVisibility(0);
-        this.f48258d.setVisibility(8);
-        this.f48256b.setFocusableInTouchMode(true);
-        this.f48256b.requestFocus();
-        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.f48256b, 0);
+        this.f48257b.setVisibility(0);
+        this.f48259d.setVisibility(8);
+        this.f48257b.setFocusableInTouchMode(true);
+        this.f48257b.requestFocus();
+        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.f48257b, 0);
         return true;
     }
 
     public boolean m(String str) {
         EditText editText;
-        if (!this.f48260f || (editText = this.f48257c) == null) {
+        if (!this.f48261f || (editText = this.f48258c) == null) {
             return false;
         }
         editText.setText(str);
-        this.f48257c.postDelayed(new f(str), 300L);
+        this.f48258c.postDelayed(new f(str), 300L);
         return true;
     }
 }

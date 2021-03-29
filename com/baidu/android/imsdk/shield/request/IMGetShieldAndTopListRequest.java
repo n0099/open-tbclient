@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
     public static final String TAG = "IMGetShieldAndTopListRequest";
     public int mFilterType;

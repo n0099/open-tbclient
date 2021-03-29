@@ -13,16 +13,16 @@ public class a extends BaseCardInfo {
     public static final BdUniqueId r = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53274e;
+    public String f53275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53275f;
+    public String f53276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53276g;
+    public String f53277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53277h;
+    public String f53278h;
     public String i;
     public Long j;
     public long l;
@@ -47,11 +47,11 @@ public class a extends BaseCardInfo {
     }
 
     public String n() {
-        return this.f53276g;
+        return this.f53277g;
     }
 
     public String o() {
-        return this.f53277h;
+        return this.f53278h;
     }
 
     public String s() {
@@ -59,11 +59,11 @@ public class a extends BaseCardInfo {
     }
 
     public String t() {
-        return this.f53275f;
+        return this.f53276f;
     }
 
     public String u() {
-        return this.f53274e;
+        return this.f53275e;
     }
 
     public boolean v() {
@@ -71,9 +71,9 @@ public class a extends BaseCardInfo {
     }
 
     public void w(@NonNull AlaLiveInfo alaLiveInfo) {
-        this.f53274e = alaLiveInfo.first_headline;
-        this.f53275f = alaLiveInfo.second_headline;
-        this.f53276g = alaLiveInfo.cover;
+        this.f53275e = alaLiveInfo.first_headline;
+        this.f53276f = alaLiveInfo.second_headline;
+        this.f53277g = alaLiveInfo.cover;
         this.l = alaLiveInfo.live_id.longValue();
         AlaUserInfo alaUserInfo = alaLiveInfo.user_info;
         this.p = alaUserInfo != null ? alaUserInfo.user_id.longValue() : 0L;
@@ -81,7 +81,7 @@ public class a extends BaseCardInfo {
         this.n = alaLiveInfo.third_live_type;
         this.o = alaLiveInfo.third_room_id;
         String str = alaLiveInfo.router_type;
-        this.f53277h = "";
+        this.f53278h = "";
         this.i = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
         this.j = 1L;
         this.k = true;
@@ -89,10 +89,10 @@ public class a extends BaseCardInfo {
     }
 
     public void x(Promotion promotion) {
-        this.f53274e = promotion.title;
-        this.f53275f = promotion.sub_title;
-        this.f53276g = promotion.image;
-        this.f53277h = promotion.link;
+        this.f53275e = promotion.title;
+        this.f53276f = promotion.sub_title;
+        this.f53277g = promotion.image;
+        this.f53278h = promotion.link;
         this.i = promotion.link_text;
         this.j = promotion.appear_time;
         this.k = false;

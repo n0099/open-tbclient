@@ -11,7 +11,7 @@ import d.b.i0.d1.f.i.b;
 import d.b.i0.d1.t.e;
 import java.util.ArrayList;
 import java.util.ListIterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
     public StrangerListModel(TbPageContext tbPageContext) {
         super(tbPageContext);

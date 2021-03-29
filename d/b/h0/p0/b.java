@@ -22,10 +22,10 @@ import java.util.regex.Pattern;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f50404a = "#";
+    public static String f50405a = "#";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f50405b = Pattern.compile("#([^#(]+)#", 2);
+    public static final Pattern f50406b = Pattern.compile("#([^#(]+)#", 2);
 
     public static String a(String str) {
         if (StringUtils.isNull(str)) {
@@ -35,9 +35,9 @@ public class b {
             return str;
         }
         StringBuilder sb = new StringBuilder(str.length() + 2);
-        sb.append(f50404a);
+        sb.append(f50405a);
         sb.append(str);
-        sb.append(f50404a);
+        sb.append(f50405a);
         return sb.toString();
     }
 
@@ -67,11 +67,11 @@ public class b {
     }
 
     public static boolean e(String str) {
-        return str != null && str.startsWith(f50404a) && str.endsWith(f50404a) && "".equals(str.substring(1, str.length() - 1).trim());
+        return str != null && str.startsWith(f50405a) && str.endsWith(f50405a) && "".equals(str.substring(1, str.length() - 1).trim());
     }
 
     public static boolean f(String str) {
-        return f50404a.equals(str);
+        return f50405a.equals(str);
     }
 
     public static boolean g() {
@@ -92,7 +92,7 @@ public class b {
     }
 
     public static void i(l lVar) {
-        int i = lVar.f51482b;
+        int i = lVar.f51483b;
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
     }
 
@@ -100,7 +100,7 @@ public class b {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = f50405b.matcher(str);
+        Matcher matcher = f50406b.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
@@ -121,7 +121,7 @@ public class b {
         if (StringUtils.isNull(obj)) {
             return;
         }
-        Matcher matcher = f50405b.matcher(obj);
+        Matcher matcher = f50406b.matcher(obj);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();

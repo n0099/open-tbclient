@@ -1,16 +1,16 @@
 package d.b.g0.a.l0.h;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45153a;
+    public String f45154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45154b;
+    public String f45155b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45155c;
+    public String f45156c;
 }

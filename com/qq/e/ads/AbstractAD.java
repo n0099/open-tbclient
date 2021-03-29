@@ -16,19 +16,19 @@ import com.qq.e.comm.util.GDTLogger;
 public abstract class AbstractAD<T extends ADI> {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f38005a = false;
+    public volatile boolean f38006a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f38006b = false;
+    public volatile boolean f38007b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f38007c;
+    public T f38008c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BrowserType f38008d;
+    public BrowserType f38009d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DownAPPConfirmPolicy f38009e;
+    public DownAPPConfirmPolicy f38010e;
 
     /* loaded from: classes6.dex */
     public interface BasicADListener {
@@ -36,14 +36,14 @@ public abstract class AbstractAD<T extends ADI> {
     }
 
     public final T a() {
-        return this.f38007c;
+        return this.f38008c;
     }
 
     public abstract T a(Context context, POFactory pOFactory, String str, String str2);
 
     public final void a(final Context context, final String str, final String str2, final BasicADListener basicADListener) {
         if (a.a(context)) {
-            this.f38006b = true;
+            this.f38007b = true;
             GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.AbstractAD.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -60,22 +60,22 @@ public abstract class AbstractAD<T extends ADI> {
                                 public void run() {
                                     try {
                                         if (pOFactory == null) {
-                                            AbstractAD.this.f38005a = true;
+                                            AbstractAD.this.f38006a = true;
                                             AbstractAD.this.a(basicADListener, 200102);
                                             return;
                                         }
-                                        AbstractAD.this.f38007c = AbstractAD.this.a(context, pOFactory, str, str2);
-                                        AbstractAD.this.f38005a = true;
-                                        if (AbstractAD.this.f38008d != null) {
-                                            AbstractAD.this.setBrowserType(AbstractAD.this.f38008d);
+                                        AbstractAD.this.f38008c = AbstractAD.this.a(context, pOFactory, str, str2);
+                                        AbstractAD.this.f38006a = true;
+                                        if (AbstractAD.this.f38009d != null) {
+                                            AbstractAD.this.setBrowserType(AbstractAD.this.f38009d);
                                         }
-                                        if (AbstractAD.this.f38009e != null) {
-                                            AbstractAD.this.setDownAPPConfirmPolicy(AbstractAD.this.f38009e);
+                                        if (AbstractAD.this.f38010e != null) {
+                                            AbstractAD.this.setDownAPPConfirmPolicy(AbstractAD.this.f38010e);
                                         }
-                                        AbstractAD.this.a((AbstractAD) AbstractAD.this.f38007c);
+                                        AbstractAD.this.a((AbstractAD) AbstractAD.this.f38008c);
                                     } catch (Throwable th) {
                                         GDTLogger.e("Exception while init Core", th);
-                                        AbstractAD.this.f38005a = true;
+                                        AbstractAD.this.f38006a = true;
                                         AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                                         AbstractAD.this.a(basicADListener, 2001);
                                     }
@@ -124,16 +124,16 @@ public abstract class AbstractAD<T extends ADI> {
     public abstract void a(T t);
 
     public final boolean b() {
-        return this.f38005a;
+        return this.f38006a;
     }
 
     public final boolean c() {
-        return this.f38006b;
+        return this.f38007b;
     }
 
     public void setBrowserType(BrowserType browserType) {
-        this.f38008d = browserType;
-        T t = this.f38007c;
+        this.f38009d = browserType;
+        T t = this.f38008c;
         if (t == null || browserType == null) {
             return;
         }
@@ -141,8 +141,8 @@ public abstract class AbstractAD<T extends ADI> {
     }
 
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
-        this.f38009e = downAPPConfirmPolicy;
-        T t = this.f38007c;
+        this.f38010e = downAPPConfirmPolicy;
+        T t = this.f38008c;
         if (t == null || downAPPConfirmPolicy == null) {
             return;
         }

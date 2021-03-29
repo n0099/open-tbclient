@@ -9,22 +9,22 @@ import com.baidu.tieba.R;
 public class EditorInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21325e;
+    public int f21326e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21326f;
+    public int f21327f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21327g;
+    public int f21328g;
 
     public EditorInfoView(Context context) {
         this(context, null);
     }
 
     public void a(int i) {
-        if (i != this.f21325e) {
+        if (i != this.f21326e) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-            this.f21325e = i;
+            this.f21326e = i;
         }
     }
 
@@ -40,11 +40,11 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21325e = 3;
-        this.f21326f = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.f21326e = 3;
+        this.f21327f = (int) context.getResources().getDimension(R.dimen.ds18);
         int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
-        this.f21327g = dimension;
-        int i2 = this.f21326f;
+        this.f21328g = dimension;
+        int i2 = this.f21327f;
         setPadding(i2, dimension, i2, dimension);
         setGravity(16);
         setSingleLine(true);

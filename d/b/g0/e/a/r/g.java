@@ -13,22 +13,22 @@ import java.util.concurrent.TimeUnit;
 public class g implements d.b.g0.a.q.g.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f47718a;
+    public Context f47719a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47719b;
+    public String f47720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdElementInfo f47720c;
+    public AdElementInfo f47721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SwanAdDownloadState f47721d = SwanAdDownloadState.NOT_START;
+    public SwanAdDownloadState f47722d = SwanAdDownloadState.NOT_START;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.e.a.m.e f47722e;
+    public d.b.g0.e.a.m.e f47723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f47723f;
+    public b f47724f;
 
     /* loaded from: classes3.dex */
     public class b extends BroadcastReceiver {
@@ -43,7 +43,7 @@ public class g implements d.b.g0.a.q.g.a.a {
             if (intent == null || intent.getData() == null || !PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
                 return;
             }
-            if (!TextUtils.equals(g.this.f47720c.y(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
+            if (!TextUtils.equals(g.this.f47721c.y(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
                 return;
             }
             this.time = System.currentTimeMillis();
@@ -52,9 +52,9 @@ public class g implements d.b.g0.a.q.g.a.a {
     }
 
     public g(Context context, AdElementInfo adElementInfo, d.b.g0.e.a.m.e eVar) {
-        this.f47718a = context;
-        this.f47720c = adElementInfo;
-        this.f47722e = eVar;
+        this.f47719a = context;
+        this.f47721c = adElementInfo;
+        this.f47723e = eVar;
     }
 
     @Override // d.b.g0.a.q.g.a.a
@@ -68,14 +68,14 @@ public class g implements d.b.g0.a.q.g.a.a {
 
     @Override // d.b.g0.a.q.g.a.a
     public void c(SwanAdDownloadState swanAdDownloadState, int i) {
-        if (this.f47721d == swanAdDownloadState) {
+        if (this.f47722d == swanAdDownloadState) {
             return;
         }
         if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
             j("2");
             h();
         }
-        this.f47721d = swanAdDownloadState;
+        this.f47722d = swanAdDownloadState;
     }
 
     @Override // d.b.g0.a.q.g.a.a
@@ -92,34 +92,34 @@ public class g implements d.b.g0.a.q.g.a.a {
     }
 
     public final void h() {
-        if (this.f47723f == null) {
-            this.f47723f = new b();
+        if (this.f47724f == null) {
+            this.f47724f = new b();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme("package");
-            this.f47718a.registerReceiver(this.f47723f, intentFilter);
+            this.f47719a.registerReceiver(this.f47724f, intentFilter);
         }
     }
 
     public void i() {
-        b bVar = this.f47723f;
+        b bVar = this.f47724f;
         if (bVar != null) {
-            this.f47718a.unregisterReceiver(bVar);
-            this.f47723f = null;
+            this.f47719a.unregisterReceiver(bVar);
+            this.f47724f = null;
         }
     }
 
     public final void j(String str) {
         d.b.g0.e.a.p.b bVar = new d.b.g0.e.a.p.b();
-        bVar.s = this.f47719b;
+        bVar.s = this.f47720b;
         bVar.r = str;
-        d.b.g0.e.a.p.d.e(bVar, this.f47720c, this.f47722e);
+        d.b.g0.e.a.p.d.e(bVar, this.f47721c, this.f47723e);
     }
 
     public void k(String str) {
-        this.f47719b = str;
+        this.f47720b = str;
         j("1");
-        Context context = this.f47718a;
+        Context context = this.f47719a;
         if (context != null) {
             d.b.g0.a.q1.b.f.d.e(context, d.b.g0.e.a.i.gdt_ad_start_download).E();
         }

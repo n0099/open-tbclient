@@ -4,7 +4,7 @@ import android.os.Process;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class c {
     /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: java.lang.StringBuilder */
     /* JADX WARN: Multi-variable type inference failed */

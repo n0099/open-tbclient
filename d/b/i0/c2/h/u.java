@@ -6,13 +6,13 @@ import d.b.h0.r.q.a2;
 public class u implements d.b.b.j.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f52476f = BdUniqueId.gen();
+    public static BdUniqueId f52477f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f52477e;
+    public a2 f52478e;
 
     @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f52476f;
+        return f52477f;
     }
 }

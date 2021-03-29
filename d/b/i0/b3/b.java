@@ -16,14 +16,14 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<BdUniqueId, ArrayList<StatisticItem>> f52247a;
+    public Map<BdUniqueId, ArrayList<StatisticItem>> f52248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f52248b = {TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER};
+    public String[] f52249b = {TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER};
 
     public b() {
-        if (this.f52247a == null) {
-            this.f52247a = new LinkedHashMap();
+        if (this.f52248a == null) {
+            this.f52248a = new LinkedHashMap();
         }
     }
 
@@ -31,10 +31,10 @@ public class b {
         if (statisticItem == null || bdUniqueId == null) {
             return;
         }
-        ArrayList<StatisticItem> arrayList = this.f52247a.get(bdUniqueId);
+        ArrayList<StatisticItem> arrayList = this.f52248a.get(bdUniqueId);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f52247a.put(bdUniqueId, arrayList);
+            this.f52248a.put(bdUniqueId, arrayList);
         }
         arrayList.add(statisticItem);
     }
@@ -50,14 +50,14 @@ public class b {
     }
 
     public boolean c(BdUniqueId bdUniqueId) {
-        return this.f52247a.containsKey(bdUniqueId);
+        return this.f52248a.containsKey(bdUniqueId);
     }
 
     public void d(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId == null) {
             return;
         }
-        ArrayList<StatisticItem> arrayList = this.f52247a.get(bdUniqueId);
+        ArrayList<StatisticItem> arrayList = this.f52248a.get(bdUniqueId);
         if (ListUtils.getCount(arrayList) == 0) {
             return;
         }
@@ -88,17 +88,17 @@ public class b {
                 List list = (List) entry.getValue();
                 if (ListUtils.getCount(list) != 0) {
                     StatisticItem statisticItem2 = (StatisticItem) list.get(0);
-                    for (int i2 = 0; i2 < this.f52248b.length; i2++) {
+                    for (int i2 = 0; i2 < this.f52249b.length; i2++) {
                         StringBuilder sb = new StringBuilder();
                         for (int i3 = 0; i3 < list.size(); i3++) {
-                            sb.append(b(((StatisticItem) list.get(i3)).getParams(), this.f52248b[i2]));
+                            sb.append(b(((StatisticItem) list.get(i3)).getParams(), this.f52249b[i2]));
                             sb.append(FieldBuilder.SE);
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
                         }
-                        statisticItem2.delete(this.f52248b[i2]);
-                        statisticItem2.param(this.f52248b[i2] + "s", sb.toString());
+                        statisticItem2.delete(this.f52249b[i2]);
+                        statisticItem2.param(this.f52249b[i2] + "s", sb.toString());
                     }
                     TiebaStatic.log(statisticItem2);
                 }
@@ -116,14 +116,14 @@ public class b {
         if (bdUniqueId == null) {
             return;
         }
-        this.f52247a.put(bdUniqueId, null);
+        this.f52248a.put(bdUniqueId, null);
     }
 
     public void g() {
-        if (this.f52247a.size() == 0) {
+        if (this.f52248a.size() == 0) {
             return;
         }
-        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.f52247a.entrySet()) {
+        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.f52248a.entrySet()) {
             ArrayList<StatisticItem> value = entry.getValue();
             if (value != null) {
                 value.clear();
@@ -135,6 +135,6 @@ public class b {
         if (bdUniqueId == null) {
             return;
         }
-        this.f52247a.remove(bdUniqueId);
+        this.f52248a.remove(bdUniqueId);
     }
 }

@@ -7,33 +7,33 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicReference<a> f67690b = new AtomicReference<>();
+    public static final AtomicReference<a> f67695b = new AtomicReference<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f67691a;
+    public final g f67696a;
 
     public a() {
         g b2 = h.l.a.a.a().b().b();
         if (b2 != null) {
-            this.f67691a = b2;
+            this.f67696a = b2;
         } else {
-            this.f67691a = new b(Looper.getMainLooper());
+            this.f67696a = new b(Looper.getMainLooper());
         }
     }
 
     public static a a() {
         a aVar;
         do {
-            a aVar2 = f67690b.get();
+            a aVar2 = f67695b.get();
             if (aVar2 != null) {
                 return aVar2;
             }
             aVar = new a();
-        } while (!f67690b.compareAndSet(null, aVar));
+        } while (!f67695b.compareAndSet(null, aVar));
         return aVar;
     }
 
     public static g b() {
-        return a().f67691a;
+        return a().f67696a;
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.slide;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class attr {
         public static final int font = 0x7f0401a5;
         public static final int fontProviderAuthority = 0x7f0401a7;
@@ -15,12 +15,12 @@ public final class R {
         public static final int fontWeight = 0x7f0401af;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class color {
         public static final int notification_action_color_filter = 0x7f060687;
         public static final int notification_icon_bg_color = 0x7f060688;
@@ -31,7 +31,7 @@ public final class R {
         public static final int secondary_text_default_material_light = 0x7f0608ac;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class dimen {
         public static final int compat_button_inset_horizontal_material = 0x7f07018a;
         public static final int compat_button_inset_vertical_material = 0x7f07018b;
@@ -55,7 +55,7 @@ public final class R {
         public static final int notification_top_pad_large_text = 0x7f070409;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class drawable {
         public static final int notification_action_background = 0x7f08140d;
         public static final int notification_bg = 0x7f08140e;
@@ -71,7 +71,7 @@ public final class R {
         public static final int notify_panel_notification_icon_bg = 0x7f081419;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class id {
         public static final int action0 = 0x7f09002c;
         public static final int action_container = 0x7f090037;
@@ -105,13 +105,13 @@ public final class R {
         public static final int title = 0x7f092152;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class integer {
         public static final int cancel_button_image_alpha = 0x7f0a0008;
         public static final int status_bar_notification_info_maxnum = 0x7f0a0019;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class layout {
         public static final int notification_action = 0x7f0c057b;
         public static final int notification_action_tombstone = 0x7f0c057c;
@@ -130,12 +130,12 @@ public final class R {
         public static final int notification_template_part_time = 0x7f0c058a;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int status_bar_notification_info_overflow = 0x7f0f11f4;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f100180;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f100181;
@@ -151,7 +151,7 @@ public final class R {
         public static final int Widget_Compat_NotificationActionText = 0x7f100249;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class styleable {
         public static final int[] FontFamily = {com.baidu.tieba.R.attr.fontProviderAuthority, com.baidu.tieba.R.attr.fontProviderCerts, com.baidu.tieba.R.attr.fontProviderFetchStrategy, com.baidu.tieba.R.attr.fontProviderFetchTimeout, com.baidu.tieba.R.attr.fontProviderPackage, com.baidu.tieba.R.attr.fontProviderQuery};
         public static final int[] FontFamilyFont = {16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.font, com.baidu.tieba.R.attr.fontStyle, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.fontWeight, com.baidu.tieba.R.attr.ttcIndex};

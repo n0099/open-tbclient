@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMJoinGroupRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMJoinGroupRequest";
     public long mAppid;
@@ -24,7 +24,7 @@ public class IMJoinGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mWhy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public Mytask(Context context, String str, String str2) {
             super(str, str2);

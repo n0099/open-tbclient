@@ -7,16 +7,16 @@ import org.json.JSONObject;
 public class t extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f65073e;
+    public final i f65074e;
 
     public t(i iVar) {
         super(true, false, false);
-        this.f65073e = iVar;
+        this.f65074e = iVar;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
-        SharedPreferences A = this.f65073e.A();
+        SharedPreferences A = this.f65074e.A();
         String string = A.getString("install_id", null);
         String string2 = A.getString(Constants.KEY_DEVICE_ID, null);
         String string3 = A.getString("ssid", null);

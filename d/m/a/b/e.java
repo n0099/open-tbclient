@@ -14,7 +14,7 @@ import java.util.zip.ZipFile;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f66283a = new ArrayList();
+    public static List<String> f66284a = new ArrayList();
 
     public static File a(Context context) {
         if (context == null || context.getFilesDir() == null) {
@@ -110,12 +110,12 @@ public class e {
 
     public static synchronized boolean c(Context context, String str) {
         synchronized (e.class) {
-            if (f66283a.contains(str)) {
+            if (f66284a.contains(str)) {
                 return true;
             }
             try {
                 System.loadLibrary(str);
-                f66283a.add(str);
+                f66284a.add(str);
             } catch (UnsatisfiedLinkError unused) {
                 File d2 = d(context, str);
                 if (d2 == null) {
@@ -129,7 +129,7 @@ public class e {
                 }
                 try {
                     System.load(d2.getAbsolutePath());
-                    f66283a.add(str);
+                    f66284a.add(str);
                 } catch (Throwable unused2) {
                     return false;
                 }

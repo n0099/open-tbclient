@@ -1,31 +1,31 @@
 package com.baidu.apollon.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Config {
     public static final String LOG_TYPE_NORMAL = "normal_log";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3814a = "wallet_stastics";
+    public static final String f3815a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f3815b = false;
+    public static final boolean f3816b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3816c = 204800;
+    public static final int f3817c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3817d = 51200;
+    public static final int f3818d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f3818e = 604800000;
+    public static final long f3819e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f3819f = 86400000;
+    public static final long f3820f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3820g = "publish_data";
+    public static final String f3821g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3821h = "sign";
+    public static final String f3822h = "sign";
     public static final String i = "mk";
     public static final String j = "array";
     public static final String k = "exception";

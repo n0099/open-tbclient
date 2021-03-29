@@ -7,10 +7,10 @@ import d.q.a.a.a.a.a;
 public final class f implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ Context f67389a;
+    public /* synthetic */ Context f67394a;
 
     public f(b bVar, Context context) {
-        this.f67389a = context;
+        this.f67394a = context;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, CONSTRUCTOR, SGET, INVOKE, IF, SGET, INVOKE, IF, SGET, INVOKE] complete} */
@@ -22,7 +22,7 @@ public final class f implements a {
                 String b2 = bVar.b();
                 d.q.a.a.c.b.b.e("get OAID " + b2);
                 if (!TextUtils.isEmpty(b2)) {
-                    b.f67357h = b2;
+                    b.f67362h = b2;
                 }
             } else {
                 d.q.a.a.c.b.b.e("not support OAID");
@@ -48,10 +48,10 @@ public final class f implements a {
                         return;
                     }
                 }
-                if (TextUtils.isEmpty(b.f67357h) || b.f67357h.startsWith("KWE")) {
+                if (TextUtils.isEmpty(b.f67362h) || b.f67362h.startsWith("KWE")) {
                     return;
                 }
-                new d.q.a.a.c.a.e(this.f67389a).d(b.f67357h);
+                new d.q.a.a.c.a.e(this.f67394a).d(b.f67362h);
             } finally {
                 if (bVar != null) {
                     try {
@@ -59,8 +59,8 @@ public final class f implements a {
                     } catch (Throwable unused3) {
                     }
                 }
-                if (!TextUtils.isEmpty(b.f67357h) && !b.f67357h.startsWith("KWE")) {
-                    new d.q.a.a.c.a.e(this.f67389a).d(b.f67357h);
+                if (!TextUtils.isEmpty(b.f67362h) && !b.f67362h.startsWith("KWE")) {
+                    new d.q.a.a.c.a.e(this.f67394a).d(b.f67362h);
                 }
             }
         }

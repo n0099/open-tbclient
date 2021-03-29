@@ -11,10 +11,10 @@ import java.io.IOException;
 public class c extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f8428a;
+    public final /* synthetic */ b f8429a;
 
     public c(b bVar) {
-        this.f8428a = bVar;
+        this.f8429a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,19 +23,19 @@ public class c extends com.baidu.mobads.f.a {
     public Void a() {
         BufferedOutputStream bufferedOutputStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        this.f8428a.j.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-        this.f8428a.i = byteArrayOutputStream.toByteArray();
+        this.f8429a.j.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        this.f8429a.i = byteArrayOutputStream.toByteArray();
         try {
-            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(this.f8428a.f8422c + this.f8428a.f8423d + ".tmp"));
+            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(this.f8429a.f8423c + this.f8429a.f8424d + ".tmp"));
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
             bufferedOutputStream = null;
         }
         if (bufferedOutputStream != null) {
             try {
-                bufferedOutputStream.write(this.f8428a.i);
+                bufferedOutputStream.write(this.f8429a.i);
                 bufferedOutputStream.flush();
-                XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.f8428a.f8422c + this.f8428a.f8423d + ".tmp", this.f8428a.f8422c + this.f8428a.f8423d);
+                XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.f8429a.f8423c + this.f8429a.f8424d + ".tmp", this.f8429a.f8423c + this.f8429a.f8424d);
             } catch (IOException e3) {
                 e3.printStackTrace();
             }

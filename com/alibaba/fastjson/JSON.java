@@ -58,7 +58,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
         if ("true".equals(stringProperty)) {
             mask |= mask2;
         } else if ("false".equals(stringProperty)) {
-            mask &= mask2 ^ (-1);
+            mask &= ~mask2;
         }
         DEFAULT_GENERATE_FEATURE = mask;
         bytesLocal = new ThreadLocal<>();
@@ -462,11 +462,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
 
     public static Object parse(byte[] bArr, int i, int i2, CharsetDecoder charsetDecoder, int i3) {
         charsetDecoder.reset();
-        double d2 = i2;
-        double maxCharsPerByte = charsetDecoder.maxCharsPerByte();
-        Double.isNaN(d2);
-        Double.isNaN(maxCharsPerByte);
-        char[] allocateChars = allocateChars((int) (d2 * maxCharsPerByte));
+        char[] allocateChars = allocateChars((int) (i2 * charsetDecoder.maxCharsPerByte()));
         ByteBuffer wrap = ByteBuffer.wrap(bArr, i, i2);
         CharBuffer wrap2 = CharBuffer.wrap(allocateChars);
         IOUtils.decode(charsetDecoder, wrap, wrap2);
@@ -588,11 +584,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
 
     public static <T> T parseObject(byte[] bArr, int i, int i2, CharsetDecoder charsetDecoder, Type type, Feature... featureArr) {
         charsetDecoder.reset();
-        double d2 = i2;
-        double maxCharsPerByte = charsetDecoder.maxCharsPerByte();
-        Double.isNaN(d2);
-        Double.isNaN(maxCharsPerByte);
-        char[] allocateChars = allocateChars((int) (d2 * maxCharsPerByte));
+        char[] allocateChars = allocateChars((int) (i2 * charsetDecoder.maxCharsPerByte()));
         ByteBuffer wrap = ByteBuffer.wrap(bArr, i, i2);
         CharBuffer wrap2 = CharBuffer.wrap(allocateChars);
         IOUtils.decode(charsetDecoder, wrap, wrap2);

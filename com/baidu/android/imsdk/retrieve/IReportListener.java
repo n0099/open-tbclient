@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.retrieve;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IReportListener {
     void onFailure();
 

@@ -23,63 +23,63 @@ import d.b.h0.m0.d;
 import d.b.h0.m0.k;
 import d.b.h0.z0.c;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f17272e;
+    public b f17273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17273f;
+    public boolean f17274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17274g;
+    public int f17275g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.b.c.g.a f17275h;
+    public d.b.b.c.g.a f17276h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
 
         /* renamed from: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0192a implements MessageQueue.IdleHandler {
+        /* loaded from: classes3.dex */
+        public class C0193a implements MessageQueue.IdleHandler {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ResponsedMessage f17277a;
+            public final /* synthetic */ ResponsedMessage f17278a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f17278b;
+            public final /* synthetic */ boolean f17279b;
 
-            public C0192a(ResponsedMessage responsedMessage, boolean z) {
-                this.f17277a = responsedMessage;
-                this.f17278b = z;
+            public C0193a(ResponsedMessage responsedMessage, boolean z) {
+                this.f17278a = responsedMessage;
+                this.f17279b = z;
             }
 
             @Override // android.os.MessageQueue.IdleHandler
             public boolean queueIdle() {
-                RecPersonalizePageModel.this.z(this.f17277a, this.f17278b);
+                RecPersonalizePageModel.this.z(this.f17278a, this.f17279b);
                 return false;
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class b implements MessageQueue.IdleHandler {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ResponsedMessage f17280a;
+            public final /* synthetic */ ResponsedMessage f17281a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f17281b;
+            public final /* synthetic */ boolean f17282b;
 
             public b(ResponsedMessage responsedMessage, boolean z) {
-                this.f17280a = responsedMessage;
-                this.f17281b = z;
+                this.f17281a = responsedMessage;
+                this.f17282b = z;
             }
 
             @Override // android.os.MessageQueue.IdleHandler
             public boolean queueIdle() {
-                RecPersonalizePageModel.this.x(this.f17280a, this.f17281b);
+                RecPersonalizePageModel.this.x(this.f17281a, this.f17282b);
                 return false;
             }
         }
@@ -98,7 +98,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             boolean z2;
-            if (responsedMessage == null || RecPersonalizePageModel.this.f17272e == null) {
+            if (responsedMessage == null || RecPersonalizePageModel.this.f17273e == null) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() != null) {
@@ -115,7 +115,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                 if (TbSingleton.getInstance().needUploadMoreLog()) {
                     d.b.h0.r.z.a.a("homePage", -1L, responsedMessage.getCmd(), "rec_personalized_error", responsedMessage.getError(), responsedMessage.getErrorString(), new Object[0]);
                 }
-                RecPersonalizePageModel.this.f17272e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                RecPersonalizePageModel.this.f17273e.a(responsedMessage.getError(), responsedMessage.getErrorString());
             } else {
                 DataRes dataRes = null;
                 if (responsedMessage instanceof RecPersonalizeSocketResponse) {
@@ -123,17 +123,17 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                     dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                 }
-                RecPersonalizePageModel.this.f17272e.b(dataRes, z, z2);
+                RecPersonalizePageModel.this.f17273e.b(dataRes, z, z2);
             }
             if (responsedMessage instanceof RecPersonalizeSocketResponse) {
-                Looper.myQueue().addIdleHandler(new C0192a(responsedMessage, z));
+                Looper.myQueue().addIdleHandler(new C0193a(responsedMessage, z));
             } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                 Looper.myQueue().addIdleHandler(new b(responsedMessage, z));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i, String str);
 
@@ -142,13 +142,13 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     public RecPersonalizePageModel(f<BaseFragmentActivity> fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f17273f = false;
-        this.f17274g = 1;
-        this.f17275h = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        this.f17274f = false;
+        this.f17275g = 1;
+        this.f17276h = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(bdUniqueId);
         A();
         B();
-        registerListener(this.f17275h);
+        registerListener(this.f17276h);
     }
 
     public final void A() {
@@ -168,14 +168,14 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void C(b bVar) {
-        this.f17272e = bVar;
+        this.f17273e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         RecPersonalizeRequest recPersonalizeRequest = new RecPersonalizeRequest();
-        int i = this.f17274g;
-        this.f17274g = i + 1;
+        int i = this.f17275g;
+        this.f17275g = i + 1;
         recPersonalizeRequest.setRequestTime(i);
         recPersonalizeRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         recPersonalizeRequest.setSwitchToHttpStrategy(new NetMessage.a() { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.3
@@ -205,14 +205,14 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         RecPersonalizeRequest recPersonalizeRequest = new RecPersonalizeRequest();
         recPersonalizeRequest.setLoadType(i);
         recPersonalizeRequest.setThreadCount(i2);
-        recPersonalizeRequest.setPreAdThreadCount(cVar.f51656a);
-        recPersonalizeRequest.setAdFloorInfo(cVar.f51657b);
+        recPersonalizeRequest.setPreAdThreadCount(cVar.f51657a);
+        recPersonalizeRequest.setAdFloorInfo(cVar.f51658b);
         recPersonalizeRequest.setTag(getUniqueId());
         recPersonalizeRequest.setPn(i3);
         recPersonalizeRequest.setSuggestCount(i4);
         recPersonalizeRequest.setNeedForumlist(0);
-        int i5 = this.f17274g;
-        this.f17274g = i5 + 1;
+        int i5 = this.f17275g;
+        this.f17275g = i5 + 1;
         recPersonalizeRequest.setRequestTime(i5);
         recPersonalizeRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         recPersonalizeRequest.setSwitchToHttpStrategy(new NetMessage.a() { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.2
@@ -250,8 +250,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public final void x(ResponsedMessage<?> responsedMessage, boolean z) {
-        if (!this.f17273f) {
-            this.f17273f = true;
+        if (!this.f17274f) {
+            this.f17274f = true;
             w(1, true, responsedMessage);
         }
         y(z, true, responsedMessage);
@@ -274,8 +274,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public final void z(ResponsedMessage<?> responsedMessage, boolean z) {
-        if (!this.f17273f) {
-            this.f17273f = true;
+        if (!this.f17274f) {
+            this.f17274f = true;
             w(1, false, responsedMessage);
         }
         y(z, false, responsedMessage);

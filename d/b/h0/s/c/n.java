@@ -6,45 +6,45 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51200a;
+    public String f51201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51201b;
+    public String f51202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51202c;
+    public String f51203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51203d;
+    public String f51204d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51204e;
+    public int f51205e;
 
     public String a() {
-        return this.f51200a;
+        return this.f51201a;
     }
 
     public String b() {
-        return this.f51202c;
+        return this.f51203c;
     }
 
     public String c() {
-        return this.f51201b;
+        return this.f51202b;
     }
 
     public String d() {
-        return this.f51203d;
+        return this.f51204d;
     }
 
     public int e() {
-        return this.f51204e;
+        return this.f51205e;
     }
 
     public void f(JSONObject jSONObject) {
-        this.f51200a = jSONObject.optString("icon");
-        this.f51201b = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
-        this.f51202c = jSONObject.optString("pop_text");
-        this.f51203d = jSONObject.optString("thread_id");
-        this.f51204e = jSONObject.optInt("version");
+        this.f51201a = jSONObject.optString("icon");
+        this.f51202b = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
+        this.f51203c = jSONObject.optString("pop_text");
+        this.f51204d = jSONObject.optString("thread_id");
+        this.f51205e = jSONObject.optInt("version");
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class t extends a0 {
     public t(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/performancePanel");
@@ -15,7 +15,7 @@ public class t extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (!d.b.g0.a.z0.f.V().O() && !a0.f46287b) {
+        if (!d.b.g0.a.z0.f.V().O() && !a0.f46288b) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
             return false;
         } else if (eVar == null) {
@@ -35,7 +35,7 @@ public class t extends a0 {
                         String optString = optJSONObject.optString("slaveId");
                         String optString2 = optJSONObject.optString("actionName");
                         long optLong = optJSONObject.optLong("timestamp", -1L);
-                        if (a0.f46287b) {
+                        if (a0.f46288b) {
                             Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                         }
                         d.b.g0.a.j1.p.d.b().d(optString, optString2, optLong);

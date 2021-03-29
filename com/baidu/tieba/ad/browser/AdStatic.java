@@ -42,7 +42,7 @@ import java.net.URLDecoder;
 public class AdStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14489a = true;
+    public static boolean f14490a = true;
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -425,7 +425,7 @@ public class AdStatic {
     public static void q(Context context, String str, String str2, Bundle bundle) {
         TiebaStatic.eventStat(context, "url_1", null);
         String h2 = h(str);
-        if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f14489a) {
+        if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f14490a) {
             TiebaStatic.eventStat(context, "url_2", null);
             o(context, str, str2, bundle);
             return;

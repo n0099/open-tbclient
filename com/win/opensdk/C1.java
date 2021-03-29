@@ -8,21 +8,21 @@ import java.io.IOException;
 public final class C1 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f39650a;
+    public final /* synthetic */ byte[] f39651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f39651b;
+    public final /* synthetic */ String f39652b;
 
     public C1(byte[] bArr, String str) {
-        this.f39650a = bArr;
-        this.f39651b = str;
+        this.f39651a = bArr;
+        this.f39652b = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         FileOutputStream fileOutputStream;
-        byte[] bArr = this.f39650a;
-        String str = this.f39651b;
+        byte[] bArr = this.f39651a;
+        String str = this.f39652b;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
         File file = new File(str);
         String substring = str.substring(0, str.lastIndexOf("/"));

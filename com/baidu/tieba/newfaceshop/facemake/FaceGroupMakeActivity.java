@@ -41,7 +41,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInformationModel.b {
     public static final int NO_FORUM_ID = 0;
     public ImageView ivArrow;
@@ -66,7 +66,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public boolean isFromBazhu = false;
     public boolean isBarEmotion = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -77,7 +77,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -119,7 +119,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements FaceImageLayout.a {
         public c() {
         }
@@ -130,7 +130,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
         public d() {
         }
@@ -141,7 +141,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements a.e {
         public e() {
         }
@@ -154,7 +154,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements a.e {
         public f() {
         }
@@ -165,19 +165,19 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f19235e;
+        public int f19236e;
 
         public g(int i) {
-            this.f19235e = i;
+            this.f19236e = i;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i4 - i3)) + i0.b(charSequence.toString()) <= this.f19235e) {
+            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i4 - i3)) + i0.b(charSequence.toString()) <= this.f19236e) {
                 return charSequence;
             }
             FaceGroupMakeActivity.this.showToast(R.string.package_add_name_max);

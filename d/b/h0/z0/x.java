@@ -8,17 +8,17 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class x {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f51746b = new byte[1];
+    public static final byte[] f51747b = new byte[1];
 
     /* renamed from: c  reason: collision with root package name */
-    public static x f51747c;
+    public static x f51748c;
 
     /* renamed from: a  reason: collision with root package name */
-    public CustomMessageListener f51748a;
+    public CustomMessageListener f51749a;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -40,14 +40,14 @@ public class x {
     }
 
     public static x b() {
-        if (f51747c == null) {
-            synchronized (f51746b) {
-                if (f51747c == null) {
-                    f51747c = new x();
+        if (f51748c == null) {
+            synchronized (f51747b) {
+                if (f51748c == null) {
+                    f51748c = new x();
                 }
             }
         }
-        return f51747c;
+        return f51748c;
     }
 
     public final CustomMessageListener c() {
@@ -74,12 +74,12 @@ public class x {
 
     public void e() {
         try {
-            if (this.f51748a == null) {
-                this.f51748a = c();
-                MessageManager.getInstance().registerListener(this.f51748a);
+            if (this.f51749a == null) {
+                this.f51749a = c();
+                MessageManager.getInstance().registerListener(this.f51749a);
             }
         } catch (Exception e2) {
-            this.f51748a = null;
+            this.f51749a = null;
             BdLog.e(e2.getMessage());
         }
     }

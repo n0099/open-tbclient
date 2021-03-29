@@ -15,7 +15,7 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import d.b.h0.g0.d.b;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d.b.h0.g0.f.a<d.b.i0.v1.h.a, b> {
     public View k;
     public TextView l;

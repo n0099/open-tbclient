@@ -9,7 +9,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
     public int uid;
 
     public DetailSearchInfo() {
-        this.f6755a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/detail/" : "http://api.map.baidu.com/geosearch/v2/detail/";
+        this.f6756a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/detail/" : "http://api.map.baidu.com/geosearch/v2/detail/";
     }
 
     @Override // com.baidu.mapapi.cloud.BaseSearchInfo
@@ -19,7 +19,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f6755a);
+        sb.append(this.f6756a);
         String str2 = this.poiId;
         if (str2 == null || str2.equals("")) {
             sb.append(this.uid);

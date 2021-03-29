@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ByteString {
     public static final ByteString EMPTY = of(new byte[0]);
     public final byte[] data;

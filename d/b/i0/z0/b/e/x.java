@@ -18,7 +18,7 @@ import d.b.i.k0;
 import d.b.i.s0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class x extends d.b.b.j.e.a<d.b.i0.x.e0.l, AutoVideoCardViewHolder<d.b.i0.x.e0.l>> implements d.b.i0.m.f {
     public BdUniqueId m;
     public BdUniqueId n;
@@ -28,7 +28,7 @@ public class x extends d.b.b.j.e.a<d.b.i0.x.e0.l, AutoVideoCardViewHolder<d.b.i0
     public s0 r;
     public b0<d.b.i0.x.e0.l> s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<d.b.i0.x.e0.l> {
         public a() {
         }
@@ -50,32 +50,32 @@ public class x extends d.b.b.j.e.a<d.b.i0.x.e0.l, AutoVideoCardViewHolder<d.b.i0
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1115a {
+    /* loaded from: classes3.dex */
+    public class b implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f62782a;
+        public final /* synthetic */ s0 f62783a;
 
         public b(s0 s0Var) {
-            this.f62782a = s0Var;
+            this.f62783a = s0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f62782a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f62783a.getVideoContainer());
             if (!(aVar instanceof d.b.i0.x.e0.l)) {
-                ThreadCardUtils.jumpToPB(aVar, x.this.f42357e, 1, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, x.this.f42358e, 1, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, x.this.f42357e, 1, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, x.this.f42358e, 1, false, computeViewArea);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.b.j.e.w {
         public c() {
         }
@@ -92,7 +92,7 @@ public class x extends d.b.b.j.e.a<d.b.i0.x.e0.l, AutoVideoCardViewHolder<d.b.i0
                         x.this.s.a(threadCardViewHolder.a(), lVar);
                     }
                     ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) lVar, view.getContext(), 1, false, d.b.i.e.a((d.b.b.j.e.s) viewGroup, view, i));
-                    threadCardViewHolder.b().o(new a.C1117a(1));
+                    threadCardViewHolder.b().o(new a.C1118a(1));
                 }
             }
         }
@@ -108,20 +108,20 @@ public class x extends d.b.b.j.e.a<d.b.i0.x.e0.l, AutoVideoCardViewHolder<d.b.i0
     public final d.b.i0.i2.o m0(d.b.i0.x.e0.l lVar) {
         if (lVar != null) {
             d.b.i0.i2.o oVar = new d.b.i0.i2.o();
-            oVar.f56163a = "1";
-            oVar.f56165c = lVar.l;
+            oVar.f56164a = "1";
+            oVar.f56166c = lVar.l;
             if (lVar.n() != null) {
-                oVar.f56166d = String.valueOf(lVar.n().c0());
+                oVar.f56167d = String.valueOf(lVar.n().c0());
                 if (lVar.n().u1() != null) {
                     oVar.m = lVar.n().u1().video_md5;
                     oVar.p = String.valueOf(lVar.n().u1().is_vertical);
                 }
             }
             oVar.k = lVar.B();
-            oVar.f56168f = lVar.F();
+            oVar.f56169f = lVar.F();
             oVar.l = lVar.z();
-            oVar.f56170h = lVar.O();
-            oVar.f56167e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f56171h = lVar.O();
+            oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
             oVar.q = String.valueOf(lVar.E());
             return oVar;
         }

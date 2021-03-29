@@ -2,7 +2,7 @@ package d.b.i0.d1;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.LocalViewSize;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a() {
         d.b.i0.d1.k.b.o();

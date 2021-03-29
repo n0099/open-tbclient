@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.b.j.e.n;
 import d.b.i0.z1.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     public String callFrom = "";
     public List<n> curDataList;

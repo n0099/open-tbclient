@@ -2,41 +2,41 @@ package d.b.g0.a.j1.p;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile d f44953d;
+    public static volatile d f44954d;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, e> f44954a;
+    public HashMap<String, e> f44955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, e> f44955b;
+    public HashMap<String, e> f44956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, e> f44956c;
+    public HashMap<String, e> f44957c;
 
     public d() {
         c();
     }
 
     public static d b() {
-        if (f44953d == null) {
+        if (f44954d == null) {
             synchronized (d.class) {
-                if (f44953d == null) {
-                    f44953d = new d();
+                if (f44954d == null) {
+                    f44954d = new d();
                 }
             }
         }
-        return f44953d;
+        return f44954d;
     }
 
     public static synchronized void f() {
         synchronized (d.class) {
-            if (f44953d != null) {
-                f44953d.e();
-                f44953d = null;
+            if (f44954d != null) {
+                f44954d.e();
+                f44954d = null;
             }
         }
     }
@@ -59,24 +59,24 @@ public final class d {
             c2 = 0;
         }
         if (c2 == 0) {
-            d.b.g0.a.f2.d.f44462d.d(Long.valueOf(j));
+            d.b.g0.a.f2.d.f44463d.d(Long.valueOf(j));
         } else if (c2 == 1) {
-            d.b.g0.a.f2.d.f44463e.d(Long.valueOf(j));
+            d.b.g0.a.f2.d.f44464e.d(Long.valueOf(j));
         } else if (c2 != 2) {
         } else {
-            d.b.g0.a.f2.d.f44464f.d(Long.valueOf(j));
+            d.b.g0.a.f2.d.f44465f.d(Long.valueOf(j));
         }
     }
 
     public final void c() {
-        if (this.f44954a == null) {
-            this.f44954a = new HashMap<>();
+        if (this.f44955a == null) {
+            this.f44955a = new HashMap<>();
         }
-        if (this.f44955b == null) {
-            this.f44955b = new HashMap<>();
+        if (this.f44956b == null) {
+            this.f44956b = new HashMap<>();
         }
-        if (this.f44956c == null) {
-            this.f44956c = new HashMap<>();
+        if (this.f44957c == null) {
+            this.f44957c = new HashMap<>();
         }
     }
 
@@ -132,15 +132,15 @@ public final class d {
     }
 
     public final void e() {
-        HashMap<String, e> hashMap = this.f44954a;
+        HashMap<String, e> hashMap = this.f44955a;
         if (hashMap != null) {
             hashMap.clear();
         }
-        HashMap<String, e> hashMap2 = this.f44955b;
+        HashMap<String, e> hashMap2 = this.f44956b;
         if (hashMap2 != null) {
             hashMap2.clear();
         }
-        HashMap<String, e> hashMap3 = this.f44956c;
+        HashMap<String, e> hashMap3 = this.f44957c;
         if (hashMap3 != null) {
             hashMap3.clear();
         }
@@ -165,11 +165,11 @@ public final class d {
             c2 = 2;
         }
         if (c2 == 0) {
-            eVar = this.f44954a.remove(str);
+            eVar = this.f44955a.remove(str);
         } else if (c2 == 1) {
-            eVar = this.f44955b.remove(str);
+            eVar = this.f44956b.remove(str);
         } else if (c2 == 2) {
-            eVar = this.f44956c.remove(str);
+            eVar = this.f44957c.remove(str);
         }
         if (eVar == null) {
             return;
@@ -197,20 +197,20 @@ public final class d {
             c2 = 0;
         }
         if (c2 == 0) {
-            eVar = this.f44954a.get(str);
+            eVar = this.f44955a.get(str);
             if (eVar == null) {
                 eVar = new b();
-                this.f44954a.put(str, eVar);
+                this.f44955a.put(str, eVar);
             }
         } else if (c2 == 1) {
-            eVar = this.f44955b.get(str);
+            eVar = this.f44956b.get(str);
             if (eVar == null) {
                 eVar = new a();
-                this.f44955b.put(str, eVar);
+                this.f44956b.put(str, eVar);
             }
-        } else if (c2 == 2 && (eVar = this.f44956c.get(str)) == null) {
+        } else if (c2 == 2 && (eVar = this.f44957c.get(str)) == null) {
             eVar = new c();
-            this.f44956c.put(str, eVar);
+            this.f44957c.put(str, eVar);
         }
         if (eVar != null) {
             eVar.b(j);

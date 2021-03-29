@@ -19,28 +19,28 @@ import java.util.Observable;
 public class b extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8420a;
+    public Context f8421a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URL f8421b;
+    public URL f8422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8422c;
+    public String f8423c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8423d;
+    public String f8424d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8424e;
+    public int f8425e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IOAdDownloader.DownloadStatus f8425f;
+    public IOAdDownloader.DownloadStatus f8426f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f8426g;
+    public int f8427g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f8427h;
+    public int f8428h;
     public byte[] i;
     public Bitmap j;
     public boolean k;
@@ -48,20 +48,20 @@ public class b extends Observable implements IOAdDownloader, Runnable {
 
     public b(Context context, URL url, String str, String str2, boolean z) {
         this.k = false;
-        this.f8420a = context;
-        this.f8421b = url;
-        this.f8422c = str;
+        this.f8421a = context;
+        this.f8422b = url;
+        this.f8423c = str;
         this.k = z;
         if (str2 != null && str2.trim().length() > 0) {
-            this.f8423d = str2;
+            this.f8424d = str2;
         } else {
             String file = url.getFile();
-            this.f8423d = file.substring(file.lastIndexOf(47) + 1);
+            this.f8424d = file.substring(file.lastIndexOf(47) + 1);
         }
-        this.f8424e = -1;
-        this.f8425f = IOAdDownloader.DownloadStatus.DOWNLOADING;
-        this.f8426g = 0;
-        this.f8427h = 0;
+        this.f8425e = -1;
+        this.f8426f = IOAdDownloader.DownloadStatus.DOWNLOADING;
+        this.f8427g = 0;
+        this.f8428h = 0;
     }
 
     private void d() {
@@ -69,7 +69,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
     }
 
     public void a(IOAdDownloader.DownloadStatus downloadStatus) {
-        this.f8425f = downloadStatus;
+        this.f8426f = downloadStatus;
         b();
     }
 
@@ -79,7 +79,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
     }
 
     public void c() {
-        XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.f8422c + this.f8423d + ".tmp", this.f8422c + this.f8423d);
+        XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.f8423c + this.f8424d + ".tmp", this.f8423c + this.f8424d);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -89,12 +89,12 @@ public class b extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public int getFileSize() {
-        return this.f8424e;
+        return this.f8425e;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getOutputPath() {
-        return this.f8422c + this.f8423d;
+        return this.f8423c + this.f8424d;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -105,12 +105,12 @@ public class b extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public float getProgress() {
-        return Math.abs((this.f8426g / this.f8424e) * 100.0f);
+        return Math.abs((this.f8427g / this.f8425e) * 100.0f);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public IOAdDownloader.DownloadStatus getState() {
-        return this.f8425f;
+        return this.f8426f;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -127,7 +127,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getURL() {
-        return this.f8421b.toString();
+        return this.f8422b.toString();
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -150,9 +150,9 @@ public class b extends Observable implements IOAdDownloader, Runnable {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:133:0x029b  */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x027c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x0242 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:154:0x025f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x027c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:146:0x0242 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x025f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -173,7 +173,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
         bufferedOutputStream2 = null;
         bufferedOutputStream2 = null;
         try {
-            HttpURLConnection httpURLConnection2 = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.f8421b);
+            HttpURLConnection httpURLConnection2 = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.f8422b);
             try {
                 httpURLConnection2.setConnectTimeout(10000);
                 httpURLConnection2.setInstanceFollowRedirects(true);
@@ -195,20 +195,20 @@ public class b extends Observable implements IOAdDownloader, Runnable {
                 }
                 int contentLength = httpURLConnection2.getContentLength();
                 if (contentLength > 0) {
-                    this.f8424e = contentLength;
+                    this.f8425e = contentLength;
                 }
-                File file = new File(this.f8422c);
+                File file = new File(this.f8423c);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
                 bufferedInputStream = new BufferedInputStream(httpURLConnection2.getInputStream());
                 try {
-                    if (this.f8421b.toString().indexOf("mobads.baidu.com") == -1 && this.f8421b.toString().indexOf(".mp4") == -1 && this.f8421b.toString().indexOf(".gif") == -1) {
+                    if (this.f8422b.toString().indexOf("mobads.baidu.com") == -1 && this.f8422b.toString().indexOf(".mp4") == -1 && this.f8422b.toString().indexOf(".gif") == -1) {
                         try {
                             Bitmap decodeStream = BitmapFactory.decodeStream(bufferedInputStream);
                             this.j = decodeStream;
                             if (decodeStream != null) {
-                                XAdSimpleMemoryCache.getInstance().put(this.f8423d, this.j);
+                                XAdSimpleMemoryCache.getInstance().put(this.f8424d, this.j);
                                 a(IOAdDownloader.DownloadStatus.COMPLETED);
                                 com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new c(this));
                                 try {
@@ -250,19 +250,19 @@ public class b extends Observable implements IOAdDownloader, Runnable {
                     byte[] bArr = new byte[10240];
                     ByteArrayOutputStream byteArrayOutputStream2 = this.k ? new ByteArrayOutputStream() : null;
                     int i = 0;
-                    while (this.f8425f == IOAdDownloader.DownloadStatus.DOWNLOADING && (read = bufferedInputStream.read(bArr, 0, 10240)) != -1) {
+                    while (this.f8426f == IOAdDownloader.DownloadStatus.DOWNLOADING && (read = bufferedInputStream.read(bArr, 0, 10240)) != -1) {
                         bufferedOutputStream.write(bArr, 0, read);
                         if (byteArrayOutputStream2 != null) {
                             byteArrayOutputStream2.write(bArr, 0, read);
                         }
                         i += read;
-                        a(read, i / this.f8424e);
+                        a(read, i / this.f8425e);
                     }
                     bufferedOutputStream.flush();
                     if (byteArrayOutputStream2 != null) {
                         byteArrayOutputStream2.flush();
                     }
-                    if (this.f8425f == IOAdDownloader.DownloadStatus.DOWNLOADING) {
+                    if (this.f8426f == IOAdDownloader.DownloadStatus.DOWNLOADING) {
                         c();
                         a(IOAdDownloader.DownloadStatus.COMPLETED);
                     } else {
@@ -408,7 +408,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
     }
 
     public void a(int i, float f2) {
-        this.f8426g += i;
+        this.f8427g += i;
         b();
     }
 
@@ -420,7 +420,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
                     return httpURLConnection;
                 }
                 URL url = new URL(httpURLConnection.getHeaderField("Location"));
-                this.f8421b = url;
+                this.f8422b = url;
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
                 try {
                     httpURLConnection2.setConnectTimeout(10000);

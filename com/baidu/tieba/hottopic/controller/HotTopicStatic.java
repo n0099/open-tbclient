@@ -34,10 +34,10 @@ import d.b.h0.r.q.a2;
 import d.b.h0.z0.n0;
 import d.b.i0.p0.g;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HotTopicStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -55,7 +55,7 @@ public class HotTopicStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -70,7 +70,7 @@ public class HotTopicStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c implements UrlManager.UrlSchemaHandler {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlSchemaHandler
         public void deal(TbPageContext<?> tbPageContext, Map<String, String> map) {
@@ -81,30 +81,30 @@ public class HotTopicStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class d extends CustomMessageListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a extends d.b.h0.e0.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f17557a;
+            public final /* synthetic */ g f17558a;
 
             public a(d dVar, g gVar) {
-                this.f17557a = gVar;
+                this.f17558a = gVar;
             }
 
             @Override // d.b.h0.e0.b
             public d.b.h0.e0.c createFragmentTabStructure() {
                 FrsHottopicFragment frsHottopicFragment = new FrsHottopicFragment();
                 Bundle bundle = new Bundle();
-                bundle.putString("fid", this.f17557a.b());
-                bundle.putString("from", this.f17557a.d());
+                bundle.putString("fid", this.f17558a.b());
+                bundle.putString("from", this.f17558a.d());
                 frsHottopicFragment.setArguments(bundle);
                 d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-                cVar.f50154a = frsHottopicFragment;
-                cVar.f50158e = 401;
-                cVar.f50161h = d.b.h0.e0.c.j;
+                cVar.f50155a = frsHottopicFragment;
+                cVar.f50159e = 401;
+                cVar.f50162h = d.b.h0.e0.c.j;
                 return cVar;
             }
 

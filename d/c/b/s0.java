@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class s0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f65067a = null;
+    public static String f65068a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f65068b = ":push";
+    public static String f65069b = ":push";
 
     public static String a() {
         BufferedReader bufferedReader;
@@ -56,13 +56,13 @@ public class s0 {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002d, code lost:
-        d.c.b.s0.f65067a = r1.processName;
+        d.c.b.s0.f65068a = r1.processName;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String b(Context context) {
-        String str = f65067a;
+        String str = f65068a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -79,11 +79,11 @@ public class s0 {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            f65067a = a();
-            if (r0.f65063b) {
-                r0.a("getProcessName, " + f65067a, null);
+            f65068a = a();
+            if (r0.f65064b) {
+                r0.a("getProcessName, " + f65068a, null);
             }
-            return f65067a;
+            return f65068a;
         }
         return str;
     }
@@ -141,6 +141,6 @@ public class s0 {
 
     public static boolean h(Context context) {
         String b2 = b(context);
-        return b2 != null && b2.endsWith(f65068b);
+        return b2 != null && b2.endsWith(f65069b);
     }
 }

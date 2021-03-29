@@ -3,15 +3,15 @@ package d.b.b.e.b.b.a.b;
 public class r implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41626a;
+    public String f41627a;
 
     public r(String str) {
-        this.f41626a = str;
+        this.f41627a = str;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object a(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41626a;
+        return this.f41627a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
@@ -21,21 +21,21 @@ public class r implements h {
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object c(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41626a;
+        return this.f41627a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object d(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41626a;
+        return this.f41627a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object e(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41626a;
+        return this.f41627a;
     }
 
     @Override // d.b.b.e.b.b.a.b.h
     public Object f(d.b.b.e.b.b.a.e.c cVar) {
-        return this.f41626a;
+        return this.f41627a;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.h0.z0.w;
 import tbclient.GetForumDetail.DataReq;
 import tbclient.GetForumDetail.GetForumDetailReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumDetailRequestMessage extends NetMessage {
     public long forumId;
 

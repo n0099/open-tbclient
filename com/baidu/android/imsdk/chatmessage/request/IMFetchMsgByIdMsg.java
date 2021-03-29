@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMFetchMsgByIdMsg extends Message {
     public static final String TAG = "IMFetchMsgByIdMsg";
     public static final Map<Long, Boolean> reliableListFirst = new ConcurrentHashMap();
@@ -43,7 +43,7 @@ public class IMFetchMsgByIdMsg extends Message {
     public JSONObject mMessageExt;
     public long mTriggerReason;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class FetchTask extends TaskManager.Task {
         public Context mContext;
         public int mErrorCode;

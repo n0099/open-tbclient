@@ -6,7 +6,7 @@ import com.baidu.searchbox.account.data.UserAccountActionItem;
 import d.b.g0.a.k;
 import d.b.g0.a.r1.e;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends d.b.g0.a.a0.b.b {
     public boolean A;
     public boolean B;
@@ -30,7 +30,7 @@ public class c extends d.b.g0.a.a0.b.b {
     public boolean z;
 
     static {
-        boolean z = k.f45050a;
+        boolean z = k.f45051a;
     }
 
     public c() {

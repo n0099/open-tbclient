@@ -37,7 +37,7 @@ import d.b.h0.r.s.a;
 import d.b.h0.r.s.j;
 import d.b.h0.r.s.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
     public OfficialBarTipModel mModel;
     public d.b.h0.r.s.c mProgressDialog;
@@ -48,7 +48,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public d.b.i0.d1.f.i.a mCompleteProcess = new e();
     public final d.b.i0.d1.f.i.b IProcessImpl = new g();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
         public a() {
         }
@@ -88,37 +88,37 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements AdapterView.OnItemLongClickListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements l.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f17864e;
+            public final /* synthetic */ j f17865e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ImMessageCenterShowItemData f17865f;
+            public final /* synthetic */ ImMessageCenterShowItemData f17866f;
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class C0195a implements a.e {
-                public C0195a() {
+            /* loaded from: classes3.dex */
+            public class C0196a implements a.e {
+                public C0196a() {
                 }
 
                 @Override // d.b.h0.r.s.a.e
                 public void onClick(d.b.h0.r.s.a aVar) {
                     aVar.dismiss();
-                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17865f.getFriendId());
+                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17866f.getFriendId());
                     a aVar2 = a.this;
-                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17865f;
+                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17866f;
                 }
             }
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$b  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class C0196b implements a.e {
-                public C0196b(a aVar) {
+            /* loaded from: classes3.dex */
+            public class C0197b implements a.e {
+                public C0197b(a aVar) {
                 }
 
                 @Override // d.b.h0.r.s.a.e
@@ -128,21 +128,21 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
 
             public a(j jVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-                this.f17864e = jVar;
-                this.f17865f = imMessageCenterShowItemData;
+                this.f17865e = jVar;
+                this.f17866f = imMessageCenterShowItemData;
             }
 
             @Override // d.b.h0.r.s.l.e
             public void onItemClick(l lVar, int i, View view) {
-                j jVar = this.f17864e;
+                j jVar = this.f17865e;
                 if (jVar != null && jVar.isShowing()) {
-                    this.f17864e.dismiss();
+                    this.f17865e.dismiss();
                 }
                 if (i == 0) {
-                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17865f, OfficialBarTipActivity.this.IProcessImpl);
+                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17866f, OfficialBarTipActivity.this.IProcessImpl);
                     return;
                 }
-                d.b.h0.r.s.a a2 = d.b.h0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0195a(), new C0196b(this));
+                d.b.h0.r.s.a a2 = d.b.h0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0196a(), new C0197b(this));
                 a2.setMessageShowCenter(true);
                 a2.show();
             }
@@ -181,7 +181,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -208,7 +208,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends d.b.b.c.g.c {
         public d(int i) {
             super(i);
@@ -234,7 +234,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements d.b.i0.d1.f.i.a {
         public e() {
         }
@@ -245,28 +245,28 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17871a;
+        public final /* synthetic */ String f17872a;
 
         public f(String str) {
-            this.f17871a = str;
+            this.f17872a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f17871a)) {
+            if (TextUtils.isEmpty(this.f17872a)) {
                 return null;
             }
-            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17871a), false);
+            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17872a), false);
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements d.b.i0.d1.f.i.b {
         public g() {
         }

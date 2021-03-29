@@ -15,16 +15,16 @@ import d.a.a.q.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class a implements a.InterfaceC0528a, j, d {
+public abstract class a implements a.InterfaceC0529a, j, d {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a.a.f f41206e;
+    public final d.a.a.f f41207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.s.k.a f41207f;
+    public final d.a.a.s.k.a f41208f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final float[] f41209h;
+    public final float[] f41210h;
     public final Paint i;
     public final d.a.a.q.b.a<?, Float> j;
     public final d.a.a.q.b.a<?, Integer> k;
@@ -35,41 +35,41 @@ public abstract class a implements a.InterfaceC0528a, j, d {
     public d.a.a.q.b.a<ColorFilter, ColorFilter> n;
 
     /* renamed from: a  reason: collision with root package name */
-    public final PathMeasure f41202a = new PathMeasure();
+    public final PathMeasure f41203a = new PathMeasure();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Path f41203b = new Path();
+    public final Path f41204b = new Path();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Path f41204c = new Path();
+    public final Path f41205c = new Path();
 
     /* renamed from: d  reason: collision with root package name */
-    public final RectF f41205d = new RectF();
+    public final RectF f41206d = new RectF();
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<b> f41208g = new ArrayList();
+    public final List<b> f41209g = new ArrayList();
 
     /* loaded from: classes.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<l> f41210a;
+        public final List<l> f41211a;
         @Nullable
 
         /* renamed from: b  reason: collision with root package name */
-        public final r f41211b;
+        public final r f41212b;
 
         public b(@Nullable r rVar) {
-            this.f41210a = new ArrayList();
-            this.f41211b = rVar;
+            this.f41211a = new ArrayList();
+            this.f41212b = rVar;
         }
     }
 
     public a(d.a.a.f fVar, d.a.a.s.k.a aVar, Paint.Cap cap, Paint.Join join, float f2, d.a.a.s.i.d dVar, d.a.a.s.i.b bVar, List<d.a.a.s.i.b> list, d.a.a.s.i.b bVar2) {
         Paint paint = new Paint(1);
         this.i = paint;
-        this.f41206e = fVar;
-        this.f41207f = aVar;
+        this.f41207e = fVar;
+        this.f41208f = aVar;
         paint.setStyle(Paint.Style.STROKE);
         this.i.setStrokeCap(cap);
         this.i.setStrokeJoin(join);
@@ -82,7 +82,7 @@ public abstract class a implements a.InterfaceC0528a, j, d {
             this.m = bVar2.a();
         }
         this.l = new ArrayList(list.size());
-        this.f41209h = new float[list.size()];
+        this.f41210h = new float[list.size()];
         for (int i = 0; i < list.size(); i++) {
             this.l.add(list.get(i).a());
         }
@@ -106,9 +106,9 @@ public abstract class a implements a.InterfaceC0528a, j, d {
         }
     }
 
-    @Override // d.a.a.q.b.a.InterfaceC0528a
+    @Override // d.a.a.q.b.a.InterfaceC0529a
     public void a() {
-        this.f41206e.invalidateSelf();
+        this.f41207e.invalidateSelf();
     }
 
     @Override // d.a.a.q.a.b
@@ -133,7 +133,7 @@ public abstract class a implements a.InterfaceC0528a, j, d {
                 r rVar3 = (r) bVar3;
                 if (rVar3.i() == ShapeTrimPath.Type.Individually) {
                     if (bVar2 != null) {
-                        this.f41208g.add(bVar2);
+                        this.f41209g.add(bVar2);
                     }
                     bVar2 = new b(rVar3);
                     rVar3.d(this);
@@ -143,30 +143,30 @@ public abstract class a implements a.InterfaceC0528a, j, d {
                 if (bVar2 == null) {
                     bVar2 = new b(rVar);
                 }
-                bVar2.f41210a.add((l) bVar3);
+                bVar2.f41211a.add((l) bVar3);
             }
         }
         if (bVar2 != null) {
-            this.f41208g.add(bVar2);
+            this.f41209g.add(bVar2);
         }
     }
 
     @Override // d.a.a.q.a.d
     public void c(RectF rectF, Matrix matrix) {
         d.a.a.c.a("StrokeContent#getBounds");
-        this.f41203b.reset();
-        for (int i = 0; i < this.f41208g.size(); i++) {
-            b bVar = this.f41208g.get(i);
-            for (int i2 = 0; i2 < bVar.f41210a.size(); i2++) {
-                this.f41203b.addPath(((l) bVar.f41210a.get(i2)).getPath(), matrix);
+        this.f41204b.reset();
+        for (int i = 0; i < this.f41209g.size(); i++) {
+            b bVar = this.f41209g.get(i);
+            for (int i2 = 0; i2 < bVar.f41211a.size(); i2++) {
+                this.f41204b.addPath(((l) bVar.f41211a.get(i2)).getPath(), matrix);
             }
         }
-        this.f41203b.computeBounds(this.f41205d, false);
+        this.f41204b.computeBounds(this.f41206d, false);
         float floatValue = this.j.h().floatValue();
-        RectF rectF2 = this.f41205d;
+        RectF rectF2 = this.f41206d;
         float f2 = floatValue / 2.0f;
         rectF2.set(rectF2.left - f2, rectF2.top - f2, rectF2.right + f2, rectF2.bottom + f2);
-        rectF.set(this.f41205d);
+        rectF.set(this.f41206d);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
         d.a.a.c.c("StrokeContent#getBounds");
     }
@@ -174,7 +174,7 @@ public abstract class a implements a.InterfaceC0528a, j, d {
     @Override // d.a.a.s.f
     @CallSuper
     public <T> void d(T t, @Nullable d.a.a.w.c<T> cVar) {
-        if (t == d.a.a.j.f41182d) {
+        if (t == d.a.a.j.f41183d) {
             this.k.m(cVar);
         } else if (t == d.a.a.j.k) {
             this.j.m(cVar);
@@ -186,7 +186,7 @@ public abstract class a implements a.InterfaceC0528a, j, d {
             d.a.a.q.b.p pVar = new d.a.a.q.b.p(cVar);
             this.n = pVar;
             pVar.a(this);
-            this.f41207f.h(this.n);
+            this.f41208f.h(this.n);
         }
     }
 
@@ -203,23 +203,23 @@ public abstract class a implements a.InterfaceC0528a, j, d {
         }
         float f2 = d.a.a.v.f.f(matrix);
         for (int i = 0; i < this.l.size(); i++) {
-            this.f41209h[i] = this.l.get(i).h().floatValue();
+            this.f41210h[i] = this.l.get(i).h().floatValue();
             if (i % 2 == 0) {
-                float[] fArr = this.f41209h;
+                float[] fArr = this.f41210h;
                 if (fArr[i] < 1.0f) {
                     fArr[i] = 1.0f;
                 }
             } else {
-                float[] fArr2 = this.f41209h;
+                float[] fArr2 = this.f41210h;
                 if (fArr2[i] < 0.1f) {
                     fArr2[i] = 0.1f;
                 }
             }
-            float[] fArr3 = this.f41209h;
+            float[] fArr3 = this.f41210h;
             fArr3[i] = fArr3[i] * f2;
         }
         d.a.a.q.b.a<?, Float> aVar = this.m;
-        this.i.setPathEffect(new DashPathEffect(this.f41209h, aVar == null ? 0.0f : aVar.h().floatValue()));
+        this.i.setPathEffect(new DashPathEffect(this.f41210h, aVar == null ? 0.0f : aVar.h().floatValue()));
         d.a.a.c.c("StrokeContent#applyDashPattern");
     }
 
@@ -237,19 +237,19 @@ public abstract class a implements a.InterfaceC0528a, j, d {
         if (aVar != null) {
             this.i.setColorFilter(aVar.h());
         }
-        for (int i2 = 0; i2 < this.f41208g.size(); i2++) {
-            b bVar = this.f41208g.get(i2);
-            if (bVar.f41211b != null) {
+        for (int i2 = 0; i2 < this.f41209g.size(); i2++) {
+            b bVar = this.f41209g.get(i2);
+            if (bVar.f41212b != null) {
                 h(canvas, bVar, matrix);
             } else {
                 d.a.a.c.a("StrokeContent#buildPath");
-                this.f41203b.reset();
-                for (int size = bVar.f41210a.size() - 1; size >= 0; size--) {
-                    this.f41203b.addPath(((l) bVar.f41210a.get(size)).getPath(), matrix);
+                this.f41204b.reset();
+                for (int size = bVar.f41211a.size() - 1; size >= 0; size--) {
+                    this.f41204b.addPath(((l) bVar.f41211a.get(size)).getPath(), matrix);
                 }
                 d.a.a.c.c("StrokeContent#buildPath");
                 d.a.a.c.a("StrokeContent#drawPath");
-                canvas.drawPath(this.f41203b, this.i);
+                canvas.drawPath(this.f41204b, this.i);
                 d.a.a.c.c("StrokeContent#drawPath");
             }
         }
@@ -258,43 +258,43 @@ public abstract class a implements a.InterfaceC0528a, j, d {
 
     public final void h(Canvas canvas, b bVar, Matrix matrix) {
         d.a.a.c.a("StrokeContent#applyTrimPath");
-        if (bVar.f41211b == null) {
+        if (bVar.f41212b == null) {
             d.a.a.c.c("StrokeContent#applyTrimPath");
             return;
         }
-        this.f41203b.reset();
-        for (int size = bVar.f41210a.size() - 1; size >= 0; size--) {
-            this.f41203b.addPath(((l) bVar.f41210a.get(size)).getPath(), matrix);
+        this.f41204b.reset();
+        for (int size = bVar.f41211a.size() - 1; size >= 0; size--) {
+            this.f41204b.addPath(((l) bVar.f41211a.get(size)).getPath(), matrix);
         }
-        this.f41202a.setPath(this.f41203b, false);
-        float length = this.f41202a.getLength();
-        while (this.f41202a.nextContour()) {
-            length += this.f41202a.getLength();
+        this.f41203a.setPath(this.f41204b, false);
+        float length = this.f41203a.getLength();
+        while (this.f41203a.nextContour()) {
+            length += this.f41203a.getLength();
         }
-        float floatValue = (bVar.f41211b.f().h().floatValue() * length) / 360.0f;
-        float floatValue2 = ((bVar.f41211b.h().h().floatValue() * length) / 100.0f) + floatValue;
-        float floatValue3 = ((bVar.f41211b.e().h().floatValue() * length) / 100.0f) + floatValue;
+        float floatValue = (bVar.f41212b.f().h().floatValue() * length) / 360.0f;
+        float floatValue2 = ((bVar.f41212b.h().h().floatValue() * length) / 100.0f) + floatValue;
+        float floatValue3 = ((bVar.f41212b.e().h().floatValue() * length) / 100.0f) + floatValue;
         float f2 = 0.0f;
-        for (int size2 = bVar.f41210a.size() - 1; size2 >= 0; size2--) {
-            this.f41204c.set(((l) bVar.f41210a.get(size2)).getPath());
-            this.f41204c.transform(matrix);
-            this.f41202a.setPath(this.f41204c, false);
-            float length2 = this.f41202a.getLength();
+        for (int size2 = bVar.f41211a.size() - 1; size2 >= 0; size2--) {
+            this.f41205c.set(((l) bVar.f41211a.get(size2)).getPath());
+            this.f41205c.transform(matrix);
+            this.f41203a.setPath(this.f41205c, false);
+            float length2 = this.f41203a.getLength();
             if (floatValue3 > length) {
                 float f3 = floatValue3 - length;
                 if (f3 < f2 + length2 && f2 < f3) {
-                    d.a.a.v.f.a(this.f41204c, floatValue2 > length ? (floatValue2 - length) / length2 : 0.0f, Math.min(f3 / length2, 1.0f), 0.0f);
-                    canvas.drawPath(this.f41204c, this.i);
+                    d.a.a.v.f.a(this.f41205c, floatValue2 > length ? (floatValue2 - length) / length2 : 0.0f, Math.min(f3 / length2, 1.0f), 0.0f);
+                    canvas.drawPath(this.f41205c, this.i);
                     f2 += length2;
                 }
             }
             float f4 = f2 + length2;
             if (f4 >= floatValue2 && f2 <= floatValue3) {
                 if (f4 <= floatValue3 && floatValue2 < f2) {
-                    canvas.drawPath(this.f41204c, this.i);
+                    canvas.drawPath(this.f41205c, this.i);
                 } else {
-                    d.a.a.v.f.a(this.f41204c, floatValue2 < f2 ? 0.0f : (floatValue2 - f2) / length2, floatValue3 <= f4 ? (floatValue3 - f2) / length2 : 1.0f, 0.0f);
-                    canvas.drawPath(this.f41204c, this.i);
+                    d.a.a.v.f.a(this.f41205c, floatValue2 < f2 ? 0.0f : (floatValue2 - f2) / length2, floatValue3 <= f4 ? (floatValue3 - f2) / length2 : 1.0f, 0.0f);
+                    canvas.drawPath(this.f41205c, this.i);
                 }
             }
             f2 += length2;

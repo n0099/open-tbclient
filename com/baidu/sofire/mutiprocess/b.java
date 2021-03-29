@@ -20,23 +20,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f11852a;
+    public static Context f11853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, a> f11853b = new HashMap();
+    public static Map<Integer, a> f11854b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<Integer, List<String>> f11854c = new HashMap();
+    public static Map<Integer, List<String>> f11855c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f11855d = new ArrayList();
+    public static List<String> f11856d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f11856e = new a.AbstractBinderC0159a() { // from class: com.baidu.sofire.mutiprocess.b.1
+    public static a f11857e = new a.AbstractBinderC0160a() { // from class: com.baidu.sofire.mutiprocess.b.1
         @Override // com.baidu.sofire.mutiprocess.a
         public final Bundle a(Bundle bundle) throws RemoteException {
             return b.f(bundle);
@@ -99,15 +99,15 @@ public class b {
             bundle.setClassLoader(b.class.getClassLoader());
             int i = bundle.getInt("bundle_key_pid");
             BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
-            if (i > 0 && binderHolder != null && binderHolder.f11849a != null) {
-                f11853b.put(Integer.valueOf(i), a.AbstractBinderC0159a.a(binderHolder.f11849a));
-                if (f11855d.size() <= 0) {
+            if (i > 0 && binderHolder != null && binderHolder.f11850a != null) {
+                f11854b.put(Integer.valueOf(i), a.AbstractBinderC0160a.a(binderHolder.f11850a));
+                if (f11856d.size() <= 0) {
                     return a(0);
                 }
                 c a2 = c.a();
                 f a3 = f.a();
                 if (a2 != null && a3 != null) {
-                    for (String str : f11855d) {
+                    for (String str : f11856d) {
                         ApkInfo d2 = a3.d(str);
                         if (d2 == null) {
                             return a(0);
@@ -143,14 +143,14 @@ public class b {
 
     public static Bundle g(Bundle bundle) {
         try {
-            if (f11852a == null) {
+            if (f11853a == null) {
                 return a((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
             }
             String string = bundle.getString("bundle_key_plugin_package_name");
             if (TextUtils.isEmpty(string)) {
                 return a(-101);
             }
-            c a2 = c.a(f11852a);
+            c a2 = c.a(f11853a);
             if (a2 == null) {
                 return a((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
             }
@@ -166,7 +166,7 @@ public class b {
 
     public static Bundle h(Bundle bundle) {
         try {
-            if (f11852a == null) {
+            if (f11853a == null) {
                 return a((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
             }
             String string = bundle.getString("bundle_key_plugin_package_name");
@@ -200,7 +200,7 @@ public class b {
     public static void b(String str) {
         Set<Map.Entry<Integer, List<String>>> entrySet;
         try {
-            if (f11854c == null || (entrySet = f11854c.entrySet()) == null) {
+            if (f11855c == null || (entrySet = f11855c.entrySet()) == null) {
                 return;
             }
             for (Map.Entry<Integer, List<String>> entry : entrySet) {
@@ -222,10 +222,10 @@ public class b {
 
     public static Set<Integer> a() {
         try {
-            if (f11853b == null) {
+            if (f11854b == null) {
                 return null;
             }
-            return f11853b.keySet();
+            return f11854b.keySet();
         } catch (Throwable unused) {
             d.a();
             return null;
@@ -238,11 +238,11 @@ public class b {
         }
         try {
             if (d.b(context, "ampf") && Build.VERSION.SDK_INT >= 11) {
-                f11852a = context.getApplicationContext();
+                f11853a = context.getApplicationContext();
                 ContentResolver contentResolver = context.getApplicationContext().getContentResolver();
                 Bundle bundle = new Bundle();
                 bundle.putInt("bundle_key_pid", Process.myPid());
-                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(f11856e.asBinder()));
+                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(f11857e.asBinder()));
                 contentResolver.call(b(), "sub_process_register_sub_process", (String) null, bundle);
             }
         } catch (Throwable unused) {
@@ -255,10 +255,10 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return -201;
             }
-            if (f11853b == null) {
+            if (f11854b == null) {
                 return -200;
             }
-            a aVar = f11853b.get(Integer.valueOf(i));
+            a aVar = f11854b.get(Integer.valueOf(i));
             if (aVar == null) {
                 return -202;
             }
@@ -266,11 +266,11 @@ public class b {
             bundle.putInt("bundle_key_ctrl_action", z ? 1 : 2);
             bundle.putString("bundle_key_plugin_package_name", str);
             int i2 = aVar.a(bundle).getInt("bundle_key_error_code", -200);
-            if (i2 == 0 && f11854c != null) {
-                List<String> list = f11854c.get(Integer.valueOf(i));
+            if (i2 == 0 && f11855c != null) {
+                List<String> list = f11855c.get(Integer.valueOf(i));
                 if (list == null) {
                     list = new ArrayList<>();
-                    f11854c.put(Integer.valueOf(i), list);
+                    f11855c.put(Integer.valueOf(i), list);
                 }
                 if (z && !list.contains(str)) {
                     list.add(str);
@@ -318,19 +318,19 @@ public class b {
     }
 
     public static Uri b() {
-        if (f11852a == null) {
+        if (f11853a == null) {
             return null;
         }
-        return Uri.parse("content://" + f11852a.getPackageName() + ".sofire.ac.provider");
+        return Uri.parse("content://" + f11853a.getPackageName() + ".sofire.ac.provider");
     }
 
     public static Map<Integer, Integer> a(String str) {
         try {
-            if (TextUtils.isEmpty(str) || f11853b == null) {
+            if (TextUtils.isEmpty(str) || f11854b == null) {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            for (Integer num : f11853b.keySet()) {
+            for (Integer num : f11854b.keySet()) {
                 hashMap.put(num, Integer.valueOf(a(num.intValue(), str, true)));
             }
             return hashMap;
@@ -345,10 +345,10 @@ public class b {
             if (bundle == null) {
                 return a(-201);
             }
-            if (f11853b == null) {
+            if (f11854b == null) {
                 return a(-200);
             }
-            a aVar = f11853b.get(Integer.valueOf(i));
+            a aVar = f11854b.get(Integer.valueOf(i));
             if (aVar == null) {
                 return a(-202);
             }
@@ -369,13 +369,13 @@ public class b {
 
     public static void a(String str, boolean z) {
         try {
-            if (TextUtils.isEmpty(str) || f11855d == null) {
+            if (TextUtils.isEmpty(str) || f11856d == null) {
                 return;
             }
             if (z) {
-                f11855d.add(str);
+                f11856d.add(str);
             } else {
-                f11855d.remove(str);
+                f11856d.remove(str);
             }
         } catch (Throwable unused) {
             d.a();
@@ -387,10 +387,10 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return a(-201);
             }
-            if (f11853b == null) {
+            if (f11854b == null) {
                 return a(-200);
             }
-            a aVar = f11853b.get(Integer.valueOf(i));
+            a aVar = f11854b.get(Integer.valueOf(i));
             if (aVar == null) {
                 return a(-202);
             }
@@ -409,14 +409,14 @@ public class b {
         } catch (Throwable unused) {
             d.a();
         }
-        if (f11852a == null) {
+        if (f11853a == null) {
             return a(-204);
         }
         if (bundle == null) {
             return a(-201);
         }
         if (Build.VERSION.SDK_INT >= 11) {
-            return f11852a.getApplicationContext().getContentResolver().call(b(), "sub_process_call_main_plugin", (String) null, bundle);
+            return f11853a.getApplicationContext().getContentResolver().call(b(), "sub_process_call_main_plugin", (String) null, bundle);
         }
         return a(-200);
     }

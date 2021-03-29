@@ -24,21 +24,21 @@ public class b extends d.b.b.j.e.a<d.b.h0.r.q.a, FunAdNativeViewHolder> implemen
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f59724e;
+        public final /* synthetic */ n f59725e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f59725f;
+        public final /* synthetic */ FunAdNativeViewHolder f59726f;
 
         public a(n nVar, FunAdNativeViewHolder funAdNativeViewHolder) {
-            this.f59724e = nVar;
-            this.f59725f = funAdNativeViewHolder;
+            this.f59725e = nVar;
+            this.f59726f = funAdNativeViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f59724e.j(true);
+            this.f59725e.j(true);
             b.this.L();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f59725f.f().getPageType()).param("obj_locate", 0));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f59726f.f().getPageType()).param("obj_locate", 0));
         }
     }
 
@@ -55,7 +55,7 @@ public class b extends d.b.b.j.e.a<d.b.h0.r.q.a, FunAdNativeViewHolder> implemen
     @Override // d.b.b.j.e.a
     /* renamed from: h0 */
     public FunAdNativeViewHolder R(ViewGroup viewGroup) {
-        return new FunAdNativeViewHolder(this.f42360h == AdvertAppInfo.n4 ? new FunAdNativeFrsView(this.m) : new FunAdNativePbView(this.m), this.m, this.f42360h);
+        return new FunAdNativeViewHolder(this.f42361h == AdvertAppInfo.n4 ? new FunAdNativeFrsView(this.m) : new FunAdNativePbView(this.m), this.m, this.f42361h);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class b extends d.b.b.j.e.a<d.b.h0.r.q.a, FunAdNativeViewHolder> implemen
         if (nVar == null) {
             return funAdNativeViewHolder.a();
         }
-        if (this.f42360h == AdvertAppInfo.n4) {
+        if (this.f42361h == AdvertAppInfo.n4) {
             if (!d.b.i0.q0.a.h().p(this.m)) {
                 funAdNativeViewHolder.f().d(8);
                 return funAdNativeViewHolder.a();
@@ -90,7 +90,7 @@ public class b extends d.b.b.j.e.a<d.b.h0.r.q.a, FunAdNativeViewHolder> implemen
         if (v != 0 && ((FunAdNativeViewHolder) v).f() != null) {
             ((FunAdNativeViewHolder) this.k).f().b();
         }
-        d.b.i0.q0.a.h().b(this.f42360h == AdvertAppInfo.n4 ? "6051001773-1862514716" : "6051001775-457565154");
+        d.b.i0.q0.a.h().b(this.f42361h == AdvertAppInfo.n4 ? "6051001773-1862514716" : "6051001775-457565154");
     }
 
     @Override // d.b.i0.r2.l

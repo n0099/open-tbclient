@@ -1,8 +1,8 @@
 package com.baidu.fsg.api;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class R {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class anim {
         public static final int rim_base_safekeyboard_slide_from_down = 0x7f0100b1;
         public static final int rim_base_safekeyboard_slide_to_down = 0x7f0100b2;
@@ -12,7 +12,7 @@ public final class R {
         public static final int rim_base_slide_to_right = 0x7f0100b6;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class color {
         public static final int camera_bottom_black = 0x7f060287;
         public static final int camera_mask = 0x7f060288;
@@ -160,7 +160,7 @@ public final class R {
         public static final int rim_base_white_7f = 0x7f06076c;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class dimen {
         public static final int rim_base_15dp = 0x7f070426;
         public static final int rim_base_25dp = 0x7f070427;
@@ -306,7 +306,7 @@ public final class R {
         public static final int rim_white_line_height = 0x7f0704c7;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class drawable {
         public static final int rim_base_actionbar_back_arrow = 0x7f08161b;
         public static final int rim_base_actionbar_back_arrow_press = 0x7f08161c;
@@ -329,7 +329,7 @@ public final class R {
         public static final int rim_base_toast_bg = 0x7f08162d;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class id {
         public static final int btn0 = 0x7f090452;
         public static final int btn1 = 0x7f090453;
@@ -367,14 +367,14 @@ public final class R {
         public static final int title_right_imgzone2_notify = 0x7f092195;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class integer {
         public static final int rim_base_lightapp_menu_maxems = 0x7f0a0015;
         public static final int rim_base_titlebar_centertext_maxems = 0x7f0a0016;
         public static final int rim_base_titlebar_centertext_maxems_1 = 0x7f0a0017;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class layout {
         public static final int rim_base_action_bar = 0x7f0c0672;
         public static final int rim_base_dialog_common_loading_layout = 0x7f0c0673;
@@ -383,7 +383,7 @@ public final class R {
         public static final int rim_base_toast_tips = 0x7f0c0676;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class string {
         public static final int error_msg_checksign = 0x7f0f0700;
         public static final int error_msg_common = 0x7f0f0701;
@@ -418,7 +418,7 @@ public final class R {
         public static final int status_sys_err = 0x7f0f11f5;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class style {
         public static final int rim_base_custom_dialog_theme = 0x7f1002f3;
         public static final int rim_base_plugin_update_progressbar = 0x7f100310;

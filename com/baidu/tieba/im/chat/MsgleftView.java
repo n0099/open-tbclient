@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.b.e.p.l;
 import d.b.i0.d1.f.e;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MsgleftView extends e {
     public static final String B = "com.baidu.tieba.im.chat.MsgleftView";
     public View.OnLongClickListener A;
@@ -27,11 +27,11 @@ public class MsgleftView extends e {
     public final TouchType y;
     public TbPageContext<MsglistActivity<?>> z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f17764e = 0;
+        public long f17765e = 0;
 
         public a() {
         }
@@ -39,24 +39,24 @@ public class MsgleftView extends e {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
-                this.f17764e = System.currentTimeMillis();
+                this.f17765e = System.currentTimeMillis();
             } else if (motionEvent.getAction() == 1) {
-                if (System.currentTimeMillis() - this.f17764e > 200) {
+                if (System.currentTimeMillis() - this.f17765e > 200) {
                     if (MsgleftView.this.y.get()) {
                         MsgleftView msgleftView = MsgleftView.this;
-                        msgleftView.f53649c.onItemViewLongClick(view, 2, msgleftView.f53652f, 0L);
+                        msgleftView.f53650c.onItemViewLongClick(view, 2, msgleftView.f53653f, 0L);
                         MsgleftView.this.y.set(false);
                     }
                 } else {
                     MsgleftView msgleftView2 = MsgleftView.this;
-                    msgleftView2.f53648b.onItemViewClick(view, 2, msgleftView2.f53652f, 0L);
+                    msgleftView2.f53649b.onItemViewClick(view, 2, msgleftView2.f53653f, 0L);
                 }
             }
             return false;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnLongClickListener {
         public b() {
         }

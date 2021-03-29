@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import d.b.i0.d1.t.f;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
         return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, d.b.i0.d1.k.b.o().m());

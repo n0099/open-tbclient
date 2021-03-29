@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.h0.r.q.a2;
 import d.b.i0.b3.c;
 import d.b.i0.z0.g.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(a2 a2Var, BdUniqueId bdUniqueId, int i, int i2) {
         String str;

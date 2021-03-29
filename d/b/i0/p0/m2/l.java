@@ -20,11 +20,11 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class l {
     public static void a(d.b.i0.p0.j2.b bVar, String str) {
-        if (TextUtils.isEmpty(str) || bVar == null || TextUtils.isEmpty(bVar.f57701c)) {
+        if (TextUtils.isEmpty(str) || bVar == null || TextUtils.isEmpty(bVar.f57702c)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c11942");
-        statisticItem.param("fid", bVar.f57701c);
+        statisticItem.param("fid", bVar.f57702c);
         statisticItem.param("obj_name", str);
         TiebaStatic.log(statisticItem);
     }
@@ -48,8 +48,8 @@ public class l {
                 for (d.b.b.j.e.n nVar2 : singletonList) {
                     if (nVar == nVar2 && (nVar2 instanceof a2)) {
                         a.c cVar = new a.c();
-                        cVar.f53449a = ((a2) nVar2).w1();
-                        cVar.f53451c = i;
+                        cVar.f53450a = ((a2) nVar2).w1();
+                        cVar.f53452c = i;
                         arrayList.add(cVar);
                     }
                 }
@@ -62,8 +62,8 @@ public class l {
                     if (a2Var2.t0 == 1 && !TextUtils.isEmpty(a2Var2.w1())) {
                         a2Var2.t0 = 2;
                         a.c cVar2 = new a.c();
-                        cVar2.f53449a = a2Var2.w1();
-                        cVar2.f53451c = i;
+                        cVar2.f53450a = a2Var2.w1();
+                        cVar2.f53452c = i;
                         arrayList.add(cVar2);
                     }
                 }
@@ -103,13 +103,13 @@ public class l {
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
             d.b.i0.p0.j2.b bVar = new d.b.i0.p0.j2.b();
-            bVar.f57699a = frsViewData.needLog == 1;
-            bVar.f57701c = frsViewData.getForum().getId();
-            bVar.f57700b = M.N();
+            bVar.f57700a = frsViewData.needLog == 1;
+            bVar.f57702c = frsViewData.getForum().getId();
+            bVar.f57701b = M.N();
             d.b.i0.p0.j2.b bVar2 = d.b.i0.p0.j2.d.J0;
             if (bVar2 != null) {
-                bVar.f57702d = bVar2.f57702d;
-                bVar.f57703e = bVar2.f57703e;
+                bVar.f57703d = bVar2.f57703d;
+                bVar.f57704e = bVar2.f57704e;
             }
             d.b.i0.p0.j2.c.j().g(bVar, a2Var, 1);
             d.b.i0.p0.j2.a.b(a2Var, 1, frsFragment.getUniqueId(), bVar, frsFragment.getTbPageTag());

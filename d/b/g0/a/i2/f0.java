@@ -22,16 +22,16 @@ import java.util.StringTokenizer;
 public final class f0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44684a = d.b.g0.a.k.f45050a;
+    public static final boolean f44685a = d.b.g0.a.k.f45051a;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f44685a;
+        public final String f44686a;
 
         public a(String str, boolean z, boolean z2, int i) {
-            this.f44685a = str;
+            this.f44686a = str;
         }
     }
 
@@ -57,7 +57,7 @@ public final class f0 {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:101:0x01b8 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x003f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:104:0x003f */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r9v13 */
@@ -92,7 +92,7 @@ public final class f0 {
                 th = th;
             }
             try {
-                if (f44684a) {
+                if (f44685a) {
                     Log.d(StorageUtils.TAG, "/proc/mounts");
                 }
                 while (true) {
@@ -100,7 +100,7 @@ public final class f0 {
                     if (readLine == null) {
                         break;
                     }
-                    if (f44684a) {
+                    if (f44685a) {
                         Log.d(StorageUtils.TAG, readLine);
                     }
                     StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
@@ -140,7 +140,7 @@ public final class f0 {
                                     break;
                                 }
                                 str = (String) it.next();
-                                if (TextUtils.equals(((a) hashMap.get(str)).f44685a, nextToken)) {
+                                if (TextUtils.equals(((a) hashMap.get(str)).f44686a, nextToken)) {
                                     break;
                                 }
                             }
@@ -155,7 +155,7 @@ public final class f0 {
                     }
                 }
                 for (a aVar : hashMap.values()) {
-                    if (e(aVar.f44685a)) {
+                    if (e(aVar.f44686a)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -167,7 +167,7 @@ public final class f0 {
                 e = e2;
                 bufferedReader2 = bufferedReader3;
                 bufferedReader4 = bufferedReader2;
-                if (f44684a) {
+                if (f44685a) {
                     e.printStackTrace();
                     bufferedReader4 = bufferedReader2;
                 }
@@ -177,7 +177,7 @@ public final class f0 {
                 e = e3;
                 bufferedReader = bufferedReader3;
                 bufferedReader4 = bufferedReader;
-                if (f44684a) {
+                if (f44685a) {
                     e.printStackTrace();
                     bufferedReader4 = bufferedReader;
                 }

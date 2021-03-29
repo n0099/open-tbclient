@@ -9,14 +9,14 @@ import java.util.LinkedList;
 public class RecentlyVisitedForumData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<VisitedForumData> f15376e = new LinkedList<>();
+    public LinkedList<VisitedForumData> f15377e = new LinkedList<>();
 
     public void s(VisitedForumData visitedForumData) {
         if (visitedForumData == null) {
             return;
         }
         VisitedForumData visitedForumData2 = null;
-        Iterator<VisitedForumData> it = this.f15376e.iterator();
+        Iterator<VisitedForumData> it = this.f15377e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -28,9 +28,9 @@ public class RecentlyVisitedForumData extends OrmObject {
             }
         }
         if (visitedForumData2 != null) {
-            this.f15376e.remove(visitedForumData2);
+            this.f15377e.remove(visitedForumData2);
         }
-        this.f15376e.addFirst(visitedForumData);
+        this.f15377e.addFirst(visitedForumData);
     }
 
     public int t(VisitedForumData visitedForumData) {
@@ -38,13 +38,13 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (visitedForumData == null) {
             return -1;
         }
-        int size = this.f15376e.size();
+        int size = this.f15377e.size();
         int i2 = 0;
         while (true) {
             if (i2 >= size) {
                 break;
             }
-            VisitedForumData visitedForumData2 = this.f15376e.get(i2);
+            VisitedForumData visitedForumData2 = this.f15377e.get(i2);
             if (!k.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                 i = i2;
                 break;
@@ -52,13 +52,13 @@ public class RecentlyVisitedForumData extends OrmObject {
             i2++;
         }
         if (i >= 0) {
-            this.f15376e.remove(i);
+            this.f15377e.remove(i);
         }
         return i;
     }
 
     public LinkedList<VisitedForumData> u() {
-        return this.f15376e;
+        return this.f15377e;
     }
 
     public final boolean v(LinkedList<VisitedForumData> linkedList, VisitedForumData visitedForumData) {
@@ -81,8 +81,8 @@ public class RecentlyVisitedForumData extends OrmObject {
         Iterator<VisitedForumData> it = recentlyVisitedForumData.u().iterator();
         while (it.hasNext()) {
             VisitedForumData next = it.next();
-            if (!v(this.f15376e, next)) {
-                this.f15376e.addLast(next);
+            if (!v(this.f15377e, next)) {
+                this.f15377e.addLast(next);
             }
         }
         y(20);
@@ -92,16 +92,16 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (linkedList == null || linkedList.size() == 0) {
             return;
         }
-        this.f15376e.clear();
-        this.f15376e.addAll(linkedList);
+        this.f15377e.clear();
+        this.f15377e.addAll(linkedList);
     }
 
     public void y(int i) {
-        if (this.f15376e == null) {
+        if (this.f15377e == null) {
             return;
         }
-        while (this.f15376e.size() > i) {
-            this.f15376e.removeLast();
+        while (this.f15377e.size() > i) {
+            this.f15377e.removeLast();
         }
     }
 }

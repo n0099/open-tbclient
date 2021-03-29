@@ -51,16 +51,16 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
             Object data = customResponsedMessage.getData();
             if (data instanceof d.b.i0.c3.q0.e) {
                 d.b.i0.c3.q0.e eVar = (d.b.i0.c3.q0.e) data;
-                if (eVar.f53593a == b.this.v.j) {
-                    if (eVar.f53594b) {
+                if (eVar.f53594a == b.this.v.j) {
+                    if (eVar.f53595b) {
                         b.this.v.m = true;
                         b.this.u.setVisibility(0);
                         b.this.B(true);
-                        d.b.b.e.p.l.K(b.this.f62181g, R.string.attention_success);
-                    } else if (StringUtils.isNull(eVar.f53595c)) {
-                        d.b.b.e.p.l.K(b.this.f62181g, R.string.attention_fail);
+                        d.b.b.e.p.l.K(b.this.f62182g, R.string.attention_success);
+                    } else if (StringUtils.isNull(eVar.f53596c)) {
+                        d.b.b.e.p.l.K(b.this.f62182g, R.string.attention_fail);
                     } else {
-                        d.b.b.e.p.l.L(b.this.f62181g, eVar.f53595c);
+                        d.b.b.e.p.l.L(b.this.f62182g, eVar.f53596c);
                     }
                 }
             }
@@ -69,8 +69,8 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
 
     /* renamed from: d.b.i0.h2.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1276b extends CustomMessageListener {
-        public C1276b(int i) {
+    public class C1277b extends CustomMessageListener {
+        public C1277b(int i) {
             super(i);
         }
 
@@ -83,16 +83,16 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
             Object data = customResponsedMessage.getData();
             if (data instanceof d.b.i0.c3.q0.e) {
                 d.b.i0.c3.q0.e eVar = (d.b.i0.c3.q0.e) data;
-                if (eVar.f53593a == b.this.v.j) {
-                    if (eVar.f53594b) {
+                if (eVar.f53594a == b.this.v.j) {
+                    if (eVar.f53595b) {
                         b.this.v.m = false;
                         b.this.u.setVisibility(0);
                         b bVar = b.this;
                         bVar.B(bVar.v.m);
-                        d.b.b.e.p.l.K(b.this.f62181g, R.string.unlike_success);
+                        d.b.b.e.p.l.K(b.this.f62182g, R.string.unlike_success);
                         return;
                     }
-                    d.b.b.e.p.l.K(b.this.f62181g, R.string.unlike_failure);
+                    d.b.b.e.p.l.K(b.this.f62182g, R.string.unlike_failure);
                 }
             }
         }
@@ -101,7 +101,7 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.y = new a(2001437);
-        this.z = new C1276b(2001438);
+        this.z = new C1277b(2001438);
         y(m());
     }
 
@@ -111,13 +111,13 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
 
     public final void B(boolean z) {
         if (z) {
-            this.u.setText(this.f62181g.getString(R.string.relate_forum_is_followed));
+            this.u.setText(this.f62182g.getString(R.string.relate_forum_is_followed));
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0110);
             SkinManager.setBackgroundResource(this.u, R.color.transparent);
             this.u.setClickable(false);
             return;
         }
-        this.u.setText(this.f62181g.getString(R.string.focus_text));
+        this.u.setText(this.f62182g.getString(R.string.focus_text));
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0302, 1);
         SkinManager.setBackgroundResource(this.u, R.drawable.polymeric_attention_btn_bg);
         this.u.setClickable(true);
@@ -130,7 +130,7 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext tbPageContext, int i) {
-        if (this.f62179e != i) {
+        if (this.f62180e != i) {
             SkinManager.setBackgroundResource(this.m, R.drawable.item_person_header_attention_bg_selector);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0106, 1);
@@ -143,7 +143,7 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
                 B(bVar.m);
             }
         }
-        this.f62179e = i;
+        this.f62180e = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -152,11 +152,11 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
             if (!this.x) {
                 TiebaStatic.log(new StatisticItem("c11595"));
             }
-            this.f62180f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f62181g).createNormalCfg(this.v.l, "")));
+            this.f62181f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f62182g).createNormalCfg(this.v.l, "")));
         } else if (this.u == view) {
             TiebaStatic.log(new StatisticItem("c11596"));
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                ViewHelper.skipToLoginActivity(this.f62181g);
+                ViewHelper.skipToLoginActivity(this.f62182g);
             } else if (d.b.b.e.p.k.isForumName(this.v.l)) {
                 d.b.i0.h2.e.b bVar = this.v;
                 if (bVar.m) {
@@ -179,8 +179,8 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
         this.u = (TextView) view.findViewById(R.id.card_polymeric_attention_btn);
         this.m.setOnClickListener(this);
         this.u.setOnClickListener(this);
-        this.f62180f.registerListener(this.y);
-        this.f62180f.registerListener(this.z);
+        this.f62181f.registerListener(this.y);
+        this.f62181f.registerListener(this.z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -198,20 +198,20 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
             this.m.setVisibility(0);
         }
         this.v = bVar;
-        this.x = bVar.f55268e;
-        this.n.setVisibility(bVar.f55270g ? 0 : 4);
-        this.o.setVisibility(bVar.f55270g ? 0 : 4);
+        this.x = bVar.f55269e;
+        this.n.setVisibility(bVar.f55271g ? 0 : 4);
+        this.o.setVisibility(bVar.f55271g ? 0 : 4);
         this.n.setText(bVar.i);
-        this.o.setText(bVar.f55271h);
+        this.o.setText(bVar.f55272h);
         TextView textView = this.p;
-        if (bVar.f55268e) {
-            string = this.f62181g.getString(R.string.me);
+        if (bVar.f55269e) {
+            string = this.f62182g.getString(R.string.me);
         } else {
-            if (bVar.f55269f == 2) {
-                context = this.f62181g;
+            if (bVar.f55270f == 2) {
+                context = this.f62182g;
                 i = R.string.she;
             } else {
-                context = this.f62181g;
+                context = this.f62182g;
                 i = R.string.he;
             }
             string = context.getString(i);
@@ -222,10 +222,10 @@ public class b extends d.b.i0.x.b<d.b.i0.h2.e.b> {
         if (i0.b(str) > 10) {
             str = i0.k(str, 0, 10) + StringHelper.STRING_MORE;
         }
-        this.s.setText(String.format(this.f62181g.getString(R.string.person_polymeric_bar_suffix), str));
+        this.s.setText(String.format(this.f62182g.getString(R.string.person_polymeric_bar_suffix), str));
         String numFormatOverWanNa = StringHelper.numFormatOverWanNa(bVar.n);
-        this.t.setText(bVar.f55268e ? String.format(this.f62181g.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, StringHelper.numFormatOverWanNa(bVar.o)) : String.format(this.f62181g.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
-        if (!bVar.m && !bVar.f55268e) {
+        this.t.setText(bVar.f55269e ? String.format(this.f62182g.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, StringHelper.numFormatOverWanNa(bVar.o)) : String.format(this.f62182g.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
+        if (!bVar.m && !bVar.f55269e) {
             this.u.setVisibility(0);
             B(bVar.m);
             return;

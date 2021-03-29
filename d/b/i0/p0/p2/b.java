@@ -34,15 +34,15 @@ public final class b extends d.b.b.j.e.a<g, CardViewHolder<VideoMiddlePageLightC
 
     public final void h0(g gVar, int i) {
         StatisticItem statisticItem = new StatisticItem("c12590");
-        statisticItem.param("tid", gVar != null ? gVar.f57619f : null);
-        statisticItem.param("nid", gVar != null ? gVar.f57620g : null);
+        statisticItem.param("tid", gVar != null ? gVar.f57620f : null);
+        statisticItem.param("nid", gVar != null ? gVar.f57621g : null);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", i);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
         if (gVar == null) {
             Intrinsics.throwNpe();
         }
-        statisticItem.param("fid", gVar.f57618e);
+        statisticItem.param("fid", gVar.f57619e);
         statisticItem.param("obj_param1", k.isEmpty(gVar.r) ? "0" : gVar.r);
         statisticItem.param("extra", k.isEmpty(gVar.s) ? "0" : gVar.s);
         statisticItem.param("obj_id", this.o.e());
@@ -64,7 +64,7 @@ public final class b extends d.b.b.j.e.a<g, CardViewHolder<VideoMiddlePageLightC
         if (gVar == null) {
             Intrinsics.throwNpe();
         }
-        c.g().d(this.n.getUniqueId(), d.b.i0.b3.a.c(gVar.f57619f, "", "", gVar.A), d.b.i0.b3.a.f(a2Var, "a023", "common_exp", i + 1, false, null, null));
+        c.g().d(this.n.getUniqueId(), d.b.i0.b3.a.c(gVar.f57620f, "", "", gVar.A), d.b.i0.b3.a.f(a2Var, "a023", "common_exp", i + 1, false, null, null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

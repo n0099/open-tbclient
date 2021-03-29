@@ -26,45 +26,45 @@ public class d extends com.kwad.sdk.core.video.a.a {
     public static final Queue<d> l = new ConcurrentLinkedQueue();
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f34112a;
+    public final k f34113a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f34113b;
+    public final a f34114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34114c;
+    public String f34115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaDataSource f34115d;
+    public MediaDataSource f34116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f34116e;
+    public final Object f34117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34117f;
+    public boolean f34118f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34118g;
+    public boolean f34119g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f34119h;
+    public int f34120h;
     public int i;
     public boolean j;
     public boolean m;
     public com.kwad.sdk.contentalliance.detail.video.d n;
 
     /* loaded from: classes6.dex */
-    public static class a implements com.kwai.video.ksvodplayerkit.b, d.a, d.b, d.c, d.InterfaceC0451d, d.e, d.f {
+    public static class a implements com.kwai.video.ksvodplayerkit.b, d.a, d.b, d.c, d.InterfaceC0452d, d.e, d.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<d> f34121a;
+        public final WeakReference<d> f34122a;
 
         public a(d dVar) {
-            this.f34121a = new WeakReference<>(dVar);
+            this.f34122a = new WeakReference<>(dVar);
         }
 
         private d c() {
-            return this.f34121a.get();
+            return this.f34122a.get();
         }
 
         @Override // com.kwai.video.ksvodplayerkit.d.f
@@ -104,7 +104,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
             d c2 = c();
             if (c2 != null) {
                 c2.a(i, i2);
-                c2.f34119h = i3;
+                c2.f34120h = i3;
                 c2.i = i4;
             }
         }
@@ -113,7 +113,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
         public void a(@Nullable com.kwai.video.ksvodplayerkit.c cVar) {
         }
 
-        @Override // com.kwai.video.ksvodplayerkit.d.InterfaceC0451d
+        @Override // com.kwai.video.ksvodplayerkit.d.InterfaceC0452d
         public void b() {
             com.kwad.sdk.core.d.a.b("KwaiMediaPlayer", "onPrepared");
             d c2 = c();
@@ -136,14 +136,14 @@ public class d extends com.kwad.sdk.core.video.a.a {
             if (al.a().b()) {
                 d c2 = c();
                 if (c2 != null) {
-                    c2.f34112a.a((com.kwai.video.ksvodplayerkit.b) null);
+                    c2.f34113a.a((com.kwai.video.ksvodplayerkit.b) null);
                 }
             } else if (cVar != null) {
-                long j = cVar.f37271b;
+                long j = cVar.f37272b;
                 if (j > 0) {
                     long j2 = cVar.l;
                     if (j2 != 0) {
-                        al.a().a((j - cVar.f37270a) / j2);
+                        al.a().a((j - cVar.f37271a) / j2);
                     }
                 }
             }
@@ -164,14 +164,14 @@ public class d extends com.kwad.sdk.core.video.a.a {
 
     public d(@NonNull Context context) {
         Object obj = new Object();
-        this.f34116e = obj;
+        this.f34117e = obj;
         this.j = false;
         this.m = true;
         synchronized (obj) {
-            this.f34112a = new k(context.getApplicationContext());
+            this.f34113a = new k(context.getApplicationContext());
         }
         a(context);
-        this.f34113b = new a(this);
+        this.f34114b = new a(this);
         s();
     }
 
@@ -202,14 +202,14 @@ public class d extends com.kwad.sdk.core.video.a.a {
     }
 
     private void q() {
-        MediaDataSource mediaDataSource = this.f34115d;
+        MediaDataSource mediaDataSource = this.f34116d;
         if (mediaDataSource != null) {
             try {
                 mediaDataSource.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.f34115d = null;
+            this.f34116d = null;
         }
     }
 
@@ -217,29 +217,29 @@ public class d extends com.kwad.sdk.core.video.a.a {
         if (this.j) {
             return;
         }
-        int a2 = this.f34112a.a();
+        int a2 = this.f34113a.a();
         com.kwad.sdk.core.d.a.b("KwaiMediaPlayer", "realPrepare: ret: " + a2);
         this.j = true;
     }
 
     private void s() {
-        this.f34112a.a((d.InterfaceC0451d) this.f34113b);
-        this.f34112a.a((d.a) this.f34113b);
-        this.f34112a.a((d.c) this.f34113b);
-        this.f34112a.a((d.e) this.f34113b);
-        this.f34112a.a((d.b) this.f34113b);
+        this.f34113a.a((d.InterfaceC0452d) this.f34114b);
+        this.f34113a.a((d.a) this.f34114b);
+        this.f34113a.a((d.c) this.f34114b);
+        this.f34113a.a((d.e) this.f34114b);
+        this.f34113a.a((d.b) this.f34114b);
         if (com.kwad.sdk.core.config.c.U()) {
-            this.f34112a.a((com.kwai.video.ksvodplayerkit.b) this.f34113b);
+            this.f34113a.a((com.kwai.video.ksvodplayerkit.b) this.f34114b);
         }
     }
 
     private void t() {
-        this.f34112a.a((d.InterfaceC0451d) null);
-        this.f34112a.a((d.a) null);
-        this.f34112a.a((d.c) null);
-        this.f34112a.a((d.e) null);
-        this.f34112a.a((d.b) null);
-        this.f34112a.a((com.kwai.video.ksvodplayerkit.b) null);
+        this.f34113a.a((d.InterfaceC0452d) null);
+        this.f34113a.a((d.a) null);
+        this.f34113a.a((d.c) null);
+        this.f34113a.a((d.e) null);
+        this.f34113a.a((d.b) null);
+        this.f34113a.a((com.kwai.video.ksvodplayerkit.b) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -282,54 +282,54 @@ public class d extends com.kwad.sdk.core.video.a.a {
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(float f2) {
-        this.f34112a.a(f2);
+        this.f34113a.a(f2);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(float f2, float f3) {
-        this.f34112a.a(f2, f3);
+        this.f34113a.a(f2, f3);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(long j) {
-        this.f34112a.a((int) j);
+        this.f34113a.a((int) j);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     @TargetApi(14)
     public void a(Surface surface) {
-        this.f34112a.a(surface);
+        this.f34113a.a(surface);
     }
 
     public void a(ViewGroup viewGroup) {
     }
 
     public void a(com.kwad.sdk.contentalliance.detail.video.c cVar) {
-        if (this.f34112a == null || cVar == null) {
+        if (this.f34113a == null || cVar == null) {
             return;
         }
         l lVar = new l();
-        lVar.f37376c = String.valueOf(cVar.f32538a);
-        lVar.f37377d = cVar.f32539b;
-        this.f34112a.a(lVar);
+        lVar.f37377c = String.valueOf(cVar.f32539a);
+        lVar.f37378d = cVar.f32540b;
+        this.f34113a.a(lVar);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.d dVar) {
         this.n = dVar;
-        a(dVar.f32542c);
-        a(dVar.f32540a, (Map<String, String>) null);
+        a(dVar.f32543c);
+        a(dVar.f32541a, (Map<String, String>) null);
     }
 
     public void a(String str, Map<String, String> map) {
-        this.f34114c = str;
-        this.f34112a.a(str, map);
+        this.f34115c = str;
+        this.f34113a.a(str, map);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(boolean z) {
-        this.f34118g = z;
-        this.f34112a.a(z);
+        this.f34119g = z;
+        this.f34113a.a(z);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
@@ -361,28 +361,28 @@ public class d extends com.kwad.sdk.core.video.a.a {
     public void f() {
         com.kwad.sdk.core.d.a.b("KwaiMediaPlayer", IntentConfig.START);
         r();
-        this.f34112a.e();
+        this.f34113a.e();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void g() {
-        this.f34112a.g();
+        this.f34113a.g();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public int h() {
-        return this.f34112a.f().getVideoWidth();
+        return this.f34113a.f().getVideoWidth();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public int i() {
-        return this.f34112a.f().getVideoHeight();
+        return this.f34113a.f().getVideoHeight();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public boolean j() {
         try {
-            return this.f34112a.b();
+            return this.f34113a.b();
         } catch (IllegalStateException unused) {
             return false;
         }
@@ -391,7 +391,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
     @Override // com.kwad.sdk.core.video.a.c
     public long k() {
         try {
-            return this.f34112a.c();
+            return this.f34113a.c();
         } catch (IllegalStateException unused) {
             return 0L;
         }
@@ -400,7 +400,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
     @Override // com.kwad.sdk.core.video.a.c
     public long l() {
         try {
-            return this.f34112a.d();
+            return this.f34113a.d();
         } catch (IllegalStateException unused) {
             return 0L;
         }
@@ -410,8 +410,8 @@ public class d extends com.kwad.sdk.core.video.a.a {
     public void m() {
         boolean remove = l.remove(this);
         com.kwad.sdk.core.d.a.b("KwaiMediaPlayer", "release remote player ret: " + remove + ", player list size: " + l.size());
-        this.f34117f = true;
-        this.f34112a.a(new d.f() { // from class: com.kwad.sdk.core.video.a.d.2
+        this.f34118f = true;
+        this.f34113a.a(new d.f() { // from class: com.kwad.sdk.core.video.a.d.2
             @Override // com.kwai.video.ksvodplayerkit.d.f
             public void a() {
                 com.kwad.sdk.core.d.a.b("KwaiMediaPlayer", "onPlayerRelease");
@@ -426,7 +426,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
     public void n() {
         this.j = false;
         try {
-            this.f34112a.f().reset();
+            this.f34113a.f().reset();
         } catch (IllegalStateException unused) {
         }
         q();

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l {
     public static Intent a(Context context) {
         Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");

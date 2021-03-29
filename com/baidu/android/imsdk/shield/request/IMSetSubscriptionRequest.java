@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMSetSubscriptionRequest";
     public int mCategory;

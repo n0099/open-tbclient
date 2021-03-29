@@ -5,10 +5,10 @@ import com.baidu.adp.BdUniqueId;
 public class f extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f60865f = BdUniqueId.gen();
+    public static final BdUniqueId f60866f = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f60865f;
+        return f60866f;
     }
 }

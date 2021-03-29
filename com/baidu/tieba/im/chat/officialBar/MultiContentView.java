@@ -13,20 +13,20 @@ import d.b.b.e.k.b;
 import d.b.i0.d1.f.j.c;
 import d.b.i0.d1.l.c.a;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MultiContentView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17790e;
+    public Context f17791e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17791f;
+    public View f17792f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f17792g;
+    public LinearLayout f17793g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b<MultiImageTextTopView> f17793h;
+    public b<MultiImageTextTopView> f17794h;
     public b<MultiImageTextBottomView> i;
     public b<SingleImageTextView> j;
     public d.b.b.e.h.b k;
@@ -35,7 +35,7 @@ public class MultiContentView extends LinearLayout {
     public String n;
     public int o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public a() {
         }
@@ -47,7 +47,7 @@ public class MultiContentView extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             if (view2 instanceof MultiImageTextTopView) {
-                MultiContentView.this.f17793h.e((MultiImageTextTopView) view2);
+                MultiContentView.this.f17794h.e((MultiImageTextTopView) view2);
             } else if (view2 instanceof MultiImageTextBottomView) {
                 MultiContentView.this.i.e((MultiImageTextBottomView) view2);
             } else if (view2 instanceof SingleImageTextView) {
@@ -61,7 +61,7 @@ public class MultiContentView extends LinearLayout {
         this.k = null;
         this.m = true;
         this.o = 2;
-        this.f17790e = context;
+        this.f17791e = context;
         g();
     }
 
@@ -88,7 +88,7 @@ public class MultiContentView extends LinearLayout {
         b<MultiImageTextBottomView> bVar = this.i;
         MultiImageTextBottomView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
-            b2 = new MultiImageTextBottomView(this.f17790e);
+            b2 = new MultiImageTextBottomView(this.f17791e);
         }
         b2.setOnItemViewLongClickListener(this.k);
         b2.setPosition(this.l);
@@ -118,7 +118,7 @@ public class MultiContentView extends LinearLayout {
         b<SingleImageTextView> bVar = this.j;
         SingleImageTextView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() == null) {
-            b2 = new SingleImageTextView(this.f17790e);
+            b2 = new SingleImageTextView(this.f17791e);
         }
         b2.setOnItemViewLongClickListener(this.k);
         b2.setPosition(this.l);
@@ -137,10 +137,10 @@ public class MultiContentView extends LinearLayout {
     }
 
     private MultiImageTextTopView getTopView() {
-        b<MultiImageTextTopView> bVar = this.f17793h;
+        b<MultiImageTextTopView> bVar = this.f17794h;
         MultiImageTextTopView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
-            b2 = new MultiImageTextTopView(this.f17790e);
+            b2 = new MultiImageTextTopView(this.f17791e);
         }
         b2.setOnItemViewLongClickListener(this.k);
         b2.setPosition(this.l);
@@ -160,51 +160,51 @@ public class MultiContentView extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
-        this.f17792g.addView(view);
+        this.f17793g.addView(view);
     }
 
-    public final void d(TbPageContext<?> tbPageContext, a.C1202a c1202a, MultiImageTextBottomView multiImageTextBottomView, View view) {
-        if (c1202a == null || multiImageTextBottomView == null) {
+    public final void d(TbPageContext<?> tbPageContext, a.C1203a c1203a, MultiImageTextBottomView multiImageTextBottomView, View view) {
+        if (c1203a == null || multiImageTextBottomView == null) {
             return;
         }
-        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.f17790e.getResources().getDimension(R.dimen.ds132)));
-        multiImageTextBottomView.setData(tbPageContext, c1202a, view, this.o);
-        this.f17792g.addView(multiImageTextBottomView);
+        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.f17791e.getResources().getDimension(R.dimen.ds132)));
+        multiImageTextBottomView.setData(tbPageContext, c1203a, view, this.o);
+        this.f17793g.addView(multiImageTextBottomView);
     }
 
-    public final void e(TbPageContext<?> tbPageContext, a.C1202a c1202a, SingleImageTextView singleImageTextView, View view) {
-        if (c1202a == null || singleImageTextView == null) {
+    public final void e(TbPageContext<?> tbPageContext, a.C1203a c1203a, SingleImageTextView singleImageTextView, View view) {
+        if (c1203a == null || singleImageTextView == null) {
             return;
         }
         singleImageTextView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         singleImageTextView.setTime(this.n);
-        singleImageTextView.setData(tbPageContext, c1202a, view, this.o);
-        this.f17792g.addView(singleImageTextView);
+        singleImageTextView.setData(tbPageContext, c1203a, view, this.o);
+        this.f17793g.addView(singleImageTextView);
     }
 
-    public final void f(TbPageContext<?> tbPageContext, a.C1202a c1202a, MultiImageTextTopView multiImageTextTopView, View view) {
-        if (c1202a == null || multiImageTextTopView == null) {
+    public final void f(TbPageContext<?> tbPageContext, a.C1203a c1203a, MultiImageTextTopView multiImageTextTopView, View view) {
+        if (c1203a == null || multiImageTextTopView == null) {
             return;
         }
         multiImageTextTopView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         multiImageTextTopView.setTime(this.n);
-        multiImageTextTopView.setData(tbPageContext, c1202a, view, this.o);
-        this.f17792g.addView(multiImageTextTopView);
+        multiImageTextTopView.setData(tbPageContext, c1203a, view, this.o);
+        this.f17793g.addView(multiImageTextTopView);
     }
 
     public final void g() {
-        View inflate = View.inflate(this.f17790e, R.layout.msg_multi_pic_text_content_view, this);
-        this.f17791f = inflate;
-        this.f17792g = (LinearLayout) inflate.findViewById(R.id.view_container);
+        View inflate = View.inflate(this.f17791e, R.layout.msg_multi_pic_text_content_view, this);
+        this.f17792f = inflate;
+        this.f17793g = (LinearLayout) inflate.findViewById(R.id.view_container);
         c cVar = new c();
-        this.f17793h = cVar.f(this.f17790e);
-        this.i = cVar.d(this.f17790e);
-        this.j = cVar.e(this.f17790e);
-        this.f17792g.setOnHierarchyChangeListener(new a());
+        this.f17794h = cVar.f(this.f17791e);
+        this.i = cVar.d(this.f17791e);
+        this.j = cVar.e(this.f17791e);
+        this.f17793g.setOnHierarchyChangeListener(new a());
     }
 
-    public void setData(TbPageContext<?> tbPageContext, List<a.C1202a> list, View view) {
-        this.f17792g.removeAllViews();
+    public void setData(TbPageContext<?> tbPageContext, List<a.C1203a> list, View view) {
+        this.f17793g.removeAllViews();
         if (list == null || list.size() == 0) {
             return;
         }
@@ -217,7 +217,7 @@ public class MultiContentView extends LinearLayout {
         for (int i = 0; i < size; i++) {
             if (i == 0) {
                 if (list.get(i) != null) {
-                    str = list.get(i).f53911f;
+                    str = list.get(i).f53912f;
                 }
                 f(tbPageContext, list.get(i), getTopView(), view);
             } else if (i == size - 1) {
@@ -263,7 +263,7 @@ public class MultiContentView extends LinearLayout {
         this.k = null;
         this.m = true;
         this.o = 2;
-        this.f17790e = context;
+        this.f17791e = context;
         g();
     }
 }

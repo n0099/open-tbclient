@@ -15,29 +15,29 @@ import d.b.g0.a.q1.b.b.g;
 public class a implements g.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f45036a = null;
+    public FrameLayout f45037a = null;
 
     /* renamed from: d.b.g0.a.j2.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0715a implements Runnable {
+    public class RunnableC0716a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f45037e;
+        public final /* synthetic */ ViewGroup f45038e;
 
-        public RunnableC0715a(ViewGroup viewGroup) {
-            this.f45037e = viewGroup;
+        public RunnableC0716a(ViewGroup viewGroup) {
+            this.f45038e = viewGroup;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f45036a == null) {
-                a.this.f45036a = new FrameLayout(this.f45037e.getContext());
-                a.this.f45036a.setBackgroundResource(c.aiapps_night_mode_cover_layer);
+            if (a.this.f45037a == null) {
+                a.this.f45037a = new FrameLayout(this.f45038e.getContext());
+                a.this.f45037a.setBackgroundResource(c.aiapps_night_mode_cover_layer);
             }
-            this.f45037e.removeView(a.this.f45036a);
+            this.f45038e.removeView(a.this.f45037a);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.f45037e.addView(a.this.f45036a, layoutParams);
+            this.f45038e.addView(a.this.f45037a, layoutParams);
         }
     }
 
@@ -61,16 +61,16 @@ public class a implements g.c {
         if (viewGroup == null || view == null || !(viewGroup instanceof FrameLayout)) {
             return;
         }
-        view.post(new RunnableC0715a(viewGroup));
+        view.post(new RunnableC0716a(viewGroup));
     }
 
     public final void e(ViewGroup viewGroup) {
         FrameLayout frameLayout;
-        if (viewGroup == null || (frameLayout = this.f45036a) == null) {
+        if (viewGroup == null || (frameLayout = this.f45037a) == null) {
             return;
         }
         viewGroup.removeView(frameLayout);
-        this.f45036a = null;
+        this.f45037a = null;
     }
 
     public final void f(g gVar) {

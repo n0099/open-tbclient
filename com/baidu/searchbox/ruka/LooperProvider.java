@@ -6,7 +6,7 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.looper.impl.LooperMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LooperProvider {
     public static final ILooperMonitor EMPTY = new ILooperMonitor() { // from class: com.baidu.searchbox.ruka.LooperProvider.1
         @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor

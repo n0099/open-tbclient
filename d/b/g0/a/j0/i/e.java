@@ -15,37 +15,37 @@ import kotlin.jvm.functions.Function1;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class e implements d.b.g0.l.m.c<JSONArray> {
-    public static final boolean k = k.f45050a;
+    public static final boolean k = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f44843a;
+    public final f f44844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f44844b;
+    public final String f44845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f44845c = null;
+    public i f44846c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f44846d = null;
+    public i f44847d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.a.f2.a f44847e = null;
+    public d.b.g0.a.f2.a f44848e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44848f = false;
+    public boolean f44849f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44849g = false;
+    public boolean f44850g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Collection<d.b.g0.a.i2.u0.b<e>> f44850h = new HashSet();
+    public final Collection<d.b.g0.a.i2.u0.b<e>> f44851h = new HashSet();
     public final Collection<d.b.g0.a.i2.u0.b<e>> i = new HashSet();
     public d.b j = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Function1<d.b.g0.a.f2.a, Unit> {
         public a() {
         }
@@ -58,18 +58,18 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
                 Log.i("SoUpdating", "install: " + e.this.k() + " onCallback");
             }
             e.this.i(aVar);
-            e.this.f44848f = false;
+            e.this.f44849f = false;
             return null;
         }
     }
 
     public e(@NonNull f fVar, String str) {
-        this.f44843a = fVar;
-        this.f44844b = str;
+        this.f44844a = fVar;
+        this.f44845b = str;
     }
 
     public final synchronized void e() {
-        this.f44850h.clear();
+        this.f44851h.clear();
         this.i.clear();
     }
 
@@ -79,7 +79,7 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
     public void a(@NonNull JSONArray jSONArray) {
         i l = l();
         if (k) {
-            Log.i("SoUpdating", "decorateParams libName=" + this.f44844b + " localSo=" + l);
+            Log.i("SoUpdating", "decorateParams libName=" + this.f44845b + " localSo=" + l);
         }
         try {
             Iterator<AbiType> it = AbiType.currentAbi().getCompatible().iterator();
@@ -89,7 +89,7 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
                     Log.i("SoUpdating", "decorateParams loop abi=" + next);
                 }
                 if (next != null) {
-                    d.b.g0.l.o.a d2 = d.b.g0.l.o.a.d(this.f44844b, next);
+                    d.b.g0.l.o.a d2 = d.b.g0.l.o.a.d(this.f44845b, next);
                     if (k) {
                         Log.i("SoUpdating", "decorateParams loop bundleId=" + d2);
                     }
@@ -103,7 +103,7 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
                             str = str2;
                         }
                         jSONObject.put("type", "so");
-                        jSONObject.put("bundle_id", d2.f49057b);
+                        jSONObject.put("bundle_id", d2.f49058b);
                         jSONObject.put("version_code", j);
                         jSONObject.put("version_name", str);
                         if (k) {
@@ -121,7 +121,7 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
     }
 
     public synchronized e g(d.b.g0.a.i2.u0.b<e> bVar) {
-        this.f44850h.remove(bVar);
+        this.f44851h.remove(bVar);
         return this;
     }
 
@@ -132,35 +132,35 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
 
     public final synchronized e i(d.b.g0.a.f2.a aVar) {
         if (k) {
-            Log.i("SoUpdating", "finish: " + k() + " finished=" + this.f44849g + " error=" + aVar);
+            Log.i("SoUpdating", "finish: " + k() + " finished=" + this.f44850g + " error=" + aVar);
         }
-        if (this.f44849g) {
+        if (this.f44850g) {
             return this;
         }
-        this.f44849g = true;
-        this.f44847e = aVar;
+        this.f44850g = true;
+        this.f44848e = aVar;
         if (aVar == null) {
-            c.f44831d.r(k(), System.currentTimeMillis());
+            c.f44832d.r(k(), System.currentTimeMillis());
         }
-        c.f44831d.e(k());
+        c.f44832d.e(k());
         t();
         e();
         return this;
     }
 
     public i j() {
-        return this.f44846d;
+        return this.f44847d;
     }
 
     public String k() {
-        return this.f44844b;
+        return this.f44845b;
     }
 
     public i l() {
-        if (this.f44845c == null && !TextUtils.isEmpty(this.f44844b)) {
-            this.f44845c = d.b.g0.l.i.a.h().q(this.f44844b);
+        if (this.f44846c == null && !TextUtils.isEmpty(this.f44845b)) {
+            this.f44846c = d.b.g0.l.i.a.h().q(this.f44845b);
         }
-        return this.f44845c;
+        return this.f44846c;
     }
 
     public d.b m() {
@@ -168,45 +168,45 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
     }
 
     public boolean n() {
-        return this.f44849g;
+        return this.f44850g;
     }
 
     public boolean o() {
-        return n() && (this.f44847e == null || c.f44831d.j(k()));
+        return n() && (this.f44848e == null || c.f44832d.j(k()));
     }
 
     public boolean p() {
-        i iVar = this.f44846d;
-        return (iVar == null || iVar == this.f44845c) ? false : true;
+        i iVar = this.f44847d;
+        return (iVar == null || iVar == this.f44846c) ? false : true;
     }
 
     public synchronized void q() {
         if (k) {
-            Log.i("SoUpdating", "install: " + k() + " finished=" + this.f44849g + " installing=" + this.f44848f);
+            Log.i("SoUpdating", "install: " + k() + " finished=" + this.f44850g + " installing=" + this.f44849f);
         }
-        if (!this.f44849g && !this.f44848f) {
-            this.f44848f = true;
+        if (!this.f44850g && !this.f44849f) {
+            this.f44849f = true;
             if (k) {
                 Log.i("SoUpdating", "install: " + k());
             }
-            c.f44831d.s(k(), new a());
+            c.f44832d.s(k(), new a());
         }
     }
 
     public boolean r(f fVar) {
-        return fVar != null && fVar == this.f44843a;
+        return fVar != null && fVar == this.f44844a;
     }
 
     public boolean s() {
-        return !n() && this.f44848f;
+        return !n() && this.f44849f;
     }
 
     public final synchronized void t() {
         if (k) {
-            Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.f44850h.size());
+            Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.f44851h.size());
         }
-        this.f44849g = true;
-        for (d.b.g0.a.i2.u0.b<e> bVar : this.f44850h) {
+        this.f44850g = true;
+        for (d.b.g0.a.i2.u0.b<e> bVar : this.f44851h) {
             if (bVar != null) {
                 bVar.onCallback(this);
             }
@@ -214,7 +214,7 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
     }
 
     public synchronized e u(d.b.g0.a.i2.u0.b<e> bVar) {
-        this.f44850h.add(bVar);
+        this.f44851h.add(bVar);
         return this;
     }
 
@@ -225,13 +225,13 @@ public final class e implements d.b.g0.l.m.c<JSONArray> {
 
     public e w(f fVar, i iVar) {
         if (r(fVar)) {
-            this.f44846d = iVar;
+            this.f44847d = iVar;
         }
         return this;
     }
 
     public synchronized void x(d.b bVar) {
-        if (!this.f44849g && bVar != null && 0 != bVar.f44842b) {
+        if (!this.f44850g && bVar != null && 0 != bVar.f44843b) {
             this.j = bVar;
             for (d.b.g0.a.i2.u0.b<e> bVar2 : this.i) {
                 if (bVar2 != null) {

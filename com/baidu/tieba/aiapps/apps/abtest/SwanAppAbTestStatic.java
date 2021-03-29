@@ -42,10 +42,10 @@ import java.util.List;
 public class SwanAppAbTestStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14678a = false;
+    public static boolean f14679a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.h0.f0.h f14679b = new a();
+    public static d.b.h0.f0.h f14680b = new a();
 
     /* loaded from: classes4.dex */
     public static class a extends d.b.h0.f0.h<PrivacyPolicyEvent> {
@@ -248,7 +248,7 @@ public class SwanAppAbTestStatic {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            d.b.h0.f0.g.e().k(PrivacyPolicyEvent.class, f14679b, BdUniqueId.gen());
+            d.b.h0.f0.g.e().k(PrivacyPolicyEvent.class, f14680b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -264,10 +264,10 @@ public class SwanAppAbTestStatic {
     }
 
     public static void c() {
-        if (f14678a) {
+        if (f14679a) {
             return;
         }
-        f14678a = true;
+        f14679a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;

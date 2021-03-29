@@ -18,7 +18,7 @@ import d.b.i.k0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public TbPageContext m;
     public BdUniqueId n;
@@ -26,7 +26,7 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     public NEGFeedBackView.b p;
     public b0<k> q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<k> {
         public a(g gVar) {
         }
@@ -54,7 +54,7 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b {
         public b(g gVar) {
         }
@@ -64,7 +64,7 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements w {
         public c() {
         }
@@ -79,7 +79,7 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
                     g.this.q.a(threadCardViewHolder.a(), kVar);
                 }
                 d.b.i0.z0.k.d.a.c(kVar, view.getContext(), 19, false, d.b.i.e.a((s) viewGroup, view, i));
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -113,12 +113,12 @@ public class g extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);
         threadCardViewHolder.b().q(i);
-        threadCardViewHolder.m(kVar.f62196e.w(), null);
+        threadCardViewHolder.m(kVar.f62197e.w(), null);
         threadCardViewHolder.q(true, Align.ALIGN_RIGHT_TOP, this.p);
         threadCardViewHolder.f(kVar);
         threadCardViewHolder.b().onChangeSkinType(this.m, TbadkCoreApplication.getInst().getSkinType());

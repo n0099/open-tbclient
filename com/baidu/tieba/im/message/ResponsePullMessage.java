@@ -44,11 +44,11 @@ import protobuf.GroupInfo;
 import protobuf.MsgInfo;
 import protobuf.TshowInfo;
 import protobuf.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponsePullMessage extends SocketResponsedMessage {
     public List<GroupMsgData> groupMsg;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements a.b {
         public a(ResponsePullMessage responsePullMessage) {
         }
@@ -67,14 +67,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f18062a;
+        public final /* synthetic */ ImMessageCenterPojo f18063a;
 
         public b(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f18062a = imMessageCenterPojo;
+            this.f18063a = imMessageCenterPojo;
         }
 
         @Override // d.b.i0.d1.f.l.a.b
@@ -90,33 +90,33 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             }
             int i2 = 2;
             j.f().k(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() != 0 || (imMessageCenterPojo2 = this.f18062a) == null) {
+            if (imMessageCenterPojo.getIsFriend() != 0 || (imMessageCenterPojo2 = this.f18063a) == null) {
                 return;
             }
             imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            this.f18062a.setCustomGroupType(-7);
+            this.f18063a.setCustomGroupType(-7);
             if (i == 0) {
-                this.f18062a.setUnread_count(0);
+                this.f18063a.setUnread_count(0);
             } else if (i == 1) {
-                this.f18062a.setUnread_count(1);
+                this.f18063a.setUnread_count(1);
             } else {
                 i2 = 1;
             }
             if (z) {
-                this.f18062a.setIs_hidden(0);
+                this.f18063a.setIs_hidden(0);
             }
-            j.f().k(this.f18062a, i2);
+            j.f().k(this.f18063a, i2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f18063a;
+        public final /* synthetic */ ImMessageCenterPojo f18064a;
 
         public c(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f18063a = imMessageCenterPojo;
+            this.f18064a = imMessageCenterPojo;
         }
 
         @Override // d.b.i0.d1.f.l.a.b
@@ -132,27 +132,27 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             int i2 = 2;
             j.f().k(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
-            if (this.f18063a != null) {
+            if (this.f18064a != null) {
                 if (userType == 1 || userType == 3) {
-                    this.f18063a.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-                    this.f18063a.setCustomGroupType(-8);
+                    this.f18064a.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                    this.f18064a.setCustomGroupType(-8);
                     if (i == 0) {
-                        this.f18063a.setUnread_count(0);
+                        this.f18064a.setUnread_count(0);
                     } else if (i == 1) {
-                        this.f18063a.setUnread_count(1);
+                        this.f18064a.setUnread_count(1);
                     } else {
                         i2 = 1;
                     }
                     if (z) {
-                        this.f18063a.setIs_hidden(0);
+                        this.f18064a.setIs_hidden(0);
                     }
-                    j.f().k(this.f18063a, i2);
+                    j.f().k(this.f18064a, i2);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements a.b {
         public d(ResponsePullMessage responsePullMessage) {
         }
@@ -171,7 +171,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements a.b {
         public e(ResponsePullMessage responsePullMessage) {
         }
@@ -508,11 +508,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                         getCmd();
                         d.b.b.c.i.a aVar3 = this.performanceData;
                         if (aVar3 != null) {
-                            fVar.f50311b = aVar3.f41564f;
-                            fVar.f50312c = getDownSize();
-                            fVar.f50313d = currentTimeMillis3;
-                            fVar.f50314e = i4;
-                            fVar.f50315f = this.performanceData.f41561c;
+                            fVar.f50312b = aVar3.f41565f;
+                            fVar.f50313c = getDownSize();
+                            fVar.f50314d = currentTimeMillis3;
+                            fVar.f50315e = i4;
+                            fVar.f50316f = this.performanceData.f41562c;
                             fVar.a(1002);
                             fVar.f();
                         }
@@ -525,11 +525,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                         getCmd();
                         aVar = this.performanceData;
                         if (aVar != null) {
-                            fVar2.f50311b = aVar.f41564f;
-                            fVar2.f50312c = getDownSize();
-                            fVar2.f50313d = currentTimeMillis4;
-                            fVar2.f50314e = i4;
-                            fVar2.f50315f = this.performanceData.f41561c;
+                            fVar2.f50312b = aVar.f41565f;
+                            fVar2.f50313c = getDownSize();
+                            fVar2.f50314d = currentTimeMillis4;
+                            fVar2.f50315e = i4;
+                            fVar2.f50316f = this.performanceData.f41562c;
                             fVar2.a(1002);
                             fVar2.f();
                         }
@@ -561,11 +561,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             i4 = 0;
         }
         if (aVar2 != null) {
-            fVar.f50311b = aVar2.f41564f;
-            fVar.f50312c = getDownSize();
-            fVar.f50313d = currentTimeMillis;
-            fVar.f50314e = i5;
-            fVar.f50315f = this.performanceData.f41561c;
+            fVar.f50312b = aVar2.f41565f;
+            fVar.f50313c = getDownSize();
+            fVar.f50314d = currentTimeMillis;
+            fVar.f50315e = i5;
+            fVar.f50316f = this.performanceData.f41562c;
             fVar.a(1002);
             fVar.f();
         }

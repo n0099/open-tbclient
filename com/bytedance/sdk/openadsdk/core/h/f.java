@@ -30,22 +30,22 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f28414d;
+    public static volatile f f28415d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f28417a;
+    public final c f28418a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f28418b;
+    public final Context f28419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final AtomicLong f28413c = new AtomicLong(0);
+    public static final AtomicLong f28414c = new AtomicLong(0);
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f28415e = true;
+    public static boolean f28416e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f28416f = false;
+    public static volatile boolean f28417f = false;
 
     /* loaded from: classes6.dex */
     public class a extends BroadcastReceiver {
@@ -61,12 +61,12 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
             if (intExtra == 1) {
                 long longExtra = intent.getLongExtra("b_msg_time", -1L);
                 if (longExtra > 0) {
-                    f.f28413c.set(longExtra);
+                    f.f28414c.set(longExtra);
                 }
             } else if (intExtra == 2) {
                 try {
-                    if (f.this.f28417a != null) {
-                        f.this.f28417a.a();
+                    if (f.this.f28418a != null) {
+                        f.this.f28418a.a();
                     }
                 } catch (Throwable unused) {
                 }
@@ -76,11 +76,11 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
 
     public f(c cVar) {
         super("SdkSettingsHelper");
-        this.f28417a = cVar == null ? p.h() : cVar;
-        this.f28418b = p.a();
+        this.f28418a = cVar == null ? p.h() : cVar;
+        this.f28419b = p.a();
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             try {
-                this.f28418b.registerReceiver(new a(), new IntentFilter("com.bytedance.openadsdk.settingReceiver"));
+                this.f28419b.registerReceiver(new a(), new IntentFilter("com.bytedance.openadsdk.settingReceiver"));
             } catch (Throwable unused) {
             }
         }
@@ -99,7 +99,7 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
     }
 
     public static boolean d() {
-        return f28416f;
+        return f28417f;
     }
 
     private boolean i() {
@@ -110,20 +110,20 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
     private JSONObject j() {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(this.f28418b);
+            com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(this.f28419b);
             if (a2 != null) {
-                jSONObject.put("latitude", a2.f30396a);
-                jSONObject.put("longitude", a2.f30397b);
+                jSONObject.put("latitude", a2.f30397a);
+                jSONObject.put("longitude", a2.f30398b);
             }
         } catch (Exception unused) {
         }
         try {
             int i = 1;
             jSONObject.put("ip", com.bytedance.sdk.openadsdk.utils.i.a(true));
-            jSONObject.put("imei", k.d(this.f28418b));
+            jSONObject.put("imei", k.d(this.f28419b));
             jSONObject.put("oaid", y.a());
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put("conn_type", x.b(this.f28418b));
+            jSONObject.put("conn_type", x.b(this.f28419b));
             jSONObject.put(IXAdRequestInfo.OS, 1);
             jSONObject.put("oversea_version_type", 0);
             jSONObject.put("os_version", String.valueOf(Build.VERSION.RELEASE));
@@ -152,10 +152,10 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f28413c.get() < 600000) {
+            if (currentTimeMillis - f28414c.get() < 600000) {
                 return;
             }
-            f28413c.set(currentTimeMillis);
+            f28414c.set(currentTimeMillis);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 a(currentTimeMillis);
             }
@@ -167,9 +167,9 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!x.a(this.f28418b)) {
+        if (!x.a(this.f28419b)) {
             try {
-                this.f28417a.a();
+                this.f28418a.a();
             } catch (Throwable unused) {
             }
         } else if (i()) {
@@ -189,16 +189,16 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
                     JSONObject jSONObject;
                     String str;
                     JSONObject jSONObject2;
-                    if (oVar == null || (jSONObject = oVar.f65738a) == null) {
+                    if (oVar == null || (jSONObject = oVar.f65739a) == null) {
                         try {
-                            f.this.f28417a.a();
+                            f.this.f28418a.a();
                             return;
                         } catch (Throwable unused2) {
                             return;
                         }
                     }
                     int optInt = jSONObject.optInt("cypher", -1);
-                    JSONObject jSONObject3 = oVar.f65738a;
+                    JSONObject jSONObject3 = oVar.f65739a;
                     JSONObject jSONObject4 = jSONObject3;
                     Map<String, String> map = null;
                     if (optInt == 1) {
@@ -210,13 +210,13 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
                                 u.a("SdkSettingsHelper", "setting data error: ", th);
                             }
                         }
-                        if (oVar.f65739b != null) {
-                            map = oVar.f65739b.f65769h;
+                        if (oVar.f65740b != null) {
+                            map = oVar.f65740b.f65770h;
                         }
                         f.this.a(str, map);
-                        f.this.f28417a.a(jSONObject4);
-                        if (!f.f28416f) {
-                            boolean unused3 = f.f28416f = true;
+                        f.this.f28418a.a(jSONObject4);
+                        if (!f.f28417f) {
+                            boolean unused3 = f.f28417f = true;
                             b.a().b();
                         }
                         com.bytedance.sdk.openadsdk.h.a.a().b();
@@ -238,21 +238,21 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
                     } else {
                         str = null;
                     }
-                    if (oVar.f65739b != null) {
+                    if (oVar.f65740b != null) {
                     }
                     f.this.a(str, map);
-                    f.this.f28417a.a(jSONObject4);
-                    if (!f.f28416f) {
+                    f.this.f28418a.a(jSONObject4);
+                    if (!f.f28417f) {
                     }
                     com.bytedance.sdk.openadsdk.h.a.a().b();
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     }
                     jSONObject4 = jSONObject2;
-                    if (oVar.f65739b != null) {
+                    if (oVar.f65740b != null) {
                     }
                     f.this.a(str, map);
-                    f.this.f28417a.a(jSONObject4);
-                    if (!f.f28416f) {
+                    f.this.f28418a.a(jSONObject4);
+                    if (!f.f28417f) {
                     }
                     com.bytedance.sdk.openadsdk.h.a.a().b();
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
@@ -262,7 +262,7 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
                 @Override // d.c.c.b.d.o.a
                 public void b(o<JSONObject> oVar) {
                     try {
-                        f.this.f28417a.a();
+                        f.this.f28418a.a();
                     } catch (Throwable unused2) {
                     }
                 }
@@ -271,14 +271,14 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
     }
 
     public static f a(c cVar) {
-        if (f28414d == null) {
+        if (f28415d == null) {
             synchronized (f.class) {
-                if (f28414d == null) {
-                    f28414d = new f(cVar);
+                if (f28415d == null) {
+                    f28415d = new f(cVar);
                 }
             }
         }
-        return f28414d;
+        return f28415d;
     }
 
     public static void a() {
@@ -338,6 +338,6 @@ public class f extends com.bytedance.sdk.openadsdk.l.g {
     }
 
     private JSONObject a(JSONObject jSONObject) {
-        return f28415e ? ak.a(jSONObject) : jSONObject;
+        return f28416e ? ak.a(jSONObject) : jSONObject;
     }
 }

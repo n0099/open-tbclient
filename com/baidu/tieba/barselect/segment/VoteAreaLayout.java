@@ -24,7 +24,7 @@ import d.b.i0.v.b.f;
 public class VoteAreaLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f15197h;
+    public Context f15198h;
     public RoundAndShadowLinearLayout i;
     public View j;
     public TextView k;
@@ -35,26 +35,26 @@ public class VoteAreaLayout extends CardBasicLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f15198e;
+        public final /* synthetic */ f f15199e;
 
         public a(f fVar) {
-            this.f15198e = fVar;
+            this.f15199e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f fVar;
-            if ((VoteAreaLayout.this.f15197h instanceof Activity) && ViewHelper.checkUpIsLogin(VoteAreaLayout.this.f15197h)) {
+            if ((VoteAreaLayout.this.f15198h instanceof Activity) && ViewHelper.checkUpIsLogin(VoteAreaLayout.this.f15198h)) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_BUTTON).eventStat();
-                if (VoteAreaLayout.this.f15194g == null || (fVar = this.f15198e) == null || fVar.a() == null) {
+                if (VoteAreaLayout.this.f15195g == null || (fVar = this.f15199e) == null || fVar.a() == null) {
                     return;
                 }
-                if (this.f15198e.a().a()) {
-                    if (this.f15198e.c() == 0 || this.f15198e.g() == null) {
+                if (this.f15199e.a().a()) {
+                    if (this.f15199e.c() == 0 || this.f15199e.g() == null) {
                         return;
                     }
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.f15194g.l(), this.f15198e.c(), VoteAreaLayout.this.f15194g.k(), 1);
-                    commitVoteReqMsg.setTag(this.f15198e.g());
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.f15195g.l(), this.f15199e.c(), VoteAreaLayout.this.f15195g.k(), 1);
+                    commitVoteReqMsg.setTag(this.f15199e.g());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                     return;
                 }
@@ -70,7 +70,7 @@ public class VoteAreaLayout extends CardBasicLayout {
     public final void b() {
         RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
         this.i = roundAndShadowLinearLayout;
-        roundAndShadowLinearLayout.setRadius(l.g(this.f15197h, R.dimen.tbds8));
+        roundAndShadowLinearLayout.setRadius(l.g(this.f15198h, R.dimen.tbds8));
         this.k = (TextView) findViewById(R.id.vote_num);
         this.l = (TrapezoidButton) findViewById(R.id.vote_button);
         this.m = (TextView) findViewById(R.id.vote_button_tv);
@@ -78,7 +78,7 @@ public class VoteAreaLayout extends CardBasicLayout {
     }
 
     public void c() {
-        this.f15197h = getContext();
+        this.f15198h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
@@ -99,11 +99,11 @@ public class VoteAreaLayout extends CardBasicLayout {
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.f15193f != null && this.f15194g != null && this.f15192e >= 0) {
+        if (this.f15194f != null && this.f15195g != null && this.f15193e >= 0) {
             TextView textView = this.k;
-            textView.setText(StringHelper.numFormatOverWan(this.f15194g.m()) + "票");
+            textView.setText(StringHelper.numFormatOverWan(this.f15195g.m()) + "票");
             this.m.setOnClickListener(new a(fVar));
-            if (this.f15194g.n()) {
+            if (this.f15195g.n()) {
                 this.m.setEnabled(false);
                 return;
             } else {

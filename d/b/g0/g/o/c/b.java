@@ -12,47 +12,47 @@ import java.util.ArrayList;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.g0.g.o.c.c.b[] f48522b;
+    public static d.b.g0.g.o.c.c.b[] f48523b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f48527g;
+    public static int f48528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f48528h;
+    public static long f48529h;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48521a = k.f45050a;
+    public static final boolean f48522a = k.f45051a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Point f48523c = new Point();
+    public static Point f48524c = new Point();
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f48524d = 1.0f;
+    public static float f48525d = 1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public static float f48525e = 1.0f;
+    public static float f48526e = 1.0f;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f48526f = false;
+    public static boolean f48527f = false;
 
     public static long a() {
-        return f48528h;
+        return f48529h;
     }
 
     public static int b() {
-        return f48527g;
+        return f48528g;
     }
 
     public static boolean c() {
-        return f48526f;
+        return f48527f;
     }
 
     public static float d(MotionEvent motionEvent, int i) {
-        return e.b(motionEvent.getX(i) * f48524d);
+        return e.b(motionEvent.getX(i) * f48525d);
     }
 
     public static float e(MotionEvent motionEvent, int i) {
-        return e.b(motionEvent.getY(i) * f48525e);
+        return e.b(motionEvent.getY(i) * f48526e);
     }
 
     public static boolean f(EventTarget eventTarget) {
@@ -63,7 +63,7 @@ public final class b {
     }
 
     public static void g(boolean z) {
-        f48526f = z;
+        f48527f = z;
     }
 
     public static void h(MotionEvent motionEvent, d.b.g0.g.o.c.c.a aVar, boolean z) {
@@ -78,8 +78,8 @@ public final class b {
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
-            if (f48522b == null || f48522b.length != pointerCount) {
-                f48522b = new d.b.g0.g.o.c.c.b[pointerCount];
+            if (f48523b == null || f48523b.length != pointerCount) {
+                f48523b = new d.b.g0.g.o.c.c.b[pointerCount];
             }
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < pointerCount; i++) {
@@ -87,10 +87,10 @@ public final class b {
                 bVar.identifier = motionEvent.getPointerId(i);
                 bVar.clientX = d(motionEvent, i);
                 bVar.clientY = e(motionEvent, i);
-                if (!bVar.equals(f48522b[i])) {
+                if (!bVar.equals(f48523b[i])) {
                     arrayList.add(bVar);
                 }
-                f48522b[i] = bVar;
+                f48523b[i] = bVar;
             }
             if (arrayList.size() != 0) {
                 d.b.g0.g.o.c.c.b[] bVarArr2 = new d.b.g0.g.o.c.c.b[arrayList.size()];
@@ -98,7 +98,7 @@ public final class b {
                 arrayList.toArray(bVarArr2);
             }
         } catch (Exception e2) {
-            if (f48521a) {
+            if (f48522a) {
                 e2.printStackTrace();
             }
         }
@@ -135,7 +135,7 @@ public final class b {
             }
             arrayList.toArray(aVar.touches);
         } catch (Exception e2) {
-            if (f48521a) {
+            if (f48522a) {
                 e2.printStackTrace();
             }
         }
@@ -147,10 +147,10 @@ public final class b {
         String str = "touchend";
         if (actionMasked == 0) {
             h(motionEvent, aVar, false);
-            int i = f48527g + 1;
-            f48527g = i;
-            f48527g = Math.min(i, 1000);
-            f48528h = System.currentTimeMillis();
+            int i = f48528g + 1;
+            f48528g = i;
+            f48528g = Math.min(i, 1000);
+            f48529h = System.currentTimeMillis();
         } else {
             if (actionMasked == 1) {
                 h(motionEvent, aVar, false);
@@ -184,11 +184,11 @@ public final class b {
     }
 
     public static void k() {
-        f48527g = 0;
+        f48528g = 0;
     }
 
     public static void l(int i, int i2) {
-        Point point = f48523c;
+        Point point = f48524c;
         point.x = i;
         point.y = i2;
     }
@@ -197,13 +197,13 @@ public final class b {
         int i3;
         int i4;
         float f2 = 1.0f;
-        f48524d = (i == 0 || (i4 = f48523c.x) == 0) ? 1.0f : i4 / i;
-        if (i2 != 0 && (i3 = f48523c.y) != 0) {
+        f48525d = (i == 0 || (i4 = f48524c.x) == 0) ? 1.0f : i4 / i;
+        if (i2 != 0 && (i3 = f48524c.y) != 0) {
             f2 = i3 / i2;
         }
-        f48525e = f2;
-        if (f48521a) {
-            Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(f48524d), Float.valueOf(f48525e)));
+        f48526e = f2;
+        if (f48522a) {
+            Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(f48525d), Float.valueOf(f48526e)));
         }
     }
 }

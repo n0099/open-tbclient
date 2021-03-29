@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public SdkLiveInfoData f60332a;
+    public SdkLiveInfoData f60333a;
 
     public boolean a() {
-        return this.f60332a != null && ((long) d.b.b.e.m.b.d(this.f60332a.liveId, 0)) > 0;
+        return this.f60333a != null && ((long) d.b.b.e.m.b.d(this.f60333a.liveId, 0)) > 0;
     }
 
     public void b(JSONObject jSONObject) {
@@ -18,7 +18,7 @@ public class g {
             return;
         }
         SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-        this.f60332a = sdkLiveInfoData;
+        this.f60333a = sdkLiveInfoData;
         sdkLiveInfoData.fromJson(optJSONObject);
     }
 }

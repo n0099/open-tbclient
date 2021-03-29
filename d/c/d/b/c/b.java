@@ -8,43 +8,43 @@ import d.c.d.b.l;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f65805c;
+    public static volatile b f65806c;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.c.d.b.c.c.b f65806a;
+    public d.c.d.b.c.c.b f65807a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f65807b;
+    public SQLiteDatabase f65808b;
 
     public static b a() {
-        if (f65805c == null) {
+        if (f65806c == null) {
             synchronized (b.class) {
-                if (f65805c == null) {
-                    f65805c = new b();
+                if (f65806c == null) {
+                    f65806c = new b();
                 }
             }
         }
-        return f65805c;
+        return f65806c;
     }
 
     public void b(Context context) {
         try {
-            this.f65807b = new d(context).getWritableDatabase();
+            this.f65808b = new d(context).getWritableDatabase();
         } catch (Throwable th) {
             l.k.c(th);
         }
-        this.f65806a = new d.c.d.b.c.c.b();
+        this.f65807a = new d.c.d.b.c.c.b();
     }
 
     public synchronized void c(a aVar) {
-        if (this.f65806a != null) {
-            this.f65806a.f(this.f65807b, aVar);
+        if (this.f65807a != null) {
+            this.f65807a.f(this.f65808b, aVar);
         }
     }
 
     public synchronized boolean d(String str) {
-        if (this.f65806a != null) {
-            return this.f65806a.g(this.f65807b, str);
+        if (this.f65807a != null) {
+            return this.f65807a.g(this.f65808b, str);
         }
         return false;
     }

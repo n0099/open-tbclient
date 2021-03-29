@@ -52,6 +52,138 @@ public final class FlowableZip$ZipCoordinator<T, R> extends AtomicInteger implem
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:127:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00cc, code lost:
+        if (r16 != 0) goto L109;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00d0, code lost:
+        if (r18.cancelled == false) goto L65;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00d2, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00d5, code lost:
+        if (r18.delayErrors != false) goto L72;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00dd, code lost:
+        if (r18.errors.get() == null) goto L72;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00df, code lost:
+        cancelAll();
+        r2.onError(r18.errors.terminate());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00eb, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00ec, code lost:
+        r6 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x00ed, code lost:
+        if (r6 >= r4) goto L106;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00ef, code lost:
+        r0 = r3[r6];
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x00f3, code lost:
+        if (r5[r6] != null) goto L105;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00f5, code lost:
+        r10 = r0.done;
+        r0 = r0.queue;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x00f9, code lost:
+        if (r0 == null) goto L97;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00fb, code lost:
+        r0 = r0.poll();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0100, code lost:
+        r0 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x0101, code lost:
+        if (r0 != null) goto L96;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x0103, code lost:
+        r11 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x0105, code lost:
+        r11 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x0106, code lost:
+        if (r10 == false) goto L91;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x0108, code lost:
+        if (r11 == false) goto L91;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x010a, code lost:
+        cancelAll();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x0115, code lost:
+        if (r18.errors.get() == null) goto L89;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0117, code lost:
+        r2.onError(r18.errors.terminate());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x0121, code lost:
+        r2.onComplete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x0124, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0125, code lost:
+        if (r11 != false) goto L95;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x0127, code lost:
+        r5[r6] = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x012a, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x012b, code lost:
+        f.a.u.a.a(r0);
+        r18.errors.addThrowable(r0);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0135, code lost:
+        if (r18.delayErrors == false) goto L101;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x0137, code lost:
+        cancelAll();
+        r2.onError(r18.errors.terminate());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x0143, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:89:0x0144, code lost:
+        r6 = r6 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x014b, code lost:
+        if (r12 == 0) goto L118;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x014d, code lost:
+        r0 = r3.length;
+        r15 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x014f, code lost:
+        if (r15 >= r0) goto L114;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x0151, code lost:
+        r3[r15].request(r12);
+        r15 = r15 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x0160, code lost:
+        if (r8 == Long.MAX_VALUE) goto L118;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x0162, code lost:
+        r18.requested.addAndGet(-r12);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x0168, code lost:
+        r7 = addAndGet(-r7);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drain() {
         boolean z;
         T poll;
@@ -67,84 +199,37 @@ public final class FlowableZip$ZipCoordinator<T, R> extends AtomicInteger implem
         do {
             long j = this.requested.get();
             long j2 = 0;
-            while (j != j2) {
-                if (this.cancelled) {
-                    return;
-                }
-                if (!this.delayErrors && this.errors.get() != null) {
-                    cancelAll();
-                    cVar.onError(this.errors.terminate());
-                    return;
-                }
-                boolean z3 = false;
-                for (int i2 = 0; i2 < length; i2++) {
-                    FlowableZip$ZipSubscriber<T, R> flowableZip$ZipSubscriber = flowableZip$ZipSubscriberArr[i2];
-                    if (objArr[i2] == null) {
-                        try {
-                            z = flowableZip$ZipSubscriber.done;
-                            f<T> fVar = flowableZip$ZipSubscriber.queue;
-                            poll = fVar != null ? fVar.poll() : null;
-                            z2 = poll == null;
-                        } catch (Throwable th) {
-                            a.a(th);
-                            this.errors.addThrowable(th);
-                            if (!this.delayErrors) {
-                                cancelAll();
-                                cVar.onError(this.errors.terminate());
-                                return;
-                            }
-                        }
-                        if (z && z2) {
-                            cancelAll();
-                            if (this.errors.get() != null) {
-                                cVar.onError(this.errors.terminate());
-                                return;
-                            } else {
-                                cVar.onComplete();
-                                return;
-                            }
-                        }
-                        if (!z2) {
-                            objArr[i2] = poll;
-                        }
-                        z3 = true;
-                    }
-                }
-                if (z3) {
+            while (true) {
+                int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                if (i2 == 0) {
                     break;
-                }
-                try {
-                    Object obj = (R) this.zipper.apply(objArr.clone());
-                    f.a.x.b.a.b(obj, "The zipper returned a null value");
-                    cVar.onNext(obj);
-                    j2++;
-                    Arrays.fill(objArr, (Object) null);
-                } catch (Throwable th2) {
-                    a.a(th2);
-                    cancelAll();
-                    this.errors.addThrowable(th2);
-                    cVar.onError(this.errors.terminate());
+                } else if (this.cancelled) {
                     return;
-                }
-            }
-            if (j == j2) {
-                if (this.cancelled) {
-                    return;
-                }
-                if (!this.delayErrors && this.errors.get() != null) {
-                    cancelAll();
-                    cVar.onError(this.errors.terminate());
-                    return;
-                }
-                for (int i3 = 0; i3 < length; i3++) {
-                    FlowableZip$ZipSubscriber<T, R> flowableZip$ZipSubscriber2 = flowableZip$ZipSubscriberArr[i3];
-                    if (objArr[i3] == null) {
-                        try {
-                            boolean z4 = flowableZip$ZipSubscriber2.done;
-                            f<T> fVar2 = flowableZip$ZipSubscriber2.queue;
-                            T poll2 = fVar2 != null ? fVar2.poll() : null;
-                            boolean z5 = poll2 == null;
-                            if (z4 && z5) {
+                } else {
+                    if (!this.delayErrors && this.errors.get() != null) {
+                        cancelAll();
+                        cVar.onError(this.errors.terminate());
+                        return;
+                    }
+                    boolean z3 = false;
+                    for (int i3 = 0; i3 < length; i3++) {
+                        FlowableZip$ZipSubscriber<T, R> flowableZip$ZipSubscriber = flowableZip$ZipSubscriberArr[i3];
+                        if (objArr[i3] == null) {
+                            try {
+                                z = flowableZip$ZipSubscriber.done;
+                                f<T> fVar = flowableZip$ZipSubscriber.queue;
+                                poll = fVar != null ? fVar.poll() : null;
+                                z2 = poll == null;
+                            } catch (Throwable th) {
+                                a.a(th);
+                                this.errors.addThrowable(th);
+                                if (!this.delayErrors) {
+                                    cancelAll();
+                                    cVar.onError(this.errors.terminate());
+                                    return;
+                                }
+                            }
+                            if (z && z2) {
                                 cancelAll();
                                 if (this.errors.get() != null) {
                                     cVar.onError(this.errors.terminate());
@@ -153,30 +238,31 @@ public final class FlowableZip$ZipCoordinator<T, R> extends AtomicInteger implem
                                     cVar.onComplete();
                                     return;
                                 }
-                            } else if (!z5) {
-                                objArr[i3] = poll2;
                             }
-                        } catch (Throwable th3) {
-                            a.a(th3);
-                            this.errors.addThrowable(th3);
-                            if (!this.delayErrors) {
-                                cancelAll();
-                                cVar.onError(this.errors.terminate());
-                                return;
+                            if (!z2) {
+                                objArr[i3] = poll;
                             }
+                            z3 = true;
                         }
+                    }
+                    if (z3) {
+                        break;
+                    }
+                    try {
+                        Object obj = (R) this.zipper.apply(objArr.clone());
+                        f.a.x.b.a.b(obj, "The zipper returned a null value");
+                        cVar.onNext(obj);
+                        j2++;
+                        Arrays.fill(objArr, (Object) null);
+                    } catch (Throwable th2) {
+                        a.a(th2);
+                        cancelAll();
+                        this.errors.addThrowable(th2);
+                        cVar.onError(this.errors.terminate());
+                        return;
                     }
                 }
             }
-            if (j2 != 0) {
-                for (FlowableZip$ZipSubscriber<T, R> flowableZip$ZipSubscriber3 : flowableZip$ZipSubscriberArr) {
-                    flowableZip$ZipSubscriber3.request(j2);
-                }
-                if (j != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
-                }
-            }
-            i = addAndGet(-i);
         } while (i != 0);
     }
 

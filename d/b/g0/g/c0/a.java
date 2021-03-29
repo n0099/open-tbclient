@@ -7,32 +7,32 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48013a;
+    public int f48014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.g.c0.e.d f48014b;
+    public d.b.g0.g.c0.e.d f48015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48015c;
+    public int f48016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f48016d;
+    public long f48017d;
 
     public a(int i, d.b.g0.g.c0.e.d dVar) {
-        this.f48013a = i;
-        this.f48014b = dVar;
-        this.f48015c = d.d() ? 20 : 10;
-        this.f48016d = System.currentTimeMillis();
+        this.f48014a = i;
+        this.f48015b = dVar;
+        this.f48016c = d.d() ? 20 : 10;
+        this.f48017d = System.currentTimeMillis();
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("type", this.f48013a);
-            jSONObject.put("stage", this.f48015c);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f48016d);
-            if (this.f48014b != null) {
-                jSONObject.put("msg", this.f48014b.a());
+            jSONObject.put("type", this.f48014a);
+            jSONObject.put("stage", this.f48016c);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f48017d);
+            if (this.f48015b != null) {
+                jSONObject.put("msg", this.f48015b.a());
             }
         } catch (JSONException unused) {
         }

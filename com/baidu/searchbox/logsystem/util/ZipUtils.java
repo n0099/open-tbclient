@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ZipUtils {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v1, types: [java.io.FileInputStream, java.io.InputStream] */
@@ -87,7 +87,7 @@ public class ZipUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ZipSrc {
         @NonNull
         public File mFile;

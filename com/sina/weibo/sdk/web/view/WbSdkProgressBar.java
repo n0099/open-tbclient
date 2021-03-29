@@ -11,7 +11,7 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
 import com.google.ar.core.InstallActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WbSdkProgressBar extends View {
     public boolean addStart;
     public double growTime;
@@ -40,14 +40,11 @@ public class WbSdkProgressBar extends View {
     private void calculateProgress(long j) {
         long j2 = this.stopGrowTime;
         if (j2 >= this.stopGrowTimeMax) {
-            double d2 = this.growTime;
-            double d3 = j;
-            Double.isNaN(d3);
-            double d4 = d2 + d3;
-            this.growTime = d4;
-            double d5 = this.growTimeMax;
-            if (d4 >= d5) {
-                this.growTime = d4 - d5;
+            double d2 = this.growTime + j;
+            this.growTime = d2;
+            double d3 = this.growTimeMax;
+            if (d2 >= d3) {
+                this.growTime = d2 - d3;
                 this.stopGrowTime = 0L;
                 this.addStart = !this.addStart;
             }

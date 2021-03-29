@@ -5,11 +5,11 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.c.e;
 import com.baidu.android.pushservice.j.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3323a;
+    public static int f3324a;
 
     public static void a(final Context context) {
         if (context != null && d.g(context) && g.a(context) && PushSettings.m(context)) {
@@ -23,15 +23,15 @@ public class c {
     }
 
     public static /* synthetic */ int b() {
-        int i = f3323a;
-        f3323a = i + 1;
+        int i = f3324a;
+        f3324a = i + 1;
         return i;
     }
 
     public static void b(Context context, a aVar) {
         aVar.a();
         e.a(context).f();
-        f3323a = 0;
+        f3324a = 0;
     }
 
     public static void b(final Context context, final boolean z) {
@@ -49,16 +49,16 @@ public class c {
                     PushSettings.l(context);
                     if (i == 0) {
                         c.b(context, aVar);
-                        int unused = c.f3323a = 0;
+                        int unused = c.f3324a = 0;
                         return;
                     }
                     int i2 = 1;
-                    if (c.f3323a < 1) {
+                    if (c.f3324a < 1) {
                         c.b(context, false);
                         c.b();
                         return;
                     }
-                    int unused2 = c.f3323a = 0;
+                    int unused2 = c.f3324a = 0;
                     int n = PushSettings.n(context);
                     if (n >= 3) {
                         c.b(context, aVar);

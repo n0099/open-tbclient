@@ -24,7 +24,7 @@ import d.b.i.o;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId n;
     public TbPageContext<?> o;
@@ -34,7 +34,7 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
     public d.b.b.e.k.b<GifView> s;
     public b0<a2> t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.b.e.k.c<ImageView> {
         public a() {
         }
@@ -123,7 +123,7 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.b.e.k.c<GifView> {
         public b() {
         }
@@ -203,9 +203,9 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* renamed from: d.b.i0.w1.d.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1648c extends b0<a2> {
-        public C1648c() {
+    /* loaded from: classes3.dex */
+    public class C1649c extends b0<a2> {
+        public C1649c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -217,7 +217,7 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements w {
         public d() {
         }
@@ -232,7 +232,7 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
                     c.this.t.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 17, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -242,7 +242,7 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
         this.p = true;
         this.r = new d.b.b.e.k.b<>(new a(), 12, 0);
         this.s = new d.b.b.e.k.b<>(new b(), 20, 0);
-        this.t = new C1648c();
+        this.t = new C1649c();
         this.o = tbPageContext;
         this.n = bdUniqueId2;
     }
@@ -256,7 +256,7 @@ public class c extends d.b.i0.w1.d.c.a<z1, ThreadCardViewHolder<a2>> {
         oVar.x("other");
         oVar.z(2);
         oVar.C(this.r, this.s);
-        oVar.F(0, d.b.b.e.p.l.g(this.f42357e, R.dimen.tbds44), 0, 0);
+        oVar.F(0, d.b.b.e.p.l.g(this.f42358e, R.dimen.tbds44), 0, 0);
         oVar.y(this.p);
         oVar.w(1);
         bVar.n(oVar);

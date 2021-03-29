@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 import d.b.b.j.e.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class n extends d.b.b.j.e.a<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> {
     public TbPageContext m;
 

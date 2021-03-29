@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ICommonPermissionListener extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Default implements ICommonPermissionListener {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -24,25 +24,25 @@ public interface ICommonPermissionListener extends IInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements ICommonPermissionListener {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class a implements ICommonPermissionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonPermissionListener f27269a;
+            public static ICommonPermissionListener f27270a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27270b;
+            public IBinder f27271b;
 
             public a(IBinder iBinder) {
-                this.f27270b = iBinder;
+                this.f27271b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27270b;
+                return this.f27271b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -52,7 +52,7 @@ public interface ICommonPermissionListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
                     obtain.writeString(str);
-                    if (!this.f27270b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27271b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDenied(str);
                     } else {
                         obtain2.readException();
@@ -69,7 +69,7 @@ public interface ICommonPermissionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    if (!this.f27270b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27271b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onGranted();
                     } else {
                         obtain2.readException();
@@ -97,14 +97,14 @@ public interface ICommonPermissionListener extends IInterface {
         }
 
         public static ICommonPermissionListener getDefaultImpl() {
-            return a.f27269a;
+            return a.f27270a;
         }
 
         public static boolean setDefaultImpl(ICommonPermissionListener iCommonPermissionListener) {
-            if (a.f27269a != null || iCommonPermissionListener == null) {
+            if (a.f27270a != null || iCommonPermissionListener == null) {
                 return false;
             }
-            a.f27269a = iCommonPermissionListener;
+            a.f27270a = iCommonPermissionListener;
             return true;
         }
 

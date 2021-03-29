@@ -10,23 +10,23 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f53806a;
+    public static j f53807a;
 
     public static synchronized j f() {
         j jVar;
         synchronized (j.class) {
-            if (f53806a == null) {
+            if (f53807a == null) {
                 synchronized (j.class) {
-                    if (f53806a == null) {
-                        f53806a = new j();
+                    if (f53807a == null) {
+                        f53807a = new j();
                     }
                 }
             }
-            jVar = f53806a;
+            jVar = f53807a;
         }
         return jVar;
     }

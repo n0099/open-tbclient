@@ -12,13 +12,13 @@ import d.b.g0.l.l.f;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.a> {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f44206f = k.f45050a;
+    public static final boolean f44207f = k.f45051a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements e {
         public a() {
         }
@@ -29,7 +29,7 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements e {
         public b() {
         }
@@ -41,70 +41,70 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
     }
 
     /* renamed from: d.b.g0.a.e0.p.n.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0672c implements f.a {
+    /* loaded from: classes2.dex */
+    public class C0673c implements f.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44209e;
+        public final /* synthetic */ String f44210e;
 
-        public C0672c(String str) {
-            this.f44209e = str;
+        public C0673c(String str) {
+            this.f44210e = str;
         }
 
         @Override // d.b.g0.l.l.f.a
         public void a(String str, String str2, JSONObject jSONObject) {
-            c.this.B(this.f44209e, "pms_http_with_ipc_action_stat_record", new c.a().w("pms_http_with_ipc_key_url", str).w("pms_http_with_ipc_key_response", str2).w("pms_http_with_ipc_key_stat_record", jSONObject.toString()));
+            c.this.B(this.f44210e, "pms_http_with_ipc_action_stat_record", new c.a().w("pms_http_with_ipc_key_url", str).w("pms_http_with_ipc_key_response", str2).w("pms_http_with_ipc_key_stat_record", jSONObject.toString()));
         }
 
         @Override // d.b.g0.l.l.f.a
         public void b(String str, int i) {
-            c.this.B(this.f44209e, "pms_http_with_ipc_action_success", new c.a().w("pms_http_with_ipc_key_response", str).t("pms_http_with_ipc_key_status_code", i));
+            c.this.B(this.f44210e, "pms_http_with_ipc_action_success", new c.a().w("pms_http_with_ipc_key_response", str).t("pms_http_with_ipc_key_status_code", i));
         }
 
         @Override // d.b.g0.l.l.f.a
         public void onFail(Exception exc) {
             c cVar = c.this;
-            String str = this.f44209e;
+            String str = this.f44210e;
             cVar.C(str, "http: " + exc);
-            if (c.f44206f) {
+            if (c.f44207f) {
                 exc.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44211e;
+        public final /* synthetic */ String f44212e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44212f;
+        public final /* synthetic */ String f44213f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a f44213g;
+        public final /* synthetic */ c.a f44214g;
 
         public d(String str, String str2, c.a aVar) {
-            this.f44211e = str;
-            this.f44212f = str2;
-            this.f44213g = aVar;
+            this.f44212e = str;
+            this.f44213f = str2;
+            this.f44214g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.b.g0.a.n1.b.c.f(this.f44211e, "pms_http_with_ipc")) {
-                if (c.f44206f) {
+            if (!d.b.g0.a.n1.b.c.f(this.f44212e, "pms_http_with_ipc")) {
+                if (c.f44207f) {
                     c.this.F("callbackIpcSession", "return by topic pms_http_with_ipc");
                     return;
                 }
                 return;
             }
-            d.b.g0.a.n1.b.b w = d.b.g0.a.n1.b.c.M(this.f44211e).w("pms_http_with_ipc_key_action", this.f44212f);
-            c.a aVar = this.f44213g;
+            d.b.g0.a.n1.b.b w = d.b.g0.a.n1.b.c.M(this.f44212e).w("pms_http_with_ipc_key_action", this.f44213f);
+            c.a aVar = this.f44214g;
             if (aVar != null) {
                 w.p(aVar.A());
             }
-            if (c.f44206f) {
+            if (c.f44207f) {
                 c cVar = c.this;
                 cVar.F("callbackIpcSession", "ipcSession= " + w);
             }
@@ -112,7 +112,7 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface e {
         void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar);
     }
@@ -125,7 +125,7 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
     }
 
     public final void A(String str, @NonNull i.a aVar, @NonNull e eVar) {
-        if (f44206f) {
+        if (f44207f) {
             F("buildRequestForIpc", "session=" + str + " msg=" + aVar + " adapter=" + eVar);
         }
         if (d.b.g0.a.n1.b.c.f(str, "pms_http_with_ipc")) {
@@ -139,15 +139,15 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
                     jSONObject = new JSONObject(m2);
                 }
             } catch (JSONException e2) {
-                if (f44206f) {
+                if (f44207f) {
                     e2.printStackTrace();
                 }
             }
             try {
-                eVar.a(m, d2, d3, jSONObject, new C0672c(str));
+                eVar.a(m, d2, d3, jSONObject, new C0673c(str));
             } catch (Exception e3) {
                 C(str, "catch: " + e3);
-                if (f44206f) {
+                if (f44207f) {
                     e3.printStackTrace();
                 }
             }
@@ -155,7 +155,7 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
     }
 
     public final void B(String str, String str2, c.a aVar) {
-        if (f44206f) {
+        if (f44207f) {
             F("callbackIpcSession", "session=" + str + " action=" + str2 + " msg=" + aVar);
         }
         if (TextUtils.isEmpty(str)) {
@@ -169,21 +169,21 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
     }
 
     public final void D(i.a aVar) {
-        if (f44206f) {
+        if (f44207f) {
             F("handleIpcMsg", "msg=" + aVar);
         }
         if (aVar == null || !d.b.g0.a.n1.b.c.e(aVar.A(), "pms_http_with_ipc")) {
             return;
         }
         String m = aVar.m("ipc_session_id");
-        if (f44206f) {
+        if (f44207f) {
             F("handleIpcMsg", "session=" + m);
         }
         if (TextUtils.isEmpty(m)) {
             return;
         }
         String m2 = aVar.m("pms_http_with_ipc_key_action");
-        if (f44206f) {
+        if (f44207f) {
             F("handleIpcMsg", "action=" + m2);
         }
         if (TextUtils.isEmpty(m2)) {
@@ -209,7 +209,7 @@ public final class c extends d.b.g0.a.e0.p.n.a implements f, d.b.g0.a.i2.u0.b<i.
     }
 
     public final void E(String str) {
-        if (f44206f) {
+        if (f44207f) {
             Log.i("PmsHttpForService", str);
         }
     }

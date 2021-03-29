@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class SoSource {
     public static final int LOAD_FLAG_ALLOW_IMPLICIT_PROVISION = 1;
     public static final int LOAD_FLAG_ALLOW_SOURCE_CHANGE = 2;

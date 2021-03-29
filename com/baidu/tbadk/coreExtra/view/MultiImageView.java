@@ -28,16 +28,16 @@ import java.util.Map;
 public class MultiImageView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13764e;
+    public int f13765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f13765f;
+    public Button f13766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f13766g;
+    public Button f13767g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f13767h;
+    public LinearLayout f13768h;
     public GalleryViewPager i;
     public ImagePagerAdapter j;
     public View.OnClickListener k;
@@ -65,12 +65,12 @@ public class MultiImageView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             DragImageView currentImageView;
-            if (view == MultiImageView.this.f13765f) {
+            if (view == MultiImageView.this.f13766f) {
                 DragImageView currentImageView2 = MultiImageView.this.getCurrentImageView();
                 if (currentImageView2 != null) {
                     currentImageView2.t0();
                 }
-            } else if (view != MultiImageView.this.f13766g || (currentImageView = MultiImageView.this.getCurrentImageView()) == null) {
+            } else if (view != MultiImageView.this.f13767g || (currentImageView = MultiImageView.this.getCurrentImageView()) == null) {
             } else {
                 currentImageView.u0();
             }
@@ -191,10 +191,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.f13764e = 3;
-        this.f13765f = null;
-        this.f13766g = null;
-        this.f13767h = null;
+        this.f13765e = 3;
+        this.f13766f = null;
+        this.f13767g = null;
+        this.f13768h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -251,7 +251,7 @@ public class MultiImageView extends RelativeLayout {
         if (this.s) {
             return;
         }
-        this.f13767h.setVisibility(0);
+        this.f13768h.setVisibility(0);
     }
 
     public int getBottomHeight() {
@@ -407,7 +407,7 @@ public class MultiImageView extends RelativeLayout {
         if (this.s) {
             return;
         }
-        this.f13767h.setVisibility(8);
+        this.f13768h.setVisibility(8);
     }
 
     public void q() {
@@ -429,31 +429,31 @@ public class MultiImageView extends RelativeLayout {
         this.i.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.i.setOnPageChangeListener(this.m);
         addView(this.i);
-        this.f13767h = new LinearLayout(getContext());
+        this.f13768h = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.bottomMargin = l.e(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        this.f13767h.setOrientation(0);
-        this.f13767h.setLayoutParams(layoutParams);
-        addView(this.f13767h);
+        this.f13768h.setOrientation(0);
+        this.f13768h.setLayoutParams(layoutParams);
+        addView(this.f13768h);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         Button button = new Button(getContext());
-        this.f13766g = button;
+        this.f13767g = button;
         SkinManager.setBackgroundResource(button, R.drawable.image_zoomout, 0);
-        this.f13766g.setLayoutParams(layoutParams2);
-        this.f13766g.setOnClickListener(this.k);
-        this.f13766g.setEnabled(false);
-        this.f13767h.addView(this.f13766g);
+        this.f13767g.setLayoutParams(layoutParams2);
+        this.f13767g.setOnClickListener(this.k);
+        this.f13767g.setEnabled(false);
+        this.f13768h.addView(this.f13767g);
         Button button2 = new Button(getContext());
-        this.f13765f = button2;
+        this.f13766f = button2;
         SkinManager.setBackgroundResource(button2, R.drawable.image_zoomin, 0);
-        this.f13765f.setLayoutParams(layoutParams2);
-        this.f13765f.setOnClickListener(this.k);
-        this.f13765f.setEnabled(false);
-        this.f13767h.addView(this.f13765f);
+        this.f13766f.setLayoutParams(layoutParams2);
+        this.f13766f.setOnClickListener(this.k);
+        this.f13766f.setEnabled(false);
+        this.f13768h.addView(this.f13766f);
         if (this.s) {
-            this.f13767h.setVisibility(8);
+            this.f13768h.setVisibility(8);
         }
         ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(getContext(), this.l);
         this.j = imagePagerAdapter;
@@ -567,15 +567,11 @@ public class MultiImageView extends RelativeLayout {
         galleryViewPager.setOffscreenPageLimit(i);
         int bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(getContext()) - ((((i * 2) + 1) * i2) * 2);
         this.q = bitmapMaxMemory;
-        double d2 = bitmapMaxMemory;
-        Double.isNaN(d2);
-        int i3 = (int) (d2 * 0.8d);
+        int i3 = (int) (bitmapMaxMemory * 0.8d);
         this.q = i3;
         if (i3 < 6291456) {
             this.r = true;
-            double bitmapMaxMemory2 = UtilHelper.getBitmapMaxMemory(getContext());
-            Double.isNaN(bitmapMaxMemory2);
-            this.q = (int) (bitmapMaxMemory2 * 0.7d);
+            this.q = (int) (UtilHelper.getBitmapMaxMemory(getContext()) * 0.7d);
         } else {
             this.r = false;
         }
@@ -687,20 +683,20 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(DragImageView dragImageView) {
         if (dragImageView != null) {
             if (dragImageView.Q()) {
-                this.f13765f.setEnabled(true);
+                this.f13766f.setEnabled(true);
             } else {
-                this.f13765f.setEnabled(false);
+                this.f13766f.setEnabled(false);
             }
             if (dragImageView.R()) {
-                this.f13766g.setEnabled(true);
+                this.f13767g.setEnabled(true);
                 return;
             } else {
-                this.f13766g.setEnabled(false);
+                this.f13767g.setEnabled(false);
                 return;
             }
         }
-        this.f13766g.setEnabled(false);
-        this.f13765f.setEnabled(false);
+        this.f13767g.setEnabled(false);
+        this.f13766f.setEnabled(false);
     }
 
     public boolean t() {
@@ -776,7 +772,7 @@ public class MultiImageView extends RelativeLayout {
 
     public void y(int i) {
         GalleryViewPager galleryViewPager;
-        if (this.f13764e == i || (galleryViewPager = this.i) == null) {
+        if (this.f13765e == i || (galleryViewPager = this.i) == null) {
             return;
         }
         int childCount = galleryViewPager.getChildCount();
@@ -786,7 +782,7 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).W(i);
             }
         }
-        this.f13764e = i;
+        this.f13765e = i;
     }
 
     public void z(ImageUrlData imageUrlData) {
@@ -809,10 +805,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13764e = 3;
-        this.f13765f = null;
-        this.f13766g = null;
-        this.f13767h = null;
+        this.f13765e = 3;
+        this.f13766f = null;
+        this.f13767g = null;
+        this.f13768h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -834,10 +830,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13764e = 3;
-        this.f13765f = null;
-        this.f13766g = null;
-        this.f13767h = null;
+        this.f13765e = 3;
+        this.f13766f = null;
+        this.f13767g = null;
+        this.f13768h = null;
         this.i = null;
         this.j = null;
         this.k = null;

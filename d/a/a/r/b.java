@@ -19,43 +19,43 @@ import java.util.Map;
 public class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f41319e = new Object();
+    public static final Object f41320e = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41320a;
+    public final Context f41321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41321b;
+    public String f41322b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.a.b f41322c;
+    public d.a.a.b f41323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, g> f41323d;
+    public final Map<String, g> f41324d;
 
     public b(Drawable.Callback callback, String str, d.a.a.b bVar, Map<String, g> map) {
         String str2;
-        this.f41321b = str;
+        this.f41322b = str;
         if (!TextUtils.isEmpty(str)) {
-            if (this.f41321b.charAt(str2.length() - 1) != '/') {
-                this.f41321b += '/';
+            if (this.f41322b.charAt(str2.length() - 1) != '/') {
+                this.f41322b += '/';
             }
         }
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.f41323d = new HashMap();
-            this.f41320a = null;
+            this.f41324d = new HashMap();
+            this.f41321a = null;
             return;
         }
-        this.f41320a = ((View) callback).getContext();
-        this.f41323d = map;
+        this.f41321a = ((View) callback).getContext();
+        this.f41324d = map;
         e(bVar);
     }
 
     @Nullable
     public Bitmap a(String str) {
-        g gVar = this.f41323d.get(str);
+        g gVar = this.f41324d.get(str);
         if (gVar == null) {
             return null;
         }
@@ -63,7 +63,7 @@ public class b {
         if (a2 != null) {
             return a2;
         }
-        d.a.a.b bVar = this.f41322c;
+        d.a.a.b bVar = this.f41323c;
         if (bVar != null) {
             Bitmap a3 = bVar.a(gVar);
             if (a3 != null) {
@@ -87,9 +87,9 @@ public class b {
             }
         }
         try {
-            if (!TextUtils.isEmpty(this.f41321b)) {
-                AssetManager assets = this.f41320a.getAssets();
-                Bitmap decodeStream = BitmapFactory.decodeStream(assets.open(this.f41321b + c2), null, options);
+            if (!TextUtils.isEmpty(this.f41322b)) {
+                AssetManager assets = this.f41321a.getAssets();
+                Bitmap decodeStream = BitmapFactory.decodeStream(assets.open(this.f41322b + c2), null, options);
                 c(str, decodeStream);
                 return decodeStream;
             }
@@ -101,19 +101,19 @@ public class b {
     }
 
     public boolean b(Context context) {
-        return (context == null && this.f41320a == null) || this.f41320a.equals(context);
+        return (context == null && this.f41321a == null) || this.f41321a.equals(context);
     }
 
     public final Bitmap c(String str, @Nullable Bitmap bitmap) {
-        synchronized (f41319e) {
-            this.f41323d.get(str).e(bitmap);
+        synchronized (f41320e) {
+            this.f41324d.get(str).e(bitmap);
         }
         return bitmap;
     }
 
     public void d() {
-        synchronized (f41319e) {
-            for (Map.Entry<String, g> entry : this.f41323d.entrySet()) {
+        synchronized (f41320e) {
+            for (Map.Entry<String, g> entry : this.f41324d.entrySet()) {
                 g value = entry.getValue();
                 Bitmap a2 = value.a();
                 if (a2 != null) {
@@ -125,13 +125,13 @@ public class b {
     }
 
     public void e(@Nullable d.a.a.b bVar) {
-        this.f41322c = bVar;
+        this.f41323c = bVar;
     }
 
     @Nullable
     public Bitmap f(String str, @Nullable Bitmap bitmap) {
         if (bitmap == null) {
-            g gVar = this.f41323d.get(str);
+            g gVar = this.f41324d.get(str);
             Bitmap a2 = gVar.a();
             gVar.e(null);
             return a2;

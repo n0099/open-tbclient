@@ -26,23 +26,23 @@ import java.util.Date;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.b.b.e.g.c f53354a;
+    public static d.b.b.e.g.c f53355a;
 
     /* renamed from: d.b.i0.c3.g0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1183a implements a.e {
+    public static class C1184a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53355e;
+        public final /* synthetic */ TbPageContext f53356e;
 
-        public C1183a(TbPageContext tbPageContext) {
-            this.f53355e = tbPageContext;
+        public C1184a(TbPageContext tbPageContext) {
+            this.f53356e = tbPageContext;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f53355e.getPageActivity(), true, 23004, "remind");
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f53356e.getPageActivity(), true, 23004, "remind");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
@@ -61,82 +61,82 @@ public class a {
     public static class c implements d.b.b.e.g.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53356a;
+        public final /* synthetic */ TbPageContext f53357a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f53357b;
+        public final /* synthetic */ boolean f53358b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableString f53358c;
+        public final /* synthetic */ SpannableString f53359c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f53359d;
+        public final /* synthetic */ int f53360d;
 
         /* renamed from: d.b.i0.c3.g0.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1184a implements View.OnClickListener {
-            public View$OnClickListenerC1184a() {
+        public class View$OnClickListenerC1185a implements View.OnClickListener {
+            public View$OnClickListenerC1185a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.f53354a != null) {
-                    a.f53354a.d();
+                if (a.f53355a != null) {
+                    a.f53355a.d();
                 }
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) c.this.f53356a.getPageActivity(), true, 23004, "expiring");
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) c.this.f53357a.getPageActivity(), true, 23004, "expiring");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
             }
         }
 
         public c(TbPageContext tbPageContext, boolean z, SpannableString spannableString, int i) {
-            this.f53356a = tbPageContext;
-            this.f53357b = z;
-            this.f53358c = spannableString;
-            this.f53359d = i;
+            this.f53357a = tbPageContext;
+            this.f53358b = z;
+            this.f53359c = spannableString;
+            this.f53360d = i;
         }
 
         @Override // d.b.b.e.g.b
         public int a() {
-            return this.f53357b ? 4 : 2;
+            return this.f53358b ? 4 : 2;
         }
 
         @Override // d.b.b.e.g.b
         public View b(LayoutInflater layoutInflater) {
-            TextView textView = new TextView(this.f53356a.getPageActivity());
-            if (this.f53357b) {
+            TextView textView = new TextView(this.f53357a.getPageActivity());
+            if (this.f53358b) {
                 textView.setBackgroundResource(R.drawable.pop_float_top);
             } else {
                 textView.setBackgroundResource(R.drawable.pop_float);
             }
-            int dimensionPixelSize = this.f53356a.getResources().getDimensionPixelSize(R.dimen.ds32);
-            int dimensionPixelSize2 = this.f53356a.getResources().getDimensionPixelSize(R.dimen.ds22);
-            if (this.f53357b) {
+            int dimensionPixelSize = this.f53357a.getResources().getDimensionPixelSize(R.dimen.ds32);
+            int dimensionPixelSize2 = this.f53357a.getResources().getDimensionPixelSize(R.dimen.ds22);
+            if (this.f53358b) {
                 textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
             } else {
                 textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize);
             }
             textView.setGravity(17);
-            textView.setText(this.f53358c);
+            textView.setText(this.f53359c);
             textView.setCompoundDrawablePadding(dimensionPixelSize);
-            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f53359d), (Drawable) null);
-            textView.setOnClickListener(new View$OnClickListenerC1184a());
+            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f53360d), (Drawable) null);
+            textView.setOnClickListener(new View$OnClickListenerC1185a());
             return textView;
         }
 
         @Override // d.b.b.e.g.b
         public int c() {
-            return this.f53357b ? 32 : 16;
+            return this.f53358b ? 32 : 16;
         }
 
         @Override // d.b.b.e.g.b
         public int getXOffset() {
-            return this.f53357b ? 0 : 4;
+            return this.f53358b ? 0 : 4;
         }
 
         @Override // d.b.b.e.g.b
         public int getYOffset() {
-            return this.f53357b ? 5 : 30;
+            return this.f53358b ? 5 : 30;
         }
     }
 
@@ -144,19 +144,19 @@ public class a {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53361e;
+        public final /* synthetic */ TbPageContext f53362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f53362f;
+        public final /* synthetic */ boolean f53363f;
 
         public d(TbPageContext tbPageContext, boolean z) {
-            this.f53361e = tbPageContext;
-            this.f53362f = z;
+            this.f53362e = tbPageContext;
+            this.f53363f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.d(this.f53361e.getPageActivity(), this.f53362f);
+            a.d(this.f53362e.getPageActivity(), this.f53363f);
         }
     }
 
@@ -164,8 +164,8 @@ public class a {
     public static class e implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            if (a.f53354a != null) {
-                a.f53354a.d();
+            if (a.f53355a != null) {
+                a.f53355a.d();
             }
         }
     }
@@ -177,12 +177,13 @@ public class a {
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: d.b.b.e.g.d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5, types: [int, boolean] */
-    /* JADX WARN: Type inference failed for: r6v7 */
+    /* JADX WARN: Type inference failed for: r12v3 */
+    /* JADX WARN: Type inference failed for: r12v4, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r12v7 */
     public static void c(TbPageContext tbPageContext, View view, boolean z, f fVar) {
+        int i;
         SpannableString spannableString;
-        ?? r6;
+        ?? r12;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class)) {
             long defaultBubbleEndTime = TbadkCoreApplication.getInst().getDefaultBubbleEndTime();
             if (defaultBubbleEndTime <= 0) {
@@ -207,7 +208,7 @@ public class a {
                 textView2.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip2));
                 textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize32));
                 aVar.setContentView(inflate);
-                aVar.setPositiveButton(R.string.open_now, new C1183a(tbPageContext));
+                aVar.setPositiveButton(R.string.open_now, new C1184a(tbPageContext));
                 aVar.setNegativeButton(R.string.group_create_private_isee, new b());
                 aVar.create(tbPageContext);
                 aVar.show();
@@ -220,41 +221,43 @@ public class a {
             if (System.currentTimeMillis() / 86400000 == d.b.h0.r.d0.b.i().k("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 return;
             }
-            int i = R.color.CAM_X0111;
-            int i2 = R.color.CAM_X0305;
-            int i3 = R.drawable.pop_float_arrow;
-            if (j == 0) {
+            int i2 = R.color.CAM_X0111;
+            int i3 = R.color.CAM_X0305;
+            int i4 = R.drawable.pop_float_arrow;
+            if (i == 0) {
                 if (new Date(currentTimeMillis).getDay() == new Date(defaultBubbleEndTime).getDay()) {
                     spannableString = new SpannableString(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip_today));
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i)), 0, spannableString.length(), 34);
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), 9, 13, 34);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i3)), 9, 13, 34);
                 } else {
                     spannableString = new SpannableString(String.format(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip), 1));
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i)), 0, spannableString.length(), 34);
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), 10, 14, 34);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i3)), 10, 14, 34);
                 }
-                r6 = 0;
+                r12 = 0;
             } else {
-                r6 = 0;
-                spannableString = new SpannableString(String.format(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip), Long.valueOf(j)));
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i)), 0, spannableString.length(), 34);
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), 10, 14, 34);
+                String string = tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip);
+                Long valueOf = Long.valueOf(j);
+                r12 = 0;
+                spannableString = new SpannableString(String.format(string, valueOf));
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), 0, spannableString.length(), 34);
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i3)), 10, 14, 34);
             }
             d.b.b.e.g.d dVar = new d.b.b.e.g.d();
             dVar.j(view);
-            dVar.c(r6);
-            dVar.i(r6);
-            dVar.a(new c(tbPageContext, z, spannableString, i3));
+            dVar.c(r12);
+            dVar.i(r12);
+            dVar.a(new c(tbPageContext, z, spannableString, i4));
             dVar.d(true);
-            dVar.h(r6);
-            f53354a = dVar.b();
+            dVar.h(r12);
+            f53355a = dVar.b();
             new Handler().postDelayed(new d(tbPageContext, z), 1000L);
             d.b.h0.r.d0.b.i().v("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
         }
     }
 
     public static void d(Activity activity, boolean z) {
-        d.b.b.e.g.c cVar = f53354a;
+        d.b.b.e.g.c cVar = f53355a;
         if (cVar != null) {
             cVar.n(activity);
         }

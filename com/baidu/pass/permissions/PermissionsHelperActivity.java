@@ -11,31 +11,31 @@ import com.baidu.pass.view.CommonDialog;
 public class PermissionsHelperActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f9776a = 8000;
+    public static final int f9777a = 8000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9777b = 8001;
+    public static final int f9778b = 8001;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionsDTO f9778c;
+    public PermissionsDTO f9779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PermissionsCallback f9779d;
+    public PermissionsCallback f9780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public StringBuilder f9780e;
+    public StringBuilder f9781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9781f;
+    public boolean f9782f;
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 8000) {
             if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
-                this.f9779d.onSuccess();
+                this.f9780d.onSuccess();
             } else {
-                this.f9779d.onFailure(-1);
+                this.f9780d.onFailure(-1);
             }
             finish();
         }
@@ -44,27 +44,27 @@ public class PermissionsHelperActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f9778c = PassPermissions.getInstance().getPermissionsDTO();
+        this.f9779c = PassPermissions.getInstance().getPermissionsDTO();
         PermissionsCallback permissionsCallback = PassPermissions.getInstance().getPermissionsCallback();
-        this.f9779d = permissionsCallback;
-        if (this.f9778c == null) {
+        this.f9780d = permissionsCallback;
+        if (this.f9779c == null) {
             if (permissionsCallback != null) {
                 permissionsCallback.onFailure(-1);
             }
             finish();
             return;
         }
-        this.f9780e = new StringBuilder();
-        for (String str : this.f9778c.permissions) {
-            this.f9780e.append(str);
+        this.f9781e = new StringBuilder();
+        for (String str : this.f9779c.permissions) {
+            this.f9781e.append(str);
         }
         SharedPreferencesUtil.getInstance(this);
-        if (!((Boolean) SharedPreferencesUtil.get(this.f9780e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f9778c.dialogTitle)) {
-            new CommonDialog.Builder(this).setTitle(this.f9778c.dialogTitle).setMessage(this.f9778c.dialogMsg).setDarkMode(this.f9778c.isDarkMode).setPositiveBtn(this.f9778c.okBtnTxt, new b(this)).setNegativeButton(this.f9778c.cancleBtnTxt, new a(this)).build().show();
-            this.f9781f = true;
+        if (!((Boolean) SharedPreferencesUtil.get(this.f9781e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f9779c.dialogTitle)) {
+            new CommonDialog.Builder(this).setTitle(this.f9779c.dialogTitle).setMessage(this.f9779c.dialogMsg).setDarkMode(this.f9779c.isDarkMode).setPositiveBtn(this.f9779c.okBtnTxt, new b(this)).setNegativeButton(this.f9779c.cancleBtnTxt, new a(this)).build().show();
+            this.f9782f = true;
             return;
         }
-        requestPermissions(this.f9778c.permissions, f9777b);
+        requestPermissions(this.f9779c.permissions, f9778b);
     }
 
     @Override // android.app.Activity
@@ -78,8 +78,8 @@ public class PermissionsHelperActivity extends Activity {
         for (int i2 = 0; i2 < strArr.length; i2++) {
             if (iArr[i2] == 0) {
                 Log.i(PassPermissions.TAG, "Permission check result is permission granted");
-            } else if (TextUtils.isEmpty(this.f9778c.dialogMsg)) {
-                this.f9779d.onFailure(-1);
+            } else if (TextUtils.isEmpty(this.f9779c.dialogMsg)) {
+                this.f9780d.onFailure(-1);
                 finish();
                 return;
             } else {
@@ -89,13 +89,13 @@ public class PermissionsHelperActivity extends Activity {
                 z2 = false;
             }
         }
-        if (z && !this.f9781f && this.f9778c.showExplainDialogAfterForbid) {
-            new CommonDialog.Builder(this).setTitle(this.f9778c.dialogTitle).setMessage(this.f9778c.dialogMsg).setPositiveBtn(this.f9778c.okBtnTxt, new d(this)).setNegativeButton(this.f9778c.cancleBtnTxt, new c(this)).build().show();
+        if (z && !this.f9782f && this.f9779c.showExplainDialogAfterForbid) {
+            new CommonDialog.Builder(this).setTitle(this.f9779c.dialogTitle).setMessage(this.f9779c.dialogMsg).setPositiveBtn(this.f9779c.okBtnTxt, new d(this)).setNegativeButton(this.f9779c.cancleBtnTxt, new c(this)).build().show();
         } else if (z2) {
-            this.f9779d.onSuccess();
+            this.f9780d.onSuccess();
             finish();
         } else {
-            this.f9779d.onFailure(-1);
+            this.f9780d.onFailure(-1);
             finish();
         }
     }

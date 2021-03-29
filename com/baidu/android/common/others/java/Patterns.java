@@ -5,7 +5,7 @@ import java.io.PrintStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Patterns {
     public static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
     public static final String PARAM_BAIDU_CLOUD_VALUE_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\;\\/\\:\\@\\#\\~\\-\\.\\+\\!\\*\\'\\(\\)\\,\\_\\%\\?\\=\\&";

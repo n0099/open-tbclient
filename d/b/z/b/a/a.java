@@ -3,7 +3,7 @@ package d.b.z.b.a;
 import android.app.Application;
 import android.content.Context;
 import d.b.z.h.g;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static boolean a(Application application) {
         Object e2;

@@ -10,11 +10,11 @@ import java.util.ArrayList;
 public abstract class j implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    public m f9235a;
+    public m f9236a;
 
     public j(String str, String str2) {
         l lVar = new l();
-        this.f9235a = new m(lVar, str);
+        this.f9236a = new m(lVar, str);
         File databasePath = lVar.getDatabasePath(".confd");
         if (databasePath == null || !databasePath.canWrite()) {
             return;
@@ -23,7 +23,7 @@ public abstract class j implements Closeable {
     }
 
     private void a(String str) {
-        this.f9235a.a(str);
+        this.f9236a.a(str);
     }
 
     public abstract long a(String str, String str2);
@@ -31,7 +31,7 @@ public abstract class j implements Closeable {
     public abstract ArrayList<i> a(int i, int i2);
 
     public int b() {
-        return this.f9235a.b();
+        return this.f9236a.b();
     }
 
     public abstract boolean b(long j);
@@ -39,7 +39,7 @@ public abstract class j implements Closeable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
         try {
-            this.f9235a.close();
+            this.f9236a.close();
         } catch (Exception e2) {
             bb.c().b(e2);
         }
@@ -51,27 +51,27 @@ public abstract class j implements Closeable {
             bb.c().b(e2);
             return false;
         }
-        return this.f9235a.a();
+        return this.f9236a.a();
     }
 
     public Cursor a(String str, int i, int i2) {
-        return this.f9235a.a(null, null, null, null, null, str + " desc", i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i);
+        return this.f9236a.a(null, null, null, null, null, str + " desc", i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i);
     }
 
     public Cursor a(String str, String str2, String str3, int i) {
         String str4 = str + "=? ";
         String[] strArr = {str2};
-        return this.f9235a.a(null, str4, strArr, null, null, str3 + " desc", i + "");
+        return this.f9236a.a(null, str4, strArr, null, null, str3 + " desc", i + "");
     }
 
     public long a(ContentValues contentValues) {
-        return this.f9235a.a((String) null, contentValues);
+        return this.f9236a.a((String) null, contentValues);
     }
 
     public boolean a(long j) {
         StringBuilder sb = new StringBuilder();
         sb.append(j);
         sb.append("");
-        return this.f9235a.a("_id=? ", new String[]{sb.toString()}) > 0;
+        return this.f9236a.a("_id=? ", new String[]{sb.toString()}) > 0;
     }
 }

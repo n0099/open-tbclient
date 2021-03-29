@@ -55,16 +55,16 @@ import d.b.h0.z0.n0;
 import d.b.i0.d1.h.m;
 import d.b.i0.e1.b.j;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PersonalChatActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.b.i0.e1.a.b.b.e f18189a;
+    public static d.b.i0.e1.a.b.b.e f18190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f18190b = new a(2005016);
+    public static CustomMessageListener f18191b = new a(2005016);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -76,51 +76,51 @@ public class PersonalChatActivityStatic {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
                 return;
             }
-            d.b.i0.e1.a.b.b.e unused = PersonalChatActivityStatic.f18189a = null;
+            d.b.i0.e1.a.b.b.e unused = PersonalChatActivityStatic.f18190a = null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f18191a;
+            public final /* synthetic */ LinkedList f18192a;
 
             public a(b bVar, LinkedList linkedList) {
-                this.f18191a = linkedList;
+                this.f18192a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                return m.t().a(this.f18191a);
+                return m.t().a(this.f18192a);
             }
         }
 
         /* renamed from: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic$b$b  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0199b implements n<Void> {
+        /* loaded from: classes3.dex */
+        public class C0200b implements n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f18192a;
+            public final /* synthetic */ CustomMessage f18193a;
 
-            public C0199b(b bVar, CustomMessage customMessage) {
-                this.f18192a = customMessage;
+            public C0200b(b bVar, CustomMessage customMessage) {
+                this.f18193a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.h0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
-                ((PersonalChatActivityConfig) this.f18192a.getData()).getIntent();
-                if (((PersonalChatActivityConfig) this.f18192a.getData()).getUserData().getUserIdLong() == 0) {
+                ((PersonalChatActivityConfig) this.f18193a.getData()).getIntent();
+                if (((PersonalChatActivityConfig) this.f18193a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((PersonalChatActivityConfig) this.f18192a.getData()).startActivity(PersonalChatActivity.class);
+                ((PersonalChatActivityConfig) this.f18193a.getData()).startActivity(PersonalChatActivity.class);
             }
         }
 
@@ -132,12 +132,12 @@ public class PersonalChatActivityStatic {
             }
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            h0.c(new a(this, linkedList), new C0199b(this, customMessage));
+            h0.c(new a(this, linkedList), new C0200b(this, customMessage));
             return null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -167,7 +167,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class d implements CustomMessageTask.CustomRunnable<IMBlackListActivityConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<IMBlackListActivityConfig> run(CustomMessage<IMBlackListActivityConfig> customMessage) {
@@ -178,7 +178,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -192,16 +192,16 @@ public class PersonalChatActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17762b == null || (tbPageContext = aVar.f17761a) == null) {
+            if (aVar.f17763b == null || (tbPageContext = aVar.f17762a) == null) {
                 return;
             }
             MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_REPLY_CARD);
             msgReplyCardViewItemAdapter.m0(true);
-            aVar.f17762b.add(msgReplyCardViewItemAdapter);
+            aVar.f17763b.add(msgReplyCardViewItemAdapter);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class f extends CustomMessageListener {
         public f(int i) {
             super(i);
@@ -221,7 +221,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class g extends CustomMessageListener {
         public g(int i) {
             super(i);
@@ -238,7 +238,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class h implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -277,7 +277,7 @@ public class PersonalChatActivityStatic {
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         c();
-        MessageManager.getInstance().registerListener(f18190b);
+        MessageManager.getInstance().registerListener(f18191b);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -291,7 +291,7 @@ public class PersonalChatActivityStatic {
     }
 
     public static d.b.i0.e1.a.b.b.e b() {
-        return f18189a;
+        return f18190a;
     }
 
     public static void c() {
@@ -299,6 +299,6 @@ public class PersonalChatActivityStatic {
     }
 
     public static void d(d.b.i0.e1.a.b.b.e eVar) {
-        f18189a = eVar;
+        f18190a = eVar;
     }
 }

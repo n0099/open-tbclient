@@ -41,7 +41,7 @@ public class BaiduMap {
     public static final int MAP_TYPE_SATELLITE = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f6806e = "BaiduMap";
+    public static final String f6807e = "BaiduMap";
     public static int mapStatusReason;
     public OnMapDrawFrameCallback A;
     public OnBaseIndoorMapListener B;
@@ -63,25 +63,25 @@ public class BaiduMap {
     public Point R;
 
     /* renamed from: a  reason: collision with root package name */
-    public MapView f6807a;
+    public MapView f6808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f6808b;
+    public TextureMapView f6809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WearMapView f6809c;
+    public WearMapView f6810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public aa f6810d;
+    public aa f6811d;
 
     /* renamed from: f  reason: collision with root package name */
-    public Projection f6811f;
+    public Projection f6812f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UiSettings f6812g;
+    public UiSettings f6813g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.j f6813h;
+    public com.baidu.mapsdkplatform.comapi.map.j f6814h;
     public com.baidu.mapsdkplatform.comapi.map.e i;
     public ac j;
     public List<Overlay> k;
@@ -202,7 +202,7 @@ public class BaiduMap {
         this.G = new ReentrantLock();
         this.j = acVar;
         this.i = acVar.b();
-        this.f6810d = aa.TextureView;
+        this.f6811d = aa.TextureView;
         c();
     }
 
@@ -211,9 +211,9 @@ public class BaiduMap {
         this.w = new CopyOnWriteArrayList<>();
         this.F = new ReentrantLock();
         this.G = new ReentrantLock();
-        this.f6813h = jVar;
+        this.f6814h = jVar;
         this.i = jVar.a();
-        this.f6810d = aa.GLSurfaceView;
+        this.f6811d = aa.GLSurfaceView;
         c();
     }
 
@@ -316,7 +316,7 @@ public class BaiduMap {
                     eVar = baiduMap.i;
                     if (eVar != null) {
                     }
-                    i = e.f7066a[myLocationConfiguration.locationMode.ordinal()];
+                    i = e.f7067a[myLocationConfiguration.locationMode.ordinal()];
                     if (i != 1) {
                     }
                     baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(zoom.build()));
@@ -336,7 +336,7 @@ public class BaiduMap {
             for (BitmapDescriptor bitmapDescriptor : arrayList) {
                 ParcelItem parcelItem = new ParcelItem();
                 Bundle bundle3 = new Bundle();
-                Bitmap bitmap = bitmapDescriptor.f6822a;
+                Bitmap bitmap = bitmapDescriptor.f6823a;
                 ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
                 bitmap.copyPixelsToBuffer(allocate);
                 bundle3.putByteArray("imgdata", allocate.array());
@@ -360,7 +360,7 @@ public class BaiduMap {
         if (eVar != null) {
             eVar.a(jSONObject.toString(), bundle);
         }
-        i = e.f7066a[myLocationConfiguration.locationMode.ordinal()];
+        i = e.f7067a[myLocationConfiguration.locationMode.ordinal()];
         if (i != 1) {
             zoom = new MapStatus.Builder().rotate(myLocationData.direction).overlook(-45.0f).target(new LatLng(myLocationData.latitude, myLocationData.longitude)).targetScreen(getMapStatus().targetScreen).zoom(getMapStatus().zoom);
         } else if (i != 2) {
@@ -376,7 +376,7 @@ public class BaiduMap {
         this.l = new CopyOnWriteArrayList();
         this.m = new CopyOnWriteArrayList();
         this.R = new Point((int) (SysOSUtil.getDensity() * 40.0f), (int) (SysOSUtil.getDensity() * 40.0f));
-        this.f6812g = new UiSettings(this.i);
+        this.f6813g = new UiSettings(this.i);
         this.n = new a(this);
         this.i.a(new b(this));
         this.i.a(new c(this));
@@ -399,7 +399,7 @@ public class BaiduMap {
             if (this.E != null && this.i != null && heatMap == this.E) {
                 this.E.b();
                 this.E.c();
-                this.E.f6873a = null;
+                this.E.f6874a = null;
                 this.i.o();
                 this.E = null;
                 this.i.n(false);
@@ -415,7 +415,7 @@ public class BaiduMap {
             try {
                 if (this.D == tileOverlay) {
                     tileOverlay.b();
-                    tileOverlay.f7035a = null;
+                    tileOverlay.f7036a = null;
                     if (this.i != null) {
                         this.i.e(false);
                     }
@@ -439,11 +439,11 @@ public class BaiduMap {
             if (this.E != null) {
                 this.E.b();
                 this.E.c();
-                this.E.f6873a = null;
+                this.E.f6874a = null;
                 this.i.o();
             }
             this.E = heatMap;
-            heatMap.f6873a = this;
+            heatMap.f6874a = this;
             this.i.n(true);
         } finally {
             this.F.unlock();
@@ -534,7 +534,7 @@ public class BaiduMap {
         TileOverlay tileOverlay = this.D;
         if (tileOverlay != null) {
             tileOverlay.b();
-            this.D.f7035a = null;
+            this.D.f7036a = null;
         }
         com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
         if (eVar == null || !eVar.a(tileOverlayOptions.a())) {
@@ -662,7 +662,7 @@ public class BaiduMap {
         if (eVar == null) {
             return 0.0f;
         }
-        return eVar.f7612a;
+        return eVar.f7613a;
     }
 
     public final float getMinZoomLevel() {
@@ -670,11 +670,11 @@ public class BaiduMap {
         if (eVar == null) {
             return 0.0f;
         }
-        return eVar.f7613b;
+        return eVar.f7614b;
     }
 
     public final Projection getProjection() {
-        return this.f6811f;
+        return this.f6812f;
     }
 
     public float[] getProjectionMatrix() {
@@ -686,7 +686,7 @@ public class BaiduMap {
     }
 
     public final UiSettings getUiSettings() {
-        return this.f6812g;
+        return this.f6813g;
     }
 
     public float[] getViewMatrix() {
@@ -698,21 +698,21 @@ public class BaiduMap {
     }
 
     public com.baidu.mapsdkplatform.comapi.map.j getmGLMapView() {
-        return this.f6813h;
+        return this.f6814h;
     }
 
     public void hideInfoWindow() {
         InfoWindow infoWindow = this.H;
         if (infoWindow != null) {
-            if (infoWindow.f6882b != null) {
-                int i = e.f7067b[this.f6810d.ordinal()];
+            if (infoWindow.f6883b != null) {
+                int i = e.f7068b[this.f6811d.ordinal()];
                 if (i == 1) {
-                    TextureMapView textureMapView = this.f6808b;
+                    TextureMapView textureMapView = this.f6809b;
                     if (textureMapView != null) {
                         textureMapView.removeView(this.J);
                     }
-                } else if (i == 2 && this.f6813h != null) {
-                    this.f6807a.removeView(this.J);
+                } else if (i == 2 && this.f6814h != null) {
+                    this.f6808a.removeView(this.J);
                 }
                 this.J = null;
             }
@@ -818,7 +818,7 @@ public class BaiduMap {
             this.i.a(Color.parseColor(str), Color.parseColor(str2), Color.parseColor(str3), Color.parseColor(str4), true);
             return true;
         } else {
-            Log.e(f6806e, "the string of the input customTrafficColor is error");
+            Log.e(f6807e, "the string of the input customTrafficColor is error");
             return false;
         }
     }
@@ -887,7 +887,7 @@ public class BaiduMap {
             this.i.f(false);
             this.i.k(false);
         }
-        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6813h;
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6814h;
         if (jVar != null) {
             jVar.a(i);
         }
@@ -994,39 +994,39 @@ public class BaiduMap {
             return;
         }
         eVar.E();
-        int i5 = e.f7067b[this.f6810d.ordinal()];
+        int i5 = e.f7068b[this.f6811d.ordinal()];
         if (i5 == 1) {
-            TextureMapView textureMapView = this.f6808b;
+            TextureMapView textureMapView = this.f6809b;
             if (textureMapView == null) {
                 return;
             }
-            float width = ((textureMapView.getWidth() - i) - i3) / this.f6808b.getWidth();
-            float height = ((this.f6808b.getHeight() - i2) - i4) / this.f6808b.getHeight();
-            MapStatusUpdate newMapStatus = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f6808b.getWidth() + i) - i3) / 2, ((this.f6808b.getHeight() + i2) - i4) / 2)).build());
+            float width = ((textureMapView.getWidth() - i) - i3) / this.f6809b.getWidth();
+            float height = ((this.f6809b.getHeight() - i2) - i4) / this.f6809b.getHeight();
+            MapStatusUpdate newMapStatus = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f6809b.getWidth() + i) - i3) / 2, ((this.f6809b.getHeight() + i2) - i4) / 2)).build());
             com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.i;
             Point point = this.R;
             eVar2.a(new Point((int) (i + (point.x * width)), (int) (i2 + (point.y * height))));
             setMapStatus(newMapStatus);
-            this.f6808b.setPadding(i, i2, i3, i4);
-            viewGroup = this.f6808b;
-        } else if (i5 != 2 || (mapView = this.f6807a) == null) {
+            this.f6809b.setPadding(i, i2, i3, i4);
+            viewGroup = this.f6809b;
+        } else if (i5 != 2 || (mapView = this.f6808a) == null) {
             return;
         } else {
-            float width2 = ((mapView.getWidth() - i) - i3) / this.f6807a.getWidth();
-            float height2 = ((this.f6807a.getHeight() - i2) - i4) / this.f6807a.getHeight();
-            MapStatusUpdate newMapStatus2 = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f6807a.getWidth() + i) - i3) / 2, ((this.f6807a.getHeight() + i2) - i4) / 2)).build());
+            float width2 = ((mapView.getWidth() - i) - i3) / this.f6808a.getWidth();
+            float height2 = ((this.f6808a.getHeight() - i2) - i4) / this.f6808a.getHeight();
+            MapStatusUpdate newMapStatus2 = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f6808a.getWidth() + i) - i3) / 2, ((this.f6808a.getHeight() + i2) - i4) / 2)).build());
             com.baidu.mapsdkplatform.comapi.map.e eVar3 = this.i;
             Point point2 = this.R;
             eVar3.a(new Point((int) (i + (point2.x * width2)), (int) (i2 + (point2.y * height2))));
             setMapStatus(newMapStatus2);
-            this.f6807a.setPadding(i, i2, i3, i4);
-            viewGroup = this.f6807a;
+            this.f6808a.setPadding(i, i2, i3, i4);
+            viewGroup = this.f6808a;
         }
         viewGroup.invalidate();
     }
 
     public void setPixelFormatTransparent(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6813h;
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6814h;
         if (jVar == null) {
             return;
         }
@@ -1050,29 +1050,29 @@ public class BaiduMap {
         if (i < 0 || i2 < 0 || i3 < 0 || i4 < 0 || this.i == null) {
             return;
         }
-        int i5 = e.f7067b[this.f6810d.ordinal()];
+        int i5 = e.f7068b[this.f6811d.ordinal()];
         if (i5 == 1) {
-            TextureMapView textureMapView = this.f6808b;
+            TextureMapView textureMapView = this.f6809b;
             if (textureMapView == null) {
                 return;
             }
-            float width = ((textureMapView.getWidth() - i) - i3) / this.f6808b.getWidth();
-            float height = ((this.f6808b.getHeight() - i2) - i4) / this.f6808b.getHeight();
+            float width = ((textureMapView.getWidth() - i) - i3) / this.f6809b.getWidth();
+            float height = ((this.f6809b.getHeight() - i2) - i4) / this.f6809b.getHeight();
             com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
             Point point = this.R;
             eVar.a(new Point((int) (i + (point.x * width)), (int) (i2 + (point.y * height))));
-            this.f6808b.setPadding(i, i2, i3, i4);
-            viewGroup = this.f6808b;
-        } else if (i5 != 2 || (mapView = this.f6807a) == null) {
+            this.f6809b.setPadding(i, i2, i3, i4);
+            viewGroup = this.f6809b;
+        } else if (i5 != 2 || (mapView = this.f6808a) == null) {
             return;
         } else {
-            float width2 = ((mapView.getWidth() - i) - i3) / this.f6807a.getWidth();
-            float height2 = ((this.f6807a.getHeight() - i2) - i4) / this.f6807a.getHeight();
+            float width2 = ((mapView.getWidth() - i) - i3) / this.f6808a.getWidth();
+            float height2 = ((this.f6808a.getHeight() - i2) - i4) / this.f6808a.getHeight();
             com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.i;
             Point point2 = this.R;
             eVar2.a(new Point((int) (i + (point2.x * width2)), (int) (i2 + (point2.y * height2))));
-            this.f6807a.setPadding(i, i2, i3, i4);
-            viewGroup = this.f6807a;
+            this.f6808a.setPadding(i, i2, i3, i4);
+            viewGroup = this.f6808a;
         }
         viewGroup.invalidate();
     }
@@ -1080,29 +1080,29 @@ public class BaiduMap {
     public void showInfoWindow(InfoWindow infoWindow) {
         if (infoWindow != null) {
             hideInfoWindow();
-            View view = infoWindow.f6882b;
+            View view = infoWindow.f6883b;
             if (view != null) {
                 this.J = view;
                 view.destroyDrawingCache();
-                MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.f6883c).yOffset(infoWindow.f6885e).build();
-                int i = e.f7067b[this.f6810d.ordinal()];
+                MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.f6884c).yOffset(infoWindow.f6886e).build();
+                int i = e.f7068b[this.f6811d.ordinal()];
                 if (i == 1) {
-                    TextureMapView textureMapView = this.f6808b;
+                    TextureMapView textureMapView = this.f6809b;
                     if (textureMapView != null) {
                         textureMapView.addView(this.J, build);
                     }
-                } else if (i == 2 && this.f6813h != null) {
-                    this.f6807a.addView(this.J, build);
+                } else if (i == 2 && this.f6814h != null) {
+                    this.f6808a.addView(this.J, build);
                 }
             }
             this.H = infoWindow;
-            View view2 = infoWindow.f6882b;
-            Overlay a2 = new MarkerOptions().perspective(false).icon(view2 != null ? BitmapDescriptorFactory.fromView(view2) : infoWindow.f6881a).position(infoWindow.f6883c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f6885e).a();
+            View view2 = infoWindow.f6883b;
+            Overlay a2 = new MarkerOptions().perspective(false).icon(view2 != null ? BitmapDescriptorFactory.fromView(view2) : infoWindow.f6882a).position(infoWindow.f6884c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f6886e).a();
             a2.listener = this.n;
             a2.type = com.baidu.mapsdkplatform.comapi.map.h.popup;
             Bundle bundle = new Bundle();
             a2.a(bundle);
-            if (infoWindow.f6882b != null) {
+            if (infoWindow.f6883b != null) {
                 bundle.putInt("by_view", 1);
             } else {
                 bundle.putInt("by_view", 0);
@@ -1139,9 +1139,9 @@ public class BaiduMap {
     public final void snapshot(SnapshotReadyCallback snapshotReadyCallback) {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         this.z = snapshotReadyCallback;
-        int i = e.f7067b[this.f6810d.ordinal()];
+        int i = e.f7068b[this.f6811d.ordinal()];
         if (i != 1) {
-            if (i == 2 && (jVar = this.f6813h) != null) {
+            if (i == 2 && (jVar = this.f6814h) != null) {
                 jVar.a("anything", (Rect) null);
                 return;
             }
@@ -1156,9 +1156,9 @@ public class BaiduMap {
     public final void snapshotScope(Rect rect, SnapshotReadyCallback snapshotReadyCallback) {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         this.z = snapshotReadyCallback;
-        int i = e.f7067b[this.f6810d.ordinal()];
+        int i = e.f7068b[this.f6811d.ordinal()];
         if (i != 1) {
-            if (i == 2 && (jVar = this.f6813h) != null) {
+            if (i == 2 && (jVar = this.f6814h) != null) {
                 jVar.a("anything", rect);
                 return;
             }
@@ -1178,7 +1178,7 @@ public class BaiduMap {
         if (focusedBaseIndoorMapInfo == null) {
             return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
         }
-        if (str2.equals(focusedBaseIndoorMapInfo.f6889a)) {
+        if (str2.equals(focusedBaseIndoorMapInfo.f6890a)) {
             ArrayList<String> floors = focusedBaseIndoorMapInfo.getFloors();
             return (floors == null || !floors.contains(str)) ? MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_OVERLFLOW : this.i.a(str, str2) ? MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_OK : MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
         }

@@ -11,7 +11,7 @@ import java.security.cert.CertificateFactory;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         BufferedInputStream bufferedInputStream;

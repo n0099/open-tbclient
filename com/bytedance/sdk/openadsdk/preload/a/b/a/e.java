@@ -13,7 +13,7 @@ import java.util.Map;
 public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Reader f29913b = new Reader() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.e.1
+    public static final Reader f29914b = new Reader() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.e.1
         @Override // java.io.Reader, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             throw new AssertionError();
@@ -26,28 +26,28 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f29914c = new Object();
+    public static final Object f29915c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f29915d;
+    public Object[] f29916d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29916e;
+    public int f29917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f29917f;
+    public String[] f29918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f29918g;
+    public int[] f29919g;
 
     private Object t() {
-        return this.f29915d[this.f29916e - 1];
+        return this.f29916d[this.f29917e - 1];
     }
 
     private Object u() {
-        Object[] objArr = this.f29915d;
-        int i = this.f29916e - 1;
-        this.f29916e = i;
+        Object[] objArr = this.f29916d;
+        int i = this.f29917e - 1;
+        this.f29917e = i;
         Object obj = objArr[i];
         objArr[i] = null;
         return obj;
@@ -61,7 +61,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void a() throws IOException {
         a(com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_ARRAY);
         a(((com.bytedance.sdk.openadsdk.preload.a.i) t()).iterator());
-        this.f29918g[this.f29916e - 1] = 0;
+        this.f29919g[this.f29917e - 1] = 0;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.a
@@ -69,9 +69,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         a(com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY);
         u();
         u();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -85,8 +85,8 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.a, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f29915d = new Object[]{f29914c};
-        this.f29916e = 1;
+        this.f29916d = new Object[]{f29915c};
+        this.f29917e = 1;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.a
@@ -94,9 +94,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         a(com.bytedance.sdk.openadsdk.preload.a.d.b.END_OBJECT);
         u();
         u();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -110,12 +110,12 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.a
     public com.bytedance.sdk.openadsdk.preload.a.d.b f() throws IOException {
-        if (this.f29916e == 0) {
+        if (this.f29917e == 0) {
             return com.bytedance.sdk.openadsdk.preload.a.d.b.END_DOCUMENT;
         }
         Object t = t();
         if (t instanceof Iterator) {
-            boolean z = this.f29915d[this.f29916e - 2] instanceof o;
+            boolean z = this.f29916d[this.f29917e - 2] instanceof o;
             Iterator it = (Iterator) t;
             if (!it.hasNext()) {
                 return z ? com.bytedance.sdk.openadsdk.preload.a.d.b.END_OBJECT : com.bytedance.sdk.openadsdk.preload.a.d.b.END_ARRAY;
@@ -146,7 +146,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
             } else if (t instanceof com.bytedance.sdk.openadsdk.preload.a.n) {
                 return com.bytedance.sdk.openadsdk.preload.a.d.b.NULL;
             } else {
-                if (t == f29914c) {
+                if (t == f29915c) {
                     throw new IllegalStateException("JsonReader is closed");
                 }
                 throw new AssertionError();
@@ -159,7 +159,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         a(com.bytedance.sdk.openadsdk.preload.a.d.b.NAME);
         Map.Entry entry = (Map.Entry) ((Iterator) t()).next();
         String str = (String) entry.getKey();
-        this.f29917f[this.f29916e - 1] = str;
+        this.f29918f[this.f29917e - 1] = str;
         a(entry.getValue());
         return str;
     }
@@ -171,9 +171,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
             throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.STRING + " but was " + f2 + v());
         }
         String b2 = ((q) u()).b();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -184,9 +184,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public boolean i() throws IOException {
         a(com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN);
         boolean f2 = ((q) u()).f();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -197,9 +197,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void j() throws IOException {
         a(com.bytedance.sdk.openadsdk.preload.a.d.b.NULL);
         u();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -216,9 +216,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
             throw new NumberFormatException("JSON forbids NaN and infinities: " + c2);
         }
         u();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -233,9 +233,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         }
         long d2 = ((q) t()).d();
         u();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -250,9 +250,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         }
         int e2 = ((q) t()).e();
         u();
-        int i = this.f29916e;
+        int i = this.f29917e;
         if (i > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i2 = i - 1;
             iArr[i2] = iArr[i2] + 1;
         }
@@ -263,17 +263,17 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void n() throws IOException {
         if (f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NAME) {
             g();
-            this.f29917f[this.f29916e - 2] = StringUtil.NULL_STRING;
+            this.f29918f[this.f29917e - 2] = StringUtil.NULL_STRING;
         } else {
             u();
-            int i = this.f29916e;
+            int i = this.f29917e;
             if (i > 0) {
-                this.f29917f[i - 1] = StringUtil.NULL_STRING;
+                this.f29918f[i - 1] = StringUtil.NULL_STRING;
             }
         }
-        int i2 = this.f29916e;
+        int i2 = this.f29917e;
         if (i2 > 0) {
-            int[] iArr = this.f29918g;
+            int[] iArr = this.f29919g;
             int i3 = i2 - 1;
             iArr[i3] = iArr[i3] + 1;
         }
@@ -291,20 +291,20 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         StringBuilder sb = new StringBuilder();
         sb.append('$');
         int i = 0;
-        while (i < this.f29916e) {
-            Object[] objArr = this.f29915d;
+        while (i < this.f29917e) {
+            Object[] objArr = this.f29916d;
             if (objArr[i] instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
                 i++;
                 if (objArr[i] instanceof Iterator) {
                     sb.append('[');
-                    sb.append(this.f29918g[i]);
+                    sb.append(this.f29919g[i]);
                     sb.append(']');
                 }
             } else if (objArr[i] instanceof o) {
                 i++;
                 if (objArr[i] instanceof Iterator) {
                     sb.append(IStringUtil.EXTENSION_SEPARATOR);
-                    String[] strArr = this.f29917f;
+                    String[] strArr = this.f29918f;
                     if (strArr[i] != null) {
                         sb.append(strArr[i]);
                     }
@@ -328,17 +328,17 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     }
 
     private void a(Object obj) {
-        int i = this.f29916e;
-        Object[] objArr = this.f29915d;
+        int i = this.f29917e;
+        Object[] objArr = this.f29916d;
         if (i == objArr.length) {
             int i2 = i * 2;
-            this.f29915d = Arrays.copyOf(objArr, i2);
-            this.f29918g = Arrays.copyOf(this.f29918g, i2);
-            this.f29917f = (String[]) Arrays.copyOf(this.f29917f, i2);
+            this.f29916d = Arrays.copyOf(objArr, i2);
+            this.f29919g = Arrays.copyOf(this.f29919g, i2);
+            this.f29918f = (String[]) Arrays.copyOf(this.f29918f, i2);
         }
-        Object[] objArr2 = this.f29915d;
-        int i3 = this.f29916e;
-        this.f29916e = i3 + 1;
+        Object[] objArr2 = this.f29916d;
+        int i3 = this.f29917e;
+        this.f29917e = i3 + 1;
         objArr2[i3] = obj;
     }
 }

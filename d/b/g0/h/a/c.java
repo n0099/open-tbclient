@@ -11,85 +11,85 @@ import java.util.Map;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48715b = k.f45050a;
+    public static final boolean f48716b = k.f45051a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f48716c = c.class.getSimpleName();
+    public static final String f48717c = c.class.getSimpleName();
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile c f48717d;
+    public static volatile c f48718d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<d.b.g0.a.p.d.b, b> f48718a;
+    public Map<d.b.g0.a.p.d.b, b> f48719a;
 
     public c() {
         a.a();
-        this.f48718a = new HashMap();
+        this.f48719a = new HashMap();
     }
 
     public static c b() {
-        if (f48717d == null) {
+        if (f48718d == null) {
             synchronized (c.class) {
-                if (f48717d == null) {
-                    f48717d = new c();
+                if (f48718d == null) {
+                    f48718d = new c();
                 }
             }
         }
-        return f48717d;
+        return f48718d;
     }
 
     public static void d(d.b.g0.a.p.d.b bVar) {
         synchronized (c.class) {
-            if (f48717d != null) {
-                f48717d.c(bVar).i();
+            if (f48718d != null) {
+                f48718d.c(bVar).i();
             }
         }
     }
 
     public static void e(d.b.g0.a.p.d.b bVar) {
         synchronized (c.class) {
-            if (f48717d != null) {
-                f48717d.f(bVar);
-            } else if (f48715b) {
-                Log.v(f48716c, "未初始化，无需执行release");
+            if (f48718d != null) {
+                f48718d.f(bVar);
+            } else if (f48716b) {
+                Log.v(f48717c, "未初始化，无需执行release");
             }
         }
     }
 
     public static void h(d.b.g0.a.p.d.b bVar) {
         synchronized (c.class) {
-            if (f48717d != null) {
-                f48717d.c(bVar).l();
+            if (f48718d != null) {
+                f48718d.c(bVar).l();
             }
         }
     }
 
     public boolean a(Context context, d.b.g0.a.a1.c.c cVar) {
         d.b.g0.a.c0.c.g("map", "map create start");
-        if (k0.m(cVar.f43113g) != null && cVar.isValid()) {
-            d.b.g0.a.p.d.d j = f.V().j(cVar.f43113g);
+        if (k0.m(cVar.f43114g) != null && cVar.isValid()) {
+            d.b.g0.a.p.d.d j = f.V().j(cVar.f43114g);
             if (!(j instanceof d.b.g0.a.p.d.b)) {
                 d.b.g0.a.c0.c.b("map", "WebViewManager is null");
                 return false;
             }
             b c2 = c((d.b.g0.a.p.d.b) j);
-            if (c2.d(cVar.f43112f) != null) {
-                d.b.g0.a.c0.c.b("map", "map with id " + cVar.f43112f + " exist");
+            if (c2.d(cVar.f43113f) != null) {
+                d.b.g0.a.c0.c.b("map", "map with id " + cVar.f43113f + " exist");
                 return false;
             }
             d.b.g0.h.a.i.c M = d.b.g0.h.a.i.c.M(context, cVar);
             if (M == null) {
-                d.b.g0.a.c0.c.b("map", "map with id " + cVar.f43112f + " model is invalid");
+                d.b.g0.a.c0.c.b("map", "map with id " + cVar.f43113f + " model is invalid");
                 return false;
             }
             d.b.g0.a.a0.b.c w = M.w();
             if (!w.a()) {
-                d.b.g0.a.c0.c.b("map", "map with id " + cVar.f43112f + " create fail: " + w.f43116b);
+                d.b.g0.a.c0.c.b("map", "map with id " + cVar.f43113f + " create fail: " + w.f43117b);
                 return false;
             } else if (c2.g(M)) {
-                d.b.g0.a.c0.c.g("map", "map with id " + cVar.f43112f + " init start");
+                d.b.g0.a.c0.c.g("map", "map with id " + cVar.f43113f + " init start");
                 d.b.g0.h.a.f.f.e.a(context, M, cVar, c2);
-                d.b.g0.a.c0.c.g("map", "map with id " + cVar.f43112f + " init end");
+                d.b.g0.a.c0.c.g("map", "map with id " + cVar.f43113f + " init end");
                 d.b.g0.a.c0.c.g("map", "map create end");
                 return true;
             } else {
@@ -104,10 +104,10 @@ public class c {
         if (bVar == null) {
             return null;
         }
-        b bVar2 = this.f48718a.get(bVar);
+        b bVar2 = this.f48719a.get(bVar);
         if (bVar2 == null) {
             bVar2 = new b();
-            this.f48718a.put(bVar, bVar2);
+            this.f48719a.put(bVar, bVar2);
         }
         return bVar2;
     }
@@ -116,7 +116,7 @@ public class c {
         if (bVar == null) {
             return;
         }
-        b remove = this.f48718a.remove(bVar);
+        b remove = this.f48719a.remove(bVar);
         if (remove != null) {
             remove.j();
         }
@@ -124,21 +124,21 @@ public class c {
 
     public boolean g(d.b.g0.a.a1.c.c cVar) {
         d.b.g0.a.c0.c.g("map", "map remove start");
-        if (k0.m(cVar.f43113g) == null) {
+        if (k0.m(cVar.f43114g) == null) {
             d.b.g0.a.c0.c.b("map", "webView is null or mapModel is null");
             return false;
         }
-        d.b.g0.a.p.d.d j = f.V().j(cVar.f43113g);
+        d.b.g0.a.p.d.d j = f.V().j(cVar.f43114g);
         if (!(j instanceof d.b.g0.a.p.d.b)) {
             d.b.g0.a.c0.c.b("map", "WebViewManager is null");
             return false;
         }
         b c2 = c((d.b.g0.a.p.d.b) j);
-        d.b.g0.h.a.i.c d2 = c2.d(cVar.f43112f);
+        d.b.g0.h.a.i.c d2 = c2.d(cVar.f43113f);
         if (d2 == null) {
-            d.b.g0.a.c0.c.b("map", "remove map with id " + cVar.f43112f + " not exist");
+            d.b.g0.a.c0.c.b("map", "remove map with id " + cVar.f43113f + " not exist");
             return false;
-        } else if (c2.k(cVar.f43112f)) {
+        } else if (c2.k(cVar.f43113f)) {
             d.b.g0.a.c0.c.g("map", "map remove end");
             if (d.b.g0.a.a0.d.a.a(cVar) == null) {
                 d.b.g0.a.a0.g.a.a("map", "remove with a null map component");
@@ -146,8 +146,8 @@ public class c {
             d.b.g0.a.a0.b.c C = d2.C();
             boolean a2 = C.a();
             if (!a2) {
-                String str = f48716c;
-                d.b.g0.a.c0.c.b(str, "map remove fail: " + C.f43116b);
+                String str = f48717c;
+                d.b.g0.a.c0.c.b(str, "map remove fail: " + C.f43117b);
             }
             return a2;
         } else {
@@ -157,16 +157,16 @@ public class c {
 
     public boolean i(Context context, d.b.g0.a.a1.c.c cVar) {
         d.b.g0.a.c0.c.g("map", "map update start");
-        if (k0.m(cVar.f43113g) == null) {
+        if (k0.m(cVar.f43114g) == null) {
             d.b.g0.a.c0.c.b("map", "webView is null or mapModel is null");
             return false;
         }
-        d.b.g0.a.p.d.d j = f.V().j(cVar.f43113g);
+        d.b.g0.a.p.d.d j = f.V().j(cVar.f43114g);
         if (j != null && (j instanceof d.b.g0.a.p.d.b)) {
             b c2 = c((d.b.g0.a.p.d.b) j);
-            d.b.g0.h.a.i.c d2 = c2.d(cVar.f43112f);
+            d.b.g0.h.a.i.c d2 = c2.d(cVar.f43113f);
             if (d2 == null) {
-                d.b.g0.a.c0.c.b("map", "remove map with id " + cVar.f43112f + " not exist");
+                d.b.g0.a.c0.c.b("map", "remove map with id " + cVar.f43113f + " not exist");
                 return false;
             }
             d2.H();
@@ -178,8 +178,8 @@ public class c {
             d.b.g0.a.a0.b.c G = d2.G(cVar);
             boolean a2 = G.a();
             if (!a2) {
-                String str = f48716c;
-                d.b.g0.a.c0.c.b(str, "map update fail: " + G.f43116b);
+                String str = f48717c;
+                d.b.g0.a.c0.c.b(str, "map update fail: " + G.f43117b);
             }
             return a2;
         }

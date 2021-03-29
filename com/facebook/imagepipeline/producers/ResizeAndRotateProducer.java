@@ -38,7 +38,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final ImageTranscoderFactory mImageTranscoderFactory;
         public boolean mIsCancelled;

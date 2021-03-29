@@ -9,35 +9,35 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f58684a;
+    public int f58685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58685b;
+    public boolean f58686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f58686c;
+    public b f58687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f58687d;
+    public List<n> f58688d;
 
     public c(JSONObject jSONObject) {
         int length;
         if (jSONObject == null) {
             return;
         }
-        this.f58684a = jSONObject.optInt("current_pn");
-        this.f58685b = jSONObject.optInt("has_more", 0) == 1;
+        this.f58685a = jSONObject.optInt("current_pn");
+        this.f58686b = jSONObject.optInt("has_more", 0) == 1;
         JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
         if (optJSONObject != null) {
-            this.f58686c = new b(optJSONObject);
+            this.f58687c = new b(optJSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
         if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
             return;
         }
-        this.f58687d = new ArrayList(length);
+        this.f58688d = new ArrayList(length);
         for (int i = 0; i < length; i++) {
-            this.f58687d.add(new d(optJSONArray.optJSONObject(i)));
+            this.f58688d.add(new d(optJSONArray.optJSONObject(i)));
         }
     }
 }

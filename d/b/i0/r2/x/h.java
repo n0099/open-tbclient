@@ -34,7 +34,7 @@ public class h {
             }
             String str = advertAppInfo.F3;
             if (StringUtils.isNull(str) && (aVar = advertAppInfo.U3) != null) {
-                str = aVar.f13203b;
+                str = aVar.f13204b;
             }
             if (StringUtils.isNull(str)) {
                 str = "";
@@ -56,7 +56,7 @@ public class h {
         String str5 = advertAppInfo.I3;
         int intValue = i.m(str4).intValue();
         AdvertAppInfo.a aVar = advertAppInfo.U3;
-        l.x(str4, str5, str3, i, intValue, null, true, false, true, aVar.f13204c, downloadStaticsData, aVar.f13203b);
+        l.x(str4, str5, str3, i, intValue, null, true, false, true, aVar.f13205c, downloadStaticsData, aVar.f13204b);
         return true;
     }
 

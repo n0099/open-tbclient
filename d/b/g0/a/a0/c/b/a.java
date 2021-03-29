@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a extends d.b.g0.a.a0.a.c.a<TextView, c> {
     public a(@Nullable Context context, @NonNull c cVar) {
         super(context, cVar);
@@ -23,7 +23,7 @@ public final class a extends d.b.g0.a.a0.a.c.a<TextView, c> {
     @Override // d.b.g0.a.a0.a.c.a
     /* renamed from: d0 */
     public void Z(@NonNull TextView textView, @NonNull c cVar) {
-        if (d.b.g0.a.a0.b.a.f43099h) {
+        if (d.b.g0.a.a0.b.a.f43100h) {
             Log.d("Component-Button", "renderTextStyleLineSpace");
         }
         int i = cVar.B;

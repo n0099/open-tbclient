@@ -1,32 +1,32 @@
 package d.o.a.b.a.a;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b implements d.o.a.a.a.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66406a;
+    public String f66407a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66407b;
+    public String f66408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66408c;
+    public String f66409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66409d;
+    public String f66410d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66410e;
+    public String f66411e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66411f;
+    public String f66412f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66412g;
+    public String f66413g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66413h;
+    public String f66414h;
     public int i;
     public boolean j;
     public boolean k;
@@ -36,32 +36,32 @@ public class b implements d.o.a.a.a.c.c {
     public JSONObject o;
 
     /* renamed from: d.o.a.b.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C1819b {
+    /* loaded from: classes7.dex */
+    public static final class C1820b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f66414a;
+        public String f66415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66415b;
+        public String f66416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66416c;
+        public String f66417c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66417d;
+        public String f66418d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66418e;
+        public String f66419e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f66419f;
+        public String f66420f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f66420g;
+        public String f66421g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f66421h;
+        public String f66422h;
         public Object i;
         public int j;
         public boolean k = true;
@@ -70,17 +70,17 @@ public class b implements d.o.a.a.a.c.c {
         public JSONObject n;
         public JSONObject o;
 
-        public C1819b a(int i) {
+        public C1820b a(int i) {
             this.j = i;
             return this;
         }
 
-        public C1819b b(String str) {
-            this.f66414a = str;
+        public C1820b b(String str) {
+            this.f66415a = str;
             return this;
         }
 
-        public C1819b c(boolean z) {
+        public C1820b c(boolean z) {
             this.k = z;
             return this;
         }
@@ -89,52 +89,52 @@ public class b implements d.o.a.a.a.c.c {
             return new b(this);
         }
 
-        public C1819b f(String str) {
-            this.f66415b = str;
+        public C1820b f(String str) {
+            this.f66416b = str;
             return this;
         }
 
         @Deprecated
-        public C1819b g(boolean z) {
+        public C1820b g(boolean z) {
             return this;
         }
 
-        public C1819b i(String str) {
-            this.f66417d = str;
+        public C1820b i(String str) {
+            this.f66418d = str;
             return this;
         }
 
-        public C1819b j(boolean z) {
+        public C1820b j(boolean z) {
             this.l = z;
             return this;
         }
 
-        public C1819b l(String str) {
-            this.f66418e = str;
+        public C1820b l(String str) {
+            this.f66419e = str;
             return this;
         }
 
-        public C1819b n(String str) {
-            this.f66419f = str;
+        public C1820b n(String str) {
+            this.f66420f = str;
             return this;
         }
 
-        public C1819b p(String str) {
-            this.f66420g = str;
+        public C1820b p(String str) {
+            this.f66421g = str;
             return this;
         }
 
         @Deprecated
-        public C1819b r(String str) {
+        public C1820b r(String str) {
             return this;
         }
 
-        public C1819b t(String str) {
-            this.f66421h = str;
+        public C1820b t(String str) {
+            this.f66422h = str;
             return this;
         }
 
-        public C1819b v(String str) {
+        public C1820b v(String str) {
             this.m = str;
             return this;
         }
@@ -147,42 +147,42 @@ public class b implements d.o.a.a.a.c.c {
 
     @Override // d.o.a.a.a.c.c
     public String b() {
-        return this.f66406a;
+        return this.f66407a;
     }
 
     @Override // d.o.a.a.a.c.c
     public String c() {
-        return this.f66407b;
+        return this.f66408b;
     }
 
     @Override // d.o.a.a.a.c.c
     public String d() {
-        return this.f66408c;
+        return this.f66409c;
     }
 
     @Override // d.o.a.a.a.c.c
     public String e() {
-        return this.f66409d;
+        return this.f66410d;
     }
 
     @Override // d.o.a.a.a.c.c
     public String f() {
-        return this.f66410e;
+        return this.f66411e;
     }
 
     @Override // d.o.a.a.a.c.c
     public String g() {
-        return this.f66411f;
+        return this.f66412f;
     }
 
     @Override // d.o.a.a.a.c.c
     public String h() {
-        return this.f66412g;
+        return this.f66413g;
     }
 
     @Override // d.o.a.a.a.c.c
     public String i() {
-        return this.f66413h;
+        return this.f66414h;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -215,22 +215,22 @@ public class b implements d.o.a.a.a.c.c {
         return this.o;
     }
 
-    public b(C1819b c1819b) {
-        this.f66406a = c1819b.f66414a;
-        this.f66407b = c1819b.f66415b;
-        this.f66408c = c1819b.f66416c;
-        this.f66409d = c1819b.f66417d;
-        this.f66410e = c1819b.f66418e;
-        this.f66411f = c1819b.f66419f;
-        this.f66412g = c1819b.f66420g;
-        this.f66413h = c1819b.f66421h;
-        this.m = c1819b.i;
-        this.i = c1819b.j;
-        this.j = c1819b.k;
-        this.k = c1819b.l;
-        this.l = c1819b.m;
-        this.n = c1819b.n;
-        this.o = c1819b.o;
+    public b(C1820b c1820b) {
+        this.f66407a = c1820b.f66415a;
+        this.f66408b = c1820b.f66416b;
+        this.f66409c = c1820b.f66417c;
+        this.f66410d = c1820b.f66418d;
+        this.f66411e = c1820b.f66419e;
+        this.f66412f = c1820b.f66420f;
+        this.f66413g = c1820b.f66421g;
+        this.f66414h = c1820b.f66422h;
+        this.m = c1820b.i;
+        this.i = c1820b.j;
+        this.j = c1820b.k;
+        this.k = c1820b.l;
+        this.l = c1820b.m;
+        this.n = c1820b.n;
+        this.o = c1820b.o;
     }
 
     @Override // d.o.a.a.a.c.c

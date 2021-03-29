@@ -71,10 +71,7 @@ public class CpuMonitor {
         }
 
         public double getAverage() {
-            double d2 = this.sum;
-            double d3 = this.size;
-            Double.isNaN(d3);
-            return d2 / d3;
+            return this.sum / this.size;
         }
 
         public double getCurrent() {
@@ -345,55 +342,41 @@ public class CpuMonitor {
                     j += readFreqFromFile2;
                     j2 += j3;
                     if (j3 > 0) {
-                        double[] dArr = this.curFreqScales;
-                        double d2 = readFreqFromFile2;
-                        double d3 = j3;
-                        Double.isNaN(d2);
-                        Double.isNaN(d3);
-                        dArr[i] = d2 / d3;
+                        this.curFreqScales[i] = readFreqFromFile2 / j3;
                     }
                 }
             }
-            if (j == 0 || j2 == 0) {
-                Log.e(TAG, "Could not read max or current frequency for any CPU");
-                return false;
-            }
-            double d4 = j;
-            double d5 = j2;
-            Double.isNaN(d4);
-            Double.isNaN(d5);
-            double d6 = d4 / d5;
-            if (this.frequencyScale.getCurrent() > 0.0d) {
-                d6 = (this.frequencyScale.getCurrent() + d6) * 0.5d;
-            }
-            this.frequencyScale.addValue(d6);
-            if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
-                ProcStat readProcStat = readProcStat();
-                if (readProcStat == null) {
+            if (j != 0 && j2 != 0) {
+                double d2 = j / j2;
+                if (this.frequencyScale.getCurrent() > 0.0d) {
+                    d2 = (this.frequencyScale.getCurrent() + d2) * 0.5d;
+                }
+                this.frequencyScale.addValue(d2);
+                if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
+                    ProcStat readProcStat = readProcStat();
+                    if (readProcStat == null) {
+                        return false;
+                    }
+                    long j4 = readProcStat.userTime - this.lastProcStat.userTime;
+                    long j5 = readProcStat.systemTime - this.lastProcStat.systemTime;
+                    long j6 = j4 + j5 + (readProcStat.idleTime - this.lastProcStat.idleTime);
+                    if (d2 != 0.0d && j6 != 0) {
+                        double d3 = j4;
+                        double d4 = j6;
+                        double d5 = d3 / d4;
+                        this.userCpuUsage.addValue(d5);
+                        double d6 = j5 / d4;
+                        this.systemCpuUsage.addValue(d6);
+                        this.totalCpuUsage.addValue((d5 + d6) * d2);
+                        this.lastProcStat = readProcStat;
+                        return true;
+                    }
                     return false;
                 }
-                long j4 = readProcStat.userTime - this.lastProcStat.userTime;
-                long j5 = readProcStat.systemTime - this.lastProcStat.systemTime;
-                long j6 = j4 + j5 + (readProcStat.idleTime - this.lastProcStat.idleTime);
-                if (d6 == 0.0d || j6 == 0) {
-                    return false;
-                }
-                double d7 = j4;
-                double d8 = j6;
-                Double.isNaN(d7);
-                Double.isNaN(d8);
-                double d9 = d7 / d8;
-                this.userCpuUsage.addValue(d9);
-                double d10 = j5;
-                Double.isNaN(d10);
-                Double.isNaN(d8);
-                double d11 = d10 / d8;
-                this.systemCpuUsage.addValue(d11);
-                this.totalCpuUsage.addValue((d9 + d11) * d6);
-                this.lastProcStat = readProcStat;
                 return true;
             }
-            return true;
+            Log.e(TAG, "Could not read max or current frequency for any CPU");
+            return false;
         }
     }
 

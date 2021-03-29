@@ -66,42 +66,42 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
     }
 
     /* loaded from: classes5.dex */
-    public class c implements a.InterfaceC1115a {
+    public class c implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f0 f55188a;
+        public final /* synthetic */ f0 f55189a;
 
         public c(f0 f0Var) {
-            this.f55188a = f0Var;
+            this.f55189a = f0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, f.this.f42357e, 4);
-            d.b.i0.h2.a.a(this.f55188a.g(), aVar, 6);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, f.this.f42358e, 4);
+            d.b.i0.h2.a.a(this.f55189a.g(), aVar, 6);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a.InterfaceC1115a {
+    public class d implements a.InterfaceC1116a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r0 f55190a;
+        public final /* synthetic */ r0 f55191a;
 
         public d(r0 r0Var) {
-            this.f55190a = r0Var;
+            this.f55191a = r0Var;
         }
 
-        @Override // d.b.i.a.InterfaceC1115a
+        @Override // d.b.i.a.InterfaceC1116a
         public void a(d.b.h0.r.q.a aVar) {
             if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.n().r1, f.this.f42357e, 4);
-            d.b.i0.h2.a.a(this.f55190a.g(), aVar, 6);
+            ThreadCardUtils.jumpToPB(aVar.n().r1, f.this.f42358e, 4);
+            d.b.i0.h2.a.a(this.f55191a.g(), aVar, 6);
         }
     }
 
@@ -120,7 +120,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
                     f.this.s.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar, view.getContext(), 4, false);
-                threadCardViewHolder.b().o(new a.C1117a(1));
+                threadCardViewHolder.b().o(new a.C1118a(1));
             }
         }
     }
@@ -152,9 +152,9 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
         bVar.o(dVar);
         f0 f0Var = new f0(this.n);
         f0Var.n(Boolean.FALSE);
-        f0Var.r(l.g(this.f42357e, R.dimen.tbds9));
+        f0Var.r(l.g(this.f42358e, R.dimen.tbds9));
         bVar.n(f0Var);
-        bVar.l().d(l.g(this.f42357e, R.dimen.tbds25));
+        bVar.l().d(l.g(this.f42358e, R.dimen.tbds25));
         f0 f0Var2 = new f0(this.n);
         f0Var2.n(Boolean.TRUE);
         f0Var2.y(UtilHelper.getDimenPixelSize(R.dimen.M_W_X005), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), UtilHelper.getDimenPixelSize(R.dimen.M_W_X005), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
@@ -168,8 +168,8 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
         bVar.h(new d.b.i.k(this.n.getPageActivity()));
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 3;
-        eVar.f50768h = 3;
+        eVar.f50763b = 3;
+        eVar.f50769h = 3;
         m0Var.v(eVar);
         m0Var.w(8);
         m0Var.A(6);
@@ -188,7 +188,7 @@ public class f extends d.b.b.j.e.a<k, ThreadCardViewHolder<k>> implements d.b.i0
     @Override // d.b.b.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62196e == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f62197e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);

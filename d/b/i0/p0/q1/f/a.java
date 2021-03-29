@@ -55,16 +55,16 @@ public class a implements View.OnClickListener {
     public d.b.h0.r.s.l O;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbPageContext<?> f58372e;
+    public final TbPageContext<?> f58373e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f58373f;
+    public final String f58374f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f58374g;
+    public final String f58375g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f58375h;
+    public final String f58376h;
     public d.b.i0.p0.q1.b.b i;
     public ForumRulesEditActivity j;
     public View k;
@@ -89,12 +89,12 @@ public class a implements View.OnClickListener {
     public boolean P = false;
     public Runnable Q = new d();
     public l.d R = new l();
-    public l.d S = new C1426a();
+    public l.d S = new C1427a();
 
     /* renamed from: d.b.i0.p0.q1.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1426a implements l.d {
-        public C1426a() {
+    public class C1427a implements l.d {
+        public C1427a() {
         }
 
         @Override // d.b.h0.r.s.l.d
@@ -110,15 +110,15 @@ public class a implements View.OnClickListener {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f58377e;
+        public final /* synthetic */ d.b.h0.r.s.a f58378e;
 
         public b(a aVar, d.b.h0.r.s.a aVar2) {
-            this.f58377e = aVar2;
+            this.f58378e = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.h0.r.s.a aVar = this.f58377e;
+            d.b.h0.r.s.a aVar = this.f58378e;
             if (aVar != null) {
                 aVar.dismiss();
             }
@@ -129,20 +129,20 @@ public class a implements View.OnClickListener {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f58378e;
+        public final /* synthetic */ View.OnClickListener f58379e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f58379f;
+        public final /* synthetic */ d.b.h0.r.s.a f58380f;
 
         public c(a aVar, View.OnClickListener onClickListener, d.b.h0.r.s.a aVar2) {
-            this.f58378e = onClickListener;
-            this.f58379f = aVar2;
+            this.f58379e = onClickListener;
+            this.f58380f = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f58378e.onClick(view);
-            d.b.h0.r.s.a aVar = this.f58379f;
+            this.f58379e.onClick(view);
+            d.b.h0.r.s.a aVar = this.f58380f;
             if (aVar != null) {
                 aVar.dismiss();
             }
@@ -168,8 +168,8 @@ public class a implements View.OnClickListener {
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             a.this.F();
-            d.b.b.e.p.l.w(a.this.f58372e.getPageActivity(), a.this.y);
-            d.b.b.e.p.l.w(a.this.f58372e.getPageActivity(), a.this.z);
+            d.b.b.e.p.l.w(a.this.f58373e.getPageActivity(), a.this.y);
+            d.b.b.e.p.l.w(a.this.f58373e.getPageActivity(), a.this.z);
         }
     }
 
@@ -200,8 +200,8 @@ public class a implements View.OnClickListener {
 
         /* renamed from: d.b.i0.p0.q1.f.a$g$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnTouchListenerC1427a implements View.OnTouchListener {
-            public View$OnTouchListenerC1427a(g gVar) {
+        public class View$OnTouchListenerC1428a implements View.OnTouchListener {
+            public View$OnTouchListenerC1428a(g gVar) {
             }
 
             @Override // android.view.View.OnTouchListener
@@ -227,7 +227,7 @@ public class a implements View.OnClickListener {
             a.T(a.this.w, length, 500);
             a.this.O();
             if (a.this.z.getLineCount() > 6) {
-                a.this.z.setOnTouchListener(new View$OnTouchListenerC1427a(this));
+                a.this.z.setOnTouchListener(new View$OnTouchListenerC1428a(this));
             } else {
                 a.this.z.setOnTouchListener(null);
             }
@@ -246,31 +246,31 @@ public class a implements View.OnClickListener {
     public class h implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.q1.f.b f58384e;
+        public final /* synthetic */ d.b.i0.p0.q1.f.b f58385e;
 
         /* renamed from: d.b.i0.p0.q1.f.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC1428a implements View.OnClickListener {
-            public View$OnClickListenerC1428a() {
+        public class View$OnClickListenerC1429a implements View.OnClickListener {
+            public View$OnClickListenerC1429a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h hVar = h.this;
-                a.this.Q(hVar.f58384e);
+                a.this.Q(hVar.f58385e);
             }
         }
 
         public h(d.b.i0.p0.q1.f.b bVar) {
-            this.f58384e = bVar;
+            this.f58385e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f58384e.k().getText().toString().length() != 0 || this.f58384e.l().getText().toString().length() != 0) {
-                a.this.X(new View$OnClickListenerC1428a());
+            if (this.f58385e.k().getText().toString().length() != 0 || this.f58385e.l().getText().toString().length() != 0) {
+                a.this.X(new View$OnClickListenerC1429a());
             } else {
-                a.this.Q(this.f58384e);
+                a.this.Q(this.f58385e);
             }
         }
     }
@@ -320,10 +320,10 @@ public class a implements View.OnClickListener {
     }
 
     public a(TbPageContext<?> tbPageContext, d.b.i0.p0.q1.b.b bVar, View view, String str, String str2, String str3, String str4, int i2, ForumRulesEditActivity forumRulesEditActivity) {
-        this.f58372e = tbPageContext;
-        this.f58373f = str;
-        this.f58374g = str2;
-        this.f58375h = str4;
+        this.f58373e = tbPageContext;
+        this.f58374f = str;
+        this.f58375g = str2;
+        this.f58376h = str4;
         this.M = i2;
         this.j = forumRulesEditActivity;
         this.i = bVar;
@@ -340,7 +340,7 @@ public class a implements View.OnClickListener {
     }
 
     public final void A() {
-        String format = String.format(this.f58372e.getString(R.string.forum_rule_defalt_title_demo), this.f58374g, d.b.b.e.p.k.getDateStringMouth(new Date()));
+        String format = String.format(this.f58373e.getString(R.string.forum_rule_defalt_title_demo), this.f58375g, d.b.b.e.p.k.getDateStringMouth(new Date()));
         this.y.setText(format);
         this.y.setSelection(format.length());
         ViewGroup.LayoutParams layoutParams = this.y.getLayoutParams();
@@ -395,23 +395,23 @@ public class a implements View.OnClickListener {
         this.o = (RelativeLayout) view.findViewById(R.id.create_rule_btn);
         this.x = (EMTextView) view.findViewById(R.id.create_rule);
         this.r = (ImageView) view.findViewById(R.id.create_rule_icon);
-        TextView addTextButton = this.C.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f58372e.getString(R.string.dialog_cancel), null);
+        TextView addTextButton = this.C.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f58373e.getString(R.string.dialog_cancel), null);
         this.F = addTextButton;
         addTextButton.setId(R.id.negative_feedback_view);
         this.F.setOnClickListener(this);
-        this.C.setCenterTextTitle(this.f58372e.getString(R.string.forum_rule_defalt_title_setting));
-        EMTextView eMTextView = new EMTextView(this.f58372e.getPageActivity());
+        this.C.setCenterTextTitle(this.f58373e.getString(R.string.forum_rule_defalt_title_setting));
+        EMTextView eMTextView = new EMTextView(this.f58373e.getPageActivity());
         this.D = eMTextView;
-        eMTextView.setText(this.f58372e.getString(R.string.video_preview));
+        eMTextView.setText(this.f58373e.getString(R.string.video_preview));
         this.D.setGravity(16);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
         layoutParams.gravity = 17;
         this.D.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004), 0);
         this.D.setLayoutParams(layoutParams);
         this.C.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.D, this);
-        EMTextView eMTextView2 = new EMTextView(this.f58372e.getPageActivity());
+        EMTextView eMTextView2 = new EMTextView(this.f58373e.getPageActivity());
         this.E = eMTextView2;
-        eMTextView2.setText(this.f58372e.getString(R.string.push_commit));
+        eMTextView2.setText(this.f58373e.getString(R.string.push_commit));
         this.E.setEnabled(false);
         this.E.setGravity(16);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
@@ -449,16 +449,16 @@ public class a implements View.OnClickListener {
 
     public void K() {
         if (this.N == null) {
-            d.b.h0.r.s.l lVar = new d.b.h0.r.s.l(this.f58372e.getPageActivity());
+            d.b.h0.r.s.l lVar = new d.b.h0.r.s.l(this.f58373e.getPageActivity());
             this.O = lVar;
-            lVar.q(this.f58372e.getString(R.string.forum_rule_draft_title));
-            this.N = new d.b.h0.r.s.j(this.f58372e, this.O);
+            lVar.q(this.f58373e.getString(R.string.forum_rule_draft_title));
+            this.N = new d.b.h0.r.s.j(this.f58373e, this.O);
             ArrayList arrayList = new ArrayList();
-            d.b.h0.r.s.h hVar = new d.b.h0.r.s.h(this.f58372e.getString(R.string.save), this.O);
+            d.b.h0.r.s.h hVar = new d.b.h0.r.s.h(this.f58373e.getString(R.string.save), this.O);
             hVar.o(R.color.CAM_X0302);
             hVar.m(this.R);
             arrayList.add(hVar);
-            d.b.h0.r.s.h hVar2 = new d.b.h0.r.s.h(this.f58372e.getString(R.string.not_save), this.O);
+            d.b.h0.r.s.h hVar2 = new d.b.h0.r.s.h(this.f58373e.getString(R.string.not_save), this.O);
             hVar2.m(this.S);
             arrayList.add(hVar2);
             this.O.m(new k());
@@ -498,7 +498,7 @@ public class a implements View.OnClickListener {
         List<d.b.i0.p0.q1.f.b> list = this.I;
         if (list != null) {
             if (list.size() >= 20) {
-                this.x.setText(this.f58372e.getString(R.string.forum_rule_item_number_max));
+                this.x.setText(this.f58373e.getString(R.string.forum_rule_item_number_max));
                 this.o.setEnabled(false);
                 this.x.setEnabled(false);
                 this.L = false;
@@ -511,7 +511,7 @@ public class a implements View.OnClickListener {
                 a2.c(R.color.CAM_X0201);
                 return;
             }
-            this.x.setText(String.format(this.f58372e.getString(R.string.forum_rule_item_add_number), Integer.valueOf(20 - this.I.size())));
+            this.x.setText(String.format(this.f58373e.getString(R.string.forum_rule_item_add_number), Integer.valueOf(20 - this.I.size())));
             this.o.setEnabled(true);
             this.x.setEnabled(true);
             this.L = true;
@@ -609,7 +609,7 @@ public class a implements View.OnClickListener {
         if (this.G != null || (relativeLayout = this.n) == null) {
             return;
         }
-        d.b.i0.b0.e eVar = new d.b.i0.b0.e(this.f58372e, relativeLayout);
+        d.b.i0.b0.e eVar = new d.b.i0.b0.e(this.f58373e, relativeLayout);
         this.G = eVar;
         eVar.c0(R.drawable.bg_tip_blue_up_left);
         this.G.N(16);
@@ -617,24 +617,24 @@ public class a implements View.OnClickListener {
         this.G.d0(true);
         this.G.M(3000);
         this.G.f0(UtilHelper.getDimenPixelSize(R.dimen.tbds20));
-        this.G.i0(this.f58372e.getString(R.string.forum_rule_defalt_tocopy_tip), "key_forum_rule_first_edit");
+        this.G.i0(this.f58373e.getString(R.string.forum_rule_defalt_tocopy_tip), "key_forum_rule_first_edit");
     }
 
     public final void X(View.OnClickListener onClickListener) {
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f58372e.getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f58373e.getPageActivity());
         aVar.setContentViewSize(2);
         aVar.setCanceledOnTouchOutside(false);
-        ForumRuleDelItemDialogView forumRuleDelItemDialogView = new ForumRuleDelItemDialogView(this.f58372e.getPageActivity());
+        ForumRuleDelItemDialogView forumRuleDelItemDialogView = new ForumRuleDelItemDialogView(this.f58373e.getPageActivity());
         forumRuleDelItemDialogView.setConfirmButtonListener(new b(this, aVar));
         forumRuleDelItemDialogView.setpostButtonListener(new c(this, onClickListener, aVar));
         aVar.setContentView(forumRuleDelItemDialogView);
-        aVar.create(this.f58372e).show();
+        aVar.create(this.f58373e).show();
     }
 
     public final void Y(String str) {
         BdTopToast bdTopToast = this.K;
         if (bdTopToast == null || !bdTopToast.isShown()) {
-            BdTopToast bdTopToast2 = new BdTopToast(this.f58372e.getPageActivity(), 2000);
+            BdTopToast bdTopToast2 = new BdTopToast(this.f58373e.getPageActivity(), 2000);
             bdTopToast2.i(false);
             bdTopToast2.h(str);
             this.K = bdTopToast2;
@@ -664,9 +664,9 @@ public class a implements View.OnClickListener {
             w();
         } else if (view == this.D) {
             L();
-            this.f58372e.sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.f58372e.getPageActivity(), this.f58373f, this.f58374g, this.J, ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, this.f58375h, this.M)));
+            this.f58373e.sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.f58373e.getPageActivity(), this.f58374f, this.f58375g, this.J, ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, this.f58376h, this.M)));
         } else if (view == this.n) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsActivityConfig(this.f58372e.getPageActivity()).createNormalCfg(this.f58374g, FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsActivityConfig(this.f58373e.getPageActivity()).createNormalCfg(this.f58375g, FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT)));
         } else if (view == this.t) {
             A();
         } else if (view != this.A && view != this.C) {
@@ -675,8 +675,8 @@ public class a implements View.OnClickListener {
                 d.b.b.e.m.e.a().postDelayed(this.Q, 300L);
             }
         } else {
-            d.b.b.e.p.l.w(this.f58372e.getPageActivity(), this.y);
-            d.b.b.e.p.l.w(this.f58372e.getPageActivity(), this.z);
+            d.b.b.e.p.l.w(this.f58373e.getPageActivity(), this.y);
+            d.b.b.e.p.l.w(this.f58373e.getPageActivity(), this.z);
         }
     }
 
@@ -691,7 +691,7 @@ public class a implements View.OnClickListener {
 
     public final void q(int i2, int i3) {
         if (this.B != null) {
-            d.b.i0.p0.q1.f.b bVar = new d.b.i0.p0.q1.f.b(this.f58372e.getPageActivity());
+            d.b.i0.p0.q1.f.b bVar = new d.b.i0.p0.q1.f.b(this.f58373e.getPageActivity());
             R(bVar);
             r(bVar);
             String string = TbadkApplication.getInst().getResources().getString(i2);
@@ -719,7 +719,7 @@ public class a implements View.OnClickListener {
 
     public final void s(boolean z, ForumRuleBaseData.ForumRuleItemPbData forumRuleItemPbData, boolean z2) {
         if (this.B != null) {
-            d.b.i0.p0.q1.f.b bVar = new d.b.i0.p0.q1.f.b(this.f58372e.getPageActivity());
+            d.b.i0.p0.q1.f.b bVar = new d.b.i0.p0.q1.f.b(this.f58373e.getPageActivity());
             R(bVar);
             r(bVar);
             if (forumRuleItemPbData != null) {
@@ -809,7 +809,7 @@ public class a implements View.OnClickListener {
             }
             NavigationBar navigationBar = this.C;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.f58372e, i2);
+                navigationBar.onChangeSkinType(this.f58373e, i2);
             }
             d.b.h0.r.s.l lVar = this.O;
             if (lVar != null) {
@@ -834,7 +834,7 @@ public class a implements View.OnClickListener {
     public final void w() {
         EditText editText = this.y;
         if (editText != null && editText.getText().toString().length() > 50) {
-            Y(String.format(this.f58372e.getString(R.string.forum_rule_commit_error_toast), this.f58372e.getString(R.string.forum_rule_defalt_main_title)));
+            Y(String.format(this.f58373e.getString(R.string.forum_rule_commit_error_toast), this.f58373e.getString(R.string.forum_rule_defalt_main_title)));
             return;
         }
         List<d.b.i0.p0.q1.f.b> list = this.I;
@@ -845,17 +845,17 @@ public class a implements View.OnClickListener {
                 EditText l2 = bVar.l();
                 SpanGroupEditText k2 = bVar.k();
                 if (l2 != null && l2.getText().toString().trim().length() > 30) {
-                    Y(String.format(this.f58372e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f58372e.getString(R.string.forum_rule_defalt_has_forum_rule), d.b.i0.p0.q1.e.a.d(i2 + 1), this.f58372e.getString(R.string.forum_rule_title))));
+                    Y(String.format(this.f58373e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f58373e.getString(R.string.forum_rule_defalt_has_forum_rule), d.b.i0.p0.q1.e.a.d(i2 + 1), this.f58373e.getString(R.string.forum_rule_title))));
                     return;
                 } else if (k2 != null && k2.getText().toString().length() > 1000) {
-                    Y(String.format(this.f58372e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f58372e.getString(R.string.forum_rule_defalt_has_forum_rule), d.b.i0.p0.q1.e.a.d(i2 + 1), this.f58372e.getString(R.string.forum_rule_content))));
+                    Y(String.format(this.f58373e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f58373e.getString(R.string.forum_rule_defalt_has_forum_rule), d.b.i0.p0.q1.e.a.d(i2 + 1), this.f58373e.getString(R.string.forum_rule_content))));
                     return;
                 }
             }
         }
         EditText editText2 = this.z;
         if (editText2 != null && editText2.getText().toString().length() > 500) {
-            Y(String.format(this.f58372e.getString(R.string.forum_rule_commit_error_toast), this.f58372e.getString(R.string.forum_rule_defalt_preface_title)));
+            Y(String.format(this.f58373e.getString(R.string.forum_rule_commit_error_toast), this.f58373e.getString(R.string.forum_rule_defalt_preface_title)));
             return;
         }
         L();
@@ -897,7 +897,7 @@ public class a implements View.OnClickListener {
         }
         if (i2 + i4 + i5 + i3 > 5000) {
             E();
-            Y(String.format(this.f58372e.getString(R.string.forum_rule_draft_total_num_error_toast), 5000));
+            Y(String.format(this.f58373e.getString(R.string.forum_rule_draft_total_num_error_toast), 5000));
             return true;
         }
         return false;
@@ -912,7 +912,7 @@ public class a implements View.OnClickListener {
         if (forumRuleBaseData != null) {
             if (forumRuleBaseData.getTitle().length() > 50) {
                 E();
-                Y(String.format(this.f58372e.getString(R.string.forum_rule_draft_error_toast), this.f58372e.getString(R.string.forum_rule_defalt_main_title), 50));
+                Y(String.format(this.f58373e.getString(R.string.forum_rule_draft_error_toast), this.f58373e.getString(R.string.forum_rule_defalt_main_title), 50));
                 return;
             }
             if (this.J.getList() != null) {
@@ -921,11 +921,11 @@ public class a implements View.OnClickListener {
                     if (forumRuleItemData != null) {
                         if (forumRuleItemData.getTitle().length() > 50) {
                             E();
-                            Y(String.format(this.f58372e.getString(R.string.forum_rule_draft_error_toast), this.f58372e.getString(R.string.forum_rule_defalt_item_title), 50));
+                            Y(String.format(this.f58373e.getString(R.string.forum_rule_draft_error_toast), this.f58373e.getString(R.string.forum_rule_defalt_item_title), 50));
                             return;
                         } else if (forumRuleItemData.getContent().length() > 1000) {
                             E();
-                            Y(String.format(this.f58372e.getString(R.string.forum_rule_draft_error_toast), this.f58372e.getString(R.string.forum_rule_defalt_item_content), 1000));
+                            Y(String.format(this.f58373e.getString(R.string.forum_rule_draft_error_toast), this.f58373e.getString(R.string.forum_rule_defalt_item_content), 1000));
                             return;
                         }
                     }
@@ -933,7 +933,7 @@ public class a implements View.OnClickListener {
             }
             if (this.J.getPreface().length() > 600) {
                 E();
-                Y(String.format(this.f58372e.getString(R.string.forum_rule_draft_error_toast), this.f58372e.getString(R.string.forum_rule_defalt_preface_title), 600));
+                Y(String.format(this.f58373e.getString(R.string.forum_rule_draft_error_toast), this.f58373e.getString(R.string.forum_rule_defalt_preface_title), 600));
                 return;
             }
         }

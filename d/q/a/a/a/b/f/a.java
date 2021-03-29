@@ -9,34 +9,34 @@ import android.os.Bundle;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f67311b;
+    public static volatile a f67316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Uri f67312c = Uri.parse("content://cn.nubia.identity/identity");
+    public static Uri f67317c = Uri.parse("content://cn.nubia.identity/identity");
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67313a;
+    public Context f67318a;
 
     public a(Context context) {
-        this.f67313a = context;
+        this.f67318a = context;
     }
 
     public static a a(Context context) {
-        if (f67311b == null) {
+        if (f67316b == null) {
             synchronized (a.class) {
-                if (f67311b == null) {
-                    f67311b = new a(context);
+                if (f67316b == null) {
+                    f67316b = new a(context);
                 }
             }
         }
-        return f67311b;
+        return f67316b;
     }
 
     public final String b(String str, String str2) {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = this.f67313a.getContentResolver().acquireUnstableContentProviderClient(f67312c);
+                ContentProviderClient acquireUnstableContentProviderClient = this.f67318a.getContentResolver().acquireUnstableContentProviderClient(f67317c);
                 call = acquireUnstableContentProviderClient.call(str2, null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -46,7 +46,7 @@ public class a {
                     }
                 }
             } else {
-                call = this.f67313a.getContentResolver().call(f67312c, str2, (String) null, (Bundle) null);
+                call = this.f67318a.getContentResolver().call(f67317c, str2, (String) null, (Bundle) null);
             }
             return (call == null || call.getInt("code", -1) != 0) ? "" : call.getString("id");
         } catch (Throwable th) {
@@ -59,7 +59,7 @@ public class a {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = this.f67313a.getContentResolver().acquireUnstableContentProviderClient(f67312c);
+                ContentProviderClient acquireUnstableContentProviderClient = this.f67318a.getContentResolver().acquireUnstableContentProviderClient(f67317c);
                 call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -69,7 +69,7 @@ public class a {
                     }
                 }
             } else {
-                call = this.f67313a.getContentResolver().call(f67312c, "isSupport", (String) null, (Bundle) null);
+                call = this.f67318a.getContentResolver().call(f67317c, "isSupport", (String) null, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 return call.getBoolean("issupport", true);

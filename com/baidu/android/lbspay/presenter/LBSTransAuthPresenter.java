@@ -10,7 +10,7 @@ import com.baidu.android.lbspay.channelpay.alipay.LBSPayAli;
 import com.baidu.android.lbspay.datamodel.AuthorizeData;
 import com.baidu.android.lbspay.network.AuthorizeSignContent;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSTransAuthPresenter implements LBSTransPresenter {
     public static final String AUTH_CHANNEL_ALI = "alipay";
     public static final String SAVED_AUTH_DATA = "mAuthorizeData";

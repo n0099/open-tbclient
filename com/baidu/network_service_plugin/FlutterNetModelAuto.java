@@ -32,22 +32,22 @@ import protobuf.Error;
 public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.h> implements b.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<D> f9276a;
+    public Class<D> f9277a;
 
     /* renamed from: d  reason: collision with root package name */
-    public i<T, D> f9279d;
+    public i<T, D> f9280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j<T, D> f9280e;
+    public j<T, D> f9281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public T f9281f;
+    public T f9282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbSocketMessage f9282g;
+    public TbSocketMessage f9283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9283h;
+    public String f9284h;
     public int j;
     public int k;
     public String l;
@@ -56,10 +56,10 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     public Runnable u;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9277b = false;
+    public boolean f9278b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9278c = false;
+    public boolean f9279c = false;
     public BdUniqueId i = null;
     public boolean n = false;
     public boolean o = false;
@@ -79,21 +79,21 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f9284a;
+        public static final /* synthetic */ int[] f9285a;
 
         static {
             int[] iArr = new int[NetModelType.values().length];
-            f9284a = iArr;
+            f9285a = iArr;
             try {
                 iArr[NetModelType.TYPE_AUTO.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f9284a[NetModelType.TYPE_SOCKET.ordinal()] = 2;
+                f9285a[NetModelType.TYPE_SOCKET.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f9284a[NetModelType.TYPE_HTTP.ordinal()] = 3;
+                f9285a[NetModelType.TYPE_HTTP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -106,7 +106,7 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
 
         @Override // java.lang.Runnable
         public void run() {
-            int i = a.f9284a[FlutterNetModelAuto.this.m.ordinal()];
+            int i = a.f9285a[FlutterNetModelAuto.this.m.ordinal()];
             if (i == 1) {
                 FlutterNetModelAuto.this.C(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
             } else if (i == 2) {
@@ -165,20 +165,20 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             }
             if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
                 MvcNetMessage<T, D> mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                if (FlutterNetModelAuto.this.f9279d != null) {
+                if (FlutterNetModelAuto.this.f9280d != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", FlutterNetModelAuto.this.r());
                     hashMap.put(RetrieveTaskManager.KEY, FlutterNetModelAuto.this.o() + "");
                     hashMap.put("state", responsedMessage.getError() + "_" + responsedMessage.getErrorString());
-                    FlutterNetModelAuto.this.f9279d.a(FlutterNetModelAuto.this.f9283h, hashMap, (MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
+                    FlutterNetModelAuto.this.f9280d.a(FlutterNetModelAuto.this.f9284h, hashMap, (MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
                 }
             } else if (responsedMessage instanceof SocketResponsedMessage) {
                 MvcNetMessage<T, D> mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                if (FlutterNetModelAuto.this.f9280e != null) {
+                if (FlutterNetModelAuto.this.f9281e != null) {
                     HashMap<String, String> hashMap2 = new HashMap<>();
                     hashMap2.put(RetrieveTaskManager.KEY, FlutterNetModelAuto.this.v() + "");
                     hashMap2.put("state", responsedMessage.getError() + "_" + responsedMessage.getErrorString());
-                    FlutterNetModelAuto.this.f9280e.a(FlutterNetModelAuto.this.f9283h, hashMap2, (SocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
+                    FlutterNetModelAuto.this.f9281e.a(FlutterNetModelAuto.this.f9284h, hashMap2, (SocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
                 }
             } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                 throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
@@ -201,12 +201,12 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             }
             if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
                 if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                    if (FlutterNetModelAuto.this.f9279d != null) {
+                    if (FlutterNetModelAuto.this.f9280d != null) {
                         HashMap<String, String> hashMap = new HashMap<>();
                         hashMap.put("server", FlutterNetModelAuto.this.r());
                         hashMap.put(RetrieveTaskManager.KEY, FlutterNetModelAuto.this.o() + "");
                         hashMap.put("state", httpResponsedMessage.getError() + "_" + httpResponsedMessage.getErrorString());
-                        FlutterNetModelAuto.this.f9279d.a(FlutterNetModelAuto.this.f9283h, hashMap, (MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                        FlutterNetModelAuto.this.f9280d.a(FlutterNetModelAuto.this.f9284h, hashMap, (MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                     }
                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");
@@ -232,21 +232,21 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             }
             if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
                 if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                    if (FlutterNetModelAuto.this.f9280e != null) {
+                    if (FlutterNetModelAuto.this.f9281e != null) {
                         HashMap<String, String> hashMap = new HashMap<>();
                         hashMap.put(RetrieveTaskManager.KEY, FlutterNetModelAuto.this.v() + "");
                         hashMap.put("state", socketResponsedMessage.getError() + "_" + socketResponsedMessage.getErrorString());
-                        FlutterNetModelAuto.this.f9280e.a(FlutterNetModelAuto.this.f9283h, hashMap, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                        FlutterNetModelAuto.this.f9281e.a(FlutterNetModelAuto.this.f9284h, hashMap, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                     }
                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
                 }
-            } else if (!(socketResponsedMessage instanceof SocketResponsedMessage) || FlutterNetModelAuto.this.f9280e == null) {
+            } else if (!(socketResponsedMessage instanceof SocketResponsedMessage) || FlutterNetModelAuto.this.f9281e == null) {
             } else {
                 HashMap<String, String> hashMap2 = new HashMap<>();
                 hashMap2.put(RetrieveTaskManager.KEY, FlutterNetModelAuto.this.v() + "");
                 hashMap2.put("state", socketResponsedMessage.getError() + "_" + socketResponsedMessage.getErrorString());
-                FlutterNetModelAuto.this.f9280e.a(FlutterNetModelAuto.this.f9283h, hashMap2, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                FlutterNetModelAuto.this.f9281e.a(FlutterNetModelAuto.this.f9284h, hashMap2, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
             }
         }
     }
@@ -262,19 +262,19 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     }
 
     public FlutterNetModelAuto(String str, NetModelType netModelType) {
-        this.f9283h = str;
+        this.f9284h = str;
         this.m = netModelType;
     }
 
     public boolean A() {
-        if (this.f9280e == null && this.f9279d == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.f9281e == null && this.f9280d == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
         this.t = l.C();
         if (this.s >= 10) {
             d.b.b.e.m.e.a().postDelayed(x(), this.s * 1000);
         }
-        int i2 = a.f9284a[this.m.ordinal()];
+        int i2 = a.f9285a[this.m.ordinal()];
         if (i2 == 1) {
             if (!this.t) {
                 d.b.b.e.m.e.a().post(new c());
@@ -283,11 +283,11 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             l();
             n();
             m();
-            MvcNetMessage mvcNetMessage = new MvcNetMessage(this.f9281f, o(), v());
+            MvcNetMessage mvcNetMessage = new MvcNetMessage(this.f9282f, o(), v());
             mvcNetMessage.setNeedCache(z());
             mvcNetMessage.setResponseDataClass(u());
             mvcNetMessage.setTag(this.i);
-            HashMap<String, String> p = this.f9281f.p();
+            HashMap<String, String> p = this.f9282f.p();
             if (p != null) {
                 for (Map.Entry<String, String> entry : p.entrySet()) {
                     mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
@@ -302,15 +302,15 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             }
             n();
             m();
-            if (this.f9281f != null) {
-                MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.f9281f, v());
+            if (this.f9282f != null) {
+                MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.f9282f, v());
                 mvcSocketMessage.setResponseDataClass(u());
                 mvcSocketMessage.setNeedCache(z());
                 mvcSocketMessage.setTag(this.i);
                 MessageManager.getInstance().sendMessage(mvcSocketMessage);
             }
-            if (this.f9282g != null) {
-                MessageManager.getInstance().sendMessage(this.f9282g);
+            if (this.f9283g != null) {
+                MessageManager.getInstance().sendMessage(this.f9283g);
             }
             return true;
         } else if (i2 != 3) {
@@ -322,15 +322,15 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             }
             k();
             m();
-            MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.f9281f, o());
+            MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.f9282f, o());
             mvcHttpMessage.setResponseDataClass(u());
-            HashMap<String, Object> k = this.f9281f.k();
+            HashMap<String, Object> k = this.f9282f.k();
             if (k != null) {
                 for (Map.Entry<String, Object> entry2 : k.entrySet()) {
                     mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                 }
             }
-            HashMap<String, String> p2 = this.f9281f.p();
+            HashMap<String, String> p2 = this.f9282f.p();
             if (p2 != null) {
                 for (Map.Entry<String, String> entry3 : p2.entrySet()) {
                     mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
@@ -344,21 +344,21 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     }
 
     public final void B(int i2, String str) {
-        if (this.f9279d != null) {
-            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.f9281f, o());
+        if (this.f9280d != null) {
+            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.f9282f, o());
             MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(o());
             mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
             mvcJsonHttpResponsedMessage.setError(i2);
             mvcJsonHttpResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(RetrieveTaskManager.KEY, o() + "");
-            this.f9279d.a(this.f9283h, hashMap, mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
+            this.f9280d.a(this.f9284h, hashMap, mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
         }
     }
 
     public final void C(int i2, String str) {
-        MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.f9281f, o(), v());
-        if (this.f9280e != null) {
+        MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.f9282f, o(), v());
+        if (this.f9281e != null) {
             MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(v()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.8
                 @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
                 public Class getProtobufResponseIdlClass() {
@@ -370,8 +370,8 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             mvcSocketResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(RetrieveTaskManager.KEY, v() + "");
-            this.f9280e.a(this.f9283h, hashMap, mvcSocketResponsedMessage, null, mvcNetMessage);
-        } else if (this.f9279d != null) {
+            this.f9281e.a(this.f9284h, hashMap, mvcSocketResponsedMessage, null, mvcNetMessage);
+        } else if (this.f9280d != null) {
             MvcHttpResponsedMessage<D> mvcHttpResponsedMessage = new MvcProtobufHttpResponsedMessage<D, Error>(o()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.9
                 @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
                 public Class<Error> getProtobufResponseIdlClass() {
@@ -383,12 +383,12 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
             mvcHttpResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put(RetrieveTaskManager.KEY, o() + "");
-            this.f9279d.a(this.f9283h, hashMap2, mvcHttpResponsedMessage, null, mvcNetMessage);
+            this.f9280d.a(this.f9284h, hashMap2, mvcHttpResponsedMessage, null, mvcNetMessage);
         }
     }
 
     public final void D(int i2, String str) {
-        MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.f9281f, v());
+        MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.f9282f, v());
         MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(v()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.10
             @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
             public Class getProtobufResponseIdlClass() {
@@ -400,7 +400,7 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
         mvcSocketResponsedMessage.setErrorString(str);
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(RetrieveTaskManager.KEY, v() + "");
-        this.f9280e.a(this.f9283h, hashMap, mvcSocketResponsedMessage, mvcSocketMessage, null);
+        this.f9281e.a(this.f9284h, hashMap, mvcSocketResponsedMessage, mvcSocketMessage, null);
     }
 
     public void E(TbHttpMessageTask tbHttpMessageTask) {
@@ -413,7 +413,7 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     }
 
     public void H(i<T, D> iVar) {
-        this.f9279d = iVar;
+        this.f9280d = iVar;
     }
 
     public void I(int i2) {
@@ -425,22 +425,22 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     }
 
     public void K(boolean z) {
-        this.f9277b = z;
+        this.f9278b = z;
     }
 
     public void L(boolean z) {
-        this.f9278c = z;
+        this.f9279c = z;
     }
 
     public void M(Class<T> cls) {
     }
 
     public void N(Class<D> cls) {
-        this.f9276a = cls;
+        this.f9277a = cls;
     }
 
     public void O(j<T, D> jVar) {
-        this.f9280e = jVar;
+        this.f9281e = jVar;
     }
 
     public void P(int i2) {
@@ -448,7 +448,7 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     }
 
     public void Q(TbSocketMessage tbSocketMessage) {
-        this.f9282g = tbSocketMessage;
+        this.f9283g = tbSocketMessage;
     }
 
     public void R(BdUniqueId bdUniqueId) {
@@ -490,7 +490,7 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
         if (this.q) {
             return;
         }
-        int i2 = a.f9284a[this.m.ordinal()];
+        int i2 = a.f9285a[this.m.ordinal()];
         if (i2 == 1) {
             f fVar = new f(o(), v());
             fVar.getHttpMessageListener().setSelfListener(true);
@@ -542,15 +542,15 @@ public class FlutterNetModelAuto<T extends d.b.h0.g0.b.g, D extends d.b.h0.g0.b.
     }
 
     public boolean s() {
-        return this.f9277b;
+        return this.f9278b;
     }
 
     public boolean t() {
-        return this.f9278c;
+        return this.f9279c;
     }
 
     public Class<D> u() {
-        return this.f9276a;
+        return this.f9277a;
     }
 
     public int v() {

@@ -9,33 +9,33 @@ import d.a.a.q.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c implements d, l, a.InterfaceC0528a, d.a.a.s.f {
+public class c implements d, l, a.InterfaceC0529a, d.a.a.s.f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Matrix f41212a;
+    public final Matrix f41213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Path f41213b;
+    public final Path f41214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f41214c;
+    public final RectF f41215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f41215d;
+    public final String f41216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<b> f41216e;
+    public final List<b> f41217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.f f41217f;
+    public final d.a.a.f f41218f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public List<l> f41218g;
+    public List<l> f41219g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.a.q.b.o f41219h;
+    public d.a.a.q.b.o f41220h;
 
     public c(d.a.a.f fVar, d.a.a.s.k.a aVar, d.a.a.s.j.j jVar) {
         this(fVar, aVar, jVar.c(), f(fVar, aVar, jVar.b()), h(jVar.b()));
@@ -63,38 +63,38 @@ public class c implements d, l, a.InterfaceC0528a, d.a.a.s.f {
         return null;
     }
 
-    @Override // d.a.a.q.b.a.InterfaceC0528a
+    @Override // d.a.a.q.b.a.InterfaceC0529a
     public void a() {
-        this.f41217f.invalidateSelf();
+        this.f41218f.invalidateSelf();
     }
 
     @Override // d.a.a.q.a.b
     public void b(List<b> list, List<b> list2) {
-        ArrayList arrayList = new ArrayList(list.size() + this.f41216e.size());
+        ArrayList arrayList = new ArrayList(list.size() + this.f41217e.size());
         arrayList.addAll(list);
-        for (int size = this.f41216e.size() - 1; size >= 0; size--) {
-            b bVar = this.f41216e.get(size);
-            bVar.b(arrayList, this.f41216e.subList(0, size));
+        for (int size = this.f41217e.size() - 1; size >= 0; size--) {
+            b bVar = this.f41217e.get(size);
+            bVar.b(arrayList, this.f41217e.subList(0, size));
             arrayList.add(bVar);
         }
     }
 
     @Override // d.a.a.q.a.d
     public void c(RectF rectF, Matrix matrix) {
-        this.f41212a.set(matrix);
-        d.a.a.q.b.o oVar = this.f41219h;
+        this.f41213a.set(matrix);
+        d.a.a.q.b.o oVar = this.f41220h;
         if (oVar != null) {
-            this.f41212a.preConcat(oVar.e());
+            this.f41213a.preConcat(oVar.e());
         }
-        this.f41214c.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.f41216e.size() - 1; size >= 0; size--) {
-            b bVar = this.f41216e.get(size);
+        this.f41215c.set(0.0f, 0.0f, 0.0f, 0.0f);
+        for (int size = this.f41217e.size() - 1; size >= 0; size--) {
+            b bVar = this.f41217e.get(size);
             if (bVar instanceof d) {
-                ((d) bVar).c(this.f41214c, this.f41212a);
+                ((d) bVar).c(this.f41215c, this.f41213a);
                 if (rectF.isEmpty()) {
-                    rectF.set(this.f41214c);
+                    rectF.set(this.f41215c);
                 } else {
-                    rectF.set(Math.min(rectF.left, this.f41214c.left), Math.min(rectF.top, this.f41214c.top), Math.max(rectF.right, this.f41214c.right), Math.max(rectF.bottom, this.f41214c.bottom));
+                    rectF.set(Math.min(rectF.left, this.f41215c.left), Math.min(rectF.top, this.f41215c.top), Math.max(rectF.right, this.f41215c.right), Math.max(rectF.bottom, this.f41215c.bottom));
                 }
             }
         }
@@ -102,7 +102,7 @@ public class c implements d, l, a.InterfaceC0528a, d.a.a.s.f {
 
     @Override // d.a.a.s.f
     public <T> void d(T t, @Nullable d.a.a.w.c<T> cVar) {
-        d.a.a.q.b.o oVar = this.f41219h;
+        d.a.a.q.b.o oVar = this.f41220h;
         if (oVar != null) {
             oVar.c(t, cVar);
         }
@@ -119,8 +119,8 @@ public class c implements d, l, a.InterfaceC0528a, d.a.a.s.f {
             }
             if (eVar.h(getName(), i)) {
                 int e2 = i + eVar.e(getName(), i);
-                for (int i2 = 0; i2 < this.f41216e.size(); i2++) {
-                    b bVar = this.f41216e.get(i2);
+                for (int i2 = 0; i2 < this.f41217e.size(); i2++) {
+                    b bVar = this.f41217e.get(i2);
                     if (bVar instanceof d.a.a.s.f) {
                         ((d.a.a.s.f) bVar).e(eVar, e2, list, eVar2);
                     }
@@ -131,76 +131,76 @@ public class c implements d, l, a.InterfaceC0528a, d.a.a.s.f {
 
     @Override // d.a.a.q.a.d
     public void g(Canvas canvas, Matrix matrix, int i) {
-        this.f41212a.set(matrix);
-        d.a.a.q.b.o oVar = this.f41219h;
+        this.f41213a.set(matrix);
+        d.a.a.q.b.o oVar = this.f41220h;
         if (oVar != null) {
-            this.f41212a.preConcat(oVar.e());
-            i = (int) ((((this.f41219h.g().h().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+            this.f41213a.preConcat(oVar.e());
+            i = (int) ((((this.f41220h.g().h().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
-        for (int size = this.f41216e.size() - 1; size >= 0; size--) {
-            b bVar = this.f41216e.get(size);
+        for (int size = this.f41217e.size() - 1; size >= 0; size--) {
+            b bVar = this.f41217e.get(size);
             if (bVar instanceof d) {
-                ((d) bVar).g(canvas, this.f41212a, i);
+                ((d) bVar).g(canvas, this.f41213a, i);
             }
         }
     }
 
     @Override // d.a.a.q.a.b
     public String getName() {
-        return this.f41215d;
+        return this.f41216d;
     }
 
     @Override // d.a.a.q.a.l
     public Path getPath() {
-        this.f41212a.reset();
-        d.a.a.q.b.o oVar = this.f41219h;
+        this.f41213a.reset();
+        d.a.a.q.b.o oVar = this.f41220h;
         if (oVar != null) {
-            this.f41212a.set(oVar.e());
+            this.f41213a.set(oVar.e());
         }
-        this.f41213b.reset();
-        for (int size = this.f41216e.size() - 1; size >= 0; size--) {
-            b bVar = this.f41216e.get(size);
+        this.f41214b.reset();
+        for (int size = this.f41217e.size() - 1; size >= 0; size--) {
+            b bVar = this.f41217e.get(size);
             if (bVar instanceof l) {
-                this.f41213b.addPath(((l) bVar).getPath(), this.f41212a);
+                this.f41214b.addPath(((l) bVar).getPath(), this.f41213a);
             }
         }
-        return this.f41213b;
+        return this.f41214b;
     }
 
     public List<l> i() {
-        if (this.f41218g == null) {
-            this.f41218g = new ArrayList();
-            for (int i = 0; i < this.f41216e.size(); i++) {
-                b bVar = this.f41216e.get(i);
+        if (this.f41219g == null) {
+            this.f41219g = new ArrayList();
+            for (int i = 0; i < this.f41217e.size(); i++) {
+                b bVar = this.f41217e.get(i);
                 if (bVar instanceof l) {
-                    this.f41218g.add((l) bVar);
+                    this.f41219g.add((l) bVar);
                 }
             }
         }
-        return this.f41218g;
+        return this.f41219g;
     }
 
     public Matrix j() {
-        d.a.a.q.b.o oVar = this.f41219h;
+        d.a.a.q.b.o oVar = this.f41220h;
         if (oVar != null) {
             return oVar.e();
         }
-        this.f41212a.reset();
-        return this.f41212a;
+        this.f41213a.reset();
+        return this.f41213a;
     }
 
     public c(d.a.a.f fVar, d.a.a.s.k.a aVar, String str, List<b> list, @Nullable d.a.a.s.i.l lVar) {
-        this.f41212a = new Matrix();
-        this.f41213b = new Path();
-        this.f41214c = new RectF();
-        this.f41215d = str;
-        this.f41217f = fVar;
-        this.f41216e = list;
+        this.f41213a = new Matrix();
+        this.f41214b = new Path();
+        this.f41215c = new RectF();
+        this.f41216d = str;
+        this.f41218f = fVar;
+        this.f41217e = list;
         if (lVar != null) {
             d.a.a.q.b.o b2 = lVar.b();
-            this.f41219h = b2;
+            this.f41220h = b2;
             b2.a(aVar);
-            this.f41219h.b(this);
+            this.f41220h.b(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {

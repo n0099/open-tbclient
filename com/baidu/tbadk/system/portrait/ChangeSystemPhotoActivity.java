@@ -217,16 +217,16 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public class h extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14023a;
+        public NetWork f14024a;
 
         public h() {
-            this.f14023a = null;
+            this.f14024a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             ChangeSystemPhotoActivity.this.mResetTask = null;
-            NetWork netWork = this.f14023a;
+            NetWork netWork = this.f14024a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -243,10 +243,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Exception e2;
             String str;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
-            this.f14023a = netWork;
+            this.f14024a = netWork;
             try {
                 netWork.addPostData("pic", ChangeSystemPhotoActivity.this.mPhotoData.n());
-                str = this.f14023a.postMultiNetData();
+                str = this.f14024a.postMultiNetData();
             } catch (Exception e3) {
                 e2 = e3;
                 str = null;
@@ -257,7 +257,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 BdLog.e(e2.getMessage());
                 return str;
             }
-            if (this.f14023a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f14024a.getNetContext().getResponse().isRequestSuccess()) {
                 return str;
             }
             return null;
@@ -266,12 +266,12 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            if (this.f14023a != null) {
+            if (this.f14024a != null) {
                 d.b.h0.r.f0.a aVar = ChangeSystemPhotoActivity.this.mLoadingDialog;
                 if (aVar != null) {
                     aVar.h(false);
                 }
-                if (this.f14023a.getNetContext().getResponse().isRequestSuccess()) {
+                if (this.f14024a.getNetContext().getResponse().isRequestSuccess()) {
                     new d.b.h0.r.f0.c().c(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.currentUrl);

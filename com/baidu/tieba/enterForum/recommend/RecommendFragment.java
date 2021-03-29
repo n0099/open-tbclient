@@ -19,16 +19,16 @@ import d.b.i0.i0.k.a;
 public class RecommendFragment extends BaseFragment implements f.g, a {
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendModel f15484e;
+    public RecommendModel f15485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecommendView f15485f;
+    public RecommendView f15486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15486g;
+    public boolean f15487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f15487h;
+    public c f15488h;
 
     @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
     public String getCurrentPageKey() {
@@ -38,26 +38,26 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     @Override // d.b.i0.i0.k.a
     public void loadData() {
         if (j.z()) {
-            this.f15485f.i();
-            this.f15485f.s(false);
-            this.f15484e.v();
+            this.f15486f.i();
+            this.f15486f.s(false);
+            this.f15485e.v();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.f15484e == null) {
+        if (this.f15485e == null) {
             RecommendModel recommendModel = new RecommendModel(getPageContext());
-            this.f15484e = recommendModel;
+            this.f15485e = recommendModel;
             recommendModel.w(this);
-            this.f15484e.setUniqueId(getUniqueId());
+            this.f15485e.setUniqueId(getUniqueId());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        RecommendView recommendView = this.f15485f;
+        RecommendView recommendView = this.f15486f;
         if (recommendView != null) {
             recommendView.m();
         }
@@ -66,43 +66,43 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f15485f == null) {
+        if (this.f15486f == null) {
             RecommendView recommendView = new RecommendView(getPageContext());
-            this.f15485f = recommendView;
-            recommendView.setTabViewController(this.f15487h);
-            this.f15485f.setPresenter(this);
-            this.f15485f.setListPullRefreshListener(this);
-            this.f15485f.setPageUniqueId(getUniqueId());
+            this.f15486f = recommendView;
+            recommendView.setTabViewController(this.f15488h);
+            this.f15486f.setPresenter(this);
+            this.f15486f.setListPullRefreshListener(this);
+            this.f15486f.setPageUniqueId(getUniqueId());
         }
-        if (this.f15485f.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f15485f.getParent()).removeView(this.f15485f);
+        if (this.f15486f.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f15486f.getParent()).removeView(this.f15486f);
         }
         d.b.i0.b3.c.g().i(getUniqueId());
-        return this.f15485f;
+        return this.f15486f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
-        this.f15487h = null;
-        this.f15485f.n();
-        this.f15484e.onDestroy();
+        this.f15488h = null;
+        this.f15486f.n();
+        this.f15485e.onDestroy();
         d.b.i0.b3.c.g().k(getUniqueId());
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        if (this.f15486g || TbadkCoreApplication.getInst().checkInterrupt()) {
+        if (this.f15487g || TbadkCoreApplication.getInst().checkInterrupt()) {
             return;
         }
-        this.f15485f.s(false);
-        this.f15484e.v();
-        this.f15486g = true;
+        this.f15486f.s(false);
+        this.f15485e.v();
+        this.f15487g = true;
     }
 
     @Override // d.b.h0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
-        RecommendModel recommendModel = this.f15484e;
+        RecommendModel recommendModel = this.f15485e;
         if (recommendModel != null) {
             recommendModel.v();
         }
@@ -114,11 +114,11 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
         super.onPrimary();
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921385));
-            if (this.f15486g) {
+            if (this.f15487g) {
                 return;
             }
             loadData();
-            this.f15486g = true;
+            this.f15487g = true;
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
@@ -127,14 +127,14 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
 
     @Override // d.b.i0.i0.k.a
     public void v(int i, d.b.i0.i0.k.c.a aVar) {
-        this.f15485f.h();
-        this.f15485f.v();
+        this.f15486f.h();
+        this.f15486f.v();
         if (i == 0 && aVar != null) {
-            this.f15485f.i();
-            this.f15485f.r();
-            this.f15485f.setData(aVar);
+            this.f15486f.i();
+            this.f15486f.r();
+            this.f15486f.setData(aVar);
             return;
         }
-        this.f15485f.t(false);
+        this.f15486f.t(false);
     }
 }

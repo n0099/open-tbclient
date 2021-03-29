@@ -4501,7 +4501,7 @@ public final class R {
             */
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class dimen {
         public static final int L_X01 = 0x7f070000;
         public static final int L_X02 = 0x7f070001;
@@ -6616,11 +6616,11 @@ public final class R {
             */
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class drawable {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f14441a = 0x7f080087;
+        public static final int f14442a = 0x7f080087;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080088;
         public static final int abc_action_bar_item_background_material = 0x7f080089;
         public static final int abc_btn_borderless_material = 0x7f08008a;
@@ -15807,7 +15807,7 @@ public final class R {
         public static final int commodity_tail_text_mask = 0x7f090741;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f14442common = 0x7f090742;
+        public static final int f14443common = 0x7f090742;
         public static final int common_card_view_container = 0x7f090743;
         public static final int common_forum_title = 0x7f090744;
         public static final int common_forum_viewpager = 0x7f090745;
@@ -26623,7 +26623,7 @@ public final class R {
             */
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class string {
         public static final int AD_J_X09 = 0x7f0f0000;
         public static final int AD_J_X45 = 0x7f0f0001;

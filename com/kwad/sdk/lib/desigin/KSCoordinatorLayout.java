@@ -235,14 +235,14 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface DefaultBehavior {
         Class<? extends Behavior> value();
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public @interface DispatchChangeEvent {
     }
 

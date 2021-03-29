@@ -9,45 +9,45 @@ import org.json.JSONObject;
 public class a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34064a;
+    public int f34065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34065b;
+    public String f34066b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34067d;
+    public int f34068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34068e;
+    public String f34069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34069f;
+    public String f34070f;
     public transient List<AdTemplate> k;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34066c = 1;
+    public int f34067c = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f34070g = 1;
+    public int f34071g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f34071h = 1;
+    public int f34072h = 1;
     public int i = 1;
     public int j = 1;
 
     public void a(@Nullable JSONObject jSONObject) {
-        this.f34064a = jSONObject.optInt("entryType");
-        this.f34065b = jSONObject.optString("sourceDesc");
-        this.f34066c = jSONObject.optInt("sourceDescPos", this.f34066c);
-        this.f34068e = jSONObject.optString("entryId");
-        this.f34067d = jSONObject.optInt("likePos", this.f34067d);
+        this.f34065a = jSONObject.optInt("entryType");
+        this.f34066b = jSONObject.optString("sourceDesc");
+        this.f34067c = jSONObject.optInt("sourceDescPos", this.f34067c);
+        this.f34069e = jSONObject.optString("entryId");
+        this.f34068d = jSONObject.optInt("likePos", this.f34068d);
         String optString = jSONObject.optString("entryTitle");
-        this.f34069f = optString;
+        this.f34070f = optString;
         if (TextUtils.isEmpty(optString)) {
-            this.f34069f = "精彩短视频";
+            this.f34070f = "精彩短视频";
         }
-        this.f34070g = jSONObject.optInt("entryTitlePos", this.f34070g);
-        this.f34071h = jSONObject.optInt("videoDurationPos", this.f34071h);
+        this.f34071g = jSONObject.optInt("entryTitlePos", this.f34071g);
+        this.f34072h = jSONObject.optInt("videoDurationPos", this.f34072h);
         this.i = jSONObject.optInt("videoDescPos", this.i);
         this.j = jSONObject.optInt("commentsPos", this.j);
     }
@@ -55,14 +55,14 @@ public class a implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "entryType", this.f34064a);
-        o.a(jSONObject, "sourceDesc", this.f34065b);
-        o.a(jSONObject, "sourceDescPos", this.f34066c);
-        o.a(jSONObject, "entryId", this.f34068e);
-        o.a(jSONObject, "likePos", this.f34067d);
-        o.a(jSONObject, "entryTitle", this.f34069f);
-        o.a(jSONObject, "entryTitlePos", this.f34070g);
-        o.a(jSONObject, "videoDurationPos", this.f34071h);
+        o.a(jSONObject, "entryType", this.f34065a);
+        o.a(jSONObject, "sourceDesc", this.f34066b);
+        o.a(jSONObject, "sourceDescPos", this.f34067c);
+        o.a(jSONObject, "entryId", this.f34069e);
+        o.a(jSONObject, "likePos", this.f34068d);
+        o.a(jSONObject, "entryTitle", this.f34070f);
+        o.a(jSONObject, "entryTitlePos", this.f34071g);
+        o.a(jSONObject, "videoDurationPos", this.f34072h);
         o.a(jSONObject, "videoDescPos", this.i);
         o.a(jSONObject, "commentsPos", this.j);
         return jSONObject;

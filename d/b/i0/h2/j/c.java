@@ -122,12 +122,12 @@ public class c extends d.b.i0.x.b<d.b.i0.h2.e.d> {
         if (m() != null) {
             m().setVisibility(0);
         }
-        this.y = dVar.f55274e;
-        this.m.setText(dVar.f55277h);
-        this.n.setText(dVar.f55276g);
-        this.m.setVisibility(dVar.f55275f ? 0 : 4);
-        this.n.setVisibility(dVar.f55275f ? 0 : 4);
-        if (dVar.f55274e) {
+        this.y = dVar.f55275e;
+        this.m.setText(dVar.f55278h);
+        this.n.setText(dVar.f55277g);
+        this.m.setVisibility(dVar.f55276f ? 0 : 4);
+        this.n.setVisibility(dVar.f55276f ? 0 : 4);
+        if (dVar.f55275e) {
             this.o.setText(this.w.getString(R.string.me));
         } else {
             this.o.setText(StringHelper.getUserDescByGender(dVar.i));

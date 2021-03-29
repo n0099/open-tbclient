@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static final boolean DEBUG = false;
     public static final long SLEEP_TIME_WHILE_REQUEST_FAILED = 1000;
@@ -29,7 +29,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface OnWebRequestListener {
         void onFailed();
 

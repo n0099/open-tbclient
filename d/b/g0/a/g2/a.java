@@ -5,13 +5,13 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44592a;
+    public static String f44593a;
 
     public static String a() {
-        if (TextUtils.isEmpty(f44592a)) {
-            f44592a = b.d();
+        if (TextUtils.isEmpty(f44593a)) {
+            f44593a = b.d();
         }
-        return f44592a;
+        return f44593a;
     }
 
     public static String b(String str) {

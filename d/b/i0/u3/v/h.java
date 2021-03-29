@@ -31,19 +31,19 @@ import java.util.List;
 public class h extends BaseAdapter {
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f61788f;
+    public Context f61789f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.h0.b0.b f61789g;
+    public d.b.h0.b0.b f61790g;
 
     /* renamed from: h  reason: collision with root package name */
-    public n f61790h;
+    public n f61791h;
     public f i;
     public LayoutInflater j;
     public int l;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ImageFileInfo> f61787e = new ArrayList();
+    public List<ImageFileInfo> f61788e = new ArrayList();
     public boolean k = false;
 
     /* loaded from: classes5.dex */
@@ -64,15 +64,15 @@ public class h extends BaseAdapter {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f61792e;
+        public final /* synthetic */ int f61793e;
 
         public b(int i) {
-            this.f61792e = i;
+            this.f61793e = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i = this.f61792e;
+            int i = this.f61793e;
             if (i >= 0) {
                 ImageFileInfo imageFileInfo = (ImageFileInfo) h.this.getItem(i);
                 if (imageFileInfo.isFromMoreForum) {
@@ -83,14 +83,14 @@ public class h extends BaseAdapter {
                     z = false;
                 }
                 if (!z) {
-                    l.H(h.this.f61788f, R.string.editor_mutiiamge_image_error);
+                    l.H(h.this.f61789f, R.string.editor_mutiiamge_image_error);
                     return;
                 }
-                if (h.this.f61790h != null) {
-                    h.this.f61790h.d(new d.b.h0.w.a(15, 0, Integer.valueOf(this.f61792e)));
+                if (h.this.f61791h != null) {
+                    h.this.f61791h.d(new d.b.h0.w.a(15, 0, Integer.valueOf(this.f61793e)));
                 }
                 if (h.this.i != null) {
-                    h.this.i.b(this.f61792e);
+                    h.this.i.b(this.f61793e);
                 }
             }
         }
@@ -100,16 +100,16 @@ public class h extends BaseAdapter {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f61794e;
+        public final /* synthetic */ int f61795e;
 
         public c(int i) {
-            this.f61794e = i;
+            this.f61795e = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (h.this.i != null) {
-                h.this.i.a(this.f61794e);
+                h.this.i.a(this.f61795e);
             }
         }
     }
@@ -118,15 +118,15 @@ public class h extends BaseAdapter {
     public class d implements d.b.h0.a0.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f61796e;
+        public final /* synthetic */ ViewGroup f61797e;
 
         public d(h hVar, ViewGroup viewGroup) {
-            this.f61796e = viewGroup;
+            this.f61797e = viewGroup;
         }
 
         @Override // d.b.h0.a0.b
         public void a(d.b.b.j.d.a aVar, String str, boolean z) {
-            TbImageView tbImageView = (TbImageView) this.f61796e.findViewWithTag(str);
+            TbImageView tbImageView = (TbImageView) this.f61797e.findViewWithTag(str);
             if (tbImageView == null || aVar == null) {
                 return;
             }
@@ -138,20 +138,20 @@ public class h extends BaseAdapter {
     public class e extends d.b.b.e.l.c<d.b.b.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f61797a;
+        public final /* synthetic */ ViewGroup f61798a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f61798b;
+        public final /* synthetic */ String f61799b;
 
         public e(h hVar, ViewGroup viewGroup, String str) {
-            this.f61797a = viewGroup;
-            this.f61798b = str;
+            this.f61798a = viewGroup;
+            this.f61799b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.e.l.c
         public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
-            TbImageView tbImageView = (TbImageView) this.f61797a.findViewWithTag(this.f61798b);
+            TbImageView tbImageView = (TbImageView) this.f61798a.findViewWithTag(this.f61799b);
             if (tbImageView == null || aVar == null) {
                 return;
             }
@@ -169,15 +169,15 @@ public class h extends BaseAdapter {
     }
 
     public h(Context context, d.b.h0.b0.b bVar, n nVar, f fVar) {
-        this.f61790h = nVar;
-        this.f61788f = context;
+        this.f61791h = nVar;
+        this.f61789f = context;
         this.j = LayoutInflater.from(context);
-        this.f61789g = bVar;
+        this.f61790g = bVar;
         this.i = fVar;
     }
 
     public final String d(int i) {
-        return this.f61788f.getResources().getString(i);
+        return this.f61789f.getResources().getString(i);
     }
 
     public final void e(ImageFileInfo imageFileInfo, View view, ViewGroup viewGroup, int i, int i2) {
@@ -190,14 +190,14 @@ public class h extends BaseAdapter {
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv);
         ((FrameLayout) view.findViewById(R.id.item_root)).setForeground(SkinManager.getDrawable(R.drawable.new_frame_add_photo_foreground_selector));
         if (imageFileInfo.getImageType() == 0) {
-            d.b.b.j.d.a c2 = this.f61789g.c(imageFileInfo, true);
+            d.b.b.j.d.a c2 = this.f61790g.c(imageFileInfo, true);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
             if (c2 != null) {
                 tbImageView.invalidate();
             } else {
-                this.f61789g.d(imageFileInfo, new d(this, viewGroup), true);
+                this.f61790g.d(imageFileInfo, new d(this, viewGroup), true);
             }
-            tbImageView.setTagStr(this.f61788f.getString(R.string.edit));
+            tbImageView.setTagStr(this.f61789f.getString(R.string.edit));
         } else if (imageFileInfo.getImageType() == 1) {
             String filePath = imageFileInfo.getFilePath();
             if (!d.b.b.e.p.k.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
@@ -215,16 +215,16 @@ public class h extends BaseAdapter {
         }
         this.l = writeImagesInfo.getMaxImagesAllowed();
         int count = ListUtils.getCount(writeImagesInfo.getChosedFiles());
-        this.f61787e.clear();
+        this.f61788e.clear();
         if (count > 0) {
-            this.f61787e.addAll(writeImagesInfo.getChosedFiles());
+            this.f61788e.addAll(writeImagesInfo.getChosedFiles());
         }
         if (count >= this.l || !this.k) {
             return;
         }
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("FLAG_ADD_ICON");
-        this.f61787e.add(imageFileInfo);
+        this.f61788e.add(imageFileInfo);
     }
 
     public void g(boolean z) {
@@ -233,12 +233,12 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f61787e.size();
+        return this.f61788e.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f61787e.get(i);
+        return this.f61788e.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -249,14 +249,14 @@ public class h extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         AbsListView.LayoutParams layoutParams;
-        ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f61787e, i);
+        ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f61788e, i);
         if (imageFileInfo == null) {
             return null;
         }
         if (view == null) {
             view = this.j.inflate(R.layout.new_frame_editor_muti_image_item, (ViewGroup) null);
         }
-        int k = (l.k(this.f61788f) - ((l.g(this.f61788f, R.dimen.tbds44) * 2) + (l.g(this.f61788f, R.dimen.tbds10) * 2))) / 3;
+        int k = (l.k(this.f61789f) - ((l.g(this.f61789f, R.dimen.tbds44) * 2) + (l.g(this.f61789f, R.dimen.tbds10) * 2))) / 3;
         if (view.getLayoutParams() instanceof AbsListView.LayoutParams) {
             layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
             layoutParams.width = k;
@@ -266,7 +266,7 @@ public class h extends BaseAdapter {
         }
         view.setLayoutParams(layoutParams);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv);
-        tbImageView.setTagTextSize(l.g(this.f61788f, R.dimen.T_X10));
+        tbImageView.setTagTextSize(l.g(this.f61789f, R.dimen.T_X10));
         tbImageView.setDrawBorder(true);
         tbImageView.setDrawCorner(true);
         tbImageView.setAutoChangeStyle(true);
@@ -291,9 +291,9 @@ public class h extends BaseAdapter {
             tbImageView.setIsLongPic(imageFileInfo.isLong());
             tbImageView.setTagStr(d(R.string.edit));
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                tbImageView.setTagColor(this.f61788f.getResources().getColor(R.color.CAM_X0101));
+                tbImageView.setTagColor(this.f61789f.getResources().getColor(R.color.CAM_X0101));
             } else {
-                tbImageView.setTagColor(this.f61788f.getResources().getColor(R.color.CAM_X0101));
+                tbImageView.setTagColor(this.f61789f.getResources().getColor(R.color.CAM_X0101));
             }
             e(imageFileInfo, view, viewGroup, k, k);
             if (imageFileInfo.isFromMoreForum) {

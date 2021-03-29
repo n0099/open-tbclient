@@ -14,24 +14,24 @@ import java.io.InputStream;
 public class s<Data> implements n<Integer, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final n<Uri, Data> f35358a;
+    public final n<Uri, Data> f35359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Resources f35359b;
+    public final Resources f35360b;
 
     /* loaded from: classes6.dex */
     public static final class a implements o<Integer, AssetFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Resources f35360a;
+        public final Resources f35361a;
 
         public a(Resources resources) {
-            this.f35360a = resources;
+            this.f35361a = resources;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         public n<Integer, AssetFileDescriptor> a(r rVar) {
-            return new s(this.f35360a, rVar.a(Uri.class, AssetFileDescriptor.class));
+            return new s(this.f35361a, rVar.a(Uri.class, AssetFileDescriptor.class));
         }
     }
 
@@ -39,16 +39,16 @@ public class s<Data> implements n<Integer, Data> {
     public static class b implements o<Integer, ParcelFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Resources f35361a;
+        public final Resources f35362a;
 
         public b(Resources resources) {
-            this.f35361a = resources;
+            this.f35362a = resources;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Integer, ParcelFileDescriptor> a(r rVar) {
-            return new s(this.f35361a, rVar.a(Uri.class, ParcelFileDescriptor.class));
+            return new s(this.f35362a, rVar.a(Uri.class, ParcelFileDescriptor.class));
         }
     }
 
@@ -56,16 +56,16 @@ public class s<Data> implements n<Integer, Data> {
     public static class c implements o<Integer, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Resources f35362a;
+        public final Resources f35363a;
 
         public c(Resources resources) {
-            this.f35362a = resources;
+            this.f35363a = resources;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Integer, InputStream> a(r rVar) {
-            return new s(this.f35362a, rVar.a(Uri.class, InputStream.class));
+            return new s(this.f35363a, rVar.a(Uri.class, InputStream.class));
         }
     }
 
@@ -73,28 +73,28 @@ public class s<Data> implements n<Integer, Data> {
     public static class d implements o<Integer, Uri> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Resources f35363a;
+        public final Resources f35364a;
 
         public d(Resources resources) {
-            this.f35363a = resources;
+            this.f35364a = resources;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Integer, Uri> a(r rVar) {
-            return new s(this.f35363a, v.a());
+            return new s(this.f35364a, v.a());
         }
     }
 
     public s(Resources resources, n<Uri, Data> nVar) {
-        this.f35359b = resources;
-        this.f35358a = nVar;
+        this.f35360b = resources;
+        this.f35359a = nVar;
     }
 
     @Nullable
     private Uri b(Integer num) {
         try {
-            return Uri.parse("android.resource://" + this.f35359b.getResourcePackageName(num.intValue()) + '/' + this.f35359b.getResourceTypeName(num.intValue()) + '/' + this.f35359b.getResourceEntryName(num.intValue()));
+            return Uri.parse("android.resource://" + this.f35360b.getResourcePackageName(num.intValue()) + '/' + this.f35360b.getResourceTypeName(num.intValue()) + '/' + this.f35360b.getResourceEntryName(num.intValue()));
         } catch (Resources.NotFoundException e2) {
             if (Log.isLoggable(ResourceLoader.TAG, 5)) {
                 Log.w(ResourceLoader.TAG, "Received invalid resource id: " + num, e2);
@@ -111,7 +111,7 @@ public class s<Data> implements n<Integer, Data> {
         if (b2 == null) {
             return null;
         }
-        return this.f35358a.a(b2, i, i2, eVar);
+        return this.f35359a.a(b2, i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

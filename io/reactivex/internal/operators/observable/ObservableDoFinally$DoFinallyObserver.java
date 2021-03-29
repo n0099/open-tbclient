@@ -11,7 +11,7 @@ public final class ObservableDoFinally$DoFinallyObserver<T> extends BasicIntQueu
     public final o<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68056d;
+    public b f68061d;
     public final a onFinally;
     public f.a.x.c.b<T> qd;
     public boolean syncFused;
@@ -28,13 +28,13 @@ public final class ObservableDoFinally$DoFinallyObserver<T> extends BasicIntQueu
 
     @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
     public void dispose() {
-        this.f68056d.dispose();
+        this.f68061d.dispose();
         runFinally();
     }
 
     @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
     public boolean isDisposed() {
-        return this.f68056d.isDisposed();
+        return this.f68061d.isDisposed();
     }
 
     @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
@@ -61,8 +61,8 @@ public final class ObservableDoFinally$DoFinallyObserver<T> extends BasicIntQueu
 
     @Override // f.a.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68056d, bVar)) {
-            this.f68056d = bVar;
+        if (DisposableHelper.validate(this.f68061d, bVar)) {
+            this.f68061d = bVar;
             if (bVar instanceof f.a.x.c.b) {
                 this.qd = (f.a.x.c.b) bVar;
             }

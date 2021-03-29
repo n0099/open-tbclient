@@ -89,14 +89,19 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
     }
 
     public void drain() {
+        int i;
         if (getAndIncrement() == 0) {
             e<T> eVar = this.queue;
             c<? super T> cVar = this.actual;
-            int i = 1;
+            int i2 = 1;
             while (!checkTerminated(this.done, eVar.isEmpty(), cVar)) {
                 long j = this.requested.get();
                 long j2 = 0;
-                while (j2 != j) {
+                while (true) {
+                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i == 0) {
+                        break;
+                    }
                     boolean z = this.done;
                     Object obj = (T) eVar.poll();
                     boolean z2 = obj == null;
@@ -109,14 +114,14 @@ public final class FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<T> 
                     cVar.onNext(obj);
                     j2++;
                 }
-                if (j2 == j && checkTerminated(this.done, eVar.isEmpty(), cVar)) {
+                if (i == 0 && checkTerminated(this.done, eVar.isEmpty(), cVar)) {
                     return;
                 }
                 if (j2 != 0 && j != Long.MAX_VALUE) {
                     this.requested.addAndGet(-j2);
                 }
-                i = addAndGet(-i);
-                if (i == 0) {
+                i2 = addAndGet(-i2);
+                if (i2 == 0) {
                     return;
                 }
             }

@@ -4,13 +4,13 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RetrieveProcesser {
     public static final String TAG = "RetrieveProcesser";
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x009d A[DONT_GENERATE] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00b6 A[Catch: all -> 0x0124, TryCatch #0 {, blocks: (B:6:0x0006, B:9:0x001f, B:11:0x0053, B:13:0x0059, B:16:0x0061, B:19:0x006e, B:21:0x0082, B:29:0x00a0, B:37:0x00b6, B:38:0x00db, B:32:0x00aa, B:41:0x00ef), top: B:48:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00db A[Catch: all -> 0x0124, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0006, B:9:0x001f, B:11:0x0053, B:13:0x0059, B:16:0x0061, B:19:0x006e, B:21:0x0082, B:29:0x00a0, B:37:0x00b6, B:38:0x00db, B:32:0x00aa, B:41:0x00ef), top: B:48:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x009b A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00b4 A[Catch: all -> 0x0122, TryCatch #0 {, blocks: (B:6:0x0006, B:9:0x001f, B:11:0x0051, B:13:0x0057, B:16:0x005f, B:19:0x006c, B:21:0x0080, B:29:0x009e, B:37:0x00b4, B:38:0x00d9, B:32:0x00a8, B:41:0x00ed), top: B:48:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00d9 A[Catch: all -> 0x0122, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0006, B:9:0x001f, B:11:0x0051, B:13:0x0057, B:16:0x005f, B:19:0x006c, B:21:0x0080, B:29:0x009e, B:37:0x00b4, B:38:0x00d9, B:32:0x00a8, B:41:0x00ed), top: B:48:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

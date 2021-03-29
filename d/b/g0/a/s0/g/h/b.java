@@ -2,10 +2,10 @@ package d.b.g0.a.s0.g.h;
 
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b extends c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
     }
 

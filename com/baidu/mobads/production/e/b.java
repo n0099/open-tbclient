@@ -136,17 +136,17 @@ public class b extends com.baidu.mobads.production.a implements a {
             start();
             Rect rect = new Rect();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-            this.f8437e.setBackgroundColor(0);
+            this.f8438e.setBackgroundColor(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.topMargin = rect.top;
             ViewGroup b2 = b(activity);
             RelativeLayout relativeLayout = new RelativeLayout(activity);
             this.G = relativeLayout;
-            relativeLayout.addView(this.f8437e, layoutParams);
+            relativeLayout.addView(this.f8438e, layoutParams);
             b2.addView(this.G, new RelativeLayout.LayoutParams(-1, -1));
-            this.f8437e.setFocusableInTouchMode(true);
-            this.f8437e.setFocusable(true);
-            this.f8437e.requestFocus();
+            this.f8438e.setFocusableInTouchMode(true);
+            this.f8438e.setFocusable(true);
+            this.f8438e.requestFocus();
         } else if (this.E) {
             this.A.w("interstitial ad is showing now");
         } else if (this.D) {

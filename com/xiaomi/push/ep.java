@@ -22,7 +22,7 @@ import java.util.Map;
 public abstract class ep extends en {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40452a;
+    public int f40453a;
 
     /* renamed from: a  reason: collision with other field name */
     public Bitmap f322a;
@@ -43,7 +43,7 @@ public abstract class ep extends en {
     public boolean f327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f40453b;
+    public CharSequence f40454b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f328b;
@@ -51,7 +51,7 @@ public abstract class ep extends en {
     public ep(Context context, int i, String str) {
         super(context);
         this.f325a = str;
-        this.f40452a = i;
+        this.f40453a = i;
         m271c();
     }
 
@@ -91,7 +91,7 @@ public abstract class ep extends en {
     private void d() {
         if (Build.VERSION.SDK_INT >= 11) {
             super.setContentTitle(this.f324a);
-            super.setContentText(this.f40453b);
+            super.setContentText(this.f40454b);
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class ep extends en {
         List<StatusBarNotification> m578b;
         if (Build.VERSION.SDK_INT >= 20 && (m578b = com.xiaomi.push.service.ao.a(a(), this.f325a).m578b()) != null && !m578b.isEmpty()) {
             for (StatusBarNotification statusBarNotification : m578b) {
-                if (statusBarNotification.getId() == this.f40452a) {
+                if (statusBarNotification.getId() == this.f40453a) {
                     Notification notification = statusBarNotification.getNotification();
                     if (notification == null) {
                         return false;
@@ -216,21 +216,14 @@ public abstract class ep extends en {
 
     /* renamed from: a  reason: collision with other method in class */
     public final boolean m274a(int i) {
-        double red = Color.red(i);
-        Double.isNaN(red);
-        double green = Color.green(i);
-        Double.isNaN(green);
-        double d2 = (red * 0.299d) + (green * 0.587d);
-        double blue = Color.blue(i);
-        Double.isNaN(blue);
-        return d2 + (blue * 0.114d) < 192.0d;
+        return ((((double) Color.red(i)) * 0.299d) + (((double) Color.green(i)) * 0.587d)) + (((double) Color.blue(i)) * 0.114d) < 192.0d;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.app.Notification.Builder
     /* renamed from: b */
     public ep setContentText(CharSequence charSequence) {
-        this.f40453b = charSequence;
+        this.f40454b = charSequence;
         return this;
     }
 
@@ -240,7 +233,7 @@ public abstract class ep extends en {
     public final void m275b() {
         if (Build.VERSION.SDK_INT >= 11) {
             super.setContentTitle(this.f324a);
-            super.setContentText(this.f40453b);
+            super.setContentText(this.f40454b);
             Bitmap bitmap = this.f322a;
             if (bitmap != null) {
                 super.setLargeIcon(bitmap);

@@ -2,7 +2,7 @@ package d.b.g0.a.y.a.j;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class v extends a {
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
@@ -10,7 +10,7 @@ public class v extends a {
             bVar.g();
             canvas.save();
         } catch (CloneNotSupportedException e2) {
-            if (d.b.g0.a.k.f45050a) {
+            if (d.b.g0.a.k.f45051a) {
                 e2.printStackTrace();
             }
         }

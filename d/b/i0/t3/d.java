@@ -28,28 +28,28 @@ import com.baidu.webkit.sdk.PermissionRequest;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f61154a;
+    public Context f61155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f61155b;
+    public NavigationBar f61156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f61156c;
+    public RelativeLayout f61157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f61157d;
+    public ImageView f61158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f61158e;
+    public ImageView f61159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f61159f;
+    public RelativeLayout f61160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f61160g;
+    public ImageView f61161g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f61161h;
+    public ImageView f61162h;
     public PermissionJudgePolicy i;
     public View j;
     public ImageView k;
@@ -74,7 +74,7 @@ public class d {
             }
             d.this.p(6, false);
             d.b.i0.s2.a.v().L(6, false, true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DressupCenterActivityConfig(d.this.f61154a)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DressupCenterActivityConfig(d.this.f61155a)));
         }
     }
 
@@ -95,7 +95,7 @@ public class d {
             d.this.p(5, false);
             d.b.i0.s2.a.v().L(5, false, true);
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2015004)) {
-                BdToast.d(d.this.f61154a, d.this.f61154a.getResources().getString(R.string.plugin_video_installing), 0).q();
+                BdToast.d(d.this.f61155a, d.this.f61155a.getResources().getString(R.string.plugin_video_installing), 0).q();
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2015004, new IntentConfig(view.getContext())));
@@ -113,7 +113,7 @@ public class d {
             @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
             public void onPermissionsGranted() {
                 TiebaStatic.log(new StatisticItem("c12706"));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(d.this.f61154a)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(d.this.f61155a)));
             }
         }
 
@@ -122,8 +122,8 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.f61154a instanceof Activity) {
-                Activity activity = (Activity) d.this.f61154a;
+            if (d.this.f61155a instanceof Activity) {
+                Activity activity = (Activity) d.this.f61155a;
                 if (d.this.i == null) {
                     d.this.i = new PermissionJudgePolicy();
                 }
@@ -137,13 +137,13 @@ public class d {
 
     /* renamed from: d.b.i0.t3.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1589d implements Runnable {
-        public RunnableC1589d() {
+    public class RunnableC1590d implements Runnable {
+        public RunnableC1590d() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ImageView imageView = d.this.f61160g;
+            ImageView imageView = d.this.f61161g;
             if (imageView == null) {
                 return;
             }
@@ -168,27 +168,27 @@ public class d {
     public d(int i) {
         TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds28);
         this.n = new Handler();
-        this.p = new RunnableC1589d();
+        this.p = new RunnableC1590d();
         this.q = new e();
         this.o = i;
     }
 
     public void k() {
-        this.f61155b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+        this.f61156b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
         if (this.o == 1) {
-            RelativeLayout relativeLayout = this.f61156c;
+            RelativeLayout relativeLayout = this.f61157c;
             if (relativeLayout != null && relativeLayout.getParent() == null) {
-                this.f61155b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f61156c, (View.OnClickListener) null);
+                this.f61156b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f61157c, (View.OnClickListener) null);
             }
-            RelativeLayout relativeLayout2 = this.f61159f;
+            RelativeLayout relativeLayout2 = this.f61160f;
             if (relativeLayout2 != null && relativeLayout2.getParent() == null) {
-                this.f61155b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f61159f, (View.OnClickListener) null);
+                this.f61156b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f61160f, (View.OnClickListener) null);
             }
             View view = this.j;
             if (view == null || view.getParent() != null) {
                 return;
             }
-            this.f61155b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.j, (View.OnClickListener) null);
+            this.f61156b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.j, (View.OnClickListener) null);
         }
     }
 
@@ -197,28 +197,28 @@ public class d {
     }
 
     public void m(int i) {
-        if (this.f61157d != null) {
+        if (this.f61158d != null) {
             if (2 == i) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61157d, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            } else if (this.f61155b.getBarBgView().getAlpha() < 0.5f) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61157d, R.drawable.icon_pure_topbar_store44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61158d, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            } else if (this.f61156b.getBarBgView().getAlpha() < 0.5f) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61158d, R.drawable.icon_pure_topbar_store44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61157d, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61158d, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            ImageView imageView = this.f61158e;
+            ImageView imageView = this.f61159e;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.icon_news_down_bar_one);
             }
         }
-        if (this.f61160g != null) {
+        if (this.f61161g != null) {
             if (2 == i) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61160g, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            } else if (this.f61155b.getBarBgView().getAlpha() < 0.5f) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61160g, R.drawable.icon_pure_topbar_set44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61161g, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            } else if (this.f61156b.getBarBgView().getAlpha() < 0.5f) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61161g, R.drawable.icon_pure_topbar_set44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61160g, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61161g, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            ImageView imageView2 = this.f61161h;
+            ImageView imageView2 = this.f61162h;
             if (imageView2 != null) {
                 SkinManager.setImageResource(imageView2, R.drawable.icon_news_down_bar_one);
             }
@@ -227,27 +227,27 @@ public class d {
     }
 
     public void n(Context context, NavigationBar navigationBar) {
-        this.f61154a = context;
-        this.f61155b = navigationBar;
+        this.f61155a = context;
+        this.f61156b = navigationBar;
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_person_host_navigation_dressup, (ViewGroup) null);
-        this.f61156c = relativeLayout;
-        this.f61157d = (ImageView) relativeLayout.findViewById(R.id.person_navigation_dressup_img);
-        this.f61158e = (ImageView) this.f61156c.findViewById(R.id.person_navigation_dressup_red_tip);
+        this.f61157c = relativeLayout;
+        this.f61158d = (ImageView) relativeLayout.findViewById(R.id.person_navigation_dressup_img);
+        this.f61159e = (ImageView) this.f61157c.findViewById(R.id.person_navigation_dressup_red_tip);
         RelativeLayout relativeLayout2 = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_person_host_navigation_setting, (ViewGroup) null);
-        this.f61159f = relativeLayout2;
-        this.f61160g = (ImageView) relativeLayout2.findViewById(R.id.person_navigation_setting_img);
-        this.f61161h = (ImageView) this.f61159f.findViewById(R.id.person_navigation_setting_red_tip);
-        View inflate = LayoutInflater.from(this.f61154a).inflate(R.layout.item_person_host_navigation_scan, (ViewGroup) null);
+        this.f61160f = relativeLayout2;
+        this.f61161g = (ImageView) relativeLayout2.findViewById(R.id.person_navigation_setting_img);
+        this.f61162h = (ImageView) this.f61160f.findViewById(R.id.person_navigation_setting_red_tip);
+        View inflate = LayoutInflater.from(this.f61155a).inflate(R.layout.item_person_host_navigation_scan, (ViewGroup) null);
         this.j = inflate;
         this.k = (ImageView) inflate.findViewById(R.id.person_navigation_scan_img);
     }
 
     public void o(f fVar) {
-        RelativeLayout relativeLayout = this.f61156c;
+        RelativeLayout relativeLayout = this.f61157c;
         if (relativeLayout != null) {
             relativeLayout.setOnClickListener(new a());
         }
-        RelativeLayout relativeLayout2 = this.f61159f;
+        RelativeLayout relativeLayout2 = this.f61160f;
         if (relativeLayout2 != null) {
             relativeLayout2.setOnClickListener(new b());
         }
@@ -260,9 +260,9 @@ public class d {
     public void p(int i, boolean z) {
         ImageView imageView;
         ImageView imageView2;
-        if (i == 5 && (imageView2 = this.f61161h) != null) {
+        if (i == 5 && (imageView2 = this.f61162h) != null) {
             imageView2.setVisibility(z ? 0 : 8);
-        } else if (i != 6 || (imageView = this.f61158e) == null) {
+        } else if (i != 6 || (imageView = this.f61159e) == null) {
         } else {
             imageView.setVisibility(z ? 0 : 8);
         }

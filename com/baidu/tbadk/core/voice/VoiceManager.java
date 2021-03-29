@@ -139,10 +139,10 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (VoiceManager.this.mCurPlayModel == null || VoiceManager.this.sPlayView == null || aVar == null) {
                 return;
             }
-            String str2 = aVar.f50587b;
-            String str3 = aVar.f50586a;
-            int i2 = aVar.f50588c;
-            String str4 = aVar.f50589d;
+            String str2 = aVar.f50588b;
+            String str3 = aVar.f50587a;
+            int i2 = aVar.f50589c;
+            String str4 = aVar.f50590d;
             if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
                 if (VoiceManager.this.mCurPlayModel.voiceId.equals(str3) && VoiceManager.isVoiceDownloading(VoiceManager.this.mCurPlayModel.voice_status.intValue())) {
                     VoiceManager voiceManager = VoiceManager.this;
@@ -321,7 +321,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         /* JADX WARN: Code restructure failed: missing block: B:28:0x0091, code lost:
             if (r4 == null) goto L17;
          */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:38:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -798,9 +798,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             firstOpenSpeaker();
             if (this.audioManager != null) {
                 if (this.audioManager.isSpeakerphoneOn()) {
-                    d.b.b.e.q.h.f42051b = 3;
+                    d.b.b.e.q.h.f42052b = 3;
                 } else {
-                    d.b.b.e.q.h.f42051b = 0;
+                    d.b.b.e.q.h.f42052b = 0;
                 }
             }
             setVolumeControlStream();
@@ -858,7 +858,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setStatusWaiting(VoiceData$VoiceModel voiceData$VoiceModel) {
         unRegistSensorHandler();
         voiceData$VoiceModel.voice_status = 1;
-        d.b.b.e.q.h.f42051b = 2;
+        d.b.b.e.q.h.f42052b = 2;
         setVolumeControlStream();
         i playView = getPlayView();
         if (playView != null) {
@@ -877,7 +877,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.context == null || this.context.getPageActivity() == null) {
                 return;
             }
-            this.context.getPageActivity().setVolumeControlStream(d.b.b.e.q.h.f42051b);
+            this.context.getPageActivity().setVolumeControlStream(d.b.b.e.q.h.f42052b);
         } catch (Exception e2) {
             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e2.getMessage(), "");
         }
@@ -965,7 +965,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         saveInitVoiceStatus();
         try {
             setSpeakerphone(false);
-            d.b.b.e.q.h.f42051b = 0;
+            d.b.b.e.q.h.f42052b = 0;
             stopVoiceAndRePlay();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -1117,14 +1117,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void openSpeaker() {
-        if (this.audioManager == null || d.b.b.e.q.h.f42050a == 2) {
+        if (this.audioManager == null || d.b.b.e.q.h.f42051a == 2) {
             return;
         }
         if (!TbadkCoreApplication.getInst().isHeadsetModeOn() && !TbadkCoreApplication.getInst().getIsPhoneCalling()) {
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                d.b.b.e.q.h.f42051b = 3;
+                d.b.b.e.q.h.f42052b = 3;
                 stopVoiceAndRePlay();
                 return;
             } catch (Exception e2) {
@@ -1161,7 +1161,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 return;
             }
             setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-            d.b.b.e.q.h.f42051b = 3;
+            d.b.b.e.q.h.f42052b = 3;
             bInitSpeakerphoneOn = null;
             bInitMode = null;
             bInitVolume = null;

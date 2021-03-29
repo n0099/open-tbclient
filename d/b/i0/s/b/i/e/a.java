@@ -14,12 +14,12 @@ import d.b.h0.l0.c;
 public class a extends ActivityDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f60092a = k.f45050a;
+    public static final boolean f60093a = k.f45051a;
 
     /* renamed from: d.b.i0.s.b.i.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1527a implements d.b.i0.s.b.i.d.a {
-        public C1527a() {
+    public class C1528a implements d.b.i0.s.b.i.d.a {
+        public C1528a() {
         }
 
         @Override // d.b.i0.s.b.i.d.a
@@ -39,12 +39,12 @@ public class a extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
         if (this.mParams.isEmpty()) {
-            if (f60092a) {
+            if (f60093a) {
                 Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
             }
             return false;
         }
-        if (f60092a) {
+        if (f60093a) {
             Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
         }
         Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
@@ -56,7 +56,7 @@ public class a extends ActivityDelegation {
             aVar.mParams.putInt("type", 1);
             aVar.mParams.putString("orderInfo", this.mParams.getString("order_info"));
             aVar.b(getAgent());
-            aVar.c(new C1527a());
+            aVar.c(new C1528a());
             aVar.onExec();
             return false;
         } else {

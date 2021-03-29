@@ -29,7 +29,7 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
             Integer num = error.errorno;
             if (num != null) {
                 setError(num.intValue());
-                this.responseData.f57902h = b2.error.errorno.intValue();
+                this.responseData.f57903h = b2.error.errorno.intValue();
             }
             setErrorString(b2.error.usermsg);
         }

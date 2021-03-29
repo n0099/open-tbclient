@@ -7,13 +7,13 @@ import java.util.Stack;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<WeakReference<Activity>> f64069a;
+    public Stack<WeakReference<Activity>> f64070a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f64070a = new d((byte) 0);
+        public static final d f64071a = new d((byte) 0);
     }
 
     public /* synthetic */ d(byte b2) {
@@ -21,13 +21,13 @@ public final class d {
     }
 
     public final Stack<WeakReference<Activity>> a() {
-        return this.f64069a;
+        return this.f64070a;
     }
 
     public final String b() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.f64069a.size(); i++) {
-            Activity activity = this.f64069a.get(i).get();
+        for (int i = 0; i < this.f64070a.size(); i++) {
+            Activity activity = this.f64070a.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append("->");
@@ -37,14 +37,14 @@ public final class d {
     }
 
     public final void c(WeakReference<Activity> weakReference) {
-        this.f64069a.add(weakReference);
+        this.f64070a.add(weakReference);
     }
 
     public final void d(Activity activity) {
-        if (this.f64069a != null) {
-            for (int i = 0; i < this.f64069a.size(); i++) {
-                if (this.f64069a.get(i).get() == activity) {
-                    Stack<WeakReference<Activity>> stack = this.f64069a;
+        if (this.f64070a != null) {
+            for (int i = 0; i < this.f64070a.size(); i++) {
+                if (this.f64070a.get(i).get() == activity) {
+                    Stack<WeakReference<Activity>> stack = this.f64070a;
                     stack.remove(stack.get(i));
                 }
             }
@@ -53,6 +53,6 @@ public final class d {
     }
 
     public d() {
-        this.f64069a = new Stack<>();
+        this.f64070a = new Stack<>();
     }
 }

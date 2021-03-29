@@ -19,49 +19,49 @@ import java.util.List;
 public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f36054a;
+    public final Context f36055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final KsFragmentManager f36055b;
+    public final KsFragmentManager f36056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<b> f36056c = new ArrayList();
+    public final List<b> f36057c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public KsFragmentTransaction f36057d = null;
+    public KsFragmentTransaction f36058d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<KsFragment> f36058e = new SparseArray<>();
+    public SparseArray<KsFragment> f36059e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<KsSavedState> f36059f = new SparseArray<>();
+    public SparseArray<KsSavedState> f36060f = new SparseArray<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public SparseArray<Bundle> f36060g = new SparseArray<>();
+    public SparseArray<Bundle> f36061g = new SparseArray<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public KsFragment f36061h = null;
+    public KsFragment f36062h = null;
     public int i;
 
     /* renamed from: com.kwad.sdk.lib.widget.viewpager.tabstrip.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0428a {
+    public interface InterfaceC0429a {
         void a(Bundle bundle);
     }
 
     public a(Context context, KsFragmentManager ksFragmentManager) {
-        this.f36055b = ksFragmentManager;
-        this.f36054a = context;
+        this.f36056b = ksFragmentManager;
+        this.f36055a = context;
     }
 
     private KsFragment d(int i) {
-        return KsFragment.instantiate(this.f36054a, this.f36056c.get(i).b().getName(), this.f36060g.get(i));
+        return KsFragment.instantiate(this.f36055a, this.f36057c.get(i).b().getName(), this.f36061g.get(i));
     }
 
     public int a(String str) {
-        if (this.f36056c != null && !TextUtils.isEmpty(str)) {
-            for (int i = 0; i < this.f36056c.size(); i++) {
-                b bVar = this.f36056c.get(i);
+        if (this.f36057c != null && !TextUtils.isEmpty(str)) {
+            for (int i = 0; i < this.f36057c.size(); i++) {
+                b bVar = this.f36057c.get(i);
                 if (bVar != null && bVar.a() != null && str.equals(bVar.a().a())) {
                     return i;
                 }
@@ -71,35 +71,35 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
     }
 
     public KsFragment a() {
-        return this.f36061h;
+        return this.f36062h;
     }
 
     public KsFragment a(int i) {
-        return this.f36058e.get(i);
+        return this.f36059e.get(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
     /* renamed from: a */
     public KsFragment instantiateItem(ViewGroup viewGroup, int i) {
-        KsFragment ksFragment = this.f36058e.get(i);
+        KsFragment ksFragment = this.f36059e.get(i);
         if (ksFragment != null) {
-            this.f36056c.get(i).a(i, ksFragment);
+            this.f36057c.get(i).a(i, ksFragment);
             return ksFragment;
         }
-        if (this.f36057d == null) {
-            this.f36057d = this.f36055b.beginTransaction();
+        if (this.f36058d == null) {
+            this.f36058d = this.f36056b.beginTransaction();
         }
         KsFragment d2 = d(i);
-        this.f36056c.get(i).a(i, d2);
-        KsSavedState ksSavedState = this.f36059f.get(i);
+        this.f36057c.get(i).a(i, d2);
+        KsSavedState ksSavedState = this.f36060f.get(i);
         if (ksSavedState != null) {
             d2.setInitialSavedState(ksSavedState);
         }
         d2.setMenuVisibility(false);
         d2.setUserVisibleHint(false);
-        this.f36058e.put(i, d2);
-        this.f36057d.add(viewGroup.getId(), d2);
+        this.f36059e.put(i, d2);
+        this.f36058d.add(viewGroup.getId(), d2);
         return d2;
     }
 
@@ -107,27 +107,27 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
         if (bundle == null) {
             return;
         }
-        Bundle bundle2 = this.f36060g.get(i);
+        Bundle bundle2 = this.f36061g.get(i);
         if (bundle2 != null) {
             bundle2.putAll(bundle);
             bundle = bundle2;
         }
-        this.f36060g.put(i, bundle);
+        this.f36061g.put(i, bundle);
         KsFragment a2 = a(i);
-        if (a2 instanceof InterfaceC0428a) {
-            ((InterfaceC0428a) a2).a(bundle);
+        if (a2 instanceof InterfaceC0429a) {
+            ((InterfaceC0429a) a2).a(bundle);
         }
     }
 
     public void a(List<b> list) {
-        this.f36056c.clear();
+        this.f36057c.clear();
         b(list);
     }
 
     @Override // com.kwad.sdk.lib.widget.viewpager.tabstrip.PagerSlidingTabStrip.c.a
     public PagerSlidingTabStrip.c b(int i) {
-        if (!this.f36056c.isEmpty() && i >= 0 && i < this.f36056c.size()) {
-            return this.f36056c.get(i).a();
+        if (!this.f36057c.isEmpty() && i >= 0 && i < this.f36057c.size()) {
+            return this.f36057c.get(i).a();
         }
         return null;
     }
@@ -136,12 +136,12 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
         if (list == null) {
             throw new RuntimeException("delegates should not be null for setFragments()");
         }
-        int size = this.f36056c.size();
+        int size = this.f36057c.size();
         int size2 = list.size() + size;
         for (int i = size; i < size2; i++) {
-            this.f36060g.put(i, list.get(i - size).c());
+            this.f36061g.put(i, list.get(i - size).c());
         }
-        this.f36056c.addAll(list);
+        this.f36057c.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -153,22 +153,22 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         KsFragment ksFragment = (KsFragment) obj;
-        if (this.f36057d == null) {
-            this.f36057d = this.f36055b.beginTransaction();
+        if (this.f36058d == null) {
+            this.f36058d = this.f36056b.beginTransaction();
         }
-        this.f36059f.put(i, this.f36055b.saveFragmentInstanceState(ksFragment));
-        this.f36058e.remove(i);
-        this.f36057d.remove(ksFragment);
+        this.f36060f.put(i, this.f36056b.saveFragmentInstanceState(ksFragment));
+        this.f36059e.remove(i);
+        this.f36058d.remove(ksFragment);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void finishUpdate(ViewGroup viewGroup) {
-        KsFragmentTransaction ksFragmentTransaction = this.f36057d;
+        KsFragmentTransaction ksFragmentTransaction = this.f36058d;
         if (ksFragmentTransaction != null) {
             ksFragmentTransaction.commitAllowingStateLoss();
-            this.f36057d = null;
+            this.f36058d = null;
             try {
-                this.f36055b.executePendingTransactions();
+                this.f36056b.executePendingTransactions();
             } catch (IllegalStateException e2) {
                 e2.printStackTrace();
             }
@@ -177,7 +177,7 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.f36056c.size();
+        return this.f36057c.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -197,17 +197,17 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         KsFragment ksFragment = (KsFragment) obj;
-        KsFragment ksFragment2 = this.f36061h;
+        KsFragment ksFragment2 = this.f36062h;
         if (ksFragment != ksFragment2) {
             if (ksFragment2 != null) {
                 ksFragment2.setMenuVisibility(false);
-                this.f36061h.setUserVisibleHint(false);
+                this.f36062h.setUserVisibleHint(false);
             }
             if (ksFragment != null) {
                 ksFragment.setMenuVisibility(true);
                 ksFragment.setUserVisibleHint(true);
             }
-            this.f36061h = ksFragment;
+            this.f36062h = ksFragment;
             this.i = i;
         }
     }

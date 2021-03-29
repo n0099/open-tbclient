@@ -7,43 +7,43 @@ import java.util.Set;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f58319b;
+    public Set<String> f58320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58320c = -1;
+    public int f58321c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f58321d = -1;
+    public long f58322d = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f58318a = b.i().j("nani_key_download_show_position", 3);
+    public int f58319a = b.i().j("nani_key_download_show_position", 3);
 
     public a() {
         new HashSet();
-        this.f58319b = new HashSet();
+        this.f58320b = new HashSet();
     }
 
     public void a(int i, String str) {
-        this.f58319b.add(str);
-        if (this.f58320c >= 0 || this.f58318a != this.f58319b.size()) {
+        this.f58320b.add(str);
+        if (this.f58321c >= 0 || this.f58319a != this.f58320b.size()) {
             return;
         }
-        this.f58320c = i;
+        this.f58321c = i;
     }
 
     public int b() {
-        return this.f58320c;
+        return this.f58321c;
     }
 
     public void c(long j) {
-        this.f58321d = j;
+        this.f58322d = j;
     }
 
     public void d() {
         int j = b.i().j("nani_key_download_show_rate", 2);
-        if (this.f58321d <= 0 || j == 1) {
+        if (this.f58322d <= 0 || j == 1) {
             return;
         }
-        b.i().v("key_horizontal_shown_time", this.f58321d);
+        b.i().v("key_horizontal_shown_time", this.f58322d);
     }
 }

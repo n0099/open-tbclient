@@ -19,7 +19,7 @@ import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NewCashierBean extends PayBaseBean<NewCashierContent> {
     public CashierDataNew mCashierData;
 

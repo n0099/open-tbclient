@@ -13,16 +13,16 @@ import java.util.ArrayList;
 public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16926e;
+    public boolean f16927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16927f;
+    public int f16928f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16928g;
+    public boolean f16929g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16929h;
+    public boolean f16930h;
     public boolean i;
     public long j;
     public String k;
@@ -66,12 +66,12 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     public MyGiftListModel(f<MyGiftListActivity> fVar, String str) {
         super(fVar);
-        this.f16928g = false;
+        this.f16929g = false;
         this.i = true;
         this.j = 0L;
         a aVar = new a(CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, 309052);
         this.n = aVar;
-        this.f16929h = true;
+        this.f16930h = true;
         this.k = str;
         aVar.getHttpMessageListener().setSelfListener(true);
         this.n.getSocketMessageListener().setSelfListener(true);
@@ -81,7 +81,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     }
 
     public boolean A() {
-        return this.f16926e;
+        return this.f16927e;
     }
 
     public final void B(d.b.i0.t0.c.a aVar) {
@@ -105,28 +105,28 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         this.l.i(aVar.c());
         this.l.j(aVar.d());
         d.b.i0.t0.c.a aVar2 = this.l;
-        aVar2.f61029f = aVar.f61029f;
-        if (aVar.f61030g != null) {
-            aVar2.f61030g = new j0();
-            j0 j0Var = this.l.f61030g;
-            j0 j0Var2 = aVar.f61030g;
-            j0Var.f50820a = j0Var2.f50820a;
-            j0Var.f50821b = j0Var2.f50821b;
+        aVar2.f61030f = aVar.f61030f;
+        if (aVar.f61031g != null) {
+            aVar2.f61031g = new j0();
+            j0 j0Var = this.l.f61031g;
+            j0 j0Var2 = aVar.f61031g;
+            j0Var.f50821a = j0Var2.f50821a;
+            j0Var.f50822b = j0Var2.f50822b;
         }
         if (this.l.c() != null) {
-            this.f16927f = this.l.c().f61039a;
-            this.f16926e = this.l.c().f61040b == 1;
+            this.f16928f = this.l.c().f61040a;
+            this.f16927e = this.l.c().f61041b == 1;
         }
         if (aVar.a() == null || aVar.a().size() <= 0) {
             return;
         }
-        if (this.f16928g) {
-            ArrayList<a.C1581a> a2 = aVar.a();
+        if (this.f16929g) {
+            ArrayList<a.C1582a> a2 = aVar.a();
             int size = this.l.a().size() + 1;
             for (int i = 0; i < a2.size(); i++) {
-                a.C1581a c1581a = a2.get(i);
-                if (c1581a != null) {
-                    c1581a.j = size;
+                a.C1582a c1582a = a2.get(i);
+                if (c1582a != null) {
+                    c1582a.j = size;
                     size++;
                 }
             }
@@ -153,11 +153,11 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     }
 
     public void E(boolean z) {
-        this.f16928g = z;
+        this.f16929g = z;
     }
 
     public void F(boolean z) {
-        this.f16929h = z;
+        this.f16930h = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -189,20 +189,20 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         getPersonalGiftListRequest.setUserId(j);
         getPersonalGiftListRequest.setType(this.k);
         getPersonalGiftListRequest.userType = this.mUserType;
-        this.f16927f = i;
+        this.f16928f = i;
         return getPersonalGiftListRequest;
     }
 
     public boolean y() {
-        return this.f16929h;
+        return this.f16930h;
     }
 
     public final void z() {
         GetPersonalGiftListRequest x;
-        if (!this.f16928g) {
+        if (!this.f16929g) {
             x = x(1, this.j);
         } else {
-            x = x(this.f16927f + 1, this.j);
+            x = x(this.f16928f + 1, this.j);
         }
         sendMessage(x);
     }

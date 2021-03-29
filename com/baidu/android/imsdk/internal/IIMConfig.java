@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IIMConfig {
     public static final int HEARBEAT_TIME = 60000;
     public static final int MODEL_SELECTED = 536870937;

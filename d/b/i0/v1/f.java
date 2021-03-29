@@ -24,32 +24,32 @@ import d.b.b.e.p.l;
 import d.b.h0.r.f0.g;
 import d.b.h0.r.s.a;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f62003a;
+    public BaseFragmentActivity f62004a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBarShadowView f62004b;
+    public NavigationBarShadowView f62005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f62005c;
+    public BdListView f62006c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f62006d;
+    public View f62007d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f62007e;
+    public g f62008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f62008f;
+    public NoDataView f62009f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f62009g;
+    public e f62010g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f62010h;
+    public RelativeLayout f62011h;
     public ProgressBar i;
     public c l;
     public d.b.h0.r.s.a j = null;
@@ -57,7 +57,7 @@ public class f {
     public boolean m = false;
     public AbsListView.OnScrollListener n = new a();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements AbsListView.OnScrollListener {
         public a() {
         }
@@ -66,16 +66,16 @@ public class f {
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             if (i == 0) {
                 View childAt = absListView.getChildAt(0);
-                if (f.this.f62004b == null || childAt == null || childAt.getTop() != 0) {
+                if (f.this.f62005b == null || childAt == null || childAt.getTop() != 0) {
                     return;
                 }
-                f.this.f62004b.a();
+                f.this.f62005b.a();
             }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            NavigationBarShadowView navigationBarShadowView = f.this.f62004b;
+            NavigationBarShadowView navigationBarShadowView = f.this.f62005b;
             if (navigationBarShadowView == null || i != 1) {
                 return;
             }
@@ -83,7 +83,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.e {
         public b(f fVar) {
         }
@@ -94,19 +94,19 @@ public class f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.i0.v1.g.a f62012e;
+        public d.b.i0.v1.g.a f62013e;
 
         public c(d.b.i0.v1.g.a aVar) {
-            this.f62012e = aVar;
+            this.f62013e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.i0.v1.g.a aVar = this.f62012e;
+            d.b.i0.v1.g.a aVar = this.f62013e;
             if (aVar != null) {
                 aVar.w(Boolean.TRUE);
             }
@@ -114,49 +114,49 @@ public class f {
     }
 
     public f(ThreadFragment threadFragment, View view) {
-        this.f62003a = null;
-        this.f62005c = null;
-        this.f62006d = null;
-        this.f62008f = null;
-        this.f62009g = null;
-        this.f62010h = null;
+        this.f62004a = null;
+        this.f62006c = null;
+        this.f62007d = null;
+        this.f62009f = null;
+        this.f62010g = null;
+        this.f62011h = null;
         this.i = null;
-        this.f62003a = threadFragment.getBaseFragmentActivity();
-        this.f62004b = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_collect);
+        this.f62004a = threadFragment.getBaseFragmentActivity();
+        this.f62005b = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_collect);
         this.i = (ProgressBar) view.findViewById(R.id.progress);
-        this.f62010h = (RelativeLayout) view.findViewById(R.id.parent);
-        this.f62008f = NoDataViewFactory.a(this.f62003a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, l.g(this.f62003a.getPageContext().getPageActivity(), R.dimen.ds222)), NoDataViewFactory.e.b(R.string.mark_nodata, R.string.mark_nodata_2), null);
+        this.f62011h = (RelativeLayout) view.findViewById(R.id.parent);
+        this.f62009f = NoDataViewFactory.a(this.f62004a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, l.g(this.f62004a.getPageContext().getPageActivity(), R.dimen.ds222)), NoDataViewFactory.e.b(R.string.mark_nodata, R.string.mark_nodata_2), null);
         e eVar = new e(threadFragment.getPageContext());
-        this.f62009g = eVar;
+        this.f62010g = eVar;
         eVar.notifyDataSetChanged();
-        this.f62007e = new g(threadFragment.getPageContext());
+        this.f62008e = new g(threadFragment.getPageContext());
         BdListView bdListView = (BdListView) view.findViewById(R.id.list);
-        this.f62005c = bdListView;
-        bdListView.setPullRefresh(this.f62007e);
-        this.f62007e.b(threadFragment);
-        this.f62006d = new TextView(this.f62003a.getActivity());
-        this.f62006d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f62003a.getActivity(), R.dimen.ds88)));
-        this.f62005c.x(this.f62006d, 0);
-        this.f62005c.setAdapter((ListAdapter) this.f62009g);
-        this.f62005c.setOnSrollToBottomListener(threadFragment);
-        this.f62005c.setOnItemClickListener(threadFragment);
-        this.f62005c.setOnScrollListener(this.n);
-        this.f62009g.k(threadFragment);
-        this.f62009g.r(threadFragment);
-        this.f62009g.q(threadFragment);
+        this.f62006c = bdListView;
+        bdListView.setPullRefresh(this.f62008e);
+        this.f62008e.b(threadFragment);
+        this.f62007d = new TextView(this.f62004a.getActivity());
+        this.f62007d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f62004a.getActivity(), R.dimen.ds88)));
+        this.f62006c.x(this.f62007d, 0);
+        this.f62006c.setAdapter((ListAdapter) this.f62010g);
+        this.f62006c.setOnSrollToBottomListener(threadFragment);
+        this.f62006c.setOnItemClickListener(threadFragment);
+        this.f62006c.setOnScrollListener(this.n);
+        this.f62010g.k(threadFragment);
+        this.f62010g.r(threadFragment);
+        this.f62010g.q(threadFragment);
     }
 
     public void a(boolean z) {
-        this.f62009g.l(z);
-        this.f62009g.notifyDataSetChanged();
+        this.f62010g.l(z);
+        this.f62010g.notifyDataSetChanged();
     }
 
     public void b(boolean z) {
-        BdListViewHelper.c(this.f62006d, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.c(this.f62007d, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void c() {
-        BdListView bdListView = this.f62005c;
+        BdListView bdListView = this.f62006c;
         if (bdListView != null) {
             bdListView.A(0L);
         }
@@ -164,10 +164,10 @@ public class f {
 
     public void d(boolean z, String str, d.b.i0.v1.g.a aVar) {
         if (z) {
-            BaseFragmentActivity baseFragmentActivity = this.f62003a;
+            BaseFragmentActivity baseFragmentActivity = this.f62004a;
             baseFragmentActivity.showToast(baseFragmentActivity.getPageContext().getString(R.string.delete_success));
             if (aVar != null && aVar.n() != null) {
-                this.f62009g.j(aVar.n());
+                this.f62010g.j(aVar.n());
                 if (aVar.n().size() == 0) {
                     if (this.l == null) {
                         this.l = new c(aVar);
@@ -181,47 +181,47 @@ public class f {
                 return;
             }
         } else {
-            this.f62003a.showToast(str);
+            this.f62004a.showToast(str);
         }
-        this.f62009g.m(false);
+        this.f62010g.m(false);
         this.i.setVisibility(8);
     }
 
     public void e(String str, d.b.i0.v1.g.a aVar, boolean z) {
-        this.f62009g.p(true);
+        this.f62010g.p(true);
         if (str != null) {
-            this.f62003a.showToast(str);
+            this.f62004a.showToast(str);
         }
         if (aVar != null) {
             if (aVar.p() == 0 && !z) {
                 aVar.m();
             }
             if (aVar.p() < 20) {
-                this.f62009g.n(false);
-                this.f62009g.m(true);
+                this.f62010g.n(false);
+                this.f62010g.m(true);
             } else {
-                this.f62009g.n(true);
-                this.f62009g.m(true);
+                this.f62010g.n(true);
+                this.f62010g.m(true);
             }
-            this.f62009g.j(aVar.n());
+            this.f62010g.j(aVar.n());
             p(aVar, z);
         }
-        this.f62009g.p(false);
-        this.f62009g.notifyDataSetChanged();
+        this.f62010g.p(false);
+        this.f62010g.notifyDataSetChanged();
         if (k()) {
             r(false);
         }
     }
 
     public void f(boolean z, String str, boolean z2) {
-        this.f62003a.closeLoadingDialog();
+        this.f62004a.closeLoadingDialog();
         if (str != null) {
-            this.f62003a.showToast(str);
+            this.f62004a.showToast(str);
         }
         if (z2) {
             t();
         }
-        this.f62009g.notifyDataSetChanged();
+        this.f62010g.notifyDataSetChanged();
     }
 
     public int g(boolean z) {
@@ -255,25 +255,25 @@ public class f {
 
     public void l(MarkData markData) {
         if (markData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f62003a.getPageContext().getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(markData.getUesrId(), 0L), false, markData.isGod())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f62004a.getPageContext().getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(markData.getUesrId(), 0L), false, markData.isGod())));
         }
     }
 
     public void m() {
-        this.f62009g.notifyDataSetChanged();
+        this.f62010g.notifyDataSetChanged();
     }
 
     public void n(int i) {
-        SkinManager.setBackgroundColor(this.f62010h, R.color.CAM_X0201);
-        g gVar = this.f62007e;
+        SkinManager.setBackgroundColor(this.f62011h, R.color.CAM_X0201);
+        g gVar = this.f62008e;
         if (gVar != null) {
             gVar.I(i);
         }
         m();
-        NoDataView noDataView = this.f62008f;
+        NoDataView noDataView = this.f62009f;
         if (noDataView != null) {
-            noDataView.f(this.f62003a.getPageContext(), i);
-            SkinManager.setBackgroundColor(this.f62008f, R.color.CAM_X0201);
+            noDataView.f(this.f62004a.getPageContext(), i);
+            SkinManager.setBackgroundColor(this.f62009f, R.color.CAM_X0201);
         }
     }
 
@@ -290,7 +290,7 @@ public class f {
         if (this.l != null) {
             d.b.b.e.m.e.a().removeCallbacks(this.l);
         }
-        e eVar = this.f62009g;
+        e eVar = this.f62010g;
         if (eVar != null) {
             eVar.i();
         }
@@ -300,9 +300,9 @@ public class f {
         if (aVar == null) {
             s();
         } else if (aVar.m() > 0) {
-            this.f62008f.setVisibility(8);
-            this.f62005c.removeHeaderView(this.f62008f);
-            this.f62009g.notifyDataSetChanged();
+            this.f62009f.setVisibility(8);
+            this.f62006c.removeHeaderView(this.f62009f);
+            this.f62010g.notifyDataSetChanged();
         } else if (aVar.m() != 0 || z) {
         } else {
             s();
@@ -318,23 +318,23 @@ public class f {
     }
 
     public void s() {
-        this.f62008f.d(this.f62003a.getPageContext());
-        this.f62005c.removeHeaderView(this.f62008f);
-        this.f62005c.addHeaderView(this.f62008f);
-        this.f62008f.setVisibility(0);
+        this.f62009f.d(this.f62004a.getPageContext());
+        this.f62006c.removeHeaderView(this.f62009f);
+        this.f62006c.addHeaderView(this.f62009f);
+        this.f62009f.setVisibility(0);
     }
 
     public final void t() {
         if (this.j == null) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f62003a.getPageContext().getPageActivity());
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f62004a.getPageContext().getPageActivity());
             this.j = aVar;
-            aVar.setTitle(this.f62003a.getPageContext().getString(R.string.sync_mark_fail));
-            this.j.setMessage(this.f62003a.getPageContext().getString(R.string.neterror));
+            aVar.setTitle(this.f62004a.getPageContext().getString(R.string.sync_mark_fail));
+            this.j.setMessage(this.f62004a.getPageContext().getString(R.string.neterror));
             if (this.k != null) {
-                this.j.setPositiveButton(this.f62003a.getPageContext().getString(R.string.retry_rightnow), this.k);
+                this.j.setPositiveButton(this.f62004a.getPageContext().getString(R.string.retry_rightnow), this.k);
             }
-            this.j.setNegativeButton(this.f62003a.getPageContext().getString(R.string.confirm), new b(this));
-            this.j.create(this.f62003a.getPageContext());
+            this.j.setNegativeButton(this.f62004a.getPageContext().getString(R.string.confirm), new b(this));
+            this.j.create(this.f62004a.getPageContext());
             this.j.setCanceledOnTouchOutside(true);
         }
         this.j.show();
@@ -346,20 +346,20 @@ public class f {
 
     public void v(int i) {
         if (i == 0) {
-            this.f62005c.F();
+            this.f62006c.F();
             return;
         }
-        this.f62009g.p(true);
-        this.f62009g.notifyDataSetChanged();
+        this.f62010g.p(true);
+        this.f62010g.notifyDataSetChanged();
     }
 
     public void w(ArrayList<MarkData> arrayList) {
-        this.f62009g.j(arrayList);
+        this.f62010g.j(arrayList);
     }
 
     public void x() {
-        if (this.f62008f.isShown()) {
-            this.f62008f.d(this.f62003a.getPageContext());
+        if (this.f62009f.isShown()) {
+            this.f62009f.d(this.f62004a.getPageContext());
         }
     }
 }

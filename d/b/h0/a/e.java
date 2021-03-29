@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public b f49571b;
+    public b f49572b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49570a = false;
+    public boolean f49571a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.b.c.g.a f49572c = new a(CmdConfigHttp.CMD_GET_TOKEN, 309608);
+    public d.b.b.c.g.a f49573c = new a(CmdConfigHttp.CMD_GET_TOKEN, 309608);
 
     /* loaded from: classes3.dex */
     public class a extends d.b.b.c.g.a {
@@ -29,7 +29,7 @@ public class e {
 
         @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            e.this.f49570a = false;
+            e.this.f49571a = false;
             if (responsedMessage == null || responsedMessage.getError() != 0) {
                 e.this.d(false, null);
             } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
@@ -51,10 +51,10 @@ public class e {
     }
 
     public void c(String str) {
-        if (this.f49570a) {
+        if (this.f49571a) {
             return;
         }
-        this.f49570a = true;
+        this.f49571a = true;
         GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
         getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
         getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
@@ -62,14 +62,14 @@ public class e {
     }
 
     public final void d(boolean z, y yVar) {
-        b bVar = this.f49571b;
+        b bVar = this.f49572b;
         if (bVar != null) {
             bVar.a(z, yVar);
         }
     }
 
     public final void e() {
-        MessageManager.getInstance().registerListener(this.f49572c);
+        MessageManager.getInstance().registerListener(this.f49573c);
     }
 
     public final void f() {
@@ -78,6 +78,6 @@ public class e {
     }
 
     public void g(b bVar) {
-        this.f49571b = bVar;
+        this.f49572b = bVar;
     }
 }

@@ -61,11 +61,11 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements b.InterfaceC1140b {
+    public class b implements b.InterfaceC1141b {
         public b() {
         }
 
-        @Override // d.b.i0.c2.f.a.b.InterfaceC1140b
+        @Override // d.b.i0.c2.f.a.b.InterfaceC1141b
         public void a(ForbidTplData forbidTplData) {
             ForbidActivity.this.mForbidIdView.setText(ForbidActivity.this.mUserNameShow);
             int i = forbidTplData.type;
@@ -81,7 +81,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             }
         }
 
-        @Override // d.b.i0.c2.f.a.b.InterfaceC1140b
+        @Override // d.b.i0.c2.f.a.b.InterfaceC1141b
         public void b(ForbidTplData forbidTplData) {
             if (StringUtils.isNull(forbidTplData.error.errMsg)) {
                 ForbidActivity.this.showToast(R.string.neterror);
@@ -99,8 +99,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
 
             /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0212a implements a.e {
-                public C0212a() {
+            public class C0213a implements a.e {
+                public C0213a() {
                 }
 
                 @Override // d.b.h0.r.s.a.e
@@ -136,7 +136,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                             forbidActivity.mErrorDialog = new d.b.h0.r.s.a(forbidActivity.getActivity());
                         }
                         ForbidActivity.this.mErrorDialog.setMessage(str);
-                        ForbidActivity.this.mErrorDialog.setPositiveButton(R.string.know, new C0212a());
+                        ForbidActivity.this.mErrorDialog.setPositiveButton(R.string.know, new C0213a());
                         ForbidActivity.this.mErrorDialog.setCanceledOnTouchOutside(false);
                         ForbidActivity.this.mErrorDialog.create(ForbidActivity.this.getPageContext());
                         ForbidActivity.this.mErrorDialog.show();
@@ -166,13 +166,13 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public static class d extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public String[] f19460e;
+        public String[] f19461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f19461f = 0;
+        public int f19462f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f19462g = new a();
+        public View.OnClickListener f19463g = new a();
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -181,19 +181,19 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.f19461f = ((e) view.getTag()).f19466c;
+                d.this.f19462f = ((e) view.getTag()).f19467c;
                 d.this.notifyDataSetChanged();
             }
         }
 
         public d(String[] strArr) {
-            this.f19460e = strArr;
+            this.f19461e = strArr;
         }
 
         public String b() {
             int i;
-            String[] strArr = this.f19460e;
-            if (strArr == null || (i = this.f19461f) >= strArr.length) {
+            String[] strArr = this.f19461e;
+            if (strArr == null || (i = this.f19462f) >= strArr.length) {
                 return null;
             }
             return strArr[i];
@@ -201,7 +201,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
 
         @Override // android.widget.Adapter
         public int getCount() {
-            String[] strArr = this.f19460e;
+            String[] strArr = this.f19461e;
             if (strArr == null) {
                 return 0;
             }
@@ -225,22 +225,22 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.forbid_list_item, (ViewGroup) null);
                 eVar = new e(null);
-                eVar.f19464a = (TextView) view.findViewById(R.id.reason_text);
-                eVar.f19465b = (ImageView) view.findViewById(R.id.check_img);
+                eVar.f19465a = (TextView) view.findViewById(R.id.reason_text);
+                eVar.f19466b = (ImageView) view.findViewById(R.id.check_img);
                 view.setTag(eVar);
-                view.setOnClickListener(this.f19462g);
+                view.setOnClickListener(this.f19463g);
             } else {
                 eVar = (e) view.getTag();
             }
-            eVar.f19466c = i;
-            eVar.f19464a.setText(this.f19460e[i]);
-            if (eVar.f19466c == this.f19461f) {
-                SkinManager.setImageResource(eVar.f19465b, R.drawable.icon_found_information_choose);
-                eVar.f19465b.setVisibility(0);
-                SkinManager.setViewTextColor(eVar.f19464a, R.color.common_color_10047, 1);
+            eVar.f19467c = i;
+            eVar.f19465a.setText(this.f19461e[i]);
+            if (eVar.f19467c == this.f19462f) {
+                SkinManager.setImageResource(eVar.f19466b, R.drawable.icon_found_information_choose);
+                eVar.f19466b.setVisibility(0);
+                SkinManager.setViewTextColor(eVar.f19465a, R.color.common_color_10047, 1);
             } else {
-                eVar.f19465b.setVisibility(4);
-                SkinManager.setViewTextColor(eVar.f19464a, R.color.common_color_10039, 1);
+                eVar.f19466b.setVisibility(4);
+                SkinManager.setViewTextColor(eVar.f19465a, R.color.common_color_10039, 1);
             }
             return view;
         }
@@ -250,13 +250,13 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f19464a;
+        public TextView f19465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f19465b;
+        public ImageView f19466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f19466c;
+        public int f19467c;
 
         public e() {
         }

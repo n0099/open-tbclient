@@ -10,7 +10,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NewCashierContent implements IBeanResponse, Serializable {
     public static final long serialVersionUID = -6404441585155615479L;
     public String bdstoken;
@@ -27,14 +27,14 @@ public class NewCashierContent implements IBeanResponse, Serializable {
     public String tn;
     public String token;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Brand implements Serializable {
         public static final long serialVersionUID = 1;
         public String desc;
         public String icon;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CashierChannel implements IBaseChannel, Serializable {
         public static final long serialVersionUID = 1;
         public String activity_icon;
@@ -155,7 +155,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CashierChannelCoupon implements Serializable {
         public static final long serialVersionUID = 8163949050735544670L;
         public String amount;
@@ -172,7 +172,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CashierChannels implements Serializable {
         public static final long serialVersionUID = 1;
         public CashierChannel[] official_platform;
@@ -181,14 +181,14 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         public String platform_name;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CashierOrder implements Serializable {
         public static final long serialVersionUID = 1;
         public String paid_amount;
         public String total_amount;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CashierPay implements Serializable {
         public static final long serialVersionUID = 1;
         public Brand brand;
@@ -196,14 +196,14 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         public String tn;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CommonMarketing implements Serializable {
         public String pic;
         public String text;
         public String url;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class CommonUsedCard implements Serializable {
         public static final long serialVersionUID = 1;
         public String[] cardMarketings;
@@ -218,7 +218,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface IBaseChannel {
         String getActiveIcon();
 
@@ -257,7 +257,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         boolean isShow();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ReqField implements Serializable {
         public static final long serialVersionUID = 1;
         public String card_holder_id;

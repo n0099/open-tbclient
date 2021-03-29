@@ -51,30 +51,30 @@ public class FaceshopStatic {
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0183a implements Runnable {
+        public class RunnableC0184a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f15700e;
+            public final /* synthetic */ int f15701e;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0184a implements Runnable {
+            public class RunnableC0185a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ StringBuilder f15701e;
+                public final /* synthetic */ StringBuilder f15702e;
 
-                public RunnableC0184a(StringBuilder sb) {
-                    this.f15701e = sb;
+                public RunnableC0185a(StringBuilder sb) {
+                    this.f15702e = sb;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(RunnableC0183a.this.f15700e, this.f15701e.toString()));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(RunnableC0184a.this.f15701e, this.f15702e.toString()));
                 }
             }
 
-            public RunnableC0183a(a aVar, int i) {
-                this.f15700e = i;
+            public RunnableC0184a(a aVar, int i) {
+                this.f15701e = i;
             }
 
             @Override // java.lang.Runnable
@@ -90,7 +90,7 @@ public class FaceshopStatic {
                         }
                     }
                 }
-                d.b.b.e.m.e.a().post(new RunnableC0184a(sb));
+                d.b.b.e.m.e.a().post(new RunnableC0185a(sb));
             }
         }
 
@@ -102,7 +102,7 @@ public class FaceshopStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                d.b.i0.x1.a.b().a(new RunnableC0183a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+                d.b.i0.x1.a.b().a(new RunnableC0184a(this, ((Integer) customResponsedMessage.getData()).intValue()));
             }
         }
     }
@@ -167,7 +167,7 @@ public class FaceshopStatic {
                 u.s().g((String) customResponsedMessage.getData(), null);
             } else if (customResponsedMessage.getData() instanceof d.a) {
                 d.a aVar = (d.a) customResponsedMessage.getData();
-                u.s().g(aVar.f49685a, aVar.f49686b);
+                u.s().g(aVar.f49686a, aVar.f49687b);
             }
         }
     }
@@ -176,10 +176,10 @@ public class FaceshopStatic {
     public static class f extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent == null || TextUtils.isEmpty(intent.getStringExtra(d.b.h0.a0.d.f49680b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (intent == null || TextUtils.isEmpty(intent.getStringExtra(d.b.h0.a0.d.f49681b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            u.s().g(intent.getStringExtra(d.b.h0.a0.d.f49680b), intent.getStringExtra(d.b.h0.a0.d.f49681c));
+            u.s().g(intent.getStringExtra(d.b.h0.a0.d.f49681b), intent.getStringExtra(d.b.h0.a0.d.f49682c));
         }
     }
 
@@ -254,7 +254,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerListener(new e(2004610));
         f fVar = new f();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(d.b.h0.a0.d.f49679a);
+        intentFilter.addAction(d.b.h0.a0.d.f49680a);
         TbadkCoreApplication.getInst().registerReceiver(fVar, intentFilter);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

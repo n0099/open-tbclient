@@ -32,7 +32,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCallback {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final long CANCEL_AFTER_CLOSE_MILLIS = 60000;

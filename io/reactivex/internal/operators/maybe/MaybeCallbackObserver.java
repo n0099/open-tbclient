@@ -27,7 +27,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<b> implement
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.f68022b;
+        return this.onError != Functions.f68027b;
     }
 
     @Override // f.a.t.b

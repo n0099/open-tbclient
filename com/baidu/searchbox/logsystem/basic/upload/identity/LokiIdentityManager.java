@@ -9,7 +9,7 @@ import com.baidu.searchbox.logsystem.basic.upload.LokiRuntime;
 import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LokiIdentityManager {
     public static final String PARAM_APP_NAME = "appname";
     public static final String PARAM_BDVC = "bdvc";

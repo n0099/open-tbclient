@@ -47,7 +47,7 @@ public class AdDownloadService extends Service {
 
     @Override // android.app.Service
     public void onCreate() {
-        if (k.f45050a) {
+        if (k.f45051a) {
             Log.d("AdDownload", "service create");
         }
         this.mDownloadManager = d.b.g0.e.a.l.g.a.m(AppRuntime.getAppContext(), null);

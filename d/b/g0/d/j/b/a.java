@@ -11,11 +11,11 @@ import org.json.JSONArray;
 public class a implements m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47525a = k.f45050a;
+    public static final boolean f47526a = k.f45051a;
 
     @Override // d.b.g0.n.m
     public boolean a(JSONArray jSONArray) {
-        if (f47525a) {
+        if (f47526a) {
             Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
         }
         d.b.g0.d.j.b.d.c cVar = new d.b.g0.d.j.b.d.c();
@@ -23,11 +23,11 @@ public class a implements m {
         hashMap.put("cuid", e.g().getDeviceId(AppRuntime.getApplication()));
         hashMap.put("uuid", e.g().n(AppRuntime.getApplication()));
         d.b.g0.d.j.b.d.b.d().g(hashMap, jSONArray.toString().getBytes(), null, cVar);
-        if (f47525a) {
-            Log.d("OpenBehaviorUploader", "errorCode : " + cVar.f47530a);
-            Log.d("OpenBehaviorUploader", "errorMsg : " + cVar.f47531b);
+        if (f47526a) {
+            Log.d("OpenBehaviorUploader", "errorCode : " + cVar.f47531a);
+            Log.d("OpenBehaviorUploader", "errorMsg : " + cVar.f47532b);
         }
-        int i = cVar.f47530a;
+        int i = cVar.f47531a;
         if (i == 1 || i == 2 || i == 4) {
             d.b.g0.o.c.a();
             return false;

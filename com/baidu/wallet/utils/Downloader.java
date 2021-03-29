@@ -20,25 +20,25 @@ import java.util.regex.Pattern;
 public class Downloader {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f26835f = 1;
+    public static final int f26836f = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadManager f26836a;
+    public DownloadManager f26837a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Pattern f26837b;
+    public final Pattern f26838b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Pattern f26838c;
+    public final Pattern f26839c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f26839d;
+    public Handler f26840d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ContentResolver f26840e;
+    public ContentResolver f26841e;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f26841g;
+    public final String f26842g;
 
     /* loaded from: classes5.dex */
     public interface DownloaderListener {
@@ -49,23 +49,23 @@ public class Downloader {
     public final class a extends ContentObserver {
 
         /* renamed from: b  reason: collision with root package name */
-        public long f26844b;
+        public long f26845b;
 
         /* renamed from: c  reason: collision with root package name */
-        public DownloaderListener f26845c;
+        public DownloaderListener f26846c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26846d;
+        public String f26847d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f26847e;
+        public final int f26848e;
 
         public a(Handler handler, String str, long j, DownloaderListener downloaderListener) {
             super(handler);
-            this.f26847e = 24;
-            this.f26846d = str;
-            this.f26844b = j;
-            this.f26845c = downloaderListener;
+            this.f26848e = 24;
+            this.f26847d = str;
+            this.f26845b = j;
+            this.f26846c = downloaderListener;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:19:0x0067, code lost:
@@ -82,7 +82,7 @@ public class Downloader {
             Cursor cursor;
             Cursor cursor2 = null;
             try {
-                cursor = Downloader.this.f26836a.query(new DownloadManager.Query().setFilterById(j));
+                cursor = Downloader.this.f26837a.query(new DownloadManager.Query().setFilterById(j));
             } catch (Exception unused) {
                 cursor = null;
             } catch (Throwable th) {
@@ -95,8 +95,8 @@ public class Downloader {
                 try {
                     try {
                     } catch (Exception unused2) {
-                        this.f26845c = null;
-                        Downloader.this.f26840e.unregisterContentObserver(this);
+                        this.f26846c = null;
+                        Downloader.this.f26841e.unregisterContentObserver(this);
                         if (cursor == null) {
                             return;
                         }
@@ -109,12 +109,12 @@ public class Downloader {
                         long j2 = cursor.getLong(columnIndexOrThrow);
                         long j3 = cursor.getLong(columnIndexOrThrow2);
                         int i = cursor.getInt(columnIndex);
-                        if (this.f26845c != null) {
-                            this.f26845c.onProgress(this.f26846d, i, j2, j3);
+                        if (this.f26846c != null) {
+                            this.f26846c.onProgress(this.f26847d, i, j2, j3);
                         }
                         if ((i & 24) != 0) {
-                            this.f26845c = null;
-                            Downloader.this.f26840e.unregisterContentObserver(this);
+                            this.f26846c = null;
+                            Downloader.this.f26841e.unregisterContentObserver(this);
                         }
                         if (cursor == null) {
                             return;
@@ -135,7 +135,7 @@ public class Downloader {
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a(this.f26844b);
+            a(this.f26845b);
         }
     }
 
@@ -143,13 +143,13 @@ public class Downloader {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26848a;
+        public String f26849a;
 
         /* renamed from: b  reason: collision with root package name */
-        public DownloaderListener f26849b;
+        public DownloaderListener f26850b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26850c;
+        public String f26851c;
 
         public b() {
         }
@@ -159,42 +159,42 @@ public class Downloader {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Downloader f26852a = new Downloader();
+        public static Downloader f26853a = new Downloader();
     }
 
     public static Downloader getInstance() {
-        return c.f26852a;
+        return c.f26853a;
     }
 
     public void download(String str, String str2, DownloaderListener downloaderListener) {
-        if (str != null ? this.f26838c.matcher(str).matches() : false) {
+        if (str != null ? this.f26839c.matcher(str).matches() : false) {
             b bVar = new b();
-            bVar.f26848a = str;
-            bVar.f26849b = downloaderListener;
-            bVar.f26850c = str2;
-            this.f26839d.obtainMessage(1, bVar).sendToTarget();
+            bVar.f26849a = str;
+            bVar.f26850b = downloaderListener;
+            bVar.f26851c = str2;
+            this.f26840d.obtainMessage(1, bVar).sendToTarget();
             return;
         }
         a(downloaderListener, str);
     }
 
     public void init(Context context) {
-        if (this.f26836a != null || context == null) {
+        if (this.f26837a != null || context == null) {
             return;
         }
-        this.f26836a = (DownloadManager) context.getSystemService("download");
-        this.f26840e = context.getContentResolver();
+        this.f26837a = (DownloadManager) context.getSystemService("download");
+        this.f26841e = context.getContentResolver();
         HandlerThread handlerThread = new HandlerThread("downloader");
         handlerThread.start();
-        this.f26839d = new Handler(handlerThread.getLooper()) { // from class: com.baidu.wallet.utils.Downloader.1
+        this.f26840d = new Handler(handlerThread.getLooper()) { // from class: com.baidu.wallet.utils.Downloader.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (1 == message.what) {
                     b bVar = (b) message.obj;
-                    if (Downloader.this.f26836a == null) {
-                        Downloader.this.a(bVar.f26849b, bVar.f26848a);
+                    if (Downloader.this.f26837a == null) {
+                        Downloader.this.a(bVar.f26850b, bVar.f26849a);
                     } else {
-                        Downloader.this.a(bVar.f26848a, bVar.f26849b, bVar.f26850c);
+                        Downloader.this.a(bVar.f26849a, bVar.f26850b, bVar.f26851c);
                     }
                 }
             }
@@ -202,17 +202,17 @@ public class Downloader {
     }
 
     public Downloader() {
-        this.f26837b = Pattern.compile(".*\\/(.*)");
-        this.f26838c = Pattern.compile("^(https?)://.*");
-        this.f26841g = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DOWNLOADS + File.separator;
+        this.f26838b = Pattern.compile(".*\\/(.*)");
+        this.f26839c = Pattern.compile("^(https?)://.*");
+        this.f26842g = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DOWNLOADS + File.separator;
     }
 
     private String b(String str) {
-        String str2 = str.startsWith(this.f26841g) ? null : this.f26841g;
+        String str2 = str.startsWith(this.f26842g) ? null : this.f26842g;
         File parentFile = new File(str2, str).getParentFile();
         parentFile.mkdirs();
         if (parentFile.isDirectory()) {
-            return str2 == null ? str.substring(this.f26841g.length()) : str;
+            return str2 == null ? str.substring(this.f26842g.length()) : str;
         }
         return null;
     }
@@ -236,9 +236,9 @@ public class Downloader {
             request.setNotificationVisibility(2);
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, b2);
             request.setAllowedNetworkTypes(2);
-            long enqueue = this.f26836a.enqueue(request);
-            a aVar = new a(this.f26839d, str, enqueue, downloaderListener);
-            this.f26840e.registerContentObserver(Uri.parse("content://downloads/my_downloads/" + enqueue), true, aVar);
+            long enqueue = this.f26837a.enqueue(request);
+            a aVar = new a(this.f26840d, str, enqueue, downloaderListener);
+            this.f26841e.registerContentObserver(Uri.parse("content://downloads/my_downloads/" + enqueue), true, aVar);
         } catch (Exception e2) {
             a(downloaderListener, str);
             PayStatisticsUtil.onEventWithValue("WRC_downloadFail", str);
@@ -254,7 +254,7 @@ public class Downloader {
     }
 
     private String a(String str) {
-        Matcher matcher = this.f26837b.matcher(str);
+        Matcher matcher = this.f26838b.matcher(str);
         if (matcher.matches()) {
             return matcher.group(1);
         }

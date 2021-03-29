@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
 import d.b.b.e.p.j;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NetWorkCoreFacotry {
     public static int INTERVAL_TIME = 300000;
     public static int MAX_ERROR_COUNT = 10;

@@ -23,28 +23,28 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     public static ZoomImageView p;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f11584a;
+    public float f11585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f11585b;
+    public final float[] f11586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11586c;
+    public boolean f11587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScaleGestureDetector f11587d;
+    public ScaleGestureDetector f11588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Matrix f11588e;
+    public final Matrix f11589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11589f;
+    public int f11590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f11590g;
+    public float f11591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f11591h;
+    public float f11592h;
     public boolean i;
     public double j;
     public boolean k;
@@ -86,7 +86,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         if (f10 < f11 && this.k) {
             f4 = f11 - f10;
         }
-        this.f11588e.postTranslate(f4, f5);
+        this.f11589e.postTranslate(f4, f5);
     }
 
     public static void c() {
@@ -137,15 +137,15 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 r5 = f14 - f13;
             }
         }
-        this.f11588e.postTranslate(f4, r5);
+        this.f11589e.postTranslate(f4, r5);
         if (matrixRectF.width() < f5 || matrixRectF.height() < f10) {
             float max = Math.max(f5 / matrixRectF.width(), f10 / matrixRectF.height());
-            this.f11588e.postScale(max, max, f2, f3);
+            this.f11589e.postScale(max, max, f2, f3);
         }
     }
 
     public RectF getMatrixRectF() {
-        Matrix matrix = this.f11588e;
+        Matrix matrix = this.f11589e;
         RectF rectF = new RectF();
         Drawable drawable = getDrawable();
         if (drawable != null) {
@@ -156,8 +156,8 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     }
 
     public final float getScale() {
-        this.f11588e.getValues(this.f11585b);
-        return this.f11585b[0];
+        this.f11589e.getValues(this.f11586b);
+        return this.f11586b[0];
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -178,7 +178,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         float max;
         float height;
         float f2;
-        if (!this.f11586c || (drawable = getDrawable()) == null) {
+        if (!this.f11587c || (drawable = getDrawable()) == null) {
             return;
         }
         this.m = (int) TypedValue.applyDimension(1, this.m, getResources().getDisplayMetrics());
@@ -195,18 +195,18 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             f2 = intrinsicHeight;
         } else {
             max = Math.max(((getWidth() * 1.0f) - (this.m * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.n * 2)) / intrinsicHeight);
-            this.f11584a = max;
-            this.f11588e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
-            this.f11588e.postScale(max, max, width / 2, height2 / 2);
-            setImageMatrix(this.f11588e);
-            this.f11586c = false;
+            this.f11585a = max;
+            this.f11589e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
+            this.f11589e.postScale(max, max, width / 2, height2 / 2);
+            setImageMatrix(this.f11589e);
+            this.f11587c = false;
         }
         max = height / f2;
-        this.f11584a = max;
-        this.f11588e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
-        this.f11588e.postScale(max, max, width / 2, height2 / 2);
-        setImageMatrix(this.f11588e);
-        this.f11586c = false;
+        this.f11585a = max;
+        this.f11589e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
+        this.f11589e.postScale(max, max, width / 2, height2 / 2);
+        setImageMatrix(this.f11589e);
+        this.f11587c = false;
     }
 
     @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -220,9 +220,9 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             if (scaleFactor * scale > 12.0f) {
                 scaleFactor = 12.0f / scale;
             }
-            this.f11588e.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+            this.f11589e.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
             a(scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-            setImageMatrix(this.f11588e);
+            setImageMatrix(this.f11589e);
         }
         return true;
     }
@@ -245,7 +245,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     */
     public boolean onTouch(View view, MotionEvent motionEvent) {
         Rect rect;
-        this.f11587d.onTouchEvent(motionEvent);
+        this.f11588d.onTouchEvent(motionEvent);
         int pointerCount = motionEvent.getPointerCount();
         float f2 = 0.0f;
         float f3 = 0.0f;
@@ -257,17 +257,17 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         float f5 = pointerCount;
         float f6 = f4 / f5;
         float f7 = f3 / f5;
-        if (pointerCount != this.f11589f) {
+        if (pointerCount != this.f11590f) {
             this.i = false;
-            this.f11590g = f6;
-            this.f11591h = f7;
+            this.f11591g = f6;
+            this.f11592h = f7;
         }
-        this.f11589f = pointerCount;
+        this.f11590f = pointerCount;
         int action = motionEvent.getAction();
         if (action != 1) {
             if (action == 2) {
-                float f8 = f6 - this.f11590g;
-                float f9 = f7 - this.f11591h;
+                float f8 = f6 - this.f11591g;
+                float f9 = f7 - this.f11592h;
                 if (!this.i) {
                     this.i = Math.sqrt((double) ((f8 * f8) + (f9 * f9))) >= this.j;
                 }
@@ -291,32 +291,32 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                         } else {
                             f2 = f9;
                         }
-                        this.f11588e.postTranslate(f8, f2);
+                        this.f11589e.postTranslate(f8, f2);
                         b();
-                        setImageMatrix(this.f11588e);
+                        setImageMatrix(this.f11589e);
                     }
                 }
-                this.f11590g = f6;
-                this.f11591h = f7;
+                this.f11591g = f6;
+                this.f11592h = f7;
             }
             return true;
         }
-        this.f11589f = 0;
+        this.f11590f = 0;
         return true;
     }
 
     public ZoomImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11584a = 1.0f;
-        this.f11585b = new float[9];
-        this.f11586c = true;
-        this.f11588e = new Matrix();
-        this.f11589f = 0;
-        this.f11590g = 0.0f;
-        this.f11591h = 0.0f;
+        this.f11585a = 1.0f;
+        this.f11586b = new float[9];
+        this.f11587c = true;
+        this.f11589e = new Matrix();
+        this.f11590f = 0;
+        this.f11591g = 0.0f;
+        this.f11592h = 0.0f;
         this.m = 22;
         super.setScaleType(ImageView.ScaleType.MATRIX);
-        this.f11587d = new ScaleGestureDetector(context, this);
+        this.f11588d = new ScaleGestureDetector(context, this);
         this.j = ViewConfiguration.get(context).getScaledTouchSlop();
         setOnTouchListener(this);
         if (p == null) {

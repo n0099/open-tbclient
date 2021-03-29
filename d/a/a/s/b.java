@@ -7,54 +7,51 @@ import androidx.annotation.RestrictTo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41327a;
+    public final String f41328a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41328b;
+    public final String f41329b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f41329c;
+    public final double f41330c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f41330d;
+    public final int f41331d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f41331e;
+    public final int f41332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f41332f;
+    public final double f41333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final double f41333g;
+    public final double f41334g;
     @ColorInt
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f41334h;
+    public final int f41335h;
     @ColorInt
     public final int i;
     public final double j;
     public final boolean k;
 
     public b(String str, String str2, double d2, int i, int i2, double d3, double d4, @ColorInt int i3, @ColorInt int i4, double d5, boolean z) {
-        this.f41327a = str;
-        this.f41328b = str2;
-        this.f41329c = d2;
-        this.f41330d = i;
-        this.f41331e = i2;
-        this.f41332f = d3;
-        this.f41333g = d4;
-        this.f41334h = i3;
+        this.f41328a = str;
+        this.f41329b = str2;
+        this.f41330c = d2;
+        this.f41331d = i;
+        this.f41332e = i2;
+        this.f41333f = d3;
+        this.f41334g = d4;
+        this.f41335h = i3;
         this.i = i4;
         this.j = d5;
         this.k = z;
     }
 
     public int hashCode() {
-        double hashCode = ((this.f41327a.hashCode() * 31) + this.f41328b.hashCode()) * 31;
-        double d2 = this.f41329c;
-        Double.isNaN(hashCode);
-        int i = (((((int) (hashCode + d2)) * 31) + this.f41330d) * 31) + this.f41331e;
-        long doubleToLongBits = Double.doubleToLongBits(this.f41332f);
-        return (((i * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.f41334h;
+        int hashCode = (((((int) ((((this.f41328a.hashCode() * 31) + this.f41329b.hashCode()) * 31) + this.f41330c)) * 31) + this.f41331d) * 31) + this.f41332e;
+        long doubleToLongBits = Double.doubleToLongBits(this.f41333f);
+        return (((hashCode * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.f41335h;
     }
 }

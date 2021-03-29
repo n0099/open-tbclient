@@ -25,7 +25,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.p0.s1.a.a.b, FrsGameStrategyItemView.F
     @Override // d.b.b.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.p0.s1.a.a.b bVar, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
-        frsGameStrategyItemViewHolder.f16353a.n(bVar);
+        frsGameStrategyItemViewHolder.f16354a.n(bVar);
         return frsGameStrategyItemViewHolder.a();
     }
 }

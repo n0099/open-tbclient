@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChatUserDBManager extends DBBase {
     public static final String TAG = "ChatUserDBManager";
     public static ChatUserDBManager mInstance;
@@ -295,16 +295,16 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0092, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0091, code lost:
         if (r0 != null) goto L26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0093, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00b3, code lost:
         if (r0 == null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b7, code lost:
         return r11;
      */
     /*
@@ -358,16 +358,16 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a9, code lost:
         if (r0 != null) goto L26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00ac, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x00ab, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00cc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00cb, code lost:
         if (r0 == null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00d0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00cf, code lost:
         return r11;
      */
     /*
@@ -404,24 +404,19 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x00a2 */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0143, code lost:
-        if (r4 != null) goto L36;
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x013f, code lost:
+        if (r4 != null) goto L35;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0145, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0141, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x015e, code lost:
-        if (r4 != null) goto L36;
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x015a, code lost:
+        if (r4 != null) goto L35;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0162, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x015e, code lost:
         return;
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r15v0 */
-    /* JADX WARN: Type inference failed for: r15v1 */
-    /* JADX WARN: Type inference failed for: r15v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r15v3 */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0163 A[Catch: all -> 0x0167, TryCatch #3 {, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001b, B:39:0x0141, B:50:0x015d, B:55:0x0163, B:56:0x0166), top: B:60:0x0009 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -430,40 +425,39 @@ public class ChatUserDBManager extends DBBase {
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             ArrayList arrayList = new ArrayList();
-            ?? r15 = 0;
+            Cursor cursor2 = null;
+            if (openDatabase == null) {
+                iGetUserShieldListener.onResult(-1, "db failed", null);
+                return;
+            }
             try {
-                if (openDatabase == null) {
-                    iGetUserShieldListener.onResult(-1, "db failed", null);
-                    return;
-                }
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("shield", (Integer) 0);
-                    openDatabase.update(TableDefine.DB_TABLE_USERINFO, contentValues, "shield=?", new String[]{String.valueOf(1)});
-                    String str = "";
-                    if (list.size() > 0) {
-                        try {
-                            String str2 = "" + list.get(0).getContacter();
-                            for (int i = 1; i < list.size(); i++) {
-                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
-                            }
-                            str = "uid in (" + str2 + ") ";
-                        } catch (Exception e2) {
-                            e = e2;
-                            cursor = null;
-                            LogUtils.e(TAG, "getShieldUser:", e);
-                            iGetUserShieldListener.onResult(-1, "exception", null);
-                        } catch (Throwable th) {
-                            th = th;
-                            if (r15 != 0) {
-                                r15.close();
-                            }
-                            throw th;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("shield", (Integer) 0);
+                openDatabase.update(TableDefine.DB_TABLE_USERINFO, contentValues, "shield=?", new String[]{String.valueOf(1)});
+                String str = "";
+                if (list.size() > 0) {
+                    try {
+                        String str2 = "" + list.get(0).getContacter();
+                        for (int i = 1; i < list.size(); i++) {
+                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
                         }
+                        str = "uid in (" + str2 + ") ";
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                        LogUtils.e(TAG, "getShieldUser:", e);
+                        iGetUserShieldListener.onResult(-1, "exception", null);
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor2 != null) {
+                        }
+                        throw th;
                     }
-                    String str3 = str;
-                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, str3, null, null, null, null, null);
-                    while (cursor != null) {
+                }
+                String str3 = str;
+                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, str3, null, null, null, null, null);
+                while (cursor != null) {
+                    try {
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
@@ -488,29 +482,33 @@ public class ChatUserDBManager extends DBBase {
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
                         }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        throw th;
                     }
-                    LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
-                    updateAllShield(arrayList);
-                    if (list.size() <= 0) {
-                        iGetUserShieldListener.onResult(0, "ok", arrayList);
-                    } else {
-                        getUserInfo(list, arrayList, iGetUserShieldListener);
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    cursor = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    r15 = 0;
                 }
+                LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
+                updateAllShield(arrayList);
+                if (list.size() <= 0) {
+                    iGetUserShieldListener.onResult(0, "ok", arrayList);
+                } else {
+                    getUserInfo(list, arrayList, iGetUserShieldListener);
+                }
+            } catch (Exception e4) {
+                e = e4;
+                cursor = null;
             } catch (Throwable th3) {
                 th = th3;
-                r15 = openDatabase;
+                cursor2 = null;
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0081 A[Catch: all -> 0x0085, TryCatch #1 {, blocks: (B:4:0x0003, B:6:0x000f, B:15:0x0064, B:16:0x0067, B:26:0x0078, B:27:0x007b, B:32:0x0081, B:33:0x0084), top: B:39:0x0003 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x007f A[Catch: all -> 0x0083, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000f, B:15:0x0062, B:16:0x0065, B:26:0x0076, B:27:0x0079, B:32:0x007f, B:33:0x0082), top: B:37:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -566,20 +564,19 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: long */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
-        if (r11 != null) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0046, code lost:
+        if (r11 != null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0048, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
-        if (r11 == null) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0069, code lost:
+        if (r11 == null) goto L14;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0070, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x006d, code lost:
         return null;
      */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0072 A[Catch: all -> 0x0076, TryCatch #1 {, blocks: (B:4:0x0003, B:6:0x000a, B:14:0x003f, B:15:0x0042, B:20:0x0048, B:29:0x006c, B:34:0x0072, B:35:0x0075), top: B:39:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -588,13 +585,13 @@ public class ChatUserDBManager extends DBBase {
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             Cursor cursor2 = null;
+            if (openDatabase == null) {
+                return null;
+            }
             try {
-                if (openDatabase == null) {
-                    return null;
-                }
-                try {
-                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
-                    if (cursor != null) {
+                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
+                if (cursor != null) {
+                    try {
                         try {
                             if (cursor.moveToFirst()) {
                                 Long valueOf = Long.valueOf(cursor.getLong(cursor.getColumnIndex("uid")));
@@ -608,20 +605,23 @@ public class ChatUserDBManager extends DBBase {
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getChatUser:", e);
                         }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        throw th;
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
                 }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                cursor2 = j;
+                if (cursor2 != null) {
+                }
+                throw th;
             }
         }
     }
@@ -815,19 +815,19 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0031, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
         if (r10 != null) goto L9;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0033, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0031, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0052, code lost:
         if (r10 == null) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0055, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -874,19 +874,19 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0030, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
         if (r10 != null) goto L9;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0032, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0031, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0053, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0052, code lost:
         if (r10 == null) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0055, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005b  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -933,7 +933,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005f A[Catch: all -> 0x0063, TryCatch #1 {, blocks: (B:4:0x0003, B:6:0x000f, B:17:0x0032, B:18:0x0035, B:26:0x0056, B:27:0x0059, B:32:0x005f, B:33:0x0062), top: B:41:0x0003 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005e A[Catch: all -> 0x0062, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000f, B:17:0x0031, B:18:0x0034, B:26:0x0055, B:27:0x0058, B:32:0x005e, B:33:0x0061), top: B:37:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

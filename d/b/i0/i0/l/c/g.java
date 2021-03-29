@@ -32,7 +32,7 @@ public class g extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                 a2 a2Var = ((z1) nVar).w;
                 a2Var.objType = 1;
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+                ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
             }
         }
     }

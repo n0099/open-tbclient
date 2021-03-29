@@ -15,19 +15,19 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f54566a;
+    public TbPageContext f54567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f54567b;
+    public NavigationBar f54568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f54568c;
+    public BdTypeListView f54569c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.e2.j.a f54569d;
+    public d.b.i0.e2.j.a f54570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b0<h> f54570e;
+    public b0<h> f54571e;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -36,40 +36,40 @@ public class c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.f54566a.getPageActivity().finish();
+            c.this.f54567a.getPageActivity().finish();
         }
     }
 
     public c(TbPageContext tbPageContext) {
-        this.f54566a = tbPageContext;
+        this.f54567a = tbPageContext;
     }
 
     public final void b() {
-        this.f54567b.setCenterTextTitle(this.f54566a.getString(R.string.person_center_more));
-        this.f54567b.showBottomLine();
-        this.f54567b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
-        this.f54567b.onChangeSkinType(this.f54566a, TbadkCoreApplication.getInst().getSkinType());
+        this.f54568b.setCenterTextTitle(this.f54567a.getString(R.string.person_center_more));
+        this.f54568b.showBottomLine();
+        this.f54568b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
+        this.f54568b.onChangeSkinType(this.f54567a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(View view) {
-        this.f54567b = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
+        this.f54568b = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
         BdTypeListView bdTypeListView = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.f54568c = bdTypeListView;
-        this.f54569d = new d.b.i0.e2.j.a(this.f54566a, bdTypeListView, this.f54570e);
+        this.f54569c = bdTypeListView;
+        this.f54570d = new d.b.i0.e2.j.a(this.f54567a, bdTypeListView, this.f54571e);
         b();
     }
 
     public void d() {
-        this.f54569d.a();
-        SkinManager.setBackgroundColor(this.f54568c, R.color.CAM_X0201);
-        this.f54567b.onChangeSkinType(this.f54566a, TbadkCoreApplication.getInst().getSkinType());
+        this.f54570d.a();
+        SkinManager.setBackgroundColor(this.f54569c, R.color.CAM_X0201);
+        this.f54568b.onChangeSkinType(this.f54567a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void e(List<n> list) {
-        this.f54568c.setData(list);
+        this.f54569c.setData(list);
     }
 
     public void f(b0<h> b0Var) {
-        this.f54570e = b0Var;
+        this.f54571e = b0Var;
     }
 }

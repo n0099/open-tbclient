@@ -9,30 +9,30 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.h0.r.w.b.a> f56684a = new ArrayList();
+    public List<d.b.h0.r.w.b.a> f56685a = new ArrayList();
 
     /* loaded from: classes4.dex */
     public class a implements d.b.h0.r.w.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f56685a;
+        public String f56686a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56686b;
+        public String f56687b;
 
         public a(c cVar, a2 a2Var, String str, String str2, String str3, String str4, int i) {
-            this.f56685a = str;
-            this.f56686b = str2;
+            this.f56686a = str;
+            this.f56687b = str2;
         }
 
         @Override // d.b.h0.r.w.b.a
         public String a() {
-            return this.f56685a;
+            return this.f56686a;
         }
 
         @Override // d.b.h0.r.w.b.a
         public String b() {
-            return this.f56686b;
+            return this.f56687b;
         }
     }
 
@@ -43,12 +43,12 @@ public class c {
         for (int i = 0; i < list.size(); i++) {
             EmotionCenterData.BannerData bannerData = list.get(i);
             if (bannerData != null) {
-                this.f56684a.add(new a(this, null, bannerData.url, bannerData.action, null, null, 0));
+                this.f56685a.add(new a(this, null, bannerData.url, bannerData.action, null, null, 0));
             }
         }
     }
 
     public List<d.b.h0.r.w.b.a> a() {
-        return this.f56684a;
+        return this.f56685a;
     }
 }

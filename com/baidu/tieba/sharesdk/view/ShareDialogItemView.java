@@ -22,16 +22,16 @@ public class ShareDialogItemView extends LinearLayout {
     public static final int m = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21108e;
+    public Context f21109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f21109f;
+    public ImageView f21110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f21110g;
+    public EMTextView f21111g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout.LayoutParams f21111h;
+    public LinearLayout.LayoutParams f21112h;
     public LinearLayout.LayoutParams i;
 
     public ShareDialogItemView(Context context) {
@@ -40,37 +40,37 @@ public class ShareDialogItemView extends LinearLayout {
 
     public ShareDialogItemView a() {
         setOrientation(1);
-        addView(this.f21109f, this.f21111h);
-        addView(this.f21110g, this.i);
+        addView(this.f21110f, this.f21112h);
+        addView(this.f21111g, this.i);
         return this;
     }
 
     public void b() {
         int i = j;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
-        this.f21111h = layoutParams;
+        this.f21112h = layoutParams;
         layoutParams.topMargin = k;
         layoutParams.bottomMargin = l;
         layoutParams.gravity = 1;
     }
 
     public void setItemIcon(AbsSvgType absSvgType) {
-        this.f21109f = new ImageView(this.f21108e);
+        this.f21110f = new ImageView(this.f21109e);
         setTag(Integer.valueOf(absSvgType.drawableId));
         if (absSvgType instanceof SvgPureType) {
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f21109f);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f21110f);
         }
-        this.f21109f.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f21109f.setImageDrawable(absSvgType.getDrawable());
+        this.f21110f.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f21110f.setImageDrawable(absSvgType.getDrawable());
         b();
     }
 
     public void setItemName(int i) {
-        EMTextView eMTextView = new EMTextView(this.f21108e);
-        this.f21110g = eMTextView;
+        EMTextView eMTextView = new EMTextView(this.f21109e);
+        this.f21111g = eMTextView;
         eMTextView.setTextSize(0, m);
-        this.f21110g.setText(i);
-        SkinManager.setViewTextColor(this.f21110g, R.color.CAM_X0107);
+        this.f21111g.setText(i);
+        SkinManager.setViewTextColor(this.f21111g, R.color.CAM_X0107);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         this.i = layoutParams;
         layoutParams.gravity = 1;
@@ -82,35 +82,35 @@ public class ShareDialogItemView extends LinearLayout {
 
     public ShareDialogItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21108e = context;
+        this.f21109e = context;
     }
 
     public void setItemIcon(int i, int i2) {
-        this.f21109f = new ImageView(this.f21108e);
+        this.f21110f = new ImageView(this.f21109e);
         setTag(Integer.valueOf(i));
-        this.f21109f.setScaleType(ImageView.ScaleType.FIT_XY);
-        TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f21109f);
-        this.f21109f.setImageDrawable(WebPManager.getPureDrawable(i, i2, null));
+        this.f21110f.setScaleType(ImageView.ScaleType.FIT_XY);
+        TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f21110f);
+        this.f21110f.setImageDrawable(WebPManager.getPureDrawable(i, i2, null));
         b();
     }
 
     public void setItemIcon(int i, int i2, int i3) {
-        this.f21109f = new ImageView(this.f21108e);
+        this.f21110f = new ImageView(this.f21109e);
         setTag(Integer.valueOf(i3));
-        this.f21109f.setScaleType(ImageView.ScaleType.FIT_XY);
-        TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f21109f);
-        this.f21109f.setImageDrawable(WebPManager.getPureDrawable(i, i2, null));
+        this.f21110f.setScaleType(ImageView.ScaleType.FIT_XY);
+        TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f21110f);
+        this.f21110f.setImageDrawable(WebPManager.getPureDrawable(i, i2, null));
         b();
     }
 
     public void setItemIcon(AbsSvgType absSvgType, int i) {
-        this.f21109f = new ImageView(this.f21108e);
+        this.f21110f = new ImageView(this.f21109e);
         setTag(Integer.valueOf(i));
         if (absSvgType instanceof SvgPureType) {
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f21109f);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f21110f);
         }
-        this.f21109f.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f21109f.setImageDrawable(absSvgType.getDrawable());
+        this.f21110f.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f21110f.setImageDrawable(absSvgType.getDrawable());
         b();
     }
 }

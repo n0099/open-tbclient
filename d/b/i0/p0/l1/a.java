@@ -30,28 +30,28 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsCommonTabFragment f57776a;
+    public FrsCommonTabFragment f57777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f57777b;
+    public BdTypeRecyclerView f57778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f57778c;
+    public k f57779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f57779d;
+    public k f57780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h0 f57780e;
+    public h0 f57781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j0 f57781f;
+    public j0 f57782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j0 f57782g;
+    public j0 f57783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f57783h;
+    public f f57784h;
     public s i;
     public d.b.i0.p0.n1.d.c k;
     public l l;
@@ -59,12 +59,12 @@ public class a {
     public g n;
     public boolean o;
     public List<d.b.b.j.e.a> j = new LinkedList();
-    public CustomMessageListener p = new C1393a(2003008);
+    public CustomMessageListener p = new C1394a(2003008);
 
     /* renamed from: d.b.i0.p0.l1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1393a extends CustomMessageListener {
-        public C1393a(int i) {
+    public class C1394a extends CustomMessageListener {
+        public C1394a(int i) {
             super(i);
         }
 
@@ -78,7 +78,7 @@ public class a {
                     if (next instanceof y) {
                         y yVar = (y) next;
                         if ("FrsHottopicDelegateAdapter".equals(yVar.from()) && a.this.j != null) {
-                            yVar.i(a.this.f57776a.getPageContext(), a.this.f57776a.getUniqueId());
+                            yVar.i(a.this.f57777a.getPageContext(), a.this.f57777a.getUniqueId());
                             if (a.this.o) {
                                 yVar.setFrom("c13010");
                             }
@@ -92,39 +92,39 @@ public class a {
 
     public a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView, FrsViewData frsViewData, boolean z) {
         d(frsCommonTabFragment, bdTypeRecyclerView, frsViewData, z);
-        this.f57777b = bdTypeRecyclerView;
+        this.f57778b = bdTypeRecyclerView;
     }
 
     public void d(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView, FrsViewData frsViewData, boolean z) {
-        this.f57776a = frsCommonTabFragment;
+        this.f57777a = frsCommonTabFragment;
         this.p.setPriority(1);
         this.p.setSelfListener(true);
-        this.f57776a.registerListener(this.p);
-        this.f57778c = new k(frsCommonTabFragment.getPageContext(), a2.H2, this.f57776a.getUniqueId());
-        this.f57779d = new k(frsCommonTabFragment.getPageContext(), a2.d3, this.f57776a.getUniqueId());
-        this.f57780e = new h0(frsCommonTabFragment.getPageContext(), a2.j3, this.f57776a.getUniqueId());
-        this.f57781f = new j0(frsCommonTabFragment.getPageContext(), a2.e3, this.f57776a.getUniqueId());
-        boolean z2 = this.f57776a.q;
-        this.f57782g = new j0(frsCommonTabFragment.getPageContext(), a2.n3, this.f57776a.getUniqueId());
-        boolean z3 = this.f57776a.q;
-        this.f57783h = new f(frsCommonTabFragment.getPageContext(), a2.x3, this.f57776a.getUniqueId());
-        this.i = new s(frsCommonTabFragment.getPageContext(), t.f58578f);
+        this.f57777a.registerListener(this.p);
+        this.f57779c = new k(frsCommonTabFragment.getPageContext(), a2.H2, this.f57777a.getUniqueId());
+        this.f57780d = new k(frsCommonTabFragment.getPageContext(), a2.d3, this.f57777a.getUniqueId());
+        this.f57781e = new h0(frsCommonTabFragment.getPageContext(), a2.j3, this.f57777a.getUniqueId());
+        this.f57782f = new j0(frsCommonTabFragment.getPageContext(), a2.e3, this.f57777a.getUniqueId());
+        boolean z2 = this.f57777a.q;
+        this.f57783g = new j0(frsCommonTabFragment.getPageContext(), a2.n3, this.f57777a.getUniqueId());
+        boolean z3 = this.f57777a.q;
+        this.f57784h = new f(frsCommonTabFragment.getPageContext(), a2.x3, this.f57777a.getUniqueId());
+        this.i = new s(frsCommonTabFragment.getPageContext(), t.f58579f);
         d.b.i0.p0.n1.d.a aVar = new d.b.i0.p0.n1.d.a(frsCommonTabFragment.getPageContext(), a2.W2, frsCommonTabFragment.getUniqueId());
-        this.k = new d.b.i0.p0.n1.d.c(frsCommonTabFragment.getPageContext(), a2.l3, this.f57776a.getUniqueId());
-        this.l = new l(frsCommonTabFragment.getPageContext(), a2.k3, this.f57776a.getUniqueId());
-        this.m = new k0(frsCommonTabFragment.getPageContext(), a2.m3, this.f57776a.getUniqueId());
+        this.k = new d.b.i0.p0.n1.d.c(frsCommonTabFragment.getPageContext(), a2.l3, this.f57777a.getUniqueId());
+        this.l = new l(frsCommonTabFragment.getPageContext(), a2.k3, this.f57777a.getUniqueId());
+        this.m = new k0(frsCommonTabFragment.getPageContext(), a2.m3, this.f57777a.getUniqueId());
         if (!z) {
-            g gVar = new g(frsCommonTabFragment.getPageContext(), a2.Y2, this.f57776a.getUniqueId());
+            g gVar = new g(frsCommonTabFragment.getPageContext(), a2.Y2, this.f57777a.getUniqueId());
             this.n = gVar;
-            gVar.l0(this.f57777b);
+            gVar.l0(this.f57778b);
         }
         e();
-        this.j.add(this.f57778c);
-        this.j.add(this.f57779d);
-        this.j.add(this.f57780e);
-        this.j.add(this.f57781f);
-        this.j.add(this.f57782g);
-        this.j.add(this.f57783h);
+        this.j.add(this.f57779c);
+        this.j.add(this.f57780d);
+        this.j.add(this.f57781e);
+        this.j.add(this.f57782f);
+        this.j.add(this.f57783g);
+        this.j.add(this.f57784h);
         this.j.add(this.i);
         this.j.add(aVar);
         this.j.add(this.k);
@@ -133,35 +133,35 @@ public class a {
         this.j.add(this.n);
         if (frsCommonTabFragment.k == 89) {
             this.o = true;
-            this.f57778c.setFrom("c13010");
-            this.f57779d.setFrom("c13010");
-            this.f57780e.setFrom("c13010");
-            this.f57781f.setFrom("c13010");
-            this.f57782g.setFrom("c13010");
+            this.f57779c.setFrom("c13010");
+            this.f57780d.setFrom("c13010");
+            this.f57781e.setFrom("c13010");
+            this.f57782f.setFrom("c13010");
+            this.f57783g.setFrom("c13010");
             i("page_frs_dynamic");
         }
-        this.f57778c.p(frsCommonTabFragment.k);
-        this.f57779d.p(frsCommonTabFragment.k);
-        this.f57780e.p(frsCommonTabFragment.k);
-        this.f57781f.p(frsCommonTabFragment.k);
-        this.f57782g.p(frsCommonTabFragment.k);
-        this.f57783h.p(frsCommonTabFragment.k);
+        this.f57779c.p(frsCommonTabFragment.k);
+        this.f57780d.p(frsCommonTabFragment.k);
+        this.f57781e.p(frsCommonTabFragment.k);
+        this.f57782f.p(frsCommonTabFragment.k);
+        this.f57783g.p(frsCommonTabFragment.k);
+        this.f57784h.p(frsCommonTabFragment.k);
         this.k.p(frsCommonTabFragment.k);
         this.l.p(frsCommonTabFragment.k);
         this.m.p(frsCommonTabFragment.k);
-        this.f57778c.M0(frsCommonTabFragment.l);
-        this.f57779d.M0(frsCommonTabFragment.l);
+        this.f57779c.M0(frsCommonTabFragment.l);
+        this.f57780d.M0(frsCommonTabFragment.l);
         boolean z4 = frsCommonTabFragment.l == 16;
-        this.f57778c.O0(z4);
-        this.f57781f.P0(z4);
-        this.f57783h.A0(z4);
-        this.f57780e.G0(z4);
+        this.f57779c.O0(z4);
+        this.f57782f.P0(z4);
+        this.f57784h.A0(z4);
+        this.f57781e.G0(z4);
         this.l.J0(z4);
         this.m.N0(z4);
         AbsDelegateAdapterList absDelegateAdapterList = new AbsDelegateAdapterList();
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2003022, absDelegateAdapterList);
         CustomMessage customMessage = new CustomMessage(2003022);
-        customMessage.setTag(this.f57776a.getUniqueId());
+        customMessage.setTag(this.f57777a.getUniqueId());
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         if (!absDelegateAdapterList.isEmpty()) {
@@ -169,7 +169,7 @@ public class a {
             while (it.hasNext()) {
                 d.b.b.j.e.a<?, ?> next = it.next();
                 if (next instanceof d.b.i0.p0.k) {
-                    ((d.b.i0.p0.k) next).i(this.f57776a.getPageContext(), this.f57776a.getUniqueId());
+                    ((d.b.i0.p0.k) next).i(this.f57777a.getPageContext(), this.f57777a.getUniqueId());
                 }
             }
             ArrayList arrayList = new ArrayList();
@@ -188,24 +188,24 @@ public class a {
     }
 
     public final void e() {
-        d.b.b.j.e.a<?, ?> i = d.b.i0.r2.s.o().i(this.f57776a, AdvertAppInfo.h4);
-        d.b.b.j.e.a<?, ?> i2 = d.b.i0.r2.s.o().i(this.f57776a, AdvertAppInfo.k4);
-        d.b.b.j.e.a<?, ?> i3 = d.b.i0.r2.s.o().i(this.f57776a, AdvertAppInfo.o4);
-        d.b.b.j.e.a<?, ?> i4 = d.b.i0.r2.s.o().i(this.f57776a, AdvertAppInfo.p4);
-        d.b.b.j.e.a<?, ?> i5 = d.b.i0.r2.s.o().i(this.f57776a, AdvertAppInfo.q4);
+        d.b.b.j.e.a<?, ?> i = d.b.i0.r2.s.o().i(this.f57777a, AdvertAppInfo.h4);
+        d.b.b.j.e.a<?, ?> i2 = d.b.i0.r2.s.o().i(this.f57777a, AdvertAppInfo.k4);
+        d.b.b.j.e.a<?, ?> i3 = d.b.i0.r2.s.o().i(this.f57777a, AdvertAppInfo.o4);
+        d.b.b.j.e.a<?, ?> i4 = d.b.i0.r2.s.o().i(this.f57777a, AdvertAppInfo.p4);
+        d.b.b.j.e.a<?, ?> i5 = d.b.i0.r2.s.o().i(this.f57777a, AdvertAppInfo.q4);
         this.j.add(i);
         this.j.add(i2);
         this.j.add(i3);
         this.j.add(i4);
         this.j.add(i5);
-        d.b.b.j.e.a<?, ?> b2 = d.b.i0.q0.b.d().b(this.f57776a.getBaseFragmentActivity(), AdvertAppInfo.n4);
-        d.b.b.j.e.a<?, ?> b3 = d.b.i0.q0.b.d().b(this.f57776a.getBaseFragmentActivity(), AdvertAppInfo.m4);
+        d.b.b.j.e.a<?, ?> b2 = d.b.i0.q0.b.d().b(this.f57777a.getBaseFragmentActivity(), AdvertAppInfo.n4);
+        d.b.b.j.e.a<?, ?> b3 = d.b.i0.q0.b.d().b(this.f57777a.getBaseFragmentActivity(), AdvertAppInfo.m4);
         this.j.add(b2);
         this.j.add(b3);
     }
 
     public void f() {
-        this.f57777b.getAdapter().notifyDataSetChanged();
+        this.f57778b.getAdapter().notifyDataSetChanged();
     }
 
     public void g() {
@@ -256,39 +256,39 @@ public class a {
 
     public void j(ArrayList<n> arrayList) {
         l();
-        this.f57777b.setData(h(arrayList));
+        this.f57778b.setData(h(arrayList));
     }
 
     public void k(boolean z) {
-        k kVar = this.f57778c;
+        k kVar = this.f57779c;
         if (kVar != null) {
             kVar.N0(z);
         }
-        k kVar2 = this.f57779d;
+        k kVar2 = this.f57780d;
         if (kVar2 != null) {
             kVar2.N0(z);
         }
-        j0 j0Var = this.f57781f;
+        j0 j0Var = this.f57782f;
         if (j0Var != null) {
             j0Var.O0(z);
         }
-        j0 j0Var2 = this.f57782g;
+        j0 j0Var2 = this.f57783g;
         if (j0Var2 != null) {
             j0Var2.O0(z);
         }
-        f fVar = this.f57783h;
+        f fVar = this.f57784h;
         if (fVar != null) {
             fVar.z0(z);
         }
     }
 
     public final void l() {
-        if (ListUtils.isEmpty(this.j) || this.f57776a == null) {
+        if (ListUtils.isEmpty(this.j) || this.f57777a == null) {
             return;
         }
         for (d.b.b.j.e.a aVar : this.j) {
             if (aVar instanceof d.b.i0.p0.k) {
-                ((d.b.i0.p0.k) aVar).r0(this.f57776a.getTbPageTag());
+                ((d.b.i0.p0.k) aVar).r0(this.f57777a.getTbPageTag());
             }
         }
     }
@@ -306,23 +306,23 @@ public class a {
     }
 
     public final void n() {
-        if (this.f57776a == null || ListUtils.isEmpty(this.j)) {
+        if (this.f57777a == null || ListUtils.isEmpty(this.j)) {
             return;
         }
         for (d.b.b.j.e.a aVar : this.j) {
             if (aVar instanceof d.b.i0.p0.j2.d) {
                 d.b.i0.p0.j2.d dVar = (d.b.i0.p0.j2.d) aVar;
                 if (dVar.b() != null) {
-                    dVar.b().f57699a = this.f57776a.o;
-                    dVar.b().f57701c = this.f57776a.i;
-                    dVar.b().f57702d = this.f57776a.k;
+                    dVar.b().f57700a = this.f57777a.o;
+                    dVar.b().f57702c = this.f57777a.i;
+                    dVar.b().f57703d = this.f57777a.k;
                     d.b.i0.p0.j2.b b2 = dVar.b();
-                    FrsCommonTabFragment frsCommonTabFragment = this.f57776a;
-                    b2.f57705g = frsCommonTabFragment.l;
+                    FrsCommonTabFragment frsCommonTabFragment = this.f57777a;
+                    b2.f57706g = frsCommonTabFragment.l;
                     if (frsCommonTabFragment.k == 502) {
-                        dVar.b().f57704f = 10;
+                        dVar.b().f57705f = 10;
                     } else if (frsCommonTabFragment.n == 1) {
-                        dVar.b().f57704f = 12;
+                        dVar.b().f57705f = 12;
                     }
                 }
             }

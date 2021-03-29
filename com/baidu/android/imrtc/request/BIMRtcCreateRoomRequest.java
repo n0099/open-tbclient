@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     public static final String TAG = "BIMRtcCreateRoomRequest";
     public static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -70,52 +70,44 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public byte[] getRequestParameter() {
-        long appId;
-        String cuid;
-        long j;
-        long uk;
-        String str;
-        long currentTimeMillis;
-        JSONObject jSONObject;
-        StringBuilder sb;
-        String str2 = TAG;
+        String str = TAG;
         try {
-            appId = RtcUtility.getAppId(this.mContext);
-            cuid = RtcUtility.getCuid(this.mContext);
-            j = RtcConstants.RTC_VERSION;
-            uk = Utility.getUK(this.mContext);
-            str = "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
-            currentTimeMillis = System.currentTimeMillis();
-            jSONObject = new JSONObject();
+            long appId = RtcUtility.getAppId(this.mContext);
+            String cuid = RtcUtility.getCuid(this.mContext);
+            long j = RtcConstants.RTC_VERSION;
+            long uk = Utility.getUK(this.mContext);
+            String str2 = "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
+            long currentTimeMillis = System.currentTimeMillis();
+            JSONObject jSONObject = new JSONObject();
             jSONObject.put("appid", appId);
-            sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.append("");
-        } catch (Exception e2) {
-            e = e2;
-        }
-        try {
-            sb.append(Utility.getBuid(this.mContext));
-            jSONObject.put("shoubai_uk", IMJni.transBDUID(sb.toString()));
-            jSONObject.put("uk", uk);
-            jSONObject.put("rtc_device_id", cuid);
-            jSONObject.put("sdk_version", str);
-            jSONObject.put("signal_sdk_version", j);
-            jSONObject.put("unique_key", "" + currentTimeMillis);
-            jSONObject.put("source", this.mSource);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
-            jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("RtcGetTokenRequest msg :");
-            sb2.append(jSONObject.toString());
-            String sb3 = sb2.toString();
-            str2 = TAG;
-            LogUtils.d(str2, sb3);
-            return jSONObject.toString().getBytes();
+            try {
+                sb.append(Utility.getBuid(this.mContext));
+                jSONObject.put("shoubai_uk", IMJni.transBDUID(sb.toString()));
+                jSONObject.put("uk", uk);
+                jSONObject.put("rtc_device_id", cuid);
+                jSONObject.put("sdk_version", str2);
+                jSONObject.put("signal_sdk_version", j);
+                jSONObject.put("unique_key", "" + currentTimeMillis);
+                jSONObject.put("source", this.mSource);
+                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
+                jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("RtcGetTokenRequest msg :");
+                sb2.append(jSONObject.toString());
+                String sb3 = sb2.toString();
+                str = TAG;
+                LogUtils.d(str, sb3);
+                return jSONObject.toString().getBytes();
+            } catch (Exception e2) {
+                e = e2;
+                str = TAG;
+                LogUtils.e(str, "RtcGetTokenRequest exception :", e);
+                return new byte[0];
+            }
         } catch (Exception e3) {
             e = e3;
-            str2 = TAG;
-            LogUtils.e(str2, "RtcGetTokenRequest exception :", e);
-            return new byte[0];
         }
     }
 

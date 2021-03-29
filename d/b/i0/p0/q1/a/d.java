@@ -29,10 +29,10 @@ public class d extends d.b.b.j.e.a<d.b.i0.p0.q1.c.b, ForumRuleDetailSelfVH> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.q1.c.b f58346e;
+        public final /* synthetic */ d.b.i0.p0.q1.c.b f58347e;
 
         public a(d.b.i0.p0.q1.c.b bVar) {
-            this.f58346e = bVar;
+            this.f58347e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -40,7 +40,7 @@ public class d extends d.b.b.j.e.a<d.b.i0.p0.q1.c.b, ForumRuleDetailSelfVH> {
             if (d.this.o) {
                 d.this.p0();
             } else {
-                d.this.q0(this.f58346e);
+                d.this.q0(this.f58347e);
             }
         }
     }
@@ -61,19 +61,19 @@ public class d extends d.b.b.j.e.a<d.b.i0.p0.q1.c.b, ForumRuleDetailSelfVH> {
 
     public final void l0(ForumRuleDetailSelfVH forumRuleDetailSelfVH, d.b.i0.p0.q1.c.b bVar) {
         if (bVar.f() != null) {
-            forumRuleDetailSelfVH.f16280b.setDefaultResource(R.drawable.img_default_100);
-            forumRuleDetailSelfVH.f16280b.W(bVar.f().portrait, 12, false);
-            forumRuleDetailSelfVH.f16281c.setText(bVar.f().name_show);
+            forumRuleDetailSelfVH.f16281b.setDefaultResource(R.drawable.img_default_100);
+            forumRuleDetailSelfVH.f16281b.W(bVar.f().portrait, 12, false);
+            forumRuleDetailSelfVH.f16282c.setText(bVar.f().name_show);
             forumRuleDetailSelfVH.c(bVar.f().user_level.intValue());
-            forumRuleDetailSelfVH.f16283e.setVisibility(0);
+            forumRuleDetailSelfVH.f16284e.setVisibility(0);
         }
-        forumRuleDetailSelfVH.f16282d.setText(R.string.bawu_member_bazhu_tip);
-        forumRuleDetailSelfVH.f16282d.setVisibility(0);
+        forumRuleDetailSelfVH.f16283d.setText(R.string.bawu_member_bazhu_tip);
+        forumRuleDetailSelfVH.f16283d.setVisibility(0);
         forumRuleDetailSelfVH.h("manager");
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.n)) {
             forumRuleDetailSelfVH.g(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailSelfVH.f16285g.setText(bVar.n());
+            forumRuleDetailSelfVH.f16286g.setText(bVar.n());
         }
         m0(forumRuleDetailSelfVH, bVar);
         forumRuleDetailSelfVH.d(bVar.l());
@@ -81,21 +81,21 @@ public class d extends d.b.b.j.e.a<d.b.i0.p0.q1.c.b, ForumRuleDetailSelfVH> {
 
     public final void m0(ForumRuleDetailSelfVH forumRuleDetailSelfVH, d.b.i0.p0.q1.c.b bVar) {
         if (bVar.k()) {
-            forumRuleDetailSelfVH.f16286h.setOnClickListener(new a(bVar));
+            forumRuleDetailSelfVH.f16287h.setOnClickListener(new a(bVar));
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.n)) {
-                forumRuleDetailSelfVH.f16286h.setVisibility(8);
+                forumRuleDetailSelfVH.f16287h.setVisibility(8);
             } else if (!StringUtils.isNull(bVar.n()) && bVar.e() == 0) {
                 long a2 = d.b.i0.p0.q1.e.a.a(bVar.n());
                 int b2 = d.b.i0.p0.q1.e.a.b(Long.valueOf(StringUtils.isNull(bVar.g()) ? "0" : bVar.g()).longValue() - a2);
                 if (b2 < 0) {
                     b2 = d.b.i0.p0.q1.e.a.b((System.currentTimeMillis() / 1000) - a2);
                 }
-                forumRuleDetailSelfVH.f16286h.setVisibility(0);
+                forumRuleDetailSelfVH.f16287h.setVisibility(0);
                 if (b2 >= 7) {
                     this.o = false;
                     return;
                 }
-                forumRuleDetailSelfVH.f16286h.setUseDisableState(true);
+                forumRuleDetailSelfVH.f16287h.setUseDisableState(true);
                 this.o = true;
                 this.p = 7 - b2;
             } else {

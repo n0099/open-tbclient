@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements b {
     @Override // com.baidu.android.pushservice.f.b
     public int a() {

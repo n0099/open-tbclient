@@ -14,7 +14,7 @@ import java.util.List;
 public class NotificationService extends IntentService {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f37380a;
+    public Object f37381a;
 
     public NotificationService() {
         super("NotificationService");
@@ -50,11 +50,11 @@ public class NotificationService extends IntentService {
             d.a(this, intent, "reflectReceiver startservice", 2003);
             intent.setClassName(getPackageName(), a2);
             com.meizu.cloud.pushsdk.base.a.d a3 = com.meizu.cloud.pushsdk.base.a.a.a(a2).a((Class<?>[]) null).a(null);
-            if (!a3.f37634a || a3.f37635b == 0) {
+            if (!a3.f37635a || a3.f37636b == 0) {
                 return;
             }
-            d.j.a.a.a.d("NotificationService", "Reflect MzPushReceiver " + a3.f37634a);
-            com.meizu.cloud.pushsdk.base.a.a.a(a3.f37635b).a("onReceive", Context.class, Intent.class).a(a3.f37635b, getApplicationContext(), intent);
+            d.j.a.a.a.d("NotificationService", "Reflect MzPushReceiver " + a3.f37635a);
+            com.meizu.cloud.pushsdk.base.a.a.a(a3.f37636b).a("onReceive", Context.class, Intent.class).a(a3.f37636b, getApplicationContext(), intent);
         } catch (Exception e2) {
             d.j.a.a.a.d("NotificationService", "reflect e: " + e2);
             d.a(this, intent, e2.getMessage(), 2004);
@@ -64,7 +64,7 @@ public class NotificationService extends IntentService {
     @Override // android.app.IntentService, android.app.Service
     public void onDestroy() {
         d.j.a.a.a.d("NotificationService", "NotificationService destroy");
-        this.f37380a = null;
+        this.f37381a = null;
         super.onDestroy();
     }
 

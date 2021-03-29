@@ -51,16 +51,16 @@ import tbclient.ForumRuleStatus;
 public class FrsTopView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsFoldingView f16656e;
+    public FrsFoldingView f16657e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f16657f;
+    public g f16658f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16658g;
+    public boolean f16659g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ForumData f16659h;
+    public ForumData f16660h;
     public UserData i;
     public String j;
     public String k;
@@ -82,15 +82,15 @@ public class FrsTopView extends LinearLayout {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f16661e;
+            public final /* synthetic */ String f16662e;
 
             public a(b bVar, String str) {
-                this.f16661e = str;
+                this.f16662e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetWork netWork = new NetWork(this.f16661e);
+                NetWork netWork = new NetWork(this.f16662e);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                 netWork.getNetData();
@@ -191,16 +191,16 @@ public class FrsTopView extends LinearLayout {
         if (iVar == null) {
             return;
         }
-        if (this.f16657f == null) {
+        if (this.f16658f == null) {
             g gVar = new g(getContext());
-            this.f16657f = gVar;
+            this.f16658f = gVar;
             addView(gVar.e());
         }
-        this.f16657f.d(this.f16659h, iVar);
-        if (this.f16658g) {
+        this.f16658f.d(this.f16660h, iVar);
+        if (this.f16659g) {
             return;
         }
-        this.f16658g = true;
+        this.f16659g = true;
         StatisticItem statisticItem = new StatisticItem("common_exp");
         statisticItem.param("page_type", "a006");
         statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
@@ -215,11 +215,11 @@ public class FrsTopView extends LinearLayout {
         statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
         statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i);
         statisticItem.param("obj_id", iVar.b());
-        ForumData forumData = this.f16659h;
+        ForumData forumData = this.f16660h;
         if (forumData != null) {
             statisticItem.param("fid", forumData.getId());
-            statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.f16659h.getFirst_class());
-            statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.f16659h.getSecond_class());
+            statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.f16660h.getFirst_class());
+            statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.f16660h.getSecond_class());
         }
         if (iVar.j() == 1) {
             statisticItem.param("tid", iVar.g());
@@ -264,7 +264,7 @@ public class FrsTopView extends LinearLayout {
 
     public final void g() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_top_view_layout, (ViewGroup) this, true);
-        this.f16656e = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
+        this.f16657e = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
     }
 
     public d.b.i0.p0.j2.b getStatisticMetaData() {
@@ -285,7 +285,7 @@ public class FrsTopView extends LinearLayout {
         adapterLinearLayout.setOrientation(1);
         e eVar = new e(getContext());
         eVar.s(this.k, this.j, this.i);
-        eVar.t(this.f16659h);
+        eVar.t(this.f16660h);
         eVar.q(this.l);
         String str = this.n;
         if (str != null) {
@@ -304,7 +304,7 @@ public class FrsTopView extends LinearLayout {
         for (e eVar : this.p) {
             eVar.notifyDataSetChanged();
         }
-        FrsFoldingView frsFoldingView = this.f16656e;
+        FrsFoldingView frsFoldingView = this.f16657e;
         if (frsFoldingView != null) {
             frsFoldingView.k();
         }
@@ -338,14 +338,14 @@ public class FrsTopView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        FrsFoldingView frsFoldingView = this.f16656e;
+        FrsFoldingView frsFoldingView = this.f16657e;
         if (frsFoldingView != null) {
             frsFoldingView.setViews(this.o, this.p);
         }
     }
 
     public final void l(ForumRuleStatus forumRuleStatus) {
-        if (forumRuleStatus == null || this.i == null || this.f16659h == null) {
+        if (forumRuleStatus == null || this.i == null || this.f16660h == null) {
             return;
         }
         int i = 1;
@@ -357,9 +357,9 @@ public class FrsTopView extends LinearLayout {
             Context context = getContext();
             String str = this.k;
             String str2 = this.j;
-            ForumData forumData = this.f16659h;
+            ForumData forumData = this.f16660h;
             String image_url = forumData != null ? forumData.getImage_url() : "";
-            ForumData forumData2 = this.f16659h;
+            ForumData forumData2 = this.f16660h;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(context, str, str2, ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS, image_url, forumData2 != null ? forumData2.getUser_level() : 0, 25052)));
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(getContext(), this.k, "")));
@@ -371,7 +371,7 @@ public class FrsTopView extends LinearLayout {
             if (this.i.getIs_manager() == 2) {
                 i = 2;
             } else {
-                i = this.f16659h.isLike() == 1 ? 3 : 4;
+                i = this.f16660h.isLike() == 1 ? 3 : 4;
             }
         }
         statisticItem.param("obj_type", i);
@@ -417,7 +417,7 @@ public class FrsTopView extends LinearLayout {
     public void setForum(String str, String str2, ForumData forumData, UserData userData, String str3) {
         this.k = str;
         this.j = str2;
-        this.f16659h = forumData;
+        this.f16660h = forumData;
         this.i = userData;
     }
 
@@ -447,7 +447,7 @@ public class FrsTopView extends LinearLayout {
 
     public FrsTopView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f16658g = false;
+        this.f16659g = false;
         this.j = "";
         this.k = "";
         this.m = 0;

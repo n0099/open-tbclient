@@ -17,30 +17,30 @@ import java.util.HashMap;
 public class c implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60000a;
+    public String f60001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60001b;
+    public String f60002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f60002c;
+    public j f60003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdvertAppInfo f60003d;
+    public AdvertAppInfo f60004d;
 
     /* loaded from: classes5.dex */
     public class a implements d.b.i0.i1.o.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo.ILegoAdvert f60004a;
+        public final /* synthetic */ AdvertAppInfo.ILegoAdvert f60005a;
 
         public a(AdvertAppInfo.ILegoAdvert iLegoAdvert) {
-            this.f60004a = iLegoAdvert;
+            this.f60005a = iLegoAdvert;
         }
 
         @Override // d.b.i0.i1.o.a
         public void a(int i, HashMap<String, Object> hashMap) {
-            if (i == 0 || c.this.f60003d == null) {
+            if (i == 0 || c.this.f60004d == null) {
                 return;
             }
             String str = "image";
@@ -51,11 +51,11 @@ public class c implements i {
                 }
             }
             if (t.p(i)) {
-                d.d(c.this.f60003d, 0, str, i);
+                d.d(c.this.f60004d, 0, str, i);
             } else {
-                d.j(c.this.f60003d, 0, null, null, str);
+                d.j(c.this.f60004d, 0, null, null, str);
             }
-            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f60004a.getAdvertAppInfo()));
+            d.b.i0.i1.o.h.c.h(d.b.i0.i1.o.h.c.e(this.f60005a.getAdvertAppInfo()));
         }
 
         @Override // d.b.i0.i1.o.a
@@ -64,46 +64,46 @@ public class c implements i {
     }
 
     public c(@NonNull TbPageContext<?> tbPageContext, @NonNull AdvertAppInfo.ILegoAdvert iLegoAdvert, int i, boolean z, String str, String str2) {
-        this.f60003d = iLegoAdvert.getAdvertAppInfo();
-        this.f60000a = str;
-        this.f60001b = str2;
+        this.f60004d = iLegoAdvert.getAdvertAppInfo();
+        this.f60001a = str;
+        this.f60002b = str2;
         b bVar = new b(tbPageContext);
         bVar.setBusinessType(i);
         bVar.setFromCDN(z);
         bVar.c(iLegoAdvert);
         bVar.setAfterClickSchemeListener(new a(iLegoAdvert));
-        this.f60002c = bVar;
+        this.f60003c = bVar;
     }
 
     @Override // d.b.i0.r2.i
     public void a(DragImageView.h hVar) {
-        this.f60002c.a(hVar);
+        this.f60003c.a(hVar);
     }
 
     @Override // d.b.i0.r2.i
     public View b() {
-        return this.f60002c.b();
+        return this.f60003c.b();
     }
 
     public void d(String str) {
-        d.b.h0.u.a.l().u(this.f60003d, this.f60000a, d.b.b.e.m.b.f(this.f60001b, 0L), "PIC_PAGE", str, 1);
+        d.b.h0.u.a.l().u(this.f60004d, this.f60001a, d.b.b.e.m.b.f(this.f60002b, 0L), "PIC_PAGE", str, 1);
     }
 
     @Override // d.b.i0.r2.i
     public void onAdShow() {
-        AdvertAppInfo advertAppInfo = this.f60003d;
+        AdvertAppInfo advertAppInfo = this.f60004d;
         if (advertAppInfo.g4) {
-            d.b.i0.o.d.a.i().k(d.b.i0.o.d.a.g(this.f60003d.e4));
-            e.b().d(h.b(this.f60003d, 103, 0));
+            d.b.i0.o.d.a.i().k(d.b.i0.o.d.a.g(this.f60004d.e4));
+            e.b().d(h.b(this.f60004d, 103, 0));
             return;
         }
         d.b.i0.i1.o.h.c.g(d.b.i0.i1.o.h.c.e(advertAppInfo));
         d("show");
-        e.b().d(h.b(this.f60003d, 3, 0));
+        e.b().d(h.b(this.f60004d, 3, 0));
     }
 
     @Override // d.b.i0.r2.i
     public void onDestroy() {
-        this.f60002c.onDestroy();
+        this.f60003c.onDestroy();
     }
 }

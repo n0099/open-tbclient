@@ -13,47 +13,47 @@ import java.lang.ref.WeakReference;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f52318a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    public static final String f52319a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* renamed from: d.b.i0.c2.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1139a extends BdAsyncTask<String, Object, ForbidResultData> {
+    public static class C1140a extends BdAsyncTask<String, Object, ForbidResultData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52319a;
+        public String f52320a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52320b;
+        public String f52321b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52321c;
+        public String f52322c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f52322d;
+        public String f52323d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52323e;
+        public String f52324e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f52324f;
+        public String f52325f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f52325g;
+        public String f52326g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f52326h;
+        public String f52327h;
         public String i;
         public WeakReference<b> j;
 
-        public C1139a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-            this.f52319a = str;
-            this.f52320b = str2;
-            this.f52321c = str3;
-            this.f52322d = str4;
-            this.f52325g = str6;
-            this.f52323e = str8;
-            this.f52324f = str9;
-            this.f52326h = str7;
+        public C1140a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+            this.f52320a = str;
+            this.f52321b = str2;
+            this.f52322c = str3;
+            this.f52323d = str4;
+            this.f52326g = str6;
+            this.f52324e = str8;
+            this.f52325f = str9;
+            this.f52327h = str7;
             this.i = str5;
             this.j = new WeakReference<>(bVar);
             setPriority(3);
@@ -63,17 +63,17 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public ForbidResultData doInBackground(String... strArr) {
-            NetWork netWork = new NetWork(a.f52318a);
-            netWork.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.f52325g);
-            netWork.addPostData("un", this.f52322d);
-            netWork.addPostData("fid", this.f52319a);
-            netWork.addPostData("word", this.f52320b);
-            netWork.addPostData("z", this.f52321c);
-            netWork.addPostData("reason", this.f52326h);
+            NetWork netWork = new NetWork(a.f52319a);
+            netWork.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.f52326g);
+            netWork.addPostData("un", this.f52323d);
+            netWork.addPostData("fid", this.f52320a);
+            netWork.addPostData("word", this.f52321b);
+            netWork.addPostData("z", this.f52322c);
+            netWork.addPostData("reason", this.f52327h);
             netWork.addPostData("ntn", "banid");
             netWork.addPostData("post_id", this.i);
-            netWork.addPostData("nick_name", this.f52323e);
-            netWork.addPostData("portrait", this.f52324f);
+            netWork.addPostData("nick_name", this.f52324e);
+            netWork.addPostData("portrait", this.f52325f);
             netWork.getNetContext().getRequest().mIsNeedTbs = true;
             String postNetData = netWork.postNetData();
             if (netWork.getNetContext().getResponse().isRequestSuccess()) {
@@ -116,6 +116,6 @@ public class a {
     }
 
     public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C1139a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C1140a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 }

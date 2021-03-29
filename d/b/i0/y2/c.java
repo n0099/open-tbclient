@@ -19,25 +19,25 @@ public class c {
     public BlockPopInfoData J;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62607a;
+    public int f62608a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62609c;
+    public String f62610c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62610d;
+    public String f62611d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62611e;
+    public String f62612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62612f;
+    public String f62613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62613g;
+    public String f62614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62614h;
+    public String f62615h;
     public int i;
     public String j;
     public int k;
@@ -58,7 +58,7 @@ public class c {
     public int z;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62608b = "0";
+    public String f62609b = "0";
     public ArrayList<d> B = new ArrayList<>();
     public ArrayList<d> C = new ArrayList<>();
     public ArrayList<d> D = new ArrayList<>();
@@ -93,7 +93,7 @@ public class c {
         if (fVar == null) {
             return false;
         }
-        return !StringUtils.isNull(fVar.f62622a);
+        return !StringUtils.isNull(fVar.f62623a);
     }
 
     public void D(h hVar) {
@@ -148,14 +148,14 @@ public class c {
             return;
         }
         this.F.c(jSONObject.optJSONObject("error"));
-        this.f62607a = jSONObject.optInt("level", 7);
-        this.f62608b = jSONObject.optString("sign_new");
-        this.f62609c = jSONObject.optString("title");
-        this.f62610d = jSONObject.optString("text_pre");
-        this.f62611e = jSONObject.optString("text_color");
-        this.f62612f = jSONObject.optString("text_mid");
-        this.f62613g = jSONObject.optString("text_suf");
-        this.f62614h = jSONObject.optString("num_notice");
+        this.f62608a = jSONObject.optInt("level", 7);
+        this.f62609b = jSONObject.optString("sign_new");
+        this.f62610c = jSONObject.optString("title");
+        this.f62611d = jSONObject.optString("text_pre");
+        this.f62612e = jSONObject.optString("text_color");
+        this.f62613f = jSONObject.optString("text_mid");
+        this.f62614g = jSONObject.optString("text_suf");
+        this.f62615h = jSONObject.optString("num_notice");
         this.i = jSONObject.optInt("show_dialog");
         this.j = jSONObject.optString("sign_notice");
         this.k = jSONObject.optInt("valid", 0);
@@ -179,8 +179,8 @@ public class c {
         } else {
             this.l = false;
         }
-        this.r = this.f62607a + this.f62609c;
-        this.q = "1-" + (this.f62607a - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
+        this.r = this.f62608a + this.f62610c;
+        this.q = "1-" + (this.f62608a - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
         j.o = this.G;
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
         if (optJSONArray != null) {
@@ -194,11 +194,11 @@ public class c {
                         if (this.k == 0) {
                             if (this.l) {
                                 dVar.s(true);
-                            } else if (dVar.i() > this.f62607a) {
+                            } else if (dVar.i() > this.f62608a) {
                                 dVar.s(true);
                             }
                         }
-                        if (dVar.i() >= this.f62607a) {
+                        if (dVar.i() >= this.f62608a) {
                             this.p++;
                         } else {
                             this.n++;
@@ -206,7 +206,7 @@ public class c {
                         this.D.add(dVar);
                         this.E.put(dVar.c() + "", dVar);
                     } else {
-                        if (dVar.i() >= this.f62607a) {
+                        if (dVar.i() >= this.f62608a) {
                             this.o++;
                         } else {
                             this.m++;
@@ -308,7 +308,7 @@ public class c {
     }
 
     public final void c(d dVar) {
-        if (dVar.i() >= this.f62607a) {
+        if (dVar.i() >= this.f62608a) {
             this.o++;
             this.p--;
         } else {
@@ -320,7 +320,7 @@ public class c {
         if (dVar.h() + dVar.e() >= dVar.g()) {
             dVar.w(dVar.i() + 1);
             dVar.v(true);
-            if (dVar.i() == this.f62607a) {
+            if (dVar.i() == this.f62608a) {
                 this.o++;
                 this.m--;
             }
@@ -330,11 +330,11 @@ public class c {
     }
 
     public String d() {
-        return this.H.f62622a;
+        return this.H.f62623a;
     }
 
     public String e() {
-        return this.H.f62623b;
+        return this.H.f62624b;
     }
 
     public BlockPopInfoData f() {
@@ -362,15 +362,15 @@ public class c {
     }
 
     public int l() {
-        return this.f62607a;
+        return this.f62608a;
     }
 
     public String m() {
-        return this.f62614h;
+        return this.f62615h;
     }
 
     public boolean n() {
-        return !StringUtils.isNull(this.f62608b) && this.f62608b.equals("1");
+        return !StringUtils.isNull(this.f62609b) && this.f62609b.equals("1");
     }
 
     public int o() {
@@ -394,19 +394,19 @@ public class c {
     }
 
     public String t() {
-        return this.f62611e;
+        return this.f62612e;
     }
 
     public String u() {
-        return this.f62612f;
+        return this.f62613f;
     }
 
     public String v() {
-        return this.f62610d;
+        return this.f62611d;
     }
 
     public String w() {
-        return this.f62613g;
+        return this.f62614g;
     }
 
     public ArrayList<d> x() {
@@ -414,10 +414,10 @@ public class c {
     }
 
     public String y() {
-        return this.I.f62663a;
+        return this.I.f62664a;
     }
 
     public String z() {
-        return this.I.f62664b;
+        return this.I.f62665b;
     }
 }

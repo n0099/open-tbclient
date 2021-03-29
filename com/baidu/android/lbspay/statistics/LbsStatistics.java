@@ -1,5 +1,5 @@
 package com.baidu.android.lbspay.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LbsStatistics {
     public static String LBS_ALIPAY = "lbsAliPayRet";
     public static String LBS_API_GET_CASHIER = "lbsApiGetCashier";

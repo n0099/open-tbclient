@@ -5,26 +5,26 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f9378a;
+    public final int f9379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f9379b;
+    public final byte[] f9380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f9380c;
+    public final Map<String, String> f9381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f9381d;
+    public final boolean f9382d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f9382e;
+    public final long f9383e;
 
     public l(int i, byte[] bArr, Map<String, String> map, boolean z, long j) {
-        this.f9378a = i;
-        this.f9379b = bArr;
-        this.f9380c = map;
-        this.f9381d = z;
-        this.f9382e = j;
+        this.f9379a = i;
+        this.f9380b = bArr;
+        this.f9381c = map;
+        this.f9382d = z;
+        this.f9383e = j;
     }
 
     public l(byte[] bArr, Map<String, String> map) {

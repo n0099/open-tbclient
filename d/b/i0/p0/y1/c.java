@@ -12,8 +12,8 @@ import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 public class c extends d.b.h0.e0.b {
     public c(int i, String str) {
         d.b.h0.e0.c cVar = this.mFragement;
-        cVar.f50158e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) cVar.f50154a;
+        cVar.f50159e = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) cVar.f50155a;
         specialFrsWebFragment.x1(i);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
@@ -28,9 +28,9 @@ public class c extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public d.b.h0.e0.c createFragmentTabStructure() {
         d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-        cVar.f50154a = new SpecialFrsWebFragment();
-        cVar.f50158e = 101;
-        cVar.f50161h = d.b.h0.e0.c.j;
+        cVar.f50155a = new SpecialFrsWebFragment();
+        cVar.f50159e = 101;
+        cVar.f50162h = d.b.h0.e0.c.j;
         return cVar;
     }
 

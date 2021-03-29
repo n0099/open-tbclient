@@ -21,23 +21,23 @@ public class TabItemView extends TextView {
     public static int k = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f16611e;
+    public d f16612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16612f;
+    public int f16613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16613g;
+    public boolean f16614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16614h;
+    public int f16615h;
 
     public TabItemView(Context context, d dVar, int i2, boolean z) {
         super(context);
-        this.f16612f = i;
-        this.f16614h = 0;
-        this.f16611e = dVar;
-        this.f16613g = z;
+        this.f16613f = i;
+        this.f16615h = 0;
+        this.f16612e = dVar;
+        this.f16614g = z;
         b(context, i2);
     }
 
@@ -52,11 +52,11 @@ public class TabItemView extends TextView {
     }
 
     public void a() {
-        setState(this.f16612f);
+        setState(this.f16613f);
     }
 
     public final void b(Context context, int i2) {
-        if (this.f16613g) {
+        if (this.f16614g) {
             setPadding(0, l.g(getContext(), R.dimen.tbds20), 0, 0);
             setTextSize(0, l.g(context, R.dimen.tbds42));
         } else {
@@ -64,9 +64,9 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
-        d dVar = this.f16611e;
+        d dVar = this.f16612e;
         if (dVar != null) {
-            setText(dVar.f57734a);
+            setText(dVar.f57735a);
         }
         a();
     }
@@ -81,23 +81,23 @@ public class TabItemView extends TextView {
     }
 
     public int getState() {
-        return this.f16612f;
+        return this.f16613f;
     }
 
     public int getTabId() {
-        d dVar = this.f16611e;
+        d dVar = this.f16612e;
         if (dVar == null) {
             return -1;
         }
-        return dVar.f57735b;
+        return dVar.f57736b;
     }
 
     public String getUrl() {
-        d dVar = this.f16611e;
+        d dVar = this.f16612e;
         if (dVar == null) {
             return null;
         }
-        return dVar.f57737d;
+        return dVar.f57738d;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -113,7 +113,7 @@ public class TabItemView extends TextView {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.f16613g) {
+            if (this.f16614g) {
                 setPadding(0, l.g(getContext(), R.dimen.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -123,20 +123,20 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.f16613g = z;
+        this.f16614g = z;
     }
 
     public void setSelectItemColorResId(int i2) {
-        this.f16614h = i2;
+        this.f16615h = i2;
     }
 
     public void setState(int i2) {
         f1 f1Var;
         List<e1> list;
-        d dVar = this.f16611e;
-        if (dVar != null && (f1Var = dVar.f57736c) != null && (list = f1Var.f57495b) != null && list.size() > 0) {
+        d dVar = this.f16612e;
+        if (dVar != null && (f1Var = dVar.f57737c) != null && (list = f1Var.f57496b) != null && list.size() > 0) {
             int i3 = -l.g(getContext(), R.dimen.tbds20);
-            if (!this.f16613g) {
+            if (!this.f16614g) {
                 i3 = 0;
             }
             if (i2 == k) {
@@ -150,13 +150,13 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
         }
-        if (this.f16613g) {
+        if (this.f16614g) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
         } else {
             if (i2 != j && i2 != k) {
                 SkinManager.setViewTextColor(this, R.color.CAM_X0106, 1);
             } else {
-                int i4 = this.f16614h;
+                int i4 = this.f16615h;
                 if (i4 == 0) {
                     SkinManager.setViewTextColor(this, R.color.CAM_X0302, 1);
                 } else {
@@ -165,7 +165,7 @@ public class TabItemView extends TextView {
             }
             setGravity(17);
         }
-        this.f16612f = i2;
+        this.f16613f = i2;
         invalidate();
     }
 }

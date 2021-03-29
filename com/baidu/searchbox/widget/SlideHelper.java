@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SlideHelper {
     public static final String DEFAULT_MASK_COLOR = "#40000000";
     public static final String DEFAULT_SHADOW_DRAWABLE = "sliding_layout_shadow.9.png";

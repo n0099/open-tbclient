@@ -29,20 +29,20 @@ import d.b.h0.r.q.n1;
 import d.b.h0.r.q.o1;
 import d.b.i.q;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RecommendForumLayout extends LinearLayout implements q {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f4505e;
+    public TbPageContext<?> f4506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PullLeftRefreshLayout f4506f;
+    public PullLeftRefreshLayout f4507f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView f4507g;
+    public RecyclerView f4508g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HorizontalRecommendForumAdapter f4508h;
+    public HorizontalRecommendForumAdapter f4509h;
     public FrameLayout i;
     public TextView j;
     public View k;
@@ -66,9 +66,9 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void a(o1 o1Var) {
         this.l.setOnClickListener(this.v);
         this.k.setOnClickListener(this.v);
-        if (!TextUtils.isEmpty(o1Var.f50853h) && o1Var.i != 0) {
+        if (!TextUtils.isEmpty(o1Var.f50854h) && o1Var.i != 0) {
             this.j.setTextSize(0, l.g(getContext(), R.dimen.tbds37));
-            this.j.setText(o1Var.f50853h);
+            this.j.setText(o1Var.f50854h);
             this.u = o1Var.i;
             this.k.setVisibility(0);
             this.l.setVisibility(8);
@@ -109,7 +109,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
                     arrayList.add(new n());
                 }
             }
-            this.f4508h.d(arrayList);
+            this.f4509h.d(arrayList);
         }
         c();
     }
@@ -123,26 +123,26 @@ public class RecommendForumLayout extends LinearLayout implements q {
         this.k = findViewById(R.id.layout_into);
         this.l = (ImageView) findViewById(R.id.iv_into);
         this.m = (ImageView) findViewById(R.id.iv_into_s);
-        this.f4506f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
-        this.f4507g = (RecyclerView) findViewById(R.id.recycler_view);
-        HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f4505e, this.r);
-        this.f4508h = horizontalRecommendForumAdapter;
+        this.f4507f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+        this.f4508g = (RecyclerView) findViewById(R.id.recycler_view);
+        HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f4506e, this.r);
+        this.f4509h = horizontalRecommendForumAdapter;
         int i = this.r;
         if (i == 0) {
             horizontalRecommendForumAdapter.e(this.t);
         } else if (i == 1) {
             horizontalRecommendForumAdapter.g(this.s);
         }
-        this.f4507g.setLayoutManager(new LinearLayoutManager(this.f4505e.getPageActivity(), 0, false));
-        this.f4507g.setAdapter(this.f4508h);
-        this.f4507g.setClipChildren(false);
-        this.f4508h.notifyDataSetChanged();
-        this.j.setText(this.f4505e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
+        this.f4508g.setLayoutManager(new LinearLayoutManager(this.f4506e.getPageActivity(), 0, false));
+        this.f4508g.setAdapter(this.f4509h);
+        this.f4508g.setClipChildren(false);
+        this.f4509h.notifyDataSetChanged();
+        this.j.setText(this.f4506e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
         this.m.setClickable(false);
         RefreshView refreshView = new RefreshView(getContext());
         this.q = refreshView;
-        this.f4506f.setRefreshViewAndListener(refreshView);
-        this.f4506f.setCallback(this.w);
+        this.f4507f.setRefreshViewAndListener(refreshView);
+        this.f4507f.setCallback(this.w);
     }
 
     public void c() {
@@ -150,7 +150,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         this.q.d();
-        this.f4508h.notifyDataSetChanged();
+        this.f4509h.notifyDataSetChanged();
     }
 
     @Override // d.b.i.q
@@ -179,19 +179,19 @@ public class RecommendForumLayout extends LinearLayout implements q {
     }
 
     public void setOnItemCoverListener(f<n1> fVar) {
-        this.f4508h.f(fVar);
+        this.f4509h.f(fVar);
     }
 
     public void setOnRullOkCallbackr(PullLeftRefreshLayout.f fVar) {
         this.w = fVar;
-        this.f4506f.setCallback(fVar);
+        this.f4507f.setCallback(fVar);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
     }
 
     public void setShowMore(boolean z) {
-        PullLeftRefreshLayout pullLeftRefreshLayout = this.f4506f;
+        PullLeftRefreshLayout pullLeftRefreshLayout = this.f4507f;
         if (pullLeftRefreshLayout != null) {
             pullLeftRefreshLayout.setEnablePull(z);
         }
@@ -215,7 +215,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         this.o = true;
         this.p = true;
         this.r = 0;
-        this.f4505e = tbPageContext;
+        this.f4506e = tbPageContext;
         b();
     }
 }

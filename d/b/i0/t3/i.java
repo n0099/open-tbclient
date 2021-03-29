@@ -13,20 +13,20 @@ import com.baidu.tieba.R;
 public class i implements View.OnTouchListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Spannable f61189e;
+    public final Spannable f61190e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.h0.b1.m.f f61190f = null;
+    public d.b.h0.b1.m.f f61191f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61191g = 0;
+    public int f61192g = 0;
 
     public i(Spannable spannable) {
-        this.f61189e = spannable;
+        this.f61190e = spannable;
     }
 
     public void a(int i) {
-        this.f61191g = i;
+        this.f61192g = i;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -35,10 +35,10 @@ public class i implements View.OnTouchListener {
         int action = motionEvent.getAction();
         if (view instanceof TextView) {
             TextView textView = (TextView) view;
-            if (action == 3 && (fVar = this.f61190f) != null) {
+            if (action == 3 && (fVar = this.f61191f) != null) {
                 fVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 view.invalidate();
-                this.f61190f = null;
+                this.f61191f = null;
                 return false;
             }
             if (action == 1 || action == 0) {
@@ -49,7 +49,7 @@ public class i implements View.OnTouchListener {
                     return false;
                 }
                 int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                Spannable spannable = this.f61189e;
+                Spannable spannable = this.f61190e;
                 if (spannable == null) {
                     return false;
                 }
@@ -61,9 +61,9 @@ public class i implements View.OnTouchListener {
                         view.invalidate();
                     } else {
                         d.b.h0.b1.m.f fVar2 = fVarArr[0];
-                        this.f61190f = fVar2;
+                        this.f61191f = fVar2;
                         if (fVar2.e()) {
-                            int i = this.f61191g;
+                            int i = this.f61192g;
                             if (i != 0) {
                                 fVarArr[0].g(SkinManager.getColor(i));
                             } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
@@ -72,18 +72,18 @@ public class i implements View.OnTouchListener {
                                 fVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
                             }
                         }
-                        Spannable spannable2 = this.f61189e;
-                        Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f61189e.getSpanEnd(fVarArr[0]));
+                        Spannable spannable2 = this.f61190e;
+                        Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f61190e.getSpanEnd(fVarArr[0]));
                         view.invalidate();
                     }
                     return true;
                 }
-                d.b.h0.b1.m.f fVar3 = this.f61190f;
+                d.b.h0.b1.m.f fVar3 = this.f61191f;
                 if (fVar3 != null) {
                     fVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
                 }
-                Selection.removeSelection(this.f61189e);
+                Selection.removeSelection(this.f61190e);
             }
             return false;
         }

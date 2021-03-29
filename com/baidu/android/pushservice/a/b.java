@@ -10,23 +10,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f2680b;
+    public static volatile b f2681b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f2682c;
+    public Context f2683c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<e> f2681a = new ArrayList<>();
+    public ArrayList<e> f2682a = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, f> f2683d = new HashMap<>();
+    public HashMap<String, f> f2684d = new HashMap<>();
 
     public b(Context context) {
-        this.f2682c = context.getApplicationContext();
+        this.f2683c = context.getApplicationContext();
         String d2 = com.baidu.android.pushservice.c.c.d(context);
         if (TextUtils.isEmpty(d2)) {
             return;
@@ -34,20 +34,20 @@ public final class b {
         try {
             ArrayList<e> c2 = c(m.b(d2));
             if (c2 != null) {
-                this.f2681a.addAll(c2);
+                this.f2682a.addAll(c2);
             }
         } catch (Throwable th) {
-            new b.c(this.f2682c).a(Log.getStackTraceString(th)).a();
+            new b.c(this.f2683c).a(Log.getStackTraceString(th)).a();
         }
     }
 
     public static synchronized b a(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (f2680b == null) {
-                f2680b = new b(context);
+            if (f2681b == null) {
+                f2681b = new b(context);
             }
-            bVar = f2680b;
+            bVar = f2681b;
         }
         return bVar;
     }
@@ -66,13 +66,13 @@ public final class b {
                     try {
                         e eVar = list.get(i);
                         if (eVar != null) {
-                            stringBuffer.append(eVar.f2678b);
+                            stringBuffer.append(eVar.f2679b);
                             stringBuffer.append(",");
-                            stringBuffer.append(eVar.f2677a);
+                            stringBuffer.append(eVar.f2678a);
                             stringBuffer.append(",");
-                            stringBuffer.append(eVar.f2689d);
+                            stringBuffer.append(eVar.f2690d);
                             stringBuffer.append(",");
-                            stringBuffer.append(eVar.f2679c);
+                            stringBuffer.append(eVar.f2680c);
                             if (i != list.size() - 1) {
                                 stringBuffer.append(";");
                             }
@@ -80,7 +80,7 @@ public final class b {
                     } catch (Exception e2) {
                         e = e2;
                         stringBuffer2 = stringBuffer;
-                        new b.c(this.f2682c).a(Log.getStackTraceString(e)).a();
+                        new b.c(this.f2683c).a(Log.getStackTraceString(e)).a();
                         stringBuffer = stringBuffer2;
                         if (stringBuffer != null) {
                         }
@@ -98,13 +98,13 @@ public final class b {
     }
 
     public e a(String str) {
-        if (this.f2681a == null || TextUtils.isEmpty(str)) {
+        if (this.f2682a == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        Iterator<e> it = this.f2681a.iterator();
+        Iterator<e> it = this.f2682a.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (str.equals(next.f2678b)) {
+            if (str.equals(next.f2679b)) {
                 return next;
             }
         }
@@ -112,10 +112,10 @@ public final class b {
     }
 
     public String a(e eVar, boolean z) {
-        return a(eVar, z, this.f2681a);
+        return a(eVar, z, this.f2682a);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:7:0x000c A[Catch: all -> 0x0045, TryCatch #0 {, blocks: (B:4:0x0002, B:5:0x0006, B:7:0x000c, B:9:0x001c, B:11:0x0026, B:13:0x002b, B:17:0x0033, B:18:0x0036), top: B:26:0x0002 }] */
+    /* JADX WARN: Removed duplicated region for block: B:7:0x000c A[Catch: all -> 0x0045, TryCatch #0 {, blocks: (B:4:0x0002, B:5:0x0006, B:7:0x000c, B:9:0x001c, B:11:0x0026, B:13:0x002b, B:17:0x0033, B:18:0x0036), top: B:24:0x0002 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -125,7 +125,7 @@ public final class b {
         Iterator<e> it = arrayList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next.f2678b.equals(eVar.f2678b) || next.f2677a.equals(eVar.f2677a)) {
+            if (next.f2679b.equals(eVar.f2679b) || next.f2678a.equals(eVar.f2678a)) {
                 arrayList.remove(next);
                 if (z) {
                     arrayList.add(eVar);
@@ -135,7 +135,7 @@ public final class b {
                     arrayList.add(eVar);
                 }
                 c2 = m.c(a(arrayList));
-                com.baidu.android.pushservice.c.c.b(this.f2682c, c2);
+                com.baidu.android.pushservice.c.c.b(this.f2683c, c2);
             }
             while (it.hasNext()) {
             }
@@ -144,12 +144,12 @@ public final class b {
             arrayList.add(eVar);
         }
         c2 = m.c(a(arrayList));
-        com.baidu.android.pushservice.c.c.b(this.f2682c, c2);
+        com.baidu.android.pushservice.c.c.b(this.f2683c, c2);
         return c2;
     }
 
     public void a(String str, f fVar) {
-        this.f2683d.put(str, fVar);
+        this.f2684d.put(str, fVar);
     }
 
     public synchronized void a(String str, String str2) {
@@ -158,43 +158,43 @@ public final class b {
         }
         ArrayList<e> c2 = c(m.b(str2));
         String str3 = "";
-        if (f2680b != null && c2 != null) {
+        if (f2681b != null && c2 != null) {
             try {
                 if (str.equals("r_v2")) {
                     ArrayList arrayList = new ArrayList();
                     Iterator<e> it = c2.iterator();
                     while (it.hasNext()) {
-                        arrayList.add(it.next().f2678b);
+                        arrayList.add(it.next().f2679b);
                     }
                     int i = 0;
-                    while (i < f2680b.f2681a.size()) {
-                        if (arrayList.contains(f2680b.f2681a.get(i).f2678b)) {
-                            f2680b.f2681a.remove(i);
+                    while (i < f2681b.f2682a.size()) {
+                        if (arrayList.contains(f2681b.f2682a.get(i).f2679b)) {
+                            f2681b.f2682a.remove(i);
                             i--;
                         }
                         i++;
                     }
-                    f2680b.f2681a.addAll(c2);
-                    str3 = a(f2680b.f2681a);
+                    f2681b.f2682a.addAll(c2);
+                    str3 = a(f2681b.f2682a);
                 }
-                com.baidu.android.pushservice.c.c.b(this.f2682c, m.c(str3));
+                com.baidu.android.pushservice.c.c.b(this.f2683c, m.c(str3));
             } catch (Exception e2) {
-                new b.c(this.f2682c).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f2683c).a(Log.getStackTraceString(e2)).a();
             }
         }
     }
 
     public e b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            Iterator<e> it = this.f2681a.iterator();
+            Iterator<e> it = this.f2682a.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (!TextUtils.isEmpty(next.f2677a) && next.f2677a.equals(str)) {
+                if (!TextUtils.isEmpty(next.f2678a) && next.f2678a.equals(str)) {
                     return next;
                 }
             }
         }
-        m.a("ClientManager*BBind* isRegisteredClientByAppid return null!", this.f2682c);
+        m.a("ClientManager*BBind* isRegisteredClientByAppid return null!", this.f2683c);
         return null;
     }
 
@@ -206,27 +206,27 @@ public final class b {
             m.a("ClientManager*BBind* clients=" + b2, context);
             arrayList = c(b2);
         }
-        if (f2680b != null && arrayList != null) {
+        if (f2681b != null && arrayList != null) {
             ArrayList arrayList2 = new ArrayList();
             Iterator<e> it = arrayList.iterator();
             while (it.hasNext()) {
-                arrayList2.add(it.next().f2678b);
+                arrayList2.add(it.next().f2679b);
             }
             int i = 0;
-            while (i < f2680b.f2681a.size()) {
-                if (arrayList2.contains(f2680b.f2681a.get(i).f2678b)) {
-                    f2680b.f2681a.remove(i);
+            while (i < f2681b.f2682a.size()) {
+                if (arrayList2.contains(f2681b.f2682a.get(i).f2679b)) {
+                    f2681b.f2682a.remove(i);
                     i--;
                 }
                 i++;
             }
-            f2680b.f2681a.addAll(arrayList);
-            m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + f2680b.f2681a.size(), context);
+            f2681b.f2682a.addAll(arrayList);
+            m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + f2681b.f2682a.size(), context);
         }
     }
 
     public boolean b(String str, String str2) {
-        return !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.f2683d.containsKey(str) && str2.equals(this.f2683d.get(str).a());
+        return !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.f2684d.containsKey(str) && str2.equals(this.f2684d.get(str).a());
     }
 
     public ArrayList<e> c(String str) {
@@ -239,26 +239,26 @@ public final class b {
                 String[] split = str2.trim().split(",");
                 if (split.length >= 3) {
                     e eVar = new e();
-                    eVar.f2678b = split[0].trim();
-                    eVar.f2677a = split[1].trim();
-                    eVar.f2689d = split[2].trim();
+                    eVar.f2679b = split[0].trim();
+                    eVar.f2678a = split[1].trim();
+                    eVar.f2690d = split[2].trim();
                     if (split.length > 3) {
-                        eVar.f2679c = Integer.parseInt(split[split.length - 1].trim());
+                        eVar.f2680c = Integer.parseInt(split[split.length - 1].trim());
                     }
                     arrayList.add(eVar);
                 }
             }
         } catch (Exception e2) {
-            new b.c(this.f2682c).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f2683c).a(Log.getStackTraceString(e2)).a();
         }
         return arrayList;
     }
 
     public String d(String str) {
-        return this.f2683d.get(str) != null ? this.f2683d.get(str).b() : "";
+        return this.f2684d.get(str) != null ? this.f2684d.get(str).b() : "";
     }
 
     public void e(String str) {
-        this.f2683d.remove(str);
+        this.f2684d.remove(str);
     }
 }

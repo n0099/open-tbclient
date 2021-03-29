@@ -106,7 +106,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public TextView mMinTimeTips;
     public d.b.i0.p3.m.j mMusicController;
     public SelectMusicModel mMusicModel;
-    public a.InterfaceC1467a mOnLocalVideoLoadedListener;
+    public a.InterfaceC1468a mOnLocalVideoLoadedListener;
     public d.b.i0.s1.g mPostMonitorManager;
     public d.b.i0.p3.m.h mPreviewController;
     public View mProgressView;
@@ -134,7 +134,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
 
         @Override // d.b.i0.p3.m.m, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.f59204e) {
+            if (this.f59205e) {
                 return;
             }
             RecordVideoActivity.this.mTabLayout.setVisibility(8);
@@ -145,10 +145,10 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public class b extends BdAsyncTask<Void, Void, d.b.i0.p3.l.i> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21841a;
+        public int f21842a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f21842b = new a(Looper.getMainLooper());
+        public Handler f21843b = new a(Looper.getMainLooper());
 
         /* loaded from: classes5.dex */
         public class a extends Handler {
@@ -160,11 +160,11 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             public void handleMessage(Message message) {
                 b bVar;
                 int i;
-                if (message.what != 1 || (i = (bVar = b.this).f21841a) < 0) {
+                if (message.what != 1 || (i = (bVar = b.this).f21842a) < 0) {
                     return;
                 }
-                bVar.f21841a = (i + 5) % 100;
-                RecordVideoActivity.this.mRoundProgressBar.b(b.this.f21841a);
+                bVar.f21842a = (i + 5) % 100;
+                RecordVideoActivity.this.mRoundProgressBar.b(b.this.f21842a);
                 b.this.d();
             }
         }
@@ -205,10 +205,10 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(d.b.i0.p3.l.i iVar) {
-            this.f21841a = -1;
+            this.f21842a = -1;
             RecordVideoActivity.this.mHandler.removeMessages(1);
             RecordVideoActivity.this.mControllerLayout.v();
-            if (iVar != null && iVar.f59112a == 0) {
+            if (iVar != null && iVar.f59113a == 0) {
                 if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
                     RecordVideoActivity.this.goToEditVideo();
                     RecordVideoActivity.this.recordCompress(102);
@@ -223,15 +223,15 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                 d.b.b.e.p.l.L(recordVideoActivity, recordVideoActivity.getString(R.string.mix_fail));
                 RecordVideoActivity.this.mProgressView.setVisibility(8);
                 if (iVar != null) {
-                    RecordVideoActivity.this.recordVideoRecord(iVar.f59112a, iVar.f59113b);
+                    RecordVideoActivity.this.recordVideoRecord(iVar.f59113a, iVar.f59114b);
                 }
             }
             RecordVideoActivity.this.mRoundProgressBar.b(0.0f);
         }
 
         public void d() {
-            if (this.f21841a >= 0) {
-                this.f21842b.sendEmptyMessageDelayed(1, 50L);
+            if (this.f21842a >= 0) {
+                this.f21843b.sendEmptyMessageDelayed(1, 50L);
             }
         }
     }
@@ -279,11 +279,11 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     }
 
     /* loaded from: classes5.dex */
-    public class f implements a.InterfaceC1467a {
+    public class f implements a.InterfaceC1468a {
         public f() {
         }
 
-        @Override // d.b.i0.p3.k.a.InterfaceC1467a
+        @Override // d.b.i0.p3.k.a.InterfaceC1468a
         public void a(List<d.b.i0.p3.k.b> list) {
             if (ListUtils.isEmpty(list)) {
                 if (RecordVideoActivity.this.mControllerLayout != null) {
@@ -410,10 +410,10 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public class l implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f21854a;
+        public final /* synthetic */ AtomicInteger f21855a;
 
         public l(AtomicInteger atomicInteger) {
-            this.f21854a = atomicInteger;
+            this.f21855a = atomicInteger;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -429,8 +429,8 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (RecordVideoActivity.this.mRecordController.f() != 6) {
                 return;
             }
-            if (this.f21854a.decrementAndGet() > 1) {
-                RecordVideoActivity.this.mTvCountDown.setText(String.valueOf(this.f21854a.get() / 2));
+            if (this.f21855a.decrementAndGet() > 1) {
+                RecordVideoActivity.this.mTvCountDown.setText(String.valueOf(this.f21855a.get() / 2));
             } else {
                 RecordVideoActivity.this.mTvCountDown.setText("");
             }
@@ -441,9 +441,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (RecordVideoActivity.this.mRecordController.f() != 6) {
                 return;
             }
-            this.f21854a.set(7);
+            this.f21855a.set(7);
             RecordVideoActivity.this.mTvCountDown.setVisibility(0);
-            RecordVideoActivity.this.mTvCountDown.setText(String.valueOf(this.f21854a.get() / 2));
+            RecordVideoActivity.this.mTvCountDown.setText(String.valueOf(this.f21855a.get() / 2));
         }
     }
 
@@ -454,7 +454,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
 
         @Override // d.b.i0.p3.m.m, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.f59204e) {
+            if (this.f59205e) {
                 return;
             }
             RecordVideoActivity.this.mTopControllerLayout.setVisibility(8);
@@ -669,9 +669,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         TextView textView = (TextView) findViewById(R.id.min_time_tips);
         this.mMinTimeTips = textView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-        double k2 = d.b.b.e.p.l.k(this.mContext);
-        Double.isNaN(k2);
-        layoutParams.leftMargin = ((int) (k2 * 0.2d)) - d.b.b.e.p.l.g(this.mContext, R.dimen.ds38);
+        layoutParams.leftMargin = ((int) (d.b.b.e.p.l.k(this.mContext) * 0.2d)) - d.b.b.e.p.l.g(this.mContext, R.dimen.ds38);
         this.mMinTimeTips.setLayoutParams(layoutParams);
         this.mTabLayout = (RecordTabLayout) findViewById(R.id.tab_layout);
         WriteImagesInfo writeImagesInfo = this.mWriteImagesInfo;
@@ -1075,8 +1073,8 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         if (c2 == 1) {
             if (eVar.d() instanceof d.b.i0.p3.a) {
                 this.mPreviewController.B((d.b.i0.p3.a) eVar.d());
-                TiebaStatic.log(new StatisticItem("c12421").param("obj_id", ((d.b.i0.p3.a) eVar.d()).f58873a));
-                if (((d.b.i0.p3.a) eVar.d()).f58873a == 0) {
+                TiebaStatic.log(new StatisticItem("c12421").param("obj_id", ((d.b.i0.p3.a) eVar.d()).f58874a));
+                if (((d.b.i0.p3.a) eVar.d()).f58874a == 0) {
                     this.mEffectButtonLayout.setViewChoosed(2, false);
                 } else {
                     this.mEffectButtonLayout.setViewChoosed(2, true);

@@ -27,11 +27,11 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f15022a;
+        public c f15023a;
 
         public FrsPageAlaShareHolder(c cVar) {
             super(cVar.m());
-            this.f15022a = cVar;
+            this.f15023a = cVar;
         }
     }
 
@@ -105,14 +105,14 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (a2Var != null) {
-            c cVar = frsPageAlaShareHolder.f15022a;
+            c cVar = frsPageAlaShareHolder.f15023a;
             if (cVar instanceof e) {
                 cVar.setPage(this.y);
             }
-            frsPageAlaShareHolder.f15022a.a(this.w);
-            j.h(frsPageAlaShareHolder.f15022a.P(), this.n);
-            j.h(frsPageAlaShareHolder.f15022a.R(), this.n);
-            frsPageAlaShareHolder.f15022a.n(a2Var);
+            frsPageAlaShareHolder.f15023a.a(this.w);
+            j.h(frsPageAlaShareHolder.f15023a.P(), this.n);
+            j.h(frsPageAlaShareHolder.f15023a.R(), this.n);
+            frsPageAlaShareHolder.f15023a.n(a2Var);
             a2Var.x4();
         }
         return frsPageAlaShareHolder.a();

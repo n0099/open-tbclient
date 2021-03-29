@@ -22,8 +22,8 @@ public class a extends d.b.h0.g0.f.a<PluginConfigWrapper, d.b.h0.g0.d.b> {
 
     /* renamed from: d.b.i0.j2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1319a implements View.OnClickListener {
-        public View$OnClickListenerC1319a() {
+    public class View$OnClickListenerC1320a implements View.OnClickListener {
+        public View$OnClickListenerC1320a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -54,7 +54,7 @@ public class a extends d.b.h0.g0.f.a<PluginConfigWrapper, d.b.h0.g0.d.b> {
         this.m = (TextView) view.findViewById(R.id.desc);
         TextView textView = (TextView) view.findViewById(R.id.status);
         this.n = textView;
-        textView.setOnClickListener(new View$OnClickListenerC1319a());
+        textView.setOnClickListener(new View$OnClickListenerC1320a());
         TextView textView2 = (TextView) view.findViewById(R.id.install);
         this.o = textView2;
         textView2.setOnClickListener(new b());

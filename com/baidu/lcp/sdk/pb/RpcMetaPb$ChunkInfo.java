@@ -41,13 +41,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$ChunkInfo, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6401e;
+        public int f6402e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6402f;
+        public long f6403f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6403g;
+        public long f6404g;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         /* renamed from: n */
         public RpcMetaPb$ChunkInfo buildPartial() {
             RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this);
-            int i = this.f6401e;
+            int i = this.f6402e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            rpcMetaPb$ChunkInfo.streamId = this.f6402f;
+            rpcMetaPb$ChunkInfo.streamId = this.f6403f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            rpcMetaPb$ChunkInfo.chunkId = this.f6403g;
+            rpcMetaPb$ChunkInfo.chunkId = this.f6404g;
             rpcMetaPb$ChunkInfo.bitField0 = i2;
             return rpcMetaPb$ChunkInfo;
         }
 
         public b o() {
             super.clear();
-            this.f6402f = 0L;
-            int i = this.f6401e & (-2);
-            this.f6401e = i;
-            this.f6403g = 0L;
-            this.f6401e = i & (-3);
+            this.f6403f = 0L;
+            int i = this.f6402e & (-2);
+            this.f6402e = i;
+            this.f6404g = 0L;
+            this.f6402e = i & (-3);
             return this;
         }
 
@@ -131,11 +131,11 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
 
         public boolean s() {
-            return (this.f6401e & 2) == 2;
+            return (this.f6402e & 2) == 2;
         }
 
         public boolean t() {
-            return (this.f6401e & 1) == 1;
+            return (this.f6402e & 1) == 1;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
@@ -186,14 +186,14 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
 
         public b w(long j) {
-            this.f6401e |= 2;
-            this.f6403g = j;
+            this.f6402e |= 2;
+            this.f6404g = j;
             return this;
         }
 
         public b x(long j) {
-            this.f6401e |= 1;
-            this.f6402f = j;
+            this.f6402e |= 1;
+            this.f6403f = j;
             return this;
         }
 

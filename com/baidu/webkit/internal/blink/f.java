@@ -6,15 +6,15 @@ import com.baidu.webkit.sdk.WebViewFactory;
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d.b f26902a;
+    public final /* synthetic */ d.b f26903a;
 
     public f(d.b bVar) {
-        this.f26902a = bVar;
+        this.f26903a = bVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         WebViewFactory.getProvider();
-        this.f26902a.a();
+        this.f26903a.a();
     }
 }

@@ -7,7 +7,7 @@ import android.view.inputmethod.InputMethodManager;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44791a = d.b.g0.a.k.f45050a;
+    public static final boolean f44792a = d.b.g0.a.k.f45051a;
 
     public static void a(Context context, IBinder iBinder) {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
@@ -15,7 +15,7 @@ public class w {
             try {
                 inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
             } catch (Exception e2) {
-                if (f44791a) {
+                if (f44792a) {
                     e2.printStackTrace();
                 }
             }

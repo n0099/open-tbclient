@@ -12,14 +12,14 @@ import org.json.JSONObject;
 public class f extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29393a;
+    public String f29394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public x f29394b;
+    public x f29395b;
 
     public f(String str, x xVar) {
-        this.f29394b = xVar;
-        this.f29393a = str;
+        this.f29395b = xVar;
+        this.f29394a = str;
     }
 
     public static void a(q qVar, x xVar) {
@@ -59,10 +59,10 @@ public class f extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
     @Nullable
     public JSONObject a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.openadsdk.f.a.f fVar) throws Exception {
         x.a aVar = new x.a();
-        aVar.f29049a = NotificationCompat.CATEGORY_CALL;
-        aVar.f29051c = this.f29393a;
-        aVar.f29052d = jSONObject;
-        JSONObject a2 = this.f29394b.a(aVar, 3);
+        aVar.f29050a = NotificationCompat.CATEGORY_CALL;
+        aVar.f29052c = this.f29394a;
+        aVar.f29053d = jSONObject;
+        JSONObject a2 = this.f29395b.a(aVar, 3);
         if (com.bytedance.sdk.openadsdk.core.i.d().w()) {
             Log.d("OldBridgeSyncMethod", "[JSB-RSP] version: 3 data=" + a2.toString());
         }

@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.request;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MessageExt {
     public static final String KEY_CAST_ID = "cast_id";
     public static final String KEY_LAST_CALLBACK_MSG_ID = "last_callback_msg_id";

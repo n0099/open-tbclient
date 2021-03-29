@@ -9,18 +9,18 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import d.b.g0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends d.b.g0.a.l0.e.b<d.b.g0.a.l0.i.c.a, d.b.g0.a.l0.j.b.a> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45077d = k.f45050a;
+    public static final boolean f45078d = k.f45051a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f45078e;
+    public static volatile a f45079e;
 
     /* renamed from: d.b.g0.a.l0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0718a extends ProviderDelegation {
+    /* loaded from: classes2.dex */
+    public static class C0719a extends ProviderDelegation {
         public final ExtensionCore a() {
             ExtensionCore c2 = b().c();
             if (c2.a()) {
@@ -51,14 +51,14 @@ public class a extends d.b.g0.a.l0.e.b<d.b.g0.a.l0.i.c.a, d.b.g0.a.l0.j.b.a> {
     }
 
     public static a h() {
-        if (f45078e == null) {
+        if (f45079e == null) {
             synchronized (a.class) {
-                if (f45078e == null) {
-                    f45078e = new a();
+                if (f45079e == null) {
+                    f45079e = new a();
                 }
             }
         }
-        return f45078e;
+        return f45079e;
     }
 
     @Override // d.b.g0.a.l0.e.b
@@ -68,10 +68,10 @@ public class a extends d.b.g0.a.l0.e.b<d.b.g0.a.l0.i.c.a, d.b.g0.a.l0.j.b.a> {
         if (ProcessUtils.isMainProcess()) {
             extensionCore = c();
         } else {
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0718a.class, null).mResult;
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0719a.class, null).mResult;
             bundle.setClassLoader(ExtensionCore.class.getClassLoader());
             extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (f45077d) {
+            if (f45078d) {
                 Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
             }
         }

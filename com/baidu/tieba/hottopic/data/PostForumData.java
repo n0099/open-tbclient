@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PostForumData extends a implements Serializable {
     public static final BdUniqueId TYPE_POST_FORUM = BdUniqueId.gen();
     public static final long serialVersionUID = -2078662294751243784L;

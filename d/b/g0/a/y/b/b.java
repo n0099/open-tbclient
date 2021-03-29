@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends a {
     public static Map<String, Class<? extends d.b.g0.a.y.a.j.a>> q;
     public List<d.b.g0.a.y.a.j.a> o;
@@ -111,7 +111,7 @@ public class b extends a {
             }
             this.p = jSONObject.optInt("reserve") != 0;
         } catch (Exception e2) {
-            if (d.b.g0.a.k.f45050a) {
+            if (d.b.g0.a.k.f45051a) {
                 e2.printStackTrace();
             }
         }

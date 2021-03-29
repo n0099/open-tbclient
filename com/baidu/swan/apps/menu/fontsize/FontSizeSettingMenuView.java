@@ -11,7 +11,7 @@ import com.baidu.swan.menu.BaseMenuView;
 import d.b.g0.a.c1.c.b;
 import d.b.g0.a.d;
 import d.b.g0.a.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FontSizeSettingMenuView extends BaseMenuView {
     public Context k;
     public SliderBar l;

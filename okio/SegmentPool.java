@@ -1,7 +1,7 @@
 package okio;
 
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class SegmentPool {
     public static final long MAX_SIZE = 65536;
     public static long byteCount;

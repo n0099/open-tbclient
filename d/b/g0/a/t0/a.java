@@ -8,7 +8,7 @@ import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import d.b.g0.a.z0.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/closeInput");

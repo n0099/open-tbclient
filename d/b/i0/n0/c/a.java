@@ -17,8 +17,8 @@ public class a extends d.b.b.j.e.a<b, ComplaintBarlordViewHolder> {
 
     /* renamed from: d.b.i0.n0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1351a implements View.OnClickListener {
-        public View$OnClickListenerC1351a() {
+    public class View$OnClickListenerC1352a implements View.OnClickListener {
+        public View$OnClickListenerC1352a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -28,7 +28,7 @@ public class a extends d.b.b.j.e.a<b, ComplaintBarlordViewHolder> {
                 if (a.this.m == 1 || a.this.m == 4) {
                     str = str + "?isNightModel=1";
                 }
-                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f42357e, a.this.f42357e.getString(R.string.complaint_bar_lord), str, true));
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f42358e, a.this.f42358e.getString(R.string.complaint_bar_lord), str, true));
                 customMessage.setTag(a.this.i);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
@@ -36,8 +36,8 @@ public class a extends d.b.b.j.e.a<b, ComplaintBarlordViewHolder> {
     }
 
     public a(d.b.b.a.f fVar) {
-        super(fVar.getPageActivity(), b.f57021g, fVar.getUniqueId());
-        this.n = new View$OnClickListenerC1351a();
+        super(fVar.getPageActivity(), b.f57022g, fVar.getUniqueId());
+        this.n = new View$OnClickListenerC1352a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -48,29 +48,29 @@ public class a extends d.b.b.j.e.a<b, ComplaintBarlordViewHolder> {
     }
 
     public final void m0(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
-        complaintBarlordViewHolder.f15915d.setText(bVar.f57022e);
-        complaintBarlordViewHolder.f15913b.setTag(bVar.f57023f);
-        complaintBarlordViewHolder.f15913b.setOnClickListener(this.n);
+        complaintBarlordViewHolder.f15916d.setText(bVar.f57023e);
+        complaintBarlordViewHolder.f15914b.setTag(bVar.f57024f);
+        complaintBarlordViewHolder.f15914b.setOnClickListener(this.n);
     }
 
     public final void n0(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.m = skinType;
-        if (complaintBarlordViewHolder.f15912a == skinType) {
+        if (complaintBarlordViewHolder.f15913a == skinType) {
             return;
         }
-        complaintBarlordViewHolder.f15912a = skinType;
-        SkinManager.setBackgroundResource(complaintBarlordViewHolder.f15913b, R.drawable.frs_member_manito_bg);
-        SkinManager.setBackgroundColor(complaintBarlordViewHolder.f15914c, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(complaintBarlordViewHolder.f15915d, R.color.CAM_X0105, 1);
-        SkinManager.setImageResource(complaintBarlordViewHolder.f15916e, R.drawable.icon_arrow12_gray66_right);
+        complaintBarlordViewHolder.f15913a = skinType;
+        SkinManager.setBackgroundResource(complaintBarlordViewHolder.f15914b, R.drawable.frs_member_manito_bg);
+        SkinManager.setBackgroundColor(complaintBarlordViewHolder.f15915c, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(complaintBarlordViewHolder.f15916d, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(complaintBarlordViewHolder.f15917e, R.drawable.icon_arrow12_gray66_right);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.b.j.e.a
     /* renamed from: o0 */
     public ComplaintBarlordViewHolder R(ViewGroup viewGroup) {
-        return new ComplaintBarlordViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
+        return new ComplaintBarlordViewHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
     }
 
     public View p0(int i, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {

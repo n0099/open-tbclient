@@ -18,32 +18,32 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonaltalkSettingV
 import java.util.LinkedList;
 import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.IconInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final PersonalTalkSettingActivity f54295a;
+    public final PersonalTalkSettingActivity f54296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NavigationBar f54296b;
+    public final NavigationBar f54297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View f54297c;
+    public final View f54298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HeadImageView f54298d;
+    public final HeadImageView f54299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f54299e;
+    public final TextView f54300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final UserIconBox f54300f;
+    public final UserIconBox f54301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f54301g;
+    public final TextView f54302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbSettingTextTipView f54302h;
+    public TbSettingTextTipView f54303h;
     public TbSettingTextTipView i;
     public TbSettingTextTipView j;
     public RelativeLayout k;
@@ -52,32 +52,32 @@ public class g {
     public PersonalTalkSettingViewSettingView n;
 
     public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.f54295a = personalTalkSettingActivity;
+        this.f54296a = personalTalkSettingActivity;
         personalTalkSettingActivity.setContentView(R.layout.p2ptalk_setting_activity);
-        View findViewById = this.f54295a.findViewById(R.id.person_talk_setting_parent);
-        this.f54297c = findViewById;
+        View findViewById = this.f54296a.findViewById(R.id.person_talk_setting_parent);
+        this.f54298c = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f54296b = navigationBar;
-        navigationBar.setTitleText(this.f54295a.getPageContext().getString(R.string.talk_detail));
-        this.f54296b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.m = (PersonaltalkSettingViewBlackManView) this.f54295a.findViewById(R.id.black_status_view);
-        this.n = (PersonalTalkSettingViewSettingView) this.f54295a.findViewById(R.id.setting_detail_view);
-        this.l = (LinearLayout) this.f54295a.findViewById(R.id.user_info_lin);
-        this.f54302h = (TbSettingTextTipView) this.f54295a.findViewById(R.id.st_delete_talk_history);
-        this.i = (TbSettingTextTipView) this.f54295a.findViewById(R.id.st_report);
-        this.j = (TbSettingTextTipView) this.f54295a.findViewById(R.id.add_to_black);
-        this.k = (RelativeLayout) this.f54295a.findViewById(R.id.remove_from_black_man);
-        this.f54302h.setOnClickListener(this.f54295a);
-        this.i.setOnClickListener(this.f54295a);
-        this.j.setOnClickListener(this.f54295a);
-        this.k.setOnClickListener(this.f54295a);
-        this.l.setOnClickListener(this.f54295a);
-        HeadImageView headImageView = (HeadImageView) this.f54295a.findViewById(R.id.photo);
-        this.f54298d = headImageView;
+        this.f54297b = navigationBar;
+        navigationBar.setTitleText(this.f54296a.getPageContext().getString(R.string.talk_detail));
+        this.f54297b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.m = (PersonaltalkSettingViewBlackManView) this.f54296a.findViewById(R.id.black_status_view);
+        this.n = (PersonalTalkSettingViewSettingView) this.f54296a.findViewById(R.id.setting_detail_view);
+        this.l = (LinearLayout) this.f54296a.findViewById(R.id.user_info_lin);
+        this.f54303h = (TbSettingTextTipView) this.f54296a.findViewById(R.id.st_delete_talk_history);
+        this.i = (TbSettingTextTipView) this.f54296a.findViewById(R.id.st_report);
+        this.j = (TbSettingTextTipView) this.f54296a.findViewById(R.id.add_to_black);
+        this.k = (RelativeLayout) this.f54296a.findViewById(R.id.remove_from_black_man);
+        this.f54303h.setOnClickListener(this.f54296a);
+        this.i.setOnClickListener(this.f54296a);
+        this.j.setOnClickListener(this.f54296a);
+        this.k.setOnClickListener(this.f54296a);
+        this.l.setOnClickListener(this.f54296a);
+        HeadImageView headImageView = (HeadImageView) this.f54296a.findViewById(R.id.photo);
+        this.f54299d = headImageView;
         headImageView.setIsRound(true);
-        this.f54299e = (TextView) this.f54295a.findViewById(R.id.name);
-        this.f54300f = (UserIconBox) this.f54295a.findViewById(R.id.user_icon_box);
-        this.f54301g = (TextView) this.f54295a.findViewById(R.id.user_desc);
+        this.f54300e = (TextView) this.f54296a.findViewById(R.id.name);
+        this.f54301f = (UserIconBox) this.f54296a.findViewById(R.id.user_icon_box);
+        this.f54302g = (TextView) this.f54296a.findViewById(R.id.user_desc);
     }
 
     public void a(boolean z, int i) {
@@ -100,13 +100,13 @@ public class g {
         if (fVar == null || fVar.j() == null || (str = fVar.j().portrait) == null || str.length() <= 0) {
             return;
         }
-        this.f54298d.setImageResource(0);
-        this.f54298d.W(str, 12, false);
+        this.f54299d.setImageResource(0);
+        this.f54299d.W(str, 12, false);
     }
 
     public void d(int i) {
-        this.f54295a.getLayoutMode().j(this.f54297c);
-        this.f54296b.onChangeSkinType(this.f54295a.getPageContext(), i);
+        this.f54296a.getLayoutMode().j(this.f54298c);
+        this.f54297b.onChangeSkinType(this.f54296a.getPageContext(), i);
     }
 
     public void e(BdSwitchView.b bVar) {
@@ -126,19 +126,19 @@ public class g {
         if (dataRes == null) {
             return;
         }
-        this.f54299e.setText(StringUtils.isNull(dataRes.nameShow) ? dataRes.name + "" : dataRes.nameShow);
+        this.f54300e.setText(StringUtils.isNull(dataRes.nameShow) ? dataRes.name + "" : dataRes.nameShow);
         if (dataRes.sex.intValue() == 1) {
-            this.f54299e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
+            this.f54300e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
         } else if (dataRes.sex.intValue() == 2) {
             if (dataRes.iconInfo.size() > 0 && dataRes.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
-                this.f54299e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.f54300e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.f54299e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
+                this.f54300e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
             }
         } else {
             i = 9;
-            this.f54301g.setText(dataRes.intro);
-            if (this.f54300f == null) {
+            this.f54302g.setText(dataRes.intro);
+            if (this.f54301f == null) {
                 LinkedList linkedList = new LinkedList();
                 for (IconInfo iconInfo : dataRes.iconInfo) {
                     IconData iconData = new IconData();
@@ -146,14 +146,14 @@ public class g {
                     iconData.setIcon(iconInfo.iconUrl);
                     linkedList.add(iconData);
                 }
-                this.f54300f.g(linkedList, i, this.f54295a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f54295a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f54295a.getResources().getDimensionPixelSize(R.dimen.ds4));
+                this.f54301f.g(linkedList, i, this.f54296a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f54296a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f54296a.getResources().getDimensionPixelSize(R.dimen.ds4));
                 return;
             }
             return;
         }
         i = 8;
-        this.f54301g.setText(dataRes.intro);
-        if (this.f54300f == null) {
+        this.f54302g.setText(dataRes.intro);
+        if (this.f54301f == null) {
         }
     }
 

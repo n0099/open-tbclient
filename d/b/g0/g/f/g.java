@@ -15,34 +15,34 @@ public class g {
     public class a implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f48122a;
+        public final /* synthetic */ boolean f48123a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f48123b;
+        public final /* synthetic */ Context f48124b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.e.d.c f48124c;
+        public final /* synthetic */ d.b.g0.g.e.d.c f48125c;
 
         public a(boolean z, Context context, d.b.g0.g.e.d.c cVar) {
-            this.f48122a = z;
-            this.f48123b = context;
-            this.f48124c = cVar;
+            this.f48123a = z;
+            this.f48124b = context;
+            this.f48125c = cVar;
         }
 
         @Override // d.b.g0.a.e0.j.c.b
         public void a(boolean z, String str) {
             if (z) {
-                if (this.f48122a) {
-                    g.this.g(this.f48123b, this.f48124c);
+                if (this.f48123a) {
+                    g.this.g(this.f48124b, this.f48125c);
                     return;
                 }
-                d.b.g0.a.c0.a.c(this.f48123b, false);
-                g.this.e(this.f48124c, true, "setEnableDebug:ok");
+                d.b.g0.a.c0.a.c(this.f48124b, false);
+                g.this.e(this.f48125c, true, "setEnableDebug:ok");
                 return;
             }
-            d.b.g0.a.e0.j.c.b(this.f48123b, str);
+            d.b.g0.a.e0.j.c.b(this.f48124b, str);
             g gVar = g.this;
-            gVar.e(this.f48124c, false, gVar.f(str));
+            gVar.e(this.f48125c, false, gVar.f(str));
         }
     }
 
@@ -50,25 +50,25 @@ public class g {
     public class b implements d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f48126a;
+        public final /* synthetic */ Context f48127a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.e.d.c f48127b;
+        public final /* synthetic */ d.b.g0.g.e.d.c f48128b;
 
         public b(Context context, d.b.g0.g.e.d.c cVar) {
-            this.f48126a = context;
-            this.f48127b = cVar;
+            this.f48127a = context;
+            this.f48128b = cVar;
         }
 
         @Override // d.b.g0.g.f.d.e
         public void a(boolean z) {
             if (z) {
-                d.b.g0.a.c0.a.c(this.f48126a, true);
-                g.this.e(this.f48127b, true, "setEnableDebug:ok");
+                d.b.g0.a.c0.a.c(this.f48127a, true);
+                g.this.e(this.f48128b, true, "setEnableDebug:ok");
                 return;
             }
-            d.m().p((Activity) this.f48126a, null);
-            g.this.e(this.f48127b, false, "internet error");
+            d.m().p((Activity) this.f48127a, null);
+            g.this.e(this.f48128b, false, "internet error");
         }
     }
 

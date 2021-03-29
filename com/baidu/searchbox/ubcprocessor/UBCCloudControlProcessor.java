@@ -13,7 +13,7 @@ import d.b.k0.w;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
     public static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";

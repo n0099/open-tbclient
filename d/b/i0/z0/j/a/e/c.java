@@ -5,7 +5,7 @@ import android.widget.EditText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer;
 import d.b.h0.w.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends m {
     public EditText q;
 

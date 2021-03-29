@@ -6,90 +6,90 @@ import d.b.g0.a.k;
 import d.b.g0.a.s1.a.c;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45902d = k.f45050a;
+    public static final boolean f45903d = k.f45051a;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.d f45903a;
+    public c.d f45904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.d f45904b;
+    public c.d f45905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, c.d> f45905c = new HashMap<>();
+    public HashMap<String, c.d> f45906c = new HashMap<>();
 
     public ArrayList<String> a() {
         c.d dVar = new c.d();
         c.e(dVar);
-        return dVar.f45917b;
+        return dVar.f45918b;
     }
 
     public c.d b(String str, String str2, boolean z) {
         ArrayList<String> arrayList;
-        c.d dVar = this.f45905c.get(str2);
-        if (dVar != null && (arrayList = dVar.f45917b) != null && arrayList.size() > 0) {
-            if (f45902d) {
-                Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + dVar.f45917b);
+        c.d dVar = this.f45906c.get(str2);
+        if (dVar != null && (arrayList = dVar.f45918b) != null && arrayList.size() > 0) {
+            if (f45903d) {
+                Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + dVar.f45918b);
             }
             return dVar;
         }
         if (dVar != null) {
-            dVar.f45917b.clear();
-            dVar.f45916a = "";
+            dVar.f45918b.clear();
+            dVar.f45917a = "";
         } else {
             dVar = new c.d();
         }
         c.f(z, str, str2, dVar);
-        this.f45905c.put(str2, dVar);
+        this.f45906c.put(str2, dVar);
         return dVar;
     }
 
     public ArrayList<String> c(boolean z) {
         ArrayList<String> arrayList;
-        c.d dVar = this.f45904b;
-        if (dVar != null && (arrayList = dVar.f45917b) != null && arrayList.size() > 0) {
-            if (f45902d) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.f45904b.f45916a + ", data=" + this.f45904b.f45917b);
+        c.d dVar = this.f45905b;
+        if (dVar != null && (arrayList = dVar.f45918b) != null && arrayList.size() > 0) {
+            if (f45903d) {
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.f45905b.f45917a + ", data=" + this.f45905b.f45918b);
             }
-            return this.f45904b.f45917b;
+            return this.f45905b.f45918b;
         }
-        c.d dVar2 = this.f45904b;
+        c.d dVar2 = this.f45905b;
         if (dVar2 != null) {
-            dVar2.f45916a = "";
-            dVar2.f45917b.clear();
+            dVar2.f45917a = "";
+            dVar2.f45918b.clear();
         } else {
-            this.f45904b = new c.d();
+            this.f45905b = new c.d();
         }
-        c.g(z, this.f45904b);
-        return this.f45904b.f45917b;
+        c.g(z, this.f45905b);
+        return this.f45905b.f45918b;
     }
 
     public ArrayList<String> d(String str, boolean z) {
         ArrayList<String> arrayList;
-        c.d dVar = this.f45903a;
-        if (dVar != null && (arrayList = dVar.f45917b) != null && arrayList.size() > 0) {
-            if (f45902d) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.f45903a.f45916a + ", data=" + this.f45903a.f45917b);
+        c.d dVar = this.f45904a;
+        if (dVar != null && (arrayList = dVar.f45918b) != null && arrayList.size() > 0) {
+            if (f45903d) {
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.f45904a.f45917a + ", data=" + this.f45904a.f45918b);
             }
-            return this.f45903a.f45917b;
+            return this.f45904a.f45918b;
         }
-        c.d dVar2 = this.f45903a;
+        c.d dVar2 = this.f45904a;
         if (dVar2 != null) {
-            dVar2.f45916a = "";
-            dVar2.f45917b.clear();
+            dVar2.f45917a = "";
+            dVar2.f45918b.clear();
         } else {
-            this.f45903a = new c.d();
+            this.f45904a = new c.d();
         }
-        c.h(z, str, this.f45903a);
-        return this.f45903a.f45917b;
+        c.h(z, str, this.f45904a);
+        return this.f45904a.f45918b;
     }
 
     public void e(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f45902d) {
+            if (f45903d) {
                 throw new RuntimeException("appId can not be empty");
             }
             return;
@@ -99,17 +99,17 @@ public class a {
     }
 
     public void f() {
-        c.d dVar = this.f45903a;
+        c.d dVar = this.f45904a;
         if (dVar != null) {
-            dVar.f45917b.clear();
+            dVar.f45918b.clear();
         }
-        c.d dVar2 = this.f45904b;
+        c.d dVar2 = this.f45905b;
         if (dVar2 != null) {
-            dVar2.f45917b.clear();
+            dVar2.f45918b.clear();
         }
-        this.f45903a = null;
-        this.f45904b = null;
-        if (f45902d) {
+        this.f45904a = null;
+        this.f45905b = null;
+        if (f45903d) {
             Log.d("SwanAppWebSafe", "release cache done");
         }
     }

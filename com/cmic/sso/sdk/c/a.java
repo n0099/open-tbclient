@@ -13,32 +13,32 @@ import org.json.JSONObject;
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CopyOnWriteArrayList<Throwable> f30669a = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> f30670a = new CopyOnWriteArrayList<>();
     public String A;
     public String B;
     public String C;
     public JSONArray p;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30670b = null;
+    public String f30671b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30671c = null;
+    public String f30672c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30672d = null;
+    public String f30673d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30673e = null;
+    public String f30674e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30674f = null;
+    public String f30675f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30675g = null;
+    public String f30676g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30676h = null;
+    public String f30677h = null;
     public String i = null;
     public String j = null;
     public String k = null;
@@ -71,7 +71,7 @@ public class a extends g {
     }
 
     public void a(String str) {
-        this.f30670b = str;
+        this.f30671b = str;
     }
 
     public void b(String str) {
@@ -107,15 +107,15 @@ public class a extends g {
     }
 
     public void j(String str) {
-        this.f30672d = str;
+        this.f30673d = str;
     }
 
     public void k(String str) {
-        this.f30673e = str;
+        this.f30674e = str;
     }
 
     public void l(String str) {
-        this.f30675g = str;
+        this.f30676g = str;
     }
 
     public void m(String str) {
@@ -143,11 +143,11 @@ public class a extends g {
     }
 
     public void t(String str) {
-        this.f30671c = str;
+        this.f30672c = str;
     }
 
     public void u(String str) {
-        this.f30676h = str;
+        this.f30677h = str;
     }
 
     public void v(String str) {
@@ -163,7 +163,7 @@ public class a extends g {
     }
 
     public void y(String str) {
-        this.f30674f = str;
+        this.f30675f = str;
     }
 
     public void z(String str) {
@@ -178,14 +178,14 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", this.f30670b);
-            jSONObject.put("traceId", this.f30671c);
-            jSONObject.put("appName", this.f30672d);
-            jSONObject.put("appVersion", this.f30673e);
-            jSONObject.put(CommandMessage.SDK_VERSION, this.f30674f);
+            jSONObject.put("appid", this.f30671b);
+            jSONObject.put("traceId", this.f30672c);
+            jSONObject.put("appName", this.f30673d);
+            jSONObject.put("appVersion", this.f30674e);
+            jSONObject.put(CommandMessage.SDK_VERSION, this.f30675f);
             jSONObject.put("clientType", "android");
-            jSONObject.put("timeOut", this.f30675g);
-            jSONObject.put("requestTime", this.f30676h);
+            jSONObject.put("timeOut", this.f30676g);
+            jSONObject.put("requestTime", this.f30677h);
             jSONObject.put("responseTime", this.i);
             jSONObject.put("elapsedTime", this.j);
             jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.k);

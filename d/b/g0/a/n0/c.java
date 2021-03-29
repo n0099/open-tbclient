@@ -19,129 +19,129 @@ import d.b.g0.a.i2.k0;
 import d.b.g0.a.q1.b.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45319e;
+        public final /* synthetic */ List f45320e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f45320f;
+        public final /* synthetic */ TextView f45321f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Resources f45321g;
+        public final /* synthetic */ Resources f45322g;
 
         public a(List list, TextView textView, Resources resources) {
-            this.f45319e = list;
-            this.f45320f = textView;
-            this.f45321g = resources;
+            this.f45320e = list;
+            this.f45321f = textView;
+            this.f45322g = resources;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f45319e.size() > 0) {
-                this.f45320f.setBackground(this.f45321g.getDrawable(d.b.g0.a.e.swan_app_auth_positive_bg_selector));
+            if (this.f45320e.size() > 0) {
+                this.f45321f.setBackground(this.f45322g.getDrawable(d.b.g0.a.e.swan_app_auth_positive_bg_selector));
             } else {
-                this.f45320f.setBackground(this.f45321g.getDrawable(d.b.g0.a.e.swan_app_auth_pos_button_unable));
+                this.f45321f.setBackground(this.f45322g.getDrawable(d.b.g0.a.e.swan_app_auth_pos_button_unable));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f45322e;
+        public final /* synthetic */ f f45323e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f45323f;
+        public final /* synthetic */ List f45324f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f45324g;
+        public final /* synthetic */ g f45325g;
 
         public b(f fVar, List list, g gVar) {
-            this.f45322e = fVar;
-            this.f45323f = list;
-            this.f45324g = gVar;
+            this.f45323e = fVar;
+            this.f45324f = list;
+            this.f45325g = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            if (this.f45322e.a(dialogInterface, i, this.f45323f)) {
-                this.f45324g.dismiss();
+            if (this.f45323e.a(dialogInterface, i, this.f45324f)) {
+                this.f45325g.dismiss();
             }
         }
     }
 
     /* renamed from: d.b.g0.a.n0.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class View$OnClickListenerC0740c implements View.OnClickListener {
+    /* loaded from: classes2.dex */
+    public static class View$OnClickListenerC0741c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f45325e;
+        public final /* synthetic */ g f45326e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnClickListener f45326f;
+        public final /* synthetic */ DialogInterface.OnClickListener f45327f;
 
-        public View$OnClickListenerC0740c(g gVar, DialogInterface.OnClickListener onClickListener) {
-            this.f45325e = gVar;
-            this.f45326f = onClickListener;
+        public View$OnClickListenerC0741c(g gVar, DialogInterface.OnClickListener onClickListener) {
+            this.f45326e = gVar;
+            this.f45327f = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f45325e.e(-1);
-            this.f45326f.onClick(this.f45325e, -1);
+            this.f45326e.e(-1);
+            this.f45327f.onClick(this.f45326e, -1);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f45327e;
+        public final /* synthetic */ g f45328e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnClickListener f45328f;
+        public final /* synthetic */ DialogInterface.OnClickListener f45329f;
 
         public d(g gVar, DialogInterface.OnClickListener onClickListener) {
-            this.f45327e = gVar;
-            this.f45328f = onClickListener;
+            this.f45328e = gVar;
+            this.f45329f = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f45327e.e(-2);
-            this.f45328f.onClick(this.f45327e, -2);
+            this.f45328e.e(-2);
+            this.f45329f.onClick(this.f45328e, -2);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f45329e = true;
+        public boolean f45330e = true;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f45330f;
+        public final /* synthetic */ TextView f45331f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Drawable f45331g;
+        public final /* synthetic */ Drawable f45332g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Drawable f45332h;
+        public final /* synthetic */ Drawable f45333h;
         public final /* synthetic */ int i;
         public final /* synthetic */ List j;
         public final /* synthetic */ d.b.g0.a.n0.d k;
         public final /* synthetic */ View.OnClickListener l;
 
         public e(TextView textView, Drawable drawable, Drawable drawable2, int i, List list, d.b.g0.a.n0.d dVar, View.OnClickListener onClickListener) {
-            this.f45330f = textView;
-            this.f45331g = drawable;
-            this.f45332h = drawable2;
+            this.f45331f = textView;
+            this.f45332g = drawable;
+            this.f45333h = drawable2;
             this.i = i;
             this.j = list;
             this.k = dVar;
@@ -150,11 +150,11 @@ public final class c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            boolean z = !this.f45329e;
-            this.f45329e = z;
-            this.f45330f.setCompoundDrawablesWithIntrinsicBounds(z ? this.f45331g : this.f45332h, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f45330f.setCompoundDrawablePadding(this.i);
-            if (this.f45329e) {
+            boolean z = !this.f45330e;
+            this.f45330e = z;
+            this.f45331f.setCompoundDrawablesWithIntrinsicBounds(z ? this.f45332g : this.f45333h, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f45331f.setCompoundDrawablePadding(this.i);
+            if (this.f45330e) {
                 this.j.add(this.k);
             } else {
                 this.j.remove(this.k);
@@ -163,7 +163,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface f {
         boolean a(DialogInterface dialogInterface, int i, List<d.b.g0.a.n0.d> list);
     }
@@ -198,7 +198,7 @@ public final class c {
         aVar.u(false);
         g c2 = aVar.c();
         b bVar = new b(fVar, arrayList, c2);
-        textView2.setOnClickListener(new View$OnClickListenerC0740c(c2, bVar));
+        textView2.setOnClickListener(new View$OnClickListenerC0741c(c2, bVar));
         textView.setOnClickListener(new d(c2, bVar));
         c2.a(false);
         c2.setOnCancelListener(onCancelListener);
@@ -219,7 +219,7 @@ public final class c {
         layoutParams.setMargins(0, 16, 0, 16);
         textView.setLayoutParams(layoutParams);
         textView.setTextColor(d.b.g0.m.a.b.a.b(activity, d.b.g0.a.c.swan_app_msg_dialog_title));
-        textView.setText(dVar.f45334b);
+        textView.setText(dVar.f45335b);
         Drawable drawable = resources.getDrawable(d.b.g0.a.e.aiapps_subscribe_msg_unselected);
         Drawable drawable2 = resources.getDrawable(d.b.g0.a.e.aiapps_subscribe_msg_selected);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);

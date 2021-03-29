@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import d.b.i0.z0.b.f.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.i.a<c> {
     public RecommendBarLayout j;
     public int k;

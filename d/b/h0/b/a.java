@@ -3,9 +3,9 @@ package d.b.h0.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49687a;
+    public String f49688a;
 
     public a(String str, String str2, String str3) {
-        this.f49687a = str2;
+        this.f49688a = str2;
     }
 }

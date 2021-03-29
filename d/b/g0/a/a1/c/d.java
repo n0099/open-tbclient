@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import d.b.g0.a.i2.h0;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static int a(String str, int i) {
         long parseLong;
@@ -33,8 +33,6 @@ public class d {
     }
 
     public static float b(double d2) {
-        double j = h0.j(AppRuntime.getAppContext());
-        Double.isNaN(j);
-        return (float) (d2 * j);
+        return (float) (d2 * h0.j(AppRuntime.getAppContext()));
     }
 }

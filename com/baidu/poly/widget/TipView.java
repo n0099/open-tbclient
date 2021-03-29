@@ -17,13 +17,13 @@ import d.b.c0.g;
 public class TipView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f10445e;
+    public ImageView f10446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f10446f;
+    public TextView f10447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f10447g;
+    public Animation f10448g;
 
     public TipView(Context context) {
         this(context, null);
@@ -31,43 +31,43 @@ public class TipView extends LinearLayout {
 
     public void a(String str) {
         setVisibility(0);
-        if (this.f10447g == null) {
-            this.f10447g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
+        if (this.f10448g == null) {
+            this.f10448g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
         }
-        this.f10446f.setText(str);
-        ViewGroup.LayoutParams layoutParams = this.f10445e.getLayoutParams();
+        this.f10447f.setText(str);
+        ViewGroup.LayoutParams layoutParams = this.f10446e.getLayoutParams();
         if (layoutParams != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.channel_loading_icon_size);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        this.f10445e.startAnimation(this.f10447g);
+        this.f10446e.startAnimation(this.f10448g);
     }
 
     public void b(String str, String str2) {
         setVisibility(0);
-        this.f10445e.clearAnimation();
-        ViewGroup.LayoutParams layoutParams = this.f10445e.getLayoutParams();
+        this.f10446e.clearAnimation();
+        ViewGroup.LayoutParams layoutParams = this.f10446e.getLayoutParams();
         if (layoutParams != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.pay_loading_icon_size);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        d.b.c0.k.d.b.c().b(this.f10445e, str);
-        this.f10446f.setText(str2);
+        d.b.c0.k.d.b.c().b(this.f10446e, str);
+        this.f10447f.setText(str2);
     }
 
     public final void c(Context context) {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(context).inflate(g.view_tip, (ViewGroup) this, true);
-        this.f10445e = (ImageView) findViewById(f.tip_loading_view);
-        this.f10446f = (TextView) findViewById(f.tip_text_view);
+        this.f10446e = (ImageView) findViewById(f.tip_loading_view);
+        this.f10447f = (TextView) findViewById(f.tip_text_view);
     }
 
     public void d() {
         setVisibility(8);
-        this.f10445e.clearAnimation();
+        this.f10446e.clearAnimation();
     }
 
     public TipView(Context context, AttributeSet attributeSet) {

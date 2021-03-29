@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import d.b.g0.a.i2.h0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b extends d.b.g0.a.a0.a.a.b {
     public String O;
     public int P;

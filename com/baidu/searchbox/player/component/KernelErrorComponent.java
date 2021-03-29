@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.videoplayer.framework.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class KernelErrorComponent extends AbsComponent {
     public LinearLayout mRootView;
     public TextView mTextNetError;

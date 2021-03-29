@@ -45,21 +45,22 @@ public final class TimeUtils {
             sFormatStr = new char[i];
         }
         char[] cArr = sFormatStr;
-        if (j2 == 0) {
-            int i7 = i - 1;
-            while (i7 > 0) {
+        int i7 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i7 == 0) {
+            int i8 = i - 1;
+            while (i8 > 0) {
                 cArr[0] = ' ';
             }
             cArr[0] = '0';
             return 1;
         }
-        if (j2 > 0) {
+        if (i7 > 0) {
             c2 = '+';
         } else {
             c2 = '-';
             j2 = -j2;
         }
-        int i8 = (int) (j2 % 1000);
+        int i9 = (int) (j2 % 1000);
         int floor = (int) Math.floor(j2 / 1000);
         if (floor > 86400) {
             i2 = floor / 86400;
@@ -74,9 +75,9 @@ public final class TimeUtils {
             i3 = 0;
         }
         if (floor > 60) {
-            int i9 = floor / 60;
-            i4 = floor - (i9 * 60);
-            i5 = i9;
+            int i10 = floor / 60;
+            i4 = floor - (i10 * 60);
+            i5 = i10;
         } else {
             i4 = floor;
             i5 = 0;
@@ -87,7 +88,7 @@ public final class TimeUtils {
             int accumField3 = accumField2 + accumField(i5, 1, accumField2 > 0, 2);
             int accumField4 = accumField3 + accumField(i4, 1, accumField3 > 0, 2);
             i6 = 0;
-            for (int accumField5 = accumField4 + accumField(i8, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i; accumField5++) {
+            for (int accumField5 = accumField4 + accumField(i9, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i; accumField5++) {
                 cArr[i6] = ' ';
                 i6++;
             }
@@ -95,13 +96,13 @@ public final class TimeUtils {
             i6 = 0;
         }
         cArr[i6] = c2;
-        int i10 = i6 + 1;
+        int i11 = i6 + 1;
         boolean z = i != 0;
-        int printField = printField(cArr, i2, 'd', i10, false, 0);
-        int printField2 = printField(cArr, i3, 'h', printField, printField != i10, z ? 2 : 0);
-        int printField3 = printField(cArr, i5, 'm', printField2, printField2 != i10, z ? 2 : 0);
-        int printField4 = printField(cArr, i4, 's', printField3, printField3 != i10, z ? 2 : 0);
-        int printField5 = printField(cArr, i8, 'm', printField4, true, (!z || printField4 == i10) ? 0 : 3);
+        int printField = printField(cArr, i2, 'd', i11, false, 0);
+        int printField2 = printField(cArr, i3, 'h', printField, printField != i11, z ? 2 : 0);
+        int printField3 = printField(cArr, i5, 'm', printField2, printField2 != i11, z ? 2 : 0);
+        int printField4 = printField(cArr, i4, 's', printField3, printField3 != i11, z ? 2 : 0);
+        int printField5 = printField(cArr, i9, 'm', printField4, true, (!z || printField4 == i11) ? 0 : 3);
         cArr[printField5] = 's';
         return printField5 + 1;
     }

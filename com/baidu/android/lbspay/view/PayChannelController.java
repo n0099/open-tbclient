@@ -35,7 +35,7 @@ import com.baidu.wallet.util.StatHelper;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PayChannelController implements IBeanResponseCallback, NoProguard {
     public static final String ALIPAY_PAYCHANNEL = "BAIDU-ALIPAY-WISE";
     public static final String BAIFUBAO_PAYCHANNEL = "BAIDU-BAIFUBAO-WISE";
@@ -52,17 +52,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     public GetPayBean mGetPayBean;
     public Handler mHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface DoShowAllChannelClick {
         void doClick();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface GetPayModeListener {
         void getSelectPayMode(PayMode payMode);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface SelectChannelListener {
         void onSelectChannel(String str);
     }

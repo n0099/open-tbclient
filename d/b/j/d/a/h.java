@@ -1,19 +1,19 @@
 package d.b.j.d.a;
 
 import javax.crypto.ShortBufferException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class h implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63715a;
+    public int f63716a;
 
     public h(int i) {
-        this.f63715a = i;
+        this.f63716a = i;
     }
 
     @Override // d.b.j.d.a.i
     public int a(int i) {
-        int i2 = this.f63715a;
+        int i2 = this.f63716a;
         return i2 - (i % i2);
     }
 
@@ -40,7 +40,7 @@ public final class h implements i {
         int i4 = i2 + i;
         int i5 = bArr[i4 - 1];
         int i6 = i5 & 255;
-        if (i6 < 1 || i6 > this.f63715a || (i3 = i4 - i6) < i) {
+        if (i6 < 1 || i6 > this.f63716a || (i3 = i4 - i6) < i) {
             return -1;
         }
         for (int i7 = 0; i7 < i6; i7++) {

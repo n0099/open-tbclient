@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class SoLoader {
     public static final boolean DEBUG = false;
     public static final int SOLOADER_ALLOW_ASYNC_INIT = 2;
@@ -667,14 +667,16 @@ public class SoLoader {
                             }
                             if (!z) {
                                 try {
-                                    Log.d("SoLoader", "About to load: " + str);
-                                    doLoadLibraryBySoName(str, i, threadPolicy);
-                                    synchronized (SoLoader.class) {
-                                        Log.d("SoLoader", "Loaded: " + str);
-                                        sLoadedLibraries.add(str);
+                                    try {
+                                        Log.d("SoLoader", "About to load: " + str);
+                                        doLoadLibraryBySoName(str, i, threadPolicy);
+                                        synchronized (SoLoader.class) {
+                                            Log.d("SoLoader", "Loaded: " + str);
+                                            sLoadedLibraries.add(str);
+                                        }
+                                    } catch (IOException e2) {
+                                        throw new RuntimeException(e2);
                                     }
-                                } catch (IOException e2) {
-                                    throw new RuntimeException(e2);
                                 } catch (UnsatisfiedLinkError e3) {
                                     String message = e3.getMessage();
                                     if (message != null && message.contains("unexpected e_machine:")) {

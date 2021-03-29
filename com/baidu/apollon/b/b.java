@@ -9,17 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements X509TrustManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public final X509TrustManager f3506a = d.a();
+    public final X509TrustManager f3507a = d.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<c> f3507b;
+    public final Set<c> f3508b;
 
     public b(@NonNull Set<c> set) {
-        this.f3507b = set;
+        this.f3508b = set;
     }
 
     public static boolean a(List<X509Certificate> list, Set<c> set) {
@@ -33,19 +33,19 @@ public class b implements X509TrustManager {
 
     @Override // javax.net.ssl.X509TrustManager
     public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        this.f3506a.checkClientTrusted(x509CertificateArr, str);
+        this.f3507a.checkClientTrusted(x509CertificateArr, str);
     }
 
     @Override // javax.net.ssl.X509TrustManager
     public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        this.f3506a.checkServerTrusted(x509CertificateArr, str);
-        if (this.f3507b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f3507b)) {
+        this.f3507a.checkServerTrusted(x509CertificateArr, str);
+        if (this.f3508b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f3508b)) {
             return;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("Pin verification failed");
         sb.append("\n  Configured pins: ");
-        for (c cVar : this.f3507b) {
+        for (c cVar : this.f3508b) {
             sb.append(cVar);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         }
@@ -61,6 +61,6 @@ public class b implements X509TrustManager {
 
     @Override // javax.net.ssl.X509TrustManager
     public X509Certificate[] getAcceptedIssuers() {
-        return this.f3506a.getAcceptedIssuers();
+        return this.f3507a.getAcceptedIssuers();
     }
 }

@@ -27,28 +27,28 @@ import d.b.b.e.p.j;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f63453a;
+    public final Context f63454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.i0.z2.b f63454b;
+    public final d.b.i0.z2.b f63455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.i0.z2.a f63455c;
+    public final d.b.i0.z2.a f63456c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.c.g.a f63456d = new a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    public d.b.b.c.g.a f63457d = new a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
 
     /* renamed from: e  reason: collision with root package name */
-    public final View.OnClickListener f63457e = new b();
+    public final View.OnClickListener f63458e = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f63458f = new View$OnClickListenerC1717c();
+    public View.OnClickListener f63459f = new View$OnClickListenerC1718c();
 
     /* renamed from: g  reason: collision with root package name */
-    public LeftAdapter.b f63459g = new d();
+    public LeftAdapter.b f63460g = new d();
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f63460h = new e(this);
+    public RecyclerView.OnScrollListener f63461h = new e(this);
     public BdListView.p i = new f();
 
     /* loaded from: classes5.dex */
@@ -72,10 +72,10 @@ public class c {
                 }
             }
             if (TextUtils.isEmpty(str)) {
-                str = c.this.f63453a.getResources().getString(R.string.enter_forum_search_tip);
+                str = c.this.f63454a.getResources().getString(R.string.enter_forum_search_tip);
             }
-            if (c.this.f63454b != null) {
-                c.this.f63454b.A(str);
+            if (c.this.f63455b != null) {
+                c.this.f63455b.A(str);
             }
         }
     }
@@ -87,14 +87,14 @@ public class c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.f63455c.h();
+            c.this.f63456c.h();
         }
     }
 
     /* renamed from: d.b.i0.z2.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1717c implements View.OnClickListener {
-        public View$OnClickListenerC1717c() {
+    public class View$OnClickListenerC1718c implements View.OnClickListener {
+        public View$OnClickListenerC1718c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -111,7 +111,7 @@ public class c {
 
         @Override // com.baidu.tieba.square.adapter.LeftAdapter.b
         public void a(View view, int i, String str) {
-            c.this.f63455c.i(str);
+            c.this.f63456c.i(str);
         }
     }
 
@@ -138,28 +138,28 @@ public class c {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            c.this.f63455c.g();
+            c.this.f63456c.g();
         }
     }
 
     public c(@NonNull Context context, d.b.i0.z2.a aVar, @NonNull d.b.i0.z2.b bVar) {
-        this.f63453a = context;
-        this.f63454b = bVar;
-        this.f63455c = aVar;
-        bVar.v(this.f63458f);
-        this.f63454b.x(this.f63457e);
-        this.f63454b.w(this.f63459g);
-        this.f63454b.z(this.i);
-        this.f63454b.y(this.f63460h);
+        this.f63454a = context;
+        this.f63455b = bVar;
+        this.f63456c = aVar;
+        bVar.v(this.f63459f);
+        this.f63455b.x(this.f63458e);
+        this.f63455b.w(this.f63460g);
+        this.f63455b.z(this.i);
+        this.f63455b.y(this.f63461h);
     }
 
     public void e() {
         String hotSearch = TbSingleton.getInstance().getHotSearch();
         if (!TextUtils.isEmpty(hotSearch)) {
-            this.f63454b.A(hotSearch);
+            this.f63455b.A(hotSearch);
         } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
         } else {
-            MessageManager.getInstance().registerListener(this.f63456d);
+            MessageManager.getInstance().registerListener(this.f63457d);
             g();
         }
     }
@@ -167,9 +167,9 @@ public class c {
     public final void f() {
         if (j.z()) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f63453a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f63453a, true, 11013)));
+                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f63454a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f63454a, true, 11013)));
             } else {
-                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f63453a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f63454a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         }
     }

@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public interface Interceptor {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public interface Chain {
         Call call();
 

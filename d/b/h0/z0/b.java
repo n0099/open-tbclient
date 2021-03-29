@@ -16,15 +16,15 @@ import okhttp3.Response;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f51655a;
+    public static b f51656a;
 
     public static synchronized b c() {
         b bVar;
         synchronized (b.class) {
-            if (f51655a == null) {
-                f51655a = new b();
+            if (f51656a == null) {
+                f51656a = new b();
             }
-            bVar = f51655a;
+            bVar = f51656a;
         }
         return bVar;
     }

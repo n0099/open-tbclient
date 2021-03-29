@@ -24,13 +24,13 @@ import java.util.zip.ZipInputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41421a;
+    public final Context f41422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41422b;
+    public final String f41423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.t.a f41423c;
+    public final d.a.a.t.a f41424c;
 
     /* loaded from: classes.dex */
     public class a implements Callable<k<d>> {
@@ -47,9 +47,9 @@ public class b {
 
     public b(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
-        this.f41421a = applicationContext;
-        this.f41422b = str;
-        this.f41423c = new d.a.a.t.a(applicationContext, str);
+        this.f41422a = applicationContext;
+        this.f41423b = str;
+        this.f41424c = new d.a.a.t.a(applicationContext, str);
     }
 
     public static l<d> b(Context context, String str) {
@@ -64,16 +64,16 @@ public class b {
     @WorkerThread
     public final d c() {
         k<d> g2;
-        Pair<FileExtension, InputStream> a2 = this.f41423c.a();
+        Pair<FileExtension, InputStream> a2 = this.f41424c.a();
         if (a2 == null) {
             return null;
         }
         FileExtension fileExtension = a2.first;
         InputStream inputStream = a2.second;
         if (fileExtension == FileExtension.Zip) {
-            g2 = e.n(new ZipInputStream(inputStream), this.f41422b);
+            g2 = e.n(new ZipInputStream(inputStream), this.f41423b);
         } else {
-            g2 = e.g(inputStream, this.f41422b);
+            g2 = e.g(inputStream, this.f41423b);
         }
         if (g2.b() != null) {
             return g2.b();
@@ -94,8 +94,8 @@ public class b {
     public final k e() throws IOException {
         FileExtension fileExtension;
         k<d> n;
-        c.b("Fetching " + this.f41422b);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f41422b).openConnection();
+        c.b("Fetching " + this.f41423b);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f41423b).openConnection();
         httpURLConnection.setRequestMethod("GET");
         httpURLConnection.connect();
         if (httpURLConnection.getErrorStream() == null && httpURLConnection.getResponseCode() == 200) {
@@ -112,14 +112,14 @@ public class b {
             if (c2 != 0) {
                 c.b("Received json response.");
                 fileExtension = FileExtension.Json;
-                n = e.g(new FileInputStream(new File(this.f41423c.e(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f41422b);
+                n = e.g(new FileInputStream(new File(this.f41424c.e(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f41423b);
             } else {
                 c.b("Handling zip response.");
                 fileExtension = FileExtension.Zip;
-                n = e.n(new ZipInputStream(new FileInputStream(this.f41423c.e(httpURLConnection.getInputStream(), fileExtension))), this.f41422b);
+                n = e.n(new ZipInputStream(new FileInputStream(this.f41424c.e(httpURLConnection.getInputStream(), fileExtension))), this.f41423b);
             }
             if (n.b() != null) {
-                this.f41423c.d(fileExtension);
+                this.f41424c.d(fileExtension);
             }
             StringBuilder sb = new StringBuilder();
             sb.append("Completed fetch from network. Success: ");
@@ -135,7 +135,7 @@ public class b {
                 sb2.append(readLine);
                 sb2.append('\n');
             } else {
-                return new k((Throwable) new IllegalArgumentException("Unable to fetch " + this.f41422b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb2)));
+                return new k((Throwable) new IllegalArgumentException("Unable to fetch " + this.f41423b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb2)));
             }
         }
     }
@@ -146,7 +146,7 @@ public class b {
         if (c2 != null) {
             return new k<>(c2);
         }
-        c.b("Animation for " + this.f41422b + " not found in cache. Fetching from network.");
+        c.b("Animation for " + this.f41423b + " not found in cache. Fetching from network.");
         return d();
     }
 }

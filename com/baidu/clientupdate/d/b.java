@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static long a(File file) {
         StatFs statFs = new StatFs(file.getPath());
@@ -17,8 +17,8 @@ public final class b {
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x011e  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0138  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0224  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0226  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0218  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x021a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -89,25 +89,23 @@ public final class b {
                 }
                 long a4 = a(file);
                 long b2 = b(file);
-                double d2 = a4;
-                double d3 = b2;
-                Double.isNaN(d2);
-                Double.isNaN(d3);
-                double d4 = d2 / d3;
+                double d2 = a4 / b2;
                 LogUtil.logD("Helpers", "download dir is: " + file.getAbsolutePath());
                 LogUtil.logD("Helpers", "available space is: " + a4);
                 LogUtil.logD("Helpers", "totalBytes space is: " + b2);
-                LogUtil.logD("Helpers", "available/totalBytes percent is: " + d4);
+                LogUtil.logD("Helpers", "available/totalBytes percent is: " + d2);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("availablepercent<0.1 is: ");
-                sb2.append(d4 < 0.1d);
+                int i2 = (d2 > 0.1d ? 1 : (d2 == 0.1d ? 0 : -1));
+                sb2.append(i2 < 0);
                 LogUtil.logD("Helpers", sb2.toString());
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(" available < 20 * 1024 * 1024 is: ");
-                sb3.append(a4 < DownloadManager.MIN_LEFT_SIZE);
+                int i3 = (a4 > DownloadManager.MIN_LEFT_SIZE ? 1 : (a4 == DownloadManager.MIN_LEFT_SIZE ? 0 : -1));
+                sb3.append(i3 < 0);
                 LogUtil.logD("Helpers", sb3.toString());
                 if (z2) {
-                    if (d4 < 0.1d || a4 < 2 * j || a4 < DownloadManager.MIN_LEFT_SIZE) {
+                    if (i2 < 0 || a4 < 2 * j || i3 < 0) {
                         handler.post(new f(context));
                         LogUtil.logD("Helpers", "download aborted - not enough free space on memory");
                         return null;

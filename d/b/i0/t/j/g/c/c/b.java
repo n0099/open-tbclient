@@ -8,28 +8,28 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60919a;
+    public String f60920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60920b;
+    public int f60921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60921c;
+    public int f60922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60922d;
+    public int f60923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60923e;
+    public String f60924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60924f;
+    public String f60925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60925g;
+    public String f60926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60926h;
+    public int f60927h;
     public int i;
     public String j;
     public String k;
@@ -38,7 +38,7 @@ public class b {
     public List<d> l = new ArrayList();
 
     public String a() {
-        return this.f60925g;
+        return this.f60926g;
     }
 
     public String b() {
@@ -53,23 +53,23 @@ public class b {
     }
 
     public int d() {
-        return this.f60922d;
+        return this.f60923d;
     }
 
     public String e() {
-        return this.f60923e;
+        return this.f60924e;
     }
 
     public String f() {
-        return this.f60924f;
+        return this.f60925f;
     }
 
     public int g() {
-        return this.f60926h;
+        return this.f60927h;
     }
 
     public String h() {
-        return this.f60919a;
+        return this.f60920a;
     }
 
     public String i() {
@@ -81,25 +81,25 @@ public class b {
     }
 
     public boolean k() {
-        return this.f60920b == 1;
+        return this.f60921b == 1;
     }
 
     public boolean l() {
-        return this.f60921c == 9;
+        return this.f60922c == 9;
     }
 
     public boolean m() {
-        return this.f60921c == 10;
+        return this.f60922c == 10;
     }
 
     public void n(JSONObject jSONObject) {
-        this.f60921c = jSONObject.optInt("type");
-        this.f60922d = jSONObject.optInt("mark_id");
-        this.f60923e = jSONObject.optString("mark_name");
-        this.f60925g = jSONObject.optString("description");
+        this.f60922c = jSONObject.optInt("type");
+        this.f60923d = jSONObject.optInt("mark_id");
+        this.f60924e = jSONObject.optString("mark_name");
+        this.f60926g = jSONObject.optString("description");
         this.i = jSONObject.optInt("wear_status");
-        this.f60924f = jSONObject.optString("mark_pic");
-        this.f60926h = jSONObject.optInt("mark_rank");
+        this.f60925f = jSONObject.optString("mark_pic");
+        this.f60927h = jSONObject.optInt("mark_rank");
         jSONObject.optInt("width");
         jSONObject.optInt("height");
         jSONObject.optInt("weight");
@@ -131,11 +131,11 @@ public class b {
     }
 
     public void o(String str) {
-        this.f60919a = str;
+        this.f60920a = str;
     }
 
     public void p(int i) {
-        this.f60920b = i;
+        this.f60921b = i;
     }
 
     public void q(int i) {

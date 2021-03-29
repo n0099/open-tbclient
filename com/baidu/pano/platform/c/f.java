@@ -12,28 +12,28 @@ public class f {
     public static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9444a;
+    public int f9445a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9445b;
+    public int f9446b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9446c;
+    public int f9447c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9447d;
+    public int f9448d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9448e = "-1";
+    public String f9449e = "-1";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9449f = "02";
+    public String f9450f = "02";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9450g = "";
+    public String f9451g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9451h = "baidu";
+    public String f9452h = "baidu";
     public Context i;
 
     public f(Context context) {
@@ -62,7 +62,7 @@ public class f {
     }
 
     private String e() {
-        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9449f;
+        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9450f;
     }
 
     private String f() {
@@ -76,7 +76,7 @@ public class f {
     }
 
     private String g() {
-        return this.f9451h;
+        return this.f9452h;
     }
 
     private String h() {
@@ -84,34 +84,34 @@ public class f {
     }
 
     private int i() {
-        return this.f9444a;
+        return this.f9445a;
     }
 
     private int j() {
-        return this.f9445b;
+        return this.f9446b;
     }
 
     private int k() {
-        return this.f9446c;
+        return this.f9447c;
     }
 
     private int l() {
-        return this.f9447d;
+        return this.f9448d;
     }
 
     private void m() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f9446c = (int) displayMetrics.xdpi;
-            this.f9447d = (int) displayMetrics.ydpi;
+            this.f9447c = (int) displayMetrics.xdpi;
+            this.f9448d = (int) displayMetrics.ydpi;
         }
     }
 
     private void n() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f9444a = displayMetrics.widthPixels;
-            this.f9445b = displayMetrics.heightPixels;
+            this.f9445a = displayMetrics.widthPixels;
+            this.f9446b = displayMetrics.heightPixels;
         }
     }
 

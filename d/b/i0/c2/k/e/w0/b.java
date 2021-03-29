@@ -41,25 +41,25 @@ import d.b.i0.c3.w;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f52865a;
+    public PbFragment f52866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.c2.h.a f52866b;
+    public d.b.i0.c2.h.a f52867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LikeModel f52867c;
+    public LikeModel f52868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.c2.h.e f52868d;
+    public d.b.i0.c2.h.e f52869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlertDialog f52869e;
+    public AlertDialog f52870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.b.a.e f52870f = new e();
+    public d.b.b.a.e f52871f = new e();
 
     /* renamed from: g  reason: collision with root package name */
-    public AntiHelper.k f52871g = new f(this);
+    public AntiHelper.k f52872g = new f(this);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -77,7 +77,7 @@ public class b {
                 } else if (pbAdCardGiftItemResponseMessage.getError() == 502014 || pbAdCardGiftItemResponseMessage.getError() == 502015) {
                     b.this.w(pbAdCardGiftItemResponseMessage.getError(), pbAdCardGiftItemResponseMessage.getErrorString());
                 } else {
-                    b.this.f52865a.showToast(pbAdCardGiftItemResponseMessage.getErrorString());
+                    b.this.f52866a.showToast(pbAdCardGiftItemResponseMessage.getErrorString());
                 }
             }
         }
@@ -85,13 +85,13 @@ public class b {
 
     /* renamed from: d.b.i0.c2.k.e.w0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1156b implements a.e {
+    public class C1157b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f52873e;
+        public final /* synthetic */ int f52874e;
 
-        public C1156b(int i) {
-            this.f52873e = i;
+        public C1157b(int i) {
+            this.f52874e = i;
         }
 
         @Override // d.b.h0.r.s.a.e
@@ -99,20 +99,20 @@ public class b {
             if (l.a()) {
                 return;
             }
-            if (this.f52873e == 502014) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(b.this.f52865a.getActivity()).createNormalCfg(b.this.f52868d.l().getName(), FrsActivityConfig.FRS_PB_CARD_GIFT);
+            if (this.f52874e == 502014) {
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(b.this.f52866a.getActivity()).createNormalCfg(b.this.f52869d.l().getName(), FrsActivityConfig.FRS_PB_CARD_GIFT);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-            } else if (!b.this.f52865a.checkUpIsLogin()) {
+            } else if (!b.this.f52866a.checkUpIsLogin()) {
                 return;
             } else {
-                if (b.this.f52867c == null) {
+                if (b.this.f52868c == null) {
                     b bVar = b.this;
-                    bVar.f52867c = new LikeModel(bVar.f52865a.getPageContext());
-                    b.this.f52867c.setLoadDataCallBack(b.this.f52870f);
+                    bVar.f52868c = new LikeModel(bVar.f52866a.getPageContext());
+                    b.this.f52868c.setLoadDataCallBack(b.this.f52871f);
                 }
-                b.this.f52867c.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
-                b.this.f52867c.H(b.this.f52868d.l().getName(), String.valueOf(b.this.f52868d.l().getId()));
+                b.this.f52868c.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
+                b.this.f52868c.H(b.this.f52869d.l().getName(), String.valueOf(b.this.f52869d.l().getId()));
             }
             aVar.dismiss();
         }
@@ -147,37 +147,37 @@ public class b {
 
         @Override // d.b.b.a.e
         public void c(Object obj) {
-            if (b.this.f52868d == null || b.this.f52868d.l() == null || obj == null) {
+            if (b.this.f52869d == null || b.this.f52869d.l() == null || obj == null) {
                 return;
             }
-            if (AntiHelper.m(b.this.f52867c.getErrorCode(), b.this.f52867c.getErrorString())) {
-                if (AntiHelper.t(b.this.f52865a.getContext(), b.this.f52867c.F(), b.this.f52871g) != null) {
+            if (AntiHelper.m(b.this.f52868c.getErrorCode(), b.this.f52868c.getErrorString())) {
+                if (AntiHelper.t(b.this.f52866a.getContext(), b.this.f52868c.F(), b.this.f52872g) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
                     return;
                 }
                 return;
             }
-            b.this.f52868d.l().getName();
-            String id = b.this.f52868d.l().getId();
+            b.this.f52869d.l().getName();
+            String id = b.this.f52869d.l().getId();
             w wVar = obj instanceof w ? (w) obj : null;
             boolean z = false;
-            boolean z2 = wVar != null && b.this.f52867c.getErrorCode() == 0;
+            boolean z2 = wVar != null && b.this.f52868c.getErrorCode() == 0;
             if (wVar == null || wVar.d() != 3250013) {
                 z = z2;
             } else {
                 BdToast.h(TbadkCoreApplication.getInst().getContext(), wVar.e(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
             }
             if (wVar == null || !z) {
-                if (b.this.f52867c.getErrorCode() != 22) {
-                    b.this.f52865a.showToast(b.this.f52867c.getErrorString());
+                if (b.this.f52868c.getErrorCode() != 22) {
+                    b.this.f52866a.showToast(b.this.f52868c.getErrorString());
                     return;
                 } else {
-                    b.this.f52865a.showToast(b.this.f52865a.getPageContext().getPageActivity().getString(R.string.had_liked_forum));
+                    b.this.f52866a.showToast(b.this.f52866a.getPageContext().getPageActivity().getString(R.string.had_liked_forum));
                     return;
                 }
             }
             wVar.v(1);
-            b.this.f52865a.showToast(b.this.f52865a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_success));
+            b.this.f52866a.showToast(b.this.f52866a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_success));
             b.this.t(true, id);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
         }
@@ -206,10 +206,10 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.f52869e.dismiss();
+            b.this.f52870e.dismiss();
             b bVar = b.this;
-            bVar.n(bVar.f52866b);
-            UrlManager.getInstance().dealOneLink((TbPageContext<?>) b.this.f52865a.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+            bVar.n(bVar.f52867b);
+            UrlManager.getInstance().dealOneLink((TbPageContext<?>) b.this.f52866a.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
         }
     }
 
@@ -220,7 +220,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.f52869e.dismiss();
+            b.this.f52870e.dismiss();
         }
     }
 
@@ -236,7 +236,7 @@ public class b {
     }
 
     public b(PbFragment pbFragment) {
-        this.f52865a = pbFragment;
+        this.f52866a = pbFragment;
         r();
         s();
     }
@@ -245,7 +245,7 @@ public class b {
         if (aVar == null) {
             return;
         }
-        d.b.i0.b3.c.g().c(this.f52865a.getUniqueId(), d.b.i0.b3.a.e(this.f52868d.L(), "a005", "common_click", 1, aVar.f52406f, true, aVar.f52405e.f52407a + "", "", 19));
+        d.b.i0.b3.c.g().c(this.f52866a.getUniqueId(), d.b.i0.b3.a.e(this.f52869d.L(), "a005", "common_click", 1, aVar.f52407f, true, aVar.f52406e.f52408a + "", "", 19));
     }
 
     public final void o(d.b.i0.c2.h.a aVar) {
@@ -253,8 +253,8 @@ public class b {
         if (aVar == null) {
             return;
         }
-        String w1 = this.f52868d.L().w1();
-        d.b.i0.b3.c.g().d(this.f52865a.getUniqueId(), d.b.i0.b3.a.c(w1, str, "", null) + "_dialog", d.b.i0.b3.a.g(this.f52868d.L(), "a005", "common_exp", aVar.f52406f, true, aVar.f52405e.f52407a + "", "", 19));
+        String w1 = this.f52869d.L().w1();
+        d.b.i0.b3.c.g().d(this.f52866a.getUniqueId(), d.b.i0.b3.a.c(w1, str, "", null) + "_dialog", d.b.i0.b3.a.g(this.f52869d.L(), "a005", "common_exp", aVar.f52407f, true, aVar.f52406e.f52408a + "", "", 19));
     }
 
     public final void p() {
@@ -262,11 +262,11 @@ public class b {
     }
 
     public void q() {
-        LikeModel likeModel = this.f52867c;
+        LikeModel likeModel = this.f52868c;
         if (likeModel != null) {
             likeModel.E();
         }
-        AlertDialog alertDialog = this.f52869e;
+        AlertDialog alertDialog = this.f52870e;
         if (alertDialog != null) {
             alertDialog.dismiss();
         }
@@ -274,7 +274,7 @@ public class b {
     }
 
     public final void r() {
-        this.f52865a.registerListener(new a(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ));
+        this.f52866a.registerListener(new a(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ));
     }
 
     public final void s() {
@@ -294,18 +294,18 @@ public class b {
 
     public void u(d.b.i0.c2.h.a aVar) {
         d.b.i0.c2.h.e eVar;
-        if (aVar == null || aVar.f52405e == null || (eVar = this.f52868d) == null || eVar.L() == null) {
+        if (aVar == null || aVar.f52406e == null || (eVar = this.f52869d) == null || eVar.L() == null) {
             return;
         }
-        this.f52866b = aVar;
+        this.f52867b = aVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ);
-        httpMessage.addParam("tid", this.f52868d.L().w1());
-        httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.f52405e.f52407a);
+        httpMessage.addParam("tid", this.f52869d.L().w1());
+        httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.f52406e.f52408a);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void v(d.b.i0.c2.h.e eVar) {
-        this.f52868d = eVar;
+        this.f52869d = eVar;
     }
 
     public final void w(int i2, String str) {
@@ -315,41 +315,41 @@ public class b {
         if (i2 == 502014) {
             i3 = R.string.pb_ad_card_gift_fail_guide_update_level;
             i4 = R.string.cancel;
-            string = this.f52865a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_update_level_message);
+            string = this.f52866a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_update_level_message);
         } else {
             i3 = R.string.pb_ad_card_gift_fail_guide_attention_bar;
             i4 = R.string.pb_ad_card_gift_fail_guide_attention_bar_cancel;
-            string = this.f52865a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_title, this.f52868d.l().getName());
+            string = this.f52866a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_title, this.f52869d.l().getName());
             str = "";
         }
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f52865a.getPageContext().getPageActivity());
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f52866a.getPageContext().getPageActivity());
         aVar.setTitle(str);
         aVar.setMessage(string);
-        aVar.setPositiveButton(i3, new C1156b(i2));
+        aVar.setPositiveButton(i3, new C1157b(i2));
         aVar.setNegativeButton(i4, new c(this));
         aVar.setOnDismissListener(new d());
         aVar.setTitleShowCenter(true);
         aVar.setNegativeTextColor(R.color.CAM_X0105);
         aVar.setCanceledOnTouchOutside(true);
-        aVar.create(this.f52865a.getPageContext()).show();
+        aVar.create(this.f52866a.getPageContext()).show();
     }
 
     public final void x(d.b.i0.c2.h.b bVar) {
         d.b.i0.c2.h.a aVar;
-        d.b.i0.c2.h.a aVar2 = this.f52866b;
+        d.b.i0.c2.h.a aVar2 = this.f52867b;
         if (aVar2 != null) {
-            aVar2.f52405e = bVar;
+            aVar2.f52406e = bVar;
         }
-        d.b.i0.c2.h.e eVar = this.f52868d;
+        d.b.i0.c2.h.e eVar = this.f52869d;
         if (eVar != null && (aVar = eVar.l) != null) {
-            aVar.f52405e = bVar;
+            aVar.f52406e = bVar;
         }
-        o(this.f52866b);
-        AlertDialog create = new AlertDialog.Builder(this.f52865a.getPageContext().getPageActivity()).create();
-        this.f52869e = create;
+        o(this.f52867b);
+        AlertDialog create = new AlertDialog.Builder(this.f52866a.getPageContext().getPageActivity()).create();
+        this.f52870e = create;
         create.setCanceledOnTouchOutside(false);
-        d.b.b.e.m.g.i(this.f52869e, this.f52865a.getPageContext().getPageActivity());
-        View inflate = LayoutInflater.from(this.f52865a.getPageContext().getPageActivity()).inflate(R.layout.pb_ad_card_gift_success_dialog, (ViewGroup) null);
+        d.b.b.e.m.g.i(this.f52870e, this.f52866a.getPageContext().getPageActivity());
+        View inflate = LayoutInflater.from(this.f52866a.getPageContext().getPageActivity()).inflate(R.layout.pb_ad_card_gift_success_dialog, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.bg_ad_card_gift_success);
         tbImageView.setRadius(d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30));
         tbImageView.setConrers(3);
@@ -361,16 +361,16 @@ public class b {
         imageView.setOnClickListener(new h());
         TextView textView2 = (TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_card_id);
         TextView textView3 = (TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_title);
-        textView3.setText(this.f52865a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_title, new Object[]{bVar.f52409c}));
-        textView2.setText(this.f52865a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_id, new Object[]{bVar.f52412f}));
+        textView3.setText(this.f52866a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_title, new Object[]{bVar.f52410c}));
+        textView2.setText(this.f52866a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_id, new Object[]{bVar.f52413f}));
         SkinManager.setImageResource(imageView, R.drawable.icon_use_close_n);
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0107);
         SkinManager.setViewTextColor(textView3, R.color.CAM_X0105);
         SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_tip), R.color.CAM_X0107);
         SkinManager.setBackgroundResource(textView, R.drawable.btn_pb_ad_card_gift_get);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0112);
-        this.f52869e.setOnDismissListener(new i());
-        Window window = this.f52869e.getWindow();
+        this.f52870e.setOnDismissListener(new i());
+        Window window = this.f52870e.getWindow();
         window.setWindowAnimations(R.style.normal_dialog_style);
         window.setGravity(17);
         window.setLayout(-2, -2);

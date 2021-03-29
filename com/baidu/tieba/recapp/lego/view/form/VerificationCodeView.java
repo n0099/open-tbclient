@@ -73,22 +73,22 @@ public class VerificationCodeView extends FormItemBaseView {
     public boolean g(FormCard.b bVar) {
         if (super.g(bVar)) {
             FormCard.h hVar = (FormCard.h) bVar;
-            if (!TextUtils.isEmpty(hVar.f20740d)) {
-                this.y.setText(hVar.f20740d);
+            if (!TextUtils.isEmpty(hVar.f20741d)) {
+                this.y.setText(hVar.f20741d);
                 this.y.setTextSize(0, this.n);
                 this.y.getLayoutParams().height = this.j;
                 Button button = this.y;
-                int i = this.f20825g;
+                int i = this.f20826g;
                 button.setPadding(i, 0, i, 0);
             }
-            if (TextUtils.isEmpty(hVar.f20731b)) {
+            if (TextUtils.isEmpty(hVar.f20732b)) {
                 return true;
             }
-            this.x.setHint(hVar.f20731b);
+            this.x.setHint(hVar.f20732b);
             this.x.setTextSize(0, this.n);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.x.getLayoutParams();
             marginLayoutParams.height = this.j;
-            int i2 = this.f20825g;
+            int i2 = this.f20826g;
             marginLayoutParams.rightMargin = i2;
             this.x.setPadding(i2, 0, 0, 0);
             return true;
@@ -107,7 +107,7 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     public final void k() {
-        Button button = new Button(this.f20823e);
+        Button button = new Button(this.f20824e);
         this.y = button;
         button.setId(1);
         this.y.setTextColor(this.q);
@@ -121,14 +121,14 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     public final void l() {
-        EditText editText = new EditText(this.f20823e);
+        EditText editText = new EditText(this.f20824e);
         this.x = editText;
         editText.setTextColor(this.l);
         this.x.setHintTextColor(this.m);
         this.x.setTextSize(0, this.n);
         this.x.setGravity(19);
         int paddingBottom = this.x.getPaddingBottom();
-        this.x.setPadding(this.f20825g, this.x.getPaddingTop(), this.x.getPaddingRight(), paddingBottom);
+        this.x.setPadding(this.f20826g, this.x.getPaddingTop(), this.x.getPaddingRight(), paddingBottom);
         this.x.setOnFocusChangeListener(new b());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
         layoutParams.addRule(0, this.y.getId());

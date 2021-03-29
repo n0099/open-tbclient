@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NetWorkUtils {
     public static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -21,7 +21,7 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_WIFI = "wifi";
     public static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),

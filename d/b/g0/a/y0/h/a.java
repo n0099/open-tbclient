@@ -16,16 +16,16 @@ import d.b.g0.l.l.k.c;
 import java.io.File;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47123a = k.f45050a;
+    public static final boolean f47124a = k.f45051a;
 
     /* renamed from: d.b.g0.a.y0.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0886a extends e {
-        public C0886a(String str) {
+    /* loaded from: classes2.dex */
+    public static class C0887a extends e {
+        public C0887a(String str) {
             super(str);
         }
 
@@ -41,7 +41,7 @@ public class a {
     }
 
     public static void a(@NonNull Bundle bundle) {
-        if (f47123a) {
+        if (f47124a) {
             Log.i("SwanAppLaunchUtils", "asyncUpdatePkg: swanAsyncUpdate -> 异步更新小程序包 开始");
         }
         String string = bundle.getString("mAppId");
@@ -56,13 +56,13 @@ public class a {
         if (bundle.containsKey("pms_update_expect_pkg_ver")) {
             cVar.n(bundle.getInt("pms_update_expect_pkg_ver"));
         }
-        if (f47123a) {
+        if (f47124a) {
             Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.h())));
         }
         cVar.d("4");
-        C0886a c0886a = new C0886a(string);
-        c0886a.L(3);
-        d.b.g0.l.c.a(cVar, c0886a);
+        C0887a c0887a = new C0887a(string);
+        c0887a.L(3);
+        d.b.g0.l.c.a(cVar, c0887a);
     }
 
     public static boolean b(@Nullable PMSAppInfo pMSAppInfo, @Nullable Bundle bundle) {
@@ -102,7 +102,7 @@ public class a {
                         }
                         lastIndexOf2 = e2.lastIndexOf(File.separator);
                     }
-                    if (f47123a) {
+                    if (f47124a) {
                         Log.d("SwanAppLaunchUtils", "isInDependentPkg=" + z + ", pagePath=" + e2);
                     }
                     if (z && !TextUtils.isEmpty(e2)) {

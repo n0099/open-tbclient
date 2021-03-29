@@ -20,28 +20,28 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a implements d.b.g0.a.j0.j.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43899e = k.f45050a;
+    public static final boolean f43900e = k.f45051a;
 
     /* renamed from: d.b.g0.a.e0.h.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0647a extends d.b.g0.a.e0.p.a {
+    /* loaded from: classes2.dex */
+    public static class C0648a extends d.b.g0.a.e0.p.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Map f43900a;
+        public final /* synthetic */ Map f43901a;
 
-        public C0647a(Map map) {
-            this.f43900a = map;
+        public C0648a(Map map) {
+            this.f43901a = map;
         }
 
         @Override // d.b.g0.a.e0.p.a
-        public void b(@NonNull a.C1019a c1019a) {
-            super.b(c1019a);
-            h(c1019a.f48977b);
-            d.b.g0.a.e0.p.p.a.c(c1019a.f48977b);
+        public void b(@NonNull a.C1020a c1020a) {
+            super.b(c1020a);
+            h(c1020a.f48978b);
+            d.b.g0.a.e0.p.p.a.c(c1020a.f48978b);
         }
 
         @Override // d.b.g0.a.e0.p.a
@@ -56,14 +56,14 @@ public final class a implements d.b.g0.a.j0.j.b {
         }
 
         public final void g() {
-            for (String str : this.f43900a.keySet()) {
+            for (String str : this.f43901a.keySet()) {
                 h(str);
             }
         }
 
         public final void h(@NonNull String str) {
-            if (this.f43900a.containsKey(str)) {
-                Set<String> set = (Set) this.f43900a.get(str);
+            if (this.f43901a.containsKey(str)) {
+                Set<String> set = (Set) this.f43901a.get(str);
                 if (set != null && !set.isEmpty()) {
                     for (String str2 : set) {
                         d.b.g0.a.e0.p.p.a.d(str, str2);
@@ -75,7 +75,7 @@ public final class a implements d.b.g0.a.j0.j.b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b extends d.b.g0.a.e0.p.p.b {
         public final /* synthetic */ String I;
         public final /* synthetic */ int J;
@@ -108,7 +108,7 @@ public final class a implements d.b.g0.a.j0.j.b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(int i);
 
@@ -120,7 +120,7 @@ public final class a implements d.b.g0.a.j0.j.b {
     public static void a(@NonNull List<e.b> list, @Nullable String str) {
         String[] h2;
         if (!c(h.a().getString("predownload_network_switch", "1"))) {
-            if (f43899e) {
+            if (f43900e) {
                 Log.e("SwanPreDownload", "pre download net invalid");
                 return;
             }
@@ -153,7 +153,7 @@ public final class a implements d.b.g0.a.j0.j.b {
             }
         }
         if (arrayList.isEmpty()) {
-            if (f43899e) {
+            if (f43900e) {
                 Log.i("SwanPreDownload", "preDownload list empty");
                 return;
             }
@@ -163,7 +163,7 @@ public final class a implements d.b.g0.a.j0.j.b {
         eVar.e(str);
         eVar.d("1");
         boolean equals = "1".equals(str);
-        d dVar = new d(new C0647a(hashMap));
+        d dVar = new d(new C0648a(hashMap));
         dVar.L(equals ? 6 : 7);
         d.b.g0.l.c.b(eVar, dVar);
     }
@@ -198,14 +198,14 @@ public final class a implements d.b.g0.a.j0.j.b {
                 z = false;
             }
         }
-        if (f43899e) {
+        if (f43900e) {
             Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
         }
         return z;
     }
 
     public static void d(boolean z, String str, int i, c cVar, String str2, String str3) {
-        if (f43899e) {
+        if (f43900e) {
             Log.d("SwanPreDownload", "AppId: " + str + ", scene: " + str2);
         }
         if (TextUtils.isEmpty(str)) {

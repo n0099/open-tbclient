@@ -5,18 +5,18 @@ import com.xiaomi.push.al;
 public class an implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ al.b f40231a;
+    public final /* synthetic */ al.b f40232a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ al f114a;
 
     public an(al alVar, al.b bVar) {
         this.f114a = alVar;
-        this.f40231a = bVar;
+        this.f40232a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f114a.a(this.f40231a);
+        this.f114a.a(this.f40232a);
     }
 }

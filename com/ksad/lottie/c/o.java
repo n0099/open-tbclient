@@ -5,7 +5,7 @@ import android.util.JsonReader;
 public class o implements aj<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f31340a = new o();
+    public static final o f31341a = new o();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

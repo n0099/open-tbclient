@@ -21,38 +21,38 @@ import java.util.List;
 public class a extends BaseAdapter implements View.OnClickListener {
 
     /* renamed from: h  reason: collision with root package name */
-    public static SparseArray<Integer> f59223h = new SparseArray<>();
+    public static SparseArray<Integer> f59224h = new SparseArray<>();
     public static HashMap<b, Integer> i = new HashMap<>();
     public static HashMap<b, Integer> j = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public NewFriendsActivity f59224e;
+    public NewFriendsActivity f59225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.b.i0.d1.g.a> f59225f;
+    public List<d.b.i0.d1.g.a> f59226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f59226g;
+    public c f59227g;
 
     /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f59227a;
+        public boolean f59228a;
 
         public b(boolean z) {
-            this.f59227a = z;
+            this.f59228a = z;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && b.class == obj.getClass() && this.f59227a == ((b) obj).f59227a;
+            return obj != null && b.class == obj.getClass() && this.f59228a == ((b) obj).f59228a;
         }
 
         public int hashCode() {
-            return 31 + (this.f59227a ? 1231 : 1237);
+            return 31 + (this.f59228a ? 1231 : 1237);
         }
     }
 
@@ -65,41 +65,41 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f59228a;
+        public HeadImageView f59229a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f59229b;
+        public TextView f59230b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f59230c;
+        public TextView f59231c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f59231d;
+        public TextView f59232d;
 
         public d() {
         }
 
         public void a(d.b.i0.d1.g.a aVar) {
             boolean z = false;
-            this.f59228a.W(aVar.e(), 12, false);
-            this.f59229b.setText(aVar.d());
+            this.f59229a.W(aVar.e(), 12, false);
+            this.f59230b.setText(aVar.d());
             if (!TextUtils.isEmpty(aVar.a())) {
-                this.f59230c.setText(aVar.a());
+                this.f59231c.setText(aVar.a());
             } else {
-                this.f59230c.setText("");
+                this.f59231c.setText("");
             }
             int f2 = aVar.f();
-            this.f59231d.setText(((Integer) a.f59223h.get(f2)).intValue());
-            this.f59231d.setEnabled((f2 == 0 || f2 == 1) ? true : true);
+            this.f59232d.setText(((Integer) a.f59224h.get(f2)).intValue());
+            this.f59232d.setEnabled((f2 == 0 || f2 == 1) ? true : true);
         }
     }
 
     static {
-        f59223h.put(0, Integer.valueOf(R.string.add));
-        f59223h.put(4, Integer.valueOf(R.string.added));
-        f59223h.put(1, Integer.valueOf(R.string.pass));
-        f59223h.put(2, Integer.valueOf(R.string.passed));
-        f59223h.put(3, Integer.valueOf(R.string.waiting));
+        f59224h.put(0, Integer.valueOf(R.string.add));
+        f59224h.put(4, Integer.valueOf(R.string.added));
+        f59224h.put(1, Integer.valueOf(R.string.pass));
+        f59224h.put(2, Integer.valueOf(R.string.passed));
+        f59224h.put(3, Integer.valueOf(R.string.waiting));
         i.put(new b(false), Integer.valueOf(R.drawable.btn_pass));
         i.put(new b(true), Integer.valueOf(R.drawable.btn_all_blue));
         j.put(new b(false), Integer.valueOf(R.color.btn_pass_text_color));
@@ -107,15 +107,15 @@ public class a extends BaseAdapter implements View.OnClickListener {
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.f59224e = newFriendsActivity;
+        this.f59225e = newFriendsActivity;
     }
 
     public final int b(long j2) {
-        List<d.b.i0.d1.g.a> list = this.f59225f;
+        List<d.b.i0.d1.g.a> list = this.f59226f;
         if (list != null) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (j2 == this.f59225f.get(i2).b()) {
+                if (j2 == this.f59226f.get(i2).b()) {
                     return i2;
                 }
             }
@@ -128,42 +128,42 @@ public class a extends BaseAdapter implements View.OnClickListener {
     @Override // android.widget.Adapter
     /* renamed from: c */
     public d.b.i0.d1.g.a getItem(int i2) {
-        return this.f59225f.get(i2);
+        return this.f59226f.get(i2);
     }
 
     public synchronized void d(d.b.i0.d1.g.a aVar) {
-        if (this.f59225f != null) {
-            this.f59225f.remove(aVar);
+        if (this.f59226f != null) {
+            this.f59226f.remove(aVar);
         }
     }
 
     public void e(List<d.b.i0.d1.g.a> list) {
-        this.f59225f = list;
+        this.f59226f = list;
     }
 
     public void f(c cVar) {
-        this.f59226g = cVar;
+        this.f59227g = cVar;
     }
 
     public void g(d.b.i0.d1.g.a aVar) {
-        if (this.f59225f == null) {
-            this.f59225f = new ArrayList();
+        if (this.f59226f == null) {
+            this.f59226f = new ArrayList();
         }
         if (aVar == null || aVar.b() == 0) {
             return;
         }
         int b2 = b(aVar.b());
         if (b2 != -1) {
-            this.f59225f.remove(b2);
-            this.f59225f.add(0, aVar);
+            this.f59226f.remove(b2);
+            this.f59226f.add(0, aVar);
             return;
         }
-        this.f59225f.add(0, aVar);
+        this.f59226f.add(0, aVar);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d.b.i0.d1.g.a> list = this.f59225f;
+        List<d.b.i0.d1.g.a> list = this.f59226f;
         if (list == null) {
             return 0;
         }
@@ -183,32 +183,32 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             dVar = new d();
-            dVar.f59228a = (HeadImageView) view.findViewById(R.id.friend_icon);
-            dVar.f59229b = (TextView) view.findViewById(R.id.friend_name);
-            dVar.f59230c = (TextView) view.findViewById(R.id.friend_info);
-            dVar.f59231d = (TextView) view.findViewById(R.id.friend_add_btn);
+            dVar.f59229a = (HeadImageView) view.findViewById(R.id.friend_icon);
+            dVar.f59230b = (TextView) view.findViewById(R.id.friend_name);
+            dVar.f59231c = (TextView) view.findViewById(R.id.friend_info);
+            dVar.f59232d = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(dVar);
         }
         d.b.i0.d1.g.a item = getItem(i2);
         dVar.a(item);
-        dVar.f59231d.setTag(Integer.valueOf(i2));
-        dVar.f59231d.setOnClickListener(this);
-        this.f59224e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.f59224e.getLayoutMode().j(view);
+        dVar.f59232d.setTag(Integer.valueOf(i2));
+        dVar.f59232d.setOnClickListener(this);
+        this.f59225e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.f59225e.getLayoutMode().j(view);
         Integer num = i.get(new b(item.f() == 1));
         if (num != null) {
-            SkinManager.setBackgroundResource(dVar.f59231d, num.intValue());
+            SkinManager.setBackgroundResource(dVar.f59232d, num.intValue());
         }
         Integer num2 = j.get(new b(item.f() == 1));
         if (num2 != null) {
-            SkinManager.setViewTextColor(dVar.f59231d, num2.intValue(), 1);
+            SkinManager.setViewTextColor(dVar.f59232d, num2.intValue(), 1);
         }
         return view;
     }
 
     public void h(List<d.b.i0.d1.g.a> list) {
-        if (this.f59225f == null) {
-            this.f59225f = new ArrayList();
+        if (this.f59226f == null) {
+            this.f59226f = new ArrayList();
         }
         if (list != null) {
             for (d.b.i0.d1.g.a aVar : list) {
@@ -219,10 +219,10 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f59226g != null) {
+        if (this.f59227g != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.f59226g.a(id, intValue, view, getItem(intValue));
+            this.f59227g.a(id, intValue, view, getItem(intValue));
         }
     }
 }

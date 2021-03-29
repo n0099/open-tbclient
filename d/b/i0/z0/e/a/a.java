@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 import d.b.i0.z0.e.a.e.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(View view, Object obj, int i, String str) {
         if (obj instanceof d.b.i0.z0.e.a.e.c) {
             d.b.i0.z0.e.a.e.c cVar = (d.b.i0.z0.e.a.e.c) obj;
-            if (cVar.f62971e) {
+            if (cVar.f62972e) {
                 StatisticItem statisticItem = new StatisticItem("c13736");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem.eventStat();
@@ -19,7 +19,7 @@ public class a {
             }
             StatisticItem statisticItem2 = new StatisticItem("c13735");
             statisticItem2.param("obj_locate", i);
-            statisticItem2.param("topic_id", cVar.f62967a);
+            statisticItem2.param("topic_id", cVar.f62968a);
             statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem2.eventStat();
         } else if (obj instanceof e) {

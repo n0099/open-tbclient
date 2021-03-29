@@ -8,7 +8,7 @@ import com.baidu.tieba.homepage.gamevideo.message.GameVideoHttpResMessage;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoSocketResMessage;
 import d.b.h0.v0.b;
 import d.b.i0.c3.d0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameVideoStatic {
     static {
         a();

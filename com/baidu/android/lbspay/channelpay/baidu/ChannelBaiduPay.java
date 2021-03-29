@@ -19,7 +19,7 @@ import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelBaiduPay extends AbstractChannelPay {
     public CashierDataNew mOrderInfo;
     public WeakReference<Activity> mWeakReference;

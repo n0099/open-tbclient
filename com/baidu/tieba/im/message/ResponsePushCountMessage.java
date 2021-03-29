@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.CommitPusherCount.CommitPusherCountResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponsePushCountMessage extends SocketResponsedMessage {
     public String groupId;
 

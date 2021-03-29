@@ -33,7 +33,6 @@ public final class ObservableDebounceTimed$DebounceEmitter<T> extends AtomicRefe
     public void run() {
         if (this.once.compareAndSet(false, true)) {
             this.parent.a(this.idx, this.value, this);
-            throw null;
         }
     }
 

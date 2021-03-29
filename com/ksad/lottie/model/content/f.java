@@ -7,22 +7,22 @@ import com.ksad.lottie.model.a.m;
 public class f implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31528a;
+    public final String f31529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m<PointF, PointF> f31529b;
+    public final m<PointF, PointF> f31530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.f f31530c;
+    public final com.ksad.lottie.model.a.f f31531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31531d;
+    public final com.ksad.lottie.model.a.b f31532d;
 
     public f(String str, m<PointF, PointF> mVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.b bVar) {
-        this.f31528a = str;
-        this.f31529b = mVar;
-        this.f31530c = fVar;
-        this.f31531d = bVar;
+        this.f31529a = str;
+        this.f31530b = mVar;
+        this.f31531c = fVar;
+        this.f31532d = bVar;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -31,22 +31,22 @@ public class f implements b {
     }
 
     public String a() {
-        return this.f31528a;
+        return this.f31529a;
     }
 
     public com.ksad.lottie.model.a.b b() {
-        return this.f31531d;
+        return this.f31532d;
     }
 
     public com.ksad.lottie.model.a.f c() {
-        return this.f31530c;
+        return this.f31531c;
     }
 
     public m<PointF, PointF> d() {
-        return this.f31529b;
+        return this.f31530b;
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.f31529b + ", size=" + this.f31530c + '}';
+        return "RectangleShape{position=" + this.f31530b + ", size=" + this.f31531c + '}';
     }
 }

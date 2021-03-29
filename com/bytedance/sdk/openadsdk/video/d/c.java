@@ -45,16 +45,16 @@ public class c {
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(File file, File file2) {
-                    long lastModified = file2.lastModified() - file.lastModified();
-                    if (lastModified == 0) {
+                    int i2 = ((file2.lastModified() - file.lastModified()) > 0L ? 1 : ((file2.lastModified() - file.lastModified()) == 0L ? 0 : -1));
+                    if (i2 == 0) {
                         return 0;
                     }
-                    return lastModified < 0 ? -1 : 1;
+                    return i2 < 0 ? -1 : 1;
                 }
             });
             while (i < asList.size()) {
                 String name = ((File) asList.get(i)).getName();
-                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f30468a.contains(name.replace(name, ".download"))) {
+                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f30469a.contains(name.replace(name, ".download"))) {
                     ((File) asList.get(i)).delete();
                 }
                 i++;

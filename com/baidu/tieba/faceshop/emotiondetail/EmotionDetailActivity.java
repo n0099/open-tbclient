@@ -170,15 +170,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public class e implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f15800e;
+        public final /* synthetic */ View f15801e;
 
         public e(View view) {
-            this.f15800e = view;
+            this.f15801e = view;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            int top = this.f15800e.findViewById(R.id.id_pop_layout).getTop();
+            int top = this.f15801e.findViewById(R.id.id_pop_layout).getTop();
             int y = (int) motionEvent.getY();
             if (motionEvent.getAction() == 1 && y < top) {
                 EmotionDetailActivity.this.mManageEmotionPopupWindow.dismiss();
@@ -255,15 +255,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f15803e;
+        public final /* synthetic */ ShareItem f15804e;
 
         public g(ShareItem shareItem) {
-            this.f15803e = shareItem;
+            this.f15804e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.p.a.a(this.f15803e.t);
+            d.b.b.e.p.a.a(this.f15804e.t);
             l.L(EmotionDetailActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -340,7 +340,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                     break;
                 }
                 CollectEmotionData next = it.next();
-                if (!d.b.h0.a0.d.f49682d.equals(next.sharpText) && !TextUtils.isEmpty(next.pid)) {
+                if (!d.b.h0.a0.d.f49683d.equals(next.sharpText) && !TextUtils.isEmpty(next.pid)) {
                     String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.collect/" + d.b.h0.a0.d.b() + "/" + next.pid + "_s.jpg";
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.setFilePath(str);
@@ -406,8 +406,8 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             EmotionDetailData.PckInfo pckInfo = emotionDetailData.pck_info;
             int i2 = pckInfo == null ? 0 : pckInfo.pck_id;
             d.b.h0.b0.c cVar = new d.b.h0.b0.c();
-            cVar.f49776d = str;
-            cVar.f49778f = StringUtils.string(Integer.valueOf(i2));
+            cVar.f49777d = str;
+            cVar.f49779f = StringUtils.string(Integer.valueOf(i2));
             ArrayList arrayList = new ArrayList();
             arrayList.add(cVar);
             u.s().h(arrayList, true, new j());

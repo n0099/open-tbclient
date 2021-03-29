@@ -14,47 +14,47 @@ import com.kwad.sdk.glide.c.c;
 public final class e implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a f35098a;
+    public final c.a f35099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35099b;
+    public boolean f35100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f35100c;
+    public final Context f35101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35101d;
+    public boolean f35102d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BroadcastReceiver f35102e = new BroadcastReceiver() { // from class: com.kwad.sdk.glide.c.e.1
+    public final BroadcastReceiver f35103e = new BroadcastReceiver() { // from class: com.kwad.sdk.glide.c.e.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(@NonNull Context context, Intent intent) {
             e eVar = e.this;
-            boolean z = eVar.f35099b;
-            eVar.f35099b = eVar.a(context);
-            if (z != e.this.f35099b) {
+            boolean z = eVar.f35100b;
+            eVar.f35100b = eVar.a(context);
+            if (z != e.this.f35100b) {
                 if (Log.isLoggable("ConnectivityMonitor", 3)) {
-                    Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + e.this.f35099b);
+                    Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + e.this.f35100b);
                 }
                 e eVar2 = e.this;
-                eVar2.f35098a.a(eVar2.f35099b);
+                eVar2.f35099a.a(eVar2.f35100b);
             }
         }
     };
 
     public e(@NonNull Context context, @NonNull c.a aVar) {
-        this.f35100c = context.getApplicationContext();
-        this.f35098a = aVar;
+        this.f35101c = context.getApplicationContext();
+        this.f35099a = aVar;
     }
 
     private void a() {
-        if (this.f35101d) {
+        if (this.f35102d) {
             return;
         }
-        this.f35099b = a(this.f35100c);
+        this.f35100b = a(this.f35101c);
         try {
-            this.f35100c.registerReceiver(this.f35102e, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-            this.f35101d = true;
+            this.f35101c.registerReceiver(this.f35103e, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            this.f35102d = true;
         } catch (SecurityException e2) {
             if (Log.isLoggable("ConnectivityMonitor", 5)) {
                 Log.w("ConnectivityMonitor", "Failed to register", e2);
@@ -63,9 +63,9 @@ public final class e implements c {
     }
 
     private void b() {
-        if (this.f35101d) {
-            this.f35100c.unregisterReceiver(this.f35102e);
-            this.f35101d = false;
+        if (this.f35102d) {
+            this.f35101c.unregisterReceiver(this.f35103e);
+            this.f35102d = false;
         }
     }
 

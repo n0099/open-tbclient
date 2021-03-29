@@ -9,34 +9,34 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import d.b.b.j.e.a;
 import d.b.i0.b1.c.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public HotTopicActivity m;
     public boolean n;
     public BdUniqueId o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17535a;
+        public int f17536a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.i0.b1.f.a f17536b;
+        public d.b.i0.b1.f.a f17537b;
 
         public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.b.i0.b1.f.a aVar) {
             super(aVar.m());
-            this.f17535a = 3;
-            this.f17536b = aVar;
+            this.f17536a = 3;
+            this.f17537b = aVar;
         }
 
         public void b(int i) {
-            if (this.f17535a != i) {
-                d.b.i0.b1.f.a aVar = this.f17536b;
+            if (this.f17536a != i) {
+                d.b.i0.b1.f.a aVar = this.f17537b;
                 if (aVar != null) {
                     aVar.o(aVar.l(), i);
                 }
-                this.f17535a = i;
+                this.f17536a = i;
             }
         }
     }
@@ -69,7 +69,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     /* renamed from: j0 */
     public View X(int i, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         d.b.i0.b1.f.a aVar;
-        if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17536b) == null) {
+        if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17537b) == null) {
             return null;
         }
         if (this.n) {

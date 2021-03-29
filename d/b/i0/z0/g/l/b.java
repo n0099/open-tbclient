@@ -3,17 +3,17 @@ package d.b.i0.z0.g.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.b.i0.x.e0.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseCardInfo implements p {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f63218g = BdUniqueId.gen();
+    public static final BdUniqueId f63219g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63219e;
+    public long f63220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63220f = false;
+    public boolean f63221f = false;
 
     @Override // d.b.i0.x.e0.p
     public void b(boolean z) {
@@ -26,7 +26,7 @@ public class b extends BaseCardInfo implements p {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
-        return f63218g;
+        return f63219g;
     }
 
     @Override // d.b.i0.x.e0.p

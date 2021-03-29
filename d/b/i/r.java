@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class r extends s0 {
     public static final int F = d.b.b.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     public InterviewLiveLayout C;
@@ -27,7 +27,7 @@ public class r extends s0 {
     }
 
     public final void A() {
-        View inflate = LayoutInflater.from(this.f51762f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+        View inflate = LayoutInflater.from(this.f51763f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
         this.j = inflate;
         this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
         this.E = (TextView) this.j.findViewById(R.id.video_seg_abstract);
@@ -63,7 +63,7 @@ public class r extends s0 {
 
     @Override // d.b.i.s0
     public d.b.i0.i2.q.a q() {
-        d.b.i0.i2.q.b bVar = new d.b.i0.i2.q.b(this.f51762f, this.m);
+        d.b.i0.i2.q.b bVar = new d.b.i0.i2.q.b(this.f51763f, this.m);
         bVar.setStageType("2003");
         return bVar;
     }

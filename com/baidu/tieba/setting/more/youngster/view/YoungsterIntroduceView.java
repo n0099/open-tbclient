@@ -18,16 +18,16 @@ import d.b.h0.r.f0.m.a;
 public class YoungsterIntroduceView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21066e;
+    public ImageView f21067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21067f;
+    public TextView f21068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21068g;
+    public TextView f21069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21069h;
+    public TextView f21070h;
     public TextView i;
     public TBSpecificationBtn j;
     public int k;
@@ -38,10 +38,10 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
 
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
-        this.f21066e = (ImageView) findViewById(R.id.img_youngster_introduce);
-        this.f21067f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-        this.f21068g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-        this.f21069h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+        this.f21067e = (ImageView) findViewById(R.id.img_youngster_introduce);
+        this.f21068f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+        this.f21069g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+        this.f21070h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
         this.i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
         this.j = tBSpecificationBtn;
@@ -52,10 +52,10 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     }
 
     public void b() {
-        this.f21066e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f21067f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f21068g, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.f21069h, R.color.CAM_X0107);
+        this.f21067e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f21068f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f21069g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f21070h, R.color.CAM_X0107);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0107);
         this.j.k();
     }

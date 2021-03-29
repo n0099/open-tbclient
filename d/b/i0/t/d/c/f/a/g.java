@@ -10,7 +10,7 @@ public class g extends d.b.b.j.e.a<d.b.i0.t.d.f.c.g, LiveTabConcernTitleView.Vie
     public TbPageContext m;
 
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.g.f60543g);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.f.c.g.f60544g);
         this.m = tbPageContext;
     }
 
@@ -26,11 +26,11 @@ public class g extends d.b.b.j.e.a<d.b.i0.t.d.f.c.g, LiveTabConcernTitleView.Vie
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.f.c.g gVar, LiveTabConcernTitleView.ViewHolder viewHolder) {
         LiveTabConcernTitleView liveTabConcernTitleView;
-        if (viewHolder == null || (liveTabConcernTitleView = viewHolder.f14800a) == null) {
+        if (viewHolder == null || (liveTabConcernTitleView = viewHolder.f14801a) == null) {
             return null;
         }
         liveTabConcernTitleView.n(gVar);
-        viewHolder.f14800a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        viewHolder.f14801a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return viewHolder.a();
     }
 }

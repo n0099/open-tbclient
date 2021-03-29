@@ -5,10 +5,10 @@ import android.text.TextUtils;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f33877a = b() + "ksad-android-3.3.9";
+    public static final String f33878a = b() + "ksad-android-3.3.9";
 
     public static String a() {
-        return f33877a;
+        return f33878a;
     }
 
     public static String b() {

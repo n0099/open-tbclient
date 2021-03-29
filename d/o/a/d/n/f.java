@@ -8,7 +8,7 @@ import d.o.a.d.f.n;
 import d.o.a.e.a.j;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static JSONObject a(@NonNull JSONObject jSONObject, d.o.a.b.a.c.a aVar) {
         k.r(jSONObject, "open_url", k.m(aVar.f(), "open_url_not_exist"));
@@ -72,7 +72,6 @@ public class f {
 
     public static void f(DownloadInfo downloadInfo, JSONObject jSONObject) {
         d.o.a.b.a.c.b c2;
-        double d2;
         if (jSONObject == null || (c2 = c.g.e().c(downloadInfo)) == null) {
             return;
         }
@@ -87,16 +86,7 @@ public class f {
             jSONObject.put("click_pause_times", c2.h1());
             long Q0 = downloadInfo.Q0();
             long E = downloadInfo.E();
-            if (E < 0 || Q0 <= 0) {
-                d2 = 0.0d;
-            } else {
-                double d3 = E;
-                double d4 = Q0;
-                Double.isNaN(d3);
-                Double.isNaN(d4);
-                d2 = d3 / d4;
-            }
-            jSONObject.put("download_percent", d2);
+            jSONObject.put("download_percent", (E < 0 || Q0 <= 0) ? 0.0d : E / Q0);
             jSONObject.put("download_status", downloadInfo.z0());
             long currentTimeMillis = System.currentTimeMillis();
             long C = c2.C();

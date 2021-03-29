@@ -7,41 +7,41 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f43453a;
+    public final Uri f43454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Bitmap f43454b;
+    public final Bitmap f43455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Integer f43455c;
+    public final Integer f43456c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43456d;
+    public boolean f43457d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43457e;
+    public int f43458e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43458f;
+    public int f43459f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f43459g;
+    public Rect f43460g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43460h;
+    public boolean f43461h;
 
     public b(Bitmap bitmap, boolean z) {
-        this.f43454b = bitmap;
-        this.f43453a = null;
-        this.f43455c = null;
-        this.f43456d = false;
-        this.f43457e = bitmap.getWidth();
-        this.f43458f = bitmap.getHeight();
-        this.f43460h = z;
+        this.f43455b = bitmap;
+        this.f43454a = null;
+        this.f43456c = null;
+        this.f43457d = false;
+        this.f43458e = bitmap.getWidth();
+        this.f43459f = bitmap.getHeight();
+        this.f43461h = z;
     }
 
     public static b a(String str) {
@@ -76,39 +76,39 @@ public final class b {
     }
 
     public final Bitmap c() {
-        return this.f43454b;
+        return this.f43455b;
     }
 
     public final Integer d() {
-        return this.f43455c;
+        return this.f43456c;
     }
 
     public final int e() {
-        return this.f43458f;
+        return this.f43459f;
     }
 
     public final Rect f() {
-        return this.f43459g;
+        return this.f43460g;
     }
 
     public final int g() {
-        return this.f43457e;
+        return this.f43458e;
     }
 
     public final boolean h() {
-        return this.f43456d;
+        return this.f43457d;
     }
 
     public final Uri i() {
-        return this.f43453a;
+        return this.f43454a;
     }
 
     public final boolean j() {
-        return this.f43460h;
+        return this.f43461h;
     }
 
     public b l(boolean z) {
-        this.f43456d = z;
+        this.f43457d = z;
         return this;
     }
 
@@ -130,16 +130,16 @@ public final class b {
             } catch (UnsupportedEncodingException unused) {
             }
         }
-        this.f43454b = null;
-        this.f43453a = uri;
-        this.f43455c = null;
-        this.f43456d = true;
+        this.f43455b = null;
+        this.f43454a = uri;
+        this.f43456c = null;
+        this.f43457d = true;
     }
 
     public b(int i) {
-        this.f43454b = null;
-        this.f43453a = null;
-        this.f43455c = Integer.valueOf(i);
-        this.f43456d = true;
+        this.f43455b = null;
+        this.f43454a = null;
+        this.f43456c = Integer.valueOf(i);
+        this.f43457d = true;
     }
 }

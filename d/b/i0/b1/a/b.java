@@ -17,25 +17,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.holder.HotRankListManualItemHolder;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d.b.b.j.e.a<d.b.i0.b1.c.b, HotRankListManualItemHolder> {
     public int m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.b1.c.b f52005e;
+        public final /* synthetic */ d.b.i0.b1.c.b f52006e;
 
         public a(b bVar, d.b.i0.b1.c.b bVar2) {
-            this.f52005e = bVar2;
+            this.f52006e = bVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f52005e.a()), this.f52005e.f(), "5")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f52006e.a()), this.f52006e.f(), "5")));
             StatisticItem statisticItem = new StatisticItem("c10811");
-            TiebaStatic.log(statisticItem.param("obj_name", "" + this.f52005e.f()));
+            TiebaStatic.log(statisticItem.param("obj_name", "" + this.f52006e.f()));
         }
     }
 
@@ -54,18 +54,18 @@ public class b extends d.b.b.j.e.a<d.b.i0.b1.c.b, HotRankListManualItemHolder> {
         if (hotRankListManualItemHolder == null || bVar == null) {
             return;
         }
-        String string = StringUtils.isNull(bVar.e()) ? this.f42357e.getResources().getString(R.string.hot_topic_hot_trend) : bVar.e();
-        hotRankListManualItemHolder.f17571d.setText(bVar.g());
-        hotRankListManualItemHolder.f17569b.setText(string);
-        hotRankListManualItemHolder.f17574g.W(bVar.j(), 10, false);
+        String string = StringUtils.isNull(bVar.e()) ? this.f42358e.getResources().getString(R.string.hot_topic_hot_trend) : bVar.e();
+        hotRankListManualItemHolder.f17572d.setText(bVar.g());
+        hotRankListManualItemHolder.f17570b.setText(string);
+        hotRankListManualItemHolder.f17575g.W(bVar.j(), 10, false);
         if (StringUtils.isNull(bVar.f())) {
-            hotRankListManualItemHolder.f17570c.setVisibility(8);
-            hotRankListManualItemHolder.f17571d.setPadding(0, 0, 0, 0);
+            hotRankListManualItemHolder.f17571c.setVisibility(8);
+            hotRankListManualItemHolder.f17572d.setPadding(0, 0, 0, 0);
         } else {
-            hotRankListManualItemHolder.f17570c.setVisibility(0);
-            hotRankListManualItemHolder.f17570c.setText(bVar.f());
+            hotRankListManualItemHolder.f17571c.setVisibility(0);
+            hotRankListManualItemHolder.f17571c.setText(bVar.f());
         }
-        hotRankListManualItemHolder.f17575h.setOnClickListener(new a(this, bVar));
+        hotRankListManualItemHolder.f17576h.setOnClickListener(new a(this, bVar));
     }
 
     public final void i0(HotRankListManualItemHolder hotRankListManualItemHolder) {
@@ -74,15 +74,15 @@ public class b extends d.b.b.j.e.a<d.b.i0.b1.c.b, HotRankListManualItemHolder> {
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.m = skinType;
-        if (hotRankListManualItemHolder.f17568a != skinType) {
-            hotRankListManualItemHolder.f17568a = skinType;
+        if (hotRankListManualItemHolder.f17569a != skinType) {
+            hotRankListManualItemHolder.f17569a = skinType;
             SkinManager.setBackgroundColor(hotRankListManualItemHolder.a(), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(hotRankListManualItemHolder.f17569b, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(hotRankListManualItemHolder.f17570c, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(hotRankListManualItemHolder.f17571d, R.color.CAM_X0108, 1);
-            SkinManager.setBackgroundColor(hotRankListManualItemHolder.f17572e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(hotRankListManualItemHolder.f17573f, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(hotRankListManualItemHolder.f17575h, R.drawable.hot_topic_ranklist_bg);
+            SkinManager.setViewTextColor(hotRankListManualItemHolder.f17570b, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(hotRankListManualItemHolder.f17571c, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(hotRankListManualItemHolder.f17572d, R.color.CAM_X0108, 1);
+            SkinManager.setBackgroundColor(hotRankListManualItemHolder.f17573e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(hotRankListManualItemHolder.f17574f, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(hotRankListManualItemHolder.f17576h, R.drawable.hot_topic_ranklist_bg);
         }
     }
 
@@ -90,7 +90,7 @@ public class b extends d.b.b.j.e.a<d.b.i0.b1.c.b, HotRankListManualItemHolder> {
     @Override // d.b.b.j.e.a
     /* renamed from: j0 */
     public HotRankListManualItemHolder R(ViewGroup viewGroup) {
-        return new HotRankListManualItemHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.hot_topic_ranklist_head, viewGroup, false));
+        return new HotRankListManualItemHolder(LayoutInflater.from(this.f42358e).inflate(R.layout.hot_topic_ranklist_head, viewGroup, false));
     }
 
     public View l0(int i, View view, ViewGroup viewGroup, d.b.i0.b1.c.b bVar, HotRankListManualItemHolder hotRankListManualItemHolder) {

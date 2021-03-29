@@ -120,7 +120,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;
         public final String TAG;
@@ -170,7 +170,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* JADX WARN: Removed duplicated region for block: B:41:0x00e2  */
+        /* JADX WARN: Removed duplicated region for block: B:41:0x00e0  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */

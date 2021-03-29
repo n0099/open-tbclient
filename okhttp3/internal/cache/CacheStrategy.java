@@ -10,7 +10,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class CacheStrategy {
     @Nullable
     public final Response cacheResponse;

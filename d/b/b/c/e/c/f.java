@@ -7,41 +7,41 @@ import java.util.Random;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f41503b;
+    public static f f41504b;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41504a = 0;
+    public int f41505a = 0;
 
     public static f a() {
-        if (f41503b == null) {
+        if (f41504b == null) {
             synchronized (f.class) {
-                if (f41503b == null) {
-                    f41503b = new f();
+                if (f41504b == null) {
+                    f41504b = new f();
                 }
             }
         }
-        return f41503b;
+        return f41504b;
     }
 
     public synchronized int b() {
         int i;
-        if (this.f41504a == 0) {
-            this.f41504a++;
+        if (this.f41505a == 0) {
+            this.f41505a++;
         }
-        i = this.f41504a;
-        this.f41504a = i + 1;
+        i = this.f41505a;
+        this.f41505a = i + 1;
         return i;
     }
 
     public synchronized void c(Map<String, String> map) {
         if (map != null) {
             try {
-                this.f41504a = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.f41505a = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 i.a("SequenceManager", 0, 0, "setSequenceId", h.x, "parser Seq-Id error");
-                if (this.f41504a == 0) {
-                    this.f41504a = new Random().nextInt();
+                if (this.f41505a == 0) {
+                    this.f41505a = new Random().nextInt();
                 }
             }
         }

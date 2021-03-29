@@ -23,18 +23,18 @@ public class h extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47381e;
+        public final /* synthetic */ CallbackHandler f47382e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47382f;
+        public final /* synthetic */ String f47383f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f47383g;
+        public final /* synthetic */ Activity f47384g;
 
         public a(CallbackHandler callbackHandler, String str, Activity activity) {
-            this.f47381e = callbackHandler;
-            this.f47382f = str;
-            this.f47383g = activity;
+            this.f47382e = callbackHandler;
+            this.f47383f = str;
+            this.f47384g = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,11 +42,11 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.o(hVar, this.f47381e, this.f47382f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f47382e, this.f47383f);
                 return;
             }
             d.b.g0.a.c0.c.g("ReadContacts", "request authorize success");
-            h.this.p(this.f47383g, this.f47381e, this.f47382f);
+            h.this.p(this.f47384g, this.f47382e, this.f47383f);
         }
     }
 
@@ -54,29 +54,29 @@ public class h extends a0 {
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f47385a;
+        public final /* synthetic */ Activity f47386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47386b;
+        public final /* synthetic */ CallbackHandler f47387b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47387c;
+        public final /* synthetic */ String f47388c;
 
         public b(Activity activity, CallbackHandler callbackHandler, String str) {
-            this.f47385a = activity;
-            this.f47386b = callbackHandler;
-            this.f47387c = str;
+            this.f47386a = activity;
+            this.f47387b = callbackHandler;
+            this.f47388c = str;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            h.this.m(this.f47385a, this.f47386b, this.f47387c);
+            h.this.m(this.f47386a, this.f47387b, this.f47388c);
             d.b.g0.a.c0.c.b("ReadContacts", str + "");
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            d.b.g0.a.v1.c.c.m(10005, this.f47386b, this.f47387c);
+            d.b.g0.a.v1.c.c.m(10005, this.f47387b, this.f47388c);
             d.b.g0.a.c0.c.b("ReadContacts", str + "");
         }
     }
@@ -215,13 +215,13 @@ public class h extends a0 {
     public final void m(Activity activity, CallbackHandler callbackHandler, String str) {
         try {
             JSONObject l = l(activity);
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.i("ReadContactsAction", "read contacts:" + l.toString());
             }
             d.b.g0.a.c0.c.b("ReadContacts", "read contacts:" + l.toString());
             o(callbackHandler, str, 0, l);
         } catch (JSONException e2) {
-            if (a0.f46287b) {
+            if (a0.f46288b) {
                 Log.e("ReadContactsAction", "read contacts error caused by JsonException");
                 e2.printStackTrace();
             }

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public abstract class CameraCapturer implements CameraVideoCapturer {
     public static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
     public static final int OPEN_CAMERA_DELAY_MS = 500;

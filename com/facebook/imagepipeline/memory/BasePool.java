@@ -19,7 +19,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class BasePool<V> implements Pool<V> {
     public static OnFailedListener mOnFailedListener;
     public boolean mAllowNewBuckets;

@@ -2,14 +2,14 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class ConfigVersion extends Message {
     public static final String DEFAULT_PLUGIN = "";
     public static final String DEFAULT_SYNC = "";
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
 
     /* renamed from: plugin  reason: collision with root package name */
-    public final String f68132plugin;
+    public final String f68137plugin;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
 
@@ -17,7 +17,7 @@ public final class ConfigVersion extends Message {
     public static final class Builder extends Message.Builder<ConfigVersion> {
 
         /* renamed from: plugin  reason: collision with root package name */
-        public String f68133plugin;
+        public String f68138plugin;
         public String sync;
 
         public Builder() {
@@ -29,7 +29,7 @@ public final class ConfigVersion extends Message {
                 return;
             }
             this.sync = configVersion.sync;
-            this.f68133plugin = configVersion.f68132plugin;
+            this.f68138plugin = configVersion.f68137plugin;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,16 +48,16 @@ public final class ConfigVersion extends Message {
             } else {
                 this.sync = str;
             }
-            String str2 = builder.f68133plugin;
+            String str2 = builder.f68138plugin;
             if (str2 == null) {
-                this.f68132plugin = "";
+                this.f68137plugin = "";
                 return;
             } else {
-                this.f68132plugin = str2;
+                this.f68137plugin = str2;
                 return;
             }
         }
         this.sync = builder.sync;
-        this.f68132plugin = builder.f68133plugin;
+        this.f68137plugin = builder.f68138plugin;
     }
 }

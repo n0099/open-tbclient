@@ -23,16 +23,16 @@ public class c extends ReplacementSpan {
     public boolean s;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50532e = R.drawable.icon_pure_evaluation_star24_n;
+    public int f50533e = R.drawable.icon_pure_evaluation_star24_n;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50533f = R.color.CAM_X0112;
+    public int f50534f = R.color.CAM_X0112;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50534g = R.drawable.icon_pure_evaluation_star24_n;
+    public int f50535g = R.drawable.icon_pure_evaluation_star24_n;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50535h = R.color.CAM_X0305;
+    public int f50536h = R.color.CAM_X0305;
     public int q = 5;
 
     public c(int i, int i2, int i3, int i4, int i5, boolean z) {
@@ -45,8 +45,8 @@ public class c extends ReplacementSpan {
     }
 
     public final void a() {
-        this.i = SvgManager.getInstance().getPureDrawable(this.f50532e, this.f50533f, null);
-        this.j = SvgManager.getInstance().getPureDrawable(this.f50534g, this.f50535h, null);
+        this.i = SvgManager.getInstance().getPureDrawable(this.f50533e, this.f50534f, null);
+        this.j = SvgManager.getInstance().getPureDrawable(this.f50535g, this.f50536h, null);
     }
 
     @Override // android.text.style.ReplacementSpan

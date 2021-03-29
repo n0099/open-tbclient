@@ -11,7 +11,7 @@ import d.b.s.a.b.d.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AckHandlerThread extends HandlerThread {
     public static final long ACK_DELAY = 1000;
     public static final int RETRY_COUNT = 3;
@@ -52,16 +52,16 @@ public class AckHandlerThread extends HandlerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(final Context context, final NewAckMessage newAckMessage) {
-        if (!a.f64551e || newAckMessage == null) {
+        if (!a.f64552e || newAckMessage == null) {
             return;
         }
         BLCPRequest bLCPRequest = new BLCPRequest();
-        bLCPRequest.f6377a = 2L;
-        bLCPRequest.f6378b = 95L;
-        bLCPRequest.f6379c = newAckMessage.getBody().getBytes();
-        bLCPRequest.f6380d = System.nanoTime();
+        bLCPRequest.f6378a = 2L;
+        bLCPRequest.f6379b = 95L;
+        bLCPRequest.f6380c = newAckMessage.getBody().getBytes();
+        bLCPRequest.f6381d = System.nanoTime();
         String str = TAG;
-        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6380d);
+        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6381d);
         d.b.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
             @Override // d.b.s.a.b.d.b
             public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {

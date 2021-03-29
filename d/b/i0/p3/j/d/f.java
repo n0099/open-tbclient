@@ -27,16 +27,16 @@ import java.util.concurrent.atomic.AtomicReference;
 public class f extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58989e;
+    public Context f58990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58990f;
+    public String f58991f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58991g;
+    public String f58992g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f58992h;
+    public e f58993h;
     public b.c i;
 
     /* loaded from: classes5.dex */
@@ -52,10 +52,10 @@ public class f extends Thread {
 
     public f(Context context, String str, String str2, e eVar, b.c cVar) {
         super("FilterVideoThread");
-        this.f58989e = context;
-        this.f58990f = str;
-        this.f58991g = str2;
-        this.f58992h = eVar;
+        this.f58990e = context;
+        this.f58991f = str;
+        this.f58992g = str2;
+        this.f58993h = eVar;
         this.i = cVar;
     }
 
@@ -101,7 +101,7 @@ public class f extends Thread {
 
     public final MediaExtractor a() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
-        mediaExtractor.setDataSource(this.f58990f);
+        mediaExtractor.setDataSource(this.f58991f);
         return mediaExtractor;
     }
 
@@ -154,7 +154,7 @@ public class f extends Thread {
         boolean z4 = false;
         boolean z5 = false;
         while (!z3 && h()) {
-            if (z2 || !((mediaFormat4 == null || this.f58992h.b()) && h() && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) != i4)) {
+            if (z2 || !((mediaFormat4 == null || this.f58993h.b()) && h() && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) != i4)) {
                 j = 10000;
                 i = i6;
             } else {
@@ -176,7 +176,7 @@ public class f extends Thread {
                 }
                 z2 = z6;
             }
-            if (!z4 && ((mediaFormat4 == null || this.f58992h.b()) && h() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j)) != -1)) {
+            if (!z4 && ((mediaFormat4 == null || this.f58993h.b()) && h() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -198,7 +198,7 @@ public class f extends Thread {
                             mediaCodec2.signalEndOfInputStream();
                             byteBufferArr = outputBuffers;
                             z4 = true;
-                            if (z3 && ((mediaFormat4 == null || this.f58992h.b()) && h())) {
+                            if (z3 && ((mediaFormat4 == null || this.f58993h.b()) && h())) {
                                 int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, j);
                                 if (dequeueOutputBuffer2 == -1) {
                                     i2 = i;
@@ -220,7 +220,7 @@ public class f extends Thread {
                                             mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, false);
                                         } else {
                                             if (bufferInfo2.size != 0) {
-                                                this.f58992h.g(i2, byteBuffer2, bufferInfo2);
+                                                this.f58993h.g(i2, byteBuffer2, bufferInfo2);
                                             }
                                             if ((bufferInfo2.flags & 4) != 0) {
                                                 z = false;
@@ -235,14 +235,14 @@ public class f extends Thread {
                                         i6 = i2;
                                     } else {
                                         j("InnerVideoProcessor", "muxer: adding video track.");
-                                        i6 = this.f58992h.a(mediaFormat);
+                                        i6 = this.f58993h.a(mediaFormat);
                                         z5 = true;
                                     }
-                                    if (!this.f58992h.b() && z5) {
-                                        this.f58992h.d();
-                                        if (!this.f58992h.e()) {
-                                            synchronized (this.f58992h) {
-                                                while (!this.f58992h.b()) {
+                                    if (!this.f58993h.b() && z5) {
+                                        this.f58993h.d();
+                                        if (!this.f58993h.e()) {
+                                            synchronized (this.f58993h) {
+                                                while (!this.f58993h.b()) {
                                                     try {
                                                         mediaFormat3 = mediaFormat;
                                                     } catch (InterruptedException e2) {
@@ -250,7 +250,7 @@ public class f extends Thread {
                                                         mediaFormat3 = mediaFormat;
                                                     }
                                                     try {
-                                                        this.f58992h.wait(100L);
+                                                        this.f58993h.wait(100L);
                                                     } catch (InterruptedException e3) {
                                                         e = e3;
                                                         e.printStackTrace();
@@ -279,9 +279,9 @@ public class f extends Thread {
                             if (mediaFormat != null) {
                             }
                             i6 = i2;
-                            if (!this.f58992h.b()) {
-                                this.f58992h.d();
-                                if (!this.f58992h.e()) {
+                            if (!this.f58993h.b()) {
+                                this.f58993h.d();
+                                if (!this.f58993h.e()) {
                                 }
                             }
                             mediaFormat2 = mediaFormat;
@@ -298,7 +298,7 @@ public class f extends Thread {
                         if (mediaFormat != null) {
                         }
                         i6 = i2;
-                        if (!this.f58992h.b()) {
+                        if (!this.f58993h.b()) {
                         }
                         mediaFormat2 = mediaFormat;
                         outputBuffers = byteBufferArr;
@@ -316,7 +316,7 @@ public class f extends Thread {
             if (mediaFormat != null) {
             }
             i6 = i2;
-            if (!this.f58992h.b()) {
+            if (!this.f58993h.b()) {
             }
             mediaFormat2 = mediaFormat;
             outputBuffers = byteBufferArr;
@@ -337,16 +337,16 @@ public class f extends Thread {
      */
     /* JADX WARN: Removed duplicated region for block: B:142:0x020b A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:143:0x020c  */
-    /* JADX WARN: Removed duplicated region for block: B:191:0x026a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x0224 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:197:0x01e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:201:0x0252 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:203:0x01a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:205:0x01cc A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:207:0x0211 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:213:0x023c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:219:0x01fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:221:0x01b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:189:0x026a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:191:0x0224 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:195:0x01e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x0252 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:201:0x01a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:203:0x01cc A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x0211 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:211:0x023c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:217:0x01fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x01b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -384,7 +384,7 @@ public class f extends Thread {
             int integer = trackFormat.getInteger("width");
             int integer2 = trackFormat.getInteger("height");
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            mediaMetadataRetriever.setDataSource(this.f58990f);
+            mediaMetadataRetriever.setDataSource(this.f58991f);
             if (TextUtils.equals(mediaMetadataRetriever.extractMetadata(24), "90")) {
                 integer2 = integer;
                 integer = integer2;
@@ -400,7 +400,7 @@ public class f extends Thread {
                 gVar = new g(atomicReference.get());
                 try {
                     gVar.c();
-                    hVar = new h(this.f58989e, this.f58991g, integer, integer2);
+                    hVar = new h(this.f58990e, this.f58992g, integer, integer2);
                     try {
                         mediaCodec2 = b(trackFormat, hVar.d());
                     } catch (Exception e3) {
@@ -705,9 +705,7 @@ public class f extends Thread {
         return !Thread.currentThread().isInterrupted();
     }
 
-    public void k() {
-        throw null;
-    }
+    public abstract void k();
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {

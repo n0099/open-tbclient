@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 public class d extends AlertDialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50983e;
+    public String f50984e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50984f;
+    public TextView f50985f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50985g;
+    public TextView f50986g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CircleView f50986h;
+    public CircleView f50987h;
     public FrameLayout i;
 
     public d(Context context) {
@@ -30,19 +30,19 @@ public class d extends AlertDialog {
     }
 
     public void a(String str) {
-        this.f50983e = str;
-        TextView textView = this.f50985g;
+        this.f50984e = str;
+        TextView textView = this.f50986g;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
     public void b(int i) {
-        TextView textView = this.f50984f;
+        TextView textView = this.f50985f;
         if (textView != null) {
             textView.setText(i + "%");
         }
-        CircleView circleView = this.f50986h;
+        CircleView circleView = this.f50987h;
         if (circleView != null) {
             circleView.setProgress(i);
         }
@@ -59,13 +59,13 @@ public class d extends AlertDialog {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
             this.i.setLayoutParams(layoutParams);
-            if (!StringUtils.isNull(this.f50983e)) {
+            if (!StringUtils.isNull(this.f50984e)) {
                 TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.f50985g = textView;
-                textView.setText(this.f50983e);
+                this.f50986g = textView;
+                textView.setText(this.f50984e);
             }
-            this.f50984f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.f50986h = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+            this.f50985f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+            this.f50987h = (CircleView) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 }

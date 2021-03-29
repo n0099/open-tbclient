@@ -7,10 +7,10 @@ import com.xiaomi.push.ai;
 public class bx extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f40299a;
+    public final /* synthetic */ bu f40300a;
 
     public bx(bu buVar) {
-        this.f40299a = buVar;
+        this.f40300a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -24,12 +24,12 @@ public class bx extends ai.a {
         ck ckVar;
         ck ckVar2;
         Context context;
-        ckVar = this.f40299a.f160a;
+        ckVar = this.f40300a.f160a;
         if (ckVar != null) {
-            ckVar2 = this.f40299a.f160a;
-            context = this.f40299a.f157a;
+            ckVar2 = this.f40300a.f160a;
+            context = this.f40300a.f157a;
             ckVar2.b(context);
-            this.f40299a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
+            this.f40300a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
         }
     }
 }

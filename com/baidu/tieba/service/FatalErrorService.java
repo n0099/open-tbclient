@@ -38,13 +38,13 @@ public class FatalErrorService extends BdBaseService {
     public class a extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f20924a;
+        public Intent f20925a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f20925b = null;
+        public NetWork f20926b = null;
 
         public a(Intent intent) {
-            this.f20924a = intent;
+            this.f20925a = intent;
         }
 
         public final void b(FileWriter fileWriter, String str, String str2) {
@@ -64,7 +64,7 @@ public class FatalErrorService extends BdBaseService {
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0017 */
         public final void c(File file) {
             FileWriter fileWriter;
-            if (file == null || !file.exists() || !file.isFile() || this.f20924a == null) {
+            if (file == null || !file.exists() || !file.isFile() || this.f20925a == null) {
                 return;
             }
             FileWriter fileWriter2 = null;
@@ -87,10 +87,10 @@ public class FatalErrorService extends BdBaseService {
                 b(fileWriter, "from", TbConfig.getFrom());
                 String currentFrom = TbConfig.getCurrentFrom();
                 b(fileWriter, "current_from", currentFrom);
-                b(fileWriter, "uid", this.f20924a.getStringExtra("uid"));
+                b(fileWriter, "uid", this.f20925a.getStringExtra("uid"));
                 b(fileWriter, "client_id", TbadkCoreApplication.getClientId());
                 b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
-                b(fileWriter, "uname", this.f20924a.getStringExtra("uname"));
+                b(fileWriter, "uname", this.f20925a.getStringExtra("uname"));
                 fileWriter.append("\n##TIEBA_NATIVE_END##\n");
                 m.h(fileWriter);
                 fileWriter2 = currentFrom;
@@ -110,7 +110,7 @@ public class FatalErrorService extends BdBaseService {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f20925b;
+            NetWork netWork = this.f20926b;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -119,7 +119,7 @@ public class FatalErrorService extends BdBaseService {
             FatalErrorService.this.stopSelf();
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x0022 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0022 */
         /* JADX WARN: Type inference failed for: r0v11, types: [boolean] */
         /* JADX WARN: Type inference failed for: r0v12 */
         /* JADX WARN: Type inference failed for: r0v13 */
@@ -236,15 +236,15 @@ public class FatalErrorService extends BdBaseService {
                                         }
                                     }
                                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                    this.f20925b = netWork;
+                                    this.f20926b = netWork;
                                     netWork.addPostData("logfile", byteArray);
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                        this.f20925b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                        this.f20926b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.f20925b.postMultiNetData();
+                                    this.f20926b.postMultiNetData();
                                     byteArrayOutputStream.close();
                                     fileInputStream.close();
-                                    if (this.f20925b.getNetContext().getResponse().isRequestSuccess()) {
+                                    if (this.f20926b.getNetContext().getResponse().isRequestSuccess()) {
                                         if (z2) {
                                             d(file);
                                         }

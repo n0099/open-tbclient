@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0067: INVOKE  (r3v3 char A[REMOVE]) = (r1v20 java.lang.String), (0 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0081: INVOKE  (r1v22 char A[REMOVE]) = (r1v20 java.lang.String), (2 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0065: INVOKE  (r3v3 char A[REMOVE]) = (r1v20 java.lang.String), (0 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x007f: INVOKE  (r1v22 char A[REMOVE]) = (r1v20 java.lang.String), (2 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
     public static c a(DataReportResult dataReportResult) {
         c cVar = new c();
         if (dataReportResult == null) {

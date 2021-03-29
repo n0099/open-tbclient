@@ -29,8 +29,8 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
 
     /* renamed from: d.b.i0.h2.c.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1263a extends b0<d.b.i0.x.e0.e> {
-        public C1263a(a aVar) {
+    public class C1264a extends b0<d.b.i0.x.e0.e> {
+        public C1264a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,7 +91,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.p = 0;
         this.q = 0;
-        this.s = new C1263a(this);
+        this.s = new C1264a(this);
         this.n = tbPageContext;
         j0();
     }
@@ -105,7 +105,7 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
             d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) nVar;
             eVar.k = 1;
             ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), 4, false);
-            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1117a(1));
+            ((ThreadCardViewHolder) view.getTag()).b().o(new a.C1118a(1));
         }
     }
 
@@ -126,15 +126,15 @@ public class a extends d.b.b.j.e.a<d.b.i0.x.e0.e, ThreadCardViewHolder<d.b.i0.x.
         dVar.w(false);
         dVar.s(new b());
         bVar.o(dVar);
-        bVar.l().d(l.g(this.f42357e, R.dimen.tbds25));
+        bVar.l().d(l.g(this.f42358e, R.dimen.tbds25));
         d.b.i.b bVar2 = new d.b.i.b(this.n.getPageActivity());
         bVar2.l(new c());
         bVar.n(bVar2);
         bVar.h(new d.b.i.k(this.n.getPageActivity()));
         m0 m0Var = new m0(this.n.getPageActivity());
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50762b = 3;
-        eVar.f50768h = 3;
+        eVar.f50763b = 3;
+        eVar.f50769h = 3;
         m0Var.v(eVar);
         m0Var.w(8);
         m0Var.A(6);

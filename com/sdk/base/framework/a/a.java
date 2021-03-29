@@ -11,16 +11,16 @@ import java.net.URL;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38401a = "com.sdk.base.framework.a.a";
+    public static final String f38402a = "com.sdk.base.framework.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f38402b = Boolean.valueOf(com.sdk.base.framework.c.f.f38519b);
+    public static Boolean f38403b = Boolean.valueOf(com.sdk.base.framework.c.f.f38520b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConnectivityManager.NetworkCallback f38403d;
+    public static ConnectivityManager.NetworkCallback f38404d;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f38404c;
+    public HttpURLConnection f38405c;
 
     public a(Context context, URL url) {
         try {
@@ -29,17 +29,17 @@ public class a {
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
             b bVar = new b(this, url);
-            f38403d = bVar;
+            f38404d = bVar;
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f38401a, e2.toString(), f38402b);
+            com.sdk.base.framework.a.a.c.b(f38402a, e2.toString(), f38403b);
         }
     }
 
     public final HttpURLConnection a() {
         c cVar = new c(this, 2000L);
         while (!cVar.a()) {
-            HttpURLConnection httpURLConnection = this.f38404c;
+            HttpURLConnection httpURLConnection = this.f38405c;
             if (httpURLConnection != null) {
                 return httpURLConnection;
             }

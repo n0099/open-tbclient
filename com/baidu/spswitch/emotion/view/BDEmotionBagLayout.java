@@ -23,7 +23,7 @@ import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.spswitch.utils.UIUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDEmotionBagLayout extends LinearLayout {
     public static final int BACKGROUND_COLOR = -1;
     public static final int COLOR_EMOTION_BAG = -1;
@@ -42,7 +42,7 @@ public class BDEmotionBagLayout extends LinearLayout {
     public PagerAdapter mPagerAdapter;
     public ViewPager mViewPager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class EmotionGridViewAdapter extends BaseAdapter {
         public Context mContext;
         public LayoutInflater mInflater;
@@ -95,7 +95,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public List<GridView> mList;
 

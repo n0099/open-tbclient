@@ -12,43 +12,43 @@ import d.b.i0.c2.h.d;
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f19525a;
+    public View f19526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19526b;
+    public View f19527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f19527c;
+    public ViewGroup f19528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f19528d;
+    public TextView f19529d;
 
     public PbChildTitleViewHolder(View view) {
         super(view);
-        this.f19525a = view;
-        this.f19526b = view.findViewById(R.id.pb_child_title_top_line);
-        this.f19527c = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.f19526a = view;
+        this.f19527b = view.findViewById(R.id.pb_child_title_top_line);
+        this.f19528c = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         TextView textView = (TextView) view.findViewById(R.id.tv_pb_child_title);
-        this.f19528d = textView;
+        this.f19529d = textView;
         c.a(textView).s(R.string.F_X02);
     }
 
     public void b(d dVar) {
-        this.f19528d.setText(dVar.e());
+        this.f19529d.setText(dVar.e());
     }
 
     public View c() {
-        return this.f19525a;
+        return this.f19526a;
     }
 
     public void d() {
-        SkinManager.setBackgroundColor(this.f19526b, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(this.f19527c, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f19528d, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f19527b, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f19528c, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.f19529d, R.color.CAM_X0105);
     }
 
     public void e(int i) {
-        View view = this.f19525a;
+        View view = this.f19526a;
         if (view != null) {
             view.setVisibility(i);
         }

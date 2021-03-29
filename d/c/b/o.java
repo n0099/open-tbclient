@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class o extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65048e;
+    public final Context f65049e;
 
     public o(Context context) {
         super(true, true);
-        this.f65048e = context;
+        this.f65049e = context;
     }
 
     @Override // d.c.b.h2
     @SuppressLint({"MissingPermission"})
     public boolean b(JSONObject jSONObject) {
-        j.f(jSONObject, "access", o0.b(this.f65048e));
+        j.f(jSONObject, "access", o0.b(this.f65049e));
         return true;
     }
 }

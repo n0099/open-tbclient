@@ -246,7 +246,7 @@ public class aa implements IXAdURIUitls {
     public void pintHttpInNewThread(String str) {
         com.baidu.mobads.openad.b.a aVar = new com.baidu.mobads.openad.b.a();
         com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(str, "");
-        bVar.f8413e = 1;
+        bVar.f8414e = 1;
         aVar.a(bVar, Boolean.TRUE);
     }
 

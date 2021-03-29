@@ -128,20 +128,17 @@ public class e<TResult> {
         @Override // java.lang.Runnable
         public void run() {
             c.c cVar = this.f1479e;
-            if (cVar == null) {
-                try {
-                    this.f1480f.d(this.f1481g.then(this.f1482h));
-                    return;
-                } catch (CancellationException unused) {
-                    this.f1480f.b();
-                    return;
-                } catch (Exception e2) {
-                    this.f1480f.c(e2);
-                    return;
-                }
+            if (cVar != null && cVar.a()) {
+                this.f1480f.b();
+                return;
             }
-            cVar.a();
-            throw null;
+            try {
+                this.f1480f.d(this.f1481g.then(this.f1482h));
+            } catch (CancellationException unused) {
+                this.f1480f.b();
+            } catch (Exception e2) {
+                this.f1480f.c(e2);
+            }
         }
     }
 
@@ -172,18 +169,18 @@ public class e<TResult> {
             /* renamed from: a */
             public Void then(e<TContinuationResult> eVar) {
                 c.c cVar = d.this.f1483e;
-                if (cVar == null) {
-                    if (eVar.p()) {
-                        d.this.f1484f.b();
-                    } else if (eVar.r()) {
-                        d.this.f1484f.c(eVar.m());
-                    } else {
-                        d.this.f1484f.d(eVar.n());
-                    }
+                if (cVar != null && cVar.a()) {
+                    d.this.f1484f.b();
                     return null;
                 }
-                cVar.a();
-                throw null;
+                if (eVar.p()) {
+                    d.this.f1484f.b();
+                } else if (eVar.r()) {
+                    d.this.f1484f.c(eVar.m());
+                } else {
+                    d.this.f1484f.d(eVar.n());
+                }
+                return null;
             }
         }
 
@@ -197,25 +194,22 @@ public class e<TResult> {
         @Override // java.lang.Runnable
         public void run() {
             c.c cVar = this.f1483e;
-            if (cVar == null) {
-                try {
-                    e eVar = (e) this.f1485g.then(this.f1486h);
-                    if (eVar == null) {
-                        this.f1484f.d(null);
-                    } else {
-                        eVar.g(new a());
-                    }
-                    return;
-                } catch (CancellationException unused) {
-                    this.f1484f.b();
-                    return;
-                } catch (Exception e2) {
-                    this.f1484f.c(e2);
-                    return;
-                }
+            if (cVar != null && cVar.a()) {
+                this.f1484f.b();
+                return;
             }
-            cVar.a();
-            throw null;
+            try {
+                e eVar = (e) this.f1485g.then(this.f1486h);
+                if (eVar == null) {
+                    this.f1484f.d(null);
+                } else {
+                    eVar.g(new a());
+                }
+            } catch (CancellationException unused) {
+                this.f1484f.b();
+            } catch (Exception e2) {
+                this.f1484f.c(e2);
+            }
         }
     }
 
@@ -243,20 +237,17 @@ public class e<TResult> {
         @Override // java.lang.Runnable
         public void run() {
             c.c cVar = this.f1488e;
-            if (cVar == null) {
-                try {
-                    this.f1489f.d(this.f1490g.call());
-                    return;
-                } catch (CancellationException unused) {
-                    this.f1489f.b();
-                    return;
-                } catch (Exception e2) {
-                    this.f1489f.c(e2);
-                    return;
-                }
+            if (cVar != null && cVar.a()) {
+                this.f1489f.b();
+                return;
             }
-            cVar.a();
-            throw null;
+            try {
+                this.f1489f.d(this.f1490g.call());
+            } catch (CancellationException unused) {
+                this.f1489f.b();
+            } catch (Exception e2) {
+                this.f1489f.c(e2);
+            }
         }
     }
 

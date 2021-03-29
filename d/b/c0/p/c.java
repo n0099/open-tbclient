@@ -16,7 +16,7 @@ import d.b.c0.n.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class c {
-    public static final boolean P = d.f42679d;
+    public static final boolean P = d.f42680d;
     public static final int[] Q = {16842922};
     public int A;
     public Drawable D;
@@ -33,25 +33,25 @@ public class c {
     public int O;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42698a;
+    public Context f42699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WindowManager f42699b;
+    public WindowManager f42700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42700c;
+    public boolean f42701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42701d;
+    public boolean f42702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42702e;
+    public View f42703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f42703f;
+    public View f42704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42704g;
+    public boolean f42705g;
     public boolean n;
     public boolean o;
     public boolean r;
@@ -65,7 +65,7 @@ public class c {
     public int z;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42705h = 0;
+    public int f42706h = 0;
     public int i = 1;
     public boolean j = true;
     public boolean k = false;
@@ -84,10 +84,10 @@ public class c {
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             View view = c.this.L != null ? (View) c.this.L.get() : null;
-            if (view == null || c.this.f42703f == null) {
+            if (view == null || c.this.f42704f == null) {
                 return;
             }
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) c.this.f42703f.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) c.this.f42704f.getLayoutParams();
             c cVar = c.this;
             cVar.p(cVar.j(view, layoutParams, cVar.N, c.this.O));
             c.this.F(layoutParams.x, layoutParams.y, -1, -1, true);
@@ -101,8 +101,8 @@ public class c {
 
     /* renamed from: d.b.c0.p.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0573c extends FrameLayout {
-        public C0573c(Context context) {
+    public class C0574c extends FrameLayout {
+        public C0574c(Context context) {
             super(context);
         }
 
@@ -164,8 +164,8 @@ public class c {
 
         @Override // android.view.View, android.view.accessibility.AccessibilityEventSource
         public void sendAccessibilityEvent(int i) {
-            if (c.this.f42702e != null) {
-                c.this.f42702e.sendAccessibilityEvent(i);
+            if (c.this.f42703e != null) {
+                c.this.f42703e.sendAccessibilityEvent(i);
             } else {
                 super.sendAccessibilityEvent(i);
             }
@@ -180,8 +180,8 @@ public class c {
         this.M = new a();
         if (view != null) {
             Context context = view.getContext();
-            this.f42698a = context;
-            this.f42699b = (WindowManager) context.getSystemService("window");
+            this.f42699a = context;
+            this.f42700b = (WindowManager) context.getSystemService("window");
         }
         z(view);
         D(i);
@@ -190,7 +190,7 @@ public class c {
     }
 
     public void A(boolean z) {
-        this.f42704g = z;
+        this.f42705g = z;
     }
 
     public void B(int i) {
@@ -218,10 +218,10 @@ public class c {
             this.y = i4;
             B(i4);
         }
-        if (!u() || this.f42702e == null) {
+        if (!u() || this.f42703e == null) {
             return;
         }
-        WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f42703f.getLayoutParams();
+        WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f42704f.getLayoutParams();
         int i5 = this.t;
         if (i5 >= 0) {
             i5 = this.v;
@@ -261,14 +261,14 @@ public class c {
             z2 = z;
         }
         if (z2) {
-            this.f42699b.updateViewLayout(this.f42703f, layoutParams);
+            this.f42700b.updateViewLayout(this.f42704f, layoutParams);
         }
     }
 
     public final int a() {
         int i = this.K;
         if (i == -1) {
-            if (this.f42701d) {
+            if (this.f42702d) {
                 return this.G ? i.PopupWindow_DropDownUp : i.PopupWindow_DropDownDown;
             }
             return 0;
@@ -309,12 +309,12 @@ public class c {
     }
 
     public void f(IBinder iBinder, int i, int i2, int i3) {
-        if (iBinder == null || u() || this.f42702e == null) {
+        if (iBinder == null || u() || this.f42703e == null) {
             return;
         }
         b();
-        this.f42700c = true;
-        this.f42701d = false;
+        this.f42701c = true;
+        this.f42702d = false;
         WindowManager.LayoutParams d2 = d(iBinder);
         d2.windowAnimations = a();
         m(d2);
@@ -338,11 +338,11 @@ public class c {
     }
 
     public final void g(WindowManager.LayoutParams layoutParams) {
-        Context context = this.f42698a;
+        Context context = this.f42699a;
         if (context != null) {
             layoutParams.packageName = context.getPackageName();
         }
-        this.f42699b.addView(this.f42703f, layoutParams);
+        this.f42700b.addView(this.f42704f, layoutParams);
     }
 
     public void h(b bVar) {
@@ -406,19 +406,19 @@ public class c {
     }
 
     public final void m(WindowManager.LayoutParams layoutParams) {
-        View view = this.f42702e;
-        if (view != null && this.f42698a != null && this.f42699b != null) {
+        View view = this.f42703e;
+        if (view != null && this.f42699a != null && this.f42700b != null) {
             if (this.D != null) {
                 ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
                 int i = -2;
                 i = (layoutParams2 == null || layoutParams2.height != -2) ? -1 : -1;
-                C0573c c0573c = new C0573c(this.f42698a);
+                C0574c c0574c = new C0574c(this.f42699a);
                 FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i);
-                c0573c.setBackgroundDrawable(this.D);
-                c0573c.addView(this.f42702e, layoutParams3);
-                this.f42703f = c0573c;
+                c0574c.setBackgroundDrawable(this.D);
+                c0574c.addView(this.f42703e, layoutParams3);
+                this.f42704f = c0574c;
             } else {
-                this.f42703f = view;
+                this.f42704f = view;
             }
             this.z = layoutParams.width;
             this.A = layoutParams.height;
@@ -433,11 +433,11 @@ public class c {
             if (this.D != null) {
                 Drawable drawable = this.E;
                 if (drawable == null) {
-                    this.f42703f.refreshDrawableState();
+                    this.f42704f.refreshDrawableState();
                 } else if (z) {
-                    this.f42703f.setBackgroundDrawable(drawable);
+                    this.f42704f.setBackgroundDrawable(drawable);
                 } else {
-                    this.f42703f.setBackgroundDrawable(this.F);
+                    this.f42704f.setBackgroundDrawable(this.F);
                 }
             }
         }
@@ -445,32 +445,32 @@ public class c {
 
     public void q() {
         b bVar;
-        if (!u() || this.f42703f == null) {
+        if (!u() || this.f42704f == null) {
             return;
         }
-        this.f42700c = false;
+        this.f42701c = false;
         b();
         try {
             try {
-                this.f42699b.removeView(this.f42703f);
-                View view = this.f42703f;
-                View view2 = this.f42702e;
+                this.f42700b.removeView(this.f42704f);
+                View view = this.f42704f;
+                View view2 = this.f42703e;
                 if (view != view2 && (view instanceof ViewGroup)) {
                     ((ViewGroup) view).removeView(view2);
                 }
-                this.f42703f = null;
+                this.f42704f = null;
                 bVar = this.I;
                 if (bVar == null) {
                     return;
                 }
             } catch (IllegalArgumentException e2) {
                 if (!P) {
-                    View view3 = this.f42703f;
-                    View view4 = this.f42702e;
+                    View view3 = this.f42704f;
+                    View view4 = this.f42703e;
                     if (view3 != view4 && (view3 instanceof ViewGroup)) {
                         ((ViewGroup) view3).removeView(view4);
                     }
-                    this.f42703f = null;
+                    this.f42704f = null;
                     bVar = this.I;
                     if (bVar == null) {
                         return;
@@ -481,12 +481,12 @@ public class c {
             }
             bVar.onDismiss();
         } catch (Throwable th) {
-            View view5 = this.f42703f;
-            View view6 = this.f42702e;
+            View view5 = this.f42704f;
+            View view6 = this.f42703e;
             if (view5 != view6 && (view5 instanceof ViewGroup)) {
                 ((ViewGroup) view5).removeView(view6);
             }
-            this.f42703f = null;
+            this.f42704f = null;
             b bVar2 = this.I;
             if (bVar2 != null) {
                 bVar2.onDismiss();
@@ -496,22 +496,22 @@ public class c {
     }
 
     public boolean u() {
-        return this.f42700c;
+        return this.f42701c;
     }
 
     public boolean v() {
         Context context;
-        return (this.m >= 0 || (context = this.f42698a) == null) ? this.m == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
+        return (this.m >= 0 || (context = this.f42699a) == null) ? this.m == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001b, code lost:
-        if (r2.f42705h == 2) goto L32;
+        if (r2.f42706h == 2) goto L32;
      */
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
         r3 = r3 | 131072;
      */
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0015, code lost:
-        if (r2.f42705h == 1) goto L32;
+        if (r2.f42706h == 1) goto L32;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -521,7 +521,7 @@ public class c {
         if (this.J) {
             i2 |= 32768;
         }
-        if (!this.f42704g) {
+        if (!this.f42705g) {
             i2 |= 8;
         }
         if (!this.j) {
@@ -558,13 +558,13 @@ public class c {
         if (u()) {
             return;
         }
-        this.f42702e = view;
-        if (this.f42698a == null && view != null) {
-            this.f42698a = view.getContext();
+        this.f42703e = view;
+        if (this.f42699a == null && view != null) {
+            this.f42699a = view.getContext();
         }
-        if (this.f42699b != null || this.f42702e == null || (context = this.f42698a) == null) {
+        if (this.f42700b != null || this.f42703e == null || (context = this.f42699a) == null) {
             return;
         }
-        this.f42699b = (WindowManager) context.getSystemService("window");
+        this.f42700b = (WindowManager) context.getSystemService("window");
     }
 }

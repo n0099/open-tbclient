@@ -12,7 +12,7 @@ public class c extends d.b.b.j.e.a<f, StageLiveViewHolder> {
     public d.b.i0.t.d.c.h.c n;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.f60330f);
+        super(tbPageContext.getPageActivity(), f.f60331f);
         this.m = tbPageContext;
     }
 
@@ -29,11 +29,11 @@ public class c extends d.b.b.j.e.a<f, StageLiveViewHolder> {
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, f fVar, StageLiveViewHolder stageLiveViewHolder) {
         d.b.i0.t.d.c.h.c cVar;
-        if (stageLiveViewHolder == null || (cVar = stageLiveViewHolder.f14809a) == null) {
+        if (stageLiveViewHolder == null || (cVar = stageLiveViewHolder.f14810a) == null) {
             return null;
         }
         cVar.n(fVar);
-        stageLiveViewHolder.f14809a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        stageLiveViewHolder.f14810a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return stageLiveViewHolder.a();
     }
 }

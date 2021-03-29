@@ -5,17 +5,17 @@ import com.baidu.mobad.feeds.NativeResponse;
 public /* synthetic */ class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f8064a;
+    public static final /* synthetic */ int[] f8065a;
 
     static {
         int[] iArr = new int[NativeResponse.MaterialType.values().length];
-        f8064a = iArr;
+        f8065a = iArr;
         try {
             iArr[NativeResponse.MaterialType.VIDEO.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f8064a[NativeResponse.MaterialType.NORMAL.ordinal()] = 2;
+            f8065a[NativeResponse.MaterialType.NORMAL.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
     }

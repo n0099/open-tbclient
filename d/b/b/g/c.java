@@ -11,34 +11,34 @@ import com.baidu.searchbox.pms.init.RequestParams;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42175b = false;
+    public static boolean f42176b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f42176c = false;
+    public static boolean f42177c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f42177d = new c();
+    public static c f42178d = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile d.b.b.i.a f42178a;
+    public volatile d.b.b.i.a f42179a;
 
     public static void a() {
-        if (!f42176c && d.b.b.i.a.m()) {
-            f42176c = true;
+        if (!f42177c && d.b.b.i.a.m()) {
+            f42177c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
-        if (f42175b) {
+        if (f42176b) {
             return;
         }
-        f42175b = true;
+        f42176b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c d() {
-        return f42177d;
+        return f42178d;
     }
 
     public static void j() {
@@ -47,7 +47,7 @@ public class c {
 
     public RequestParams.Channel c() {
         i();
-        return this.f42178a.l();
+        return this.f42179a.l();
     }
 
     public String e() {
@@ -56,7 +56,7 @@ public class c {
 
     public d.b.b.i.a f() {
         i();
-        return this.f42178a;
+        return this.f42179a;
     }
 
     public String g(String str) {
@@ -76,8 +76,8 @@ public class c {
     }
 
     public final synchronized void i() {
-        if (this.f42178a == null) {
-            this.f42178a = new d.b.b.i.a();
+        if (this.f42179a == null) {
+            this.f42179a = new d.b.b.i.a();
         }
     }
 }

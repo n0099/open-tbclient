@@ -7,22 +7,22 @@ import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7713a;
+    public final /* synthetic */ int f7714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ HistoryTraceQueryOptions f7714b;
+    public final /* synthetic */ HistoryTraceQueryOptions f7715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f7715c;
+    public final /* synthetic */ String f7716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ b.a f7716d;
+    public final /* synthetic */ b.a f7717d;
 
     public d(b.a aVar, int i, HistoryTraceQueryOptions historyTraceQueryOptions, String str) {
-        this.f7716d = aVar;
-        this.f7713a = i;
-        this.f7714b = historyTraceQueryOptions;
-        this.f7715c = str;
+        this.f7717d = aVar;
+        this.f7714a = i;
+        this.f7715b = historyTraceQueryOptions;
+        this.f7716c = str;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -31,24 +31,24 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         int i2;
         int i3;
         if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar || c.a.REQUEST_ERROR == aVar) {
-            i = b.f7708g;
+            i = b.f7709g;
             if (i <= 2) {
-                this.f7716d.a(this.f7715c, this.f7713a, this.f7714b);
-                i2 = b.f7708g;
-                int unused = b.f7708g = i2 + 1;
+                this.f7717d.a(this.f7716c, this.f7714a, this.f7715b);
+                i2 = b.f7709g;
+                int unused = b.f7709g = i2 + 1;
             }
         }
-        i3 = b.f7708g;
+        i3 = b.f7709g;
         if (2 < i3) {
-            this.f7716d.a(aVar, this.f7713a);
+            this.f7717d.a(aVar, this.f7714a);
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
     public void a(String str) {
-        String str2 = b.f7704a;
+        String str2 = b.f7705a;
         com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "Request success, the result = " + str);
-        this.f7716d.a(3, str, this.f7713a, this.f7714b);
-        int unused = b.f7708g = 0;
+        this.f7717d.a(3, str, this.f7714a, this.f7715b);
+        int unused = b.f7709g = 0;
     }
 }

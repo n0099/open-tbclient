@@ -13,16 +13,16 @@ import d.b.b.e.p.l;
 public class CircleProgressView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18911e;
+    public Context f18912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f18912f;
+    public Paint f18913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f18913g;
+    public Paint f18914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f18914h;
+    public RectF f18915h;
     public int i;
     public int j;
     public int k;
@@ -38,31 +38,31 @@ public class CircleProgressView extends View {
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18911e = context;
+        this.f18912e = context;
         a();
     }
 
     public final void a() {
-        this.l = l.g(this.f18911e, R.dimen.ds4);
-        this.f18914h = new RectF();
+        this.l = l.g(this.f18912e, R.dimen.ds4);
+        this.f18915h = new RectF();
         Paint paint = new Paint();
-        this.f18912f = paint;
+        this.f18913f = paint;
         paint.setAntiAlias(true);
-        this.f18912f.setStrokeWidth(this.l);
-        this.f18912f.setStyle(Paint.Style.STROKE);
+        this.f18913f.setStrokeWidth(this.l);
+        this.f18913f.setStyle(Paint.Style.STROKE);
         Paint paint2 = new Paint();
-        this.f18913g = paint2;
+        this.f18914g = paint2;
         paint2.setAntiAlias(true);
-        this.f18913g.setStrokeWidth(this.l);
-        this.f18913g.setStyle(Paint.Style.STROKE);
+        this.f18914g.setStrokeWidth(this.l);
+        this.f18914g.setStyle(Paint.Style.STROKE);
         this.j = R.color.common_color_10184;
         this.k = R.color.common_color_10162;
         b();
     }
 
     public void b() {
-        this.f18912f.setColor(SkinManager.getColor(this.j));
-        this.f18913g.setColor(SkinManager.getColor(this.k));
+        this.f18913f.setColor(SkinManager.getColor(this.j));
+        this.f18914g.setColor(SkinManager.getColor(this.k));
         invalidate();
     }
 
@@ -77,14 +77,14 @@ public class CircleProgressView extends View {
             height = i;
         }
         this.o = height;
-        RectF rectF = this.f18914h;
+        RectF rectF = this.f18915h;
         int i2 = this.l;
         rectF.left = i2 / 2.0f;
         rectF.top = i2 / 2.0f;
         rectF.right = height - (i2 / 2);
         rectF.bottom = height - (i2 / 2);
-        canvas.drawArc(rectF, 150.0f, 360.0f, false, this.f18913g);
-        canvas.drawArc(this.f18914h, 150.0f, this.i, false, this.f18912f);
+        canvas.drawArc(rectF, 150.0f, 360.0f, false, this.f18914g);
+        canvas.drawArc(this.f18915h, 150.0f, this.i, false, this.f18913f);
     }
 
     @Override // android.view.View
@@ -99,7 +99,7 @@ public class CircleProgressView extends View {
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18911e = context;
+        this.f18912e = context;
         a();
     }
 
@@ -110,7 +110,7 @@ public class CircleProgressView extends View {
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18911e = context;
+        this.f18912e = context;
         a();
     }
 }

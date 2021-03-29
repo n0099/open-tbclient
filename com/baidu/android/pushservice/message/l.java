@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l extends c {
     public l(Context context) {
         super(context);
@@ -9,7 +9,7 @@ public class l extends c {
 
     @Override // com.baidu.android.pushservice.message.c
     public g a(e eVar) {
-        eVar.f3458d = true;
+        eVar.f3459d = true;
         g gVar = new g();
         gVar.a(0);
         return gVar;

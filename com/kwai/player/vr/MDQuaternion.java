@@ -66,7 +66,6 @@ public class MDQuaternion {
         float f13;
         float f14;
         float f15;
-        float f16;
         if (z) {
             float len = 1.0f / MDVector3D.len(f2, f3, f4);
             float len2 = 1.0f / MDVector3D.len(f5, f6, f7);
@@ -81,66 +80,46 @@ public class MDQuaternion {
             f9 *= len3;
             f10 *= len3;
         }
-        if (f2 + f6 + f10 >= 0.0f) {
-            float sqrt = (float) Math.sqrt(f11 + 1.0f);
-            f16 = sqrt * 0.5f;
+        float f16 = f2 + f6 + f10;
+        if (f16 >= 0.0f) {
+            float sqrt = (float) Math.sqrt(f16 + 1.0f);
+            f15 = sqrt * 0.5f;
             float f17 = 0.5f / sqrt;
-            f14 = (f9 - f7) * f17;
-            f12 = (f4 - f8) * f17;
-            f15 = (f5 - f3) * f17;
+            f13 = (f9 - f7) * f17;
+            f11 = (f4 - f8) * f17;
+            f14 = (f5 - f3) * f17;
         } else {
             if (f2 > f6 && f2 > f10) {
-                double d2 = f2;
-                Double.isNaN(d2);
-                double d3 = f6;
-                Double.isNaN(d3);
-                double d4 = (d2 + 1.0d) - d3;
-                double d5 = f10;
-                Double.isNaN(d5);
-                float sqrt2 = (float) Math.sqrt(d4 - d5);
+                float sqrt2 = (float) Math.sqrt(((f2 + 1.0d) - f6) - f10);
                 float f18 = sqrt2 * 0.5f;
                 float f19 = 0.5f / sqrt2;
                 float f20 = (f5 + f3) * f19;
-                f15 = (f4 + f8) * f19;
-                f13 = (f9 - f7) * f19;
-                f12 = f20;
-                f14 = f18;
+                f14 = (f4 + f8) * f19;
+                f12 = (f9 - f7) * f19;
+                f11 = f20;
+                f13 = f18;
             } else if (f6 > f10) {
-                double d6 = f6;
-                Double.isNaN(d6);
-                double d7 = f2;
-                Double.isNaN(d7);
-                double d8 = (d6 + 1.0d) - d7;
-                double d9 = f10;
-                Double.isNaN(d9);
-                float sqrt3 = (float) Math.sqrt(d8 - d9);
+                float sqrt3 = (float) Math.sqrt(((f6 + 1.0d) - f2) - f10);
                 float f21 = sqrt3 * 0.5f;
                 float f22 = 0.5f / sqrt3;
                 float f23 = (f5 + f3) * f22;
-                f15 = (f9 + f7) * f22;
-                f13 = (f4 - f8) * f22;
-                f14 = f23;
-                f12 = f21;
+                f14 = (f9 + f7) * f22;
+                f12 = (f4 - f8) * f22;
+                f13 = f23;
+                f11 = f21;
             } else {
-                double d10 = f10;
-                Double.isNaN(d10);
-                double d11 = f2;
-                Double.isNaN(d11);
-                double d12 = (d10 + 1.0d) - d11;
-                double d13 = f6;
-                Double.isNaN(d13);
-                float sqrt4 = (float) Math.sqrt(d12 - d13);
+                float sqrt4 = (float) Math.sqrt(((f10 + 1.0d) - f2) - f6);
                 float f24 = sqrt4 * 0.5f;
                 float f25 = 0.5f / sqrt4;
                 float f26 = (f4 + f8) * f25;
-                f12 = (f9 + f7) * f25;
-                f13 = (f5 - f3) * f25;
-                f14 = f26;
-                f15 = f24;
+                f11 = (f9 + f7) * f25;
+                f12 = (f5 - f3) * f25;
+                f13 = f26;
+                f14 = f24;
             }
-            f16 = f13;
+            f15 = f12;
         }
-        set(f16, f14, f12, f15);
+        set(f15, f13, f11, f14);
     }
 
     public void clone(MDQuaternion mDQuaternion) {

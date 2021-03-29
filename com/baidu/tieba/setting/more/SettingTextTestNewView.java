@@ -27,7 +27,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         }
         if (z) {
             this.j.setText("new");
-            this.j.setTextAppearance(this.f13777e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            this.j.setTextAppearance(this.f13778e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
             SkinManager.setBackgroundResource(this.j, R.drawable.icon_news_text_prompt);
             return;
         }
@@ -37,6 +37,6 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         }
         this.j.setText(version);
         this.j.setBackgroundDrawable(null);
-        this.j.setTextAppearance(this.f13777e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.j.setTextAppearance(this.f13778e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

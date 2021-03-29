@@ -21,7 +21,7 @@ import d.b.b.e.p.l;
 import d.b.i0.x1.g.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
     public i mAdapter;
     public View mBackView;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public View.OnClickListener mOnClickListener = new a();
     public AdapterView.OnItemClickListener mOnItemClickListener = new b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -61,7 +61,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements AdapterView.OnItemClickListener {
         public b() {
         }

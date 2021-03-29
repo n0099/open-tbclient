@@ -24,32 +24,32 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    public PassHttpClient f11244a = new PassHttpClient();
+    public PassHttpClient f11245a = new PassHttpClient();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f11245b;
+    public Context f11246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11246c;
+    public String f11247c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11247d;
+    public String f11248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11248e;
+    public boolean f11249e;
 
     public HttpClientWrap() {
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         if (confignation != null) {
-            this.f11245b = confignation.context;
-            this.f11246c = confignation.environment.getURL();
-            this.f11247d = confignation.appSignKey;
-            this.f11248e = confignation.supportNetwork;
+            this.f11246b = confignation.context;
+            this.f11247c = confignation.environment.getURL();
+            this.f11248d = confignation.appSignKey;
+            this.f11249e = confignation.supportNetwork;
         }
     }
 
     public void cancelRequest() {
-        PassHttpClient passHttpClient = this.f11244a;
+        PassHttpClient passHttpClient = this.f11245a;
         if (passHttpClient != null) {
             passHttpClient.cancelRequests(true);
         }
@@ -103,7 +103,7 @@ public class HttpClientWrap {
             }
         });
         if (a(httpHandlerWrap)) {
-            this.f11244a.post(this.f11245b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
+            this.f11245a.post(this.f11246b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str3) {
                     HttpClientWrap.this.a(httpHandlerWrap, th, str3);
@@ -142,7 +142,7 @@ public class HttpClientWrap {
             }
         });
         if (a(httpHandlerWrap)) {
-            this.f11244a.get(this.f11245b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
+            this.f11245a.get(this.f11246b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str3) {
                     HttpClientWrap.this.a(httpHandlerWrap, th, str3);
@@ -174,7 +174,7 @@ public class HttpClientWrap {
     }
 
     private boolean a(HttpHandlerWrap httpHandlerWrap) {
-        Context context = this.f11245b;
+        Context context = this.f11246b;
         if (context == null) {
             httpHandlerWrap.onFailure(null, -801, "服务异常，请稍后再试");
             httpHandlerWrap.onFinish();
@@ -183,7 +183,7 @@ public class HttpClientWrap {
             httpHandlerWrap.onFailure(null, -201, "网络连接不可用，请检查网络设置");
             httpHandlerWrap.onFinish();
             return false;
-        } else if (this.f11248e) {
+        } else if (this.f11249e) {
             return true;
         } else {
             httpHandlerWrap.onFailure(null, -201, "网络连接不可用，请检查网络设置");
@@ -199,7 +199,7 @@ public class HttpClientWrap {
     public void get(final String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
         binaryHttpHandlerWrap.onStart();
         if (a(binaryHttpHandlerWrap)) {
-            this.f11244a.get(this.f11245b, a(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
+            this.f11245a.get(this.f11246b, a(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str3) {
                     HttpClientWrap.this.a(binaryHttpHandlerWrap, th, str3);
@@ -233,11 +233,11 @@ public class HttpClientWrap {
     private PassHttpParamDTO a(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i) {
         PassHttpParamDTO passHttpParamDTO = new PassHttpParamDTO();
         if (str != null && !str.contains("://")) {
-            str = this.f11246c + str;
+            str = this.f11247c + str;
         }
         passHttpParamDTO.url = str;
         if (httpHashMap != null) {
-            httpHashMap.doSign(this.f11247d);
+            httpHashMap.doSign(this.f11248d);
         }
         passHttpParamDTO.paramsMap = httpHashMap;
         passHttpParamDTO.headers = hashMap;

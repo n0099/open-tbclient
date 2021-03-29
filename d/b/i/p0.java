@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 import d.b.i.u0.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class p0 extends d.b.i.a<d.b.h0.r.q.a> {
     public static final int q = d.b.b.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     public View j;
@@ -23,7 +23,7 @@ public class p0 extends d.b.i.a<d.b.h0.r.q.a> {
     public boolean o;
     public OriginalThreadCardView.b p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements OriginalThreadCardView.b {
         public a() {
         }
@@ -39,7 +39,7 @@ public class p0 extends d.b.i.a<d.b.h0.r.q.a> {
             String o0 = p0.this.n.n().o0();
             d.b.i0.x.m.a(o0);
             p0.this.s(o0);
-            p0.this.f51761e.o(new a.C1117a(1));
+            p0.this.f51762e.o(new a.C1118a(1));
         }
     }
 

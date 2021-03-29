@@ -33,7 +33,7 @@ public class h extends c {
             if (obj2 == null) {
                 return null;
             }
-            Field declaredField2 = obj2.getClass().getDeclaredField(r.f7663a);
+            Field declaredField2 = obj2.getClass().getDeclaredField(r.f7664a);
             declaredField2.setAccessible(true);
             Object obj3 = declaredField2.get(obj2);
             if (obj3 == null || (method = obj3.getClass().getMethod(ExifInterface.LONGITUDE_EAST, new Class[0])) == null) {

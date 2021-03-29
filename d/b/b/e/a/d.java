@@ -9,41 +9,41 @@ import com.baidu.tbadk.core.util.FieldBuilder;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdUniqueId f41585d = BdUniqueId.gen();
+    public static BdUniqueId f41586d = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f41586e = BdUniqueId.gen();
+    public static BdUniqueId f41587e = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f41587f = null;
+    public static d f41588f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f41588a;
+    public b f41589a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallel f41589b;
+    public BdAsyncTaskParallel f41590b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTaskParallel f41590c;
+    public BdAsyncTaskParallel f41591c;
 
     public d() {
-        this.f41588a = null;
-        this.f41589b = null;
-        this.f41590c = null;
-        this.f41589b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.f41590c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.f41588a = new b();
+        this.f41589a = null;
+        this.f41590b = null;
+        this.f41591c = null;
+        this.f41590b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f41591c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f41589a = new b();
     }
 
     public static d g() {
-        if (f41587f == null) {
+        if (f41588f == null) {
             synchronized (d.class) {
-                if (f41587f == null) {
-                    f41587f = new d();
+                if (f41588f == null) {
+                    f41588f = new d();
                 }
             }
         }
-        return f41587f;
+        return f41588f;
     }
 
     public boolean a(DiskFileOperate diskFileOperate) {
@@ -51,13 +51,13 @@ public class d {
             return false;
         }
         if (diskFileOperate.isSdCard()) {
-            return f(diskFileOperate, f41585d, this.f41589b, 10);
+            return f(diskFileOperate, f41586d, this.f41590b, 10);
         }
-        return f(diskFileOperate, f41586e, this.f41590c, 5);
+        return f(diskFileOperate, f41587e, this.f41591c, 5);
     }
 
     public final boolean b(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel) {
-        c cVar = new c(this.f41588a, diskFileOperate);
+        c cVar = new c(this.f41589a, diskFileOperate);
         cVar.setTag(bdUniqueId);
         cVar.setParallel(bdAsyncTaskParallel);
         cVar.setPriority(4);
@@ -80,7 +80,7 @@ public class d {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean b2 = new e(this.f41588a, diskFileOperate).b();
+        boolean b2 = new e(this.f41589a, diskFileOperate).b();
         diskFileOperate.callback(b2);
         return b2;
     }
@@ -88,8 +88,8 @@ public class d {
     public void e(DiskFileOperate diskFileOperate) {
         String c2 = c(diskFileOperate);
         if (c2 != null) {
-            BdAsyncTask.removeAllTask(f41585d, c2);
-            BdAsyncTask.removeAllTask(f41586e, c2);
+            BdAsyncTask.removeAllTask(f41586d, c2);
+            BdAsyncTask.removeAllTask(f41587e, c2);
         }
     }
 
@@ -104,6 +104,6 @@ public class d {
     }
 
     public void h(String str) {
-        this.f41588a.e(str);
+        this.f41589a.e(str);
     }
 }

@@ -21,28 +21,28 @@ import tbclient.ExcPbPage.UserInfo;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f52373a;
+    public View f52374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52374b;
+    public TextView f52375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f52375c;
+    public HeadImageView f52376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f52376d;
+    public TextView f52377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f52377e;
+    public e f52378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f52378f;
+    public TextView f52379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BarImageView f52379g;
+    public BarImageView f52380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52380h;
+    public TextView f52381h;
     public TextView i;
     public LinearLayout j;
 
@@ -53,8 +53,8 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.f52377e != null) {
-                d.this.f52377e.c();
+            if (d.this.f52378e != null) {
+                d.this.f52378e.c();
             }
         }
     }
@@ -63,15 +63,15 @@ public class d {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserInfo f52382e;
+        public final /* synthetic */ UserInfo f52383e;
 
         public b(UserInfo userInfo) {
-            this.f52382e = userInfo;
+            this.f52383e = userInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.e(this.f52382e.id.longValue(), this.f52382e.name);
+            d.this.e(this.f52383e.id.longValue(), this.f52383e.name);
         }
     }
 
@@ -79,33 +79,33 @@ public class d {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserInfo f52384e;
+        public final /* synthetic */ UserInfo f52385e;
 
         public c(UserInfo userInfo) {
-            this.f52384e = userInfo;
+            this.f52385e = userInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.e(this.f52384e.id.longValue(), this.f52384e.name);
+            d.this.e(this.f52385e.id.longValue(), this.f52385e.name);
         }
     }
 
     /* renamed from: d.b.i0.c2.g.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1143d implements View.OnClickListener {
+    public class View$OnClickListenerC1144d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52386e;
+        public String f52387e;
 
-        public View$OnClickListenerC1143d(String str) {
-            this.f52386e = str;
+        public View$OnClickListenerC1144d(String str) {
+            this.f52387e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.f52377e != null) {
-                d.this.f52377e.a(this.f52386e);
+            if (d.this.f52378e != null) {
+                d.this.f52378e.a(this.f52387e);
             }
         }
     }
@@ -121,34 +121,34 @@ public class d {
 
     public d(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
-        this.f52373a = inflate;
-        this.f52374b = (TextView) inflate.findViewById(R.id.chosen_pb_title);
-        this.f52375c = (HeadImageView) this.f52373a.findViewById(R.id.chosen_pb_person_info_head);
-        this.f52376d = (TextView) this.f52373a.findViewById(R.id.chosen_pb_person_info_name);
-        this.f52378f = (TextView) this.f52373a.findViewById(R.id.chosen_pb_bar_forum_name);
-        this.f52375c.setRadius(l.e(context, 2.0f));
-        this.f52379g = (BarImageView) this.f52373a.findViewById(R.id.chosen_pb_bar_pic);
-        this.f52380h = (TextView) this.f52373a.findViewById(R.id.chosen_pb_bar_attention_number);
-        TextView textView = (TextView) this.f52373a.findViewById(R.id.chosen_pb_bar_attention_button);
+        this.f52374a = inflate;
+        this.f52375b = (TextView) inflate.findViewById(R.id.chosen_pb_title);
+        this.f52376c = (HeadImageView) this.f52374a.findViewById(R.id.chosen_pb_person_info_head);
+        this.f52377d = (TextView) this.f52374a.findViewById(R.id.chosen_pb_person_info_name);
+        this.f52379f = (TextView) this.f52374a.findViewById(R.id.chosen_pb_bar_forum_name);
+        this.f52376c.setRadius(l.e(context, 2.0f));
+        this.f52380g = (BarImageView) this.f52374a.findViewById(R.id.chosen_pb_bar_pic);
+        this.f52381h = (TextView) this.f52374a.findViewById(R.id.chosen_pb_bar_attention_number);
+        TextView textView = (TextView) this.f52374a.findViewById(R.id.chosen_pb_bar_attention_button);
         this.i = textView;
         textView.setOnClickListener(new a());
-        this.j = (LinearLayout) this.f52373a.findViewById(R.id.chosen_pb_bar_container);
+        this.j = (LinearLayout) this.f52374a.findViewById(R.id.chosen_pb_bar_container);
     }
 
     public View c() {
-        return this.f52373a;
+        return this.f52374a;
     }
 
     public void d(String str) {
         HeadImageView headImageView;
-        if (StringUtils.isNull(str) || (headImageView = this.f52375c) == null) {
+        if (StringUtils.isNull(str) || (headImageView = this.f52376c) == null) {
             return;
         }
         headImageView.W(str, 12, false);
     }
 
     public final void e(long j, String str) {
-        e eVar = this.f52377e;
+        e eVar = this.f52378e;
         if (eVar != null) {
             eVar.b(String.valueOf(j), str);
         }
@@ -167,11 +167,11 @@ public class d {
     }
 
     public void g(e eVar) {
-        this.f52377e = eVar;
+        this.f52378e = eVar;
     }
 
     public void h(String str) {
-        TextView textView = this.f52376d;
+        TextView textView = this.f52377d;
         if (textView == null) {
             return;
         }
@@ -179,14 +179,14 @@ public class d {
     }
 
     public final void i(Context context, String str) {
-        if (this.f52378f != null) {
+        if (this.f52379f != null) {
             if (StringUtils.isNull(str)) {
-                this.f52378f.setVisibility(4);
+                this.f52379f.setVisibility(4);
                 return;
             }
-            this.f52378f.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
-            this.f52378f.setOnClickListener(new View$OnClickListenerC1143d(str));
-            this.f52378f.setVisibility(0);
+            this.f52379f.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
+            this.f52379f.setOnClickListener(new View$OnClickListenerC1144d(str));
+            this.f52379f.setVisibility(0);
         }
     }
 
@@ -196,14 +196,14 @@ public class d {
         }
         h(userInfo.name);
         d(userInfo.portrait);
-        this.f52375c.setOnClickListener(new b(userInfo));
-        this.f52376d.setOnClickListener(new c(userInfo));
+        this.f52376c.setOnClickListener(new b(userInfo));
+        this.f52377d.setOnClickListener(new c(userInfo));
     }
 
     public void k(Context context, ExcellentPbThreadInfo excellentPbThreadInfo) {
         TextView textView;
         Integer num;
-        if (excellentPbThreadInfo == null || (textView = this.f52374b) == null) {
+        if (excellentPbThreadInfo == null || (textView = this.f52375b) == null) {
             return;
         }
         textView.setText(excellentPbThreadInfo.title);
@@ -211,12 +211,12 @@ public class d {
             k.c().h(excellentPbThreadInfo.forum.forum_name);
             this.j.setVisibility(0);
             i(context, excellentPbThreadInfo.forum.forum_name);
-            BarImageView barImageView = this.f52379g;
+            BarImageView barImageView = this.f52380g;
             if (barImageView != null) {
                 barImageView.W(excellentPbThreadInfo.forum.avatar, 16, false);
-                this.f52379g.setOnClickListener(new View$OnClickListenerC1143d(excellentPbThreadInfo.forum.forum_name));
+                this.f52380g.setOnClickListener(new View$OnClickListenerC1144d(excellentPbThreadInfo.forum.forum_name));
             }
-            TextView textView2 = this.f52380h;
+            TextView textView2 = this.f52381h;
             if (textView2 != null && (num = excellentPbThreadInfo.forum.member_count) != null) {
                 textView2.setText(StringHelper.numFormatOver10000(num.intValue()));
             }

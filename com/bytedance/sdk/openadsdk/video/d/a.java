@@ -6,32 +6,32 @@ import com.baidu.android.common.others.lang.StringUtil;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30487a = false;
+    public static boolean f30488a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f30488b = 4;
+    public static int f30489b = 4;
 
     public static void a(int i) {
-        f30488b = i;
+        f30489b = i;
     }
 
     public static boolean b() {
-        return f30487a;
+        return f30488a;
     }
 
     public static void a() {
-        f30487a = true;
+        f30488a = true;
         a(3);
     }
 
     public static void b(String str, Object... objArr) {
-        if (f30487a && objArr != null && f30488b <= 4) {
+        if (f30488a && objArr != null && f30489b <= 4) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void a(String str, Object... objArr) {
-        if (f30487a && objArr != null && f30488b <= 3) {
+        if (f30488a && objArr != null && f30489b <= 3) {
             Log.v(str, a(objArr));
         }
     }

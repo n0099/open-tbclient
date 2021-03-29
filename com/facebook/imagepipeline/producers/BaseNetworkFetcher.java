@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.producers.FetchState;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseNetworkFetcher<FETCH_STATE extends FetchState> implements NetworkFetcher<FETCH_STATE> {
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
     @Nullable

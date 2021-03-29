@@ -8,19 +8,19 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f57127a;
+    public static Map<String, String> f57128a;
 
     public static Map<String, String> a() {
-        if (f57127a == null) {
+        if (f57128a == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                 declaredField.setAccessible(true);
-                f57127a = (Map) declaredField.get(null);
+                f57128a = (Map) declaredField.get(null);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        return f57127a;
+        return f57128a;
     }
 
     public static void b(String str) {

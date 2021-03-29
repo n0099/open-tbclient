@@ -28,7 +28,7 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.Resource;
 import tbclient.Personalized.TagStruct;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static void A(d.b.i0.x.e0.b bVar) {
         if (bVar instanceof k) {
@@ -178,7 +178,7 @@ public class d {
             for (App app : list) {
                 d.b.i0.z0.g.j.a aVar = new d.b.i0.z0.g.j.a();
                 aVar.j(app);
-                if (n != null && (advertAppInfo = aVar.f62200e) != null) {
+                if (n != null && (advertAppInfo = aVar.f62201e) != null) {
                     advertAppInfo.T1 = true;
                     n.add(advertAppInfo.e4);
                 }
@@ -192,7 +192,7 @@ public class d {
                         if (D4 != 28 && D4 != 31) {
                             AdvertAppInfo.a aVar2 = g2.U3;
                             if (aVar2 != null) {
-                                aVar2.f13209h = -1001;
+                                aVar2.f13210h = -1001;
                             }
                         }
                     }
@@ -200,7 +200,7 @@ public class d {
                         d.b.i0.r2.b0.d.f(aVar.g(), 1, 23);
                         AdvertAppInfo.a aVar3 = g2.U3;
                         if (aVar3 != null) {
-                            aVar3.f13209h = -1001;
+                            aVar3.f13210h = -1001;
                         }
                     }
                     if (g2.A4()) {
@@ -227,7 +227,7 @@ public class d {
         }
         if (a2Var.s1) {
             k kVar = new k();
-            kVar.f62196e = a2Var;
+            kVar.f62197e = a2Var;
             return kVar;
         } else if (j.i0(a2Var)) {
             return new j(a2Var);
@@ -244,7 +244,7 @@ public class d {
             if (!a2Var.e2() && !a2Var.r2()) {
                 a2Var.Z1();
             }
-            kVar2.f62196e = a2Var;
+            kVar2.f62197e = a2Var;
             return kVar2;
         }
     }
@@ -258,7 +258,7 @@ public class d {
 
     public static k g(a2 a2Var) {
         k kVar = new k();
-        kVar.f62196e = a2Var;
+        kVar.f62197e = a2Var;
         a2Var.e2();
         if (!a2Var.e2()) {
             a2Var.Z1();

@@ -6,81 +6,81 @@ import com.baidu.pano.platform.c.j;
 public class BaiduPanoData {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6350a;
+    public String f6351a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6351b;
+    public String f6352b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6352c = 0;
+    public int f6353c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6353d = 0;
+    public int f6354d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6354e = j.a();
+    public String f6355e = j.a();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6355f = 404;
+    public int f6356f = 404;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6356g = "";
+    public String f6357g = "";
 
     public String getDescription() {
         return toString();
     }
 
     public int getErrorCode() {
-        return this.f6355f;
+        return this.f6356f;
     }
 
     public String getName() {
-        return this.f6351b;
+        return this.f6352b;
     }
 
     public String getPid() {
-        return this.f6350a;
+        return this.f6351a;
     }
 
     public int getX() {
-        return this.f6352c;
+        return this.f6353c;
     }
 
     public int getY() {
-        return this.f6353d;
+        return this.f6354d;
     }
 
     public boolean hasStreetPano() {
-        return !TextUtils.isEmpty(this.f6350a);
+        return !TextUtils.isEmpty(this.f6351a);
     }
 
     public void setErrorCode(int i) {
-        this.f6355f = i;
+        this.f6356f = i;
     }
 
     public void setName(String str) {
-        this.f6351b = str;
+        this.f6352b = str;
     }
 
     public void setPid(String str) {
-        this.f6350a = str;
+        this.f6351a = str;
     }
 
     public void setX(int i) {
         if (i > 100000000) {
             i /= 100;
         }
-        this.f6352c = i;
+        this.f6353c = i;
     }
 
     public void setY(int i) {
         if (i > 100000000) {
             i /= 100;
         }
-        this.f6353d = i;
+        this.f6354d = i;
     }
 
     public String toString() {
-        return "BaiduPanoData [pid = " + this.f6350a + ", name=" + this.f6351b + ",x=" + this.f6352c + ", y=" + this.f6353d + ", sdkVersion=" + this.f6354e + ", errorCode=" + this.f6355f + ", hasStreetPano=" + hasStreetPano() + "]";
+        return "BaiduPanoData [pid = " + this.f6351a + ", name=" + this.f6352b + ",x=" + this.f6353c + ", y=" + this.f6354d + ", sdkVersion=" + this.f6355e + ", errorCode=" + this.f6356f + ", hasStreetPano=" + hasStreetPano() + "]";
     }
 }

@@ -19,32 +19,32 @@ import com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarTipListAdapter;
 import d.b.b.e.p.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends d.b.b.a.d<OfficialBarTipActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f53718a;
+    public BdListView f53719a;
 
     /* renamed from: b  reason: collision with root package name */
-    public OfficialBarTipListAdapter f53719b;
+    public OfficialBarTipListAdapter f53720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f53720c;
+    public NavigationBar f53721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoDataView f53721d;
+    public NoDataView f53722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f53722e;
+    public NoNetworkView f53723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OfficialBarTipActivity f53723f;
+    public OfficialBarTipActivity f53724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f53724g;
+    public ViewGroup f53725g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f53725h;
+    public boolean f53726h;
     public RelativeLayout i;
     public TextView j;
     public boolean k;
@@ -53,63 +53,63 @@ public class e extends d.b.b.a.d<OfficialBarTipActivity> {
     public TextView n;
     public TextView o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f53726e;
-
-        public a(e eVar, OfficialBarTipActivity officialBarTipActivity) {
-            this.f53726e = officialBarTipActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            this.f53726e.finish();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ OfficialBarTipActivity f53727e;
 
-        public b(OfficialBarTipActivity officialBarTipActivity) {
+        public a(e eVar, OfficialBarTipActivity officialBarTipActivity) {
             this.f53727e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!e.this.f53725h) {
-                if (e.this.f53723f.hasNoRead()) {
-                    e.this.n.setVisibility(0);
-                }
-                e.this.q(this.f53727e, true);
-                return;
-            }
-            e.this.q(this.f53727e, false);
+            this.f53727e.finish();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f53729e;
+        public final /* synthetic */ OfficialBarTipActivity f53728e;
 
-        public c(OfficialBarTipActivity officialBarTipActivity) {
-            this.f53729e = officialBarTipActivity;
+        public b(OfficialBarTipActivity officialBarTipActivity) {
+            this.f53728e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f53729e.deleteSelectedDatas();
-            e.this.q(this.f53729e, false);
+            if (!e.this.f53726h) {
+                if (e.this.f53724f.hasNoRead()) {
+                    e.this.n.setVisibility(0);
+                }
+                e.this.q(this.f53728e, true);
+                return;
+            }
+            e.this.q(this.f53728e, false);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ OfficialBarTipActivity f53730e;
+
+        public c(OfficialBarTipActivity officialBarTipActivity) {
+            this.f53730e = officialBarTipActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            this.f53730e.deleteSelectedDatas();
+            e.this.q(this.f53730e, false);
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -125,41 +125,41 @@ public class e extends d.b.b.a.d<OfficialBarTipActivity> {
     }
 
     /* renamed from: d.b.i0.d1.f.j.e$e  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1193e implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1194e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f53732e;
+        public final /* synthetic */ OfficialBarTipActivity f53733e;
 
-        public View$OnClickListenerC1193e(OfficialBarTipActivity officialBarTipActivity) {
-            this.f53732e = officialBarTipActivity;
+        public View$OnClickListenerC1194e(OfficialBarTipActivity officialBarTipActivity) {
+            this.f53733e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.this.f53723f.setAllRead();
-            e.this.q(this.f53732e, false);
+            e.this.f53724f.setAllRead();
+            e.this.q(this.f53733e, false);
         }
     }
 
     public e(OfficialBarTipActivity officialBarTipActivity) {
         super(officialBarTipActivity.getPageContext());
-        this.f53725h = false;
+        this.f53726h = false;
         this.i = null;
         this.k = false;
         officialBarTipActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.f53723f = officialBarTipActivity;
+        this.f53724f = officialBarTipActivity;
         m(officialBarTipActivity);
         n(officialBarTipActivity);
         l(officialBarTipActivity);
     }
 
     public OfficialBarTipListAdapter i() {
-        return this.f53719b;
+        return this.f53720b;
     }
 
     public BdListView k() {
-        return this.f53718a;
+        return this.f53719a;
     }
 
     public final void l(OfficialBarTipActivity officialBarTipActivity) {
@@ -169,24 +169,24 @@ public class e extends d.b.b.a.d<OfficialBarTipActivity> {
         this.l = textView;
         textView.setOnClickListener(new c(officialBarTipActivity));
         this.j = (TextView) this.i.findViewById(R.id.select_all_txt);
-        int g2 = l.g(this.f53723f.getPageContext().getPageActivity(), R.dimen.ds40);
+        int g2 = l.g(this.f53724f.getPageContext().getPageActivity(), R.dimen.ds40);
         Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
         drawable.setBounds(0, 0, g2, g2);
-        this.j.setText(this.f53723f.getPageContext().getString(R.string.select_all));
+        this.j.setText(this.f53724f.getPageContext().getString(R.string.select_all));
         this.j.setCompoundDrawables(drawable, null, null, null);
         this.j.setOnClickListener(new d());
     }
 
     public final void m(OfficialBarTipActivity officialBarTipActivity) {
         NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.view_navigation_bar);
-        this.f53720c = navigationBar;
+        this.f53721c = navigationBar;
         navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.subscribe_forum_list));
-        this.f53720c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
-        this.f53720c.showBottomLine();
+        this.f53721c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
+        this.f53721c.showBottomLine();
         ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.root_view);
-        this.f53724g = viewGroup;
-        this.f53722e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
-        View inflate = LayoutInflater.from(this.f53723f.getBaseContext()).inflate(R.layout.im_ba_btn, (ViewGroup) null);
+        this.f53725g = viewGroup;
+        this.f53723e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
+        View inflate = LayoutInflater.from(this.f53724f.getBaseContext()).inflate(R.layout.im_ba_btn, (ViewGroup) null);
         this.m = inflate;
         inflate.setVisibility(8);
         TextView textView = (TextView) this.m.findViewById(R.id.all_read);
@@ -195,20 +195,20 @@ public class e extends d.b.b.a.d<OfficialBarTipActivity> {
         TextView textView2 = (TextView) this.m.findViewById(R.id.edit);
         this.o = textView2;
         textView2.setVisibility(0);
-        this.m = this.f53720c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
+        this.m = this.f53721c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
         this.o.setOnClickListener(new b(officialBarTipActivity));
     }
 
     public final void n(OfficialBarTipActivity officialBarTipActivity) {
-        this.f53718a = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
+        this.f53719a = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
         OfficialBarTipListAdapter officialBarTipListAdapter = new OfficialBarTipListAdapter(officialBarTipActivity);
-        this.f53719b = officialBarTipListAdapter;
-        this.f53718a.setAdapter((ListAdapter) officialBarTipListAdapter);
-        this.f53721d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.f53724g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.official_message_activity_no_data), null);
+        this.f53720b = officialBarTipListAdapter;
+        this.f53719a.setAdapter((ListAdapter) officialBarTipListAdapter);
+        this.f53722d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.f53725g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.official_message_activity_no_data), null);
     }
 
     public void o(List<ImMessageCenterShowItemData> list) {
-        this.f53719b.n(list);
+        this.f53720b.n(list);
         if (list == null || list.size() > 0) {
             return;
         }
@@ -216,43 +216,43 @@ public class e extends d.b.b.a.d<OfficialBarTipActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.f53723f.getLayoutMode().k(i == 1);
-        this.f53723f.getLayoutMode().j(this.f53724g);
-        this.f53720c.onChangeSkinType(this.f53723f.getPageContext(), i);
+        this.f53724f.getLayoutMode().k(i == 1);
+        this.f53724f.getLayoutMode().j(this.f53725g);
+        this.f53721c.onChangeSkinType(this.f53724f.getPageContext(), i);
         SkinManager.setNavbarTitleColor(this.o, R.color.navi_op_text, R.color.navi_op_text_skin);
         SkinManager.setNavbarTitleColor(this.n, R.color.navi_op_text, R.color.navi_op_text_skin);
-        NoDataView noDataView = this.f53721d;
+        NoDataView noDataView = this.f53722d;
         if (noDataView != null) {
-            noDataView.f(this.f53723f.getPageContext(), i);
+            noDataView.f(this.f53724f.getPageContext(), i);
         }
-        NoNetworkView noNetworkView = this.f53722e;
+        NoNetworkView noNetworkView = this.f53723e;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f53723f.getPageContext(), i);
+            noNetworkView.c(this.f53724f.getPageContext(), i);
         }
-        this.f53719b.notifyDataSetChanged();
+        this.f53720b.notifyDataSetChanged();
     }
 
     public final void q(OfficialBarTipActivity officialBarTipActivity, boolean z) {
         if (z) {
             this.i.setVisibility(0);
-            this.f53719b.o(true);
-            this.f53719b.notifyDataSetChanged();
+            this.f53720b.o(true);
+            this.f53720b.notifyDataSetChanged();
             if (officialBarTipActivity.hasSelectedData()) {
                 r(true);
             } else {
                 r(false);
             }
             this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.cancel));
-            this.n.setOnClickListener(new View$OnClickListenerC1193e(officialBarTipActivity));
-            this.f53725h = true;
+            this.n.setOnClickListener(new View$OnClickListenerC1194e(officialBarTipActivity));
+            this.f53726h = true;
             return;
         }
         this.i.setVisibility(8);
         this.n.setVisibility(8);
-        this.f53719b.o(false);
-        this.f53719b.notifyDataSetChanged();
+        this.f53720b.o(false);
+        this.f53720b.notifyDataSetChanged();
         this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.edit));
-        this.f53725h = false;
+        this.f53726h = false;
     }
 
     public void r(boolean z) {
@@ -266,23 +266,23 @@ public class e extends d.b.b.a.d<OfficialBarTipActivity> {
     }
 
     public void s(boolean z) {
-        int g2 = l.g(this.f53723f.getPageContext().getPageActivity(), R.dimen.ds40);
+        int g2 = l.g(this.f53724f.getPageContext().getPageActivity(), R.dimen.ds40);
         if (z) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_s);
             drawable.setBounds(0, 0, g2, g2);
-            this.j.setText(this.f53723f.getPageContext().getString(R.string.cancel_select_all));
+            this.j.setText(this.f53724f.getPageContext().getString(R.string.cancel_select_all));
             this.j.setCompoundDrawables(drawable, null, null, null);
             r(true);
             this.k = true;
-            this.f53723f.updateEditStatus(true);
+            this.f53724f.updateEditStatus(true);
             return;
         }
         Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
         drawable2.setBounds(0, 0, g2, g2);
-        this.j.setText(this.f53723f.getPageContext().getString(R.string.select_all));
+        this.j.setText(this.f53724f.getPageContext().getString(R.string.select_all));
         this.j.setCompoundDrawables(drawable2, null, null, null);
         r(false);
         this.k = false;
-        this.f53723f.updateEditStatus(false);
+        this.f53724f.updateEditStatus(false);
     }
 }

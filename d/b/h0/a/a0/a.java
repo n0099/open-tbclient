@@ -5,12 +5,12 @@ import tbclient.BackUser.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49498a = false;
+    public boolean f49499a = false;
 
     public void a(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
-        this.f49498a = dataRes.is_back_user.intValue() == 1;
+        this.f49499a = dataRes.is_back_user.intValue() == 1;
     }
 }

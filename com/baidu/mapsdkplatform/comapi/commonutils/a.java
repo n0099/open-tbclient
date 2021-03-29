@@ -15,10 +15,10 @@ import java.util.zip.ZipFile;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7531a;
+    public static final boolean f7532a;
 
     static {
-        f7531a = Build.VERSION.SDK_INT >= 8;
+        f7532a = Build.VERSION.SDK_INT >= 8;
     }
 
     public static Bitmap a(String str, Context context) {
@@ -159,7 +159,7 @@ public class a {
         try {
             try {
                 try {
-                    zipFile = new ZipFile(f7531a ? context.getPackageCodePath() : "");
+                    zipFile = new ZipFile(f7532a ? context.getPackageCodePath() : "");
                 } catch (Exception e2) {
                     e = e2;
                 }

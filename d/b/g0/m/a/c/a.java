@@ -9,8 +9,8 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
     /* renamed from: d.b.g0.m.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1025a extends e<K, V> {
-        public C1025a() {
+    public class C1026a extends e<K, V> {
+        public C1026a() {
         }
 
         @Override // d.b.g0.m.a.c.e
@@ -20,7 +20,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
         @Override // d.b.g0.m.a.c.e
         public Object b(int i, int i2) {
-            return a.this.f49165f[(i << 1) + i2];
+            return a.this.f49166f[(i << 1) + i2];
         }
 
         @Override // d.b.g0.m.a.c.e
@@ -30,7 +30,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
         @Override // d.b.g0.m.a.c.e
         public int d() {
-            return a.this.f49166g;
+            return a.this.f49167g;
         }
 
         @Override // d.b.g0.m.a.c.e
@@ -71,7 +71,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
     public final e<K, V> l() {
         if (this.l == null) {
-            this.l = new C1025a();
+            this.l = new C1026a();
         }
         return this.l;
     }
@@ -82,7 +82,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
     @Override // java.util.Map
     public void putAll(Map<? extends K, ? extends V> map) {
-        b(this.f49166g + map.size());
+        b(this.f49167g + map.size());
         for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
             put(entry.getKey(), entry.getValue());
         }

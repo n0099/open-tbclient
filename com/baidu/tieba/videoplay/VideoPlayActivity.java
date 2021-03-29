@@ -61,7 +61,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 return;
             }
             g gVar = (g) customResponsedMessage.getData();
-            List<VideoItemData> list = gVar.f58912a;
+            List<VideoItemData> list = gVar.f58913a;
             if (!ListUtils.isEmpty(list)) {
                 if (VideoPlayActivity.this.mVideoDataList == null) {
                     VideoPlayActivity.this.mVideoDataList = new ArrayList();
@@ -72,7 +72,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (VideoPlayActivity.this.mVideoPlayView != null) {
                 VideoPlayActivity.this.mVideoPlayView.y();
             }
-            VideoPlayActivity.this.mHasMore = gVar.f58913b;
+            VideoPlayActivity.this.mHasMore = gVar.f58914b;
         }
     }
 
@@ -285,8 +285,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoPlayView == null || !videoPlayView.r()) {
                 VideoPlayView videoPlayView2 = this.mVideoPlayView;
                 int i2 = videoPlayView2.i;
-                int i3 = videoPlayView2.f21995h;
-                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21995h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+                int i3 = videoPlayView2.f21996h;
+                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21996h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }
                 finish();

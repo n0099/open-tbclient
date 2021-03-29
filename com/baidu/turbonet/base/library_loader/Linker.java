@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class Linker {
     public static native long nativeGetRandomBaseLoadAddress();
 

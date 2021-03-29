@@ -21,24 +21,24 @@ public class b implements d.b.g0.a.w0.c.b {
     public class a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.n.c.b f47481a;
+        public final /* synthetic */ d.b.g0.a.n.c.b f47482a;
 
         public a(b bVar, d.b.g0.a.n.c.b bVar2) {
-            this.f47481a = bVar2;
+            this.f47482a = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Bundle bundle = delegateResult.mResult;
             if (bundle == null) {
-                this.f47481a.a(0);
+                this.f47482a.a(0);
                 return;
             }
             String string = bundle.getString("invoiceInfo");
             if (TextUtils.isEmpty(string)) {
-                this.f47481a.a(0);
+                this.f47482a.a(0);
             } else {
-                this.f47481a.b(v.b(string));
+                this.f47482a.b(v.b(string));
             }
         }
     }

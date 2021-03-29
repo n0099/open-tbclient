@@ -9,13 +9,13 @@ import android.widget.TextView;
 public final class ee implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f23207a;
+    public final /* synthetic */ FeedbackReportActivity f23208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23208b;
+    public int f23209b;
 
     public ee(FeedbackReportActivity feedbackReportActivity) {
-        this.f23207a = feedbackReportActivity;
+        this.f23208a = feedbackReportActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -32,52 +32,52 @@ public final class ee implements TextWatcher {
         Button button4;
         TextView textView3;
         TextView textView4;
-        z = this.f23207a.E;
+        z = this.f23208a.E;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23207a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23208a);
             dVar.b(dVar.b() + 1);
-            this.f23207a.E = true;
+            this.f23208a.E = true;
         }
-        editText = this.f23207a.t;
+        editText = this.f23208a.t;
         int length = editText.getText().toString().trim().length();
         if (editable.length() <= 4) {
-            textView4 = this.f23207a.v;
+            textView4 = this.f23208a.v;
             textView4.setText("4-" + com.baidu.ufosdk.b.aa + "字");
         } else {
-            textView = this.f23207a.v;
+            textView = this.f23208a.v;
             textView.setText(String.valueOf(editable.length()) + "-" + com.baidu.ufosdk.b.aa + "字");
         }
         if (length > com.baidu.ufosdk.b.aa) {
-            textView3 = this.f23207a.v;
+            textView3 = this.f23208a.v;
             textView3.setTextColor(-568497);
-            this.f23207a.H = true;
+            this.f23208a.H = true;
         } else {
-            textView2 = this.f23207a.v;
+            textView2 = this.f23208a.v;
             textView2.setTextColor(-5131855);
-            this.f23207a.H = false;
+            this.f23208a.H = false;
         }
-        int i = this.f23208b;
+        int i = this.f23209b;
         if (i == 0) {
-            aVar = this.f23207a.U;
+            aVar = this.f23208a.U;
             if (aVar.c().size() <= 0) {
-                button = this.f23207a.m;
+                button = this.f23208a.m;
                 button.setTextColor(com.baidu.ufosdk.b.y);
                 return;
             }
-            button2 = this.f23207a.m;
+            button2 = this.f23208a.m;
             int i2 = com.baidu.ufosdk.b.v;
             int i3 = com.baidu.ufosdk.b.y;
             int i4 = com.baidu.ufosdk.b.v;
             button2.setTextColor(com.baidu.ufosdk.f.i.a(i2, i3, i4, i4));
         } else if (i != 1) {
         } else {
-            aVar2 = this.f23207a.U;
+            aVar2 = this.f23208a.U;
             if (aVar2.c().size() <= 0) {
-                button3 = this.f23207a.m;
+                button3 = this.f23208a.m;
                 button3.setTextColor(com.baidu.ufosdk.b.y);
                 return;
             }
-            button4 = this.f23207a.m;
+            button4 = this.f23208a.m;
             int i5 = com.baidu.ufosdk.b.v;
             int i6 = com.baidu.ufosdk.b.y;
             int i7 = com.baidu.ufosdk.b.v;
@@ -88,8 +88,8 @@ public final class ee implements TextWatcher {
     @Override // android.text.TextWatcher
     public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
-        editText = this.f23207a.t;
-        this.f23208b = editText.getText().toString().trim().length() < 4 ? 0 : 1;
+        editText = this.f23208a.t;
+        this.f23209b = editText.getText().toString().trim().length() < 4 ? 0 : 1;
     }
 
     @Override // android.text.TextWatcher

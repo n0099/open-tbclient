@@ -16,13 +16,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends f {
-    public static final boolean I = d.b.g0.a.k.f45050a;
+    public static final boolean I = d.b.g0.a.k.f45051a;
     public Timer G;
     public final d.b.g0.a.r1.e H;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends TimerTask {
         public a(g gVar) {
         }
@@ -34,7 +34,7 @@ public class g extends f {
     }
 
     public g(d.b.g0.a.r1.e eVar) {
-        super(eVar.f45739f);
+        super(eVar.f45740f);
         this.H = eVar;
     }
 
@@ -46,13 +46,13 @@ public class g extends f {
         }
         d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
         aVar2.j(10L);
-        aVar2.h(aVar.f48913a);
-        aVar2.c(aVar.f48914b);
-        aVar2.p(aVar.f48915c);
-        if (aVar.f48913a == 1013 && d.b.g0.a.w0.a.E().a(d.b.g0.a.w0.a.c(), this.r, aVar2)) {
+        aVar2.h(aVar.f48914a);
+        aVar2.c(aVar.f48915b);
+        aVar2.p(aVar.f48916c);
+        if (aVar.f48914a == 1013 && d.b.g0.a.w0.a.E().a(d.b.g0.a.w0.a.c(), this.r, aVar2)) {
             r0(aVar2, false);
             F0(this.H.J(), aVar2);
-        } else if (aVar.f48913a == 1020) {
+        } else if (aVar.f48914a == 1020) {
             r0(aVar2, false);
             F0(this.H.J(), aVar2);
         } else {
@@ -108,11 +108,11 @@ public class g extends f {
             return;
         }
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47250a = d.b.g0.a.z1.h.n(bVar.F());
-        fVar.f47254e = bVar.G();
-        fVar.f47252c = bVar.S();
-        fVar.f47251b = Config.LAUNCH;
-        fVar.f47253d = "success";
+        fVar.f47251a = d.b.g0.a.z1.h.n(bVar.F());
+        fVar.f47255e = bVar.G();
+        fVar.f47253c = bVar.S();
+        fVar.f47252b = Config.LAUNCH;
+        fVar.f47254d = "success";
         fVar.a("status", "1");
         if (aVar != null) {
             fVar.a("errcode", String.valueOf(aVar.a()));
@@ -288,22 +288,22 @@ public class g extends f {
             }
             d.b.g0.a.y0.e.b G0 = G0();
             d.b.g0.l.k.d dVar = this.o;
-            if (dVar != null && dVar.f48923h == 0) {
+            if (dVar != null && dVar.f48924h == 0) {
                 G0.Q0(d.b.g0.a.b2.b.d(0));
                 G0.D(1);
             }
             d.b.g0.l.k.d dVar2 = this.o;
-            if (dVar2 != null && dVar2.f48923h == 1) {
+            if (dVar2 != null && dVar2.f48924h == 1) {
                 G0.Q0(d.b.g0.a.b2.b.d(1));
                 G0.D(1);
             }
             d.b.g0.l.k.b bVar = this.p;
-            if (bVar != null && bVar.f48923h == 0) {
+            if (bVar != null && bVar.f48924h == 0) {
                 G0.x0(d.b.g0.a.l0.b.b(0));
                 G0.D(2);
             }
             d.b.g0.l.k.b bVar2 = this.p;
-            if (bVar2 != null && bVar2.f48923h == 1) {
+            if (bVar2 != null && bVar2.f48924h == 1) {
                 G0.x0(d.b.g0.a.l0.b.b(1));
                 G0.D(2);
             }

@@ -56,12 +56,12 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
         if (gVar != null) {
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            List<a2> list = gVar.f53352e;
+            List<a2> list = gVar.f53353e;
             if (list != null && list.get(0) != null) {
-                gVar.f53352e.get(0).M1 = (i + 1) - topThreadSize;
+                gVar.f53353e.get(0).M1 = (i + 1) - topThreadSize;
             }
-            frsPageAlaInsertRecLiveHolder.f15032a.a(this.w);
-            frsPageAlaInsertRecLiveHolder.f15032a.n(gVar);
+            frsPageAlaInsertRecLiveHolder.f15033a.a(this.w);
+            frsPageAlaInsertRecLiveHolder.f15033a.n(gVar);
         }
         return view;
     }

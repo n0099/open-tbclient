@@ -37,16 +37,16 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
     public c O;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout.LayoutParams f14347e;
+    public LinearLayout.LayoutParams f14348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout.LayoutParams f14348f;
+    public LinearLayout.LayoutParams f14349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d f14349g;
+    public final d f14350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f14350h;
+    public ViewPager.OnPageChangeListener f14351h;
     public LinearLayout i;
     public ViewPager j;
     public int k;
@@ -71,7 +71,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14351e;
+        public int f14352e;
 
         /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<SavedState> {
@@ -97,7 +97,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f14351e);
+            parcel.writeInt(this.f14352e);
         }
 
         public SavedState(Parcelable parcelable) {
@@ -106,7 +106,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
 
         public SavedState(Parcel parcel) {
             super(parcel);
-            this.f14351e = parcel.readInt();
+            this.f14352e = parcel.readInt();
         }
     }
 
@@ -132,10 +132,10 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14353e;
+        public final /* synthetic */ int f14354e;
 
         public b(int i) {
-            this.f14353e = i;
+            this.f14354e = i;
         }
 
         @Override // android.view.View.OnClickListener
@@ -144,11 +144,11 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
                 return;
             }
             if (PagerSlidingTabBaseStrip.this.O != null) {
-                PagerSlidingTabBaseStrip.this.O.a(view, this.f14353e);
+                PagerSlidingTabBaseStrip.this.O.a(view, this.f14354e);
             }
-            if (PagerSlidingTabBaseStrip.this.j.getCurrentItem() != this.f14353e) {
+            if (PagerSlidingTabBaseStrip.this.j.getCurrentItem() != this.f14354e) {
                 PagerSlidingTabBaseStrip.this.L = true;
-                PagerSlidingTabBaseStrip.this.j.setCurrentItem(this.f14353e);
+                PagerSlidingTabBaseStrip.this.j.setCurrentItem(this.f14354e);
                 PagerSlidingTabBaseStrip.this.y();
                 return;
             }
@@ -186,7 +186,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
                 PagerSlidingTabBaseStrip pagerSlidingTabBaseStrip4 = PagerSlidingTabBaseStrip.this;
                 pagerSlidingTabBaseStrip4.n = pagerSlidingTabBaseStrip4.l;
             }
-            ViewPager.OnPageChangeListener onPageChangeListener = PagerSlidingTabBaseStrip.this.f14350h;
+            ViewPager.OnPageChangeListener onPageChangeListener = PagerSlidingTabBaseStrip.this.f14351h;
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageScrollStateChanged(i);
             }
@@ -219,7 +219,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
                 PagerSlidingTabBaseStrip.this.y();
                 PagerSlidingTabBaseStrip.this.invalidate();
             }
-            ViewPager.OnPageChangeListener onPageChangeListener = PagerSlidingTabBaseStrip.this.f14350h;
+            ViewPager.OnPageChangeListener onPageChangeListener = PagerSlidingTabBaseStrip.this.f14351h;
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageScrolled(i, f2, i2);
             }
@@ -227,7 +227,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            ViewPager.OnPageChangeListener onPageChangeListener = PagerSlidingTabBaseStrip.this.f14350h;
+            ViewPager.OnPageChangeListener onPageChangeListener = PagerSlidingTabBaseStrip.this.f14351h;
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageSelected(i);
             }
@@ -292,7 +292,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
     public void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        int i = savedState.f14351e;
+        int i = savedState.f14352e;
         this.l = i;
         this.n = i;
         requestLayout();
@@ -301,14 +301,14 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.f14351e = this.l;
+        savedState.f14352e = this.l;
         return savedState;
     }
 
     public final void q(int i, View view) {
         view.setFocusable(true);
         view.setOnClickListener(new b(i));
-        this.i.addView(view, i, this.u ? this.f14348f : this.f14347e);
+        this.i.addView(view, i, this.u ? this.f14349f : this.f14348e);
     }
 
     public final void r(int i, String str) {
@@ -343,7 +343,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
     }
 
     public void setDefaultTabLayoutParams(LinearLayout.LayoutParams layoutParams) {
-        this.f14347e = layoutParams;
+        this.f14348e = layoutParams;
     }
 
     public void setIndicatorOffset(int i) {
@@ -351,7 +351,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.f14350h = onPageChangeListener;
+        this.f14351h = onPageChangeListener;
     }
 
     public void setOnTabItemClickListener(c cVar) {
@@ -372,7 +372,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
         if (viewPager.getAdapter() == null) {
             return;
         }
-        viewPager.setOnPageChangeListener(this.f14349g);
+        viewPager.setOnPageChangeListener(this.f14350g);
         w();
     }
 
@@ -499,7 +499,7 @@ public class PagerSlidingTabBaseStrip extends HorizontalScrollView {
 
     public PagerSlidingTabBaseStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14349g = new d(this, null);
+        this.f14350g = new d(this, null);
         this.l = 0;
         this.m = 0.0f;
         this.n = 0;

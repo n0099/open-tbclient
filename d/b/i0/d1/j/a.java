@@ -7,38 +7,38 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public UpdatesActivity f53859e;
+    public UpdatesActivity f53860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<UpdatesItemData> f53860f = new ArrayList();
+    public List<UpdatesItemData> f53861f = new ArrayList();
 
     public a(UpdatesActivity updatesActivity) {
-        this.f53859e = updatesActivity;
+        this.f53860e = updatesActivity;
     }
 
     public void a() {
-        this.f53859e = null;
+        this.f53860e = null;
     }
 
     public List<UpdatesItemData> b() {
-        return this.f53860f;
+        return this.f53861f;
     }
 
     public void c(List<UpdatesItemData> list) {
         if (list == null) {
             return;
         }
-        this.f53860f = list;
+        this.f53861f = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<UpdatesItemData> list = this.f53860f;
+        List<UpdatesItemData> list = this.f53861f;
         if (list == null) {
             return 0;
         }
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f53860f.get(i);
+        return this.f53861f.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,9 +59,9 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar = view != null ? (b) view.getTag() : null;
         if (bVar == null) {
-            bVar = new b(this.f53859e);
+            bVar = new b(this.f53860e);
         }
-        bVar.l(this.f53860f.get(i));
+        bVar.l(this.f53861f.get(i));
         return bVar.e();
     }
 }

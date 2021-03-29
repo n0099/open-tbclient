@@ -16,13 +16,13 @@ import java.util.Locale;
 public class PlayableLoadingView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f28816a;
+    public ProgressBar f28817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28817b;
+    public TextView f28818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28818c;
+    public TextView f28819c;
 
     public PlayableLoadingView(@NonNull Context context) {
         super(context);
@@ -34,9 +34,9 @@ public class PlayableLoadingView extends FrameLayout {
         setClickable(true);
         setVisibility(8);
         LayoutInflater.from(context).inflate(ad.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f28816a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
-        this.f28817b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
-        this.f28818c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
+        this.f28817a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
+        this.f28818b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
+        this.f28819c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
     }
 
     public void b() {
@@ -44,7 +44,7 @@ public class PlayableLoadingView extends FrameLayout {
     }
 
     public TextView getPlayView() {
-        return this.f28818c;
+        return this.f28819c;
     }
 
     public void setProgress(int i) {
@@ -54,11 +54,11 @@ public class PlayableLoadingView extends FrameLayout {
         if (i > 100) {
             i = 100;
         }
-        ProgressBar progressBar = this.f28816a;
+        ProgressBar progressBar = this.f28817a;
         if (progressBar != null) {
             progressBar.setProgress(i);
         }
-        TextView textView = this.f28817b;
+        TextView textView = this.f28818b;
         if (textView != null) {
             textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i)));
         }

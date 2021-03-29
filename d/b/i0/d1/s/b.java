@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import d.b.h0.s.c.o;
 import d.b.h0.s.c.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public String a(String str) {
         o a2;

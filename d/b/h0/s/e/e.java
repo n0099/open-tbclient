@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51318d;
+    public String f51319d;
     public int l;
     public int n;
     public int o;
@@ -38,26 +38,26 @@ public class e {
     public int m = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public VersionData f51315a = new VersionData();
+    public VersionData f51316a = new VersionData();
 
     /* renamed from: b  reason: collision with root package name */
-    public q f51316b = new q();
+    public q f51317b = new q();
 
     /* renamed from: c  reason: collision with root package name */
-    public r f51317c = new r();
+    public r f51318c = new r();
 
     /* renamed from: e  reason: collision with root package name */
-    public CombineDownload f51319e = new CombineDownload();
+    public CombineDownload f51320e = new CombineDownload();
 
     /* renamed from: f  reason: collision with root package name */
-    public y f51320f = new y();
+    public y f51321f = new y();
 
     /* renamed from: g  reason: collision with root package name */
-    public h0 f51321g = new h0();
+    public h0 f51322g = new h0();
     public s p = new s();
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.s.c.f f51322h = new d.b.h0.s.c.f();
+    public d.b.h0.s.c.f f51323h = new d.b.h0.s.c.f();
     public d.b.h0.s.c.d i = new d.b.h0.s.c.d();
     public final d.b.h0.s.c.c j = new d.b.h0.s.c.c();
     public d.b.h0.s.c.a q = new d.b.h0.s.c.a();
@@ -88,19 +88,19 @@ public class e {
     }
 
     public d.b.h0.s.c.f f() {
-        return this.f51322h;
+        return this.f51323h;
     }
 
     public q g() {
-        return this.f51316b;
+        return this.f51317b;
     }
 
     public CombineDownload h() {
-        return this.f51319e;
+        return this.f51320e;
     }
 
     public r i() {
-        return this.f51317c;
+        return this.f51318c;
     }
 
     public boolean j() {
@@ -128,15 +128,15 @@ public class e {
     }
 
     public VersionData p() {
-        return this.f51315a;
+        return this.f51316a;
     }
 
     public h0 q() {
-        return this.f51321g;
+        return this.f51322g;
     }
 
     public String r() {
-        return this.f51318d;
+        return this.f51319d;
     }
 
     public final JSONArray s(JSONObject jSONObject, String str) {
@@ -172,12 +172,12 @@ public class e {
         }
         try {
             this.w.a(s(jSONObject, "index_tab_info"));
-            this.f51315a.parserJson(jSONObject.optJSONObject("version"));
-            this.f51316b.b(jSONObject.optJSONObject("client"));
+            this.f51316a.parserJson(jSONObject.optJSONObject("version"));
+            this.f51317b.b(jSONObject.optJSONObject("client"));
             CommonHelper.setIp(jSONObject.optString("client_ip", null));
             d.b.b.e.n.f.g(jSONObject.optString("client_ip", null));
-            this.f51317c.f(jSONObject.optJSONObject("config"));
-            this.f51321g.X(jSONObject.optJSONObject("wl_config"));
+            this.f51318c.f(jSONObject.optJSONObject("config"));
+            this.f51322g.X(jSONObject.optJSONObject("wl_config"));
             jSONObject.optJSONObject("channel_icon_config");
             String optString = jSONObject.optString("new_god_data", "");
             if (!StringUtils.isNull(optString)) {
@@ -185,12 +185,12 @@ public class e {
             }
             this.p.c(jSONObject.optJSONObject("consume_path"));
             TbadkCoreApplication.getInst().setConsumePathData(this.p);
-            this.f51318d = jSONObject.optString("config_version");
+            this.f51319d = jSONObject.optString("config_version");
             this.m = jSONObject.optInt("is_uninterest");
             this.n = jSONObject.optInt("first_time_motivate");
             this.o = jSONObject.optInt("needNewUserLead");
-            this.f51319e.parserJson(jSONObject.optJSONObject("combine_download"));
-            this.f51320f.a(jSONObject.optJSONObject("mainbar"));
+            this.f51320e.parserJson(jSONObject.optJSONObject("combine_download"));
+            this.f51321f.a(jSONObject.optJSONObject("mainbar"));
             jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
             this.l = jSONObject.optInt("faceshop_version");
@@ -207,7 +207,7 @@ public class e {
             whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
             TbSingleton.getInstance().setHostWhiteList(whiteListData);
             d.b.h0.s.c.g.c(jSONObject.optJSONArray("scheme_whitelist"));
-            this.f51322h.a(jSONObject.optJSONObject("app_entrance"));
+            this.f51323h.a(jSONObject.optJSONObject("app_entrance"));
             this.i.k(jSONObject.optJSONObject("ad_adsense"));
             TbadkCoreApplication.getInst().saveKeepLiveSwitch(jSONObject.optInt("android_keepalive") == 0);
             g.d(jSONObject.optJSONObject("video_report_config"));
